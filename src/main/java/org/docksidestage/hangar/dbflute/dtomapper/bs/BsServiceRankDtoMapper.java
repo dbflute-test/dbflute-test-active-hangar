@@ -27,28 +27,28 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * <pre>
  * [primary-key]
  *     SERVICE_RANK_CODE
- * 
+ *
  * [column]
  *     SERVICE_RANK_CODE, SERVICE_RANK_NAME, SERVICE_POINT_INCIDENCE, NEW_ACCEPTABLE_FLG, DESCRIPTION, DISPLAY_ORDER
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     MEMBER_SERVICE
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     memberServiceList
  * </pre>
@@ -233,7 +233,7 @@ public abstract class BsServiceRankDtoMapper implements DtoMapper<ServiceRank, S
     /**
      * Does the mapping to an entity contain null values? (when no property is modified) <br>
      * Default is true that means a setter is called if the value is null.
-     * But this method is valid only when no property is modified. 
+     * But this method is valid only when no property is modified.
      * @return The determination, true or false.
      */
     protected boolean isMappingToEntityContainsNull() { // for extension

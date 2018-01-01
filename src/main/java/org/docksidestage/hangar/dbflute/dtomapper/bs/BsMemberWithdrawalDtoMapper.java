@@ -27,28 +27,28 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * <pre>
  * [primary-key]
  *     MEMBER_ID
- * 
+ *
  * [column]
  *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     MEMBER, WITHDRAWAL_REASON
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     member, withdrawalReason
- * 
+ *
  * [referrer-property]
  *     
  * </pre>
@@ -326,7 +326,7 @@ public abstract class BsMemberWithdrawalDtoMapper implements DtoMapper<MemberWit
     /**
      * Does the mapping to an entity contain null values? (when no property is modified) <br>
      * Default is true that means a setter is called if the value is null.
-     * But this method is valid only when no property is modified. 
+     * But this method is valid only when no property is modified.
      * @return The determination, true or false.
      */
     protected boolean isMappingToEntityContainsNull() { // for extension

@@ -14,28 +14,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
- * 
+ *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- * 
+ *
  * [sequence]
  *     SEQ_MEMBER_LOGIN
- * 
+ *
  * [identity]
  *     PRODUCT_ID
- * 
+ *
  * [version-no]
  *     VERSION_NO
- * 
+ *
  * [foreign-table]
  *     PRODUCT_CATEGORY, PRODUCT_STATUS
- * 
+ *
  * [referrer-table]
  *     PURCHASE
- * 
+ *
  * [foreign-property]
  *     productCategory, productStatus
- * 
+ *
  * [referrer-property]
  *     purchaseList
  * </pre>

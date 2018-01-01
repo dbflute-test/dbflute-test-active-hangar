@@ -13,28 +13,28 @@ import org.docksidestage.hangar.simpleflute.AppCDef;
  * <pre>
  * [primary-key]
  *     
- * 
+ *
  * [column]
  *     MEMBER_ID, MEMBER_NAME, BIRTHDATE, FORMALIZED_DATETIME, MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, STATUS_DISPLAY_ORDER, DUMMY_FLG, DUMMY_NOFLG
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     
  * </pre>

@@ -10,28 +10,28 @@ import net.vvakame.util.jsonpullparser.annotation.*;
  * <pre>
  * [primary-key]
  *     
- * 
+ *
  * [column]
  *     MEMBER_ID, MEMBER_NAME, PURCHASE_MAX_PRICE, MEMBER_STATUS_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     
  * </pre>

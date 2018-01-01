@@ -14,28 +14,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     PURCHASE_ID
- * 
+ *
  * [column]
  *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- * 
+ *
  * [sequence]
  *     PUBLIC.SEQ_PURCHASE
- * 
+ *
  * [identity]
  *     PURCHASE_ID
- * 
+ *
  * [version-no]
  *     VERSION_NO
- * 
+ *
  * [foreign-table]
  *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
- * 
+ *
  * [referrer-table]
  *     PURCHASE_PAYMENT
- * 
+ *
  * [foreign-property]
  *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
- * 
+ *
  * [referrer-property]
  *     purchasePaymentList
  * </pre>

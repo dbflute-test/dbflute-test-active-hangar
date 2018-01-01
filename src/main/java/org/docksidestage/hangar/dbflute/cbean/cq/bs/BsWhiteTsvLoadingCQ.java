@@ -79,7 +79,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _tsvLoadingId; }
     protected ConditionValue xgetCValueTsvLoadingId() { return xdfgetTsvLoadingId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TSV_LOADING_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _tsvLoadingName; }
     protected ConditionValue xgetCValueTsvLoadingName() { return xdfgetTsvLoadingName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TSV_LOADING_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _loadingCount; }
     protected ConditionValue xgetCValueLoadingCount() { return xdfgetLoadingCount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOADING_COUNT: {INTEGER(10)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _loadingDate; }
     protected ConditionValue xgetCValueLoadingDate() { return xdfgetLoadingDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOADING_DATE: {NotNull, DATE(8)}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _beginDatetime; }
     protected ConditionValue xgetCValueBeginDatetime() { return xdfgetBeginDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
      * @return this. (NotNull)
@@ -179,7 +179,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _endDatetime; }
     protected ConditionValue xgetCValueEndDatetime() { return xdfgetEndDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * END_DATETIME: {TIMESTAMP(23, 10)}
      * @return this. (NotNull)
@@ -199,7 +199,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _largeFromFile; }
     protected ConditionValue xgetCValueLargeFromFile() { return xdfgetLargeFromFile(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LARGE_FROM_FILE: {VARCHAR(500)}
      * @return this. (NotNull)
@@ -219,7 +219,7 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
       return _doneFlg; }
     protected ConditionValue xgetCValueDoneFlg() { return xdfgetDoneFlg(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DONE_FLG: {NotNull, BOOLEAN(1), classification=Flg}
      * @return this. (NotNull)

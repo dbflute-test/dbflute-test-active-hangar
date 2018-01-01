@@ -27,28 +27,28 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
- * 
+ *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     PRODUCT_STATUS
- * 
+ *
  * [referrer-table]
  *     PURCHASE
- * 
+ *
  * [foreign-property]
  *     productStatus
- * 
+ *
  * [referrer-property]
  *     purchaseList
  * </pre>
@@ -282,7 +282,7 @@ public abstract class BsSummaryProductDtoMapper implements DtoMapper<SummaryProd
     /**
      * Does the mapping to an entity contain null values? (when no property is modified) <br>
      * Default is true that means a setter is called if the value is null.
-     * But this method is valid only when no property is modified. 
+     * But this method is valid only when no property is modified.
      * @return The determination, true or false.
      */
     protected boolean isMappingToEntityContainsNull() { // for extension

@@ -12,28 +12,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     PRODUCT_STATUS_CODE
- * 
+ *
  * [column]
  *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME, DISPLAY_ORDER
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     PRODUCT, SUMMARY_PRODUCT
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     productList, summaryProductList
  * </pre>

@@ -12,28 +12,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     SERVICE_RANK_CODE
- * 
+ *
  * [column]
  *     SERVICE_RANK_CODE, SERVICE_RANK_NAME, SERVICE_POINT_INCIDENCE, NEW_ACCEPTABLE_FLG, DESCRIPTION, DISPLAY_ORDER
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     MEMBER_SERVICE
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     memberServiceList
  * </pre>

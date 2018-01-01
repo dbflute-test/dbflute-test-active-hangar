@@ -12,28 +12,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     REGION_ID
- * 
+ *
  * [column]
  *     REGION_ID, REGION_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     MEMBER_ADDRESS
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     memberAddressList
  * </pre>

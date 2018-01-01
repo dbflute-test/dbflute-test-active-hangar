@@ -26,28 +26,28 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * <pre>
  * [primary-key]
  *     MEMBER_ID
- * 
+ *
  * [column]
  *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     VERSION_NO
- * 
+ *
  * [foreign-table]
  *     MEMBER
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     member
- * 
+ *
  * [referrer-property]
  *     
  * </pre>
@@ -280,7 +280,7 @@ public abstract class BsMemberSecurityDtoMapper implements DtoMapper<MemberSecur
     /**
      * Does the mapping to an entity contain null values? (when no property is modified) <br>
      * Default is true that means a setter is called if the value is null.
-     * But this method is valid only when no property is modified. 
+     * But this method is valid only when no property is modified.
      * @return The determination, true or false.
      */
     protected boolean isMappingToEntityContainsNull() { // for extension

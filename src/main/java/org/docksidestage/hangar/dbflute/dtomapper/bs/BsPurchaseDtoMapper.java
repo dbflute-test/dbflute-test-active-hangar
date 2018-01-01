@@ -27,28 +27,28 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * <pre>
  * [primary-key]
  *     PURCHASE_ID
- * 
+ *
  * [column]
  *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- * 
+ *
  * [sequence]
  *     PUBLIC.SEQ_PURCHASE
- * 
+ *
  * [identity]
  *     PURCHASE_ID
- * 
+ *
  * [version-no]
  *     VERSION_NO
- * 
+ *
  * [foreign-table]
  *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
- * 
+ *
  * [referrer-table]
  *     PURCHASE_PAYMENT
- * 
+ *
  * [foreign-property]
  *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
- * 
+ *
  * [referrer-property]
  *     purchasePaymentList
  * </pre>
@@ -518,7 +518,7 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
     /**
      * Does the mapping to an entity contain null values? (when no property is modified) <br>
      * Default is true that means a setter is called if the value is null.
-     * But this method is valid only when no property is modified. 
+     * But this method is valid only when no property is modified.
      * @return The determination, true or false.
      */
     protected boolean isMappingToEntityContainsNull() { // for extension

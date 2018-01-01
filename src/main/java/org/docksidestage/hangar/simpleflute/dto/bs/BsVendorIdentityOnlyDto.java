@@ -10,28 +10,28 @@ import net.vvakame.util.jsonpullparser.annotation.*;
  * <pre>
  * [primary-key]
  *     IDENTITY_ONLY_ID
- * 
+ *
  * [column]
  *     IDENTITY_ONLY_ID
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     IDENTITY_ONLY_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     
  * </pre>

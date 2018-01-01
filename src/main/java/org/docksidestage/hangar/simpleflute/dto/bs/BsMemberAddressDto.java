@@ -14,28 +14,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     MEMBER_ADDRESS_ID
- * 
+ *
  * [column]
  *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     MEMBER_ADDRESS_ID
- * 
+ *
  * [version-no]
  *     VERSION_NO
- * 
+ *
  * [foreign-table]
  *     MEMBER, REGION
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     member, region
- * 
+ *
  * [referrer-property]
  *     
  * </pre>

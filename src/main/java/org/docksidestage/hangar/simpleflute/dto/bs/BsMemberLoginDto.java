@@ -14,28 +14,28 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * <pre>
  * [primary-key]
  *     MEMBER_LOGIN_ID
- * 
+ *
  * [column]
  *     MEMBER_LOGIN_ID, MEMBER_ID, LOGIN_DATETIME, MOBILE_LOGIN_FLG, LOGIN_MEMBER_STATUS_CODE
- * 
+ *
  * [sequence]
  *     MAIHAMADB.PUBLIC.SEQ_MEMBER_LOGIN
- * 
+ *
  * [identity]
  *     MEMBER_LOGIN_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     MEMBER_STATUS, MEMBER
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     memberStatus, member
- * 
+ *
  * [referrer-property]
  *     
  * </pre>

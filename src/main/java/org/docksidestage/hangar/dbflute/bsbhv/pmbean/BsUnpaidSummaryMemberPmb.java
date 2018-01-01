@@ -80,7 +80,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     protected String filterStringParameter(String value) { return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value); }
     protected boolean isEmptyStringParameterAllowed() { return DBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
     protected String convertEmptyToNull(String value) { return PmbCustodial.convertEmptyToNull(value); }
-    
+
     protected String handleShortChar(String propertyName, String value, Integer size)
     { return PmbCustodial.handleShortChar(propertyName, value, size, chooseShortCharHandlingMode(propertyName, value, size)); }
 

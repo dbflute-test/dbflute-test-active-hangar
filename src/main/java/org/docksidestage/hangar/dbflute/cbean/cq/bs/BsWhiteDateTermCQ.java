@@ -79,7 +79,7 @@ public class BsWhiteDateTermCQ extends AbstractBsWhiteDateTermCQ {
       return _dateTermId; }
     protected ConditionValue xgetCValueDateTermId() { return xdfgetDateTermId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DATE_TERM_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsWhiteDateTermCQ extends AbstractBsWhiteDateTermCQ {
       return _dateTermValue; }
     protected ConditionValue xgetCValueDateTermValue() { return xdfgetDateTermValue(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DATE_TERM_VALUE: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsWhiteDateTermCQ extends AbstractBsWhiteDateTermCQ {
       return _beginDate; }
     protected ConditionValue xgetCValueBeginDate() { return xdfgetBeginDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BEGIN_DATE: {NotNull, DATE(8)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsWhiteDateTermCQ extends AbstractBsWhiteDateTermCQ {
       return _endDate; }
     protected ConditionValue xgetCValueEndDate() { return xdfgetEndDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * END_DATE: {NotNull, DATE(8)}
      * @return this. (NotNull)

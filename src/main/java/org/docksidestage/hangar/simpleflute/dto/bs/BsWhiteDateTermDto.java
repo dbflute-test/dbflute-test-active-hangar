@@ -12,28 +12,28 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * <pre>
  * [primary-key]
  *     DATE_TERM_ID
- * 
+ *
  * [column]
  *     DATE_TERM_ID, DATE_TERM_VALUE, BEGIN_DATE, END_DATE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign-table]
  *     
- * 
+ *
  * [referrer-table]
  *     
- * 
+ *
  * [foreign-property]
  *     
- * 
+ *
  * [referrer-property]
  *     
  * </pre>
