@@ -1,4 +1,51 @@
 map:{
+    ; 2018/03/23 20:13:16 = map:{
+        ; diffDate = 2018/03/23 20:13:16
+        ; tableCount = map:{
+            ; next = 28
+            ; previous = 27
+        }
+        ; tableDiff = map:{
+            ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN = map:{
+                ; tableName = WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2018/03/23 19:28:31 = map:{
+        ; diffDate = 2018/03/23 19:28:31
+        ; tableDiff = map:{
+            ; WHITE_DEPRECATED_SELECT_BY_PKUQ = map:{
+                ; tableName = WHITE_DEPRECATED_SELECT_BY_PKUQ
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SELECT_BY_PKUQ_CODE = map:{
+                        ; columnName = SELECT_BY_PKUQ_CODE
+                        ; diffType = ADD
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; UQ_WHITE_DEPRECATED_SELECT_BY_PKUQ_INDEX_9 = map:{
+                        ; constraintName = UQ_WHITE_DEPRECATED_SELECT_BY_PKUQ_INDEX_9
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2018/03/23 19:22:48 = map:{
+        ; diffDate = 2018/03/23 19:22:48
+        ; tableCount = map:{
+            ; next = 27
+            ; previous = 26
+        }
+        ; tableDiff = map:{
+            ; WHITE_DEPRECATED_SELECT_BY_PKUQ = map:{
+                ; tableName = WHITE_DEPRECATED_SELECT_BY_PKUQ
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2017/03/31 22:41:26 = map:{
         ; diffDate = 2017/03/31 22:41:26
         ; tableDiff = map:{

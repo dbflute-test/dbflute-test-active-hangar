@@ -202,6 +202,13 @@ public class MessagesAndDatabase implements Serializable {
     //  - DATE_TERM_VALUE
     //  - BEGIN_DATE
     //  - END_DATE
+    // WHITE_DEPRECATED_SELECT_BY_PKUQ
+    //  - SELECT_BY_PKUQ_ID
+    //  - SELECT_BY_PKUQ_NAME
+    //  - SELECT_BY_PKUQ_CODE
+    // WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
+    //  - SPECIFY_BATCH_COLUMN_ID
+    //  - SPECIFY_BATCH_COLUMN_NAME
     // WHITE_TSV_LOADING
     //  - TSV_LOADING_ID
     //  - TSV_LOADING_NAME

@@ -188,6 +188,16 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteDateTermBhv.class).toInstance(bhv);
         }
         {
+            WhiteDeprecatedSelectByPkuqBhv bhv = new WhiteDeprecatedSelectByPkuqBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteDeprecatedSelectByPkuqBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteDeprecatedSpecifyBatchColumnBhv bhv = new WhiteDeprecatedSpecifyBatchColumnBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteDeprecatedSpecifyBatchColumnBhv.class).toInstance(bhv);
+        }
+        {
             WhiteTsvLoadingBhv bhv = new WhiteTsvLoadingBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteTsvLoadingBhv.class).toInstance(bhv);
