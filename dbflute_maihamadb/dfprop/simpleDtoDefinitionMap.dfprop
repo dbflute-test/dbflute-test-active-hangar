@@ -7,6 +7,22 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # settings for DomainTable
+    ; domainTableMap = map:{
+        ; tableTargetList = list:{}
+        ; tableExceptList = list:{
+            # #for_now cannot except for relationship
+            #; prefix:REGI 
+            ; suffix:SIMPLE_DTO_EXCEPT
+        }
+    }
+
+    # settings for Sql2Entity
+    ; sql2entityMap = map:{
+        ; sql2entityTargetList = list:{}
+        ; sql2entityExceptList = list:{ prefix:Option ; contain:Sql2SimpleDtoEx }
+    }
+
     # OutputDirectory settings: relative path from generate-output-path
     # (if the specified path starts with "~/", path from DBFlute clinent)
     #simpleDtoOutputDirectory = ../

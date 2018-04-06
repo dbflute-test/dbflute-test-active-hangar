@@ -1,16 +1,16 @@
-package org.docksidestage.hangar.simpleflute.dto.customize;
+package org.docksidestage.hangar.dbflute.exentity.customize;
 
-import org.docksidestage.hangar.simpleflute.dto.bs.customize.BsOptionMemberDto;
+import org.docksidestage.hangar.dbflute.bsentity.customize.BsSql2SimpleDtoExcept;
 
 /**
- * The entity of OptionMember.
+ * The entity of Sql2SimpleDtoExcept.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class OptionMemberDto extends BsOptionMemberDto {
+public class Sql2SimpleDtoExcept extends BsSql2SimpleDtoExcept {
 
     /** The serial version UID for object serialization. (Default) */
     private static final long serialVersionUID = 1L;
