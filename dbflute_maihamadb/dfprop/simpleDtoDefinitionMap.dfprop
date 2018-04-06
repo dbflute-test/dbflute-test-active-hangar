@@ -25,9 +25,9 @@ map:{
 
     # OutputDirectory settings: relative path from generate-output-path
     # (if the specified path starts with "~/", path from DBFlute clinent)
-    #simpleDtoOutputDirectory = ../
-    #dtoMapperOutputDirectory = ../
-    #simpleCDefOutputDirectory = ../
+    #; simpleDtoOutputDirectory = ../
+    #; dtoMapperOutputDirectory = ../
+    #; simpleCDefOutputDirectory = ../
 
     # Package for DTO
 	; baseDtoPackage = org.docksidestage.hangar.simpleflute.dto.bs
