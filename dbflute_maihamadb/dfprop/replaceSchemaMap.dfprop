@@ -86,9 +86,11 @@ map:{
             ; isFailure = true
             ; workableRepsEnvTypeList = list:{ut}
             ; tableExceptList = list:{
-                ; prefix:VENDOR_ ; WHITE_DATE_TERM
+                ; prefix:VENDOR_
+                ; WHITE_DATE_TERM
                 ; WHITE_DEPRECATED_SELECT_BY_PKUQ
                 ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
+                ; WHITE_SIMPLE_DTO_EXCEPT
             }
             ; tableTargetList = list:{}
         }
