@@ -1,4 +1,92 @@
 map:{
+    ; 2018/05/03 17:51:45 = map:{
+        ; diffDate = 2018/05/03 17:51:45
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BIRTH_CODE = map:{
+                        ; columnName = BIRTH_CODE
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BIRTH_CODE = map:{
+                        ; columnName = BIRTH_CODE
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2018/05/03 16:09:33 = map:{
+        ; diffDate = 2018/05/03 16:09:33
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SEA_CODE = map:{
+                        ; columnName = SEA_CODE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SEA_CODE = map:{
+                        ; columnName = SEA_CODE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2018/05/03 16:07:11 = map:{
+        ; diffDate = 2018/05/03 16:07:11
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SEA_CODE = map:{
+                        ; columnName = SEA_CODE
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SEA_CODE = map:{
+                        ; columnName = SEA_CODE
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2018/05/03 02:39:39 = map:{
+        ; diffDate = 2018/05/03 02:39:39
+        ; tableCount = map:{
+            ; next = 29
+            ; previous = 28
+        }
+        ; tableDiff = map:{
+            ; WHITE_SIMPLE_DTO_EXCEPT = map:{
+                ; tableName = WHITE_SIMPLE_DTO_EXCEPT
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/03/23 20:13:16 = map:{
         ; diffDate = 2018/03/23 20:13:16
         ; tableCount = map:{
@@ -117,6 +205,112 @@ map:{
         ; tableDiff = map:{
             ; WHITE_DATE_TERM = map:{
                 ; tableName = WHITE_DATE_TERM
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2014/07/21 12:34:56 = map:{
+        ; diffDate = 2014/07/21 12:34:56
+        ; comment = for test of firstDate in SchemaPolicyCheck
+        ; tableCount = map:{
+            ; next = 14
+            ; previous = 12
+        }
+        ; tableDiff = map:{
+            ; PURCHASE = map:{
+                ; tableName = PURCHASE
+                ; diffType = ADD
+            }
+            ; PURCHASE_PAYMENT = map:{
+                ; tableName = PURCHASE_PAYMENT
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2014/06/15 12:34:56 = map:{
+        ; diffDate = 2014/06/15 12:34:56
+        ; comment = for test of firstDate in SchemaPolicyCheck
+        ; tableCount = map:{
+            ; next = 12
+            ; previous = 9
+        }
+        ; tableDiff = map:{
+            ; PRODUCT = map:{
+                ; tableName = PRODUCT
+                ; diffType = ADD
+            }
+            ; PRODUCT_CATEGORY = map:{
+                ; tableName = PRODUCT_CATEGORY
+                ; diffType = ADD
+            }
+            ; PRODUCT_STATUS = map:{
+                ; tableName = PRODUCT_STATUS
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2014/05/03 12:34:56 = map:{
+        ; diffDate = 2014/05/03 12:34:56
+        ; comment = for test of firstDate in SchemaPolicyCheck
+        ; tableCount = map:{
+            ; next = 9
+            ; previous = 7
+        }
+        ; tableDiff = map:{
+            ; MEMBER_WITHDRAWAL = map:{
+                ; tableName = MEMBER_WITHDRAWAL
+                ; diffType = ADD
+            }
+            ; WITHDRAWAL_REASON = map:{
+                ; tableName = WITHDRAWAL_REASON
+                ; diffType = ADD
+            }
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BIRTHDATE = map:{
+                        ; columnName = BIRTHDATE
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2014/04/01 12:34:56 = map:{
+        ; diffDate = 2014/04/01 12:34:56
+        ; comment = for test of firstDate in SchemaPolicyCheck
+        ; tableCount = map:{
+            ; next = 7
+            ; previous = 0
+        }
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = ADD
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = ADD
+            }
+            ; MEMBER_FOLLOWING = map:{
+                ; tableName = MEMBER_FOLLOWING
+                ; diffType = ADD
+            }
+            ; MEMBER_LOGIN = map:{
+                ; tableName = MEMBER_LOGIN
+                ; diffType = ADD
+            }
+            ; MEMBER_SECURITY = map:{
+                ; tableName = MEMBER_SECURITY
+                ; diffType = ADD
+            }
+            ; MEMBER_STATUS = map:{
+                ; tableName = MEMBER_STATUS
+                ; diffType = ADD
+            }
+            ; REGION = map:{
+                ; tableName = REGION
                 ; diffType = ADD
             }
         }

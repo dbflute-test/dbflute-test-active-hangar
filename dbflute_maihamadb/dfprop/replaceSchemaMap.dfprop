@@ -203,11 +203,12 @@ map:{
             ; $$DestDir$$ = ./playsql
             ; $$ScriptDir$$ = ..
         }
-        ; copy = map:{
-            ; $$SrcDir$$/*.sql = $$DestDir$$
-            ; $$SrcDir$$/data/common/xls/*.xls = $$DestDir$$/data/common/xls
-            ; $$SrcDir$$/data/ut/xls/*.xls = $$DestDir$$/data/ut/xls
-        }
+        # use when it needs synchronize with dockside
+        #; copy = map:{
+        #    ; $$SrcDir$$/*.sql = $$DestDir$$
+        #    ; $$SrcDir$$/data/common/xls/*.xls = $$DestDir$$/data/common/xls
+        #    ; $$SrcDir$$/data/ut/xls/*.xls = $$DestDir$$/data/ut/xls
+        #}
         ; script = map:{
             ; $$ScriptDir$$/try-arrangeBeforeReps.bat = dummy
             ; $$ScriptDir$$/try-arrangeBeforeReps.sh = dummy

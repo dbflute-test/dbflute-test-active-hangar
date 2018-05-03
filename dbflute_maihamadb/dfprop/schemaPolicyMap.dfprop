@@ -47,6 +47,7 @@ map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
         ; statementList = list:{
             ; if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$
+            ; if firstDate is after:2014/05/01 then fkName is prefix:FK_$$table$$
         }
     }
     ; columnMap = map:{
@@ -56,6 +57,11 @@ map:{
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INTEGER
             ; if columnName is suffix:_FLG then classification
+
+            ; if columnName is suffix:_CODE then sameColumnDbTypeIfSameColumnName
+            ; if tableColumnName is contain:BER.MEM then tableColumnName is contain:ER.ME
+            ; if firstDate is after:2014/05/01 and tableName is MEMBER then columnName is BIRTHDATE
+            ; if tableName is PURCHASE and firstDate is after:2014/06/01 then tableName is PURCHASE
         }
     }
 }
