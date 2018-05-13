@@ -410,6 +410,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
+     * ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。<br>
+     * 実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
@@ -419,6 +421,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
+     * ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。<br>
+     * 実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
@@ -428,6 +432,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
+     * これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...
      * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductHandleCode() {
@@ -437,6 +442,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
+     * これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...
      * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductHandleCode(String productHandleCode) {

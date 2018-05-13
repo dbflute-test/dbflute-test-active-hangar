@@ -9,6 +9,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (退会理由)WITHDRAWAL_REASON as TABLE. <br>
+ * 会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...
  * <pre>
  * [primary-key]
  *     WITHDRAWAL_REASON_CODE
@@ -279,6 +280,8 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
 
     /**
      * [get] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
+     * 退会理由の内容。<br>
+     * テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。
      * @return The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed)
      */
     public String getWithdrawalReasonText() {
@@ -287,6 +290,8 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
 
     /**
      * [set] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
+     * 退会理由の内容。<br>
+     * テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。
      * @param withdrawalReasonText The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed)
      */
     public void setWithdrawalReasonText(String withdrawalReasonText) {

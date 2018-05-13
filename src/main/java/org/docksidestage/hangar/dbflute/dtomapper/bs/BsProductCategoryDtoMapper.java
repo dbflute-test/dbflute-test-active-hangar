@@ -23,6 +23,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (商品カテゴリ)PRODUCT_CATEGORY as TABLE. <br>
+ * 商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。
  * <pre>
  * [primary-key]
  *     PRODUCT_CATEGORY_CODE

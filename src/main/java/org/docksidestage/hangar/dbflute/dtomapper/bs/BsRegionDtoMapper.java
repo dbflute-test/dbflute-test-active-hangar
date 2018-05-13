@@ -24,6 +24,8 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (地域)REGION as TABLE. <br>
+ * 主に会員の住所に対応する漠然とした地域。<br>
+ * かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。
  * <pre>
  * [primary-key]
  *     REGION_ID

@@ -11,6 +11,9 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (会員住所情報)MEMBER_ADDRESS as TABLE. <br>
+ * 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br>
+ * 会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！<br>
+ * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0..1" である。
  * <pre>
  * [primary-key]
  *     MEMBER_ADDRESS_ID
@@ -313,6 +316,8 @@ public abstract class BsMemberAddressDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (会員住所ID)MEMBER_ADDRESS_ID: {PK, ID, NotNull, INTEGER(10)} <br>
+     * 会員住所を識別するID。<br>
+     * 期間ごとに同じ会員のデータを保持することがあるため、これは単なるPKであってFKではない。
      * @return The value of the column 'MEMBER_ADDRESS_ID'. (NullAllowed)
      */
     public Integer getMemberAddressId() {
@@ -321,6 +326,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [set] (会員住所ID)MEMBER_ADDRESS_ID: {PK, ID, NotNull, INTEGER(10)} <br>
+     * 会員住所を識別するID。<br>
+     * 期間ごとに同じ会員のデータを保持することがあるため、これは単なるPKであってFKではない。
      * @param memberAddressId The value of the column 'MEMBER_ADDRESS_ID'. (NullAllowed)
      */
     public void setMemberAddressId(Integer memberAddressId) {
@@ -330,6 +337,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [get] (会員ID)MEMBER_ID: {UQ+, IX, NotNull, INTEGER(10), FK to MEMBER} <br>
+     * 会員を参照するID。<br>
+     * 期間ごとのデータがあるので、これだけではユニークにはならない。有効開始日と合わせて複合ユニーク制約となるが、厳密には完全な制約にはなっていない。有効期間の概念はRDBでは表現しきれないのである。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public Integer getMemberId() {
@@ -338,6 +347,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [set] (会員ID)MEMBER_ID: {UQ+, IX, NotNull, INTEGER(10), FK to MEMBER} <br>
+     * 会員を参照するID。<br>
+     * 期間ごとのデータがあるので、これだけではユニークにはならない。有効開始日と合わせて複合ユニーク制約となるが、厳密には完全な制約にはなっていない。有効期間の概念はRDBでは表現しきれないのである。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -347,6 +358,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [get] (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(8)} <br>
+     * 一つの有効期間の開始を示す日付。<br>
+     * 前の有効終了日の次の日の値が格納される。
      * @return The value of the column 'VALID_BEGIN_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -357,6 +370,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [set] (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(8)} <br>
+     * 一つの有効期間の開始を示す日付。<br>
+     * 前の有効終了日の次の日の値が格納される。
      * @param validBeginDate The value of the column 'VALID_BEGIN_DATE'. (NullAllowed)
      */
     public void setValidBeginDate(java.time.LocalDate validBeginDate) {
@@ -366,6 +381,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [get] (有効終了日)VALID_END_DATE: {NotNull, DATE(8)} <br>
+     * 有効期間の終了日。<br>
+     * 期間の最後の日が格納される。基本的に、次の有効開始日の一日前の値となるが、次の有効期間がない場合は 9999/12/31 となる。
      * @return The value of the column 'VALID_END_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -376,6 +393,8 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [set] (有効終了日)VALID_END_DATE: {NotNull, DATE(8)} <br>
+     * 有効期間の終了日。<br>
+     * 期間の最後の日が格納される。基本的に、次の有効開始日の一日前の値となるが、次の有効期間がない場合は 9999/12/31 となる。
      * @param validEndDate The value of the column 'VALID_END_DATE'. (NullAllowed)
      */
     public void setValidEndDate(java.time.LocalDate validEndDate) {
@@ -385,6 +404,7 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [get] (住所)ADDRESS: {NotNull, VARCHAR(200)} <br>
+     * まるごと住所
      * @return The value of the column 'ADDRESS'. (NullAllowed)
      */
     public String getAddress() {
@@ -393,6 +413,7 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [set] (住所)ADDRESS: {NotNull, VARCHAR(200)} <br>
+     * まるごと住所
      * @param address The value of the column 'ADDRESS'. (NullAllowed)
      */
     public void setAddress(String address) {
@@ -402,6 +423,7 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [get] (地域ID)REGION_ID: {IX, NotNull, INTEGER(10), FK to REGION, classification=Region} <br>
+     * 地域を参照するID。かなり漠然とした地域。
      * @return The value of the column 'REGION_ID'. (NullAllowed)
      */
     public Integer getRegionId() {
@@ -410,6 +432,7 @@ public abstract class BsMemberAddressDto implements Serializable {
 
     /**
      * [set] (地域ID)REGION_ID: {IX, NotNull, INTEGER(10), FK to REGION, classification=Region} <br>
+     * 地域を参照するID。かなり漠然とした地域。
      * @param regionId The value of the column 'REGION_ID'. (NullAllowed)
      */
     public void setRegionId(Integer regionId) {

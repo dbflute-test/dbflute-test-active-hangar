@@ -24,6 +24,8 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員ログイン)MEMBER_LOGIN as TABLE. <br>
+ * ログインするたびに登録されるログイン履歴。<br>
+ * 登録されたら更新されるも削除されることもない。さらには、登録する人もプログラムもはっきりしているので、(紙面の都合上もあって)ここでは共通カラムは省略している。
  * <pre>
  * [primary-key]
  *     MEMBER_LOGIN_ID

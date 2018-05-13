@@ -9,6 +9,8 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (地域)REGION as TABLE. <br>
+ * 主に会員の住所に対応する漠然とした地域。<br>
+ * かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。
  * <pre>
  * [primary-key]
  *     REGION_ID
@@ -257,6 +259,8 @@ public abstract class BsRegionDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (地域ID)REGION_ID: {PK, NotNull, INTEGER(10), classification=Region} <br>
+     * 地域をしっかりと識別するID。<br>
+     * 珍しく(固定的な)マスタテーブルとしては数値だが、Exampleなのでやはり色々なパターンがないとね、ってところで。
      * @return The value of the column 'REGION_ID'. (NullAllowed)
      */
     public Integer getRegionId() {
@@ -265,6 +269,8 @@ public abstract class BsRegionDto implements Serializable {
 
     /**
      * [set] (地域ID)REGION_ID: {PK, NotNull, INTEGER(10), classification=Region} <br>
+     * 地域をしっかりと識別するID。<br>
+     * 珍しく(固定的な)マスタテーブルとしては数値だが、Exampleなのでやはり色々なパターンがないとね、ってところで。
      * @param regionId The value of the column 'REGION_ID'. (NullAllowed)
      */
     public void setRegionId(Integer regionId) {
@@ -274,6 +280,7 @@ public abstract class BsRegionDto implements Serializable {
 
     /**
      * [get] (地域名称)REGION_NAME: {NotNull, VARCHAR(50)} <br>
+     * 地域を漠然と表す名称。
      * @return The value of the column 'REGION_NAME'. (NullAllowed)
      */
     public String getRegionName() {
@@ -282,6 +289,7 @@ public abstract class BsRegionDto implements Serializable {
 
     /**
      * [set] (地域名称)REGION_NAME: {NotNull, VARCHAR(50)} <br>
+     * 地域を漠然と表す名称。
      * @param regionName The value of the column 'REGION_NAME'. (NullAllowed)
      */
     public void setRegionName(String regionName) {

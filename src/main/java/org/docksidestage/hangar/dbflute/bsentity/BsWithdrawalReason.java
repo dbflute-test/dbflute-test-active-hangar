@@ -12,6 +12,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of (退会理由)WITHDRAWAL_REASON as TABLE. <br>
+ * 会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...
  * <pre>
  * [primary-key]
  *     WITHDRAWAL_REASON_CODE
@@ -324,6 +325,8 @@ public abstract class BsWithdrawalReason extends AbstractEntity implements Domai
 
     /**
      * [get] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
+     * 退会理由の内容。<br>
+     * テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。
      * @return The value of the column 'WITHDRAWAL_REASON_TEXT'. (basically NotNull if selected: for the constraint)
      */
     public String getWithdrawalReasonText() {
@@ -333,6 +336,8 @@ public abstract class BsWithdrawalReason extends AbstractEntity implements Domai
 
     /**
      * [set] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
+     * 退会理由の内容。<br>
+     * テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。
      * @param withdrawalReasonText The value of the column 'WITHDRAWAL_REASON_TEXT'. (basically NotNull if update: for the constraint)
      */
     public void setWithdrawalReasonText(String withdrawalReasonText) {

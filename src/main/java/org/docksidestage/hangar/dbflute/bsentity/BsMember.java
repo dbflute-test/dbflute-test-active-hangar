@@ -15,6 +15,9 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of (会員)MEMBER as TABLE. <br>
+ * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
+ * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
+ * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -561,6 +564,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     //                                                                            ========
     /**
      * [get] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -570,6 +574,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -579,6 +584,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
      * @return The value of the column 'MEMBER_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberName() {
@@ -588,6 +595,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
      * @param memberName The value of the column 'MEMBER_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberName(String memberName) {
@@ -597,6 +606,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br>
+     * ログインIDとして利用する。<br>
+     * 昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?
      * @return The value of the column 'MEMBER_ACCOUNT'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberAccount() {
@@ -606,6 +617,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br>
+     * ログインIDとして利用する。<br>
+     * 昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?
      * @param memberAccount The value of the column 'MEMBER_ACCOUNT'. (basically NotNull if update: for the constraint)
      */
     public void setMemberAccount(String memberAccount) {
@@ -615,6 +628,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * 会員ステータスを参照するコード。<br>
+     * ステータスが変わるたびに、このカラムが更新される。
      * @return The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusCode() {
@@ -624,6 +639,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * 会員ステータスを参照するコード。<br>
+     * ステータスが変わるたびに、このカラムが更新される。
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {
@@ -634,6 +651,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * 会員が正式に確定した(正式会員になった)日時。<br>
+     * 一度確定したらもう二度と更新されないはずだ！
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getFormalizedDatetime() {
@@ -643,6 +662,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * 会員が正式に確定した(正式会員になった)日時。<br>
+     * 一度確定したらもう二度と更新されないはずだ！
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
@@ -652,6 +673,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDate getBirthdate() {
@@ -661,6 +683,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBirthdate(java.time.LocalDate birthdate) {
@@ -670,6 +693,9 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが登録された日時。<br>
+     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
+     * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -679,6 +705,9 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが登録された日時。<br>
+     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
+     * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -688,6 +717,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザ。<br>
+     * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -697,6 +728,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザ。<br>
+     * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -706,6 +739,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが（最後に）更新された日時。<br>
+     * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -715,6 +750,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが（最後に）更新された日時。<br>
+     * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -724,6 +761,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを更新したユーザ。<br>
+     * システムは誰が何をしたのかちゃんと覚えているのさ。
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -733,6 +772,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを更新したユーザ。<br>
+     * システムは誰が何をしたのかちゃんと覚えているのさ。
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -742,6 +783,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * データのバージョンを示すナンバー。<br>
+     * 更新回数と等しく、主に排他制御のために利用される。
      * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -751,6 +794,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * データのバージョンを示すナンバー。<br>
+     * 更新回数と等しく、主に排他制御のために利用される。
      * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

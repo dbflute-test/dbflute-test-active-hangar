@@ -11,6 +11,9 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (会員)MEMBER as TABLE. <br>
+ * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
+ * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
+ * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -379,6 +382,7 @@ public abstract class BsMemberDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public Integer getMemberId() {
@@ -387,6 +391,7 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -396,6 +401,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
     public String getMemberName() {
@@ -404,6 +411,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
     public void setMemberName(String memberName) {
@@ -413,6 +422,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br>
+     * ログインIDとして利用する。<br>
+     * 昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?
      * @return The value of the column 'MEMBER_ACCOUNT'. (NullAllowed)
      */
     public String getMemberAccount() {
@@ -421,6 +432,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} <br>
+     * ログインIDとして利用する。<br>
+     * 昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?
      * @param memberAccount The value of the column 'MEMBER_ACCOUNT'. (NullAllowed)
      */
     public void setMemberAccount(String memberAccount) {
@@ -430,6 +443,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * 会員ステータスを参照するコード。<br>
+     * ステータスが変わるたびに、このカラムが更新される。
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed)
      */
     public String getMemberStatusCode() {
@@ -438,6 +453,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * 会員ステータスを参照するコード。<br>
+     * ステータスが変わるたびに、このカラムが更新される。
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed)
      */
     public void setMemberStatusCode(String memberStatusCode) {
@@ -447,6 +464,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * 会員が正式に確定した(正式会員になった)日時。<br>
+     * 一度確定したらもう二度と更新されないはずだ！
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -457,6 +476,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * 会員が正式に確定した(正式会員になった)日時。<br>
+     * 一度確定したらもう二度と更新されないはずだ！
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed)
      */
     public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
@@ -466,6 +487,7 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -476,6 +498,7 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed)
      */
     public void setBirthdate(java.time.LocalDate birthdate) {
@@ -485,6 +508,9 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが登録された日時。<br>
+     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
+     * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -495,6 +521,9 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが登録された日時。<br>
+     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
+     * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -504,6 +533,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザ。<br>
+     * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @return The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public String getRegisterUser() {
@@ -512,6 +543,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザ。<br>
+     * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public void setRegisterUser(String registerUser) {
@@ -521,6 +554,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが（最後に）更新された日時。<br>
+     * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -531,6 +566,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * レコードが（最後に）更新された日時。<br>
+     * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -540,6 +577,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを更新したユーザ。<br>
+     * システムは誰が何をしたのかちゃんと覚えているのさ。
      * @return The value of the column 'UPDATE_USER'. (NullAllowed)
      */
     public String getUpdateUser() {
@@ -548,6 +587,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを更新したユーザ。<br>
+     * システムは誰が何をしたのかちゃんと覚えているのさ。
      * @param updateUser The value of the column 'UPDATE_USER'. (NullAllowed)
      */
     public void setUpdateUser(String updateUser) {
@@ -557,6 +598,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [get] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * データのバージョンを示すナンバー。<br>
+     * 更新回数と等しく、主に排他制御のために利用される。
      * @return The value of the column 'VERSION_NO'. (NullAllowed)
      */
     public Long getVersionNo() {
@@ -565,6 +608,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)} <br>
+     * データのバージョンを示すナンバー。<br>
+     * 更新回数と等しく、主に排他制御のために利用される。
      * @param versionNo The value of the column 'VERSION_NO'. (NullAllowed)
      */
     public void setVersionNo(Long versionNo) {

@@ -24,6 +24,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (サービスランク)SERVICE_RANK as TABLE. <br>
+ * 会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)
  * <pre>
  * [primary-key]
  *     SERVICE_RANK_CODE

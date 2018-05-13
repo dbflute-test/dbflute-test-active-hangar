@@ -15,6 +15,8 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of (会員サービス)MEMBER_SERVICE as TABLE. <br>
+ * 会員のサービス情報（ポイントサービスなど）。<br>
+ * テストケースのために、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。
  * <pre>
  * [primary-key]
  *     MEMBER_SERVICE_ID
@@ -392,6 +394,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
     //                                                                            ========
     /**
      * [get] (会員サービスID)MEMBER_SERVICE_ID: {PK, ID, NotNull, INTEGER(10)} <br>
+     * 独立した主キーとなるが、実質的に会員IDとは one-to-one である。
      * @return The value of the column 'MEMBER_SERVICE_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberServiceId() {
@@ -401,6 +404,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [set] (会員サービスID)MEMBER_SERVICE_ID: {PK, ID, NotNull, INTEGER(10)} <br>
+     * 独立した主キーとなるが、実質的に会員IDとは one-to-one である。
      * @param memberServiceId The value of the column 'MEMBER_SERVICE_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberServiceId(Integer memberServiceId) {
@@ -410,6 +414,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [get] (会員ID)MEMBER_ID: {UQ, IX, NotNull, INTEGER(10), FK to MEMBER} <br>
+     * 会員を参照するID。ユニークなので、会員とは one-to-one の関係に。
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -419,6 +424,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [set] (会員ID)MEMBER_ID: {UQ, IX, NotNull, INTEGER(10), FK to MEMBER} <br>
+     * 会員を参照するID。ユニークなので、会員とは one-to-one の関係に。
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -428,6 +434,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [get] (サービスポイント数)SERVICE_POINT_COUNT: {IX, NotNull, INTEGER(10)} <br>
+     * 購入したら増えて使ったら減る。
      * @return The value of the column 'SERVICE_POINT_COUNT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getServicePointCount() {
@@ -437,6 +444,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [set] (サービスポイント数)SERVICE_POINT_COUNT: {IX, NotNull, INTEGER(10)} <br>
+     * 購入したら増えて使ったら減る。
      * @param servicePointCount The value of the column 'SERVICE_POINT_COUNT'. (basically NotNull if update: for the constraint)
      */
     public void setServicePointCount(Integer servicePointCount) {
@@ -446,6 +454,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [get] (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to SERVICE_RANK, classification=ServiceRank} <br>
+     * どんなランクがあるのかドキドキですね。
      * @return The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getServiceRankCode() {
@@ -455,6 +464,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
 
     /**
      * [set] (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to SERVICE_RANK, classification=ServiceRank} <br>
+     * どんなランクがあるのかドキドキですね。
      * @param serviceRankCode The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setServiceRankCode(String serviceRankCode) {

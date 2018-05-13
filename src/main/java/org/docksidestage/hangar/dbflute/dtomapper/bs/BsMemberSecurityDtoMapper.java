@@ -23,6 +23,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員セキュリティ情報)MEMBER_SECURITY as TABLE. <br>
+ * 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある
  * <pre>
  * [primary-key]
  *     MEMBER_ID

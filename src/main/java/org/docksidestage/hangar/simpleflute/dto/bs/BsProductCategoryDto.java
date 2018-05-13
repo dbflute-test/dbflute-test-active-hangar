@@ -8,6 +8,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (商品カテゴリ)PRODUCT_CATEGORY as TABLE. <br>
+ * 商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。
  * <pre>
  * [primary-key]
  *     PRODUCT_CATEGORY_CODE
@@ -178,6 +179,7 @@ public abstract class BsProductCategoryDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 自分のテーブルの別のレコードからも参照される。
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public String getProductCategoryCode() {
@@ -186,6 +188,7 @@ public abstract class BsProductCategoryDto implements Serializable {
 
     /**
      * [set] (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 自分のテーブルの別のレコードからも参照される。
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public void setProductCategoryCode(String productCategoryCode) {
@@ -212,6 +215,7 @@ public abstract class BsProductCategoryDto implements Serializable {
 
     /**
      * [get] (親カテゴリコード)PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * 最上位の場合はデータなし。まさひく自己参照FKカラム！
      * @return The value of the column 'PARENT_CATEGORY_CODE'. (NullAllowed)
      */
     public String getParentCategoryCode() {
@@ -220,6 +224,7 @@ public abstract class BsProductCategoryDto implements Serializable {
 
     /**
      * [set] (親カテゴリコード)PARENT_CATEGORY_CODE: {IX, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * 最上位の場合はデータなし。まさひく自己参照FKカラム！
      * @param parentCategoryCode The value of the column 'PARENT_CATEGORY_CODE'. (NullAllowed)
      */
     public void setParentCategoryCode(String parentCategoryCode) {

@@ -24,6 +24,8 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員サービス)MEMBER_SERVICE as TABLE. <br>
+ * 会員のサービス情報（ポイントサービスなど）。<br>
+ * テストケースのために、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。
  * <pre>
  * [primary-key]
  *     MEMBER_SERVICE_ID

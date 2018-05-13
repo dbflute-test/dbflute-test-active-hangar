@@ -14,6 +14,7 @@ import org.docksidestage.hangar.dbflute.nogen.cache.*;
 
 /**
  * The entity of (商品ステータス)PRODUCT_STATUS as TABLE. <br>
+ * 商品のステータスを表現する固定的なマスタ。
  * <pre>
  * [primary-key]
  *     PRODUCT_STATUS_CODE
@@ -328,6 +329,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
     //                                                                            ========
     /**
      * [get] (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br>
+     * 商品ステータスを識別するコード。
      * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
@@ -337,6 +339,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
 
     /**
      * [set] (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus} <br>
+     * 商品ステータスを識別するコード。
      * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setProductStatusCode(String productStatusCode) {
@@ -347,6 +350,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
 
     /**
      * [get] (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
+     * 表示用の名称、英語名カラムがないのでそのままメソッド名の一部としても利用される。
      * @return The value of the column 'PRODUCT_STATUS_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusName() {
@@ -356,6 +360,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
 
     /**
      * [set] (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
+     * 表示用の名称、英語名カラムがないのでそのままメソッド名の一部としても利用される。
      * @param productStatusName The value of the column 'PRODUCT_STATUS_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusName(String productStatusName) {
@@ -365,6 +370,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
 
     /**
      * [get] (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
+     * もう、ご想像の通りです。
      * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
@@ -376,6 +382,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
 
     /**
      * [set] (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
+     * もう、ご想像の通りです。
      * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {

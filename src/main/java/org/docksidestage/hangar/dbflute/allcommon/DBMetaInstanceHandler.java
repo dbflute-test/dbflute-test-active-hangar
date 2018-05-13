@@ -55,8 +55,10 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.VendorTheLongAndWindingTableAndColumnDbm");
         tmpMap.put("VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.VendorTheLongAndWindingTableAndColumnRefDbm");
         tmpMap.put("WHITE_DATE_TERM", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDateTermDbm");
+        tmpMap.put("WHITE_DB_COMMENT", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDbCommentDbm");
         tmpMap.put("WHITE_DEPRECATED_SELECT_BY_PKUQ", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSelectByPkuqDbm");
         tmpMap.put("WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSpecifyBatchColumnDbm");
+        tmpMap.put("WHITE_SIMPLE_DTO_EXCEPT", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSimpleDtoExceptDbm");
         tmpMap.put("WHITE_TSV_LOADING", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteTsvLoadingDbm");
         tmpMap.put("WITHDRAWAL_REASON", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);

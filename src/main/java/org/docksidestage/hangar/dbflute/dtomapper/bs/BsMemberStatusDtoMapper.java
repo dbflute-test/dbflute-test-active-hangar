@@ -24,6 +24,10 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員ステータス)MEMBER_STATUS as TABLE. <br>
+ * 会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！<br>
+ * 業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。<br>
+ * <br>
+ * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。
  * <pre>
  * [primary-key]
  *     MEMBER_STATUS_CODE

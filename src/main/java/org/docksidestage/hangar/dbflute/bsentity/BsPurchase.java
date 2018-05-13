@@ -15,6 +15,8 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of (購入)PURCHASE as TABLE. <br>
+ * 一つの商品に対する購入を表現する(購入履歴とも言える)。<br>
+ * 実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。
  * <pre>
  * [primary-key]
  *     PURCHASE_ID
@@ -505,6 +507,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
+     * 会員を参照するID。<br>
+     * 購入を識別する自然キー(複合ユニーク制約)の筆頭要素。
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -514,6 +518,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
+     * 会員を参照するID。<br>
+     * 購入を識別する自然キー(複合ユニーク制約)の筆頭要素。
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -523,6 +529,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to PRODUCT} <br>
+     * あなたは何を買ったのか？
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
@@ -532,6 +539,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to PRODUCT} <br>
+     * あなたは何を買ったのか？
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
@@ -541,6 +549,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, TIMESTAMP(23, 10)} <br>
+     * 購入した瞬間の日時。
      * @return The value of the column 'PURCHASE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getPurchaseDatetime() {
@@ -550,6 +559,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, TIMESTAMP(23, 10)} <br>
+     * 購入した瞬間の日時。
      * @param purchaseDatetime The value of the column 'PURCHASE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseDatetime(java.time.LocalDateTime purchaseDatetime) {
@@ -559,6 +569,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (購入数量)PURCHASE_COUNT: {NotNull, INTEGER(10)} <br>
+     * 購入した商品の一回の購入における数量。
      * @return The value of the column 'PURCHASE_COUNT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPurchaseCount() {
@@ -568,6 +579,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (購入数量)PURCHASE_COUNT: {NotNull, INTEGER(10)} <br>
+     * 購入した商品の一回の購入における数量。
      * @param purchaseCount The value of the column 'PURCHASE_COUNT'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseCount(Integer purchaseCount) {
@@ -577,6 +589,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (購入価格)PURCHASE_PRICE: {IX, NotNull, INTEGER(10)} <br>
+     * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
+     * 基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。
      * @return The value of the column 'PURCHASE_PRICE'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPurchasePrice() {
@@ -586,6 +600,8 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (購入価格)PURCHASE_PRICE: {IX, NotNull, INTEGER(10)} <br>
+     * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
+     * 基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。
      * @param purchasePrice The value of the column 'PURCHASE_PRICE'. (basically NotNull if update: for the constraint)
      */
     public void setPurchasePrice(Integer purchasePrice) {
@@ -595,6 +611,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(10), classification=Flg} <br>
+     * この購入に関しての支払いが完了しているか否か。
      * @return The value of the column 'PAYMENT_COMPLETE_FLG'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPaymentCompleteFlg() {
@@ -604,6 +621,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(10), classification=Flg} <br>
+     * この購入に関しての支払いが完了しているか否か。
      * @param paymentCompleteFlg The value of the column 'PAYMENT_COMPLETE_FLG'. (basically NotNull if update: for the constraint)
      */
     protected void setPaymentCompleteFlg(Integer paymentCompleteFlg) {

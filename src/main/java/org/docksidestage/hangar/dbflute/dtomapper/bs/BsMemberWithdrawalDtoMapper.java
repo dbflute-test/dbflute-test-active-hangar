@@ -24,6 +24,10 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員退会情報)MEMBER_WITHDRAWAL as TABLE. <br>
+ * 退会会員の退会に関する詳細な情報。<br>
+ * 退会会員のみデータが存在し、"1 : 0..1" のパターンの one-to-one である。<br>
+ * 共通カラムがあってバージョンNOがないパターン。<br>
+ * 基本的に更新は入らないが、重要なデータなので万が一のために更新系の共通カラムも。
  * <pre>
  * [primary-key]
  *     MEMBER_ID

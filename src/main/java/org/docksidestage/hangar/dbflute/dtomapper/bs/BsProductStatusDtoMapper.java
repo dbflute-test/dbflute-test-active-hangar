@@ -24,6 +24,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (商品ステータス)PRODUCT_STATUS as TABLE. <br>
+ * 商品のステータスを表現する固定的なマスタ。
  * <pre>
  * [primary-key]
  *     PRODUCT_STATUS_CODE

@@ -12,6 +12,10 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of (会員ステータス)MEMBER_STATUS as TABLE. <br>
+ * 会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！<br>
+ * 業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。<br>
+ * <br>
+ * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。
  * <pre>
  * [primary-key]
  *     MEMBER_STATUS_CODE
@@ -316,6 +320,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     //                                                                            ========
     /**
      * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus} <br>
+     * 会員ステータスを識別するコード。<br>
+     * 固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば "FML" とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)
      * @return The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusCode() {
@@ -325,6 +331,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus} <br>
+     * 会員ステータスを識別するコード。<br>
+     * 固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば "FML" とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {
@@ -335,6 +343,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @return The value of the column 'MEMBER_STATUS_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusName() {
@@ -344,6 +354,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -353,6 +365,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [get] (説明)DESCRIPTION: {NotNull, VARCHAR(200)} <br>
+     * 会員ステータスそれぞれの説明。<br>
+     * 区分値の一つ一つの要素に気の利いた説明があるとディベロッパーがとても助かるので絶対に欲しい。
      * @return The value of the column 'DESCRIPTION'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
@@ -362,6 +376,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [set] (説明)DESCRIPTION: {NotNull, VARCHAR(200)} <br>
+     * 会員ステータスそれぞれの説明。<br>
+     * 区分値の一つ一つの要素に気の利いた説明があるとディベロッパーがとても助かるので絶対に欲しい。
      * @param description The value of the column 'DESCRIPTION'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {
@@ -371,6 +387,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [get] (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
+     * UI上のステータスの表示順を示すNO。<br>
+     * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @return The value of the column 'DISPLAY_ORDER'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
@@ -380,6 +398,8 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
 
     /**
      * [set] (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
+     * UI上のステータスの表示順を示すNO。<br>
+     * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @param displayOrder The value of the column 'DISPLAY_ORDER'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {

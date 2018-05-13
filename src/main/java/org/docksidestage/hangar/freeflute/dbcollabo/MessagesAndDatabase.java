@@ -209,6 +209,9 @@ public class MessagesAndDatabase implements Serializable {
     // WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
     //  - SPECIFY_BATCH_COLUMN_ID
     //  - SPECIFY_BATCH_COLUMN_NAME
+    // WHITE_SIMPLE_DTO_EXCEPT
+    //  - SIMPLE_DTO_EXCEPT_ID
+    //  - SIMPLE_DTO_EXCEPT_NAME
     // WHITE_TSV_LOADING
     //  - TSV_LOADING_ID
     //  - TSV_LOADING_NAME

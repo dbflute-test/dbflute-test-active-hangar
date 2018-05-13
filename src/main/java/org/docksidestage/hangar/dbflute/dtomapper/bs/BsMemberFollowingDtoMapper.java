@@ -23,6 +23,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員フォローイング)MEMBER_FOLLOWING as TABLE. <br>
+ * とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。
  * <pre>
  * [primary-key]
  *     MEMBER_FOLLOWING_ID

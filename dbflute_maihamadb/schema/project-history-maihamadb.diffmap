@@ -1,4 +1,42 @@
 map:{
+    ; 2018/05/13 20:08:36 = map:{
+        ; diffDate = 2018/05/13 20:08:36
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 29
+        }
+        ; tableDiff = map:{
+            ; WHITE_DB_COMMENT = map:{
+                ; tableName = WHITE_DB_COMMENT
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2018/05/05 23:40:59 = map:{
+        ; diffDate = 2018/05/05 23:40:59
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BIRTH_CODE = map:{
+                        ; columnName = BIRTH_CODE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BIRTH_CODE = map:{
+                        ; columnName = BIRTH_CODE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
     ; 2018/05/03 17:51:45 = map:{
         ; diffDate = 2018/05/03 17:51:45
         ; tableDiff = map:{

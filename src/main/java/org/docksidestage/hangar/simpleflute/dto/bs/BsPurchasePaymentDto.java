@@ -11,6 +11,8 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (購入支払)PURCHASE_PAYMENT as TABLE. <br>
+ * 購入に対する支払。<br>
+ * 分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。
  * <pre>
  * [primary-key]
  *     PURCHASE_PAYMENT_ID
@@ -274,6 +276,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (購入支払ID)PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)} <br>
+     * 連番
      * @return The value of the column 'PURCHASE_PAYMENT_ID'. (NullAllowed)
      */
     public Long getPurchasePaymentId() {
@@ -282,6 +285,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [set] (購入支払ID)PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)} <br>
+     * 連番
      * @param purchasePaymentId The value of the column 'PURCHASE_PAYMENT_ID'. (NullAllowed)
      */
     public void setPurchasePaymentId(Long purchasePaymentId) {
@@ -291,6 +295,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [get] (購入ID)PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to PURCHASE} <br>
+     * 支払い対象の購入へのID
      * @return The value of the column 'PURCHASE_ID'. (NullAllowed)
      */
     public Long getPurchaseId() {
@@ -299,6 +304,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [set] (購入ID)PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to PURCHASE} <br>
+     * 支払い対象の購入へのID
      * @param purchaseId The value of the column 'PURCHASE_ID'. (NullAllowed)
      */
     public void setPurchaseId(Long purchaseId) {
@@ -308,6 +314,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [get] (支払金額)PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)} <br>
+     * 支払った金額。さて、小数点なのはなぜでしょう？
      * @return The value of the column 'PAYMENT_AMOUNT'. (NullAllowed)
      */
     public java.math.BigDecimal getPaymentAmount() {
@@ -316,6 +323,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [set] (支払金額)PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)} <br>
+     * 支払った金額。さて、小数点なのはなぜでしょう？
      * @param paymentAmount The value of the column 'PAYMENT_AMOUNT'. (NullAllowed)
      */
     public void setPaymentAmount(java.math.BigDecimal paymentAmount) {
@@ -325,6 +333,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [get] (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(23, 10)} <br>
+     * 支払ったときの日時
      * @return The value of the column 'PAYMENT_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -335,6 +344,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [set] (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(23, 10)} <br>
+     * 支払ったときの日時
      * @param paymentDatetime The value of the column 'PAYMENT_DATETIME'. (NullAllowed)
      */
     public void setPaymentDatetime(java.time.LocalDateTime paymentDatetime) {
@@ -344,6 +354,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [get] (支払方法コード)PAYMENT_METHOD_CODE: {NotNull, CHAR(3), classification=PaymentMethod} <br>
+     * 手渡しや銀行振込など
      * @return The value of the column 'PAYMENT_METHOD_CODE'. (NullAllowed)
      */
     public String getPaymentMethodCode() {
@@ -352,6 +363,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
 
     /**
      * [set] (支払方法コード)PAYMENT_METHOD_CODE: {NotNull, CHAR(3), classification=PaymentMethod} <br>
+     * 手渡しや銀行振込など
      * @param paymentMethodCode The value of the column 'PAYMENT_METHOD_CODE'. (NullAllowed)
      */
     public void setPaymentMethodCode(String paymentMethodCode) {
