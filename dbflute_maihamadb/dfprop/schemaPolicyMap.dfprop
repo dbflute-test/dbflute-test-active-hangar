@@ -41,7 +41,13 @@ map:{
     ; isMainSchemaOnly = false
     
     ; wholeMap = map:{
-        ; themeList = list:{ uniqueTableAlias ; sameColumnAliasIfSameColumnName }
+        ; themeList = list:{
+            ; uniqueTableAlias
+            ; sameColumnAliasIfSameColumnName
+            ; sameColumnDbTypeIfSameColumnName
+            ; sameColumnSizeIfSameColumnName
+            ; sameColumnNameIfSameColumnAlias
+        }
     }
     ; tableMap = map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
@@ -60,7 +66,7 @@ map:{
 
             ; if columnName is suffix:_CODE then sameColumnDbTypeIfSameColumnName
             ; if tableColumnName is contain:BER.MEM then tableColumnName is contain:ER.ME
-            ; if firstDate is after:2014/05/01 and tableName is MEMBER then columnName is BIRTHDATE
+            ; if firstDate is after:2014/05/01 and tableName is MEMBER then tableName is prefix:ME
             ; if tableName is PURCHASE and firstDate is after:2014/06/01 then tableName is PURCHASE
         }
     }
