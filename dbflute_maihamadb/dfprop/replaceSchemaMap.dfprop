@@ -77,6 +77,15 @@ map:{
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isCheckSchemaPolicyInReps: (NotRequired - Default false)
+    #  Does it check schema policy in ReplaceSchema?
+    #  Normally the check is executed in Doc task but it may be late
+    #  so you can also check (as far as possible) here.
+    #
+    ; isCheckSchemaPolicyInReps = true
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o conventionalTakeAssertMap: (NotRequired - Default map:{})
     #  Does it assert data by conventional rule in take-finally
     #  For example, you can check empty table (no-data).
@@ -88,11 +97,13 @@ map:{
             ; tableExceptList = list:{
                 ; prefix:VENDOR_
                 ; WHITE_DATE_TERM
+                ; WHITE_DB_COMMENT
                 ; WHITE_DEPRECATED_SELECT_BY_PKUQ
                 ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
                 ; WHITE_SIMPLE_DTO_EXCEPT
             }
             ; tableTargetList = list:{}
+            ; errorIfFirstDateAfter = null
         }
     }
     # - - - - - - - - - -/
