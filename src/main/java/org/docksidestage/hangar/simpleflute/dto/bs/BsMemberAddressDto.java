@@ -67,11 +67,11 @@ public abstract class BsMemberAddressDto implements Serializable {
     @JsonKey
     protected Integer _memberId;
 
-    /** (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(8)} */
+    /** (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _validBeginDate;
 
-    /** (有効終了日)VALID_END_DATE: {NotNull, DATE(8)} */
+    /** (有効終了日)VALID_END_DATE: {NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _validEndDate;
 
@@ -83,7 +83,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     @JsonKey
     protected Integer _regionId;
 
-    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _registerDatetime;
 
@@ -91,7 +91,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     @JsonKey
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _updateDatetime;
 
@@ -357,7 +357,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [get] (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(8)} <br>
+     * [get] (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * 一つの有効期間の開始を示す日付。<br>
      * 前の有効終了日の次の日の値が格納される。
      * @return The value of the column 'VALID_BEGIN_DATE'. (NullAllowed)
@@ -369,7 +369,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [set] (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(8)} <br>
+     * [set] (有効開始日)VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)} <br>
      * 一つの有効期間の開始を示す日付。<br>
      * 前の有効終了日の次の日の値が格納される。
      * @param validBeginDate The value of the column 'VALID_BEGIN_DATE'. (NullAllowed)
@@ -380,7 +380,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [get] (有効終了日)VALID_END_DATE: {NotNull, DATE(8)} <br>
+     * [get] (有効終了日)VALID_END_DATE: {NotNull, DATE(10)} <br>
      * 有効期間の終了日。<br>
      * 期間の最後の日が格納される。基本的に、次の有効開始日の一日前の値となるが、次の有効期間がない場合は 9999/12/31 となる。
      * @return The value of the column 'VALID_END_DATE'. (NullAllowed)
@@ -392,7 +392,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [set] (有効終了日)VALID_END_DATE: {NotNull, DATE(8)} <br>
+     * [set] (有効終了日)VALID_END_DATE: {NotNull, DATE(10)} <br>
      * 有効期間の終了日。<br>
      * 期間の最後の日が格納される。基本的に、次の有効開始日の一日前の値となるが、次の有効期間がない場合は 9999/12/31 となる。
      * @param validEndDate The value of the column 'VALID_END_DATE'. (NullAllowed)
@@ -441,7 +441,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -451,7 +451,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -477,7 +477,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -487,7 +487,7 @@ public abstract class BsMemberAddressDto implements Serializable {
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

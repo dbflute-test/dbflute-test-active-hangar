@@ -121,14 +121,14 @@ public class BsWhiteDateTermCQ extends AbstractBsWhiteDateTermCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDateTermCQ addOrderBy_BeginDate_Asc() { regOBA("BEGIN_DATE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDateTermCQ addOrderBy_BeginDate_Desc() { regOBD("BEGIN_DATE"); return this; }
@@ -141,14 +141,14 @@ public class BsWhiteDateTermCQ extends AbstractBsWhiteDateTermCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDateTermCQ addOrderBy_EndDate_Asc() { regOBA("END_DATE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteDateTermCQ addOrderBy_EndDate_Desc() { regOBD("END_DATE"); return this; }

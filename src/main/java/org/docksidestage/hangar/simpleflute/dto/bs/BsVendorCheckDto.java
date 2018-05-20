@@ -122,15 +122,15 @@ public abstract class BsVendorCheckDto implements Serializable {
     @JsonKey
     protected Long _typeOfBigint;
 
-    /** TYPE_OF_DATE: {DATE(8)} */
+    /** TYPE_OF_DATE: {DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _typeOfDate;
 
-    /** TYPE_OF_TIMESTAMP: {TIMESTAMP(23, 10)} */
+    /** TYPE_OF_TIMESTAMP: {TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _typeOfTimestamp;
 
-    /** TYPE_OF_TIME: {TIME(6)} */
+    /** TYPE_OF_TIME: {TIME(8)} */
     @JsonKey
     protected java.time.LocalTime _typeOfTime;
 
@@ -563,7 +563,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [get] TYPE_OF_DATE: {DATE(8)} <br>
+     * [get] TYPE_OF_DATE: {DATE(10)} <br>
      * @return The value of the column 'TYPE_OF_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -573,7 +573,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [set] TYPE_OF_DATE: {DATE(8)} <br>
+     * [set] TYPE_OF_DATE: {DATE(10)} <br>
      * @param typeOfDate The value of the column 'TYPE_OF_DATE'. (NullAllowed)
      */
     public void setTypeOfDate(java.time.LocalDate typeOfDate) {
@@ -582,7 +582,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [get] TYPE_OF_TIMESTAMP: {TIMESTAMP(23, 10)} <br>
+     * [get] TYPE_OF_TIMESTAMP: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'TYPE_OF_TIMESTAMP'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -592,7 +592,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [set] TYPE_OF_TIMESTAMP: {TIMESTAMP(23, 10)} <br>
+     * [set] TYPE_OF_TIMESTAMP: {TIMESTAMP(26, 6)} <br>
      * @param typeOfTimestamp The value of the column 'TYPE_OF_TIMESTAMP'. (NullAllowed)
      */
     public void setTypeOfTimestamp(java.time.LocalDateTime typeOfTimestamp) {
@@ -601,7 +601,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [get] TYPE_OF_TIME: {TIME(6)} <br>
+     * [get] TYPE_OF_TIME: {TIME(8)} <br>
      * @return The value of the column 'TYPE_OF_TIME'. (NullAllowed)
      */
     @JSONHint(format="HH:mm:ss")
@@ -611,7 +611,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [set] TYPE_OF_TIME: {TIME(6)} <br>
+     * [set] TYPE_OF_TIME: {TIME(8)} <br>
      * @param typeOfTime The value of the column 'TYPE_OF_TIME'. (NullAllowed)
      */
     public void setTypeOfTime(java.time.LocalTime typeOfTime) {

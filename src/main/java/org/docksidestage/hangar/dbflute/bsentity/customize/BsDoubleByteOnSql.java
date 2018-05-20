@@ -160,6 +160,7 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     //                                                                            ========
     /**
      * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
@@ -169,6 +170,7 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
 
     /**
      * [set] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -196,6 +198,8 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
 
     /**
      * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -205,6 +209,8 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
 
     /**
      * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {

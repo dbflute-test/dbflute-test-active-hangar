@@ -141,14 +141,14 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_LoadingDate_Asc() { regOBA("LOADING_DATE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_LoadingDate_Desc() { regOBD("LOADING_DATE"); return this; }
@@ -161,14 +161,14 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_BeginDatetime_Asc() { regOBA("BEGIN_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_BeginDatetime_Desc() { regOBD("BEGIN_DATETIME"); return this; }
@@ -181,14 +181,14 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_EndDatetime_Asc() { regOBA("END_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_EndDatetime_Desc() { regOBD("END_DATETIME"); return this; }

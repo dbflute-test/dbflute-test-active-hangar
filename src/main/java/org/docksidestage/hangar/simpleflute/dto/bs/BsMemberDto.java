@@ -75,15 +75,15 @@ public abstract class BsMemberDto implements Serializable {
     @JsonKey
     protected String _memberStatusCode;
 
-    /** (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} */
+    /** (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _formalizedDatetime;
 
-    /** (生年月日)BIRTHDATE: {DATE(8)} */
+    /** (生年月日)BIRTHDATE: {DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _birthdate;
 
-    /** (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _registerDatetime;
 
@@ -91,7 +91,7 @@ public abstract class BsMemberDto implements Serializable {
     @JsonKey
     protected String _registerUser;
 
-    /** (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _updateDatetime;
 
@@ -463,7 +463,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * [get] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)} <br>
      * 会員が正式に確定した(正式会員になった)日時。<br>
      * 一度確定したらもう二度と更新されないはずだ！
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed)
@@ -475,7 +475,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [set] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * [set] (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)} <br>
      * 会員が正式に確定した(正式会員になった)日時。<br>
      * 一度確定したらもう二度と更新されないはずだ！
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed)
@@ -486,7 +486,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * [get] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed)
      */
@@ -497,7 +497,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * [set] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed)
      */
@@ -507,7 +507,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [get] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * レコードが登録された日時。<br>
      * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
      * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
@@ -520,7 +520,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [set] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * レコードが登録された日時。<br>
      * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
      * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
@@ -553,7 +553,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * レコードが（最後に）更新された日時。<br>
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
@@ -565,7 +565,7 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * レコードが（最後に）更新された日時。<br>
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)

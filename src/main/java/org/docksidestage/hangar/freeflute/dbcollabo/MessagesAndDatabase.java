@@ -202,6 +202,9 @@ public class MessagesAndDatabase implements Serializable {
     //  - DATE_TERM_VALUE
     //  - BEGIN_DATE
     //  - END_DATE
+    // WHITE_DB_COMMENT
+    //  - DB_COMMENT_ID
+    //  - DB_COMMENT_NAME
     // WHITE_DEPRECATED_SELECT_BY_PKUQ
     //  - SELECT_BY_PKUQ_ID
     //  - SELECT_BY_PKUQ_NAME
@@ -209,6 +212,14 @@ public class MessagesAndDatabase implements Serializable {
     // WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
     //  - SPECIFY_BATCH_COLUMN_ID
     //  - SPECIFY_BATCH_COLUMN_NAME
+    // WHITE_FIRST_DATE
+    //  - FIRST_DATE_ID
+    //  - FIRST_DATE_NAME
+    //  - ADDED_AT_TABLE_SAME_DATE
+    // WHITE_SCHEMA_DIFF
+    //  - SCHEMA_DIFF_ID
+    //  - SCHEMA_DIFF_NAME
+    //  - SCHEMA_DIFF_DATE
     // WHITE_SIMPLE_DTO_EXCEPT
     //  - SIMPLE_DTO_EXCEPT_ID
     //  - SIMPLE_DTO_EXCEPT_NAME

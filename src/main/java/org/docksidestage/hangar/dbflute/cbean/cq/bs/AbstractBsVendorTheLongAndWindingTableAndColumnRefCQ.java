@@ -291,7 +291,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTheLongAndWindingTableAndColumnRefDate_Equal(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
@@ -300,7 +300,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTheLongAndWindingTableAndColumnRefDate_GreaterThan(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTheLongAndWindingTableAndColumnRefDate_LessThan(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
@@ -318,7 +318,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTheLongAndWindingTableAndColumnRefDate_GreaterEqual(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
@@ -327,7 +327,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * @param theLongAndWindingTableAndColumnRefDate The value of theLongAndWindingTableAndColumnRefDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTheLongAndWindingTableAndColumnRefDate_LessEqual(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
@@ -337,7 +337,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setTheLongAndWindingTableAndColumnRefDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of theLongAndWindingTableAndColumnRefDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of theLongAndWindingTableAndColumnRefDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -350,7 +350,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)}
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setTheLongAndWindingTableAndColumnRefDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of theLongAndWindingTableAndColumnRefDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of theLongAndWindingTableAndColumnRefDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -366,7 +366,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setShortDate_Equal(java.time.LocalDate shortDate) {
@@ -375,7 +375,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setShortDate_GreaterThan(java.time.LocalDate shortDate) {
@@ -384,7 +384,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setShortDate_LessThan(java.time.LocalDate shortDate) {
@@ -393,7 +393,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setShortDate_GreaterEqual(java.time.LocalDate shortDate) {
@@ -402,7 +402,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * @param shortDate The value of shortDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setShortDate_LessEqual(java.time.LocalDate shortDate) {
@@ -412,7 +412,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setShortDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of shortDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of shortDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -425,7 +425,7 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnRefCQ exten
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * SHORT_DATE: {NotNull, DATE(8)}
+     * SHORT_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setShortDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of shortDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of shortDate. (basically NotNull: if op.allowOneSide(), null allowed)

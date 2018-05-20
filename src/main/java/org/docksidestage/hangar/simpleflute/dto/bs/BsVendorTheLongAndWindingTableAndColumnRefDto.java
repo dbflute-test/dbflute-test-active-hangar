@@ -63,11 +63,11 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRefDto implements S
     @JsonKey
     protected Long _theLongAndWindingTableAndColumnId;
 
-    /** THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)} */
+    /** THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _theLongAndWindingTableAndColumnRefDate;
 
-    /** SHORT_DATE: {NotNull, DATE(8)} */
+    /** SHORT_DATE: {NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _shortDate;
 
@@ -196,7 +196,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRefDto implements S
     }
 
     /**
-     * [get] THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)} <br>
+     * [get] THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -206,7 +206,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRefDto implements S
     }
 
     /**
-     * [set] THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(8)} <br>
+     * [set] THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE: {NotNull, DATE(10)} <br>
      * @param theLongAndWindingTableAndColumnRefDate The value of the column 'THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE'. (NullAllowed)
      */
     public void setTheLongAndWindingTableAndColumnRefDate(java.time.LocalDate theLongAndWindingTableAndColumnRefDate) {
@@ -215,7 +215,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRefDto implements S
     }
 
     /**
-     * [get] SHORT_DATE: {NotNull, DATE(8)} <br>
+     * [get] SHORT_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'SHORT_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -225,7 +225,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnRefDto implements S
     }
 
     /**
-     * [set] SHORT_DATE: {NotNull, DATE(8)} <br>
+     * [set] SHORT_DATE: {NotNull, DATE(10)} <br>
      * @param shortDate The value of the column 'SHORT_DATE'. (NullAllowed)
      */
     public void setShortDate(java.time.LocalDate shortDate) {

@@ -70,10 +70,10 @@ public abstract class BsWhiteDateTerm extends AbstractEntity implements DomainEn
     /** DATE_TERM_VALUE: {NotNull, VARCHAR(200)} */
     protected String _dateTermValue;
 
-    /** BEGIN_DATE: {NotNull, DATE(8)} */
+    /** BEGIN_DATE: {NotNull, DATE(10)} */
     protected java.time.LocalDate _beginDate;
 
-    /** END_DATE: {NotNull, DATE(8)} */
+    /** END_DATE: {NotNull, DATE(10)} */
     protected java.time.LocalDate _endDate;
 
     // ===================================================================================
@@ -199,7 +199,7 @@ public abstract class BsWhiteDateTerm extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] BEGIN_DATE: {NotNull, DATE(8)} <br>
+     * [get] BEGIN_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'BEGIN_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDate getBeginDate() {
@@ -208,7 +208,7 @@ public abstract class BsWhiteDateTerm extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] BEGIN_DATE: {NotNull, DATE(8)} <br>
+     * [set] BEGIN_DATE: {NotNull, DATE(10)} <br>
      * @param beginDate The value of the column 'BEGIN_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setBeginDate(java.time.LocalDate beginDate) {
@@ -217,7 +217,7 @@ public abstract class BsWhiteDateTerm extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] END_DATE: {NotNull, DATE(8)} <br>
+     * [get] END_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'END_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDate getEndDate() {
@@ -226,7 +226,7 @@ public abstract class BsWhiteDateTerm extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] END_DATE: {NotNull, DATE(8)} <br>
+     * [set] END_DATE: {NotNull, DATE(10)} <br>
      * @param endDate The value of the column 'END_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setEndDate(java.time.LocalDate endDate) {

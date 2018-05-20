@@ -299,17 +299,17 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnLoadingCount() { return doColumn("LOADING_COUNT"); }
         /**
-         * LOADING_DATE: {NotNull, DATE(8)}
+         * LOADING_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnLoadingDate() { return doColumn("LOADING_DATE"); }
         /**
-         * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+         * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBeginDatetime() { return doColumn("BEGIN_DATETIME"); }
         /**
-         * END_DATETIME: {TIMESTAMP(23, 10)}
+         * END_DATETIME: {TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnEndDatetime() { return doColumn("END_DATETIME"); }

@@ -74,7 +74,7 @@ public abstract class BsSummaryWithdrawalDto implements Serializable {
     @JsonKey
     protected String _withdrawalReasonInputText;
 
-    /** WITHDRAWAL_DATETIME: {TIMESTAMP(23, 10)} */
+    /** WITHDRAWAL_DATETIME: {TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _withdrawalDatetime;
 
@@ -277,7 +277,7 @@ public abstract class BsSummaryWithdrawalDto implements Serializable {
     }
 
     /**
-     * [get] WITHDRAWAL_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [get] WITHDRAWAL_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -287,7 +287,7 @@ public abstract class BsSummaryWithdrawalDto implements Serializable {
     }
 
     /**
-     * [set] WITHDRAWAL_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [set] WITHDRAWAL_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (NullAllowed)
      */
     public void setWithdrawalDatetime(java.time.LocalDateTime withdrawalDatetime) {

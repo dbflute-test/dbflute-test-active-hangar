@@ -61,6 +61,24 @@ CREATE TABLE WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN (
 );
 
 -- /= = = = = = = = = = = = = =
+-- for the test of first date
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_FIRST_DATE (
+	FIRST_DATE_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	FIRST_DATE_NAME VARCHAR(200) NOT NULL,
+	ADDED_AT_TABLE_SAME_DATE DATE NOT NULL
+);
+
+-- /= = = = = = = = = = = = = =
+-- for the test of schema diff
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_SCHEMA_DIFF (
+	SCHEMA_DIFF_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	SCHEMA_DIFF_NAME VARCHAR(200) NOT NULL,
+	SCHEMA_DIFF_DATE DATE NOT NULL
+);
+
+-- /= = = = = = = = = = = = = =
 -- for the test of simple dto
 -- = = = = = = = = = =/
 CREATE TABLE WHITE_SIMPLE_DTO_EXCEPT (

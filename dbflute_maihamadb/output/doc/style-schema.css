@@ -1,3 +1,6 @@
+/* -------------------------------------------------
+                                             Core
+------------------------------------------------- */
 * {
 	margin: 0;
 	padding: 0;
@@ -9,7 +12,9 @@ body {
 	background-color: #aaffe0;
 }
 
-/* heading */
+/* -------------------------------------------------
+                                        Structure
+------------------------------------------------- */
 h1 {
 	font-size: 1.5em;
 	border-bottom: 2px solid #af0000;
@@ -39,7 +44,9 @@ h4 {
 	color: #333333;
 }
 
-/* total info */
+/* -------------------------------------------------
+                                     Whole Header
+------------------------------------------------- */
 .updatedate {
 	text-align: right;
 }
@@ -65,7 +72,9 @@ h4 {
 	font-size: 100%;
 }
 
-/* keyword search */
+/* -------------------------------------------------
+                                   Keyword Search
+------------------------------------------------- */
 .keywordsearch {
 	padding: 0.7em 0 0.7em 0;
 }
@@ -85,7 +94,9 @@ h4 {
 	list-style-type: none;
 }
 
-/* table */
+/* -------------------------------------------------
+                                   Database Table
+------------------------------------------------- */
 table {
 	border-collapse:collapse;
 }
@@ -192,9 +203,18 @@ table.child, table.child td, table.child th {
 }
 
 /* table supplementary info */
-span.tableschema {
-	font-size: 0.6em;
+span.tableschematitle {
+	font-size: 0.5em;
+	color: #888888;
 }
+span.tablefirstdatetitle {
+	font-size: 0.5em;
+	color: #888888;
+}
+
+/* -------------------------------------------------
+                             Behavior Query Path
+------------------------------------------------- */
 span.bqpcount {
 	font-size: 0.5em;
 }
@@ -229,6 +249,10 @@ dl.bqplist dd.subinfo span.ctet {
 dl.bqplist dd.subinfo span.pmb {
 	color: green;
 }
+
+/* -------------------------------------------------
+                                 Stored Procedure
+------------------------------------------------- */
 dl.procedurelist {
 	padding-left: 2em;
 }
@@ -263,7 +287,9 @@ dl.procedurelist dd.column pre {
 	padding-left: 1em;
 }
 
-/** decomment modal for dbflute intro */
+/* -------------------------------------------------
+                                  Decomment Modal
+------------------------------------------------- */
 .decommentmodal {
 	display: none;
 	position: fixed;
@@ -276,12 +302,14 @@ dl.procedurelist dd.column pre {
 	background-color: rgba(0, 0, 0, 0.5);
 }
 .decommentmodalcontent {
+	position: relative;
 	z-index: 10;
 	width: 50%;
 	margin: 0 auto;
 	border: 1px solid #999999;
 	padding: 15px;
 	background-color: #ffffff;
+	border-radius: 4px;
 }
 .decommentmodalcontent p {
 	font-size: 14px;
@@ -292,7 +320,28 @@ dl.procedurelist dd.column pre {
 	margin-top: 10px;
 	font-size: 12px;
 }
-.decommentmodalbtn {
+.decommentmodal-ok-btn {
 	margin: 10px 5px 0 0;
 	padding: 5px 10px;
+	border-radius: 4px;
+}
+.decommentmodal-close-btn {
+	position: absolute;
+	margin-left: 10px;
+	padding: 0;
+	right: 10px;
+	top: 5px;
+	cursor: pointer;
+	width: 28px;
+	height: 28px;
+	border: 0;
+	border-radius: 50%;
+	color: #657786;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: center;
+	transition: box-shadow .15s ease-in-out;
+}
+.decommentmodal-close-btn:hover {
+	background-color: #eed;
 }

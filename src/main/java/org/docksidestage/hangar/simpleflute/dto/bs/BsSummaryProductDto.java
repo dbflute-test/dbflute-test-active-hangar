@@ -72,7 +72,7 @@ public abstract class BsSummaryProductDto implements Serializable {
     @JsonKey
     protected String _productStatusCode;
 
-    /** LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)} */
+    /** LATEST_PURCHASE_DATETIME: {TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _latestPurchaseDatetime;
 
@@ -332,7 +332,7 @@ public abstract class BsSummaryProductDto implements Serializable {
     }
 
     /**
-     * [get] LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [get] LATEST_PURCHASE_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -342,7 +342,7 @@ public abstract class BsSummaryProductDto implements Serializable {
     }
 
     /**
-     * [set] LATEST_PURCHASE_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [set] LATEST_PURCHASE_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @param latestPurchaseDatetime The value of the column 'LATEST_PURCHASE_DATETIME'. (NullAllowed)
      */
     public void setLatestPurchaseDatetime(java.time.LocalDateTime latestPurchaseDatetime) {

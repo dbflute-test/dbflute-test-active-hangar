@@ -22,10 +22,10 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     /** The parameter of memberId:ref(MEMBER) :: refers to (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10)}. */
     protected Integer _memberId;
 
-    /** The parameter of birthdateFrom:ref(MEMBER.BIRTHDATE) :: refers to (生年月日)BIRTHDATE: {DATE(8)}. */
+    /** The parameter of birthdateFrom:ref(MEMBER.BIRTHDATE) :: refers to (生年月日)BIRTHDATE: {DATE(10)}. */
     protected java.time.LocalDate _birthdateFrom;
 
-    /** The parameter of formalizedDatetimeFrom:ref(MEMBER.FORMALIZED_DATETIME) :: refers to (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)}. */
+    /** The parameter of formalizedDatetimeFrom:ref(MEMBER.FORMALIZED_DATETIME) :: refers to (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)}. */
     protected java.time.LocalDateTime _formalizedDatetimeFrom;
 
     /** The max size of safety result. */
@@ -147,7 +147,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [get] birthdateFrom:ref(MEMBER.BIRTHDATE) :: refers to (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * [get] birthdateFrom:ref(MEMBER.BIRTHDATE) :: refers to (生年月日)BIRTHDATE: {DATE(10)} <br>
      * @return The value of birthdateFrom. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.time.LocalDate getBirthdateFrom() {
@@ -155,7 +155,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [set] birthdateFrom:ref(MEMBER.BIRTHDATE) :: refers to (生年月日)BIRTHDATE: {DATE(8)} <br>
+     * [set] birthdateFrom:ref(MEMBER.BIRTHDATE) :: refers to (生年月日)BIRTHDATE: {DATE(10)} <br>
      * @param birthdateFrom The value of birthdateFrom. (NullAllowed)
      */
     public void setBirthdateFrom(java.time.LocalDate birthdateFrom) {
@@ -163,7 +163,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [get] formalizedDatetimeFrom:ref(MEMBER.FORMALIZED_DATETIME) :: refers to (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * [get] formalizedDatetimeFrom:ref(MEMBER.FORMALIZED_DATETIME) :: refers to (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)} <br>
      * @return The value of formalizedDatetimeFrom. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.time.LocalDateTime getFormalizedDatetimeFrom() {
@@ -171,7 +171,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [set] formalizedDatetimeFrom:ref(MEMBER.FORMALIZED_DATETIME) :: refers to (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(23, 10)} <br>
+     * [set] formalizedDatetimeFrom:ref(MEMBER.FORMALIZED_DATETIME) :: refers to (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)} <br>
      * @param formalizedDatetimeFrom The value of formalizedDatetimeFrom. (NullAllowed)
      */
     public void setFormalizedDatetimeFrom(java.time.LocalDateTime formalizedDatetimeFrom) {

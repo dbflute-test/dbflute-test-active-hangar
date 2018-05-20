@@ -149,6 +149,7 @@ public abstract class BsDoubleByteOnSqlDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public Integer getMemberId() {
@@ -157,6 +158,7 @@ public abstract class BsDoubleByteOnSqlDto implements Serializable {
 
     /**
      * [set] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -183,6 +185,8 @@ public abstract class BsDoubleByteOnSqlDto implements Serializable {
 
     /**
      * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @return The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed)
      */
     public String getMemberStatusName() {
@@ -191,6 +195,8 @@ public abstract class BsDoubleByteOnSqlDto implements Serializable {
 
     /**
      * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (NullAllowed)
      */
     public void setMemberStatusName(String memberStatusName) {

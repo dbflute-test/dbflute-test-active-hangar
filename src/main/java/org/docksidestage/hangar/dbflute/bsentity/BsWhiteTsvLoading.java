@@ -82,13 +82,13 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     /** LOADING_COUNT: {INTEGER(10)} */
     protected Integer _loadingCount;
 
-    /** LOADING_DATE: {NotNull, DATE(8)} */
+    /** LOADING_DATE: {NotNull, DATE(10)} */
     protected java.time.LocalDate _loadingDate;
 
-    /** BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _beginDatetime;
 
-    /** END_DATETIME: {TIMESTAMP(23, 10)} */
+    /** END_DATETIME: {TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _endDatetime;
 
     /** LARGE_FROM_FILE: {VARCHAR(500)} */
@@ -341,7 +341,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] LOADING_DATE: {NotNull, DATE(8)} <br>
+     * [get] LOADING_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'LOADING_DATE'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDate getLoadingDate() {
@@ -350,7 +350,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] LOADING_DATE: {NotNull, DATE(8)} <br>
+     * [set] LOADING_DATE: {NotNull, DATE(10)} <br>
      * @param loadingDate The value of the column 'LOADING_DATE'. (basically NotNull if update: for the constraint)
      */
     public void setLoadingDate(java.time.LocalDate loadingDate) {
@@ -359,7 +359,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'BEGIN_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getBeginDatetime() {
@@ -368,7 +368,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param beginDatetime The value of the column 'BEGIN_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setBeginDatetime(java.time.LocalDateTime beginDatetime) {
@@ -377,7 +377,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] END_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [get] END_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'END_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getEndDatetime() {
@@ -386,7 +386,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] END_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [set] END_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @param endDatetime The value of the column 'END_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setEndDatetime(java.time.LocalDateTime endDatetime) {

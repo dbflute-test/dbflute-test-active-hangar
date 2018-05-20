@@ -67,15 +67,15 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     @JsonKey
     protected Integer _loadingCount;
 
-    /** LOADING_DATE: {NotNull, DATE(8)} */
+    /** LOADING_DATE: {NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _loadingDate;
 
-    /** BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _beginDatetime;
 
-    /** END_DATETIME: {TIMESTAMP(23, 10)} */
+    /** END_DATETIME: {TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _endDatetime;
 
@@ -289,7 +289,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [get] LOADING_DATE: {NotNull, DATE(8)} <br>
+     * [get] LOADING_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'LOADING_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -299,7 +299,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [set] LOADING_DATE: {NotNull, DATE(8)} <br>
+     * [set] LOADING_DATE: {NotNull, DATE(10)} <br>
      * @param loadingDate The value of the column 'LOADING_DATE'. (NullAllowed)
      */
     public void setLoadingDate(java.time.LocalDate loadingDate) {
@@ -308,7 +308,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [get] BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'BEGIN_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -318,7 +318,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [set] BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param beginDatetime The value of the column 'BEGIN_DATETIME'. (NullAllowed)
      */
     public void setBeginDatetime(java.time.LocalDateTime beginDatetime) {
@@ -327,7 +327,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [get] END_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [get] END_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'END_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -337,7 +337,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [set] END_DATETIME: {TIMESTAMP(23, 10)} <br>
+     * [set] END_DATETIME: {TIMESTAMP(26, 6)} <br>
      * @param endDatetime The value of the column 'END_DATETIME'. (NullAllowed)
      */
     public void setEndDatetime(java.time.LocalDateTime endDatetime) {

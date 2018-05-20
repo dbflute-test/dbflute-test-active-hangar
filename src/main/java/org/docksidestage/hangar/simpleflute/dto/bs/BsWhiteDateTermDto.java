@@ -62,11 +62,11 @@ public abstract class BsWhiteDateTermDto implements Serializable {
     @JsonKey
     protected String _dateTermValue;
 
-    /** BEGIN_DATE: {NotNull, DATE(8)} */
+    /** BEGIN_DATE: {NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _beginDate;
 
-    /** END_DATE: {NotNull, DATE(8)} */
+    /** END_DATE: {NotNull, DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _endDate;
 
@@ -185,7 +185,7 @@ public abstract class BsWhiteDateTermDto implements Serializable {
     }
 
     /**
-     * [get] BEGIN_DATE: {NotNull, DATE(8)} <br>
+     * [get] BEGIN_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'BEGIN_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -195,7 +195,7 @@ public abstract class BsWhiteDateTermDto implements Serializable {
     }
 
     /**
-     * [set] BEGIN_DATE: {NotNull, DATE(8)} <br>
+     * [set] BEGIN_DATE: {NotNull, DATE(10)} <br>
      * @param beginDate The value of the column 'BEGIN_DATE'. (NullAllowed)
      */
     public void setBeginDate(java.time.LocalDate beginDate) {
@@ -204,7 +204,7 @@ public abstract class BsWhiteDateTermDto implements Serializable {
     }
 
     /**
-     * [get] END_DATE: {NotNull, DATE(8)} <br>
+     * [get] END_DATE: {NotNull, DATE(10)} <br>
      * @return The value of the column 'END_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -214,7 +214,7 @@ public abstract class BsWhiteDateTermDto implements Serializable {
     }
 
     /**
-     * [set] END_DATE: {NotNull, DATE(8)} <br>
+     * [set] END_DATE: {NotNull, DATE(10)} <br>
      * @param endDate The value of the column 'END_DATE'. (NullAllowed)
      */
     public void setEndDate(java.time.LocalDate endDate) {

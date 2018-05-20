@@ -70,7 +70,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     @JsonKey
     protected java.math.BigDecimal _paymentAmount;
 
-    /** (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(23, 10)} */
+    /** (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _paymentDatetime;
 
@@ -78,7 +78,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     @JsonKey
     protected String _paymentMethodCode;
 
-    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _registerDatetime;
 
@@ -86,7 +86,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     @JsonKey
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _updateDatetime;
 
@@ -332,7 +332,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     }
 
     /**
-     * [get] (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(26, 6)} <br>
      * 支払ったときの日時
      * @return The value of the column 'PAYMENT_DATETIME'. (NullAllowed)
      */
@@ -343,7 +343,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     }
 
     /**
-     * [set] (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] (支払日時)PAYMENT_DATETIME: {IX+, NotNull, TIMESTAMP(26, 6)} <br>
      * 支払ったときの日時
      * @param paymentDatetime The value of the column 'PAYMENT_DATETIME'. (NullAllowed)
      */
@@ -372,7 +372,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -382,7 +382,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -408,7 +408,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -418,7 +418,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

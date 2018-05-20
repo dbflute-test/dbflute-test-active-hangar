@@ -9,6 +9,7 @@
 # o isErrorSqlContinue: (NotRequired - Default false)
 # o sqlFileEncoding: (NotRequired - Default 'UTF-8')
 # o skipSheet: (NotRequired - Default '')
+# o isCheckSchemaPolicyInReps: (NotRequired - Default false)
 # o conventionalTakeAssertMap: (NotRequired - Default map:{})
 # o isIncrementSequenceToDataMax: (NotRequired - Default false)
 # o isSuppressBatchUpdate: (NotRequired - Default false)
@@ -100,6 +101,8 @@ map:{
                 ; WHITE_DB_COMMENT
                 ; WHITE_DEPRECATED_SELECT_BY_PKUQ
                 ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
+                ; WHITE_FIRST_DATE
+                ; WHITE_SCHEMA_DIFF
                 ; WHITE_SIMPLE_DTO_EXCEPT
             }
             ; tableTargetList = list:{}

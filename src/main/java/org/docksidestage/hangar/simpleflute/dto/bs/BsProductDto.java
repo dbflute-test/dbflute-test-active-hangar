@@ -80,7 +80,7 @@ public abstract class BsProductDto implements Serializable {
     @JsonKey
     protected Integer _regularPrice;
 
-    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _registerDatetime;
 
@@ -88,7 +88,7 @@ public abstract class BsProductDto implements Serializable {
     @JsonKey
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} */
+    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _updateDatetime;
 
@@ -412,7 +412,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -422,7 +422,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -448,7 +448,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -458,7 +458,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

@@ -63,6 +63,9 @@ map:{
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INTEGER
             ; if columnName is suffix:_FLG then classification
+            # now, violation exists (2018/05/16)
+            #; if columnName is $$table$$_ID then alias is $$tableAlias$$ID
+            #; if alias is $$tableAlias$$ID then columnName is $$table$$_ID
 
             ; if columnName is suffix:_CODE then sameColumnDbTypeIfSameColumnName
             ; if tableColumnName is contain:BER.MEM then tableColumnName is contain:ER.ME

@@ -273,7 +273,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @param beginDate The value of beginDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDate_Equal(java.time.LocalDate beginDate) {
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @param beginDate The value of beginDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDate_GreaterThan(java.time.LocalDate beginDate) {
@@ -291,7 +291,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @param beginDate The value of beginDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDate_LessThan(java.time.LocalDate beginDate) {
@@ -300,7 +300,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @param beginDate The value of beginDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDate_GreaterEqual(java.time.LocalDate beginDate) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * @param beginDate The value of beginDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDate_LessEqual(java.time.LocalDate beginDate) {
@@ -319,7 +319,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setBeginDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -332,7 +332,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATE: {NotNull, DATE(8)}
+     * BEGIN_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setBeginDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -348,7 +348,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @param endDate The value of endDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDate_Equal(java.time.LocalDate endDate) {
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @param endDate The value of endDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDate_GreaterThan(java.time.LocalDate endDate) {
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @param endDate The value of endDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDate_LessThan(java.time.LocalDate endDate) {
@@ -375,7 +375,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @param endDate The value of endDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDate_GreaterEqual(java.time.LocalDate endDate) {
@@ -384,7 +384,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * @param endDate The value of endDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDate_LessEqual(java.time.LocalDate endDate) {
@@ -394,7 +394,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setEndDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -407,7 +407,7 @@ public abstract class AbstractBsWhiteDateTermCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATE: {NotNull, DATE(8)}
+     * END_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setEndDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDate. (basically NotNull: if op.allowOneSide(), null allowed)

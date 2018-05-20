@@ -1,0 +1,212 @@
+package org.docksidestage.hangar.dbflute.bsentity;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.dbflute.dbmeta.DBMeta;
+import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
+import org.docksidestage.hangar.dbflute.exentity.*;
+
+/**
+ * The entity of WHITE_SCHEMA_DIFF as TABLE. <br>
+ * <pre>
+ * [primary-key]
+ *     SCHEMA_DIFF_ID
+ *
+ * [column]
+ *     SCHEMA_DIFF_ID, SCHEMA_DIFF_NAME, SCHEMA_DIFF_DATE
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long schemaDiffId = entity.getSchemaDiffId();
+ * String schemaDiffName = entity.getSchemaDiffName();
+ * java.time.LocalDate schemaDiffDate = entity.getSchemaDiffDate();
+ * entity.setSchemaDiffId(schemaDiffId);
+ * entity.setSchemaDiffName(schemaDiffName);
+ * entity.setSchemaDiffDate(schemaDiffDate);
+ * = = = = = = = = = =/
+ * </pre>
+ * @author DBFlute(AutoGenerator)
+ */
+public abstract class BsWhiteSchemaDiff extends AbstractEntity implements DomainEntity {
+
+    // ===================================================================================
+    //                                                                          Definition
+    //                                                                          ==========
+    /** The serial version UID for object serialization. (Default) */
+    private static final long serialVersionUID = 1L;
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    /** SCHEMA_DIFF_ID: {PK, NotNull, DECIMAL(16)} */
+    protected Long _schemaDiffId;
+
+    /** SCHEMA_DIFF_NAME: {NotNull, VARCHAR(200)} */
+    protected String _schemaDiffName;
+
+    /** SCHEMA_DIFF_DATE: {NotNull, DATE(10)} */
+    protected java.time.LocalDate _schemaDiffDate;
+
+    // ===================================================================================
+    //                                                                             DB Meta
+    //                                                                             =======
+    /** {@inheritDoc} */
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "WHITE_SCHEMA_DIFF";
+    }
+
+    // ===================================================================================
+    //                                                                        Key Handling
+    //                                                                        ============
+    /** {@inheritDoc} */
+    public boolean hasPrimaryKeyValue() {
+        if (_schemaDiffId == null) { return false; }
+        return true;
+    }
+
+    // ===================================================================================
+    //                                                                    Foreign Property
+    //                                                                    ================
+    // ===================================================================================
+    //                                                                   Referrer Property
+    //                                                                   =================
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
+        return new ArrayList<ELEMENT>();
+    }
+
+    // ===================================================================================
+    //                                                                      Basic Override
+    //                                                                      ==============
+    @Override
+    protected boolean doEquals(Object obj) {
+        if (obj instanceof BsWhiteSchemaDiff) {
+            BsWhiteSchemaDiff other = (BsWhiteSchemaDiff)obj;
+            if (!xSV(_schemaDiffId, other._schemaDiffId)) { return false; }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    protected int doHashCode(int initial) {
+        int hs = initial;
+        hs = xCH(hs, asTableDbName());
+        hs = xCH(hs, _schemaDiffId);
+        return hs;
+    }
+
+    @Override
+    protected String doBuildStringWithRelation(String li) {
+        return "";
+    }
+
+    @Override
+    protected String doBuildColumnString(String dm) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(xfND(_schemaDiffId));
+        sb.append(dm).append(xfND(_schemaDiffName));
+        sb.append(dm).append(xfND(_schemaDiffDate));
+        if (sb.length() > dm.length()) {
+            sb.delete(0, dm.length());
+        }
+        sb.insert(0, "{").append("}");
+        return sb.toString();
+    }
+
+    @Override
+    protected String doBuildRelationString(String dm) {
+        return "";
+    }
+
+    @Override
+    public WhiteSchemaDiff clone() {
+        return (WhiteSchemaDiff)super.clone();
+    }
+
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] SCHEMA_DIFF_ID: {PK, NotNull, DECIMAL(16)} <br>
+     * @return The value of the column 'SCHEMA_DIFF_ID'. (basically NotNull if selected: for the constraint)
+     */
+    public Long getSchemaDiffId() {
+        checkSpecifiedProperty("schemaDiffId");
+        return _schemaDiffId;
+    }
+
+    /**
+     * [set] SCHEMA_DIFF_ID: {PK, NotNull, DECIMAL(16)} <br>
+     * @param schemaDiffId The value of the column 'SCHEMA_DIFF_ID'. (basically NotNull if update: for the constraint)
+     */
+    public void setSchemaDiffId(Long schemaDiffId) {
+        registerModifiedProperty("schemaDiffId");
+        _schemaDiffId = schemaDiffId;
+    }
+
+    /**
+     * [get] SCHEMA_DIFF_NAME: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'SCHEMA_DIFF_NAME'. (basically NotNull if selected: for the constraint)
+     */
+    public String getSchemaDiffName() {
+        checkSpecifiedProperty("schemaDiffName");
+        return convertEmptyToNull(_schemaDiffName);
+    }
+
+    /**
+     * [set] SCHEMA_DIFF_NAME: {NotNull, VARCHAR(200)} <br>
+     * @param schemaDiffName The value of the column 'SCHEMA_DIFF_NAME'. (basically NotNull if update: for the constraint)
+     */
+    public void setSchemaDiffName(String schemaDiffName) {
+        registerModifiedProperty("schemaDiffName");
+        _schemaDiffName = schemaDiffName;
+    }
+
+    /**
+     * [get] SCHEMA_DIFF_DATE: {NotNull, DATE(10)} <br>
+     * @return The value of the column 'SCHEMA_DIFF_DATE'. (basically NotNull if selected: for the constraint)
+     */
+    public java.time.LocalDate getSchemaDiffDate() {
+        checkSpecifiedProperty("schemaDiffDate");
+        return _schemaDiffDate;
+    }
+
+    /**
+     * [set] SCHEMA_DIFF_DATE: {NotNull, DATE(10)} <br>
+     * @param schemaDiffDate The value of the column 'SCHEMA_DIFF_DATE'. (basically NotNull if update: for the constraint)
+     */
+    public void setSchemaDiffDate(java.time.LocalDate schemaDiffDate) {
+        registerModifiedProperty("schemaDiffDate");
+        _schemaDiffDate = schemaDiffDate;
+    }
+}

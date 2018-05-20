@@ -588,7 +588,7 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param registerDatetime The value of registerDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
@@ -616,7 +616,7 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param updateDatetime The value of updateDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {

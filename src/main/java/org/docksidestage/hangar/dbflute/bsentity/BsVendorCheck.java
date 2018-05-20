@@ -163,13 +163,13 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     /** TYPE_OF_BIGINT: {BIGINT(19)} */
     protected Long _typeOfBigint;
 
-    /** TYPE_OF_DATE: {DATE(8)} */
+    /** TYPE_OF_DATE: {DATE(10)} */
     protected java.time.LocalDate _typeOfDate;
 
-    /** TYPE_OF_TIMESTAMP: {TIMESTAMP(23, 10)} */
+    /** TYPE_OF_TIMESTAMP: {TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _typeOfTimestamp;
 
-    /** TYPE_OF_TIME: {TIME(6)} */
+    /** TYPE_OF_TIME: {TIME(8)} */
     protected java.time.LocalTime _typeOfTime;
 
     /** TYPE_OF_BOOLEAN: {BOOLEAN(1)} */
@@ -613,7 +613,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] TYPE_OF_DATE: {DATE(8)} <br>
+     * [get] TYPE_OF_DATE: {DATE(10)} <br>
      * @return The value of the column 'TYPE_OF_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDate getTypeOfDate() {
@@ -622,7 +622,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] TYPE_OF_DATE: {DATE(8)} <br>
+     * [set] TYPE_OF_DATE: {DATE(10)} <br>
      * @param typeOfDate The value of the column 'TYPE_OF_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDate(java.time.LocalDate typeOfDate) {
@@ -631,7 +631,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] TYPE_OF_TIMESTAMP: {TIMESTAMP(23, 10)} <br>
+     * [get] TYPE_OF_TIMESTAMP: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'TYPE_OF_TIMESTAMP'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getTypeOfTimestamp() {
@@ -640,7 +640,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] TYPE_OF_TIMESTAMP: {TIMESTAMP(23, 10)} <br>
+     * [set] TYPE_OF_TIMESTAMP: {TIMESTAMP(26, 6)} <br>
      * @param typeOfTimestamp The value of the column 'TYPE_OF_TIMESTAMP'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTimestamp(java.time.LocalDateTime typeOfTimestamp) {
@@ -649,7 +649,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] TYPE_OF_TIME: {TIME(6)} <br>
+     * [get] TYPE_OF_TIME: {TIME(8)} <br>
      * @return The value of the column 'TYPE_OF_TIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalTime getTypeOfTime() {
@@ -658,7 +658,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] TYPE_OF_TIME: {TIME(6)} <br>
+     * [set] TYPE_OF_TIME: {TIME(8)} <br>
      * @param typeOfTime The value of the column 'TYPE_OF_TIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTime(java.time.LocalTime typeOfTime) {

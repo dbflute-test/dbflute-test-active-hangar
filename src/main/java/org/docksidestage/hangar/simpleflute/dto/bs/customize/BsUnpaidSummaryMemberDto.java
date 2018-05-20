@@ -150,6 +150,7 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (会員ID)UNPAID_MAN_ID: {PK, INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'UNPAID_MAN_ID'. (NullAllowed)
      */
     public Integer getUnpaidManId() {
@@ -158,6 +159,7 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
 
     /**
      * [set] (会員ID)UNPAID_MAN_ID: {PK, INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param unpaidManId The value of the column 'UNPAID_MAN_ID'. (NullAllowed)
      */
     public void setUnpaidManId(Integer unpaidManId) {
@@ -167,6 +169,8 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
 
     /**
      * [get] (会員名称)UNPAID_MAN_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
+     * 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
      * @return The value of the column 'UNPAID_MAN_NAME'. (NullAllowed)
      */
     public String getUnpaidManName() {
@@ -175,6 +179,8 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
 
     /**
      * [set] (会員名称)UNPAID_MAN_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
+     * 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
      * @param unpaidManName The value of the column 'UNPAID_MAN_NAME'. (NullAllowed)
      */
     public void setUnpaidManName(String unpaidManName) {
@@ -201,6 +207,8 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
 
     /**
      * [get] (会員ステータス名称)STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @return The value of the column 'STATUS_NAME'. (NullAllowed)
      */
     public String getStatusName() {
@@ -209,6 +217,8 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
 
     /**
      * [set] (会員ステータス名称)STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
+     * 表示用の名称。<br>
+     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。
      * @param statusName The value of the column 'STATUS_NAME'. (NullAllowed)
      */
     public void setStatusName(String statusName) {

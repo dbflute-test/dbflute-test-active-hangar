@@ -75,9 +75,9 @@ public class WhiteTsvLoadingDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTsvLoadingId = cci("TSV_LOADING_ID", "TSV_LOADING_ID", null, null, Long.class, "tsvLoadingId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTsvLoadingName = cci("TSV_LOADING_NAME", "TSV_LOADING_NAME", null, null, String.class, "tsvLoadingName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnLoadingCount = cci("LOADING_COUNT", "LOADING_COUNT", null, null, Integer.class, "loadingCount", null, false, false, false, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnLoadingDate = cci("LOADING_DATE", "LOADING_DATE", null, null, java.time.LocalDate.class, "loadingDate", null, false, false, true, "DATE", 8, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBeginDatetime = cci("BEGIN_DATETIME", "BEGIN_DATETIME", null, null, java.time.LocalDateTime.class, "beginDatetime", null, false, false, true, "TIMESTAMP", 23, 10, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnEndDatetime = cci("END_DATETIME", "END_DATETIME", null, null, java.time.LocalDateTime.class, "endDatetime", null, false, false, false, "TIMESTAMP", 23, 10, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnLoadingDate = cci("LOADING_DATE", "LOADING_DATE", null, null, java.time.LocalDate.class, "loadingDate", null, false, false, true, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBeginDatetime = cci("BEGIN_DATETIME", "BEGIN_DATETIME", null, null, java.time.LocalDateTime.class, "beginDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnEndDatetime = cci("END_DATETIME", "END_DATETIME", null, null, java.time.LocalDateTime.class, "endDatetime", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnLargeFromFile = cci("LARGE_FROM_FILE", "LARGE_FROM_FILE", null, null, String.class, "largeFromFile", null, false, false, false, "VARCHAR", 500, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDoneFlg = cci("DONE_FLG", "DONE_FLG", null, null, Boolean.class, "doneFlg", null, false, false, true, "BOOLEAN", 1, 0, null, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
 
@@ -97,17 +97,17 @@ public class WhiteTsvLoadingDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnLoadingCount() { return _columnLoadingCount; }
     /**
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnLoadingDate() { return _columnLoadingDate; }
     /**
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnBeginDatetime() { return _columnBeginDatetime; }
     /**
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnEndDatetime() { return _columnEndDatetime; }

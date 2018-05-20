@@ -68,7 +68,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     @JsonKey
     protected Integer _yourMemberId;
 
-    /** (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(23, 10)} */
+    /** (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _followDatetime;
 
@@ -230,7 +230,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [get] (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} <br>
      * ふりかえるとちょっと恥ずかしい気持ちになる日時
      * @return The value of the column 'FOLLOW_DATETIME'. (NullAllowed)
      */
@@ -241,7 +241,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [set] (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} <br>
      * ふりかえるとちょっと恥ずかしい気持ちになる日時
      * @param followDatetime The value of the column 'FOLLOW_DATETIME'. (NullAllowed)
      */

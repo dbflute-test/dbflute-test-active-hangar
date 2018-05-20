@@ -66,7 +66,7 @@ public abstract class BsMemberLoginDto implements Serializable {
     @JsonKey
     protected Integer _memberId;
 
-    /** (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(23, 10)} */
+    /** (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _loginDatetime;
 
@@ -356,7 +356,7 @@ public abstract class BsMemberLoginDto implements Serializable {
     }
 
     /**
-     * [get] (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(23, 10)} <br>
+     * [get] (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(26, 6)} <br>
      * ログインした瞬間の日時。<br>
      * 同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)
      * @return The value of the column 'LOGIN_DATETIME'. (NullAllowed)
@@ -368,7 +368,7 @@ public abstract class BsMemberLoginDto implements Serializable {
     }
 
     /**
-     * [set] (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(23, 10)} <br>
+     * [set] (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, TIMESTAMP(26, 6)} <br>
      * ログインした瞬間の日時。<br>
      * 同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)
      * @param loginDatetime The value of the column 'LOGIN_DATETIME'. (NullAllowed)

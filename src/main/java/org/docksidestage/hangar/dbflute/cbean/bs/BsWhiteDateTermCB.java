@@ -294,12 +294,12 @@ public class BsWhiteDateTermCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnDateTermValue() { return doColumn("DATE_TERM_VALUE"); }
         /**
-         * BEGIN_DATE: {NotNull, DATE(8)}
+         * BEGIN_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBeginDate() { return doColumn("BEGIN_DATE"); }
         /**
-         * END_DATE: {NotNull, DATE(8)}
+         * END_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnEndDate() { return doColumn("END_DATE"); }

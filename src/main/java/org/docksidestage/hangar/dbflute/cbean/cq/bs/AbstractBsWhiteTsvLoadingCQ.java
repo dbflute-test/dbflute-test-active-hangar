@@ -363,7 +363,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @param loadingDate The value of loadingDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadingDate_Equal(java.time.LocalDate loadingDate) {
@@ -372,7 +372,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @param loadingDate The value of loadingDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadingDate_GreaterThan(java.time.LocalDate loadingDate) {
@@ -381,7 +381,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @param loadingDate The value of loadingDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadingDate_LessThan(java.time.LocalDate loadingDate) {
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @param loadingDate The value of loadingDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadingDate_GreaterEqual(java.time.LocalDate loadingDate) {
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * @param loadingDate The value of loadingDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadingDate_LessEqual(java.time.LocalDate loadingDate) {
@@ -409,7 +409,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setLoadingDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loadingDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loadingDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -422,7 +422,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * LOADING_DATE: {NotNull, DATE(8)}
+     * LOADING_DATE: {NotNull, DATE(10)}
      * <pre>e.g. setLoadingDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loadingDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of loadingDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -438,7 +438,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param beginDatetime The value of beginDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDatetime_Equal(java.time.LocalDateTime beginDatetime) {
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param beginDatetime The value of beginDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDatetime_GreaterThan(java.time.LocalDateTime beginDatetime) {
@@ -456,7 +456,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param beginDatetime The value of beginDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDatetime_LessThan(java.time.LocalDateTime beginDatetime) {
@@ -465,7 +465,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param beginDatetime The value of beginDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDatetime_GreaterEqual(java.time.LocalDateTime beginDatetime) {
@@ -474,7 +474,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param beginDatetime The value of beginDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBeginDatetime_LessEqual(java.time.LocalDateTime beginDatetime) {
@@ -484,7 +484,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * <pre>e.g. setBeginDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -497,7 +497,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * BEGIN_DATETIME: {NotNull, TIMESTAMP(23, 10)}
+     * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * <pre>e.g. setBeginDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of beginDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -513,7 +513,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @param endDatetime The value of endDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDatetime_Equal(java.time.LocalDateTime endDatetime) {
@@ -522,7 +522,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @param endDatetime The value of endDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDatetime_GreaterThan(java.time.LocalDateTime endDatetime) {
@@ -531,7 +531,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @param endDatetime The value of endDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDatetime_LessThan(java.time.LocalDateTime endDatetime) {
@@ -540,7 +540,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @param endDatetime The value of endDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDatetime_GreaterEqual(java.time.LocalDateTime endDatetime) {
@@ -549,7 +549,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * @param endDatetime The value of endDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setEndDatetime_LessEqual(java.time.LocalDateTime endDatetime) {
@@ -559,7 +559,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * <pre>e.g. setEndDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -572,7 +572,7 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      * <pre>e.g. setEndDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of endDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -585,13 +585,13 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      */
     public void setEndDatetime_IsNull() { regEndDatetime(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * END_DATETIME: {TIMESTAMP(23, 10)}
+     * END_DATETIME: {TIMESTAMP(26, 6)}
      */
     public void setEndDatetime_IsNotNull() { regEndDatetime(CK_ISNN, DOBJ); }
 

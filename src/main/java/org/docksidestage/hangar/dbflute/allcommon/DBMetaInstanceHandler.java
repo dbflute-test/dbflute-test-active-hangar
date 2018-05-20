@@ -58,6 +58,8 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("WHITE_DB_COMMENT", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDbCommentDbm");
         tmpMap.put("WHITE_DEPRECATED_SELECT_BY_PKUQ", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSelectByPkuqDbm");
         tmpMap.put("WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSpecifyBatchColumnDbm");
+        tmpMap.put("WHITE_FIRST_DATE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteFirstDateDbm");
+        tmpMap.put("WHITE_SCHEMA_DIFF", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSchemaDiffDbm");
         tmpMap.put("WHITE_SIMPLE_DTO_EXCEPT", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSimpleDtoExceptDbm");
         tmpMap.put("WHITE_TSV_LOADING", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteTsvLoadingDbm");
         tmpMap.put("WITHDRAWAL_REASON", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
