@@ -1,4 +1,23 @@
 map:{
+    ; 2018/05/23 01:43:19 = map:{
+        ; diffDate = 2018/05/23 01:43:19
+        ; tableCount = map:{
+            ; next = 34
+            ; previous = 32
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_COMPOUND_PK = map:{
+                ; tableName = WHITE_COMPOUND_PK
+                ; diffType = ADD
+            }
+            ; WHITE_SINGLE_PK = map:{
+                ; tableName = WHITE_SINGLE_PK
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/05/19 18:29:48 = map:{
         ; diffDate = 2018/05/19 18:29:48
         ; diffAuthor = jflute

@@ -183,6 +183,11 @@ public class DBFluteModule extends AbstractModule {
             bind(VendorTheLongAndWindingTableAndColumnRefBhv.class).toInstance(bhv);
         }
         {
+            WhiteCompoundPkBhv bhv = new WhiteCompoundPkBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteCompoundPkBhv.class).toInstance(bhv);
+        }
+        {
             WhiteDateTermBhv bhv = new WhiteDateTermBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteDateTermBhv.class).toInstance(bhv);
@@ -216,6 +221,11 @@ public class DBFluteModule extends AbstractModule {
             WhiteSimpleDtoExceptBhv bhv = new WhiteSimpleDtoExceptBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteSimpleDtoExceptBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteSinglePkBhv bhv = new WhiteSinglePkBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteSinglePkBhv.class).toInstance(bhv);
         }
         {
             WhiteTsvLoadingBhv bhv = new WhiteTsvLoadingBhv();

@@ -104,6 +104,8 @@ map:{
                 ; WHITE_FIRST_DATE
                 ; WHITE_SCHEMA_DIFF
                 ; WHITE_SIMPLE_DTO_EXCEPT
+                ; WHITE_COMPOUND_PK
+                ; WHITE_SINGLE_PK
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = null

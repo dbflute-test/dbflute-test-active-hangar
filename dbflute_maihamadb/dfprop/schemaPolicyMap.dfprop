@@ -35,11 +35,16 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-    ; tableExceptList = list:{ REGION ; prefix:VENDOR_ ; prefix:WHITE_ }
+    ; tableExceptList = list:{
+        ; REGION ; prefix:VENDOR_
+
+        # because DONE_FLG is BOOLEAN
+        ; WHITE_TSV_LOADING
+    }
     ; tableTargetList = list:{}
     ; columnExceptMap = map:{}
     ; isMainSchemaOnly = false
-    
+
     ; wholeMap = map:{
         ; themeList = list:{
             ; uniqueTableAlias
@@ -50,10 +55,27 @@ map:{
         }
     }
     ; tableMap = map:{
-        ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
+        ; themeList = list:{
+            ; hasPK ; upperCaseBasis
+            # for WHITE_ tables
+            #; identityIfPureIDPK
+        }
         ; statementList = list:{
             ; if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$
             ; if firstDate is after:2014/05/01 then fkName is prefix:FK_$$table$$
+
+            # modify temporarily: comment on table MEMBER is 'MEMBER: MEMBER';
+            # basically this is for ERMaster
+            ; if tableName is $$ALL$$ then alias is not $$tableName$$
+            ; if tableName is $$ALL$$ then alias is not $$comment$$
+            ; if tableName is $$ALL$$ then tableName is not $$comment$$
+            ; if alias is $$tableName$$ then bad
+            ; if alias is $$comment$$ then bad
+            ; if tableName is $$comment$$ then bad
+
+            # test of unknown variables
+            #; if tableName is contain:$$sea$$ then bad
+            #; if alias is $$ALL$$ then comment is $$land-oneman$$
         }
     }
     ; columnMap = map:{
@@ -63,10 +85,33 @@ map:{
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INTEGER
             ; if columnName is suffix:_FLG then classification
-            # now, violation exists (2018/05/16)
+
+            # test of manual identityIfPureIDPK
+            # add "or contain:_SINGLE_" then failure
+            ; if tableName is prefix:M or prefix:P or contain:_COMPOUND_ and column is singlePK and columnName is suffix:_ID and column is not fk then identity => instead of identityIfPureIDPK
+
+            # test of singlePK
+            ; if tableName is MEMBER and columnName is MEMBER_ID then column is singlePK
+            #; if columnName is contain:PK_FIRST_ID then column is singlePK
+
+            # test of dollar variables
             #; if columnName is $$table$$_ID then alias is $$tableAlias$$ID
             #; if alias is $$tableAlias$$ID then columnName is $$table$$_ID
+            #
+            # modify temporarily: comment on column MEMBER.MEMBER_ID is 'MEMBER_ID: MEMBER_ID';
+            # basically this is for ERMaster
+            ; if columnName is $$ALL$$ then alias is not $$columnName$$
+            ; if columnName is $$ALL$$ then alias is not $$comment$$
+            ; if columnName is $$ALL$$ then columnName is not $$comment$$
+            ; if alias is $$columnName$$ then bad
+            ; if alias is $$comment$$ then bad
+            ; if columnName is $$comment$$ then bad
 
+            # test of unknown variables
+            #; if columnName is contain:$$sea$$ then bad
+            #; if alias is $$ALL$$ then comment is $$land-oneman$$
+
+            # test of various pattern
             ; if columnName is suffix:_CODE then sameColumnDbTypeIfSameColumnName
             ; if tableColumnName is contain:BER.MEM then tableColumnName is contain:ER.ME
             ; if firstDate is after:2014/05/01 and tableName is MEMBER then tableName is prefix:ME

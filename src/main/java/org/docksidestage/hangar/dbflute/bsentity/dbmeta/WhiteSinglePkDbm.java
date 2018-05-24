@@ -13,17 +13,17 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of VENDOR_IDENTITY_ONLY. (Singleton)
+ * The DB meta of WHITE_SINGLE_PK. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class VendorIdentityOnlyDbm extends AbstractDBMeta {
+public class WhiteSinglePkDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final VendorIdentityOnlyDbm _instance = new VendorIdentityOnlyDbm();
-    private VendorIdentityOnlyDbm() {}
-    public static VendorIdentityOnlyDbm getInstance() { return _instance; }
+    private static final WhiteSinglePkDbm _instance = new WhiteSinglePkDbm();
+    private WhiteSinglePkDbm() {}
+    public static WhiteSinglePkDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -42,7 +42,9 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((VendorIdentityOnly)et).getIdentityOnlyId(), (et, vl) -> ((VendorIdentityOnly)et).setIdentityOnlyId(ctl(vl)), "identityOnlyId");
+        setupEpg(_epgMap, et -> ((WhiteSinglePk)et).getOnlyOnePkId(), (et, vl) -> ((WhiteSinglePk)et).setOnlyOnePkId(ctl(vl)), "onlyOnePkId");
+        setupEpg(_epgMap, et -> ((WhiteSinglePk)et).getSinglePkName(), (et, vl) -> ((WhiteSinglePk)et).setSinglePkName((String)vl), "singlePkName");
+        setupEpg(_epgMap, et -> ((WhiteSinglePk)et).getReferredId(), (et, vl) -> ((WhiteSinglePk)et).setReferredId(cti(vl)), "referredId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -50,10 +52,10 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "VENDOR_IDENTITY_ONLY";
-    protected final String _tableDispName = "VENDOR_IDENTITY_ONLY";
-    protected final String _tablePropertyName = "vendorIdentityOnly";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.VENDOR_IDENTITY_ONLY", _tableDbName);
+    protected final String _tableDbName = "WHITE_SINGLE_PK";
+    protected final String _tableDispName = "WHITE_SINGLE_PK";
+    protected final String _tablePropertyName = "whiteSinglePk";
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_SINGLE_PK", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -63,17 +65,31 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnIdentityOnlyId = cci("IDENTITY_ONLY_ID", "IDENTITY_ONLY_ID", null, null, Long.class, "identityOnlyId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_183EC968_A518_4FE5_8DF8_00DC2608929A", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOnlyOnePkId = cci("ONLY_ONE_PK_ID", "ONLY_ONE_PK_ID", null, null, Long.class, "onlyOnePkId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSinglePkName = cci("SINGLE_PK_NAME", "SINGLE_PK_NAME", null, null, String.class, "singlePkName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * IDENTITY_ONLY_ID: {PK, ID, NotNull, BIGINT(19)}
+     * ONLY_ONE_PK_ID: {PK, NotNull, DECIMAL(16)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnIdentityOnlyId() { return _columnIdentityOnlyId; }
+    public ColumnInfo columnOnlyOnePkId() { return _columnOnlyOnePkId; }
+    /**
+     * SINGLE_PK_NAME: {NotNull, VARCHAR(200)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnSinglePkName() { return _columnSinglePkName; }
+    /**
+     * REFERRED_ID: {NotNull, INTEGER(10)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnReferredId() { return _columnReferredId; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnIdentityOnlyId());
+        ls.add(columnOnlyOnePkId());
+        ls.add(columnSinglePkName());
+        ls.add(columnReferredId());
         return ls;
     }
 
@@ -85,7 +101,7 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnIdentityOnlyId()); }
+    protected UniqueInfo cpui() { return hpcpui(columnOnlyOnePkId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
@@ -105,32 +121,31 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
-    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.VendorIdentityOnly"; }
-    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.VendorIdentityOnlyCB"; }
-    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.VendorIdentityOnlyBhv"; }
+    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteSinglePk"; }
+    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteSinglePkCB"; }
+    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteSinglePkBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<VendorIdentityOnly> getEntityType() { return VendorIdentityOnly.class; }
+    public Class<WhiteSinglePk> getEntityType() { return WhiteSinglePk.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public VendorIdentityOnly newEntity() { return new VendorIdentityOnly(); }
+    public WhiteSinglePk newEntity() { return new WhiteSinglePk(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((VendorIdentityOnly)et, mp); }
+    { doAcceptPrimaryKeyMap((WhiteSinglePk)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((VendorIdentityOnly)et, mp); }
+    { doAcceptAllColumnMap((WhiteSinglePk)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

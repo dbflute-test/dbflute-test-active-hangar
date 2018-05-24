@@ -197,6 +197,11 @@ public class MessagesAndDatabase implements Serializable {
     //  - THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID
     //  - THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE
     //  - SHORT_DATE
+    // WHITE_COMPOUND_PK
+    //  - PK_FIRST_ID
+    //  - PK_SECOND_ID
+    //  - COMPOUND_PK_NAME
+    //  - REFERRED_ID
     // WHITE_DATE_TERM
     //  - DATE_TERM_ID
     //  - DATE_TERM_VALUE
@@ -223,6 +228,10 @@ public class MessagesAndDatabase implements Serializable {
     // WHITE_SIMPLE_DTO_EXCEPT
     //  - SIMPLE_DTO_EXCEPT_ID
     //  - SIMPLE_DTO_EXCEPT_NAME
+    // WHITE_SINGLE_PK
+    //  - ONLY_ONE_PK_ID
+    //  - SINGLE_PK_NAME
+    //  - REFERRED_ID
     // WHITE_TSV_LOADING
     //  - TSV_LOADING_ID
     //  - TSV_LOADING_NAME

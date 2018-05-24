@@ -1,5 +1,16 @@
 
 -- /= = = = = = = = = = = = = = = = = = = = =
+-- for the test of compound PK
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_COMPOUND_PK (
+	PK_FIRST_ID NUMERIC(16) NOT NULL,
+	PK_SECOND_ID NUMERIC(16) NOT NULL,
+	COMPOUND_PK_NAME VARCHAR(200) NOT NULL,
+	REFERRED_ID INTEGER NOT NULL,
+	PRIMARY KEY(PK_FIRST_ID, PK_SECOND_ID)
+);
+
+-- /= = = = = = = = = = = = = = = = = = = = =
 -- for the test of fixed-only biz-one-to-one
 -- = = = = = = = = = =/
 CREATE TABLE WHITE_DATE_TERM (
@@ -84,6 +95,16 @@ CREATE TABLE WHITE_SCHEMA_DIFF (
 CREATE TABLE WHITE_SIMPLE_DTO_EXCEPT (
 	SIMPLE_DTO_EXCEPT_ID NUMERIC(16) NOT NULL PRIMARY KEY,
 	SIMPLE_DTO_EXCEPT_NAME VARCHAR(200) NOT NULL
+);
+
+-- /= = = = = = = = = = = = = = = = = = = = =
+-- for the test of single PK
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_SINGLE_PK (
+	ONLY_ONE_PK_ID NUMERIC(16) NOT NULL,
+	SINGLE_PK_NAME VARCHAR(200) NOT NULL,
+	REFERRED_ID INTEGER NOT NULL,
+	PRIMARY KEY(ONLY_ONE_PK_ID)
 );
 
 -- /= = = = = = = = = = = = = =
