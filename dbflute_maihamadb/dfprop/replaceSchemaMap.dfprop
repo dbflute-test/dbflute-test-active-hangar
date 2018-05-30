@@ -102,6 +102,7 @@ map:{
                 ; WHITE_DEPRECATED_SELECT_BY_PKUQ
                 ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
                 ; WHITE_FIRST_DATE
+                ; prefix:WHITE_ON_PARADE
                 ; WHITE_SCHEMA_DIFF
                 ; WHITE_SIMPLE_DTO_EXCEPT
                 ; WHITE_COMPOUND_PK

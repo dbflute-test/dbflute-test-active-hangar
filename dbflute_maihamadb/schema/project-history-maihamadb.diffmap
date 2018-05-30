@@ -1,4 +1,137 @@
 map:{
+    ; 2018/05/30 22:49:15 = map:{
+        ; diffDate = 2018/05/30 22:49:15
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_ON_PARADE_NULLABLE_TO_MANY = map:{
+                ; tableName = WHITE_ON_PARADE_NULLABLE_TO_MANY
+                ; diffType = ADD
+            }
+            ; WHITE_ON_PARADE_REF = map:{
+                ; tableName = WHITE_ON_PARADE_REF
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; NULLABLE_FK_TO_MANY_ID = map:{
+                        ; columnName = NULLABLE_FK_TO_MANY_ID
+                        ; diffType = ADD
+                    }
+                    ; NULLABLE_FK_MANY_MANY_ID = map:{
+                        ; columnName = NULLABLE_FK_MANY_MANY_ID
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_ON_PARADE_REF_MANY_MANY = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_MANY_MANY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = NULLABLE_FK_TO_MANY_ID
+                            ; previous = NULLABLE_FK_MANY_MANY_ID
+                        }
+                        ; foreignTableDiff = map:{
+                            ; next = WHITE_ON_PARADE_NULLABLE_TO_MANY
+                            ; previous = WHITE_ON_PARADE_MANY_MANY
+                        }
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_WHITE_ON_PARADE_REF_MANY_MANY_INDEX_9 = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_MANY_MANY_INDEX_9
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = NULLABLE_FK_TO_MANY_ID
+                            ; previous = NULLABLE_FK_MANY_MANY_ID
+                        }
+                    }
+                }
+            }
+            ; WHITE_ON_PARADE_MANY_MANY = map:{
+                ; tableName = WHITE_ON_PARADE_MANY_MANY
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2018/05/30 22:43:00 = map:{
+        ; diffDate = 2018/05/30 22:43:00
+        ; tableCount = map:{
+            ; next = 37
+            ; previous = 36
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_ON_PARADE_MANY_MANY = map:{
+                ; tableName = WHITE_ON_PARADE_MANY_MANY
+                ; diffType = ADD
+            }
+            ; WHITE_ON_PARADE_REF = map:{
+                ; tableName = WHITE_ON_PARADE_REF
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; NULLABLE_FK_ON_PARADE_ID = map:{
+                        ; columnName = NULLABLE_FK_ON_PARADE_ID
+                        ; diffType = ADD
+                    }
+                    ; NULLABLE_FK_MANY_MANY_ID = map:{
+                        ; columnName = NULLABLE_FK_MANY_MANY_ID
+                        ; diffType = ADD
+                    }
+                    ; NULLABLE_FK_ID = map:{
+                        ; columnName = NULLABLE_FK_ID
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_ON_PARADE_REF_MANY_MANY = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_MANY_MANY
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_ON_PARADE_REF_ON_PARADE = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_ON_PARADE
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_ON_PARADE_REF_NULLABLE_FK = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_NULLABLE_FK
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_WHITE_ON_PARADE_REF_MANY_MANY_INDEX_9 = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_MANY_MANY_INDEX_9
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_ON_PARADE_REF_ON_PARADE_INDEX_9 = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_ON_PARADE_INDEX_9
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_ON_PARADE_REF_NULLABLE_FK_INDEX_9 = map:{
+                        ; constraintName = FK_WHITE_ON_PARADE_REF_NULLABLE_FK_INDEX_9
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2018/05/30 22:34:44 = map:{
+        ; diffDate = 2018/05/30 22:34:44
+        ; tableCount = map:{
+            ; next = 36
+            ; previous = 34
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_ON_PARADE = map:{
+                ; tableName = WHITE_ON_PARADE
+                ; diffType = ADD
+            }
+            ; WHITE_ON_PARADE_REF = map:{
+                ; tableName = WHITE_ON_PARADE_REF
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/05/23 01:43:19 = map:{
         ; diffDate = 2018/05/23 01:43:19
         ; tableCount = map:{

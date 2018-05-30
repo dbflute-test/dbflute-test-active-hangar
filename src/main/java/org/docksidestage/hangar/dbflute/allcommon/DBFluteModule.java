@@ -213,6 +213,21 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteFirstDateBhv.class).toInstance(bhv);
         }
         {
+            WhiteOnParadeBhv bhv = new WhiteOnParadeBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteOnParadeBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteOnParadeNullableToManyBhv bhv = new WhiteOnParadeNullableToManyBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteOnParadeNullableToManyBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteOnParadeRefBhv bhv = new WhiteOnParadeRefBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteOnParadeRefBhv.class).toInstance(bhv);
+        }
+        {
             WhiteSchemaDiffBhv bhv = new WhiteSchemaDiffBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteSchemaDiffBhv.class).toInstance(bhv);

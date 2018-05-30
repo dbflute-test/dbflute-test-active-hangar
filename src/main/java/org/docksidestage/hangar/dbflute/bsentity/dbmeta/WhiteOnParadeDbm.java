@@ -13,17 +13,17 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of VENDOR_IDENTITY_ONLY. (Singleton)
+ * The DB meta of WHITE_ON_PARADE. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class VendorIdentityOnlyDbm extends AbstractDBMeta {
+public class WhiteOnParadeDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final VendorIdentityOnlyDbm _instance = new VendorIdentityOnlyDbm();
-    private VendorIdentityOnlyDbm() {}
-    public static VendorIdentityOnlyDbm getInstance() { return _instance; }
+    private static final WhiteOnParadeDbm _instance = new WhiteOnParadeDbm();
+    private WhiteOnParadeDbm() {}
+    public static WhiteOnParadeDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -42,7 +42,8 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((VendorIdentityOnly)et).getIdentityOnlyId(), (et, vl) -> ((VendorIdentityOnly)et).setIdentityOnlyId(ctl(vl)), "identityOnlyId");
+        setupEpg(_epgMap, et -> ((WhiteOnParade)et).getOnParadeId(), (et, vl) -> ((WhiteOnParade)et).setOnParadeId(ctl(vl)), "onParadeId");
+        setupEpg(_epgMap, et -> ((WhiteOnParade)et).getOnParadeName(), (et, vl) -> ((WhiteOnParade)et).setOnParadeName((String)vl), "onParadeName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -50,10 +51,10 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "VENDOR_IDENTITY_ONLY";
-    protected final String _tableDispName = "VENDOR_IDENTITY_ONLY";
-    protected final String _tablePropertyName = "vendorIdentityOnly";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.VENDOR_IDENTITY_ONLY", _tableDbName);
+    protected final String _tableDbName = "WHITE_ON_PARADE";
+    protected final String _tableDispName = "WHITE_ON_PARADE";
+    protected final String _tablePropertyName = "whiteOnParade";
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_ON_PARADE", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -63,17 +64,24 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnIdentityOnlyId = cci("IDENTITY_ONLY_ID", "IDENTITY_ONLY_ID", null, null, Long.class, "identityOnlyId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_423F93CA_6786_43B9_83AC_4FAF485F8BED", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOnParadeId = cci("ON_PARADE_ID", "ON_PARADE_ID", null, null, Long.class, "onParadeId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteOnParadeRefList", null, false);
+    protected final ColumnInfo _columnOnParadeName = cci("ON_PARADE_NAME", "ON_PARADE_NAME", null, null, String.class, "onParadeName", null, false, false, true, "VARCHAR", 100, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * IDENTITY_ONLY_ID: {PK, ID, NotNull, BIGINT(19)}
+     * ON_PARADE_ID: {PK, NotNull, DECIMAL(16)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnIdentityOnlyId() { return _columnIdentityOnlyId; }
+    public ColumnInfo columnOnParadeId() { return _columnOnParadeId; }
+    /**
+     * ON_PARADE_NAME: {NotNull, VARCHAR(100)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnOnParadeName() { return _columnOnParadeName; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnIdentityOnlyId());
+        ls.add(columnOnParadeId());
+        ls.add(columnOnParadeName());
         return ls;
     }
 
@@ -85,7 +93,7 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnIdentityOnlyId()); }
+    protected UniqueInfo cpui() { return hpcpui(columnOnParadeId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
@@ -101,36 +109,43 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
+    /**
+     * WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerWhiteOnParadeRefList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnOnParadeId(), WhiteOnParadeRefDbm.getInstance().columnNullableFkOnParadeId());
+        return cri("FK_WHITE_ON_PARADE_REF_ON_PARADE", "whiteOnParadeRefList", this, WhiteOnParadeRefDbm.getInstance(), mp, false, "whiteOnParade");
+    }
 
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
-    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.VendorIdentityOnly"; }
-    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.VendorIdentityOnlyCB"; }
-    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.VendorIdentityOnlyBhv"; }
+    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteOnParade"; }
+    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteOnParadeCB"; }
+    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteOnParadeBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<VendorIdentityOnly> getEntityType() { return VendorIdentityOnly.class; }
+    public Class<WhiteOnParade> getEntityType() { return WhiteOnParade.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public VendorIdentityOnly newEntity() { return new VendorIdentityOnly(); }
+    public WhiteOnParade newEntity() { return new WhiteOnParade(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((VendorIdentityOnly)et, mp); }
+    { doAcceptPrimaryKeyMap((WhiteOnParade)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((VendorIdentityOnly)et, mp); }
+    { doAcceptAllColumnMap((WhiteOnParade)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }
