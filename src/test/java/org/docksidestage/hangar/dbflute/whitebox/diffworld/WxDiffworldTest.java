@@ -56,6 +56,8 @@ public class WxDiffworldTest extends PlainTestCase {
     protected void checkDBFluteEnvironmentType() {
         assertTrue(new File(getDfpropPath() + "/diffworld/diffworlddb.mv.db").exists());
         assertTrue(new File(getDfpropPath() + "/diffworld/diffworlddb.trace.db").exists());
+        assertTrue(new File(getOutputDocPath() + "/diffworld-history-maihamadb.html").exists());
+        assertTrue(new File(getOutputDocPath() + "/diffworld-schema-maihamadb.html").exists());
     }
 
     // ===================================================================================
@@ -105,7 +107,8 @@ public class WxDiffworldTest extends PlainTestCase {
     //                                                                     ===============
     @SuppressWarnings("unchecked")
     protected void checkSchemaSyncCheck() throws IOException {
-        String diffmapPath = getSchemaPath() + "/project-sync-check.diffmap";
+        String schemaPath = getSchemaPath();
+        String diffmapPath = schemaPath + "/project-sync-check.diffmap";
         DfDiffMapFile diffMapFile = new DfDiffMapFile();
         Map<String, Object> diffMap = diffMapFile.readMap(new FileInputStream(new File(diffmapPath)));
         assertHasOnlyOneElement(diffMap.keySet());
@@ -115,6 +118,7 @@ public class WxDiffworldTest extends PlainTestCase {
         doCheckSchemaSyncCheckSequenceDiff(firstMap);
         doCheckSchemaSyncCheckProcedureDiff(firstMap, "MAIHAMADB");
         doCheckSchemaSyncCheckCraftDiff(firstMap);
+        assertTrue(new File(getOutputDocPath() + "/diffworld-sync-check-result.html").exists());
     }
 
     private void doCheckSchemaSyncCheckBasic(Map<String, Object> firstMap) {
@@ -248,9 +252,9 @@ public class WxDiffworldTest extends PlainTestCase {
     //                                                                          ==========
     @SuppressWarnings("unchecked")
     protected void checkAlterCheck() throws IOException {
-        String clientPath = getClientPath();
+        String playsqlPath = getPlaysqlPath();
         DfDiffMapFile diffMapFile = new DfDiffMapFile();
-        String diffmapPath = clientPath + "/playsql/migration/schema/migration-alter-check.diffmap";
+        String diffmapPath = playsqlPath + "/migration/schema/migration-alter-check.diffmap";
         File alterCheckFile = new File(diffmapPath);
         log("...Checking alter-check diffmap: {}", alterCheckFile);
         assertTrue(alterCheckFile.exists());
@@ -262,6 +266,8 @@ public class WxDiffworldTest extends PlainTestCase {
         doCheckAlterCheckSequenceDiff(firstMap);
         doCheckAlterCheckProcedureDiff(firstMap);
         doCheckAlterCheckCraftDiff(firstMap);
+        assertTrue(new File(playsqlPath + "/migration/alter/alter-schema.sql").exists());
+        assertTrue(new File(playsqlPath + "/migration/schema/alter-check-result.html").exists());
     }
 
     @SuppressWarnings("unchecked")
@@ -276,8 +282,12 @@ public class WxDiffworldTest extends PlainTestCase {
     private void doCheckAlterCheckTableDiff(Map<String, Object> firstMap) {
         Map<String, Object> tableDiffMap = (Map<String, Object>) firstMap.get("tableDiff");
         {
-            Map<String, Object> tableMap = (Map<String, Object>) tableDiffMap.get("MEMBER_FOLLOWING");
-            assertEquals("ADD", tableMap.get("diffType"));
+            Map<String, Object> followingMap = (Map<String, Object>) tableDiffMap.get("MEMBER_FOLLOWING");
+            assertEquals("ADD", followingMap.get("diffType"));
+        }
+        {
+            Map<String, Object> paymentMap = (Map<String, Object>) tableDiffMap.get("PURCHASE_PAYMENT");
+            assertEquals("ADD", paymentMap.get("diffType"));
         }
         doCheckSchemaSyncCheckTableDiff(firstMap); // same
     }
@@ -358,6 +368,10 @@ public class WxDiffworldTest extends PlainTestCase {
 
     private String getDfpropPath() {
         return getClientPath() + "/dfprop";
+    }
+
+    private String getOutputDocPath() {
+        return getClientPath() + "/output/doc";
     }
 
     private String getPlaysqlPath() {
