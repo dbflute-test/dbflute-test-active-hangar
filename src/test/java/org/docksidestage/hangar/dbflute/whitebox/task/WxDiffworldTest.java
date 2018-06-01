@@ -57,6 +57,10 @@ public class WxDiffworldTest extends PlainTestCase {
     @SuppressWarnings("unchecked")
     private void doCheckAlterCheckTableDiff(Map<String, Object> tableDiffMap) {
         {
+            Map<String, Object> tableMap = (Map<String, Object>) tableDiffMap.get("MEMBER_FOLLOWING");
+            assertEquals("ADD", tableMap.get("diffType"));
+        }
+        {
             Map<String, Object> tableMap = (Map<String, Object>) tableDiffMap.get("MEMBER");
             assertEquals("CHANGE", tableMap.get("diffType"));
             Map<String, Object> columnDiffMap = (Map<String, Object>) tableMap.get("columnDiff");

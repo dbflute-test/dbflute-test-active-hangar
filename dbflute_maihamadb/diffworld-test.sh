@@ -3,6 +3,9 @@
 cd `dirname $0`
 . _project.sh
 
+rm -Rf ./output/doc/craftdiff/
+rm -Rf ./schema/craftdiff/diffworld/
+
 export answer=y
 
 export DBFLUTE_ENVIRONMENT_TYPE=diffready
