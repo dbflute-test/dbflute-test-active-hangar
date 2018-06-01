@@ -1,4 +1,4 @@
-package org.docksidestage.hangar.dbflute.whitebox.task;
+package org.docksidestage.hangar.dbflute.whitebox.diffworld;
 
 import java.io.File;
 import java.io.FileInputStream;
