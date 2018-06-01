@@ -10,6 +10,7 @@ import org.dbflute.helper.process.ProcessResult;
 import org.dbflute.helper.process.SystemScript;
 import org.dbflute.infra.diffmap.DfDiffMapFile;
 import org.dbflute.utflute.core.PlainTestCase;
+import org.dbflute.util.DfTraceViewUtil;
 
 /**
  * @author jflute
@@ -18,29 +19,35 @@ public class WxDiffworldTest extends PlainTestCase {
 
     public void test_diffworld() throws IOException {
         // ## Arrange ##
-        SystemScript script = new SystemScript();
-        String clientPath = getClientPath();
-        File clientDir = new File(clientPath);
-        assertTrue(clientDir.exists());
-        String fileName = "diffworld-test.sh";
+        long before = System.currentTimeMillis();
+        try {
+            SystemScript script = new SystemScript();
+            String clientPath = getClientPath();
+            File clientDir = new File(clientPath);
+            assertTrue(clientDir.exists());
+            String fileName = "diffworld-test.sh";
 
-        // ## Act ##
-        log("...Executing diffworld: {}", fileName);
-        ProcessResult result = script.execute(clientDir, fileName);
+            // ## Act ##
+            log("...Executing diffworld: {}", fileName);
+            ProcessResult result = script.execute(clientDir, fileName);
 
-        // ## Assert ##
-        log("Finished the diffworld: {}, {}", result.getProcessName(), result.getExitCode());
-        assertEquals(0, result.getExitCode());
-        String console = result.getConsole();
-        log(console);
-        assertContains(console, "Ghastly Tragedy"); // SchemaSyncCheck
-        assertContains(console, "Migration Failure"); // AlterCheck
+            // ## Assert ##
+            log("Finished the diffworld: {}, {}", result.getProcessName(), result.getExitCode());
+            assertEquals(0, result.getExitCode());
+            String console = result.getConsole();
+            log(console);
+            assertContains(console, "Ghastly Tragedy"); // SchemaSyncCheck
+            assertContains(console, "Migration Failure"); // AlterCheck
 
-        checkDBFluteEnvironmentType();
-        checkArrangeBeforeReps();
-        checkCraftDiff();
-        checkSchemaSyncCheck();
-        checkAlterCheck();
+            checkDBFluteEnvironmentType();
+            checkArrangeBeforeReps();
+            checkCraftDiff();
+            checkSchemaSyncCheck();
+            checkAlterCheck();
+        } finally {
+            long after = System.currentTimeMillis();
+            log("performanceCost:[{}]", DfTraceViewUtil.convertToPerformanceView(after - before));
+        }
     }
 
     // ===================================================================================
@@ -96,18 +103,29 @@ public class WxDiffworldTest extends PlainTestCase {
     // ===================================================================================
     //                                                                     SchemaSyncCheck
     //                                                                     ===============
+    @SuppressWarnings("unchecked")
     protected void checkSchemaSyncCheck() throws IOException {
         String diffmapPath = getSchemaPath() + "/project-sync-check.diffmap";
         DfDiffMapFile diffMapFile = new DfDiffMapFile();
         Map<String, Object> diffMap = diffMapFile.readMap(new FileInputStream(new File(diffmapPath)));
         assertHasOnlyOneElement(diffMap.keySet());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> itemMap = (Map<String, Object>) diffMap.values().iterator().next();
-        assertNotNull(itemMap.get("diffAuthor"));
-        assertNotNull(itemMap.get("diffGitBranch"));
+        Map<String, Object> firstMap = (Map<String, Object>) diffMap.values().iterator().next();
+        doCheckSchemaSyncCheckBasic(firstMap);
+        doCheckSchemaSyncCheckTableDiff(firstMap);
+        doCheckSchemaSyncCheckSequenceDiff(firstMap);
+        doCheckSchemaSyncCheckProcedureDiff(firstMap, "MAIHAMADB");
+        doCheckSchemaSyncCheckCraftDiff(firstMap);
+    }
 
+    private void doCheckSchemaSyncCheckBasic(Map<String, Object> firstMap) {
+        assertNotNull(firstMap.get("diffDate"));
+        assertNotNull(firstMap.get("diffAuthor"));
+        assertNotNull(firstMap.get("diffGitBranch"));
+    }
+
+    private void doCheckSchemaSyncCheckTableDiff(Map<String, Object> firstMap) {
         @SuppressWarnings("unchecked")
-        Map<String, Map<String, Object>> tableDiffMap = (Map<String, Map<String, Object>>) itemMap.get("tableDiff");
+        Map<String, Map<String, Object>> tableDiffMap = (Map<String, Map<String, Object>>) firstMap.get("tableDiff");
         {
             Map<String, Object> memberMap = tableDiffMap.get("MEMBER");
             assertEquals("CHANGE", memberMap.get("diffType"));
@@ -121,22 +139,114 @@ public class WxDiffworldTest extends PlainTestCase {
             assertEquals("50", columnSizeDiffMap.get("previous"));
         }
         {
-            Map<String, Object> loingMap = tableDiffMap.get("MEMBER_LOGIN");
-            assertEquals("CHANGE", loingMap.get("diffType"));
+            Map<String, Object> loginMap = tableDiffMap.get("MEMBER_LOGIN");
+            assertEquals("CHANGE", loginMap.get("diffType"));
             @SuppressWarnings("unchecked")
-            Map<String, String> columnDefOrderDiffMap = (Map<String, String>) loingMap.get("columnDefOrderDiff");
+            Map<String, String> columnDefOrderDiffMap = (Map<String, String>) loginMap.get("columnDefOrderDiff");
             assertEquals("MOBILE_LOGIN_FLG(2)", columnDefOrderDiffMap.get("next"));
             assertEquals("MOBILE_LOGIN_FLG(4)", columnDefOrderDiffMap.get("previous"));
             @SuppressWarnings("unchecked")
-            Map<String, Map<String, Object>> indexDiffMap = (Map<String, Map<String, Object>>) loingMap.get("indexDiff");
+            Map<String, Map<String, Object>> indexDiffMap = (Map<String, Map<String, Object>>) loginMap.get("indexDiff");
             Map<String, Object> loginDatetimeIndexMap = indexDiffMap.get("IX_MEMBER_LOGIN_DATETIME");
             assertEquals("DELETE", loginDatetimeIndexMap.get("diffType"));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void doCheckSchemaSyncCheckSequenceDiff(Map<String, Object> firstMap) {
+        Map<String, Map<String, Object>> sequenceDiffMap = (Map<String, Map<String, Object>>) firstMap.get("sequenceDiff");
+        {
+            Map<String, Object> diffworldSeqMap = sequenceDiffMap.get("DIFFWORLDDB.PUBLIC.SEQ_DIFFWORLD");
+            assertEquals("ADD", diffworldSeqMap.get("diffType"));
+        }
+        {
+            Map<String, Object> purchaseSeqMap = sequenceDiffMap.get("DIFFWORLDDB.PUBLIC.SEQ_PURCHASE");
+            assertEquals("CHANGE", purchaseSeqMap.get("diffType"));
+            Map<String, Object> incrementSizeDiffMap = (Map<String, Object>) purchaseSeqMap.get("incrementSizeDiff");
+            assertEquals("99", incrementSizeDiffMap.get("next"));
+            assertEquals("8", incrementSizeDiffMap.get("previous"));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void doCheckSchemaSyncCheckProcedureDiff(Map<String, Object> firstMap, String deletedFnCatalog) {
+        Map<String, Map<String, Object>> procedureDiffMap = (Map<String, Map<String, Object>>) firstMap.get("procedureDiff");
+        {
+            Map<String, Object> diffworldFnMap = procedureDiffMap.get("DIFFWORLDDB.PUBLIC.FN_DIFF_WORLD");
+            assertEquals("ADD", diffworldFnMap.get("diffType"));
+        }
+        {
+            Map<String, Object> noParameterSpMap = procedureDiffMap.get("DIFFWORLDDB.PUBLIC.SP_NO_PARAMETER");
+            assertEquals("CHANGE", noParameterSpMap.get("diffType"));
+            Map<String, Object> sourceLineDiffMap = (Map<String, Object>) noParameterSpMap.get("sourceLineDiff");
+            assertEquals("\"8\"", sourceLineDiffMap.get("next")); // #hope remove unneeded quotation 
+            assertEquals("\"6\"", sourceLineDiffMap.get("previous"));
+            assertNotNull(noParameterSpMap.get("sourceSizeDiff"));
+            assertNotNull(noParameterSpMap.get("sourceHashDiff"));
+        }
+        {
+            Map<String, Object> noParameterFnMap = procedureDiffMap.get(deletedFnCatalog + ".PUBLIC.FN_NO_PARAMETER");
+            assertEquals("DELETE", noParameterFnMap.get("diffType"));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void doCheckSchemaSyncCheckCraftDiff(Map<String, Object> firstMap) {
+        Map<String, Map<String, Object>> craftDiffMap = (Map<String, Map<String, Object>>) firstMap.get("craftDiff");
+        {
+            Map<String, Object> memberMap = craftDiffMap.get("Member");
+            Map<String, Map<String, Object>> craftRowDiffMap = (Map<String, Map<String, Object>>) memberMap.get("craftRowDiff");
+            {
+                Map<String, Object> akagiMap = craftRowDiffMap.get("\u30a2\u30ab\u30ae");
+                assertEquals("CHANGE", akagiMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) akagiMap.get("craftValueDiff");
+                assertEquals("\"diffworld|null\"", craftValueDiffMap.get("next"));
+                assertEquals("\"Akagi|null\"", craftValueDiffMap.get("previous"));
+            }
+            {
+                Map<String, Object> maslovarMap = craftRowDiffMap.get("Maslovar");
+                assertEquals("CHANGE", maslovarMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) maslovarMap.get("craftValueDiff");
+                assertEquals("\"diff\"\t\"world|1967-02-20\"", craftValueDiffMap.get("next"));
+                assertEquals("\"JEFUnited|1967-02-20\"", craftValueDiffMap.get("previous"));
+            }
+        }
+        {
+            Map<String, Object> statusMap = craftDiffMap.get("MemberStatus");
+            Map<String, Map<String, Object>> craftRowDiffMap = (Map<String, Map<String, Object>>) statusMap.get("craftRowDiff");
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("DIF");
+                assertEquals("ADD", difMap.get("diffType"));
+            }
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("FML");
+                assertEquals("CHANGE", difMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) difMap.get("craftValueDiff");
+                assertEquals("\"Formalized|9\"", craftValueDiffMap.get("next"));
+                assertEquals("\"Formalized|1\"", craftValueDiffMap.get("previous"));
+            }
+        }
+        {
+            Map<String, Object> clsMap = craftDiffMap.get("TableCls");
+            Map<String, Map<String, Object>> craftRowDiffMap = (Map<String, Map<String, Object>>) clsMap.get("craftRowDiff");
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("MEMBER_STATUS::DIF");
+                assertEquals("ADD", difMap.get("diffType"));
+            }
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("MEMBER_STATUS::FML");
+                assertEquals("CHANGE", difMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) difMap.get("craftValueDiff");
+                assertEquals("\"Formalized|9\"", craftValueDiffMap.get("next"));
+                assertEquals("\"Formalized|1\"", craftValueDiffMap.get("previous"));
+            }
         }
     }
 
     // ===================================================================================
     //                                                                          AlterCheck
     //                                                                          ==========
+    @SuppressWarnings("unchecked")
     protected void checkAlterCheck() throws IOException {
         String clientPath = getClientPath();
         DfDiffMapFile diffMapFile = new DfDiffMapFile();
@@ -146,35 +256,92 @@ public class WxDiffworldTest extends PlainTestCase {
         assertTrue(alterCheckFile.exists());
         Map<String, Object> alterCheckMap = diffMapFile.readMap(new FileInputStream(alterCheckFile));
         assertEquals(1, alterCheckMap.size());
-        @SuppressWarnings("unchecked")
         Map<String, Object> firstMap = (Map<String, Object>) alterCheckMap.values().iterator().next();
-        @SuppressWarnings("unchecked")
-        Map<String, Object> tableDiffMap = (Map<String, Object>) firstMap.get("tableDiff");
-        doCheckAlterCheckTableDiff(tableDiffMap);
+        doCheckAlterCheckBasic(firstMap);
+        doCheckAlterCheckTableDiff(firstMap);
+        doCheckAlterCheckSequenceDiff(firstMap);
+        doCheckAlterCheckProcedureDiff(firstMap);
+        doCheckAlterCheckCraftDiff(firstMap);
     }
 
     @SuppressWarnings("unchecked")
-    private void doCheckAlterCheckTableDiff(Map<String, Object> tableDiffMap) {
+    private void doCheckAlterCheckBasic(Map<String, Object> firstMap) {
+        Map<String, Object> tableCount = (Map<String, Object>) firstMap.get("tableCount");
+        assertNotNull(tableCount.get("next")); // may be increased (test table will be added)
+        assertEquals("22", tableCount.get("previous"));
+        doCheckSchemaSyncCheckBasic(firstMap); // same
+    }
+
+    @SuppressWarnings("unchecked")
+    private void doCheckAlterCheckTableDiff(Map<String, Object> firstMap) {
+        Map<String, Object> tableDiffMap = (Map<String, Object>) firstMap.get("tableDiff");
         {
             Map<String, Object> tableMap = (Map<String, Object>) tableDiffMap.get("MEMBER_FOLLOWING");
             assertEquals("ADD", tableMap.get("diffType"));
         }
+        doCheckSchemaSyncCheckTableDiff(firstMap); // same
+    }
+
+    private void doCheckAlterCheckSequenceDiff(Map<String, Object> firstMap) {
+        doCheckSchemaSyncCheckSequenceDiff(firstMap); // same
+    }
+
+    private void doCheckAlterCheckProcedureDiff(Map<String, Object> firstMap) {
+        doCheckSchemaSyncCheckProcedureDiff(firstMap, "DIFFWORLDDB"); // same
+    }
+
+    @SuppressWarnings("unchecked")
+    private void doCheckAlterCheckCraftDiff(Map<String, Object> firstMap) {
+        //doCheckSchemaSyncCheckCraftDiff(firstMap); // not same
+        Map<String, Map<String, Object>> craftDiffMap = (Map<String, Map<String, Object>>) firstMap.get("craftDiff");
         {
-            Map<String, Object> tableMap = (Map<String, Object>) tableDiffMap.get("MEMBER");
-            assertEquals("CHANGE", tableMap.get("diffType"));
-            Map<String, Object> columnDiffMap = (Map<String, Object>) tableMap.get("columnDiff");
-            Map<String, Object> memberAccoutMap = (Map<String, Object>) columnDiffMap.get("MEMBER_ACCOUNT");
-            assertEquals("CHANGE", memberAccoutMap.get("diffType"));
-            Map<String, Object> columnSizeDiffMap = (Map<String, Object>) memberAccoutMap.get("columnSizeDiff");
-            assertEquals("80", columnSizeDiffMap.get("next"));
-            assertEquals("50", columnSizeDiffMap.get("previous"));
+            Map<String, Object> memberMap = craftDiffMap.get("Member");
+            Map<String, Map<String, Object>> craftRowDiffMap = (Map<String, Map<String, Object>>) memberMap.get("craftRowDiff");
+            {
+                Map<String, Object> akagiMap = craftRowDiffMap.get("\u30a2\u30ab\u30ae");
+                assertEquals("ADD", akagiMap.get("diffType")); // different from SchemaSyncCheck
+            }
+            {
+                Map<String, Object> maslovarMap = craftRowDiffMap.get("Maslovar");
+                assertEquals("CHANGE", maslovarMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) maslovarMap.get("craftValueDiff");
+                assertEquals("\"diff\"\t\"world|1967-02-20\"", craftValueDiffMap.get("next"));
+                assertEquals("\"JEFUnited|1967-02-20\"", craftValueDiffMap.get("previous"));
+            }
+            {
+                Map<String, Object> akagiMap = craftRowDiffMap.get("Og2000");
+                assertEquals("DELETE", akagiMap.get("diffType")); // different from SchemaSyncCheck
+            }
         }
         {
-            Map<String, Object> tableMap = (Map<String, Object>) tableDiffMap.get("MEMBER_LOGIN");
-            assertEquals("CHANGE", tableMap.get("diffType"));
-            Map<String, Object> columnDefOrderDiffMap = (Map<String, Object>) tableMap.get("columnDefOrderDiff");
-            assertEquals("MOBILE_LOGIN_FLG(2)", columnDefOrderDiffMap.get("next"));
-            assertEquals("MOBILE_LOGIN_FLG(4)", columnDefOrderDiffMap.get("previous"));
+            Map<String, Object> statusMap = craftDiffMap.get("MemberStatus");
+            Map<String, Map<String, Object>> craftRowDiffMap = (Map<String, Map<String, Object>>) statusMap.get("craftRowDiff");
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("DIF");
+                assertEquals("ADD", difMap.get("diffType"));
+            }
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("FML");
+                assertEquals("CHANGE", difMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) difMap.get("craftValueDiff");
+                assertEquals("\"Formalized|9\"", craftValueDiffMap.get("next"));
+                assertEquals("\"Formalized|1\"", craftValueDiffMap.get("previous"));
+            }
+        }
+        {
+            Map<String, Object> clsMap = craftDiffMap.get("TableCls");
+            Map<String, Map<String, Object>> craftRowDiffMap = (Map<String, Map<String, Object>>) clsMap.get("craftRowDiff");
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("MEMBER_STATUS::DIF");
+                assertEquals("ADD", difMap.get("diffType"));
+            }
+            {
+                Map<String, Object> difMap = craftRowDiffMap.get("MEMBER_STATUS::FML");
+                assertEquals("CHANGE", difMap.get("diffType"));
+                Map<String, Object> craftValueDiffMap = (Map<String, Object>) difMap.get("craftValueDiff");
+                assertEquals("\"Formalized|9\"", craftValueDiffMap.get("next"));
+                assertEquals("\"Formalized|1\"", craftValueDiffMap.get("previous"));
+            }
         }
     }
 
