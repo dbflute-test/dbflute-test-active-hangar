@@ -116,12 +116,13 @@ public class WxDiffworldTest extends PlainTestCase {
         doCheckSchemaSyncCheckBasic(firstMap);
         doCheckSchemaSyncCheckTableDiff(firstMap);
         doCheckSchemaSyncCheckSequenceDiff(firstMap);
-        doCheckSchemaSyncCheckProcedureDiff(firstMap, "MAIHAMADB");
+        doCheckSchemaSyncCheckProcedureDiff(firstMap, "MAIHAMADB"); // deleted function is main DB
         doCheckSchemaSyncCheckCraftDiff(firstMap);
         assertTrue(new File(getOutputDocPath() + "/diffworld-sync-check-result.html").exists());
     }
 
     private void doCheckSchemaSyncCheckBasic(Map<String, Object> firstMap) {
+        // these are changeable by environment so simple check
         assertNotNull(firstMap.get("diffDate"));
         assertNotNull(firstMap.get("diffAuthor"));
         assertNotNull(firstMap.get("diffGitBranch"));
@@ -289,6 +290,23 @@ public class WxDiffworldTest extends PlainTestCase {
             Map<String, Object> paymentMap = (Map<String, Object>) tableDiffMap.get("PURCHASE_PAYMENT");
             assertEquals("ADD", paymentMap.get("diffType"));
         }
+        {
+            Map<String, Object> securityMap = (Map<String, Object>) tableDiffMap.get("MEMBER_SECURITY");
+            assertEquals("CHANGE", securityMap.get("diffType"));
+            Map<String, Map<String, Object>> columnDiffMap = (Map<String, Map<String, Object>>) securityMap.get("columnDiff");
+            Map<String, Object> passwordMap = columnDiffMap.get("LOGIN_PASSWORD");
+            assertEquals("CHANGE", passwordMap.get("diffType"));
+            Map<String, Object> columnSizeDiffMap = (Map<String, Object>) passwordMap.get("columnSizeDiff");
+            assertEquals("100", columnSizeDiffMap.get("next"));
+            assertEquals("50", columnSizeDiffMap.get("previous"));
+        }
+        {
+            Map<String, Object> securityMap = (Map<String, Object>) tableDiffMap.get("MEMBER_WITHDRAWAL");
+            assertEquals("CHANGE", securityMap.get("diffType"));
+            Map<String, Map<String, Object>> columnDiffMap = (Map<String, Map<String, Object>>) securityMap.get("columnDiff");
+            Map<String, Object> passwordMap = columnDiffMap.get("VERSION_NO");
+            assertEquals("DELETE", passwordMap.get("diffType"));
+        }
         doCheckSchemaSyncCheckTableDiff(firstMap); // same
     }
 
@@ -297,6 +315,7 @@ public class WxDiffworldTest extends PlainTestCase {
     }
 
     private void doCheckAlterCheckProcedureDiff(Map<String, Object> firstMap) {
+        // AlterCheck is executed in "diffworld" environment so all objects are DIFFWORLDDB 
         doCheckSchemaSyncCheckProcedureDiff(firstMap, "DIFFWORLDDB"); // same
     }
 
