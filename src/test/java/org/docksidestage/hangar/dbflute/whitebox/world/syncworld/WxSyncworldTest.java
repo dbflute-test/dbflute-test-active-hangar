@@ -15,7 +15,7 @@ import org.dbflute.util.DfTraceViewUtil;
 public class WxSyncworldTest extends PlainTestCase {
 
     public void test_syncworld() throws IOException {
-        // #hope jflute tests failure pattern here (2018/06/02)
+        // #hope jflute will tests failure pattern here (2018/06/02)
         doTest_syncworld(/*clean*/true); // no existing resources
         doTest_syncworld(/*clean*/false); // overriding existing resources
     }

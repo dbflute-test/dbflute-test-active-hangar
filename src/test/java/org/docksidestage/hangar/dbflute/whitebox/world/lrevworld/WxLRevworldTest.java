@@ -15,6 +15,7 @@ import org.dbflute.util.DfTraceViewUtil;
 public class WxLRevworldTest extends PlainTestCase {
 
     public void test_lrevworld() throws IOException {
+        // #hope jflute will tests replace-schema output pattern here (2018/06/02)
         doTest_lrevworld(/*clean*/true); // no existing resources
         doTest_lrevworld(/*clean*/false); // overriding existing resources
     }
