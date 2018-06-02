@@ -8,6 +8,7 @@ rm -Rf ./output/doc/diffworld-*.html
 rm -Rf ./output/doc/craftdiff/diffworld
 rm -Rf ./playsql/migration/alter
 rm -Rf ./playsql/migration/schema
+rm -Rf ./schema/project-sync-*
 rm -Rf ./schema/diffworld
 rm -Rf ./schema/craftdiff/diffworld
 
