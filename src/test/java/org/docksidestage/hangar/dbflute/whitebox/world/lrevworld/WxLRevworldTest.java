@@ -2,6 +2,7 @@ package org.docksidestage.hangar.dbflute.whitebox.world.lrevworld;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.dbflute.helper.process.ProcessResult;
 import org.dbflute.helper.process.SystemScript;
@@ -14,6 +15,11 @@ import org.dbflute.util.DfTraceViewUtil;
 public class WxLRevworldTest extends PlainTestCase {
 
     public void test_lrevworld() throws IOException {
+        doTest_lrevworld(/*clean*/true); // no existing resources
+        doTest_lrevworld(/*clean*/false); // overriding existing resources
+    }
+
+    private void doTest_lrevworld(boolean clean) {
         // ## Arrange ##
         long before = System.currentTimeMillis();
         try {
@@ -24,8 +30,9 @@ public class WxLRevworldTest extends PlainTestCase {
             String fileName = "lrevworld-test.sh";
 
             // ## Act ##
-            log("...Executing lrevworld: {}", fileName);
-            ProcessResult result = script.execute(clientDir, fileName);
+            String[] scriptArgs = clean ? new String[] { "clean" } : new String[] {};
+            log("...Executing lrevworld: {}, {}", fileName, Arrays.asList(scriptArgs));
+            ProcessResult result = script.execute(clientDir, fileName, scriptArgs);
 
             // ## Assert ##
             log("Finished the lrevworld: {}, {}", result.getProcessName(), result.getExitCode());

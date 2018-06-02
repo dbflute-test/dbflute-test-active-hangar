@@ -3,6 +3,7 @@ package org.docksidestage.hangar.dbflute.whitebox.world.diffworld;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 
 import org.dbflute.helper.filesystem.FileTextIO;
@@ -18,6 +19,11 @@ import org.dbflute.util.DfTraceViewUtil;
 public class WxDiffworldTest extends PlainTestCase {
 
     public void test_diffworld() throws IOException {
+        doTest_diffworld(/*clean*/true); // no existing resources
+        doTest_diffworld(/*clean*/false); // overriding existing resources
+    }
+
+    protected void doTest_diffworld(boolean clean) throws IOException {
         // ## Arrange ##
         long before = System.currentTimeMillis();
         try {
@@ -28,20 +34,24 @@ public class WxDiffworldTest extends PlainTestCase {
             String fileName = "diffworld-test.sh";
 
             // ## Act ##
-            log("...Executing diffworld: {}", fileName);
-            ProcessResult result = script.execute(clientDir, fileName);
+            String[] scriptArgs = clean ? new String[] { "clean" } : new String[] {};
+            log("...Executing diffworld: {}, {}", fileName, Arrays.asList(scriptArgs));
+            ProcessResult result = script.execute(clientDir, fileName, scriptArgs);
 
             // ## Assert ##
             log("Finished the diffworld: {}, {}", result.getProcessName(), result.getExitCode());
             assertEquals(0, result.getExitCode());
             String console = result.getConsole();
             log(console);
+            if (clean) {
+                assertContains(console, "...Cleaning existing resources");
+            }
             assertContains(console, "Ghastly Tragedy"); // SchemaSyncCheck
             assertContains(console, "Migration Failure"); // AlterCheck
 
             checkDBFluteEnvironmentType();
             checkArrangeBeforeReps();
-            checkCraftDiff();
+            checkCraftDiff(clean);
             checkSchemaSyncCheck();
             checkAlterCheck();
         } finally {
@@ -73,13 +83,18 @@ public class WxDiffworldTest extends PlainTestCase {
     // ===================================================================================
     //                                                                           CraftDiff
     //                                                                           =========
-    protected void checkCraftDiff() throws IOException {
+    protected void checkCraftDiff(boolean clean) throws IOException {
         FileTextIO textIO = new FileTextIO().encodeAsUTF8();
         String diffworldPath = getSchemaPath() + "/craftdiff/diffworld";
         {
             File memberNext = new File(diffworldPath + "/craft-meta-Member-next.tsv");
             assertTrue(memberNext.exists());
-            assertFalse(new File(diffworldPath + "/craft-meta-Member-previous.tsv").exists());
+            File memberPrevious = new File(diffworldPath + "/craft-meta-Member-previous.tsv");
+            if (clean) {
+                assertFalse(memberPrevious.exists());
+            } else {
+                assertTrue(memberPrevious.exists());
+            }
             String nextText = textIO.read(new FileInputStream(memberNext));
             assertContainsAll(nextText, "Stojkovic", "Pixy", "diffworld", "\"diff\"\"\t\"\"world\"");
         }

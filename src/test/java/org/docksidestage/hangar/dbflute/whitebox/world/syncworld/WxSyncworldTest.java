@@ -2,6 +2,7 @@ package org.docksidestage.hangar.dbflute.whitebox.world.syncworld;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.dbflute.helper.process.ProcessResult;
 import org.dbflute.helper.process.SystemScript;
@@ -14,6 +15,12 @@ import org.dbflute.util.DfTraceViewUtil;
 public class WxSyncworldTest extends PlainTestCase {
 
     public void test_syncworld() throws IOException {
+        // #hope jflute tests failure pattern here (2018/06/02)
+        doTest_syncworld(/*clean*/true); // no existing resources
+        doTest_syncworld(/*clean*/false); // overriding existing resources
+    }
+
+    private void doTest_syncworld(boolean clean) {
         // ## Arrange ##
         long before = System.currentTimeMillis();
         try {
@@ -24,7 +31,8 @@ public class WxSyncworldTest extends PlainTestCase {
             String fileName = "syncworld-test.sh";
 
             // ## Act ##
-            log("...Executing syncworld: {}", fileName);
+            String[] scriptArgs = clean ? new String[] { "clean" } : new String[] {};
+            log("...Executing syncworld: {}, {}", fileName, Arrays.asList(scriptArgs));
             ProcessResult result = script.execute(clientDir, fileName);
 
             // ## Assert ##

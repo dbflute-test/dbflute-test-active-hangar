@@ -3,14 +3,19 @@
 cd `dirname $0`
 . _project.sh
 
-rm -Rf ./dfprop/diffworld/diffworlddb.*.db
-rm -Rf ./output/doc/diffworld-*.html
-rm -Rf ./output/doc/craftdiff/diffworld
-rm -Rf ./playsql/migration/alter
-rm -Rf ./playsql/migration/schema
-rm -Rf ./schema/project-sync-*
-rm -Rf ./schema/diffworld
-rm -Rf ./schema/craftdiff/diffworld
+FIRST_ARG=$1
+
+if [ "$FIRST_ARG" = "clean" ];then
+  echo "...Cleaning existing resources"
+  rm -Rf ./dfprop/diffworld/diffworlddb.*.db
+  rm -Rf ./output/doc/diffworld-*.html
+  rm -Rf ./output/doc/craftdiff/diffworld
+  rm -Rf ./playsql/migration/alter
+  rm -Rf ./playsql/migration/schema
+  rm -Rf ./schema/project-sync-*
+  rm -Rf ./schema/diffworld
+  rm -Rf ./schema/craftdiff/diffworld
+fi
 
 export answer=y
 
