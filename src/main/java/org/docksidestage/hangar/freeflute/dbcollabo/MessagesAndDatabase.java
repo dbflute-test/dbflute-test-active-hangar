@@ -221,6 +221,17 @@ public class MessagesAndDatabase implements Serializable {
     //  - FIRST_DATE_ID
     //  - FIRST_DATE_NAME
     //  - ADDED_AT_TABLE_SAME_DATE
+    // WHITE_ON_PARADE
+    //  - ON_PARADE_ID
+    //  - ON_PARADE_NAME
+    // WHITE_ON_PARADE_NULLABLE_TO_MANY
+    //  - MANY_ID
+    //  - MANY_NAME
+    // WHITE_ON_PARADE_REF
+    //  - REF_ID
+    //  - REF_NAME
+    //  - NULLABLE_FK_ON_PARADE_ID
+    //  - NULLABLE_FK_TO_MANY_ID
     // WHITE_SCHEMA_DIFF
     //  - SCHEMA_DIFF_ID
     //  - SCHEMA_DIFF_NAME
