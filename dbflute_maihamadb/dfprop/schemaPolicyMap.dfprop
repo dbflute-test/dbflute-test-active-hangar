@@ -100,10 +100,10 @@ map:{
             #
             # modify temporarily: comment on column MEMBER.MEMBER_ID is 'MEMBER_ID: MEMBER_ID';
             # basically this is for ERMaster
-            ; if columnName is $$ALL$$ then alias is not $$columnName$$
+            ; if columnName is $$ALL$$ then alias is not $$column$$
             ; if columnName is $$ALL$$ then alias is not $$comment$$
             ; if columnName is $$ALL$$ then columnName is not $$comment$$
-            ; if alias is $$columnName$$ then bad
+            ; if alias is $$column$$ then bad
             ; if alias is $$comment$$ then bad
             ; if columnName is $$comment$$ then bad
 
