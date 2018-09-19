@@ -40,6 +40,9 @@ map:{
         ; tableTargetList = list:{ WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN }
     }
 
+    # the test of public native InScope
+    ; isCompatibleNativeInScopePublicForcedly = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]
