@@ -142,7 +142,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus}
      * @param productStatusCodeList The collection of productStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setProductStatusCode_InScope(Collection<String> productStatusCodeList) {
+    public void setProductStatusCode_InScope(Collection<String> productStatusCodeList) {
         doSetProductStatusCode_InScope(productStatusCodeList);
     }
 
@@ -165,7 +165,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus}
      * @param productStatusCodeList The collection of productStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
+    public void setProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
         doSetProductStatusCode_NotInScope(productStatusCodeList);
     }
 

@@ -12,6 +12,7 @@ import org.dbflute.cbean.scoping.*;
 import org.dbflute.dbmeta.DBMetaProvider;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
+import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.allcommon.ImplementedInvokerAssistant;
@@ -84,10 +85,10 @@ public class BsRegionCB extends AbstractConditionBean {
      * @param regionId (地域ID): PK, NotNull, INTEGER(10), classification=Region. (NotNull)
      * @return this. (NotNull)
      */
-    public RegionCB acceptPK(Integer regionId) {
+    public RegionCB acceptPK(CDef.Region regionId) {
         assertObjectNotNull("regionId", regionId);
         BsRegionCB cb = this;
-        cb.query().setRegionId_Equal(regionId);
+        cb.query().setRegionId_Equal_AsRegion(regionId);
         return (RegionCB)this;
     }
 

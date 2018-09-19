@@ -446,7 +446,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * サービスランクを識別するコード。
      * @param serviceRankCode The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if update: for the constraint)
      */
-    protected void setServiceRankCode(String serviceRankCode) {
+    public void setServiceRankCode(String serviceRankCode) {
         checkClassificationCode("SERVICE_RANK_CODE", CDef.DefMeta.ServiceRank, serviceRankCode);
         registerModifiedProperty("serviceRankCode");
         _serviceRankCode = serviceRankCode;
@@ -555,14 +555,6 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
     public void setDisplayOrder(Integer displayOrder) {
         registerModifiedProperty("displayOrder");
         _displayOrder = displayOrder;
-    }
-
-    /**
-     * For framework so basically DON'T use this method.
-     * @param serviceRankCode The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if update: for the constraint)
-     */
-    public void mynativeMappingServiceRankCode(String serviceRankCode) {
-        setServiceRankCode(serviceRankCode);
     }
 
     /**

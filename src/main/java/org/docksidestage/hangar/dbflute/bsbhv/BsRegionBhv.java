@@ -13,6 +13,7 @@ import org.dbflute.cbean.result.*;
 import org.dbflute.exception.*;
 import org.dbflute.optional.OptionalEntity;
 import org.dbflute.outsidesql.executor.*;
+import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.bsbhv.loader.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
@@ -163,23 +164,23 @@ public abstract class BsRegionBhv extends AbstractBehaviorWritable<Region, Regio
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<Region> selectByPK(Integer regionId) {
+    public OptionalEntity<Region> selectByPK(CDef.Region regionId) {
         return facadeSelectByPK(regionId);
     }
 
-    protected OptionalEntity<Region> facadeSelectByPK(Integer regionId) {
+    protected OptionalEntity<Region> facadeSelectByPK(CDef.Region regionId) {
         return doSelectOptionalByPK(regionId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends Region> ENTITY doSelectByPK(Integer regionId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends Region> ENTITY doSelectByPK(CDef.Region regionId, Class<? extends ENTITY> tp) {
         return doSelectEntity(xprepareCBAsPK(regionId), tp);
     }
 
-    protected <ENTITY extends Region> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer regionId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends Region> OptionalEntity<ENTITY> doSelectOptionalByPK(CDef.Region regionId, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectByPK(regionId, tp), regionId);
     }
 
-    protected RegionCB xprepareCBAsPK(Integer regionId) {
+    protected RegionCB xprepareCBAsPK(CDef.Region regionId) {
         assertObjectNotNull("regionId", regionId);
         return newConditionBean().acceptPK(regionId);
     }

@@ -42,14 +42,7 @@ public class ServiceRankDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankCode(), (et, vl) -> {
-            CDef.ServiceRank cls = (CDef.ServiceRank)gcls(et, columnServiceRankCode(), vl);
-            if (cls != null) {
-                ((ServiceRank)et).setServiceRankCodeAsServiceRank(cls);
-            } else {
-                ((ServiceRank)et).mynativeMappingServiceRankCode((String)vl);
-            }
-        }, "serviceRankCode");
+        setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankCode(), (et, vl) -> ((ServiceRank)et).setServiceRankCode((String)vl), "serviceRankCode");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankName(), (et, vl) -> ((ServiceRank)et).setServiceRankName((String)vl), "serviceRankName");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServicePointIncidence(), (et, vl) -> ((ServiceRank)et).setServicePointIncidence(ctb(vl)), "servicePointIncidence");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getNewAcceptableFlg(), (et, vl) -> {

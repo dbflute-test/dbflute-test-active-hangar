@@ -881,7 +881,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(10), classification=Flg}
      * @param paymentCompleteFlgList The collection of paymentCompleteFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setPaymentCompleteFlg_InScope(Collection<Integer> paymentCompleteFlgList) {
+    public void setPaymentCompleteFlg_InScope(Collection<Integer> paymentCompleteFlgList) {
         doSetPaymentCompleteFlg_InScope(paymentCompleteFlgList);
     }
 
@@ -904,7 +904,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INTEGER(10), classification=Flg}
      * @param paymentCompleteFlgList The collection of paymentCompleteFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setPaymentCompleteFlg_NotInScope(Collection<Integer> paymentCompleteFlgList) {
+    public void setPaymentCompleteFlg_NotInScope(Collection<Integer> paymentCompleteFlgList) {
         doSetPaymentCompleteFlg_NotInScope(paymentCompleteFlgList);
     }
 

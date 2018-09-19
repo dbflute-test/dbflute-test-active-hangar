@@ -142,7 +142,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
      * @param memberStatusCodeList The collection of memberStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
+    public void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
         doSetMemberStatusCode_InScope(memberStatusCodeList);
     }
 
@@ -165,7 +165,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
      * @param memberStatusCodeList The collection of memberStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
+    public void setMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
         doSetMemberStatusCode_NotInScope(memberStatusCodeList);
     }
 

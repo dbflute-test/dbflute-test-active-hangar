@@ -68,7 +68,8 @@ map:{
     ; ServiceRank = list:{
         ; map:{
             ; topComment=rank of service member gets
-            ; codeType=Number ; undefinedHandlingType=LOGGING
+            ; codeType=String ; undefinedHandlingType=LOGGING
+            ; isMakeNativeTypeSetter=true
         }
         ; map:{
             ; table=SERVICE_RANK
@@ -80,7 +81,6 @@ map:{
         ; map:{
             ; topComment=mainly region of member address
             ; codeType=Number ; undefinedHandlingType=ALLOWED
-            ; isMakeNativeTypeSetter=true
         }
         ; map:{
             ; table=REGION

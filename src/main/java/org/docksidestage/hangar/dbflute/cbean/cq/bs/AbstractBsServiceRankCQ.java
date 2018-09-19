@@ -48,7 +48,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank}
      * @param serviceRankCode The value of serviceRankCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_Equal(String serviceRankCode) {
+    public void setServiceRankCode_Equal(String serviceRankCode) {
         doSetServiceRankCode_Equal(fRES(serviceRankCode));
     }
 
@@ -111,7 +111,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank}
      * @param serviceRankCode The value of serviceRankCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_NotEqual(String serviceRankCode) {
+    public void setServiceRankCode_NotEqual(String serviceRankCode) {
         doSetServiceRankCode_NotEqual(fRES(serviceRankCode));
     }
 
@@ -174,7 +174,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
+    public void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_InScope(serviceRankCodeList);
     }
 
@@ -197,7 +197,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_NotInScope(Collection<String> serviceRankCodeList) {
+    public void setServiceRankCode_NotInScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_NotInScope(serviceRankCodeList);
     }
 
@@ -573,7 +573,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg}
      * @param newAcceptableFlgList The collection of newAcceptableFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setNewAcceptableFlg_InScope(Collection<Integer> newAcceptableFlgList) {
+    public void setNewAcceptableFlg_InScope(Collection<Integer> newAcceptableFlgList) {
         doSetNewAcceptableFlg_InScope(newAcceptableFlgList);
     }
 
@@ -596,7 +596,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg}
      * @param newAcceptableFlgList The collection of newAcceptableFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setNewAcceptableFlg_NotInScope(Collection<Integer> newAcceptableFlgList) {
+    public void setNewAcceptableFlg_NotInScope(Collection<Integer> newAcceptableFlgList) {
         doSetNewAcceptableFlg_NotInScope(newAcceptableFlgList);
     }
 

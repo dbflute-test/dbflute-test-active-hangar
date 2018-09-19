@@ -12,7 +12,6 @@ import org.dbflute.cbean.scoping.*;
 import org.dbflute.dbmeta.DBMetaProvider;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
-import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.allcommon.ImplementedInvokerAssistant;
@@ -85,10 +84,10 @@ public class BsServiceRankCB extends AbstractConditionBean {
      * @param serviceRankCode (サービスランクコード): PK, NotNull, CHAR(3), classification=ServiceRank. (NotNull)
      * @return this. (NotNull)
      */
-    public ServiceRankCB acceptPK(CDef.ServiceRank serviceRankCode) {
+    public ServiceRankCB acceptPK(String serviceRankCode) {
         assertObjectNotNull("serviceRankCode", serviceRankCode);
         BsServiceRankCB cb = this;
-        cb.query().setServiceRankCode_Equal_AsServiceRank(serviceRankCode);
+        cb.query().setServiceRankCode_Equal(serviceRankCode);
         return (ServiceRankCB)this;
     }
 

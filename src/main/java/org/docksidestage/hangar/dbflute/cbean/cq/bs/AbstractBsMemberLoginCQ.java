@@ -457,7 +457,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * (モバイルログインフラグ)MOBILE_LOGIN_FLG: {NotNull, INTEGER(10), classification=Flg}
      * @param mobileLoginFlgList The collection of mobileLoginFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
+    public void setMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
         doSetMobileLoginFlg_InScope(mobileLoginFlgList);
     }
 
@@ -480,7 +480,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * (モバイルログインフラグ)MOBILE_LOGIN_FLG: {NotNull, INTEGER(10), classification=Flg}
      * @param mobileLoginFlgList The collection of mobileLoginFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setMobileLoginFlg_NotInScope(Collection<Integer> mobileLoginFlgList) {
+    public void setMobileLoginFlg_NotInScope(Collection<Integer> mobileLoginFlgList) {
         doSetMobileLoginFlg_NotInScope(mobileLoginFlgList);
     }
 
@@ -600,7 +600,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * (ログイン時会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}
      * @param loginMemberStatusCodeList The collection of loginMemberStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
+    public void setLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
         doSetLoginMemberStatusCode_InScope(loginMemberStatusCodeList);
     }
 
@@ -623,7 +623,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * (ログイン時会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}
      * @param loginMemberStatusCodeList The collection of loginMemberStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setLoginMemberStatusCode_NotInScope(Collection<String> loginMemberStatusCodeList) {
+    public void setLoginMemberStatusCode_NotInScope(Collection<String> loginMemberStatusCodeList) {
         doSetLoginMemberStatusCode_NotInScope(loginMemberStatusCodeList);
     }
 

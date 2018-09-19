@@ -543,7 +543,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (地域ID)REGION_ID: {IX, NotNull, INTEGER(10), FK to REGION, classification=Region}
      * @param regionId The value of regionId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setRegionId_Equal(Integer regionId) {
+    protected void setRegionId_Equal(Integer regionId) {
         doSetRegionId_Equal(regionId);
     }
 
@@ -598,7 +598,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (地域ID)REGION_ID: {IX, NotNull, INTEGER(10), FK to REGION, classification=Region}
      * @param regionId The value of regionId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setRegionId_NotEqual(Integer regionId) {
+    protected void setRegionId_NotEqual(Integer regionId) {
         doSetRegionId_NotEqual(regionId);
     }
 

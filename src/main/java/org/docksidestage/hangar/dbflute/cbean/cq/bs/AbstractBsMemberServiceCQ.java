@@ -411,7 +411,7 @@ public abstract class AbstractBsMemberServiceCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to SERVICE_RANK, classification=ServiceRank}
      * @param serviceRankCode The value of serviceRankCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_Equal(String serviceRankCode) {
+    public void setServiceRankCode_Equal(String serviceRankCode) {
         doSetServiceRankCode_Equal(fRES(serviceRankCode));
     }
 
@@ -474,7 +474,7 @@ public abstract class AbstractBsMemberServiceCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to SERVICE_RANK, classification=ServiceRank}
      * @param serviceRankCode The value of serviceRankCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_NotEqual(String serviceRankCode) {
+    public void setServiceRankCode_NotEqual(String serviceRankCode) {
         doSetServiceRankCode_NotEqual(fRES(serviceRankCode));
     }
 
@@ -537,7 +537,7 @@ public abstract class AbstractBsMemberServiceCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to SERVICE_RANK, classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
+    public void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_InScope(serviceRankCodeList);
     }
 
@@ -560,7 +560,7 @@ public abstract class AbstractBsMemberServiceCQ extends AbstractConditionQuery {
      * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to SERVICE_RANK, classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    protected void setServiceRankCode_NotInScope(Collection<String> serviceRankCodeList) {
+    public void setServiceRankCode_NotInScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_NotInScope(serviceRankCodeList);
     }
 

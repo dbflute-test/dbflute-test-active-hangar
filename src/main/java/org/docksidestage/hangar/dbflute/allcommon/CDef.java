@@ -1233,7 +1233,7 @@ public interface CDef extends Classification {
         public ClassificationCodeType codeType() {
             if (Flg.name().equals(name())) { return ClassificationCodeType.Number; }
             if (MemberStatus.name().equals(name())) { return ClassificationCodeType.String; }
-            if (ServiceRank.name().equals(name())) { return ClassificationCodeType.Number; }
+            if (ServiceRank.name().equals(name())) { return ClassificationCodeType.String; }
             if (Region.name().equals(name())) { return ClassificationCodeType.Number; }
             if (WithdrawalReason.name().equals(name())) { return ClassificationCodeType.String; }
             if (ProductCategory.name().equals(name())) { return ClassificationCodeType.String; }
