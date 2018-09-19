@@ -16,7 +16,7 @@
 #
 map:{
     ; driver   = org.h2.Driver
-    ; url      = $$env:DBFLUTE_HANGAR_JDBC_URL$$ | jdbc:h2:file:../src/main/resources/database/maihamadb
+    ; url      = $$env:DBFLUTE_HANGAR_JDBC_URL$$ | df:dfprop/local-url.txt | jdbc:h2:file:../src/main/resources/database/maihamadb
     ; schema   = PUBLIC
     ; user     = sa
     ; password = 
