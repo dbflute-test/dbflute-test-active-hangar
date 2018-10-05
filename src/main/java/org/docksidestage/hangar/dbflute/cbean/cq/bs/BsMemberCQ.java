@@ -411,6 +411,10 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
             uq.xsetParameterMapMemberAddressAsValid(bq.xdfgetParameterMapMemberAddressAsValid());
             uq.xdfgetConditionQueryMemberAddressAsValid().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberAddressAsValid(), uq.xdfgetConditionQueryMemberAddressAsValid());
         }
+        if (bq.hasConditionQueryMemberServiceWithIfComment()) {
+            uq.xsetParameterMapMemberServiceWithIfComment(bq.xdfgetParameterMapMemberServiceWithIfComment());
+            uq.xdfgetConditionQueryMemberServiceWithIfComment().reflectRelationOnUnionQuery(bq.xdfgetConditionQueryMemberServiceWithIfComment(), uq.xdfgetConditionQueryMemberServiceWithIfComment());
+        }
         if (bq.hasConditionQueryMemberSecurityAsOne()) {
             uq.queryMemberSecurityAsOne().reflectRelationOnUnionQuery(bq.queryMemberSecurityAsOne(), uq.queryMemberSecurityAsOne());
         }
@@ -477,6 +481,36 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     /**
      * Get the condition-query for relation table. <br>
+     * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+     * @param serviceRank The bind parameter of fixed condition for serviceRank. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberServiceCQ queryMemberServiceWithIfComment(org.docksidestage.hangar.dbflute.allcommon.CDef.ServiceRank serviceRank) {
+        Map<String, Object> parameterMap = xdfgetParameterMapMemberServiceWithIfComment();
+        parameterMap.put("serviceRank", serviceRank);
+        xassertFCDP("memberServiceWithIfComment", parameterMap);
+        return xdfgetConditionQueryMemberServiceWithIfComment();
+    }
+    public MemberServiceCQ xdfgetConditionQueryMemberServiceWithIfComment() {
+        String prop = "memberServiceWithIfComment";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberServiceWithIfComment()); xsetupOuterJoinMemberServiceWithIfComment(); }
+        return xgetQueRlMap(prop);
+    }
+    protected Map<String, Object> _parameterMapMemberServiceWithIfComment;
+    public Map<String, Object> xdfgetParameterMapMemberServiceWithIfComment()
+    { if (_parameterMapMemberServiceWithIfComment == null) { _parameterMapMemberServiceWithIfComment = newLinkedHashMapSized(4); }
+      return _parameterMapMemberServiceWithIfComment; }
+    public void xsetParameterMapMemberServiceWithIfComment(Map<String, Object> parameterMap)
+    { _parameterMapMemberServiceWithIfComment = parameterMap; } // for UnionQuery
+    protected MemberServiceCQ xcreateQueryMemberServiceWithIfComment() {
+        String nrp = xresolveNRP("MEMBER", "memberServiceWithIfComment"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberServiceCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberServiceWithIfComment", nrp);
+    }
+    protected void xsetupOuterJoinMemberServiceWithIfComment() { xregOutJo("memberServiceWithIfComment"); }
+    public boolean hasConditionQueryMemberServiceWithIfComment() { return xhasQueRlMap("memberServiceWithIfComment"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
      * (会員セキュリティ情報)MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -531,6 +565,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         if ("memberAddressAsValid".equalsIgnoreCase(property)) { return _parameterMapMemberAddressAsValid; }
+        if ("memberServiceWithIfComment".equalsIgnoreCase(property)) { return _parameterMapMemberServiceWithIfComment; }
         return null;
     }
 

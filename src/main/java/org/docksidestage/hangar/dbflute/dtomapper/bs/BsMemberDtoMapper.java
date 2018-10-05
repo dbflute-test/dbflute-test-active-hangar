@@ -44,13 +44,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     VERSION_NO
  *
  * [foreign-table]
- *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
+ *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SERVICE(WithIfComment), MEMBER_SECURITY(AsOne), MEMBER_WITHDRAWAL(AsOne)
  *
  * [referrer-table]
  *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  *
  * [foreign-property]
- *     memberStatus, memberAddressAsValid, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberServiceWithIfComment, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer-property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -75,6 +75,7 @@ public abstract class BsMemberDtoMapper implements DtoMapper<Member, MemberDto>,
     protected boolean _instanceCache = true; // default: cached
     protected boolean _suppressMemberStatus;
     protected boolean _suppressMemberAddressAsValid;
+    protected boolean _suppressMemberServiceWithIfComment;
     protected boolean _suppressMemberAddressList;
     protected boolean _suppressMemberFollowingByMyMemberIdList;
     protected boolean _suppressMemberFollowingByYourMemberIdList;
@@ -188,6 +189,29 @@ public abstract class BsMemberDtoMapper implements DtoMapper<Member, MemberDto>,
                 }
                 if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
                     _relationDtoMap.put(relationKey, dto.getMemberAddressAsValid());
+                }
+            }
+        };
+        if (!_suppressMemberServiceWithIfComment && entity.getMemberServiceWithIfComment().isPresent()) {
+            MemberService relationEntity = entity.getMemberServiceWithIfComment().get();
+            Entity relationKey = createInstanceKeyEntity(relationEntity);
+            Object cachedDto = instanceCache ? _relationDtoMap.get(relationKey) : null;
+            if (cachedDto != null) {
+                MemberServiceDto relationDto = (MemberServiceDto)cachedDto;
+                dto.setMemberServiceWithIfComment(relationDto);
+                if (reverseReference) {
+                }
+            } else {
+                MemberServiceDtoMapper mapper = new MemberServiceDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                MemberServiceDto relationDto = mapper.mappingToDto(relationEntity);
+                dto.setMemberServiceWithIfComment(relationDto);
+                if (reverseReference) {
+                }
+                if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
+                    _relationDtoMap.put(relationKey, dto.getMemberServiceWithIfComment());
                 }
             }
         };
@@ -468,6 +492,29 @@ public abstract class BsMemberDtoMapper implements DtoMapper<Member, MemberDto>,
                 }
             }
         };
+        if (!_suppressMemberServiceWithIfComment && dto.getMemberServiceWithIfComment() != null) {
+            MemberServiceDto relationDto = dto.getMemberServiceWithIfComment();
+            Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
+            Entity cachedEntity = instanceCache ? _relationEntityMap.get(relationKey) : null;
+            if (cachedEntity != null) {
+                MemberService relationEntity = (MemberService)cachedEntity;
+                entity.setMemberServiceWithIfComment(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                }
+            } else {
+                MemberServiceDtoMapper mapper = new MemberServiceDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                MemberService relationEntity = mapper.mappingToEntity(relationDto);
+                entity.setMemberServiceWithIfComment(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                }
+                if (instanceCache && entity.getMemberServiceWithIfComment().get().hasPrimaryKeyValue()) {
+                    _relationEntityMap.put(relationKey, entity.getMemberServiceWithIfComment().get());
+                }
+            }
+        };
         if (!_suppressMemberAddressList && !dto.getMemberAddressList().isEmpty()) {
             MemberAddressDtoMapper mapper = new MemberAddressDtoMapper(_relationDtoMap, _relationEntityMap);
             mapper.setExceptCommonColumn(exceptCommonColumn);
@@ -740,6 +787,9 @@ public abstract class BsMemberDtoMapper implements DtoMapper<Member, MemberDto>,
     public void suppressMemberAddressAsValid() {
         _suppressMemberAddressAsValid = true;
     }
+    public void suppressMemberServiceWithIfComment() {
+        _suppressMemberServiceWithIfComment = true;
+    }
     public void suppressMemberAddressList() {
         _suppressMemberAddressList = true;
     }
@@ -767,6 +817,7 @@ public abstract class BsMemberDtoMapper implements DtoMapper<Member, MemberDto>,
     protected void doSuppressAll() { // internal
         suppressMemberStatus();
         suppressMemberAddressAsValid();
+        suppressMemberServiceWithIfComment();
         suppressMemberAddressList();
         suppressMemberFollowingByMyMemberIdList();
         suppressMemberFollowingByYourMemberIdList();
@@ -779,6 +830,7 @@ public abstract class BsMemberDtoMapper implements DtoMapper<Member, MemberDto>,
     protected void doSuppressClear() { // internal
         _suppressMemberStatus = false;
         _suppressMemberAddressAsValid = false;
+        _suppressMemberServiceWithIfComment = false;
         _suppressMemberAddressList = false;
         _suppressMemberFollowingByMyMemberIdList = false;
         _suppressMemberFollowingByYourMemberIdList = false;

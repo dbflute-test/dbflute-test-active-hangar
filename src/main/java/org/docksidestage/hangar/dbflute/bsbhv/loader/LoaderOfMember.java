@@ -27,13 +27,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
+ *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SERVICE(WithIfComment), MEMBER_SECURITY(AsOne), MEMBER_WITHDRAWAL(AsOne)
  *
  * [referrer table]
  *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  *
  * [foreign property]
- *     memberStatus, memberAddressAsValid, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberServiceWithIfComment, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -246,6 +246,13 @@ public class LoaderOfMember {
         if (_foreignMemberAddressAsValidLoader == null)
         { _foreignMemberAddressAsValidLoader = new LoaderOfMemberAddress().ready(myBhv().pulloutMemberAddressAsValid(_selectedList), _selector); }
         return _foreignMemberAddressAsValidLoader;
+    }
+
+    protected LoaderOfMemberService _foreignMemberServiceWithIfCommentLoader;
+    public LoaderOfMemberService pulloutMemberServiceWithIfComment() {
+        if (_foreignMemberServiceWithIfCommentLoader == null)
+        { _foreignMemberServiceWithIfCommentLoader = new LoaderOfMemberService().ready(myBhv().pulloutMemberServiceWithIfComment(_selectedList), _selector); }
+        return _foreignMemberServiceWithIfCommentLoader;
     }
 
     protected LoaderOfMemberSecurity _foreignMemberSecurityAsOneLoader;

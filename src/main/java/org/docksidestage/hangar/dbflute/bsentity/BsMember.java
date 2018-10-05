@@ -35,13 +35,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
+ *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SERVICE(WithIfComment), MEMBER_SECURITY(AsOne), MEMBER_WITHDRAWAL(AsOne)
  *
  * [referrer table]
  *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  *
  * [foreign property]
- *     memberStatus, memberAddressAsValid, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberServiceWithIfComment, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -283,6 +283,27 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         _memberAddressAsValid = memberAddressAsValid;
     }
 
+    /** (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'. */
+    protected OptionalEntity<MemberService> _memberServiceWithIfComment;
+
+    /**
+     * [get] (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberServiceWithIfComment'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<MemberService> getMemberServiceWithIfComment() {
+        if (_memberServiceWithIfComment == null) { _memberServiceWithIfComment = OptionalEntity.relationEmpty(this, "memberServiceWithIfComment"); }
+        return _memberServiceWithIfComment;
+    }
+
+    /**
+     * [set] (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+     * @param memberServiceWithIfComment The entity of foreign property 'memberServiceWithIfComment'. (NullAllowed)
+     */
+    public void setMemberServiceWithIfComment(OptionalEntity<MemberService> memberServiceWithIfComment) {
+        _memberServiceWithIfComment = memberServiceWithIfComment;
+    }
+
     /** (会員セキュリティ情報)MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'. */
     protected OptionalEntity<MemberSecurity> _memberSecurityAsOne;
 
@@ -482,6 +503,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         { sb.append(li).append(xbRDS(_memberStatus, "memberStatus")); }
         if (_memberAddressAsValid != null && _memberAddressAsValid.isPresent())
         { sb.append(li).append(xbRDS(_memberAddressAsValid, "memberAddressAsValid")); }
+        if (_memberServiceWithIfComment != null && _memberServiceWithIfComment.isPresent())
+        { sb.append(li).append(xbRDS(_memberServiceWithIfComment, "memberServiceWithIfComment")); }
         if (_memberSecurityAsOne != null && _memberSecurityAsOne.isPresent())
         { sb.append(li).append(xbRDS(_memberSecurityAsOne, "memberSecurityAsOne")); }
         if (_memberServiceAsOne != null && _memberServiceAsOne.isPresent())
@@ -532,6 +555,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         { sb.append(dm).append("memberStatus"); }
         if (_memberAddressAsValid != null && _memberAddressAsValid.isPresent())
         { sb.append(dm).append("memberAddressAsValid"); }
+        if (_memberServiceWithIfComment != null && _memberServiceWithIfComment.isPresent())
+        { sb.append(dm).append("memberServiceWithIfComment"); }
         if (_memberSecurityAsOne != null && _memberSecurityAsOne.isPresent())
         { sb.append(dm).append("memberSecurityAsOne"); }
         if (_memberServiceAsOne != null && _memberServiceAsOne.isPresent())

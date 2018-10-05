@@ -31,13 +31,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  *     VERSION_NO
  *
  * [foreign-table]
- *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
+ *     MEMBER_STATUS, MEMBER_ADDRESS(AsValid), MEMBER_SERVICE(WithIfComment), MEMBER_SECURITY(AsOne), MEMBER_WITHDRAWAL(AsOne)
  *
  * [referrer-table]
  *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  *
  * [foreign-property]
- *     memberStatus, memberAddressAsValid, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberStatus, memberAddressAsValid, memberServiceWithIfComment, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer-property]
  *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
@@ -236,6 +236,16 @@ public abstract class BsMemberDto implements Serializable {
 
     public void setMemberAddressAsValid(MemberAddressDto memberAddressAsValid) {
         this._memberAddressAsValid = memberAddressAsValid;
+    }
+
+    protected MemberServiceDto _memberServiceWithIfComment;
+
+    public MemberServiceDto getMemberServiceWithIfComment() {
+        return _memberServiceWithIfComment;
+    }
+
+    public void setMemberServiceWithIfComment(MemberServiceDto memberServiceWithIfComment) {
+        this._memberServiceWithIfComment = memberServiceWithIfComment;
     }
 
     protected MemberSecurityDto _memberSecurityAsOne;

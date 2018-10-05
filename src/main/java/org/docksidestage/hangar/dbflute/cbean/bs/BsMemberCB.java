@@ -298,6 +298,33 @@ public class BsMemberCB extends AbstractConditionBean {
         return _nssMemberAddressAsValid;
     }
 
+    protected MemberServiceNss _nssMemberServiceWithIfComment;
+    public MemberServiceNss xdfgetNssMemberServiceWithIfComment() {
+        if (_nssMemberServiceWithIfComment == null) { _nssMemberServiceWithIfComment = new MemberServiceNss(null); }
+        return _nssMemberServiceWithIfComment;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberServiceWithIfComment(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberServiceWithIfComment()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @param serviceRank The bind parameter of fixed condition for serviceRank. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public MemberServiceNss setupSelect_MemberServiceWithIfComment(final org.docksidestage.hangar.dbflute.allcommon.CDef.ServiceRank serviceRank) {
+        assertSetupSelectPurpose("memberServiceWithIfComment");
+        doSetupSelect(() -> query().queryMemberServiceWithIfComment(serviceRank));
+        if (_nssMemberServiceWithIfComment == null || !_nssMemberServiceWithIfComment.hasConditionQuery())
+        { _nssMemberServiceWithIfComment = new MemberServiceNss(query().queryMemberServiceWithIfComment(serviceRank)); }
+        return _nssMemberServiceWithIfComment;
+    }
+
     protected MemberSecurityNss _nssMemberSecurityAsOne;
     public MemberSecurityNss xdfgetNssMemberSecurityAsOne() {
         if (_nssMemberSecurityAsOne == null) { _nssMemberSecurityAsOne = new MemberSecurityNss(null); }
@@ -308,7 +335,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員セキュリティ情報)MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberSecurityAsOne(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberSecurityAsOne(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberSecurityAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
@@ -334,7 +361,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員サービス)MEMBER_SERVICE by MEMBER_ID, named 'memberServiceAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberServiceAsOne(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberServiceAsOne(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberServiceAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
@@ -360,7 +387,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * (会員退会情報)MEMBER_WITHDRAWAL by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberWithdrawalAsOne(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberWithdrawalAsOne(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberWithdrawalAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
@@ -419,6 +446,7 @@ public class BsMemberCB extends AbstractConditionBean {
     public static class HpSpecification extends HpAbstractSpecification<MemberCQ> {
         protected MemberStatusCB.HpSpecification _memberStatus;
         protected MemberAddressCB.HpSpecification _memberAddressAsValid;
+        protected MemberServiceCB.HpSpecification _memberServiceWithIfComment;
         protected MemberSecurityCB.HpSpecification _memberSecurityAsOne;
         protected MemberServiceCB.HpSpecification _memberServiceAsOne;
         protected MemberWithdrawalCB.HpSpecification _memberWithdrawalAsOne;
@@ -553,6 +581,47 @@ public class BsMemberCB extends AbstractConditionBean {
                 }
             }
             return _memberAddressAsValid;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+         * @param serviceRank The bind parameter of fixed condition for serviceRank. (might be NullAllowed: IF comment exists in the fixed condition)
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public MemberServiceCB.HpSpecification specifyMemberServiceWithIfComment(final org.docksidestage.hangar.dbflute.allcommon.CDef.ServiceRank serviceRank) {
+            assertRelation("memberServiceWithIfComment");
+            if (_memberServiceWithIfComment == null) {
+                _memberServiceWithIfComment = new MemberServiceCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberServiceWithIfComment()
+                                    , () -> _qyCall.qy().queryMemberServiceWithIfComment(serviceRank))
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _memberServiceWithIfComment.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberServiceWithIfComment()
+                      , () -> xsyncQyCall().qy().queryMemberServiceWithIfComment(serviceRank)));
+                }
+            }
+            return _memberServiceWithIfComment;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public MemberServiceCB.HpSpecification specifyMemberServiceWithIfComment() {
+            assertRelation("memberServiceWithIfComment");
+            if (_memberServiceWithIfComment == null) {
+                _memberServiceWithIfComment = new MemberServiceCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberServiceWithIfComment()
+                                    , () -> _qyCall.qy().xdfgetConditionQueryMemberServiceWithIfComment())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _memberServiceWithIfComment.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberServiceWithIfComment()
+                      , () -> xsyncQyCall().qy().xdfgetConditionQueryMemberServiceWithIfComment()));
+                }
+            }
+            return _memberServiceWithIfComment;
         }
         /**
          * Prepare to specify functions about relation table. <br>

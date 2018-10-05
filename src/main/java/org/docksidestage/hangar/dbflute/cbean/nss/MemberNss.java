@@ -37,6 +37,16 @@ public class MemberNss {
     }
     /**
      * With nested relation columns to select clause. <br>
+     * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+     * @param serviceRank The bind parameter of fixed condition for serviceRank. (might be NullAllowed: IF comment exists in the fixed condition)
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public MemberServiceNss withMemberServiceWithIfComment(final org.docksidestage.hangar.dbflute.allcommon.CDef.ServiceRank serviceRank) {
+        _query.xdoNss(() -> _query.queryMemberServiceWithIfComment(serviceRank));
+        return new MemberServiceNss(_query.queryMemberServiceWithIfComment(serviceRank));
+    }
+    /**
+     * With nested relation columns to select clause. <br>
      * (会員セキュリティ情報)MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

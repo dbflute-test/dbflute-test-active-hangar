@@ -74,5 +74,26 @@ map:{
         ; fixedSuffix = AsValid
         ; fixedOnlyJoin = true
     }
+
+    #
+    # for the test of IF comment of classification
+    #
+    ; FK_MEMBER_MEMBER_SERVICE_IF_CLASSIFICATION = map:{
+        ; localTableName  = MEMBER ; foreignTableName  = MEMBER_SERVICE
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition =
+         $$foreignAlias$$.SERVICE_POINT_COUNT > 0
+/*IF $$parameterBase$$.serviceRank.code() == $cls(ServiceRank.Plastic)*/
+     and $$foreignAlias$$.SERVICE_POINT_COUNT > 111
+/*END*/
+/*IF $$parameterBase$$.serviceRank.code() == $cls(ServiceRank.Bronze)*/
+     and $$foreignAlias$$.SERVICE_POINT_COUNT > 222
+/*END*/
+/*IF $$parameterBase$$.serviceRank.code() == $cls(ServiceRank.Silver)*/
+     and $$foreignAlias$$.SERVICE_POINT_COUNT > 333
+/*END*/
+     and $$foreignAlias$$.SERVICE_RANK_CODE = /*serviceRank($$CDef$$.ServiceRank)*/
+        ; fixedSuffix = WithIfComment
+    }
 }
 # ----------------/
