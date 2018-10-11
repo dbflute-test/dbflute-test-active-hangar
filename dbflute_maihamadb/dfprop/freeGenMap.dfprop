@@ -82,29 +82,6 @@ map:{
     }
 
     # ====================================================================================
-    #                                                                             Database
-    #                                                                             ========
-    ; DatabaseCollaborationGen = map:{
-        ; resourceMap = map:{
-            ; resourceType = PROP
-            ; resourceFile = ../src/main/resources/freedb/land_message.properties
-        }
-        ; outputMap = map:{
-            ; outputDirectory = ../src/main/java
-            ; package = org.docksidestage.hangar.freeflute.dbcollabo
-            ; templateFile = dbcollabo/MessagesAndDatabase.vm
-            ; className = MessagesAndDatabase
-        }
-        ; optionMap = map:{
-            ; databaseMap = map:{
-                ; maihamadb = map:{
-                    ; schemaDir = ./schema
-                }
-            }
-        }
-    }
-
-    # ====================================================================================
     #                                                                              JsonKey
     #                                                                              =======
     ; JsonMapEmptyGen = map:{
@@ -202,6 +179,47 @@ map:{
             ; extendedBeanClassName = SolrFooBean
             ; isContainsDynamicField = true
             ; mappingMap = map:{ type = map:{ foo = String } }
+        }
+    }
+
+    # ====================================================================================
+    #                                                                             Database
+    #                                                                             ========
+    ; DatabaseCollaborationGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = PROP
+            ; resourceFile = ../src/main/resources/freedb/land_message.properties
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.dbcollabo
+            ; templateFile = dbcollabo/MessagesAndDatabase.vm
+            ; className = MessagesAndDatabase
+        }
+        ; optionMap = map:{
+            ; databaseMap = map:{
+                ; maihamadb = map:{
+                    ; schemaDir = ./schema
+                }
+            }
+        }
+    }
+
+    # ====================================================================================
+    #                                                                           LastaFlute
+    #                                                                           ==========
+    ; LastaAppClsGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = APP_CLS
+            ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.lasta.appcls
+            ; templateFile = lasta/HangarAppCls.vm
+            ; className = MysticAppCls
+        }
+        ; optionMap = map:{
         }
     }
 }
