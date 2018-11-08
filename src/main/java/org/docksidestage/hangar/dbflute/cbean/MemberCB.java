@@ -20,16 +20,16 @@ public class MemberCB extends BsMemberCB implements OrScopeable<MemberCB> {
 
     public static class OrOrParadeTemplate<BASE_CB extends ConditionBean> {
 
-        private OrScopeable<BASE_CB> scopeMan;
+        private OrScopeable<BASE_CB> scopeable;
         private Function<BASE_CB, MemberCQ> relationshipTracer;
 
-        public OrOrParadeTemplate(OrScopeable<BASE_CB> scopeMan, Function<BASE_CB, MemberCQ> relationshipTracer) {
-            this.scopeMan = scopeMan;
+        public OrOrParadeTemplate(OrScopeable<BASE_CB> scopeable, Function<BASE_CB, MemberCQ> relationshipTracer) {
+            this.scopeable = scopeable;
             this.relationshipTracer = relationshipTracer;
         }
 
         public void arrange() {
-            scopeMan.orScopeQuery(orCB -> {
+            scopeable.orScopeQuery(orCB -> {
                 query(orCB).setBirthdate_IsNotNull();
                 cast(orCB).orScopeQueryAndPart(andCB -> {
                     query(andCB).setMemberName_LikeSearch("S", op -> op.likePrefix());
