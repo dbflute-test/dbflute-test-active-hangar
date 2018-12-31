@@ -57,39 +57,39 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
-    /** The example for select using domain entity */
-    public static final String PATH_selectDomainMember = "selectDomainMember";
-    /** The example for selecting scalar value */
-    public static final String PATH_selectLatestFormalizedDatetime = "selectLatestFormalizedDatetime";
-    /** The example for scalar select */
-    public static final String PATH_selectMemberName = "selectMemberName";
-    /** The example for select using options */
-    public static final String PATH_selectOptionMember = "selectOptionMember";
+    /** Example for AutoPaging */
+    public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
     /** Example for ManualPaging */
     public static final String PATH_selectPurchaseMaxPriceMember = "selectPurchaseMaxPriceMember";
     /** Example for CursorSelect */
     public static final String PATH_selectPurchaseSummaryMember = "selectPurchaseSummaryMember";
-    /** Example for Simple Select */
-    public static final String PATH_selectSimpleMember = "selectSimpleMember";
-    /** Example for AutoPaging */
-    public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
+    /** The example for select using options */
+    public static final String PATH_selectOptionMember = "selectOptionMember";
+    /** The example for select using domain entity */
+    public static final String PATH_selectDomainMember = "selectDomainMember";
+    /** The example for selecting scalar value */
+    public static final String PATH_selectLatestFormalizedDatetime = "selectLatestFormalizedDatetime";
     /** Force Withdrawal Update */
     public static final String PATH_updateMemberChangedToWithdrawalForcedly = "updateMemberChangedToWithdrawalForcedly";
+    /** Example for Simple Select */
+    public static final String PATH_selectSimpleMember = "selectSimpleMember";
+    /** The example for scalar select */
+    public static final String PATH_selectMemberName = "selectMemberName";
     /** The test of sub-directory outside-SQL */
     public static final String PATH_subdirectory_selectSubDirectoryCheck = "subdirectory:selectSubDirectoryCheck";
-    public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
-    public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
-    public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
-    public static final String PATH_whitebox_pmbean_selectMapLikeSearch = "whitebox:pmbean:selectMapLikeSearch";
-    public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
-    public static final String PATH_whitebox_pmcomment_selectPmCommentHint = "whitebox:pmcomment:selectPmCommentHint";
-    public static final String PATH_whitebox_pmcomment_selectPmCommentPossible = "whitebox:pmcomment:selectPmCommentPossible";
-    /** Example for Simple DTO except */
-    public static final String PATH_whitebox_simpledto_selectSql2SimpleDtoExcept = "whitebox:simpledto:selectSql2SimpleDtoExcept";
     public static final String PATH_whitebox_wrongexample_selectBindVariableNotFoundProperty = "whitebox:wrongexample:selectBindVariableNotFoundProperty";
-    public static final String PATH_whitebox_wrongexample_selectEndCommentNotFound = "whitebox:wrongexample:selectEndCommentNotFound";
     public static final String PATH_whitebox_wrongexample_selectIfCommentNotBooleanResult = "whitebox:wrongexample:selectIfCommentNotBooleanResult";
     public static final String PATH_whitebox_wrongexample_selectIfCommentWrongExpression = "whitebox:wrongexample:selectIfCommentWrongExpression";
+    public static final String PATH_whitebox_wrongexample_selectEndCommentNotFound = "whitebox:wrongexample:selectEndCommentNotFound";
+    public static final String PATH_whitebox_pmbean_selectMapLikeSearch = "whitebox:pmbean:selectMapLikeSearch";
+    public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
+    public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
+    public static final String PATH_whitebox_pmcomment_selectPmCommentPossible = "whitebox:pmcomment:selectPmCommentPossible";
+    public static final String PATH_whitebox_pmcomment_selectPmCommentHint = "whitebox:pmcomment:selectPmCommentHint";
+    /** Example for Simple DTO except */
+    public static final String PATH_whitebox_simpledto_selectSql2SimpleDtoExcept = "whitebox:simpledto:selectSql2SimpleDtoExcept";
+    public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
+    public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
     /*df:endQueryPath*/
 
     // ===================================================================================

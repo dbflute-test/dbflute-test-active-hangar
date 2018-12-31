@@ -8,10 +8,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import junit.framework.AssertionFailedError;
-import net.arnx.jsonic.JSON;
-import net.arnx.jsonic.JSONHint;
-
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -26,6 +22,10 @@ import org.docksidestage.hangar.simpleflute.dto.PurchaseDto;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.google.gson.Gson;
+
+import junit.framework.AssertionFailedError;
+import net.arnx.jsonic.JSONHint;
 
 /**
  * @author jflute
@@ -50,9 +50,10 @@ public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
         MemberDto memberDto = mapper.mappingToDto(member);
 
         // ## Act ##
-        String encoded = JSON.encode(memberDto, true);
+        Gson gson = new Gson();
+        String encoded = gson.toJson(memberDto);
         log(ln() + encoded);
-        MemberDto decoded = JSON.decode(encoded, MemberDto.class);
+        MemberDto decoded = gson.fromJson(encoded, MemberDto.class);
         log(decoded);
 
         // ## Assert ##
@@ -78,9 +79,10 @@ public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
         List<MemberDto> dtoList = mapper.mappingToDtoList(memberList);
 
         // ## Act ##
-        String encoded = JSON.encode(dtoList, true);
+        Gson gson = new Gson();
+        String encoded = gson.toJson(dtoList);
         log(ln() + encoded);
-        MemberDto[] decodedAry = JSON.decode(encoded, MemberDto[].class);
+        MemberDto[] decodedAry = gson.fromJson(encoded, MemberDto[].class);
 
         // ## Assert ##
         assertNotNull(decodedAry);
@@ -115,9 +117,10 @@ public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
         MemberDto memberDto = mapper.mappingToDto(member);
 
         // ## Act ##
-        String encoded = JSON.encode(memberDto, true);
+        Gson gson = new Gson();
+        String encoded = gson.toJson(memberDto);
         log(ln() + encoded);
-        MemberDto decoded = JSON.decode(encoded, MemberDto.class);
+        MemberDto decoded = gson.fromJson(encoded, MemberDto.class);
         log(decoded);
 
         // ## Assert ##
@@ -141,9 +144,10 @@ public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
         MemberDto memberDto = mapper.mappingToDto(member);
 
         // ## Act ##
-        String encoded = JSON.encode(memberDto, true);
+        Gson gson = new Gson();
+        String encoded = gson.toJson(memberDto);
         log(ln() + encoded);
-        MemberDto decoded = JSON.decode(encoded, MemberDto.class);
+        MemberDto decoded = gson.fromJson(encoded, MemberDto.class);
         log(decoded);
 
         // ## Assert ##
@@ -185,9 +189,10 @@ public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
         LocalDateTime purchaseDatetime = firstPurchase.getPurchaseDatetime();
 
         // ## Act ##
-        String encoded = JSON.encode(memberDto, true);
+        Gson gson = new Gson();
+        String encoded = gson.toJson(memberDto);
         log(ln() + encoded);
-        MemberDto decoded = JSON.decode(encoded, MemberDto.class);
+        MemberDto decoded = gson.fromJson(encoded, MemberDto.class);
         log(decoded);
 
         // ## Assert ##
@@ -234,9 +239,10 @@ public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
         MemberDto memberDto = mapper.mappingToDto(member);
 
         // ## Act ##
-        String encoded = JSON.encode(memberDto, true);
+        Gson gson = new Gson();
+        String encoded = gson.toJson(memberDto);
         log(ln() + encoded);
-        MemberDto decoded = JSON.decode(encoded, MemberDto.class);
+        MemberDto decoded = gson.fromJson(encoded, MemberDto.class);
         log(decoded);
 
         // ## Assert ##

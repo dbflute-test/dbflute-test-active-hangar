@@ -16,6 +16,10 @@ import org.docksidestage.hangar.dbflute.cbean.cq.bs.BsMemberCQ;
  */
 public class MemberCQ extends BsMemberCQ {
 
+    /** noise for arrange query analyze */
+    @SuppressWarnings("unused")
+    private static final String JAVADOC_NOISE_DEF1 = "dummy";
+
     // =====================================================================================
     //                                                                           Constructor
     //                                                                           ===========
@@ -47,6 +51,44 @@ public class MemberCQ extends BsMemberCQ {
         existsPurchase(purCB -> {
             purCB.query().setProductId_Equal(specialProductId);
         });
+    }
+
+    public void arrangeNoJavaDocMember() {
+        setMemberName_LikeSearch("S", op -> op.likePrefix());
+    }
+
+    /** arrange query for one liner javadoc */
+    public void arrangeOneLinerJavaDocMember() {
+        setMemberName_LikeSearch("S", op -> op.likePrefix());
+    }
+
+    /** noise for arrange query analyze */
+    @SuppressWarnings("unused")
+    private static final String JAVADOC_NOISE_DEF2 = "dummy";
+
+    /**
+     * arrange query for title-only javadoc
+     */
+    public void arrangeTitleOnlyJavaDocMember() {
+        setMemberName_LikeSearch("S", op -> op.likePrefix());
+    }
+
+    /**
+     * arrange query for <strong>HTML</strong> javadoc, e.g. List<String>, Map<String, Object>, ... <br>
+     * <pre>
+     * dummy text
+     * </pre>
+     */
+    public void arrangeHtmlJavaDocMember() {
+        setMemberName_LikeSearch("S", op -> op.likePrefix());
+    }
+
+    /**
+     * arrange query for method annotation javadoc
+     */
+    @SuppressWarnings("unused")
+    public void arrangeMethodAnnotationJavaDocMember() {
+        String unusedStr = "dummy";
     }
 
     // ===================================================================================
