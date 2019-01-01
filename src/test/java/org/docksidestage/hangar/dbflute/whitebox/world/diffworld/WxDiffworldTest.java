@@ -141,7 +141,7 @@ public class WxDiffworldTest extends PlainTestCase {
         // these are changeable by environment so simple check
         assertNotNull(firstMap.get("diffDate"));
         assertNotNull(firstMap.get("diffAuthor"));
-        assertNotNull(firstMap.get("diffGitBranch"));
+        assertNotNull(firstMap.get("diffGitBranch")); // if failed here, confirm your git command environment
     }
 
     private void doCheckSchemaSyncCheckTableDiff(Map<String, Object> firstMap) {
