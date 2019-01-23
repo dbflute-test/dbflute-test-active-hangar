@@ -85,6 +85,9 @@ map:{
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INTEGER
             ; if columnName is suffix:_FLG then classification
+            ; if columnName is suffix:_FLG then classification(Flg)
+            ; if columnName is suffix:_SERVICE_RANK then classification
+            ; if columnName is suffix:_SERVICE_RANK then classification(ServiceRank)
 
             # test of manual identityIfPureIDPK
             # add "or contain:_SINGLE_" then failure
