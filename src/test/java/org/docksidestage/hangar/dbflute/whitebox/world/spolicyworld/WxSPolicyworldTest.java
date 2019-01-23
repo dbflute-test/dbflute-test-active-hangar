@@ -1,22 +1,23 @@
 package org.docksidestage.hangar.dbflute.whitebox.world.spolicyworld;
 
+import org.dbflute.helper.process.ProcessResult;
 import org.dbflute.helper.process.SystemScript;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.DfTraceViewUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @author subaru
  */
 public class WxSPolicyworldTest extends PlainTestCase {
     public void test_spolicyworld() {
-        doTest_spolicyworld(/*clean*/true);
-        doTest_spolicyworld(/*clean*/false);
+        doTest_spolicyworld();
     }
 
-    protected void doTest_spolicyworld(boolean clean) {
+    protected void doTest_spolicyworld() {
         // ## Arrange ##
         long before = System.currentTimeMillis();
         try {
@@ -27,9 +28,17 @@ public class WxSPolicyworldTest extends PlainTestCase {
             String fileName = "spolicyworld-test.sh";
 
             // ## Act ##
+            String[] scriptArgs = new String[] {};
+            log("...Executing spolicyworld: {}, {}", fileName, Arrays.asList(scriptArgs));
+            ProcessResult result = script.execute(clientDir, fileName, scriptArgs);
 
             // ## Assert ##
-
+            log("Finished the spolicyworld: {}, {}", result.getProcessName(), result.getExitCode());
+            assertEquals(0, result.getExitCode());
+            String console = result.getConsole();
+            log(console);
+            assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification");
+            assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification(ServiceRank)");
         } finally {
             long after = System.currentTimeMillis();
             log("performanceCost:[{}]", DfTraceViewUtil.convertToPerformanceView(after - before));
