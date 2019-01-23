@@ -13,9 +13,8 @@ export answer=y
 
 export DBFLUTE_ENVIRONMENT_TYPE=spolicy
 
-. replace-schema.sh
-. jdbc.sh
-. doc.sh
+# call by native not to stop by failure 
+sh $DBFLUTE_HOME/etc/cmd/_df-manage.sh $MY_PROPERTIES_PATH replace-schema
 
 unset DBFLUTE_ENVIRONMENT_TYPE
 
