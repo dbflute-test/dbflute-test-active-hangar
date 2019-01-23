@@ -4,13 +4,7 @@ cd `dirname $0`
 . _project.sh
 
 FIRST_ARG=$1
-
-if [ "$FIRST_ARG" = "clean" ];then
-  echo "...Cleaning existing resources"
-fi
-
 export answer=y
-
 export DBFLUTE_ENVIRONMENT_TYPE=spolicy
 
 # call by native not to stop by failure 
