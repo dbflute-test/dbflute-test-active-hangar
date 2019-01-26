@@ -55,7 +55,7 @@ public class WxSPolicyworldTest extends PlainTestCase {
     }
 
     private void checkBadThenTheme(String console) {
-        assertContains(console, "The column is no good: (商品)PRODUCT.PRODUCT_ONSALES_FLAG INTEGER(10) (NotNull)");
+        assertContains(console, "column.statement: if columnName is suffix:_FLAG then bad");
     }
 
     private void checkClassificationThenTheme(String console) {
