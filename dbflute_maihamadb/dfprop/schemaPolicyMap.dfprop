@@ -85,6 +85,14 @@ map:{
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INTEGER
             ; if columnName is suffix:_FLG then classification
+            ; if columnName is suffix:_FLG then classification(Flg)
+            ; if columnName is suffix:_SERVICE_RANK then classification
+            ; if columnName is suffix:_SERVICE_RANK then column is classification
+            ; if columnName is suffix:_SERVICE_RANK then classification(ServiceRank)
+            ; if columnName is suffix:_SERVICE_RANK then column is classification(ServiceRank)
+            ; if column is classification then dbType is CHAR or INTEGER
+            ; if column is classification(Flg) then dbType is CHAR or INTEGER
+            ; if column is classification(ServiceRank) then dbType is CHAR or INTEGER
 
             # test of manual identityIfPureIDPK
             # add "or contain:_SINGLE_" then failure
