@@ -37,8 +37,8 @@ public class WxSPolicyworldTest extends PlainTestCase {
             assertEquals(0, result.getExitCode());
             String console = result.getConsole();
             log(console);
-            assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification");
-            assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification(ServiceRank)");
+            checkBadThenTheme(console);
+            checkClassificationThenTheme(console);
         } finally {
             long after = System.currentTimeMillis();
             log("performanceCost:[{}]", DfTraceViewUtil.convertToPerformanceView(after - before));
@@ -48,6 +48,14 @@ public class WxSPolicyworldTest extends PlainTestCase {
     // ===================================================================================
     //                                                                   SchemaPolicyCheck
     //                                                                   =================
+    private void checkBadThenTheme(String console) {
+        assertContains(console, "The column is no good: (商品)PRODUCT.PRODUCT_ONSALES_FLAG INTEGER(10) (NotNull)");
+    }
+
+    private void checkClassificationThenTheme(String console) {
+        assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification");
+        assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification(ServiceRank)");
+    }
 
     // ===================================================================================
     //                                                                        Small Helper
