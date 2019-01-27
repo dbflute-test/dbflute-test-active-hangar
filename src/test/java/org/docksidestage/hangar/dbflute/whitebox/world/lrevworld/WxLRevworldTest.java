@@ -25,6 +25,9 @@ public class WxLRevworldTest extends PlainTestCase {
         long before = System.currentTimeMillis();
         try {
             SystemScript script = new SystemScript();
+            script.consoleLiner(line -> {
+                log(line);
+            });
             String clientPath = getClientPath();
             File clientDir = new File(clientPath);
             assertTrue(clientDir.exists());
@@ -39,7 +42,6 @@ public class WxLRevworldTest extends PlainTestCase {
             log("Finished the lrevworld: {}, {}", result.getProcessName(), result.getExitCode());
             assertEquals(0, result.getExitCode());
             String console = result.getConsole();
-            log(console);
             assertContains(console, "...Outputting load data");
             assertContains(console, "MEMBER (10)");
             assertContains(console, "BUILD SUCCESSFUL");

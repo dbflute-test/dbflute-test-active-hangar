@@ -25,6 +25,9 @@ public class WxSyncworldTest extends PlainTestCase {
         long before = System.currentTimeMillis();
         try {
             SystemScript script = new SystemScript();
+            script.consoleLiner(line -> {
+                log(line);
+            });
             String clientPath = getClientPath();
             File clientDir = new File(clientPath);
             assertTrue(clientDir.exists());
@@ -39,7 +42,6 @@ public class WxSyncworldTest extends PlainTestCase {
             log("Finished the syncworld: {}, {}", result.getProcessName(), result.getExitCode());
             assertEquals(0, result.getExitCode());
             String console = result.getConsole();
-            log(console);
             assertContains(console, "BUILD SUCCESSFUL"); // no difference
 
             String docPath = getOutputDocPath();

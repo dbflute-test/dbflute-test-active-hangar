@@ -28,6 +28,9 @@ public class WxDiffworldTest extends PlainTestCase {
         long before = System.currentTimeMillis();
         try {
             SystemScript script = new SystemScript();
+            script.consoleLiner(line -> {
+                log(line);
+            });
             String clientPath = getClientPath();
             File clientDir = new File(clientPath);
             assertTrue(clientDir.exists());
