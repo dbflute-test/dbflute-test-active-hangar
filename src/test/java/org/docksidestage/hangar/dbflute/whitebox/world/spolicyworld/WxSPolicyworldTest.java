@@ -1,18 +1,20 @@
 package org.docksidestage.hangar.dbflute.whitebox.world.spolicyworld;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+
 import org.dbflute.helper.process.ProcessResult;
 import org.dbflute.helper.process.SystemScript;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.DfTraceViewUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
-
 /**
  * @author subaru
+ * @author jflute
  */
 public class WxSPolicyworldTest extends PlainTestCase {
+
     public void test_spolicyworld() {
         doTest_spolicyworld();
     }
@@ -22,6 +24,9 @@ public class WxSPolicyworldTest extends PlainTestCase {
         long before = System.currentTimeMillis();
         try {
             SystemScript script = new SystemScript();
+            script.consoleLiner(line -> {
+                log(line);
+            });
             String clientPath = getClientPath();
             File clientDir = new File(clientPath);
             assertTrue(clientDir.exists());
@@ -36,7 +41,6 @@ public class WxSPolicyworldTest extends PlainTestCase {
             log("Finished the spolicyworld: {}, {}", result.getProcessName(), result.getExitCode());
             assertEquals(0, result.getExitCode());
             String console = result.getConsole();
-            log(console);
             checkClassificationIfValue(console);
             checkBadThenTheme(console);
             checkClassificationThenTheme(console);
