@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -113,7 +113,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setMobileLoginFlgAsFlg(AppCDef.Flg cdef) {
+    public void setMobileLoginFlgAsFlg(HangarCDef.Flg cdef) {
         setMobileLoginFlg(cdef != null ? Integer.valueOf(cdef.code()) : null);
     }
 
@@ -123,8 +123,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.Flg getMobileLoginFlgAsFlg() {
-        return AppCDef.Flg.codeOf(getMobileLoginFlg());
+    public HangarCDef.Flg getMobileLoginFlgAsFlg() {
+        return HangarCDef.Flg.codeOf(getMobileLoginFlg());
     }
 
     /**
@@ -132,7 +132,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setLoginMemberStatusCodeAsMemberStatus(AppCDef.MemberStatus cdef) {
+    public void setLoginMemberStatusCodeAsMemberStatus(HangarCDef.MemberStatus cdef) {
         setLoginMemberStatusCode(cdef != null ? cdef.code() : null);
     }
 
@@ -142,8 +142,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.MemberStatus getLoginMemberStatusCodeAsMemberStatus() {
-        return AppCDef.MemberStatus.codeOf(getLoginMemberStatusCode());
+    public HangarCDef.MemberStatus getLoginMemberStatusCodeAsMemberStatus() {
+        return HangarCDef.MemberStatus.codeOf(getLoginMemberStatusCode());
     }
 
     // ===================================================================================
@@ -154,7 +154,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * Yes: means valid
      */
     public void setMobileLoginFlg_True() {
-        setMobileLoginFlgAsFlg(AppCDef.Flg.True);
+        setMobileLoginFlgAsFlg(HangarCDef.Flg.True);
     }
 
     /**
@@ -162,7 +162,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * No: means invalid
      */
     public void setMobileLoginFlg_False() {
-        setMobileLoginFlgAsFlg(AppCDef.Flg.False);
+        setMobileLoginFlgAsFlg(HangarCDef.Flg.False);
     }
 
     /**
@@ -170,7 +170,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * Formalized: as formal member, allowed to use all service
      */
     public void setLoginMemberStatusCode_Formalized() {
-        setLoginMemberStatusCodeAsMemberStatus(AppCDef.MemberStatus.Formalized);
+        setLoginMemberStatusCodeAsMemberStatus(HangarCDef.MemberStatus.Formalized);
     }
 
     /**
@@ -178,7 +178,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * Withdrawal: withdrawal is fixed, not allowed to use service
      */
     public void setLoginMemberStatusCode_Withdrawal() {
-        setLoginMemberStatusCodeAsMemberStatus(AppCDef.MemberStatus.Withdrawal);
+        setLoginMemberStatusCodeAsMemberStatus(HangarCDef.MemberStatus.Withdrawal);
     }
 
     /**
@@ -186,7 +186,7 @@ public abstract class BsMemberLoginDto implements Serializable {
      * Provisional: first status after entry, allowed to use only part of service
      */
     public void setLoginMemberStatusCode_Provisional() {
-        setLoginMemberStatusCodeAsMemberStatus(AppCDef.MemberStatus.Provisional);
+        setLoginMemberStatusCodeAsMemberStatus(HangarCDef.MemberStatus.Provisional);
     }
 
     // ===================================================================================
@@ -199,8 +199,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isMobileLoginFlgTrue() {
-        AppCDef.Flg cdef = getMobileLoginFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.True) : false;
+        HangarCDef.Flg cdef = getMobileLoginFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.True) : false;
     }
 
     /**
@@ -210,8 +210,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isMobileLoginFlgFalse() {
-        AppCDef.Flg cdef = getMobileLoginFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.False) : false;
+        HangarCDef.Flg cdef = getMobileLoginFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.False) : false;
     }
 
     /**
@@ -221,8 +221,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isLoginMemberStatusCodeFormalized() {
-        AppCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(AppCDef.MemberStatus.Formalized) : false;
+        HangarCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(HangarCDef.MemberStatus.Formalized) : false;
     }
 
     /**
@@ -232,8 +232,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isLoginMemberStatusCodeWithdrawal() {
-        AppCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(AppCDef.MemberStatus.Withdrawal) : false;
+        HangarCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(HangarCDef.MemberStatus.Withdrawal) : false;
     }
 
     /**
@@ -243,8 +243,8 @@ public abstract class BsMemberLoginDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isLoginMemberStatusCodeProvisional() {
-        AppCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
-        return cdef != null ? cdef.equals(AppCDef.MemberStatus.Provisional) : false;
+        HangarCDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null ? cdef.equals(HangarCDef.MemberStatus.Provisional) : false;
     }
 
     // ===================================================================================

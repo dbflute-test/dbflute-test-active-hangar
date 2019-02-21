@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -129,7 +129,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * method of payment for purchase
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setPaymentMethodCodeAsPaymentMethod(AppCDef.PaymentMethod cdef) {
+    public void setPaymentMethodCodeAsPaymentMethod(HangarCDef.PaymentMethod cdef) {
         setPaymentMethodCode(cdef != null ? cdef.code() : null);
     }
 
@@ -139,8 +139,8 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.PaymentMethod getPaymentMethodCodeAsPaymentMethod() {
-        return AppCDef.PaymentMethod.codeOf(getPaymentMethodCode());
+    public HangarCDef.PaymentMethod getPaymentMethodCodeAsPaymentMethod() {
+        return HangarCDef.PaymentMethod.codeOf(getPaymentMethodCode());
     }
 
     // ===================================================================================
@@ -151,7 +151,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * by hand: payment by hand, face-to-face
      */
     public void setPaymentMethodCode_ByHand() {
-        setPaymentMethodCodeAsPaymentMethod(AppCDef.PaymentMethod.ByHand);
+        setPaymentMethodCodeAsPaymentMethod(HangarCDef.PaymentMethod.ByHand);
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * bank transfer: bank transfer payment
      */
     public void setPaymentMethodCode_BankTransfer() {
-        setPaymentMethodCodeAsPaymentMethod(AppCDef.PaymentMethod.BankTransfer);
+        setPaymentMethodCodeAsPaymentMethod(HangarCDef.PaymentMethod.BankTransfer);
     }
 
     /**
@@ -167,7 +167,7 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * credit card: credit card payment
      */
     public void setPaymentMethodCode_CreditCard() {
-        setPaymentMethodCodeAsPaymentMethod(AppCDef.PaymentMethod.CreditCard);
+        setPaymentMethodCodeAsPaymentMethod(HangarCDef.PaymentMethod.CreditCard);
     }
 
     // ===================================================================================
@@ -180,8 +180,8 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isPaymentMethodCodeByHand() {
-        AppCDef.PaymentMethod cdef = getPaymentMethodCodeAsPaymentMethod();
-        return cdef != null ? cdef.equals(AppCDef.PaymentMethod.ByHand) : false;
+        HangarCDef.PaymentMethod cdef = getPaymentMethodCodeAsPaymentMethod();
+        return cdef != null ? cdef.equals(HangarCDef.PaymentMethod.ByHand) : false;
     }
 
     /**
@@ -191,8 +191,8 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isPaymentMethodCodeBankTransfer() {
-        AppCDef.PaymentMethod cdef = getPaymentMethodCodeAsPaymentMethod();
-        return cdef != null ? cdef.equals(AppCDef.PaymentMethod.BankTransfer) : false;
+        HangarCDef.PaymentMethod cdef = getPaymentMethodCodeAsPaymentMethod();
+        return cdef != null ? cdef.equals(HangarCDef.PaymentMethod.BankTransfer) : false;
     }
 
     /**
@@ -202,8 +202,8 @@ public abstract class BsPurchasePaymentDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isPaymentMethodCodeCreditCard() {
-        AppCDef.PaymentMethod cdef = getPaymentMethodCodeAsPaymentMethod();
-        return cdef != null ? cdef.equals(AppCDef.PaymentMethod.CreditCard) : false;
+        HangarCDef.PaymentMethod cdef = getPaymentMethodCodeAsPaymentMethod();
+        return cdef != null ? cdef.equals(HangarCDef.PaymentMethod.CreditCard) : false;
     }
 
     // ===================================================================================

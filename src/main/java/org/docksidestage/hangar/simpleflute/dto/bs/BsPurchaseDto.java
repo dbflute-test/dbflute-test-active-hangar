@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -141,7 +141,7 @@ public abstract class BsPurchaseDto implements Serializable {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setPaymentCompleteFlgAsFlg(AppCDef.Flg cdef) {
+    public void setPaymentCompleteFlgAsFlg(HangarCDef.Flg cdef) {
         setPaymentCompleteFlg(cdef != null ? Integer.valueOf(cdef.code()) : null);
     }
 
@@ -151,8 +151,8 @@ public abstract class BsPurchaseDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.Flg getPaymentCompleteFlgAsFlg() {
-        return AppCDef.Flg.codeOf(getPaymentCompleteFlg());
+    public HangarCDef.Flg getPaymentCompleteFlgAsFlg() {
+        return HangarCDef.Flg.codeOf(getPaymentCompleteFlg());
     }
 
     // ===================================================================================
@@ -163,7 +163,7 @@ public abstract class BsPurchaseDto implements Serializable {
      * Yes: means valid
      */
     public void setPaymentCompleteFlg_True() {
-        setPaymentCompleteFlgAsFlg(AppCDef.Flg.True);
+        setPaymentCompleteFlgAsFlg(HangarCDef.Flg.True);
     }
 
     /**
@@ -171,7 +171,7 @@ public abstract class BsPurchaseDto implements Serializable {
      * No: means invalid
      */
     public void setPaymentCompleteFlg_False() {
-        setPaymentCompleteFlgAsFlg(AppCDef.Flg.False);
+        setPaymentCompleteFlgAsFlg(HangarCDef.Flg.False);
     }
 
     // ===================================================================================
@@ -184,8 +184,8 @@ public abstract class BsPurchaseDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isPaymentCompleteFlgTrue() {
-        AppCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.True) : false;
+        HangarCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.True) : false;
     }
 
     /**
@@ -195,8 +195,8 @@ public abstract class BsPurchaseDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isPaymentCompleteFlgFalse() {
-        AppCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.False) : false;
+        HangarCDef.Flg cdef = getPaymentCompleteFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.False) : false;
     }
 
     // ===================================================================================

@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -129,7 +129,7 @@ public abstract class BsMemberServiceDto implements Serializable {
      * rank of service member gets
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setServiceRankCodeAsServiceRank(AppCDef.ServiceRank cdef) {
+    public void setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank cdef) {
         setServiceRankCode(cdef != null ? cdef.code() : null);
     }
 
@@ -139,8 +139,8 @@ public abstract class BsMemberServiceDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.ServiceRank getServiceRankCodeAsServiceRank() {
-        return AppCDef.ServiceRank.codeOf(getServiceRankCode());
+    public HangarCDef.ServiceRank getServiceRankCodeAsServiceRank() {
+        return HangarCDef.ServiceRank.codeOf(getServiceRankCode());
     }
 
     // ===================================================================================
@@ -151,7 +151,7 @@ public abstract class BsMemberServiceDto implements Serializable {
      * PLATINUM: platinum rank
      */
     public void setServiceRankCode_Platinum() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Platinum);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Platinum);
     }
 
     /**
@@ -159,7 +159,7 @@ public abstract class BsMemberServiceDto implements Serializable {
      * GOLD: gold rank
      */
     public void setServiceRankCode_Gold() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Gold);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Gold);
     }
 
     /**
@@ -167,7 +167,7 @@ public abstract class BsMemberServiceDto implements Serializable {
      * SILVER: silver rank
      */
     public void setServiceRankCode_Silver() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Silver);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Silver);
     }
 
     /**
@@ -175,7 +175,7 @@ public abstract class BsMemberServiceDto implements Serializable {
      * BRONZE: bronze rank
      */
     public void setServiceRankCode_Bronze() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Bronze);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Bronze);
     }
 
     /**
@@ -183,7 +183,7 @@ public abstract class BsMemberServiceDto implements Serializable {
      * PLASTIC: plastic rank
      */
     public void setServiceRankCode_Plastic() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Plastic);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Plastic);
     }
 
     // ===================================================================================
@@ -196,8 +196,8 @@ public abstract class BsMemberServiceDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodePlatinum() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Platinum) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Platinum) : false;
     }
 
     /**
@@ -207,8 +207,8 @@ public abstract class BsMemberServiceDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodeGold() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Gold) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Gold) : false;
     }
 
     /**
@@ -218,8 +218,8 @@ public abstract class BsMemberServiceDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodeSilver() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Silver) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Silver) : false;
     }
 
     /**
@@ -229,8 +229,8 @@ public abstract class BsMemberServiceDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodeBronze() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Bronze) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Bronze) : false;
     }
 
     /**
@@ -240,8 +240,8 @@ public abstract class BsMemberServiceDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodePlastic() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Plastic) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Plastic) : false;
     }
 
     // ===================================================================================

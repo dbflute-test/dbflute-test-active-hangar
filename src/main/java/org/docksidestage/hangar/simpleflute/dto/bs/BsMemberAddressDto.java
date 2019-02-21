@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -138,7 +138,7 @@ public abstract class BsMemberAddressDto implements Serializable {
      * mainly region of member address
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setRegionIdAsRegion(AppCDef.Region cdef) {
+    public void setRegionIdAsRegion(HangarCDef.Region cdef) {
         setRegionId(cdef != null ? Integer.valueOf(cdef.code()) : null);
     }
 
@@ -148,8 +148,8 @@ public abstract class BsMemberAddressDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.Region getRegionIdAsRegion() {
-        return AppCDef.Region.codeOf(getRegionId());
+    public HangarCDef.Region getRegionIdAsRegion() {
+        return HangarCDef.Region.codeOf(getRegionId());
     }
 
     // ===================================================================================
@@ -160,7 +160,7 @@ public abstract class BsMemberAddressDto implements Serializable {
      * AMERICA
      */
     public void setRegionId_America() {
-        setRegionIdAsRegion(AppCDef.Region.America);
+        setRegionIdAsRegion(HangarCDef.Region.America);
     }
 
     /**
@@ -168,7 +168,7 @@ public abstract class BsMemberAddressDto implements Serializable {
      * CANADA
      */
     public void setRegionId_Canada() {
-        setRegionIdAsRegion(AppCDef.Region.Canada);
+        setRegionIdAsRegion(HangarCDef.Region.Canada);
     }
 
     /**
@@ -176,7 +176,7 @@ public abstract class BsMemberAddressDto implements Serializable {
      * CHINA
      */
     public void setRegionId_China() {
-        setRegionIdAsRegion(AppCDef.Region.China);
+        setRegionIdAsRegion(HangarCDef.Region.China);
     }
 
     /**
@@ -184,7 +184,7 @@ public abstract class BsMemberAddressDto implements Serializable {
      * CHIBA
      */
     public void setRegionId_Chiba() {
-        setRegionIdAsRegion(AppCDef.Region.Chiba);
+        setRegionIdAsRegion(HangarCDef.Region.Chiba);
     }
 
     // ===================================================================================
@@ -197,8 +197,8 @@ public abstract class BsMemberAddressDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isRegionIdAmerica() {
-        AppCDef.Region cdef = getRegionIdAsRegion();
-        return cdef != null ? cdef.equals(AppCDef.Region.America) : false;
+        HangarCDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(HangarCDef.Region.America) : false;
     }
 
     /**
@@ -208,8 +208,8 @@ public abstract class BsMemberAddressDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isRegionIdCanada() {
-        AppCDef.Region cdef = getRegionIdAsRegion();
-        return cdef != null ? cdef.equals(AppCDef.Region.Canada) : false;
+        HangarCDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(HangarCDef.Region.Canada) : false;
     }
 
     /**
@@ -219,8 +219,8 @@ public abstract class BsMemberAddressDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isRegionIdChina() {
-        AppCDef.Region cdef = getRegionIdAsRegion();
-        return cdef != null ? cdef.equals(AppCDef.Region.China) : false;
+        HangarCDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(HangarCDef.Region.China) : false;
     }
 
     /**
@@ -230,8 +230,8 @@ public abstract class BsMemberAddressDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isRegionIdChiba() {
-        AppCDef.Region cdef = getRegionIdAsRegion();
-        return cdef != null ? cdef.equals(AppCDef.Region.Chiba) : false;
+        HangarCDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(HangarCDef.Region.Chiba) : false;
     }
 
     // ===================================================================================
