@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 
 /**
  * The simple DTO of WHITE_TSV_LOADING as TABLE. <br>
@@ -122,7 +122,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setDoneFlgAsFlg(AppCDef.Flg cdef) {
+    public void setDoneFlgAsFlg(HangarCDef.Flg cdef) {
         setDoneFlg(cdef != null ? Boolean.valueOf(cdef.code()) : null);
     }
 
@@ -132,8 +132,8 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.Flg getDoneFlgAsFlg() {
-        return AppCDef.Flg.codeOf(getDoneFlg());
+    public HangarCDef.Flg getDoneFlgAsFlg() {
+        return HangarCDef.Flg.codeOf(getDoneFlg());
     }
 
     // ===================================================================================
@@ -144,7 +144,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
      * Yes: means valid
      */
     public void setDoneFlg_True() {
-        setDoneFlgAsFlg(AppCDef.Flg.True);
+        setDoneFlgAsFlg(HangarCDef.Flg.True);
     }
 
     /**
@@ -152,7 +152,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
      * No: means invalid
      */
     public void setDoneFlg_False() {
-        setDoneFlgAsFlg(AppCDef.Flg.False);
+        setDoneFlgAsFlg(HangarCDef.Flg.False);
     }
 
     // ===================================================================================
@@ -165,8 +165,8 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isDoneFlgTrue() {
-        AppCDef.Flg cdef = getDoneFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.True) : false;
+        HangarCDef.Flg cdef = getDoneFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.True) : false;
     }
 
     /**
@@ -176,8 +176,8 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isDoneFlgFalse() {
-        AppCDef.Flg cdef = getDoneFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.False) : false;
+        HangarCDef.Flg cdef = getDoneFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.False) : false;
     }
 
     // ===================================================================================

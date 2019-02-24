@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import net.vvakame.util.jsonpullparser.annotation.*;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -114,7 +114,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * rank of service member gets
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setServiceRankCodeAsServiceRank(AppCDef.ServiceRank cdef) {
+    public void setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank cdef) {
         setServiceRankCode(cdef != null ? cdef.code() : null);
     }
 
@@ -124,8 +124,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.ServiceRank getServiceRankCodeAsServiceRank() {
-        return AppCDef.ServiceRank.codeOf(getServiceRankCode());
+    public HangarCDef.ServiceRank getServiceRankCodeAsServiceRank() {
+        return HangarCDef.ServiceRank.codeOf(getServiceRankCode());
     }
 
     /**
@@ -133,7 +133,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setNewAcceptableFlgAsFlg(AppCDef.Flg cdef) {
+    public void setNewAcceptableFlgAsFlg(HangarCDef.Flg cdef) {
         setNewAcceptableFlg(cdef != null ? Integer.valueOf(cdef.code()) : null);
     }
 
@@ -143,8 +143,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.Flg getNewAcceptableFlgAsFlg() {
-        return AppCDef.Flg.codeOf(getNewAcceptableFlg());
+    public HangarCDef.Flg getNewAcceptableFlgAsFlg() {
+        return HangarCDef.Flg.codeOf(getNewAcceptableFlg());
     }
 
     // ===================================================================================
@@ -155,7 +155,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * PLATINUM: platinum rank
      */
     public void setServiceRankCode_Platinum() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Platinum);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Platinum);
     }
 
     /**
@@ -163,7 +163,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * GOLD: gold rank
      */
     public void setServiceRankCode_Gold() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Gold);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Gold);
     }
 
     /**
@@ -171,7 +171,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * SILVER: silver rank
      */
     public void setServiceRankCode_Silver() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Silver);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Silver);
     }
 
     /**
@@ -179,7 +179,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * BRONZE: bronze rank
      */
     public void setServiceRankCode_Bronze() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Bronze);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Bronze);
     }
 
     /**
@@ -187,7 +187,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * PLASTIC: plastic rank
      */
     public void setServiceRankCode_Plastic() {
-        setServiceRankCodeAsServiceRank(AppCDef.ServiceRank.Plastic);
+        setServiceRankCodeAsServiceRank(HangarCDef.ServiceRank.Plastic);
     }
 
     /**
@@ -195,7 +195,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * Yes: means valid
      */
     public void setNewAcceptableFlg_True() {
-        setNewAcceptableFlgAsFlg(AppCDef.Flg.True);
+        setNewAcceptableFlgAsFlg(HangarCDef.Flg.True);
     }
 
     /**
@@ -203,7 +203,7 @@ public abstract class BsServiceRankDto implements Serializable {
      * No: means invalid
      */
     public void setNewAcceptableFlg_False() {
-        setNewAcceptableFlgAsFlg(AppCDef.Flg.False);
+        setNewAcceptableFlgAsFlg(HangarCDef.Flg.False);
     }
 
     // ===================================================================================
@@ -216,8 +216,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodePlatinum() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Platinum) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Platinum) : false;
     }
 
     /**
@@ -227,8 +227,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodeGold() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Gold) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Gold) : false;
     }
 
     /**
@@ -238,8 +238,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodeSilver() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Silver) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Silver) : false;
     }
 
     /**
@@ -249,8 +249,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodeBronze() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Bronze) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Bronze) : false;
     }
 
     /**
@@ -260,8 +260,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isServiceRankCodePlastic() {
-        AppCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
-        return cdef != null ? cdef.equals(AppCDef.ServiceRank.Plastic) : false;
+        HangarCDef.ServiceRank cdef = getServiceRankCodeAsServiceRank();
+        return cdef != null ? cdef.equals(HangarCDef.ServiceRank.Plastic) : false;
     }
 
     /**
@@ -271,8 +271,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isNewAcceptableFlgTrue() {
-        AppCDef.Flg cdef = getNewAcceptableFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.True) : false;
+        HangarCDef.Flg cdef = getNewAcceptableFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.True) : false;
     }
 
     /**
@@ -282,8 +282,8 @@ public abstract class BsServiceRankDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isNewAcceptableFlgFalse() {
-        AppCDef.Flg cdef = getNewAcceptableFlgAsFlg();
-        return cdef != null ? cdef.equals(AppCDef.Flg.False) : false;
+        HangarCDef.Flg cdef = getNewAcceptableFlgAsFlg();
+        return cdef != null ? cdef.equals(HangarCDef.Flg.False) : false;
     }
 
     // ===================================================================================

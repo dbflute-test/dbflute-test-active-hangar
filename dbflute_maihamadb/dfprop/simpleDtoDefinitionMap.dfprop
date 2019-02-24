@@ -46,7 +46,7 @@ map:{
 	#; isMappingExceptCommonColumn = true
 
     # Class and Package for CDef
-    ; simpleCDefClass = AppCDef
+    ; simpleCDefClass = HangarCDef
     ; simpleCDefPackage = org.docksidestage.hangar.simpleflute
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

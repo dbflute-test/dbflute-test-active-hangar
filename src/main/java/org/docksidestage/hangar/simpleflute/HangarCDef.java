@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Arrays;
 import java.util.Collections;
-import static org.docksidestage.hangar.simpleflute.AppCDef.XInternalCDefUtil.emptyStrings;
+import static org.docksidestage.hangar.simpleflute.HangarCDef.XInternalCDefUtil.emptyStrings;
 
 /**
  * The definition of classification.
  * @author DBFlute(AutoGenerator)
  */
-public interface AppCDef {
+public interface HangarCDef {
 
     /** The empty array for no sisters. */
     String[] EMPTY_SISTERS = new String[]{};
@@ -52,7 +52,7 @@ public interface AppCDef {
     /**
      * general boolean classification for every flg-column
      */
-    public enum Flg implements AppCDef {
+    public enum Flg implements HangarCDef {
         /** Yes: means valid */
         True("1", "Yes", new String[] {"true"})
         ,
@@ -121,7 +121,7 @@ public interface AppCDef {
     /**
      * status of member from entry to withdrawal
      */
-    public enum MemberStatus implements AppCDef {
+    public enum MemberStatus implements HangarCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", emptyStrings())
         ,
@@ -201,7 +201,7 @@ public interface AppCDef {
     /**
      * rank of service member gets
      */
-    public enum ServiceRank implements AppCDef {
+    public enum ServiceRank implements HangarCDef {
         /** PLATINUM: platinum rank */
         Platinum("PLT", "PLATINUM", emptyStrings())
         ,
@@ -266,7 +266,7 @@ public interface AppCDef {
     /**
      * mainly region of member address
      */
-    public enum Region implements AppCDef {
+    public enum Region implements HangarCDef {
         /** AMERICA */
         America("1", "AMERICA", emptyStrings())
         ,
@@ -328,7 +328,7 @@ public interface AppCDef {
     /**
      * reason for member withdrawal
      */
-    public enum WithdrawalReason implements AppCDef {
+    public enum WithdrawalReason implements HangarCDef {
         /** SIT: サイトが使いにくいから */
         Sit("SIT", "SIT", new String[] {"1"})
         ,
@@ -390,7 +390,7 @@ public interface AppCDef {
     /**
      * category of product. self reference
      */
-    public enum ProductCategory implements AppCDef {
+    public enum ProductCategory implements HangarCDef {
         /** 音楽 */
         音楽("MSC", "音楽", emptyStrings())
         ,
@@ -455,7 +455,7 @@ public interface AppCDef {
     /**
      * status for product
      */
-    public enum ProductStatus implements AppCDef {
+    public enum ProductStatus implements HangarCDef {
         /** 生産販売可能 */
         生産販売可能("ONS", "生産販売可能", emptyStrings())
         ,
@@ -514,7 +514,7 @@ public interface AppCDef {
     /**
      * method of payment for purchase
      */
-    public enum PaymentMethod implements AppCDef {
+    public enum PaymentMethod implements HangarCDef {
         /** by hand: payment by hand, face-to-face */
         ByHand("HAN", "by hand", emptyStrings())
         ,
@@ -601,15 +601,15 @@ public interface AppCDef {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the classification. (NullAllowed: when not found and code is null)
          */
-        public AppCDef codeOf(Object code) {
-            if ("Flg".equals(name())) { return AppCDef.Flg.codeOf(code); }
-            if ("MemberStatus".equals(name())) { return AppCDef.MemberStatus.codeOf(code); }
-            if ("ServiceRank".equals(name())) { return AppCDef.ServiceRank.codeOf(code); }
-            if ("Region".equals(name())) { return AppCDef.Region.codeOf(code); }
-            if ("WithdrawalReason".equals(name())) { return AppCDef.WithdrawalReason.codeOf(code); }
-            if ("ProductCategory".equals(name())) { return AppCDef.ProductCategory.codeOf(code); }
-            if ("ProductStatus".equals(name())) { return AppCDef.ProductStatus.codeOf(code); }
-            if ("PaymentMethod".equals(name())) { return AppCDef.PaymentMethod.codeOf(code); }
+        public HangarCDef codeOf(Object code) {
+            if ("Flg".equals(name())) { return HangarCDef.Flg.codeOf(code); }
+            if ("MemberStatus".equals(name())) { return HangarCDef.MemberStatus.codeOf(code); }
+            if ("ServiceRank".equals(name())) { return HangarCDef.ServiceRank.codeOf(code); }
+            if ("Region".equals(name())) { return HangarCDef.Region.codeOf(code); }
+            if ("WithdrawalReason".equals(name())) { return HangarCDef.WithdrawalReason.codeOf(code); }
+            if ("ProductCategory".equals(name())) { return HangarCDef.ProductCategory.codeOf(code); }
+            if ("ProductStatus".equals(name())) { return HangarCDef.ProductStatus.codeOf(code); }
+            if ("PaymentMethod".equals(name())) { return HangarCDef.PaymentMethod.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -618,15 +618,15 @@ public interface AppCDef {
          * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
          * @return The instance of the classification. (NullAllowed: when not found and name is null)
          */
-        public AppCDef nameOf(String name) {
-            if ("Flg".equals(name())) { return AppCDef.Flg.valueOf(name); }
-            if ("MemberStatus".equals(name())) { return AppCDef.MemberStatus.valueOf(name); }
-            if ("ServiceRank".equals(name())) { return AppCDef.ServiceRank.valueOf(name); }
-            if ("Region".equals(name())) { return AppCDef.Region.valueOf(name); }
-            if ("WithdrawalReason".equals(name())) { return AppCDef.WithdrawalReason.valueOf(name); }
-            if ("ProductCategory".equals(name())) { return AppCDef.ProductCategory.valueOf(name); }
-            if ("ProductStatus".equals(name())) { return AppCDef.ProductStatus.valueOf(name); }
-            if ("PaymentMethod".equals(name())) { return AppCDef.PaymentMethod.valueOf(name); }
+        public HangarCDef nameOf(String name) {
+            if ("Flg".equals(name())) { return HangarCDef.Flg.valueOf(name); }
+            if ("MemberStatus".equals(name())) { return HangarCDef.MemberStatus.valueOf(name); }
+            if ("ServiceRank".equals(name())) { return HangarCDef.ServiceRank.valueOf(name); }
+            if ("Region".equals(name())) { return HangarCDef.Region.valueOf(name); }
+            if ("WithdrawalReason".equals(name())) { return HangarCDef.WithdrawalReason.valueOf(name); }
+            if ("ProductCategory".equals(name())) { return HangarCDef.ProductCategory.valueOf(name); }
+            if ("ProductStatus".equals(name())) { return HangarCDef.ProductStatus.valueOf(name); }
+            if ("PaymentMethod".equals(name())) { return HangarCDef.PaymentMethod.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -634,21 +634,21 @@ public interface AppCDef {
          * Get the list of all classification elements. (returns new copied list)
          * @return The list of classification elements. (NotNull)
          */
-        public List<AppCDef> listAll() {
-            if ("Flg".equals(name())) { return toClassificationList(AppCDef.Flg.listAll()); }
-            if ("MemberStatus".equals(name())) { return toClassificationList(AppCDef.MemberStatus.listAll()); }
-            if ("ServiceRank".equals(name())) { return toClassificationList(AppCDef.ServiceRank.listAll()); }
-            if ("Region".equals(name())) { return toClassificationList(AppCDef.Region.listAll()); }
-            if ("WithdrawalReason".equals(name())) { return toClassificationList(AppCDef.WithdrawalReason.listAll()); }
-            if ("ProductCategory".equals(name())) { return toClassificationList(AppCDef.ProductCategory.listAll()); }
-            if ("ProductStatus".equals(name())) { return toClassificationList(AppCDef.ProductStatus.listAll()); }
-            if ("PaymentMethod".equals(name())) { return toClassificationList(AppCDef.PaymentMethod.listAll()); }
+        public List<HangarCDef> listAll() {
+            if ("Flg".equals(name())) { return toClassificationList(HangarCDef.Flg.listAll()); }
+            if ("MemberStatus".equals(name())) { return toClassificationList(HangarCDef.MemberStatus.listAll()); }
+            if ("ServiceRank".equals(name())) { return toClassificationList(HangarCDef.ServiceRank.listAll()); }
+            if ("Region".equals(name())) { return toClassificationList(HangarCDef.Region.listAll()); }
+            if ("WithdrawalReason".equals(name())) { return toClassificationList(HangarCDef.WithdrawalReason.listAll()); }
+            if ("ProductCategory".equals(name())) { return toClassificationList(HangarCDef.ProductCategory.listAll()); }
+            if ("ProductStatus".equals(name())) { return toClassificationList(HangarCDef.ProductStatus.listAll()); }
+            if ("PaymentMethod".equals(name())) { return toClassificationList(HangarCDef.PaymentMethod.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         @SuppressWarnings("unchecked")
-        private List<AppCDef> toClassificationList(List<?> clsList) {
-            return (List<AppCDef>)clsList;
+        private List<HangarCDef> toClassificationList(List<?> clsList) {
+            return (List<HangarCDef>)clsList;
         }
     }
 }

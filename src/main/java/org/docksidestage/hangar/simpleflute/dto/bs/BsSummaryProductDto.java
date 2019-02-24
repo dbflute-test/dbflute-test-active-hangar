@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -111,7 +111,7 @@ public abstract class BsSummaryProductDto implements Serializable {
      * status for product
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setProductStatusCodeAsProductStatus(AppCDef.ProductStatus cdef) {
+    public void setProductStatusCodeAsProductStatus(HangarCDef.ProductStatus cdef) {
         setProductStatusCode(cdef != null ? cdef.code() : null);
     }
 
@@ -121,8 +121,8 @@ public abstract class BsSummaryProductDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.ProductStatus getProductStatusCodeAsProductStatus() {
-        return AppCDef.ProductStatus.codeOf(getProductStatusCode());
+    public HangarCDef.ProductStatus getProductStatusCodeAsProductStatus() {
+        return HangarCDef.ProductStatus.codeOf(getProductStatusCode());
     }
 
     // ===================================================================================
@@ -133,7 +133,7 @@ public abstract class BsSummaryProductDto implements Serializable {
      * 生産販売可能
      */
     public void setProductStatusCode_生産販売可能() {
-        setProductStatusCodeAsProductStatus(AppCDef.ProductStatus.生産販売可能);
+        setProductStatusCodeAsProductStatus(HangarCDef.ProductStatus.生産販売可能);
     }
 
     /**
@@ -141,7 +141,7 @@ public abstract class BsSummaryProductDto implements Serializable {
      * 生産中止
      */
     public void setProductStatusCode_生産中止() {
-        setProductStatusCodeAsProductStatus(AppCDef.ProductStatus.生産中止);
+        setProductStatusCodeAsProductStatus(HangarCDef.ProductStatus.生産中止);
     }
 
     /**
@@ -149,7 +149,7 @@ public abstract class BsSummaryProductDto implements Serializable {
      * 販売中止
      */
     public void setProductStatusCode_販売中止() {
-        setProductStatusCodeAsProductStatus(AppCDef.ProductStatus.販売中止);
+        setProductStatusCodeAsProductStatus(HangarCDef.ProductStatus.販売中止);
     }
 
     // ===================================================================================
@@ -162,8 +162,8 @@ public abstract class BsSummaryProductDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isProductStatusCode生産販売可能() {
-        AppCDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
-        return cdef != null ? cdef.equals(AppCDef.ProductStatus.生産販売可能) : false;
+        HangarCDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
+        return cdef != null ? cdef.equals(HangarCDef.ProductStatus.生産販売可能) : false;
     }
 
     /**
@@ -173,8 +173,8 @@ public abstract class BsSummaryProductDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isProductStatusCode生産中止() {
-        AppCDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
-        return cdef != null ? cdef.equals(AppCDef.ProductStatus.生産中止) : false;
+        HangarCDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
+        return cdef != null ? cdef.equals(HangarCDef.ProductStatus.生産中止) : false;
     }
 
     /**
@@ -184,8 +184,8 @@ public abstract class BsSummaryProductDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isProductStatusCode販売中止() {
-        AppCDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
-        return cdef != null ? cdef.equals(AppCDef.ProductStatus.販売中止) : false;
+        HangarCDef.ProductStatus cdef = getProductStatusCodeAsProductStatus();
+        return cdef != null ? cdef.equals(HangarCDef.ProductStatus.販売中止) : false;
     }
 
     // ===================================================================================

@@ -6,7 +6,7 @@ import java.util.*;
 import net.arnx.jsonic.JSONHint;
 import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.docksidestage.hangar.simpleflute.AppCDef;
+import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
@@ -127,7 +127,7 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * reason for member withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public void setWithdrawalReasonCodeAsWithdrawalReason(AppCDef.WithdrawalReason cdef) {
+    public void setWithdrawalReasonCodeAsWithdrawalReason(HangarCDef.WithdrawalReason cdef) {
         setWithdrawalReasonCode(cdef != null ? cdef.code() : null);
     }
 
@@ -137,8 +137,8 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed)
      */
-    public AppCDef.WithdrawalReason getWithdrawalReasonCodeAsWithdrawalReason() {
-        return AppCDef.WithdrawalReason.codeOf(getWithdrawalReasonCode());
+    public HangarCDef.WithdrawalReason getWithdrawalReasonCodeAsWithdrawalReason() {
+        return HangarCDef.WithdrawalReason.codeOf(getWithdrawalReasonCode());
     }
 
     // ===================================================================================
@@ -149,7 +149,7 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * SIT: サイトが使いにくいから
      */
     public void setWithdrawalReasonCode_Sit() {
-        setWithdrawalReasonCodeAsWithdrawalReason(AppCDef.WithdrawalReason.Sit);
+        setWithdrawalReasonCodeAsWithdrawalReason(HangarCDef.WithdrawalReason.Sit);
     }
 
     /**
@@ -157,7 +157,7 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * PRD: 商品に魅力がないから
      */
     public void setWithdrawalReasonCode_Prd() {
-        setWithdrawalReasonCodeAsWithdrawalReason(AppCDef.WithdrawalReason.Prd);
+        setWithdrawalReasonCodeAsWithdrawalReason(HangarCDef.WithdrawalReason.Prd);
     }
 
     /**
@@ -165,7 +165,7 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * FRT: フリテンだから
      */
     public void setWithdrawalReasonCode_Frt() {
-        setWithdrawalReasonCodeAsWithdrawalReason(AppCDef.WithdrawalReason.Frt);
+        setWithdrawalReasonCodeAsWithdrawalReason(HangarCDef.WithdrawalReason.Frt);
     }
 
     /**
@@ -173,7 +173,7 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * OTH: その他理由
      */
     public void setWithdrawalReasonCode_Oth() {
-        setWithdrawalReasonCodeAsWithdrawalReason(AppCDef.WithdrawalReason.Oth);
+        setWithdrawalReasonCodeAsWithdrawalReason(HangarCDef.WithdrawalReason.Oth);
     }
 
     // ===================================================================================
@@ -186,8 +186,8 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isWithdrawalReasonCodeSit() {
-        AppCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
-        return cdef != null ? cdef.equals(AppCDef.WithdrawalReason.Sit) : false;
+        HangarCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
+        return cdef != null ? cdef.equals(HangarCDef.WithdrawalReason.Sit) : false;
     }
 
     /**
@@ -197,8 +197,8 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isWithdrawalReasonCodePrd() {
-        AppCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
-        return cdef != null ? cdef.equals(AppCDef.WithdrawalReason.Prd) : false;
+        HangarCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
+        return cdef != null ? cdef.equals(HangarCDef.WithdrawalReason.Prd) : false;
     }
 
     /**
@@ -208,8 +208,8 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isWithdrawalReasonCodeFrt() {
-        AppCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
-        return cdef != null ? cdef.equals(AppCDef.WithdrawalReason.Frt) : false;
+        HangarCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
+        return cdef != null ? cdef.equals(HangarCDef.WithdrawalReason.Frt) : false;
     }
 
     /**
@@ -219,8 +219,8 @@ public abstract class BsMemberWithdrawalDto implements Serializable {
      * @return The determination, true or false.
      */
     public boolean isWithdrawalReasonCodeOth() {
-        AppCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
-        return cdef != null ? cdef.equals(AppCDef.WithdrawalReason.Oth) : false;
+        HangarCDef.WithdrawalReason cdef = getWithdrawalReasonCodeAsWithdrawalReason();
+        return cdef != null ? cdef.equals(HangarCDef.WithdrawalReason.Oth) : false;
     }
 
     // ===================================================================================
