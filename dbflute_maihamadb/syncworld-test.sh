@@ -14,7 +14,7 @@ export answer=y
 
 export DBFLUTE_ENVIRONMENT_TYPE=diffready
 
-. replace-schema.sh
+. manage.sh replace-schema
 
 rm ./dfprop/syncworld/syncworlddb.mv.db
 cp ./dfprop/diffworld/diffworlddb.mv.db ./dfprop/syncworld/syncworlddb.mv.db

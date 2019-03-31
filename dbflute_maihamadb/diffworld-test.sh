@@ -21,14 +21,14 @@ export answer=y
 
 export DBFLUTE_ENVIRONMENT_TYPE=diffready
 
-. replace-schema.sh
-. jdbc.sh
+. manage.sh replace-schema
+. manage.sh jdbc
 
 export DBFLUTE_ENVIRONMENT_TYPE=diffworld
 
-. replace-schema.sh
-. jdbc.sh
-. doc.sh
+. manage.sh replace-schema
+. manage.sh jdbc
+. manage.sh doc
 
 # call by native not to stop by failure 
 sh $DBFLUTE_HOME/etc/cmd/_df-manage.sh $MY_PROPERTIES_PATH schema-sync-check
