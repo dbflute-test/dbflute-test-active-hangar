@@ -1,5 +1,6 @@
 package org.docksidestage.dbflute.flex.bs.customize {
 
+// *customization mark by jflute
 import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.customize.*;
 
