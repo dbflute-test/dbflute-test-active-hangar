@@ -1,0 +1,15 @@
+## _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+## SolrGen: case of manual structure for GenerationGap
+## _/_/_/_/_/_/_/_/_/_/
+#set ($table = $request.table)
+#set ($path = "${request.generateDirPath}/bean/bs/${optionMap.baseBeanClassName}.java")
+$manager.makeDirectory($path)
+$manager.info("parse('${path}')")
+$generator.parse("./solr/bean/BsSolrBean.vm", $path, "", "")
+
+#set ($path = "${request.generateDirPath}/bean/ex/${optionMap.extendedBeanClassName}.java")
+$manager.makeDirectory($path)
+$manager.info("parse('${path}')")
+#if (!$files.file(${generator.outputPath},$path).exists())
+  $generator.parse("./solr/bean/ExSolrBean.vm", $path, "", "")
+#end
