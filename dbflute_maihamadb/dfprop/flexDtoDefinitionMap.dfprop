@@ -1,0 +1,20 @@
+# /---------------------------------------------------------------------------
+# flexDtoDefinitionMap: (Default map:{})
+#
+# The settings about generation of flex(ible) DTO
+# that is basically for data transfer.
+# 
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    ; outputDirectory = ../flex
+    ; baseDtoPackage = org.docksidestage.dbflute.flex.bs
+    ; extendedDtoPackage = org.docksidestage.dbflute.flex.ex
+    ; baseDtoPrefix = Bs
+    ; extendedDtoPrefix = 
+    ; fileExtension = as
+
+    # adjust this to your project (with TypeMap.java in DBFlute Engine)
+    ; javaToFlexNativeMap = map:{}
+}
+# ----------------/

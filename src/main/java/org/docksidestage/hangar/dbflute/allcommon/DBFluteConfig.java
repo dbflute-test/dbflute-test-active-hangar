@@ -62,6 +62,7 @@ public class DBFluteConfig {
     protected boolean _nonSpecifiedColumnAccessAllowed = false;
     protected boolean _specifyColumnRequired = false;
     protected SpecifyColumnRequiredExceptDeterminer _specifyColumnRequiredExceptDeterminer;
+    protected boolean _specifyColumnRequiredWarningOnly = false;
     protected boolean _columnNullObjectAllowed = true;
     protected boolean _columnNullObjectGearedToSpecify = true;
     protected boolean _datetimePrecisionTruncationOfCondition = false;
@@ -302,6 +303,18 @@ public class DBFluteConfig {
             _log.info("...Setting specifyColumnRequiredExceptDeterminer: " + specifyColumnRequiredExceptDeterminer);
         }
         _specifyColumnRequiredExceptDeterminer = specifyColumnRequiredExceptDeterminer;
+    }
+
+    public boolean isSpecifyColumnRequiredWarningOnly() {
+        return _specifyColumnRequiredWarningOnly;
+    }
+
+    public void setSpecifyColumnRequiredWarningOnly(boolean specifyColumnRequiredWarningOnly) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting specifyColumnRequiredWarningOnly: " + specifyColumnRequiredWarningOnly);
+        }
+        _specifyColumnRequiredWarningOnly = specifyColumnRequiredWarningOnly;
     }
 
     // ===================================================================================
