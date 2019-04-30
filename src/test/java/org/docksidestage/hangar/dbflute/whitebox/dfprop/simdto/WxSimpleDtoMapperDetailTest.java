@@ -41,12 +41,12 @@ public class WxSimpleDtoMapperDetailTest extends UnitContainerTestCase {
                 public void query(MemberLoginCB subCB) {
                     subCB.specify().columnLoginDatetime();
                 }
-            }, Member.PROP_latestLoginDatetime);
+            }, Member.ALIAS_latestLoginDatetime);
             cb.specify().derivedPurchase().countDistinct(new SubQuery<PurchaseCB>() {
                 public void query(PurchaseCB subCB) {
                     subCB.specify().columnProductId();
                 }
-            }, Member.PROP_productKindCount);
+            }, Member.ALIAS_productKindCount);
         });
 
         // ## Act ##
@@ -84,12 +84,12 @@ public class WxSimpleDtoMapperDetailTest extends UnitContainerTestCase {
                     public void query(MemberLoginCB subCB) {
                         subCB.specify().columnLoginDatetime();
                     }
-                }, Member.PROP_latestLoginDatetime);
+                }, Member.ALIAS_latestLoginDatetime);
                 cb.specify().derivedPurchase().countDistinct(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnProductId();
                     }
-                }, Member.PROP_productKindCount);
+                }, Member.ALIAS_productKindCount);
             });
 
             dtoList = mapper.mappingToDtoList(memberList);

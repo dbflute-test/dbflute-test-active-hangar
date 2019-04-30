@@ -43,6 +43,11 @@ map:{
     # the test of public native InScope
     ; isCompatibleNativeInScopePublicForcedly = true
 
+    # the test of date-time precision truncation
+    # (comment it out and generate if you test)
+    ; isDatetimePrecisionTruncationOfCondition = true
+    ; isDatetimePrecisionTruncationOfUpdatedEntity = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]

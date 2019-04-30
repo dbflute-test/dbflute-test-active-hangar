@@ -110,11 +110,12 @@ map:{
     #; schemaHtmlFileName = xxx.html
     # - - - - - - - - - -/
 
-    # for the test of original style sheet as embedded
+    # for the test of original style sheet as link
     ; schemaHtmlStyleSheet = ./style-schema.css
+    ; isSchemaHtmlStyleSheetInheritable = true
 
-    # for the test of sister link suppressing
-    ; isSuppressSchemaHtmlToSisterLink = true
+    # enable when you test sister link suppressing
+    #; isSuppressSchemaHtmlToSisterLink = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isSuppressSchemaHtmlOutsideSql (NotRequired - Default false)
@@ -153,9 +154,10 @@ map:{
 
     # for the test of original style sheet as embedded
     ; historyHtmlStyleSheet = ./style-history.css
+    ; isHistoryHtmlStyleSheetInheritable = true
 
-    # for the test of sister link suppressing
-    ; isSuppressHistoryHtmlToSisterLink = true
+    # enable when you test sister link suppressing
+    #; isSuppressHistoryHtmlToSisterLink = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isCheckColumnDefOrderDiff (NotRequired - Default false)

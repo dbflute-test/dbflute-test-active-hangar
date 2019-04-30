@@ -14,15 +14,15 @@ public class Member extends org.docksidestage.hangar.dbflute.bsentity.BsMember {
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
-    public static final String PROP_latestLoginDatetime = "latestLoginDatetime";
-    public static final String PROP_loginCount = "loginCount";
-    public static final String PROP_productKindCount = "productKindCount";
+    public static final String ALIAS_latestLoginDatetime = "latestLoginDatetime";
+    public static final String ALIAS_loginCount = "loginCount";
+    public static final String ALIAS_productKindCount = "productKindCount";
 
     /** HIGHEST_PURCHASE_PRICE: Derived Referrer Alias. */
-    public static final String PROP_highestPurchasePrice = "HIGHEST_PURCHASE_PRICE";
+    public static final String ALIAS_highestPurchasePrice = "HIGHEST_PURCHASE_PRICE";
 
     /** PROP_TOTAL_PAYMENT_AMOUNT: Derived Referrer Alias. */
-    public static final String PROP_totalPaymentAmount = "PROP_TOTAL_PAYMENT_AMOUNT";
+    public static final String ALIAS_totalPaymentAmount = "PROP_TOTAL_PAYMENT_AMOUNT";
 
     // ===================================================================================
     //                                                                           Attribute

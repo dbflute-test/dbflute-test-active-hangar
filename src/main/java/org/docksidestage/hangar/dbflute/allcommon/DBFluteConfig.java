@@ -65,7 +65,7 @@ public class DBFluteConfig {
     protected boolean _specifyColumnRequiredWarningOnly = false;
     protected boolean _columnNullObjectAllowed = true;
     protected boolean _columnNullObjectGearedToSpecify = true;
-    protected boolean _datetimePrecisionTruncationOfCondition = false;
+    protected boolean _datetimePrecisionTruncationOfCondition = true;
     protected boolean _disableSelectIndex;
     protected boolean _queryUpdateCountPreCheck = false;
 

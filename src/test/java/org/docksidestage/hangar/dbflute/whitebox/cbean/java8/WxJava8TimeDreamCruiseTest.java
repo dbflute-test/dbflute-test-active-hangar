@@ -30,7 +30,7 @@ public class WxJava8TimeDreamCruiseTest extends UnitContainerTestCase {
                     subCB.specify().columnPurchaseDatetime().convert(op -> op.truncTime().addDay(1))
                             .convert(op -> op.addMonth(2));
                 }
-            }, Member.PROP_latestLoginDatetime);
+            }, Member.ALIAS_latestLoginDatetime);
             cb.setupSelect_MemberWithdrawalAsOne().withWithdrawalReason();
             cb.query().addOrderBy_Birthdate_Desc();
             pushCB(cb);

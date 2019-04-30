@@ -19,6 +19,7 @@ import org.dbflute.util.DfTraceViewUtil;
 public class WxDiffworldTest extends PlainTestCase {
 
     public void test_diffworld() throws IOException {
+        replaceSchema(); // not to depend on state
         doTest_diffworld(/*clean*/true); // no existing resources
         doTest_diffworld(/*clean*/false); // overriding existing resources
     }
@@ -396,6 +397,13 @@ public class WxDiffworldTest extends PlainTestCase {
     // ===================================================================================
     //                                                                        Small Helper
     //                                                                        ============
+    private void replaceSchema() {
+        SystemScript script = new SystemScript();
+        script.consoleLiner(line -> log(line));
+        script.env("answer", "y");
+        script.execute(new File(getClientPath()), "manage.sh", new String[] { "0" });
+    }
+
     private String getClientPath() {
         try {
             return getProjectDir().getCanonicalPath() + "/dbflute_maihamadb";

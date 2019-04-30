@@ -5,6 +5,8 @@ import java.util.List;
 import org.dbflute.*;
 import org.dbflute.bhv.*;
 import org.dbflute.bhv.readable.*;
+import org.dbflute.bhv.writable.*;
+import org.dbflute.bhv.writable.coins.DateUpdateAdjuster;
 import org.dbflute.bhv.referrer.*;
 import org.dbflute.cbean.*;
 import org.dbflute.cbean.chelper.HpSLSFunction;
@@ -369,6 +371,15 @@ public abstract class BsSummaryWithdrawalBhv extends AbstractBehaviorReadable<Su
      */
     public OutsideSqlAllFacadeExecutor<SummaryWithdrawalBhv> outsideSql() {
         return doOutsideSql();
+    }
+
+    // ===================================================================================
+    //                                                           Framework Filter Override
+    //                                                           =========================
+    @Override
+    protected void frameworkFilterEntityOfInsert(Entity entity, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> option) {
+        super.frameworkFilterEntityOfInsert(entity, option);
+        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
     }
 
     // ===================================================================================

@@ -39,8 +39,8 @@ public class WxJava8FromToTest extends UnitContainerTestCase {
         // ## Assert ##
         String sql = popCB().toDisplaySql();
         log(ln() + sql);
-        assertTrue(Srl.contains(sql, " >= '2011-11-17 12:34:56.789'"));
-        assertTrue(Srl.contains(sql, " <= '2011-11-19 02:04:06.009'"));
+        assertTrue(Srl.contains(sql, " >= '2011-11-17 12:34:56.000'")); // truncated by dfprop
+        assertTrue(Srl.contains(sql, " <= '2011-11-19 02:04:06.000'")); // truncated by dfprop
         assertTrue(Srl.contains(sql, " < '3714-08-08'"));
         log(member.getFormalizedDatetime());
         assertEquals(updated.getFormalizedDatetime(), member.getFormalizedDatetime());

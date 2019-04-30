@@ -6,6 +6,7 @@ import org.dbflute.*;
 import org.dbflute.bhv.*;
 import org.dbflute.bhv.readable.*;
 import org.dbflute.bhv.writable.*;
+import org.dbflute.bhv.writable.coins.DateUpdateAdjuster;
 import org.dbflute.bhv.referrer.*;
 import org.dbflute.cbean.*;
 import org.dbflute.cbean.chelper.HpSLSFunction;
@@ -823,6 +824,21 @@ public abstract class BsWhiteTsvLoadingBhv extends AbstractBehaviorWritable<Whit
      */
     public OutsideSqlAllFacadeExecutor<WhiteTsvLoadingBhv> outsideSql() {
         return doOutsideSql();
+    }
+
+    // ===================================================================================
+    //                                                           Framework Filter Override
+    //                                                           =========================
+    @Override
+    protected void frameworkFilterEntityOfInsert(Entity entity, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> option) {
+        super.frameworkFilterEntityOfInsert(entity, option);
+        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
+    }
+
+    @Override
+    protected void frameworkFilterEntityOfUpdate(Entity entity, org.dbflute.optional.OptionalThing<UpdateOption<? extends ConditionBean>> option) {
+        super.frameworkFilterEntityOfUpdate(entity, option);
+        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
     }
 
     // ===================================================================================

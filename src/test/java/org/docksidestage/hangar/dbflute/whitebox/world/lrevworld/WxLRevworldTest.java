@@ -16,6 +16,7 @@ public class WxLRevworldTest extends PlainTestCase {
 
     public void test_lrevworld() throws IOException {
         // #hope jflute will tests replace-schema output pattern here (2018/06/02)
+        replaceSchema(); // not to depend on state
         doTest_lrevworld(/*clean*/true); // no existing resources
         doTest_lrevworld(/*clean*/false); // overriding existing resources
     }
@@ -59,6 +60,13 @@ public class WxLRevworldTest extends PlainTestCase {
     // ===================================================================================
     //                                                                        Small Helper
     //                                                                        ============
+    private void replaceSchema() {
+        SystemScript script = new SystemScript();
+        script.consoleLiner(line -> log(line));
+        script.env("answer", "y");
+        script.execute(new File(getClientPath()), "manage.sh", new String[] { "0" });
+    }
+
     private String getClientPath() {
         try {
             return getProjectDir().getCanonicalPath() + "/dbflute_maihamadb";
