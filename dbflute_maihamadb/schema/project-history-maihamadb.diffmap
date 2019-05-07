@@ -1,4 +1,19 @@
 map:{
+    ; 2019/05/08 05:22:57 = map:{
+        ; diffDate = 2019/05/08 05:22:57
+        ; tableCount = map:{
+            ; next = 38
+            ; previous = 37
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_CLASSIFICATION_DEPLOYMENT = map:{
+                ; tableName = WHITE_CLASSIFICATION_DEPLOYMENT
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/05/30 22:49:15 = map:{
         ; diffDate = 2018/05/30 22:49:15
         ; diffAuthor = jflute

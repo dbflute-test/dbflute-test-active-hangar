@@ -1,5 +1,15 @@
 
 -- /= = = = = = = = = = = = = = = = = = = = =
+-- for the test of classification deployment
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_CLASSIFICATION_DEPLOYMENT (
+	DEPLOYMENT_ID NUMERIC(16) NOT NULL,
+	SEA_FLG INTEGER NOT NULL,
+	DEPLOYMENT_TYPE_CODE CHAR(3) NOT NULL,
+	PRIMARY KEY(DEPLOYMENT_ID)
+);
+
+-- /= = = = = = = = = = = = = = = = = = = = =
 -- for the test of compound PK
 -- = = = = = = = = = =/
 CREATE TABLE WHITE_COMPOUND_PK (

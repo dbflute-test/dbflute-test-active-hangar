@@ -98,6 +98,7 @@ map:{
             ; workableRepsEnvTypeList = list:{ut}
             ; tableExceptList = list:{
                 ; prefix:VENDOR_
+                ; WHITE_CLASSIFICATION_DEPLOYMENT
                 ; WHITE_DATE_TERM
                 ; WHITE_DB_COMMENT
                 ; WHITE_DEPRECATED_SELECT_BY_PKUQ
