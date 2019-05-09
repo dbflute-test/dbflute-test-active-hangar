@@ -59,4 +59,25 @@ public class WxDatetimePrecisionTruncationOfUpdatedEntityTest extends UnitContai
         assertEquals(birthdate, member.getBirthdate()); // not filtered
         assertEquals(LocalDateTime.of(2019, 4, 30, 14, 22, 59, 000), member.getFormalizedDatetime()); // filtered
     }
+
+    public void test_precision_update_specified() {
+        // ## Arrange ##
+        Member member = memberBhv.selectEntity(cb -> {
+            cb.specify().columnBirthdate();
+            cb.acceptPK(1);
+        }).get();
+        LocalDate birthdate = LocalDate.of(2019, 4, 30);
+        member.setBirthdate(birthdate);
+        LocalDateTime formalizedDatetime = LocalDateTime.of(2019, 4, 30, 14, 22, 59, 741);
+        member.setFormalizedDatetime(formalizedDatetime);
+        assertEquals(birthdate, member.getBirthdate()); // not filtered
+        assertEquals(formalizedDatetime, member.getFormalizedDatetime()); // not filtered
+
+        // ## Act ##
+        memberBhv.updateNonstrict(member);
+
+        // ## Assert ##
+        assertEquals(birthdate, member.getBirthdate()); // not filtered
+        assertEquals(LocalDateTime.of(2019, 4, 30, 14, 22, 59, 000), member.getFormalizedDatetime()); // filtered
+    }
 }
