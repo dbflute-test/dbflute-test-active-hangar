@@ -63,10 +63,10 @@ public class WxSPolicyworldTest extends PlainTestCase {
     }
 
     private void checkClassificationThenTheme(String console) {
-        assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification");
-        assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then classification(ServiceRank)");
-        assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then column is classification");
-        assertContains(console, "column.statement: if columnName is suffix:_SERVICE_RANK then column is classification(ServiceRank)");
+        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then classification");
+        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then classification(ServiceRank)");
+        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then column is classification");
+        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)");
     }
 
     // ===================================================================================
