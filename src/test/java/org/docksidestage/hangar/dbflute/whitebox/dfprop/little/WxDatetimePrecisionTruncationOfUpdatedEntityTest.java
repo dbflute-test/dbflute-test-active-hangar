@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.annotation.Resource;
 
+import org.dbflute.exception.NonSpecifiedColumnAccessException;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.dbflute.exentity.Member;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
@@ -66,6 +67,10 @@ public class WxDatetimePrecisionTruncationOfUpdatedEntityTest extends UnitContai
             cb.specify().columnBirthdate();
             cb.acceptPK(1);
         }).get();
+        log("can get specified birthdate: {}", member.getBirthdate());
+        assertException(NonSpecifiedColumnAccessException.class, () -> member.getFormalizedDatetime());
+        assertException(NonSpecifiedColumnAccessException.class, () -> member.getMemberName());
+
         LocalDate birthdate = LocalDate.of(2019, 4, 30);
         member.setBirthdate(birthdate);
         LocalDateTime formalizedDatetime = LocalDateTime.of(2019, 4, 30, 14, 22, 59, 741);
@@ -79,5 +84,6 @@ public class WxDatetimePrecisionTruncationOfUpdatedEntityTest extends UnitContai
         // ## Assert ##
         assertEquals(birthdate, member.getBirthdate()); // not filtered
         assertEquals(LocalDateTime.of(2019, 4, 30, 14, 22, 59, 000), member.getFormalizedDatetime()); // filtered
+        assertException(NonSpecifiedColumnAccessException.class, () -> member.getMemberName());
     }
 }
