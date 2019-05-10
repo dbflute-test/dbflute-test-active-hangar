@@ -73,6 +73,9 @@ map:{
             ; if alias is $$comment$$ then bad
             ; if tableName is $$comment$$ then bad
 
+            # test of firstDate (WHITE_FIRST_DATE is created at 2018/05/18)
+            ; if firstDate is after:2018/05/18 and tableName is WHITE_FIRST_DATE then bad
+
             # test of unknown variables
             #; if tableName is contain:$$sea$$ then bad
             #; if alias is $$ALL$$ then comment is $$land-oneman$$
@@ -116,6 +119,9 @@ map:{
             ; if alias is $$column$$ then bad
             ; if alias is $$comment$$ then bad
             ; if columnName is $$comment$$ then bad
+
+            # test of firstDate (WHITE_FIRST_DATE (with FIRST_DATE_NAME) is created at 2018/05/18)
+            ; if firstDate is after:2018/05/18 and tableName is WHITE_FIRST_DATE and columnName is FIRST_DATE_NAME then bad
 
             # test of unknown variables
             #; if columnName is contain:$$sea$$ then bad
