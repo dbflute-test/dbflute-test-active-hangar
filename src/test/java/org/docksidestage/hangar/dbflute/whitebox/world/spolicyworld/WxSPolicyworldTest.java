@@ -91,9 +91,9 @@ public class WxSPolicyworldTest extends PlainTestCase {
     }
 
     private void checkFirstDate(String vioExp) {
-        assertContains(vioExp, "table.statement: if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED then bad");
+        assertContains(vioExp, "table.statement: if firstDate is after:2019/05/11 and tableName is SPOLICY_NEW_CREATED then bad");
         assertContains(vioExp,
-                "column.statement: if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad");
+                "column.statement: if firstDate is after:2019/05/11 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad");
     }
 
     // ===================================================================================
