@@ -76,6 +76,9 @@ map:{
             # test of firstDate (WHITE_FIRST_DATE is created at 2018/05/18)
             ; if firstDate is after:2018/05/18 and tableName is WHITE_FIRST_DATE then bad
 
+            # only for spolicy world
+            ; if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED then bad
+
             # test of unknown variables
             #; if tableName is contain:$$sea$$ then bad
             #; if alias is $$ALL$$ then comment is $$land-oneman$$
@@ -84,28 +87,25 @@ map:{
     ; columnMap = map:{
         ; themeList = list:{ upperCaseBasis }
         ; statementList = list:{
+            # test of singlePK
+            ; if tableName is MEMBER and columnName is MEMBER_ID then column is singlePK
+            #; if columnName is contain:PK_FIRST_ID then column is singlePK
+
+            # test of manual identityIfPureIDPK
+            # add "or contain:_SINGLE_" then failure
+            ; if tableName is prefix:M or prefix:P or contain:_COMPOUND_ and column is singlePK and columnName is suffix:_ID and column is not fk then identity => instead of identityIfPureIDPK
+
+            # test of basic FLG
             ; if columnName is suffix:_FLAG then bad
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INTEGER
             ; if columnName is suffix:_FLG then classification
             ; if columnName is suffix:_FLG then classification(Flg)
 
-            # for spolicy world
-            ; if columnName is suffix:_RANK_CODE then classification
-            ; if columnName is suffix:_RANK_CODE then column is classification
-            ; if columnName is suffix:_RANK_CODE then classification(ServiceRank)
-            ; if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)
+            # test of classification condition
             ; if column is classification then dbType is CHAR or INTEGER
             ; if column is classification(Flg) then dbType is CHAR or INTEGER
             ; if column is classification(ServiceRank) then dbType is CHAR or INTEGER
-
-            # test of manual identityIfPureIDPK
-            # add "or contain:_SINGLE_" then failure
-            ; if tableName is prefix:M or prefix:P or contain:_COMPOUND_ and column is singlePK and columnName is suffix:_ID and column is not fk then identity => instead of identityIfPureIDPK
-
-            # test of singlePK
-            ; if tableName is MEMBER and columnName is MEMBER_ID then column is singlePK
-            #; if columnName is contain:PK_FIRST_ID then column is singlePK
 
             # test of dollar variables
             #; if columnName is $$table$$_ID then alias is $$tableAlias$$ID
@@ -122,6 +122,13 @@ map:{
 
             # test of firstDate (WHITE_FIRST_DATE (with FIRST_DATE_NAME) is created at 2018/05/18)
             ; if firstDate is after:2018/05/18 and tableName is WHITE_FIRST_DATE and columnName is FIRST_DATE_NAME then bad
+
+            # only for spolicy world
+            ; if columnName is suffix:_RANK_CODE then classification
+            ; if columnName is suffix:_RANK_CODE then column is classification
+            ; if columnName is suffix:_RANK_CODE then classification(ServiceRank)
+            ; if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)
+            ; if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad
 
             # test of unknown variables
             #; if columnName is contain:$$sea$$ then bad

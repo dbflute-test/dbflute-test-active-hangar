@@ -8,6 +8,8 @@ import org.dbflute.helper.process.ProcessResult;
 import org.dbflute.helper.process.SystemScript;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.DfTraceViewUtil;
+import org.dbflute.util.Srl;
+import org.dbflute.util.Srl.ScopeInfo;
 
 /**
  * @author subaru
@@ -40,33 +42,58 @@ public class WxSPolicyworldTest extends PlainTestCase {
             // ## Assert ##
             log("Finished the spolicyworld: {}, {}", result.getProcessName(), result.getExitCode());
             assertEquals(0, result.getExitCode());
-            String console = result.getConsole();
-            checkClassificationIfValue(console);
-            checkBadThenTheme(console);
-            checkClassificationThenTheme(console);
+            String vioExp = extractVioExp(result);
+            log(ln() + vioExp.trim());
+            checkWholeTheme(vioExp);
+            checkConstraint(vioExp);
+            checkBasicFlgBadThenTheme(vioExp);
+            checkClassificationIfValue(vioExp);
+            checkClassificationThenTheme(vioExp);
+            checkFirstDate(vioExp);
         } finally {
             long after = System.currentTimeMillis();
             log("performanceCost:[{}]", DfTraceViewUtil.convertToPerformanceView(after - before));
         }
     }
 
+    private String extractVioExp(ProcessResult result) {
+        String console = result.getConsole();
+        ScopeInfo vioScope = Srl.extractScopeFirst(console, "[Violation]", "* * * * * * * * * */");
+        assertNotNull(vioScope); // violation exists, failure may mean other error
+        return Srl.replace(vioScope.getContent(), "[df-replace-schema] ", "");
+    }
+
     // ===================================================================================
     //                                                                   SchemaPolicyCheck
     //                                                                   =================
-    private void checkClassificationIfValue(String console) {
-        assertContains(console, "column.statement: if column is classification then dbType is CHAR or INTEGER");
-        assertContains(console, "column.statement: if column is classification(Flg) then dbType is CHAR or INTEGER");
+    private void checkWholeTheme(String vioExp) {
+        assertContains(vioExp, "whole.theme: sameColumnDbTypeIfSameColumnName");
     }
 
-    private void checkBadThenTheme(String console) {
-        assertContains(console, "column.statement: if columnName is suffix:_FLAG then bad");
+    private void checkConstraint(String vioExp) {
+        assertContains(vioExp, "table.statement: if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$");
     }
 
-    private void checkClassificationThenTheme(String console) {
-        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then classification");
-        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then classification(ServiceRank)");
-        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then column is classification");
-        assertContains(console, "column.statement: if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)");
+    private void checkBasicFlgBadThenTheme(String vioExp) {
+        assertContains(vioExp, "column.statement: if columnName is suffix:_FLAG then bad");
+    }
+
+    private void checkClassificationIfValue(String vioExp) {
+        assertContains(vioExp, "column.statement: if column is classification then dbType is CHAR or INTEGER");
+        assertContains(vioExp, "column.statement: if column is classification(Flg) then dbType is CHAR or INTEGER");
+    }
+
+    private void checkClassificationThenTheme(String vioExp) {
+        assertContains(vioExp, "column.statement: if columnName is suffix:_RANK_CODE then classification");
+        assertContains(vioExp, "column.statement: if columnName is suffix:_RANK_CODE then classification(ServiceRank)");
+        assertContains(vioExp, "column.statement: if columnName is suffix:_RANK_CODE then column is classification");
+        assertContains(vioExp, "column.statement: if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)");
+    }
+
+    private void checkFirstDate(String vioExp) {
+        assertContains(vioExp, "table.statement: if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED then bad");
+        assertContains(vioExp,
+                "column.statement: if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad");
     }
 
     // ===================================================================================
