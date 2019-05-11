@@ -183,6 +183,11 @@ public class DBFluteModule extends AbstractModule {
             bind(VendorTheLongAndWindingTableAndColumnRefBhv.class).toInstance(bhv);
         }
         {
+            WhiteClassificationDeploymentBhv bhv = new WhiteClassificationDeploymentBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteClassificationDeploymentBhv.class).toInstance(bhv);
+        }
+        {
             WhiteCompoundPkBhv bhv = new WhiteCompoundPkBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteCompoundPkBhv.class).toInstance(bhv);

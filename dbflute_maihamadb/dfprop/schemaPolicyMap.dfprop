@@ -77,7 +77,7 @@ map:{
             ; if firstDate is after:2018/05/18 and tableName is WHITE_FIRST_DATE then bad
 
             # only for spolicy world
-            ; if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED then bad
+            ; if firstDate is after:2019/05/11 and tableName is SPOLICY_NEW_CREATED then bad
 
             # test of unknown variables
             #; if tableName is contain:$$sea$$ then bad
@@ -128,7 +128,7 @@ map:{
             ; if columnName is suffix:_RANK_CODE then column is classification
             ; if columnName is suffix:_RANK_CODE then classification(ServiceRank)
             ; if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)
-            ; if firstDate is after:2019/05/10 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad
+            ; if firstDate is after:2019/05/11 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad
 
             # test of unknown variables
             #; if columnName is contain:$$sea$$ then bad

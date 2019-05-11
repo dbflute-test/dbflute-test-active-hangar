@@ -1,0 +1,11 @@
+map:{
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o conventionalTakeAssertMap: (NotRequired - Default map:{})
+    #  Does it assert data by conventional rule in take-finally
+    #  For example, you can check empty table (no-data).
+    #
+    # because of no history (unavailable firstDate) here
+    ; conventionalTakeAssertMap = map:{
+    }
+    # - - - - - - - - - -/
+}

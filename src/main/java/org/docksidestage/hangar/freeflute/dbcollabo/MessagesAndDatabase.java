@@ -197,6 +197,10 @@ public class MessagesAndDatabase implements Serializable {
     //  - THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID
     //  - THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE
     //  - SHORT_DATE
+    // WHITE_CLASSIFICATION_DEPLOYMENT
+    //  - DEPLOYMENT_ID
+    //  - SEA_FLG
+    //  - DEPLOYMENT_TYPE_CODE
     // WHITE_COMPOUND_PK
     //  - PK_FIRST_ID
     //  - PK_SECOND_ID

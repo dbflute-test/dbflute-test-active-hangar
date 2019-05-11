@@ -1,0 +1,16 @@
+map:{
+    # because of no history (unavailable firstDate) here
+    # and different tables don't have no policy
+    ; tableExceptList = list:{
+    }
+    ; tableTargetList = list:{}
+    ; columnExceptMap = map:{}
+    ; isMainSchemaOnly = false
+
+    ; wholeMap = map:{
+    }
+    ; tableMap = map:{
+    }
+    ; columnMap = map:{
+    }
+}

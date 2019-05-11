@@ -1119,6 +1119,124 @@ public interface HangarCDef {
         @Override public String toString() { return code(); }
     }
 
+    /**
+     * test of deployment
+     */
+    public enum WhiteClassifiationDeploymentType implements HangarCDef {
+        /** sea */
+        Sea("SEA", "sea", emptyStrings())
+        ,
+        /** land */
+        Land("LAN", "land", emptyStrings())
+        ;
+        private static final Map<String, WhiteClassifiationDeploymentType> _codeClsMap = new HashMap<String, WhiteClassifiationDeploymentType>();
+        private static final Map<String, WhiteClassifiationDeploymentType> _nameClsMap = new HashMap<String, WhiteClassifiationDeploymentType>();
+        static {
+            for (WhiteClassifiationDeploymentType value : values()) {
+                _codeClsMap.put(value.code().toLowerCase(), value);
+                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
+                _nameClsMap.put(value.name().toLowerCase(), value);
+            }
+        }
+        private String _code; private String _alias; private Set<String> _sisterSet;
+        private WhiteClassifiationDeploymentType(String code, String alias, String[] sisters)
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        public String code() { return _code; } public String alias() { return _alias; }
+        public Set<String> sisterSet() { return _sisterSet; }
+        public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
+        public DefMeta meta() { return HangarCDef.DefMeta.WhiteClassifiationDeploymentType; }
+
+        public boolean inGroup(String groupName) {
+            return false;
+        }
+
+        /**
+         * Get the classification of the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
+         * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static Optional<WhiteClassifiationDeploymentType> of(Object code) {
+            if (code == null) { return Optional.empty(); }
+            if (code instanceof WhiteClassifiationDeploymentType) { return Optional.of((WhiteClassifiationDeploymentType)code); }
+            if (code instanceof Optional<?>) { return of(((Optional<?>)code).orElse(null)); }
+            return Optional.ofNullable(_codeClsMap.get(code.toString().toLowerCase()));
+        }
+
+        /**
+         * Find the classification by the name. (CaseInsensitive)
+         * @param name The string of name, which is case-insensitive. (NotNull)
+         * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static Optional<WhiteClassifiationDeploymentType> byName(String name) {
+            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
+            return Optional.ofNullable(_nameClsMap.get(name.toLowerCase()));
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
+         * Get the classification by the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
+         */
+        public static WhiteClassifiationDeploymentType codeOf(Object code) {
+            if (code == null) { return null; }
+            if (code instanceof WhiteClassifiationDeploymentType) { return (WhiteClassifiationDeploymentType)code; }
+            return _codeClsMap.get(code.toString().toLowerCase());
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
+         * Get the classification by the name (also called 'value' in ENUM world).
+         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
+         */
+        public static WhiteClassifiationDeploymentType nameOf(String name) {
+            if (name == null) { return null; }
+            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
+        }
+
+        /**
+         * Get the list of all classification elements. (returns new copied list)
+         * @return The snapshot list of all classification elements. (NotNull)
+         */
+        public static List<WhiteClassifiationDeploymentType> listAll() {
+            return new ArrayList<WhiteClassifiationDeploymentType>(Arrays.asList(values()));
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         */
+        public static List<WhiteClassifiationDeploymentType> listByGroup(String groupName) {
+            if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            throw new ClassificationNotFoundException("Unknown classification group: WhiteClassifiationDeploymentType." + groupName);
+        }
+
+        /**
+         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
+         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
+         */
+        public static List<WhiteClassifiationDeploymentType> listOf(Collection<String> codeList) {
+            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
+            List<WhiteClassifiationDeploymentType> clsList = new ArrayList<WhiteClassifiationDeploymentType>(codeList.size());
+            for (String code : codeList) { clsList.add(of(code).get()); }
+            return clsList;
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
+         */
+        public static List<WhiteClassifiationDeploymentType> groupOf(String groupName) {
+            return new ArrayList<WhiteClassifiationDeploymentType>(4);
+        }
+
+        @Override public String toString() { return code(); }
+    }
+
     public enum DefMeta {
         /** general boolean classification for every flg-column */
         Flg
@@ -1143,6 +1261,9 @@ public interface HangarCDef {
         ,
         /** method of payment for purchase */
         PaymentMethod
+        ,
+        /** test of deployment */
+        WhiteClassifiationDeploymentType
         ;
         public String classificationName() {
             return name(); // same as definition name
@@ -1157,6 +1278,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equals(name())) { return HangarCDef.ProductCategory.codeOf(code); }
             if (ProductStatus.name().equals(name())) { return HangarCDef.ProductStatus.codeOf(code); }
             if (PaymentMethod.name().equals(name())) { return HangarCDef.PaymentMethod.codeOf(code); }
+            if (WhiteClassifiationDeploymentType.name().equals(name())) { return HangarCDef.WhiteClassifiationDeploymentType.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1169,6 +1291,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equals(name())) { return HangarCDef.ProductCategory.valueOf(name); }
             if (ProductStatus.name().equals(name())) { return HangarCDef.ProductStatus.valueOf(name); }
             if (PaymentMethod.name().equals(name())) { return HangarCDef.PaymentMethod.valueOf(name); }
+            if (WhiteClassifiationDeploymentType.name().equals(name())) { return HangarCDef.WhiteClassifiationDeploymentType.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1181,6 +1304,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equals(name())) { return toClsList(HangarCDef.ProductCategory.listAll()); }
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.listAll()); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.listAll()); }
+            if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1193,6 +1317,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equals(name())) { return toClsList(HangarCDef.ProductCategory.listByGroup(groupName)); }
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.listByGroup(groupName)); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.listByGroup(groupName)); }
+            if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1205,6 +1330,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equals(name())) { return toClsList(HangarCDef.ProductCategory.listOf(codeList)); }
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.listOf(codeList)); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.listOf(codeList)); }
+            if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1217,6 +1343,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equals(name())) { return toClsList(HangarCDef.ProductCategory.groupOf(groupName)); }
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.groupOf(groupName)); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.groupOf(groupName)); }
+            if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1235,6 +1362,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.ProductCategory); }
             if (ProductStatus.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.ProductStatus); }
             if (PaymentMethod.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.PaymentMethod); }
+            if (WhiteClassifiationDeploymentType.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.WhiteClassifiationDeploymentType); }
             return Optional.empty();
         }
 
@@ -1248,6 +1376,7 @@ public interface HangarCDef {
             if (ProductCategory.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.ProductCategory; }
             if (ProductStatus.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.ProductStatus; }
             if (PaymentMethod.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.PaymentMethod; }
+            if (WhiteClassifiationDeploymentType.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.WhiteClassifiationDeploymentType; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
         }
 
