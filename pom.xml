@@ -16,7 +16,7 @@
 		<dbflute.version>1.2.0-patch20190509</dbflute.version>
 		<h2.jdbc.version>1.4.197</h2.jdbc.version>
 		<guice.version>4.2.1</guice.version>
-		<utflute.version>0.8.9</utflute.version>
+		<utflute.version>0.9.1</utflute.version>
 	</properties>
 
 	<licenses>
