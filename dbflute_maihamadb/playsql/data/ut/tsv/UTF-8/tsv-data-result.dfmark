@@ -8,3 +8,4 @@ data-directory: playsql/data/ut/tsv/UTF-8
 
 20-PRODUCT_STATUS.tsv (3)
 90_90-WHITE_TSV_LOADING.tsv (18)
+92_01-WHITE_SELF_REFERENCE.tsv (16)

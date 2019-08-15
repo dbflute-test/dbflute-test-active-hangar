@@ -85,6 +85,12 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     public static final String PATH_whitebox_pmbean_selectMapLikeSearch = "whitebox:pmbean:selectMapLikeSearch";
     public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
     public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
+    /** definition order of parameter bean */
+    public static final String PATH_whitebox_pmbean_selectParameterDefOrder = "whitebox:pmbean:selectParameterDefOrder";
+    /** no auto-detect */
+    public static final String PATH_whitebox_pmbean_selectParameterNonAutoDetect = "whitebox:pmbean:selectParameterNonAutoDetect";
+    /** parameter auto-detect */
+    public static final String PATH_whitebox_pmbean_selectParameterAutoDetect = "whitebox:pmbean:selectParameterAutoDetect";
     public static final String PATH_whitebox_pmcomment_selectPmCommentPossible = "whitebox:pmcomment:selectPmCommentPossible";
     public static final String PATH_whitebox_pmcomment_selectPmCommentHint = "whitebox:pmcomment:selectPmCommentHint";
     /** Example for Simple DTO except */

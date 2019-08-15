@@ -238,6 +238,11 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteSchemaDiffBhv.class).toInstance(bhv);
         }
         {
+            WhiteSelfReferenceBhv bhv = new WhiteSelfReferenceBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteSelfReferenceBhv.class).toInstance(bhv);
+        }
+        {
             WhiteSimpleDtoExceptBhv bhv = new WhiteSimpleDtoExceptBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteSimpleDtoExceptBhv.class).toInstance(bhv);

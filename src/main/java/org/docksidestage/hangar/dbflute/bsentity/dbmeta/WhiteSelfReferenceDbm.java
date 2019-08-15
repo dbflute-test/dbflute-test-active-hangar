@@ -14,17 +14,17 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of MEMBER_FOLLOWING. (Singleton)
+ * The DB meta of WHITE_SELF_REFERENCE. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class MemberFollowingDbm extends AbstractDBMeta {
+public class WhiteSelfReferenceDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final MemberFollowingDbm _instance = new MemberFollowingDbm();
-    private MemberFollowingDbm() {}
-    public static MemberFollowingDbm getInstance() { return _instance; }
+    private static final WhiteSelfReferenceDbm _instance = new WhiteSelfReferenceDbm();
+    private WhiteSelfReferenceDbm() {}
+    public static WhiteSelfReferenceDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -43,10 +43,9 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getMemberFollowingId(), (et, vl) -> ((MemberFollowing)et).setMemberFollowingId(ctl(vl)), "memberFollowingId");
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getMyMemberId(), (et, vl) -> ((MemberFollowing)et).setMyMemberId(cti(vl)), "myMemberId");
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getYourMemberId(), (et, vl) -> ((MemberFollowing)et).setYourMemberId(cti(vl)), "yourMemberId");
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getFollowDatetime(), (et, vl) -> ((MemberFollowing)et).setFollowDatetime(ctldt(vl)), "followDatetime");
+        setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getSelfReferenceId(), (et, vl) -> ((WhiteSelfReference)et).setSelfReferenceId(cti(vl)), "selfReferenceId");
+        setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getSelfReferenceName(), (et, vl) -> ((WhiteSelfReference)et).setSelfReferenceName((String)vl), "selfReferenceName");
+        setupEpg(_epgMap, et -> ((WhiteSelfReference)et).getParentId(), (et, vl) -> ((WhiteSelfReference)et).setParentId(cti(vl)), "parentId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -58,8 +57,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     { xsetupEfpg(); }
     @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((MemberFollowing)et).getMemberByMyMemberId(), (et, vl) -> ((MemberFollowing)et).setMemberByMyMemberId((OptionalEntity<Member>)vl), "memberByMyMemberId");
-        setupEfpg(_efpgMap, et -> ((MemberFollowing)et).getMemberByYourMemberId(), (et, vl) -> ((MemberFollowing)et).setMemberByYourMemberId((OptionalEntity<Member>)vl), "memberByYourMemberId");
+        setupEfpg(_efpgMap, et -> ((WhiteSelfReference)et).getWhiteSelfReferenceSelf(), (et, vl) -> ((WhiteSelfReference)et).setWhiteSelfReferenceSelf((OptionalEntity<WhiteSelfReference>)vl), "whiteSelfReferenceSelf");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -67,55 +65,44 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "MEMBER_FOLLOWING";
-    protected final String _tableDispName = "MEMBER_FOLLOWING";
-    protected final String _tablePropertyName = "memberFollowing";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.MEMBER_FOLLOWING", _tableDbName);
+    protected final String _tableDbName = "WHITE_SELF_REFERENCE";
+    protected final String _tableDispName = "WHITE_SELF_REFERENCE";
+    protected final String _tablePropertyName = "whiteSelfReference";
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_SELF_REFERENCE", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
-    protected final String _tableAlias = "会員フォローイング";
-    public String getTableAlias() { return _tableAlias; }
-    protected final String _tableComment = "とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。";
-    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberFollowingId = cci("MEMBER_FOLLOWING_ID", "MEMBER_FOLLOWING_ID", null, "会員フォローイングID", Long.class, "memberFollowingId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_DAA9FDAF_7EEE_4305_B539_F9F0EAE23FCF", false, null, "連番", null, null, null, false);
-    protected final ColumnInfo _columnMyMemberId = cci("MY_MEMBER_ID", "MY_MEMBER_ID", null, "わたし", Integer.class, "myMemberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "気になった人がいて...勇気を振り絞った会員のID。", "memberByMyMemberId", null, null, false);
-    protected final ColumnInfo _columnYourMemberId = cci("YOUR_MEMBER_ID", "YOUR_MEMBER_ID", null, "あなた", Integer.class, "yourMemberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "いきなりのアクションに...ちょっと心揺らいだ会員のID。", "memberByYourMemberId", null, null, false);
-    protected final ColumnInfo _columnFollowDatetime = cci("FOLLOW_DATETIME", "FOLLOW_DATETIME", null, "その瞬間", java.time.LocalDateTime.class, "followDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, "ふりかえるとちょっと恥ずかしい気持ちになる日時", null, null, null, false);
+    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Integer.class, "selfReferenceId", null, true, false, true, "INTEGER", 10, 0, null, null, false, null, null, null, "whiteSelfReferenceSelfList", null, false);
+    protected final ColumnInfo _columnSelfReferenceName = cci("SELF_REFERENCE_NAME", "SELF_REFERENCE_NAME", null, null, String.class, "selfReferenceName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnParentId = cci("PARENT_ID", "PARENT_ID", null, null, Integer.class, "parentId", null, false, false, false, "INTEGER", 10, 0, null, null, false, null, null, "whiteSelfReferenceSelf", null, null, false);
 
     /**
-     * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
+     * SELF_REFERENCE_ID: {PK, NotNull, INTEGER(10)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnMemberFollowingId() { return _columnMemberFollowingId; }
+    public ColumnInfo columnSelfReferenceId() { return _columnSelfReferenceId; }
     /**
-     * (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnMyMemberId() { return _columnMyMemberId; }
+    public ColumnInfo columnSelfReferenceName() { return _columnSelfReferenceName; }
     /**
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * PARENT_ID: {IX, INTEGER(10), FK to WHITE_SELF_REFERENCE}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnYourMemberId() { return _columnYourMemberId; }
-    /**
-     * (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnFollowDatetime() { return _columnFollowDatetime; }
+    public ColumnInfo columnParentId() { return _columnParentId; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnMemberFollowingId());
-        ls.add(columnMyMemberId());
-        ls.add(columnYourMemberId());
-        ls.add(columnFollowDatetime());
+        ls.add(columnSelfReferenceId());
+        ls.add(columnSelfReferenceName());
+        ls.add(columnParentId());
         return ls;
     }
 
@@ -127,19 +114,9 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnMemberFollowingId()); }
+    protected UniqueInfo cpui() { return hpcpui(columnSelfReferenceId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
-
-    // -----------------------------------------------------
-    //                                        Unique Element
-    //                                        --------------
-    public UniqueInfo uniqueOf() {
-        List<ColumnInfo> ls = newArrayListSized(4);
-        ls.add(columnMyMemberId());
-        ls.add(columnYourMemberId());
-        return hpcui(ls);
-    }
 
     // ===================================================================================
     //                                                                       Relation Info
@@ -150,55 +127,54 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * WHITE_SELF_REFERENCE by my PARENT_ID, named 'whiteSelfReferenceSelf'.
      * @return The information object of foreign property. (NotNull)
      */
-    public ForeignInfo foreignMemberByMyMemberId() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMyMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_FOLLOWING_MY_MEMBER", "memberByMyMemberId", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByMyMemberIdList", false);
-    }
-    /**
-     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignMemberByYourMemberId() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnYourMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_FOLLOWING_YOUR_MEMBER", "memberByYourMemberId", this, MemberDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByYourMemberIdList", false);
+    public ForeignInfo foreignWhiteSelfReferenceSelf() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnParentId(), WhiteSelfReferenceDbm.getInstance().columnSelfReferenceId());
+        return cfi("FK_WHITE_SELF_REFERENCE_PARENT_ID", "whiteSelfReferenceSelf", this, WhiteSelfReferenceDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSelfReferenceSelfList", false);
     }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
+    /**
+     * WHITE_SELF_REFERENCE by PARENT_ID, named 'whiteSelfReferenceSelfList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerWhiteSelfReferenceSelfList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSelfReferenceId(), WhiteSelfReferenceDbm.getInstance().columnParentId());
+        return cri("FK_WHITE_SELF_REFERENCE_PARENT_ID", "whiteSelfReferenceSelfList", this, WhiteSelfReferenceDbm.getInstance(), mp, false, "whiteSelfReferenceSelf");
+    }
 
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
-    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.MemberFollowing"; }
-    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.MemberFollowingCB"; }
-    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.MemberFollowingBhv"; }
+    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteSelfReference"; }
+    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteSelfReferenceCB"; }
+    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteSelfReferenceBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<MemberFollowing> getEntityType() { return MemberFollowing.class; }
+    public Class<WhiteSelfReference> getEntityType() { return WhiteSelfReference.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public MemberFollowing newEntity() { return new MemberFollowing(); }
+    public WhiteSelfReference newEntity() { return new WhiteSelfReference(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((MemberFollowing)et, mp); }
+    { doAcceptPrimaryKeyMap((WhiteSelfReference)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((MemberFollowing)et, mp); }
+    { doAcceptAllColumnMap((WhiteSelfReference)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }
