@@ -52,9 +52,9 @@ public abstract class BsVendorCheckIntegerSumDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** INTEGER_NON_DIGIT_SUM: {DECIMAL(5)} */
+    /** INTEGER_NON_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} */
     @JsonKey
-    protected Integer _integerNonDigitSum;
+    protected java.math.BigDecimal _integerNonDigitSum;
 
     // -----------------------------------------------------
     //                                              Internal
@@ -134,18 +134,18 @@ public abstract class BsVendorCheckIntegerSumDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] INTEGER_NON_DIGIT_SUM: {DECIMAL(5)} <br>
+     * [get] INTEGER_NON_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} <br>
      * @return The value of the column 'INTEGER_NON_DIGIT_SUM'. (NullAllowed)
      */
-    public Integer getIntegerNonDigitSum() {
+    public java.math.BigDecimal getIntegerNonDigitSum() {
         return _integerNonDigitSum;
     }
 
     /**
-     * [set] INTEGER_NON_DIGIT_SUM: {DECIMAL(5)} <br>
+     * [set] INTEGER_NON_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} <br>
      * @param integerNonDigitSum The value of the column 'INTEGER_NON_DIGIT_SUM'. (NullAllowed)
      */
-    public void setIntegerNonDigitSum(Integer integerNonDigitSum) {
+    public void setIntegerNonDigitSum(java.math.BigDecimal integerNonDigitSum) {
         __modifiedProperties.add("integerNonDigitSum");
         this._integerNonDigitSum = integerNonDigitSum;
     }

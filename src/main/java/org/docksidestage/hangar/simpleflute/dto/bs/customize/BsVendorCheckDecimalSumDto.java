@@ -52,7 +52,7 @@ public abstract class BsVendorCheckDecimalSumDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** DECIMAL_DIGIT_SUM: {DECIMAL(5, 3)} */
+    /** DECIMAL_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} */
     @JsonKey
     protected java.math.BigDecimal _decimalDigitSum;
 
@@ -134,7 +134,7 @@ public abstract class BsVendorCheckDecimalSumDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] DECIMAL_DIGIT_SUM: {DECIMAL(5, 3)} <br>
+     * [get] DECIMAL_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} <br>
      * @return The value of the column 'DECIMAL_DIGIT_SUM'. (NullAllowed)
      */
     public java.math.BigDecimal getDecimalDigitSum() {
@@ -142,7 +142,7 @@ public abstract class BsVendorCheckDecimalSumDto implements Serializable {
     }
 
     /**
-     * [set] DECIMAL_DIGIT_SUM: {DECIMAL(5, 3)} <br>
+     * [set] DECIMAL_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} <br>
      * @param decimalDigitSum The value of the column 'DECIMAL_DIGIT_SUM'. (NullAllowed)
      */
     public void setDecimalDigitSum(java.math.BigDecimal decimalDigitSum) {

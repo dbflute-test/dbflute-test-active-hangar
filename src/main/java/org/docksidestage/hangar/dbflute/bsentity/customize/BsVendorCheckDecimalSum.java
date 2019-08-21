@@ -57,7 +57,7 @@ public abstract class BsVendorCheckDecimalSum extends AbstractEntity implements 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** DECIMAL_DIGIT_SUM: {DECIMAL(5, 3)} */
+    /** DECIMAL_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} */
     protected java.math.BigDecimal _decimalDigitSum;
 
     // ===================================================================================
@@ -143,7 +143,7 @@ public abstract class BsVendorCheckDecimalSum extends AbstractEntity implements 
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] DECIMAL_DIGIT_SUM: {DECIMAL(5, 3)} <br>
+     * [get] DECIMAL_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} <br>
      * @return The value of the column 'DECIMAL_DIGIT_SUM'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getDecimalDigitSum() {
@@ -152,7 +152,7 @@ public abstract class BsVendorCheckDecimalSum extends AbstractEntity implements 
     }
 
     /**
-     * [set] DECIMAL_DIGIT_SUM: {DECIMAL(5, 3)} <br>
+     * [set] DECIMAL_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)} <br>
      * @param decimalDigitSum The value of the column 'DECIMAL_DIGIT_SUM'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDecimalDigitSum(java.math.BigDecimal decimalDigitSum) {

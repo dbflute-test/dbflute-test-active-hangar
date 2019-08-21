@@ -41,7 +41,7 @@ public class BsVendorCheckIntegerSum {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    private var _integerNonDigitSum:int;
+    private var _integerNonDigitSum:Number;
 
 
     // ===================================================================================
@@ -54,11 +54,11 @@ public class BsVendorCheckIntegerSum {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    public function get integerNonDigitSum():int {
+    public function get integerNonDigitSum():Number {
         return _integerNonDigitSum;
     }
 
-    public function set integerNonDigitSum(integerNonDigitSum:int):void {
+    public function set integerNonDigitSum(integerNonDigitSum:Number):void {
         this._integerNonDigitSum = integerNonDigitSum;
     }
 

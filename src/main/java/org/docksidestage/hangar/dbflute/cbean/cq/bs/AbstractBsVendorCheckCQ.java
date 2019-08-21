@@ -2403,13 +2403,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * TYPE_OF_UUID: {UUID(2147483647)}
+     * TYPE_OF_UUID: {UUID(16)}
      */
     public void setTypeOfUuid_IsNull() { regTypeOfUuid(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * TYPE_OF_UUID: {UUID(2147483647)}
+     * TYPE_OF_UUID: {UUID(16)}
      */
     public void setTypeOfUuid_IsNotNull() { regTypeOfUuid(CK_ISNN, DOBJ); }
 
@@ -2418,7 +2418,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      * @param typeOfArray The value of typeOfArray as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfArray_Equal(String typeOfArray) {
@@ -2431,7 +2431,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      * @param typeOfArray The value of typeOfArray as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfArray_NotEqual(String typeOfArray) {
@@ -2444,7 +2444,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      * @param typeOfArrayList The collection of typeOfArray as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfArray_InScope(Collection<String> typeOfArrayList) {
@@ -2457,7 +2457,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      * @param typeOfArrayList The collection of typeOfArray as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTypeOfArray_NotInScope(Collection<String> typeOfArrayList) {
@@ -2470,7 +2470,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY} <br>
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)} <br>
      * <pre>e.g. setTypeOfArray_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param typeOfArray The value of typeOfArray as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2481,7 +2481,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY} <br>
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)} <br>
      * <pre>e.g. setTypeOfArray_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param typeOfArray The value of typeOfArray as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -2493,7 +2493,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      * @param typeOfArray The value of typeOfArray as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -2504,7 +2504,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      * @param typeOfArray The value of typeOfArray as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -2514,19 +2514,19 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      */
     public void setTypeOfArray_IsNull() { regTypeOfArray(CK_ISN, DOBJ); }
 
     /**
      * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      */
     public void setTypeOfArray_IsNullOrEmpty() { regTypeOfArray(CK_ISNOE, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * TYPE_OF_ARRAY: {ARRAY}
+     * TYPE_OF_ARRAY: {ARRAY(2147483647)}
      */
     public void setTypeOfArray_IsNotNull() { regTypeOfArray(CK_ISNN, DOBJ); }
 

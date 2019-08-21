@@ -146,11 +146,11 @@ public abstract class BsVendorCheckDto implements Serializable {
     @JsonKey
     protected byte[] _typeOfBlob;
 
-    /** TYPE_OF_UUID: {UUID(2147483647)} */
+    /** TYPE_OF_UUID: {UUID(16)} */
     @JsonKey
     protected byte[] _typeOfUuid;
 
-    /** TYPE_OF_ARRAY: {ARRAY} */
+    /** TYPE_OF_ARRAY: {ARRAY(2147483647)} */
     @JsonKey
     protected String _typeOfArray;
 
@@ -671,7 +671,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [get] TYPE_OF_UUID: {UUID(2147483647)} <br>
+     * [get] TYPE_OF_UUID: {UUID(16)} <br>
      * @return The value of the column 'TYPE_OF_UUID'. (NullAllowed)
      */
     public byte[] getTypeOfUuid() {
@@ -679,7 +679,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [set] TYPE_OF_UUID: {UUID(2147483647)} <br>
+     * [set] TYPE_OF_UUID: {UUID(16)} <br>
      * @param typeOfUuid The value of the column 'TYPE_OF_UUID'. (NullAllowed)
      */
     public void setTypeOfUuid(byte[] typeOfUuid) {
@@ -688,7 +688,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [get] TYPE_OF_ARRAY: {ARRAY} <br>
+     * [get] TYPE_OF_ARRAY: {ARRAY(2147483647)} <br>
      * @return The value of the column 'TYPE_OF_ARRAY'. (NullAllowed)
      */
     public String getTypeOfArray() {
@@ -696,7 +696,7 @@ public abstract class BsVendorCheckDto implements Serializable {
     }
 
     /**
-     * [set] TYPE_OF_ARRAY: {ARRAY} <br>
+     * [set] TYPE_OF_ARRAY: {ARRAY(2147483647)} <br>
      * @param typeOfArray The value of the column 'TYPE_OF_ARRAY'. (NullAllowed)
      */
     public void setTypeOfArray(String typeOfArray) {

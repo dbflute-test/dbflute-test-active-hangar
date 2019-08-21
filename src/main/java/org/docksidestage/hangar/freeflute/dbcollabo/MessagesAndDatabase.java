@@ -240,6 +240,10 @@ public class MessagesAndDatabase implements Serializable {
     //  - SCHEMA_DIFF_ID
     //  - SCHEMA_DIFF_NAME
     //  - SCHEMA_DIFF_DATE
+    // WHITE_SELF_REFERENCE
+    //  - SELF_REFERENCE_ID
+    //  - SELF_REFERENCE_NAME
+    //  - PARENT_ID
     // WHITE_SIMPLE_DTO_EXCEPT
     //  - SIMPLE_DTO_EXCEPT_ID
     //  - SIMPLE_DTO_EXCEPT_NAME

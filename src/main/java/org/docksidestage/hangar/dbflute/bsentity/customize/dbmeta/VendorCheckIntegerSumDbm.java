@@ -42,7 +42,7 @@ public class VendorCheckIntegerSumDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((VendorCheckIntegerSum)et).getIntegerNonDigitSum(), (et, vl) -> ((VendorCheckIntegerSum)et).setIntegerNonDigitSum(cti(vl)), "integerNonDigitSum");
+        setupEpg(_epgMap, et -> ((VendorCheckIntegerSum)et).getIntegerNonDigitSum(), (et, vl) -> ((VendorCheckIntegerSum)et).setIntegerNonDigitSum(ctb(vl)), "integerNonDigitSum");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -63,10 +63,10 @@ public class VendorCheckIntegerSumDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnIntegerNonDigitSum = cci("INTEGER_NON_DIGIT_SUM", "INTEGER_NON_DIGIT_SUM", null, null, Integer.class, "integerNonDigitSum", null, false, false, false, "DECIMAL", 5, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIntegerNonDigitSum = cci("INTEGER_NON_DIGIT_SUM", "INTEGER_NON_DIGIT_SUM", null, null, java.math.BigDecimal.class, "integerNonDigitSum", null, false, false, false, "DECIMAL", 2147483647, 2147483647, null, null, false, null, null, null, null, null, false);
 
     /**
-     * INTEGER_NON_DIGIT_SUM: {DECIMAL(5)}
+     * INTEGER_NON_DIGIT_SUM: {DECIMAL(2147483647, 2147483647)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnIntegerNonDigitSum() { return _columnIntegerNonDigitSum; }

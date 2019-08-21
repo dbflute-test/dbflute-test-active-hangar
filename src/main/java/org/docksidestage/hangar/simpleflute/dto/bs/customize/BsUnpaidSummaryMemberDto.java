@@ -60,7 +60,7 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
     @JsonKey
     protected String _unpaidManName;
 
-    /** UNPAID_PRICE_SUMMARY: {BIGINT(10)} */
+    /** UNPAID_PRICE_SUMMARY: {BIGINT(19)} */
     @JsonKey
     protected Long _unpaidPriceSummary;
 
@@ -189,7 +189,7 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
     }
 
     /**
-     * [get] UNPAID_PRICE_SUMMARY: {BIGINT(10)} <br>
+     * [get] UNPAID_PRICE_SUMMARY: {BIGINT(19)} <br>
      * @return The value of the column 'UNPAID_PRICE_SUMMARY'. (NullAllowed)
      */
     public Long getUnpaidPriceSummary() {
@@ -197,7 +197,7 @@ public abstract class BsUnpaidSummaryMemberDto implements Serializable {
     }
 
     /**
-     * [set] UNPAID_PRICE_SUMMARY: {BIGINT(10)} <br>
+     * [set] UNPAID_PRICE_SUMMARY: {BIGINT(19)} <br>
      * @param unpaidPriceSummary The value of the column 'UNPAID_PRICE_SUMMARY'. (NullAllowed)
      */
     public void setUnpaidPriceSummary(Long unpaidPriceSummary) {
