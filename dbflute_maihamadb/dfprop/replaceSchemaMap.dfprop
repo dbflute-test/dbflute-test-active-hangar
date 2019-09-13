@@ -33,6 +33,9 @@
 map:{
     ; sqlDelimiter = \;
 
+    # the test of AlterCheck renewal migration from checked-zip
+    #; isCompatibleMigrationHistoryCheckedZip = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o repsEnvType: (NotRequired - Default inherits or 'ut')
     #  The environment type of ReplaceSchema.
