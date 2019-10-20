@@ -78,7 +78,7 @@ public class WhiteTsvLoadingDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnLoadingDate = cci("LOADING_DATE", "LOADING_DATE", null, null, java.time.LocalDate.class, "loadingDate", null, false, false, true, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnBeginDatetime = cci("BEGIN_DATETIME", "BEGIN_DATETIME", null, null, java.time.LocalDateTime.class, "beginDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnEndDatetime = cci("END_DATETIME", "END_DATETIME", null, null, java.time.LocalDateTime.class, "endDatetime", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnLargeFromFile = cci("LARGE_FROM_FILE", "LARGE_FROM_FILE", null, null, String.class, "largeFromFile", null, false, false, false, "VARCHAR", 500, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnLargeFromFile = cci("LARGE_FROM_FILE", "LARGE_FROM_FILE", null, null, String.class, "largeFromFile", null, false, false, false, "VARCHAR", 600, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDoneFlg = cci("DONE_FLG", "DONE_FLG", null, null, Boolean.class, "doneFlg", null, false, false, true, "BOOLEAN", 1, 0, null, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
 
     /**
@@ -112,7 +112,7 @@ public class WhiteTsvLoadingDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnEndDatetime() { return _columnEndDatetime; }
     /**
-     * LARGE_FROM_FILE: {VARCHAR(500)}
+     * LARGE_FROM_FILE: {VARCHAR(600)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnLargeFromFile() { return _columnLargeFromFile; }

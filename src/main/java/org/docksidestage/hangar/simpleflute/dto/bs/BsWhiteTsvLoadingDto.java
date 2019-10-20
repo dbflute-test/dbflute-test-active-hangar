@@ -79,7 +79,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     @JsonKey
     protected java.time.LocalDateTime _endDatetime;
 
-    /** LARGE_FROM_FILE: {VARCHAR(500)} */
+    /** LARGE_FROM_FILE: {VARCHAR(600)} */
     @JsonKey
     protected String _largeFromFile;
 
@@ -346,7 +346,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [get] LARGE_FROM_FILE: {VARCHAR(500)} <br>
+     * [get] LARGE_FROM_FILE: {VARCHAR(600)} <br>
      * @return The value of the column 'LARGE_FROM_FILE'. (NullAllowed)
      */
     public String getLargeFromFile() {
@@ -354,7 +354,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     }
 
     /**
-     * [set] LARGE_FROM_FILE: {VARCHAR(500)} <br>
+     * [set] LARGE_FROM_FILE: {VARCHAR(600)} <br>
      * @param largeFromFile The value of the column 'LARGE_FROM_FILE'. (NullAllowed)
      */
     public void setLargeFromFile(String largeFromFile) {

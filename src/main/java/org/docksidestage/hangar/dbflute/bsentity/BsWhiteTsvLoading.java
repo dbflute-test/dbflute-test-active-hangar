@@ -91,7 +91,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     /** END_DATETIME: {TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _endDatetime;
 
-    /** LARGE_FROM_FILE: {VARCHAR(500)} */
+    /** LARGE_FROM_FILE: {VARCHAR(600)} */
     protected String _largeFromFile;
 
     /** DONE_FLG: {NotNull, BOOLEAN(1), classification=Flg} */
@@ -395,7 +395,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] LARGE_FROM_FILE: {VARCHAR(500)} <br>
+     * [get] LARGE_FROM_FILE: {VARCHAR(600)} <br>
      * @return The value of the column 'LARGE_FROM_FILE'. (NullAllowed even if selected: for no constraint)
      */
     public String getLargeFromFile() {
@@ -404,7 +404,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] LARGE_FROM_FILE: {VARCHAR(500)} <br>
+     * [set] LARGE_FROM_FILE: {VARCHAR(600)} <br>
      * @param largeFromFile The value of the column 'LARGE_FROM_FILE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLargeFromFile(String largeFromFile) {

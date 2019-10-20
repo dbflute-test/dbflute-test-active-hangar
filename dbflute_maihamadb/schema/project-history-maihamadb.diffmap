@@ -1,4 +1,25 @@
 map:{
+    ; 2019/10/20 10:00:42 = map:{
+        ; diffDate = 2019/10/20 10:00:42
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_TSV_LOADING = map:{
+                ; tableName = WHITE_TSV_LOADING
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LARGE_FROM_FILE = map:{
+                        ; columnName = LARGE_FROM_FILE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 600
+                            ; previous = 500
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2019/10/20 09:55:03 = map:{
         ; diffDate = 2019/10/20 09:55:03
         ; tableCount = map:{
