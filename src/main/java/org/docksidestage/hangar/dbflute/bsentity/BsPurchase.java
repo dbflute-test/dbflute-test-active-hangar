@@ -34,13 +34,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, WHITE_DATE_TERM(AsValid), MEMBER_LOGIN(AsBizManyToOne)
  *
  * [referrer table]
  *     PURCHASE_PAYMENT
  *
  * [foreign property]
- *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
+ *     member, product, summaryProduct, whiteDateTermAsValid, memberLoginAsBizManyToOne
  *
  * [referrer property]
  *     purchasePaymentList
@@ -324,27 +324,6 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
         _summaryProduct = summaryProduct;
     }
 
-    /** (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'. */
-    protected OptionalEntity<MemberLogin> _memberLoginAsBizManyToOne;
-
-    /**
-     * [get] (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'. <br>
-     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
-     * @return The entity of foreign property 'memberLoginAsBizManyToOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
-     */
-    public OptionalEntity<MemberLogin> getMemberLoginAsBizManyToOne() {
-        if (_memberLoginAsBizManyToOne == null) { _memberLoginAsBizManyToOne = OptionalEntity.relationEmpty(this, "memberLoginAsBizManyToOne"); }
-        return _memberLoginAsBizManyToOne;
-    }
-
-    /**
-     * [set] (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
-     * @param memberLoginAsBizManyToOne The entity of foreign property 'memberLoginAsBizManyToOne'. (NullAllowed)
-     */
-    public void setMemberLoginAsBizManyToOne(OptionalEntity<MemberLogin> memberLoginAsBizManyToOne) {
-        _memberLoginAsBizManyToOne = memberLoginAsBizManyToOne;
-    }
-
     /** WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'. */
     protected OptionalEntity<WhiteDateTerm> _whiteDateTermAsValid;
 
@@ -364,6 +343,27 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
      */
     public void setWhiteDateTermAsValid(OptionalEntity<WhiteDateTerm> whiteDateTermAsValid) {
         _whiteDateTermAsValid = whiteDateTermAsValid;
+    }
+
+    /** (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'. */
+    protected OptionalEntity<MemberLogin> _memberLoginAsBizManyToOne;
+
+    /**
+     * [get] (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberLoginAsBizManyToOne'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<MemberLogin> getMemberLoginAsBizManyToOne() {
+        if (_memberLoginAsBizManyToOne == null) { _memberLoginAsBizManyToOne = OptionalEntity.relationEmpty(this, "memberLoginAsBizManyToOne"); }
+        return _memberLoginAsBizManyToOne;
+    }
+
+    /**
+     * [set] (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
+     * @param memberLoginAsBizManyToOne The entity of foreign property 'memberLoginAsBizManyToOne'. (NullAllowed)
+     */
+    public void setMemberLoginAsBizManyToOne(OptionalEntity<MemberLogin> memberLoginAsBizManyToOne) {
+        _memberLoginAsBizManyToOne = memberLoginAsBizManyToOne;
     }
 
     // ===================================================================================
@@ -424,10 +424,10 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
         { sb.append(li).append(xbRDS(_product, "product")); }
         if (_summaryProduct != null && _summaryProduct.isPresent())
         { sb.append(li).append(xbRDS(_summaryProduct, "summaryProduct")); }
-        if (_memberLoginAsBizManyToOne != null && _memberLoginAsBizManyToOne.isPresent())
-        { sb.append(li).append(xbRDS(_memberLoginAsBizManyToOne, "memberLoginAsBizManyToOne")); }
         if (_whiteDateTermAsValid != null && _whiteDateTermAsValid.isPresent())
         { sb.append(li).append(xbRDS(_whiteDateTermAsValid, "whiteDateTermAsValid")); }
+        if (_memberLoginAsBizManyToOne != null && _memberLoginAsBizManyToOne.isPresent())
+        { sb.append(li).append(xbRDS(_memberLoginAsBizManyToOne, "memberLoginAsBizManyToOne")); }
         if (_purchasePaymentList != null) { for (PurchasePayment et : _purchasePaymentList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "purchasePaymentList")); } } }
         return sb.toString();
@@ -467,10 +467,10 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
         { sb.append(dm).append("product"); }
         if (_summaryProduct != null && _summaryProduct.isPresent())
         { sb.append(dm).append("summaryProduct"); }
-        if (_memberLoginAsBizManyToOne != null && _memberLoginAsBizManyToOne.isPresent())
-        { sb.append(dm).append("memberLoginAsBizManyToOne"); }
         if (_whiteDateTermAsValid != null && _whiteDateTermAsValid.isPresent())
         { sb.append(dm).append("whiteDateTermAsValid"); }
+        if (_memberLoginAsBizManyToOne != null && _memberLoginAsBizManyToOne.isPresent())
+        { sb.append(dm).append("memberLoginAsBizManyToOne"); }
         if (_purchasePaymentList != null && !_purchasePaymentList.isEmpty())
         { sb.append(dm).append("purchasePaymentList"); }
         if (sb.length() > dm.length()) {

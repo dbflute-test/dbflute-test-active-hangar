@@ -43,13 +43,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     VERSION_NO
  *
  * [foreign-table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, WHITE_DATE_TERM(AsValid), MEMBER_LOGIN(AsBizManyToOne)
  *
  * [referrer-table]
  *     PURCHASE_PAYMENT
  *
  * [foreign-property]
- *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
+ *     member, product, summaryProduct, whiteDateTermAsValid, memberLoginAsBizManyToOne
  *
  * [referrer-property]
  *     purchasePaymentList
@@ -75,8 +75,8 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
     protected boolean _suppressMember;
     protected boolean _suppressProduct;
     protected boolean _suppressSummaryProduct;
-    protected boolean _suppressMemberLoginAsBizManyToOne;
     protected boolean _suppressWhiteDateTermAsValid;
+    protected boolean _suppressMemberLoginAsBizManyToOne;
     protected boolean _suppressPurchasePaymentList;
 
     // ===================================================================================
@@ -216,29 +216,6 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
                 }
             }
         };
-        if (!_suppressMemberLoginAsBizManyToOne && entity.getMemberLoginAsBizManyToOne().isPresent()) {
-            MemberLogin relationEntity = entity.getMemberLoginAsBizManyToOne().get();
-            Entity relationKey = createInstanceKeyEntity(relationEntity);
-            Object cachedDto = instanceCache ? _relationDtoMap.get(relationKey) : null;
-            if (cachedDto != null) {
-                MemberLoginDto relationDto = (MemberLoginDto)cachedDto;
-                dto.setMemberLoginAsBizManyToOne(relationDto);
-                if (reverseReference) {
-                }
-            } else {
-                MemberLoginDtoMapper mapper = new MemberLoginDtoMapper(_relationDtoMap, _relationEntityMap);
-                mapper.setExceptCommonColumn(exceptCommonColumn);
-                mapper.setReverseReference(reverseReference);
-                if (!instanceCache) { mapper.disableInstanceCache(); }
-                MemberLoginDto relationDto = mapper.mappingToDto(relationEntity);
-                dto.setMemberLoginAsBizManyToOne(relationDto);
-                if (reverseReference) {
-                }
-                if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
-                    _relationDtoMap.put(relationKey, dto.getMemberLoginAsBizManyToOne());
-                }
-            }
-        };
         if (!_suppressWhiteDateTermAsValid && entity.getWhiteDateTermAsValid().isPresent()) {
             WhiteDateTerm relationEntity = entity.getWhiteDateTermAsValid().get();
             Entity relationKey = createInstanceKeyEntity(relationEntity);
@@ -259,6 +236,29 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
                 }
                 if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
                     _relationDtoMap.put(relationKey, dto.getWhiteDateTermAsValid());
+                }
+            }
+        };
+        if (!_suppressMemberLoginAsBizManyToOne && entity.getMemberLoginAsBizManyToOne().isPresent()) {
+            MemberLogin relationEntity = entity.getMemberLoginAsBizManyToOne().get();
+            Entity relationKey = createInstanceKeyEntity(relationEntity);
+            Object cachedDto = instanceCache ? _relationDtoMap.get(relationKey) : null;
+            if (cachedDto != null) {
+                MemberLoginDto relationDto = (MemberLoginDto)cachedDto;
+                dto.setMemberLoginAsBizManyToOne(relationDto);
+                if (reverseReference) {
+                }
+            } else {
+                MemberLoginDtoMapper mapper = new MemberLoginDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                MemberLoginDto relationDto = mapper.mappingToDto(relationEntity);
+                dto.setMemberLoginAsBizManyToOne(relationDto);
+                if (reverseReference) {
+                }
+                if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
+                    _relationDtoMap.put(relationKey, dto.getMemberLoginAsBizManyToOne());
                 }
             }
         };
@@ -437,29 +437,6 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
                 }
             }
         };
-        if (!_suppressMemberLoginAsBizManyToOne && dto.getMemberLoginAsBizManyToOne() != null) {
-            MemberLoginDto relationDto = dto.getMemberLoginAsBizManyToOne();
-            Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
-            Entity cachedEntity = instanceCache ? _relationEntityMap.get(relationKey) : null;
-            if (cachedEntity != null) {
-                MemberLogin relationEntity = (MemberLogin)cachedEntity;
-                entity.setMemberLoginAsBizManyToOne(OptionalEntity.of(relationEntity));
-                if (reverseReference) {
-                }
-            } else {
-                MemberLoginDtoMapper mapper = new MemberLoginDtoMapper(_relationDtoMap, _relationEntityMap);
-                mapper.setExceptCommonColumn(exceptCommonColumn);
-                mapper.setReverseReference(reverseReference);
-                if (!instanceCache) { mapper.disableInstanceCache(); }
-                MemberLogin relationEntity = mapper.mappingToEntity(relationDto);
-                entity.setMemberLoginAsBizManyToOne(OptionalEntity.of(relationEntity));
-                if (reverseReference) {
-                }
-                if (instanceCache && entity.getMemberLoginAsBizManyToOne().get().hasPrimaryKeyValue()) {
-                    _relationEntityMap.put(relationKey, entity.getMemberLoginAsBizManyToOne().get());
-                }
-            }
-        };
         if (!_suppressWhiteDateTermAsValid && dto.getWhiteDateTermAsValid() != null) {
             WhiteDateTermDto relationDto = dto.getWhiteDateTermAsValid();
             Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
@@ -480,6 +457,29 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
                 }
                 if (instanceCache && entity.getWhiteDateTermAsValid().get().hasPrimaryKeyValue()) {
                     _relationEntityMap.put(relationKey, entity.getWhiteDateTermAsValid().get());
+                }
+            }
+        };
+        if (!_suppressMemberLoginAsBizManyToOne && dto.getMemberLoginAsBizManyToOne() != null) {
+            MemberLoginDto relationDto = dto.getMemberLoginAsBizManyToOne();
+            Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
+            Entity cachedEntity = instanceCache ? _relationEntityMap.get(relationKey) : null;
+            if (cachedEntity != null) {
+                MemberLogin relationEntity = (MemberLogin)cachedEntity;
+                entity.setMemberLoginAsBizManyToOne(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                }
+            } else {
+                MemberLoginDtoMapper mapper = new MemberLoginDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                MemberLogin relationEntity = mapper.mappingToEntity(relationDto);
+                entity.setMemberLoginAsBizManyToOne(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                }
+                if (instanceCache && entity.getMemberLoginAsBizManyToOne().get().hasPrimaryKeyValue()) {
+                    _relationEntityMap.put(relationKey, entity.getMemberLoginAsBizManyToOne().get());
                 }
             }
         };
@@ -624,11 +624,11 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
     public void suppressSummaryProduct() {
         _suppressSummaryProduct = true;
     }
-    public void suppressMemberLoginAsBizManyToOne() {
-        _suppressMemberLoginAsBizManyToOne = true;
-    }
     public void suppressWhiteDateTermAsValid() {
         _suppressWhiteDateTermAsValid = true;
+    }
+    public void suppressMemberLoginAsBizManyToOne() {
+        _suppressMemberLoginAsBizManyToOne = true;
     }
     public void suppressPurchasePaymentList() {
         _suppressPurchasePaymentList = true;
@@ -637,16 +637,16 @@ public abstract class BsPurchaseDtoMapper implements DtoMapper<Purchase, Purchas
         suppressMember();
         suppressProduct();
         suppressSummaryProduct();
-        suppressMemberLoginAsBizManyToOne();
         suppressWhiteDateTermAsValid();
+        suppressMemberLoginAsBizManyToOne();
         suppressPurchasePaymentList();
     }
     protected void doSuppressClear() { // internal
         _suppressMember = false;
         _suppressProduct = false;
         _suppressSummaryProduct = false;
-        _suppressMemberLoginAsBizManyToOne = false;
         _suppressWhiteDateTermAsValid = false;
+        _suppressMemberLoginAsBizManyToOne = false;
         _suppressPurchasePaymentList = false;
     }
 

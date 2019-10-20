@@ -1,4 +1,95 @@
 map:{
+    ; 2019/10/20 09:55:03 = map:{
+        ; diffDate = 2019/10/20 09:55:03
+        ; tableCount = map:{
+            ; next = 41
+            ; previous = 42
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; TEST1_SUMMARY_PRODUCT = map:{
+                ; tableName = TEST1_SUMMARY_PRODUCT
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2019/10/04 12:04:32 = map:{
+        ; diffDate = 2019/10/04 12:04:32
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_COMPOUND_PK_REF_PHYSICAL = map:{
+                ; tableName = WHITE_COMPOUND_PK_REF_PHYSICAL
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REF_THIRD_ID = map:{
+                        ; columnName = REF_THIRD_ID
+                        ; diffType = ADD
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; CONSTRAINT_CB = map:{
+                        ; constraintName = CONSTRAINT_CB
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
+                            ; previous = REF_FIRST_ID, REF_SECOND_ID
+                        }
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_WHITE_COMPOUND_PK_REF_PHYSICAL_FIRST_SECOND_INDEX_C = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF_PHYSICAL_FIRST_SECOND_INDEX_C
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; WHITE_COMPOUND_PK_REF_VIRTURL = map:{
+                ; tableName = WHITE_COMPOUND_PK_REF_VIRTURL
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REF_THIRD_ID = map:{
+                        ; columnName = REF_THIRD_ID
+                        ; diffType = ADD
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; CONSTRAINT_C3 = map:{
+                        ; constraintName = CONSTRAINT_C3
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
+                            ; previous = REF_FIRST_ID, REF_SECOND_ID
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/10/04 11:58:23 = map:{
+        ; diffDate = 2019/10/04 11:58:23
+        ; tableCount = map:{
+            ; next = 42
+            ; previous = 39
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; TEST1_SUMMARY_PRODUCT = map:{
+                ; tableName = TEST1_SUMMARY_PRODUCT
+                ; diffType = ADD
+            }
+            ; WHITE_COMPOUND_PK_REF_PHYSICAL = map:{
+                ; tableName = WHITE_COMPOUND_PK_REF_PHYSICAL
+                ; diffType = ADD
+            }
+            ; WHITE_COMPOUND_PK_REF_VIRTURL = map:{
+                ; tableName = WHITE_COMPOUND_PK_REF_VIRTURL
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2019/08/23 00:45:55 = map:{
         ; diffDate = 2019/08/23 00:45:55
         ; diffAuthor = jflute

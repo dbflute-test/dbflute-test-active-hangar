@@ -34,6 +34,9 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # ====================================================================================
+    #                                                                           Virtual FK
+    #                                                                           ==========
     ; FK_SUMMARY_PRODUCT_PRODUCT_STATUS = map:{
         ; localTableName  = SUMMARY_PRODUCT     ; foreignTableName  = PRODUCT_STATUS
         ; localColumnName = PRODUCT_STATUS_CODE ; foreignColumnName  = PRODUCT_STATUS_CODE
@@ -50,19 +53,15 @@ map:{
      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
         ; fixedSuffix = AsValid
     }
-
-    #
-    # for the test of biz-many-to-one
-    # (expect no compile error at mapper class)
-    # this example is mecha kucha, biz-many-to-one's tests is at mysql-example
-    #
-    ; FK_PURCHASE_BIZ_MANY_TO_ONE_TEST = map:{
-        ; localTableName  = PURCHASE ; foreignTableName  = MEMBER_LOGIN
-        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = $$foreignAlias$$.MEMBER_STATUS_CODE = 'PRV'
-        ; fixedSuffix = AsBizManyToOne
+    # for the test of compound PK
+    ; FK_WHITE_COMPOUND_PK_REF_VIRTURL_FIRST_SECOND = map:{
+        ; localTableName  = WHITE_COMPOUND_PK_REF_VIRTURL   ; foreignTableName  = WHITE_COMPOUND_PK
+        ; localColumnName = REF_FIRST_ID/REF_SECOND_ID ; foreignColumnName  = PK_FIRST_ID/PK_SECOND_ID
     }
 
+    # ====================================================================================
+    #                                                                          BizOneToOne
+    #                                                                          ===========
     #
     # for the test of fixed-only biz-one-to-one
     #
@@ -75,6 +74,24 @@ map:{
         ; fixedOnlyJoin = true
     }
 
+    # ====================================================================================
+    #                                                                         BizManyToOne
+    #                                                                         ============
+    #
+    # for the test of biz-many-to-one
+    # (expect no compile error at mapper class)
+    # this example is mecha kucha, biz-many-to-one's tests is at mysql-example
+    #
+    ; FK_PURCHASE_BIZ_MANY_TO_ONE_TEST = map:{
+        ; localTableName  = PURCHASE ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = $$foreignAlias$$.MEMBER_STATUS_CODE = 'PRV'
+        ; fixedSuffix = AsBizManyToOne
+    }
+
+    # ====================================================================================
+    #                                                                               Tricky
+    #                                                                               ======
     #
     # for the test of IF comment of classification
     #

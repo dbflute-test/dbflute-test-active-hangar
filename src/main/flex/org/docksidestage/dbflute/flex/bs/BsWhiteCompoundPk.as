@@ -26,13 +26,13 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     
  *
  * [referrer-table]
- *     
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
  *
  * [foreign-property]
  *     
  *
  * [referrer-property]
- *     
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -56,6 +56,30 @@ public class BsWhiteCompoundPk {
     // ===================================================================================
     //                                                                      Referrer Table
     //                                                                      ==============
+    WhiteCompoundPkRefPhysicalDto;
+    protected var _whiteCompoundPkRefPhysicalList:ArrayCollection; /* of the entity 'WhiteCompoundPkRefPhysicalDto'. */
+
+    public function get whiteCompoundPkRefPhysicalList():ArrayCollection {
+        if (_whiteCompoundPkRefPhysicalList == null) { _whiteCompoundPkRefPhysicalList = new ArrayCollection(); }
+        return _whiteCompoundPkRefPhysicalList;
+    }
+
+    public function set whiteCompoundPkRefPhysicalList(whiteCompoundPkRefPhysicalList:ArrayCollection):void {
+        this._whiteCompoundPkRefPhysicalList = whiteCompoundPkRefPhysicalList;
+    }
+
+    WhiteCompoundPkRefVirturlDto;
+    protected var _whiteCompoundPkRefVirturlList:ArrayCollection; /* of the entity 'WhiteCompoundPkRefVirturlDto'. */
+
+    public function get whiteCompoundPkRefVirturlList():ArrayCollection {
+        if (_whiteCompoundPkRefVirturlList == null) { _whiteCompoundPkRefVirturlList = new ArrayCollection(); }
+        return _whiteCompoundPkRefVirturlList;
+    }
+
+    public function set whiteCompoundPkRefVirturlList(whiteCompoundPkRefVirturlList:ArrayCollection):void {
+        this._whiteCompoundPkRefVirturlList = whiteCompoundPkRefVirturlList;
+    }
+
 
     // ===================================================================================
     //                                                                            Accessor

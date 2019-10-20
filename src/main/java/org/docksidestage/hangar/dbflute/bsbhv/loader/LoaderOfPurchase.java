@@ -27,13 +27,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, WHITE_DATE_TERM(AsValid), MEMBER_LOGIN(AsBizManyToOne)
  *
  * [referrer table]
  *     PURCHASE_PAYMENT
  *
  * [foreign property]
- *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
+ *     member, product, summaryProduct, whiteDateTermAsValid, memberLoginAsBizManyToOne
  *
  * [referrer property]
  *     purchasePaymentList
@@ -119,18 +119,18 @@ public class LoaderOfPurchase {
         return _foreignSummaryProductLoader;
     }
 
-    protected LoaderOfMemberLogin _foreignMemberLoginAsBizManyToOneLoader;
-    public LoaderOfMemberLogin pulloutMemberLoginAsBizManyToOne() {
-        if (_foreignMemberLoginAsBizManyToOneLoader == null)
-        { _foreignMemberLoginAsBizManyToOneLoader = new LoaderOfMemberLogin().ready(myBhv().pulloutMemberLoginAsBizManyToOne(_selectedList), _selector); }
-        return _foreignMemberLoginAsBizManyToOneLoader;
-    }
-
     protected LoaderOfWhiteDateTerm _foreignWhiteDateTermAsValidLoader;
     public LoaderOfWhiteDateTerm pulloutWhiteDateTermAsValid() {
         if (_foreignWhiteDateTermAsValidLoader == null)
         { _foreignWhiteDateTermAsValidLoader = new LoaderOfWhiteDateTerm().ready(myBhv().pulloutWhiteDateTermAsValid(_selectedList), _selector); }
         return _foreignWhiteDateTermAsValidLoader;
+    }
+
+    protected LoaderOfMemberLogin _foreignMemberLoginAsBizManyToOneLoader;
+    public LoaderOfMemberLogin pulloutMemberLoginAsBizManyToOne() {
+        if (_foreignMemberLoginAsBizManyToOneLoader == null)
+        { _foreignMemberLoginAsBizManyToOneLoader = new LoaderOfMemberLogin().ready(myBhv().pulloutMemberLoginAsBizManyToOne(_selectedList), _selector); }
+        return _foreignMemberLoginAsBizManyToOneLoader;
     }
 
     // ===================================================================================

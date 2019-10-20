@@ -42,13 +42,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
  *
  * [foreign property]
  *     
  *
  * [referrer property]
- *     
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -359,6 +359,134 @@ public abstract class BsWhiteCompoundPkBhv extends AbstractBehaviorWritable<Whit
     public void load(WhiteCompoundPk whiteCompoundPk, ReferrerLoaderHandler<LoaderOfWhiteCompoundPk> loaderLambda) {
         xassLRArg(whiteCompoundPk, loaderLambda);
         loaderLambda.handle(new LoaderOfWhiteCompoundPk().ready(xnewLRAryLs(whiteCompoundPk), _behaviorSelector));
+    }
+
+    /**
+     * Load referrer of whiteCompoundPkRefPhysicalList by the set-upper of referrer. <br>
+     * WHITE_COMPOUND_PK_REF_PHYSICAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefPhysicalList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefPhysical</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">physicalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">physicalCB</span>.setupSelect...
+     *     <span style="color: #553000">physicalCB</span>.query().set...
+     *     <span style="color: #553000">physicalCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (WhiteCompoundPk whiteCompoundPk : <span style="color: #553000">whiteCompoundPkList</span>) {
+     *     ... = whiteCompoundPk.<span style="color: #CC4747">getWhiteCompoundPkRefPhysicalList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().set[ForeignKey]_InScope(pkList);
+     * cb.query().addOrderBy_[ForeignKey]_Asc();
+     * </pre>
+     * @param whiteCompoundPkList The entity list of whiteCompoundPk. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteCompoundPkRefPhysical> loadWhiteCompoundPkRefPhysical(List<WhiteCompoundPk> whiteCompoundPkList, ReferrerConditionSetupper<WhiteCompoundPkRefPhysicalCB> refCBLambda) {
+        xassLRArg(whiteCompoundPkList, refCBLambda);
+        return doLoadWhiteCompoundPkRefPhysical(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefPhysicalCB, WhiteCompoundPkRefPhysical>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of whiteCompoundPkRefPhysicalList by the set-upper of referrer. <br>
+     * WHITE_COMPOUND_PK_REF_PHYSICAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefPhysicalList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefPhysical</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">physicalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">physicalCB</span>.setupSelect...
+     *     <span style="color: #553000">physicalCB</span>.query().set...
+     *     <span style="color: #553000">physicalCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">whiteCompoundPk</span>.<span style="color: #CC4747">getWhiteCompoundPkRefPhysicalList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().set[ForeignKey]_InScope(pkList);
+     * cb.query().addOrderBy_[ForeignKey]_Asc();
+     * </pre>
+     * @param whiteCompoundPk The entity of whiteCompoundPk. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteCompoundPkRefPhysical> loadWhiteCompoundPkRefPhysical(WhiteCompoundPk whiteCompoundPk, ReferrerConditionSetupper<WhiteCompoundPkRefPhysicalCB> refCBLambda) {
+        xassLRArg(whiteCompoundPk, refCBLambda);
+        return doLoadWhiteCompoundPkRefPhysical(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefPhysicalCB, WhiteCompoundPkRefPhysical>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<WhiteCompoundPkRefPhysical> doLoadWhiteCompoundPkRefPhysical(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefPhysicalCB, WhiteCompoundPkRefPhysical> option) {
+        return helpLoadReferrerInternally(whiteCompoundPkList, option, "whiteCompoundPkRefPhysicalList");
+    }
+
+    /**
+     * Load referrer of whiteCompoundPkRefVirturlList by the set-upper of referrer. <br>
+     * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefVirturl</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">virturlCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">virturlCB</span>.setupSelect...
+     *     <span style="color: #553000">virturlCB</span>.query().set...
+     *     <span style="color: #553000">virturlCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (WhiteCompoundPk whiteCompoundPk : <span style="color: #553000">whiteCompoundPkList</span>) {
+     *     ... = whiteCompoundPk.<span style="color: #CC4747">getWhiteCompoundPkRefVirturlList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().set[ForeignKey]_InScope(pkList);
+     * cb.query().addOrderBy_[ForeignKey]_Asc();
+     * </pre>
+     * @param whiteCompoundPkList The entity list of whiteCompoundPk. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteCompoundPkRefVirturl> loadWhiteCompoundPkRefVirturl(List<WhiteCompoundPk> whiteCompoundPkList, ReferrerConditionSetupper<WhiteCompoundPkRefVirturlCB> refCBLambda) {
+        xassLRArg(whiteCompoundPkList, refCBLambda);
+        return doLoadWhiteCompoundPkRefVirturl(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkRefVirturl>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of whiteCompoundPkRefVirturlList by the set-upper of referrer. <br>
+     * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefVirturl</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">virturlCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">virturlCB</span>.setupSelect...
+     *     <span style="color: #553000">virturlCB</span>.query().set...
+     *     <span style="color: #553000">virturlCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">whiteCompoundPk</span>.<span style="color: #CC4747">getWhiteCompoundPkRefVirturlList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().set[ForeignKey]_InScope(pkList);
+     * cb.query().addOrderBy_[ForeignKey]_Asc();
+     * </pre>
+     * @param whiteCompoundPk The entity of whiteCompoundPk. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteCompoundPkRefVirturl> loadWhiteCompoundPkRefVirturl(WhiteCompoundPk whiteCompoundPk, ReferrerConditionSetupper<WhiteCompoundPkRefVirturlCB> refCBLambda) {
+        xassLRArg(whiteCompoundPk, refCBLambda);
+        return doLoadWhiteCompoundPkRefVirturl(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkRefVirturl>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<WhiteCompoundPkRefVirturl> doLoadWhiteCompoundPkRefVirturl(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkRefVirturl> option) {
+        return helpLoadReferrerInternally(whiteCompoundPkList, option, "whiteCompoundPkRefVirturlList");
     }
 
     // ===================================================================================

@@ -76,8 +76,8 @@ public class PurchaseDbm extends AbstractDBMeta {
         setupEfpg(_efpgMap, et -> ((Purchase)et).getMember(), (et, vl) -> ((Purchase)et).setMember((OptionalEntity<Member>)vl), "member");
         setupEfpg(_efpgMap, et -> ((Purchase)et).getProduct(), (et, vl) -> ((Purchase)et).setProduct((OptionalEntity<Product>)vl), "product");
         setupEfpg(_efpgMap, et -> ((Purchase)et).getSummaryProduct(), (et, vl) -> ((Purchase)et).setSummaryProduct((OptionalEntity<SummaryProduct>)vl), "summaryProduct");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getMemberLoginAsBizManyToOne(), (et, vl) -> ((Purchase)et).setMemberLoginAsBizManyToOne((OptionalEntity<MemberLogin>)vl), "memberLoginAsBizManyToOne");
         setupEfpg(_efpgMap, et -> ((Purchase)et).getWhiteDateTermAsValid(), (et, vl) -> ((Purchase)et).setWhiteDateTermAsValid((OptionalEntity<WhiteDateTerm>)vl), "whiteDateTermAsValid");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getMemberLoginAsBizManyToOne(), (et, vl) -> ((Purchase)et).setMemberLoginAsBizManyToOne((OptionalEntity<MemberLogin>)vl), "memberLoginAsBizManyToOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -102,7 +102,7 @@ public class PurchaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPurchaseId = cci("PURCHASE_ID", "PURCHASE_ID", null, null, Long.class, "purchaseId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_77437115_E54A_4A00_B2F1_14F0D98E7526\"", false, null, null, null, "purchasePaymentList", null, false);
+    protected final ColumnInfo _columnPurchaseId = cci("PURCHASE_ID", "PURCHASE_ID", null, null, Long.class, "purchaseId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_C8F2984B_DC96_4CAD_8969_A6A26DDF8BF9\"", false, null, null, null, "purchasePaymentList", null, false);
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "会員を参照するID。\n購入を識別する自然キー(複合ユニーク制約)の筆頭要素。", "member,memberLoginAsBizManyToOne", null, null, false);
     protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, "商品ID", Integer.class, "productId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "あなたは何を買ったのか？", "product,summaryProduct", null, null, false);
     protected final ColumnInfo _columnPurchaseDatetime = cci("PURCHASE_DATETIME", "PURCHASE_DATETIME", null, "購入日時", java.time.LocalDateTime.class, "purchaseDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, "購入した瞬間の日時。", null, null, null, false);
@@ -249,20 +249,20 @@ public class PurchaseDbm extends AbstractDBMeta {
         return cfi("FK_PURCHASE_SUMMARY_PRODUCT", "summaryProduct", this, SummaryProductDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "purchaseList", false);
     }
     /**
-     * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignMemberLoginAsBizManyToOne() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_PURCHASE_BIZ_MANY_TO_ONE_TEST", "memberLoginAsBizManyToOne", this, MemberLoginDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.MEMBER_STATUS_CODE = 'PRV'", null, false, null, false);
-    }
-    /**
      * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteDateTermAsValid() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
-        return cfi("FK_PURCHASE_FIXED_ONLY_BIZ_ONE_TO_ONE_TEST", "whiteDateTermAsValid", this, WhiteDateTermDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.BEGIN_DATE <= $$localAlias$$.PURCHASE_DATETIME\n     and $$foreignAlias$$.END_DATE >= $$localAlias$$.PURCHASE_DATETIME", null, false, null, false);
+        return cfi("FK_PURCHASE_FIXED_ONLY_BIZ_ONE_TO_ONE_TEST", "whiteDateTermAsValid", this, WhiteDateTermDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.BEGIN_DATE <= $$localAlias$$.PURCHASE_DATETIME\n     and $$foreignAlias$$.END_DATE >= $$localAlias$$.PURCHASE_DATETIME", null, false, null, false);
+    }
+    /**
+     * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignMemberLoginAsBizManyToOne() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
+        return cfi("FK_PURCHASE_BIZ_MANY_TO_ONE_TEST", "memberLoginAsBizManyToOne", this, MemberLoginDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, false, false, false, true, "$$foreignAlias$$.MEMBER_STATUS_CODE = 'PRV'", null, false, null, false);
     }
 
     // -----------------------------------------------------

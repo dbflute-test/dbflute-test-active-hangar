@@ -16,6 +16,7 @@
 ${database.allClassCopyright}package ${myBaseEntityPackageName} {
 #set ($myClassName = "${myBaseObjectClassName}")
 
+// *customization mark by jflute
 import mx.collections.ArrayCollection;
 import ${myExtendedEntityPackageName}.*;
 

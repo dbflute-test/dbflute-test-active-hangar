@@ -343,6 +343,23 @@ public class BsPurchaseCB extends AbstractConditionBean {
         return _nssSummaryProduct;
     }
 
+    /**
+     * Set up relation columns to select clause. <br>
+     * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
+     * <pre>
+     * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteDateTermAsValid()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getWhiteDateTermAsValid()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     */
+    public void setupSelect_WhiteDateTermAsValid() {
+        assertSetupSelectPurpose("whiteDateTermAsValid");
+        doSetupSelect(() -> query().queryWhiteDateTermAsValid());
+    }
+
     protected MemberLoginNss _nssMemberLoginAsBizManyToOne;
     public MemberLoginNss xdfgetNssMemberLoginAsBizManyToOne() {
         if (_nssMemberLoginAsBizManyToOne == null) { _nssMemberLoginAsBizManyToOne = new MemberLoginNss(null); }
@@ -370,23 +387,6 @@ public class BsPurchaseCB extends AbstractConditionBean {
         if (_nssMemberLoginAsBizManyToOne == null || !_nssMemberLoginAsBizManyToOne.hasConditionQuery())
         { _nssMemberLoginAsBizManyToOne = new MemberLoginNss(query().queryMemberLoginAsBizManyToOne()); }
         return _nssMemberLoginAsBizManyToOne;
-    }
-
-    /**
-     * Set up relation columns to select clause. <br>
-     * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
-     * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteDateTermAsValid()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getWhiteDateTermAsValid()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
-     * });
-     * </pre>
-     */
-    public void setupSelect_WhiteDateTermAsValid() {
-        assertSetupSelectPurpose("whiteDateTermAsValid");
-        doSetupSelect(() -> query().queryWhiteDateTermAsValid());
     }
 
     // [DBFlute-0.7.4]
@@ -433,8 +433,8 @@ public class BsPurchaseCB extends AbstractConditionBean {
         protected MemberCB.HpSpecification _member;
         protected ProductCB.HpSpecification _product;
         protected SummaryProductCB.HpSpecification _summaryProduct;
-        protected MemberLoginCB.HpSpecification _memberLoginAsBizManyToOne;
         protected WhiteDateTermCB.HpSpecification _whiteDateTermAsValid;
+        protected MemberLoginCB.HpSpecification _memberLoginAsBizManyToOne;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<PurchaseCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -585,26 +585,6 @@ public class BsPurchaseCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
-         * @return The instance for specification for relation table to specify. (NotNull)
-         */
-        public MemberLoginCB.HpSpecification specifyMemberLoginAsBizManyToOne() {
-            assertRelation("memberLoginAsBizManyToOne");
-            if (_memberLoginAsBizManyToOne == null) {
-                _memberLoginAsBizManyToOne = new MemberLoginCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsBizManyToOne()
-                                    , () -> _qyCall.qy().queryMemberLoginAsBizManyToOne())
-                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
-                if (xhasSyncQyCall()) { // inherits it
-                    _memberLoginAsBizManyToOne.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsBizManyToOne()
-                      , () -> xsyncQyCall().qy().queryMemberLoginAsBizManyToOne()));
-                }
-            }
-            return _memberLoginAsBizManyToOne;
-        }
-        /**
-         * Prepare to specify functions about relation table. <br>
          * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -622,6 +602,26 @@ public class BsPurchaseCB extends AbstractConditionBean {
                 }
             }
             return _whiteDateTermAsValid;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public MemberLoginCB.HpSpecification specifyMemberLoginAsBizManyToOne() {
+            assertRelation("memberLoginAsBizManyToOne");
+            if (_memberLoginAsBizManyToOne == null) {
+                _memberLoginAsBizManyToOne = new MemberLoginCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberLoginAsBizManyToOne()
+                                    , () -> _qyCall.qy().queryMemberLoginAsBizManyToOne())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _memberLoginAsBizManyToOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberLoginAsBizManyToOne()
+                      , () -> xsyncQyCall().qy().queryMemberLoginAsBizManyToOne()));
+                }
+            }
+            return _memberLoginAsBizManyToOne;
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>

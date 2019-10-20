@@ -47,18 +47,18 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
+     * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
+     */
+    public void withWhiteDateTermAsValid() {
+        _query.xdoNss(() -> _query.queryWhiteDateTermAsValid());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
      * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsBizManyToOne() {
         _query.xdoNss(() -> _query.queryMemberLoginAsBizManyToOne());
         return new MemberLoginNss(_query.queryMemberLoginAsBizManyToOne());
-    }
-    /**
-     * With nested relation columns to select clause. <br>
-     * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
-     */
-    public void withWhiteDateTermAsValid() {
-        _query.xdoNss(() -> _query.queryWhiteDateTermAsValid());
     }
 }
