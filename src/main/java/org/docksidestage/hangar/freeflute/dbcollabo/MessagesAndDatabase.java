@@ -206,6 +206,16 @@ public class MessagesAndDatabase implements Serializable {
     //  - PK_SECOND_ID
     //  - COMPOUND_PK_NAME
     //  - REFERRED_ID
+    // WHITE_COMPOUND_PK_REF_PHYSICAL
+    //  - REF_FIRST_ID
+    //  - REF_SECOND_ID
+    //  - REF_THIRD_ID
+    //  - COMPOUND_REF_NAME
+    // WHITE_COMPOUND_PK_REF_VIRTURL
+    //  - REF_FIRST_ID
+    //  - REF_SECOND_ID
+    //  - REF_THIRD_ID
+    //  - COMPOUND_REF_NAME
     // WHITE_DATE_TERM
     //  - DATE_TERM_ID
     //  - DATE_TERM_VALUE
