@@ -48,6 +48,9 @@ map:{
     ; isDatetimePrecisionTruncationOfCondition = true
     ; isDatetimePrecisionTruncationOfUpdatedEntity = true
 
+    # the test of common original methods for behavior
+    ; extendedAbstractBehaviorWritableClass = org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]

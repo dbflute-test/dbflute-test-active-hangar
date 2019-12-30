@@ -25,13 +25,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     WHITE_ON_PARADE_NULLABLE_TO_MANY, WHITE_ON_PARADE
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     whiteOnParadeNullableToMany, whiteOnParade
+ *     whiteOnParade, whiteOnParadeNullableToMany
  *
  * [referrer property]
  *     
@@ -59,18 +59,18 @@ public class LoaderOfWhiteOnParadeRef {
     // ===================================================================================
     //                                                                    Pull out Foreign
     //                                                                    ================
-    protected LoaderOfWhiteOnParadeNullableToMany _foreignWhiteOnParadeNullableToManyLoader;
-    public LoaderOfWhiteOnParadeNullableToMany pulloutWhiteOnParadeNullableToMany() {
-        if (_foreignWhiteOnParadeNullableToManyLoader == null)
-        { _foreignWhiteOnParadeNullableToManyLoader = new LoaderOfWhiteOnParadeNullableToMany().ready(myBhv().pulloutWhiteOnParadeNullableToMany(_selectedList), _selector); }
-        return _foreignWhiteOnParadeNullableToManyLoader;
-    }
-
     protected LoaderOfWhiteOnParade _foreignWhiteOnParadeLoader;
     public LoaderOfWhiteOnParade pulloutWhiteOnParade() {
         if (_foreignWhiteOnParadeLoader == null)
         { _foreignWhiteOnParadeLoader = new LoaderOfWhiteOnParade().ready(myBhv().pulloutWhiteOnParade(_selectedList), _selector); }
         return _foreignWhiteOnParadeLoader;
+    }
+
+    protected LoaderOfWhiteOnParadeNullableToMany _foreignWhiteOnParadeNullableToManyLoader;
+    public LoaderOfWhiteOnParadeNullableToMany pulloutWhiteOnParadeNullableToMany() {
+        if (_foreignWhiteOnParadeNullableToManyLoader == null)
+        { _foreignWhiteOnParadeNullableToManyLoader = new LoaderOfWhiteOnParadeNullableToMany().ready(myBhv().pulloutWhiteOnParadeNullableToMany(_selectedList), _selector); }
+        return _foreignWhiteOnParadeNullableToManyLoader;
     }
 
     // ===================================================================================

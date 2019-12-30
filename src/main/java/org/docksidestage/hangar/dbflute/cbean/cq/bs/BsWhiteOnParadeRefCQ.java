@@ -194,37 +194,17 @@ public class BsWhiteOnParadeRefCQ extends AbstractBsWhiteOnParadeRefCQ {
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
         WhiteOnParadeRefCQ bq = (WhiteOnParadeRefCQ)bqs;
         WhiteOnParadeRefCQ uq = (WhiteOnParadeRefCQ)uqs;
-        if (bq.hasConditionQueryWhiteOnParadeNullableToMany()) {
-            uq.queryWhiteOnParadeNullableToMany().reflectRelationOnUnionQuery(bq.queryWhiteOnParadeNullableToMany(), uq.queryWhiteOnParadeNullableToMany());
-        }
         if (bq.hasConditionQueryWhiteOnParade()) {
             uq.queryWhiteOnParade().reflectRelationOnUnionQuery(bq.queryWhiteOnParade(), uq.queryWhiteOnParade());
+        }
+        if (bq.hasConditionQueryWhiteOnParadeNullableToMany()) {
+            uq.queryWhiteOnParadeNullableToMany().reflectRelationOnUnionQuery(bq.queryWhiteOnParadeNullableToMany(), uq.queryWhiteOnParadeNullableToMany());
         }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    /**
-     * Get the condition-query for relation table. <br>
-     * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
-     * @return The instance of condition-query. (NotNull)
-     */
-    public WhiteOnParadeNullableToManyCQ queryWhiteOnParadeNullableToMany() {
-        return xdfgetConditionQueryWhiteOnParadeNullableToMany();
-    }
-    public WhiteOnParadeNullableToManyCQ xdfgetConditionQueryWhiteOnParadeNullableToMany() {
-        String prop = "whiteOnParadeNullableToMany";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteOnParadeNullableToMany()); xsetupOuterJoinWhiteOnParadeNullableToMany(); }
-        return xgetQueRlMap(prop);
-    }
-    protected WhiteOnParadeNullableToManyCQ xcreateQueryWhiteOnParadeNullableToMany() {
-        String nrp = xresolveNRP("WHITE_ON_PARADE_REF", "whiteOnParadeNullableToMany"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new WhiteOnParadeNullableToManyCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "whiteOnParadeNullableToMany", nrp);
-    }
-    protected void xsetupOuterJoinWhiteOnParadeNullableToMany() { xregOutJo("whiteOnParadeNullableToMany"); }
-    public boolean hasConditionQueryWhiteOnParadeNullableToMany() { return xhasQueRlMap("whiteOnParadeNullableToMany"); }
-
     /**
      * Get the condition-query for relation table. <br>
      * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
@@ -244,6 +224,26 @@ public class BsWhiteOnParadeRefCQ extends AbstractBsWhiteOnParadeRefCQ {
     }
     protected void xsetupOuterJoinWhiteOnParade() { xregOutJo("whiteOnParade"); }
     public boolean hasConditionQueryWhiteOnParade() { return xhasQueRlMap("whiteOnParade"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public WhiteOnParadeNullableToManyCQ queryWhiteOnParadeNullableToMany() {
+        return xdfgetConditionQueryWhiteOnParadeNullableToMany();
+    }
+    public WhiteOnParadeNullableToManyCQ xdfgetConditionQueryWhiteOnParadeNullableToMany() {
+        String prop = "whiteOnParadeNullableToMany";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteOnParadeNullableToMany()); xsetupOuterJoinWhiteOnParadeNullableToMany(); }
+        return xgetQueRlMap(prop);
+    }
+    protected WhiteOnParadeNullableToManyCQ xcreateQueryWhiteOnParadeNullableToMany() {
+        String nrp = xresolveNRP("WHITE_ON_PARADE_REF", "whiteOnParadeNullableToMany"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new WhiteOnParadeNullableToManyCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "whiteOnParadeNullableToMany", nrp);
+    }
+    protected void xsetupOuterJoinWhiteOnParadeNullableToMany() { xregOutJo("whiteOnParadeNullableToMany"); }
+    public boolean hasConditionQueryWhiteOnParadeNullableToMany() { return xhasQueRlMap("whiteOnParadeNullableToMany"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

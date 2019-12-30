@@ -3,7 +3,6 @@ package org.docksidestage.hangar.dbflute.bsbhv;
 import java.util.List;
 
 import org.dbflute.*;
-import org.dbflute.bhv.*;
 import org.dbflute.bhv.readable.*;
 import org.dbflute.bhv.writable.*;
 import org.dbflute.bhv.writable.coins.DateUpdateAdjuster;
@@ -39,20 +38,20 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     WHITE_ON_PARADE_NULLABLE_TO_MANY, WHITE_ON_PARADE
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     whiteOnParadeNullableToMany, whiteOnParade
+ *     whiteOnParade, whiteOnParadeNullableToMany
  *
  * [referrer property]
  *     
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteOnParadeRefBhv extends AbstractBehaviorWritable<WhiteOnParadeRef, WhiteOnParadeRefCB> {
+public abstract class BsWhiteOnParadeRefBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteOnParadeRef, WhiteOnParadeRefCB> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -364,20 +363,20 @@ public abstract class BsWhiteOnParadeRefBhv extends AbstractBehaviorWritable<Whi
     //                                                                   Pull out Relation
     //                                                                   =================
     /**
-     * Pull out the list of foreign table 'WhiteOnParadeNullableToMany'.
-     * @param whiteOnParadeRefList The list of whiteOnParadeRef. (NotNull, EmptyAllowed)
-     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<WhiteOnParadeNullableToMany> pulloutWhiteOnParadeNullableToMany(List<WhiteOnParadeRef> whiteOnParadeRefList)
-    { return helpPulloutInternally(whiteOnParadeRefList, "whiteOnParadeNullableToMany"); }
-
-    /**
      * Pull out the list of foreign table 'WhiteOnParade'.
      * @param whiteOnParadeRefList The list of whiteOnParadeRef. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
     public List<WhiteOnParade> pulloutWhiteOnParade(List<WhiteOnParadeRef> whiteOnParadeRefList)
     { return helpPulloutInternally(whiteOnParadeRefList, "whiteOnParade"); }
+
+    /**
+     * Pull out the list of foreign table 'WhiteOnParadeNullableToMany'.
+     * @param whiteOnParadeRefList The list of whiteOnParadeRef. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<WhiteOnParadeNullableToMany> pulloutWhiteOnParadeNullableToMany(List<WhiteOnParadeRef> whiteOnParadeRefList)
+    { return helpPulloutInternally(whiteOnParadeRefList, "whiteOnParadeNullableToMany"); }
 
     // ===================================================================================
     //                                                                      Extract Column

@@ -3,7 +3,6 @@ package org.docksidestage.hangar.dbflute.bsbhv;
 import java.util.List;
 
 import org.dbflute.*;
-import org.dbflute.bhv.*;
 import org.dbflute.bhv.readable.*;
 import org.dbflute.bhv.writable.*;
 import org.dbflute.bhv.writable.coins.DateUpdateAdjuster;
@@ -52,7 +51,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCheck, VendorCheckCB> {
+public abstract class BsVendorCheckBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<VendorCheck, VendorCheckCB> {
 
     // ===================================================================================
     //                                                                          Definition

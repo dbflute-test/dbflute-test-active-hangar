@@ -1,4 +1,449 @@
 map:{
+    ; 2019/12/30 13:57:58 = map:{
+        ; diffDate = 2019/12/30 13:57:58
+        ; tableCount = map:{
+            ; next = 39
+            ; previous = 25
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_CLASSIFICATION_DEPLOYMENT = map:{
+                ; tableName = WHITE_CLASSIFICATION_DEPLOYMENT
+                ; diffType = ADD
+            }
+            ; WHITE_COMPOUND_PK = map:{
+                ; tableName = WHITE_COMPOUND_PK
+                ; diffType = ADD
+            }
+            ; WHITE_DB_COMMENT = map:{
+                ; tableName = WHITE_DB_COMMENT
+                ; diffType = ADD
+            }
+            ; WHITE_DEPRECATED_SELECT_BY_PKUQ = map:{
+                ; tableName = WHITE_DEPRECATED_SELECT_BY_PKUQ
+                ; diffType = ADD
+            }
+            ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN = map:{
+                ; tableName = WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
+                ; diffType = ADD
+            }
+            ; WHITE_FIRST_DATE = map:{
+                ; tableName = WHITE_FIRST_DATE
+                ; diffType = ADD
+            }
+            ; WHITE_ON_PARADE = map:{
+                ; tableName = WHITE_ON_PARADE
+                ; diffType = ADD
+            }
+            ; WHITE_ON_PARADE_NULLABLE_TO_MANY = map:{
+                ; tableName = WHITE_ON_PARADE_NULLABLE_TO_MANY
+                ; diffType = ADD
+            }
+            ; WHITE_ON_PARADE_REF = map:{
+                ; tableName = WHITE_ON_PARADE_REF
+                ; diffType = ADD
+            }
+            ; WHITE_SCHEMA_DIFF = map:{
+                ; tableName = WHITE_SCHEMA_DIFF
+                ; diffType = ADD
+            }
+            ; WHITE_SELF_REFERENCE = map:{
+                ; tableName = WHITE_SELF_REFERENCE
+                ; diffType = ADD
+            }
+            ; WHITE_SIMPLE_DTO_EXCEPT = map:{
+                ; tableName = WHITE_SIMPLE_DTO_EXCEPT
+                ; diffType = ADD
+            }
+            ; WHITE_SINGLE_PK = map:{
+                ; tableName = WHITE_SINGLE_PK
+                ; diffType = ADD
+            }
+            ; WHITE_TSV_LOADING = map:{
+                ; tableName = WHITE_TSV_LOADING
+                ; diffType = ADD
+            }
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; FORMALIZED_DATETIME = map:{
+                        ; columnName = FORMALIZED_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; BIRTHDATE = map:{
+                        ; columnName = BIRTHDATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; MEMBER_ADDRESS = map:{
+                ; tableName = MEMBER_ADDRESS
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; VALID_BEGIN_DATE = map:{
+                        ; columnName = VALID_BEGIN_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                    ; VALID_END_DATE = map:{
+                        ; columnName = VALID_END_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; MEMBER_FOLLOWING = map:{
+                ; tableName = MEMBER_FOLLOWING
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; FOLLOW_DATETIME = map:{
+                        ; columnName = FOLLOW_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; MEMBER_LOGIN = map:{
+                ; tableName = MEMBER_LOGIN
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LOGIN_DATETIME = map:{
+                        ; columnName = LOGIN_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; MEMBER_SECURITY = map:{
+                ; tableName = MEMBER_SECURITY
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; MEMBER_SERVICE = map:{
+                ; tableName = MEMBER_SERVICE
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; MEMBER_WITHDRAWAL = map:{
+                ; tableName = MEMBER_WITHDRAWAL
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; WITHDRAWAL_DATETIME = map:{
+                        ; columnName = WITHDRAWAL_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; PRODUCT = map:{
+                ; tableName = PRODUCT
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; PURCHASE = map:{
+                ; tableName = PURCHASE
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PURCHASE_DATETIME = map:{
+                        ; columnName = PURCHASE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; PURCHASE_PAYMENT = map:{
+                ; tableName = PURCHASE_PAYMENT
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PAYMENT_DATETIME = map:{
+                        ; columnName = PAYMENT_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; SUMMARY_PRODUCT = map:{
+                ; tableName = SUMMARY_PRODUCT
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LATEST_PURCHASE_DATETIME = map:{
+                        ; columnName = LATEST_PURCHASE_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; SUMMARY_WITHDRAWAL = map:{
+                ; tableName = SUMMARY_WITHDRAWAL
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; WITHDRAWAL_DATETIME = map:{
+                        ; columnName = WITHDRAWAL_DATETIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                }
+            }
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_DATE = map:{
+                        ; columnName = TYPE_OF_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                    ; TYPE_OF_TIMESTAMP = map:{
+                        ; columnName = TYPE_OF_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 23, 10
+                        }
+                    }
+                    ; TYPE_OF_TIME = map:{
+                        ; columnName = TYPE_OF_TIME
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 8
+                            ; previous = 6
+                        }
+                    }
+                    ; TYPE_OF_UUID = map:{
+                        ; columnName = TYPE_OF_UUID
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 16
+                            ; previous = 2147483647
+                        }
+                    }
+                    ; TYPE_OF_ARRAY = map:{
+                        ; columnName = TYPE_OF_ARRAY
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 2147483647
+                            ; previous = null
+                        }
+                    }
+                }
+            }
+            ; VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF = map:{
+                ; tableName = VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE = map:{
+                        ; columnName = THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                    ; SHORT_DATE = map:{
+                        ; columnName = SHORT_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                }
+            }
+            ; WHITE_DATE_TERM = map:{
+                ; tableName = WHITE_DATE_TERM
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BEGIN_DATE = map:{
+                        ; columnName = BEGIN_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                    ; END_DATE = map:{
+                        ; columnName = END_DATE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 8
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2019/08/23 00:45:55 = map:{
         ; diffDate = 2019/08/23 00:45:55
         ; diffAuthor = jflute

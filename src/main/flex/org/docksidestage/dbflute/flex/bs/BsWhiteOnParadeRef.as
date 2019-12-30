@@ -23,13 +23,13 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     
  *
  * [foreign-table]
- *     WHITE_ON_PARADE_NULLABLE_TO_MANY, WHITE_ON_PARADE
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
  *
  * [referrer-table]
  *     
  *
  * [foreign-property]
- *     whiteOnParadeNullableToMany, whiteOnParade
+ *     whiteOnParade, whiteOnParadeNullableToMany
  *
  * [referrer-property]
  *     
@@ -53,16 +53,6 @@ public class BsWhiteOnParadeRef {
     // ===================================================================================
     //                                                                       Foreign Table
     //                                                                       =============
-    private var _whiteOnParadeNullableToMany:WhiteOnParadeNullableToManyDto;
-
-    public function get whiteOnParadeNullableToMany():WhiteOnParadeNullableToManyDto {
-        return _whiteOnParadeNullableToMany;
-    }
-
-    public function set whiteOnParadeNullableToMany(whiteOnParadeNullableToMany:WhiteOnParadeNullableToManyDto):void {
-        this._whiteOnParadeNullableToMany = whiteOnParadeNullableToMany;
-    }
-
     private var _whiteOnParade:WhiteOnParadeDto;
 
     public function get whiteOnParade():WhiteOnParadeDto {
@@ -71,6 +61,16 @@ public class BsWhiteOnParadeRef {
 
     public function set whiteOnParade(whiteOnParade:WhiteOnParadeDto):void {
         this._whiteOnParade = whiteOnParade;
+    }
+
+    private var _whiteOnParadeNullableToMany:WhiteOnParadeNullableToManyDto;
+
+    public function get whiteOnParadeNullableToMany():WhiteOnParadeNullableToManyDto {
+        return _whiteOnParadeNullableToMany;
+    }
+
+    public function set whiteOnParadeNullableToMany(whiteOnParadeNullableToMany:WhiteOnParadeNullableToManyDto):void {
+        this._whiteOnParadeNullableToMany = whiteOnParadeNullableToMany;
     }
 
     // ===================================================================================

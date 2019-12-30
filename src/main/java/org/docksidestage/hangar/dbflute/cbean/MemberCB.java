@@ -51,4 +51,10 @@ public class MemberCB extends BsMemberCB implements OrScopeable<MemberCB> {
             return (OrScopeable<BASE_CB>) orCB;
         }
     }
+
+    @SuppressWarnings("deprecation")
+    public void useTrickPrimaryIndexForcedly() {
+        // maybe H2 database does not support hint but logical test here 
+        getSqlClause().registerDynamicHintFromBaseTable("use index (PRIMARY)"); // for test
+    }
 }

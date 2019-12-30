@@ -20,16 +20,16 @@ public class WhiteOnParadeRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
-     */
-    public void withWhiteOnParadeNullableToMany() {
-        _query.xdoNss(() -> _query.queryWhiteOnParadeNullableToMany());
-    }
-    /**
-     * With nested relation columns to select clause. <br>
      * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      */
     public void withWhiteOnParade() {
         _query.xdoNss(() -> _query.queryWhiteOnParade());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
+     * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
+     */
+    public void withWhiteOnParadeNullableToMany() {
+        _query.xdoNss(() -> _query.queryWhiteOnParadeNullableToMany());
     }
 }

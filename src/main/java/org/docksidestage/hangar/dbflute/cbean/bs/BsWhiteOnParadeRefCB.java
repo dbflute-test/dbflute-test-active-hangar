@@ -243,26 +243,6 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
-     * <pre>
-     * <span style="color: #0000C0">whiteOnParadeRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteOnParadeNullableToMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">whiteOnParadeRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">whiteOnParadeRef</span>.<span style="color: #CC4747">getWhiteOnParadeNullableToMany()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
-     * });
-     * </pre>
-     */
-    public void setupSelect_WhiteOnParadeNullableToMany() {
-        assertSetupSelectPurpose("whiteOnParadeNullableToMany");
-        if (hasSpecifiedLocalColumn()) {
-            specify().columnNullableFkToManyId();
-        }
-        doSetupSelect(() -> query().queryWhiteOnParadeNullableToMany());
-    }
-
-    /**
-     * Set up relation columns to select clause. <br>
      * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -279,6 +259,26 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
             specify().columnNullableFkOnParadeId();
         }
         doSetupSelect(() -> query().queryWhiteOnParade());
+    }
+
+    /**
+     * Set up relation columns to select clause. <br>
+     * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
+     * <pre>
+     * <span style="color: #0000C0">whiteOnParadeRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteOnParadeNullableToMany()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">whiteOnParadeRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">whiteOnParadeRef</span>.<span style="color: #CC4747">getWhiteOnParadeNullableToMany()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     */
+    public void setupSelect_WhiteOnParadeNullableToMany() {
+        assertSetupSelectPurpose("whiteOnParadeNullableToMany");
+        if (hasSpecifiedLocalColumn()) {
+            specify().columnNullableFkToManyId();
+        }
+        doSetupSelect(() -> query().queryWhiteOnParadeNullableToMany());
     }
 
     // [DBFlute-0.7.4]
@@ -322,8 +322,8 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteOnParadeRefCQ> {
-        protected WhiteOnParadeNullableToManyCB.HpSpecification _whiteOnParadeNullableToMany;
         protected WhiteOnParadeCB.HpSpecification _whiteOnParade;
+        protected WhiteOnParadeNullableToManyCB.HpSpecification _whiteOnParadeNullableToMany;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteOnParadeRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -353,37 +353,17 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
         @Override
         protected void doSpecifyRequiredColumn() {
             columnRefId(); // PK
-            if (qyCall().qy().hasConditionQueryWhiteOnParadeNullableToMany()
-                    || qyCall().qy().xgetReferrerQuery() instanceof WhiteOnParadeNullableToManyCQ) {
-                columnNullableFkToManyId(); // FK or one-to-one referrer
-            }
             if (qyCall().qy().hasConditionQueryWhiteOnParade()
                     || qyCall().qy().xgetReferrerQuery() instanceof WhiteOnParadeCQ) {
                 columnNullableFkOnParadeId(); // FK or one-to-one referrer
             }
+            if (qyCall().qy().hasConditionQueryWhiteOnParadeNullableToMany()
+                    || qyCall().qy().xgetReferrerQuery() instanceof WhiteOnParadeNullableToManyCQ) {
+                columnNullableFkToManyId(); // FK or one-to-one referrer
+            }
         }
         @Override
         protected String getTableDbName() { return "WHITE_ON_PARADE_REF"; }
-        /**
-         * Prepare to specify functions about relation table. <br>
-         * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
-         * @return The instance for specification for relation table to specify. (NotNull)
-         */
-        public WhiteOnParadeNullableToManyCB.HpSpecification specifyWhiteOnParadeNullableToMany() {
-            assertRelation("whiteOnParadeNullableToMany");
-            if (_whiteOnParadeNullableToMany == null) {
-                _whiteOnParadeNullableToMany = new WhiteOnParadeNullableToManyCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteOnParadeNullableToMany()
-                                    , () -> _qyCall.qy().queryWhiteOnParadeNullableToMany())
-                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
-                if (xhasSyncQyCall()) { // inherits it
-                    _whiteOnParadeNullableToMany.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteOnParadeNullableToMany()
-                      , () -> xsyncQyCall().qy().queryWhiteOnParadeNullableToMany()));
-                }
-            }
-            return _whiteOnParadeNullableToMany;
-        }
         /**
          * Prepare to specify functions about relation table. <br>
          * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
@@ -403,6 +383,26 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
                 }
             }
             return _whiteOnParade;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public WhiteOnParadeNullableToManyCB.HpSpecification specifyWhiteOnParadeNullableToMany() {
+            assertRelation("whiteOnParadeNullableToMany");
+            if (_whiteOnParadeNullableToMany == null) {
+                _whiteOnParadeNullableToMany = new WhiteOnParadeNullableToManyCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteOnParadeNullableToMany()
+                                    , () -> _qyCall.qy().queryWhiteOnParadeNullableToMany())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _whiteOnParadeNullableToMany.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteOnParadeNullableToMany()
+                      , () -> xsyncQyCall().qy().queryWhiteOnParadeNullableToMany()));
+                }
+            }
+            return _whiteOnParadeNullableToMany;
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

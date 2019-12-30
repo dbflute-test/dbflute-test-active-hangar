@@ -30,13 +30,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     WHITE_ON_PARADE_NULLABLE_TO_MANY, WHITE_ON_PARADE
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     whiteOnParadeNullableToMany, whiteOnParade
+ *     whiteOnParade, whiteOnParadeNullableToMany
  *
  * [referrer property]
  *     
@@ -103,27 +103,6 @@ public abstract class BsWhiteOnParadeRef extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'. */
-    protected OptionalEntity<WhiteOnParadeNullableToMany> _whiteOnParadeNullableToMany;
-
-    /**
-     * [get] WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'. <br>
-     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
-     * @return The entity of foreign property 'whiteOnParadeNullableToMany'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
-     */
-    public OptionalEntity<WhiteOnParadeNullableToMany> getWhiteOnParadeNullableToMany() {
-        if (_whiteOnParadeNullableToMany == null) { _whiteOnParadeNullableToMany = OptionalEntity.relationEmpty(this, "whiteOnParadeNullableToMany"); }
-        return _whiteOnParadeNullableToMany;
-    }
-
-    /**
-     * [set] WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
-     * @param whiteOnParadeNullableToMany The entity of foreign property 'whiteOnParadeNullableToMany'. (NullAllowed)
-     */
-    public void setWhiteOnParadeNullableToMany(OptionalEntity<WhiteOnParadeNullableToMany> whiteOnParadeNullableToMany) {
-        _whiteOnParadeNullableToMany = whiteOnParadeNullableToMany;
-    }
-
     /** WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'. */
     protected OptionalEntity<WhiteOnParade> _whiteOnParade;
 
@@ -143,6 +122,27 @@ public abstract class BsWhiteOnParadeRef extends AbstractEntity implements Domai
      */
     public void setWhiteOnParade(OptionalEntity<WhiteOnParade> whiteOnParade) {
         _whiteOnParade = whiteOnParade;
+    }
+
+    /** WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'. */
+    protected OptionalEntity<WhiteOnParadeNullableToMany> _whiteOnParadeNullableToMany;
+
+    /**
+     * [get] WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteOnParadeNullableToMany'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<WhiteOnParadeNullableToMany> getWhiteOnParadeNullableToMany() {
+        if (_whiteOnParadeNullableToMany == null) { _whiteOnParadeNullableToMany = OptionalEntity.relationEmpty(this, "whiteOnParadeNullableToMany"); }
+        return _whiteOnParadeNullableToMany;
+    }
+
+    /**
+     * [set] WHITE_ON_PARADE_NULLABLE_TO_MANY by my NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeNullableToMany'.
+     * @param whiteOnParadeNullableToMany The entity of foreign property 'whiteOnParadeNullableToMany'. (NullAllowed)
+     */
+    public void setWhiteOnParadeNullableToMany(OptionalEntity<WhiteOnParadeNullableToMany> whiteOnParadeNullableToMany) {
+        _whiteOnParadeNullableToMany = whiteOnParadeNullableToMany;
     }
 
     // ===================================================================================
@@ -177,10 +177,10 @@ public abstract class BsWhiteOnParadeRef extends AbstractEntity implements Domai
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteOnParadeNullableToMany != null && _whiteOnParadeNullableToMany.isPresent())
-        { sb.append(li).append(xbRDS(_whiteOnParadeNullableToMany, "whiteOnParadeNullableToMany")); }
         if (_whiteOnParade != null && _whiteOnParade.isPresent())
         { sb.append(li).append(xbRDS(_whiteOnParade, "whiteOnParade")); }
+        if (_whiteOnParadeNullableToMany != null && _whiteOnParadeNullableToMany.isPresent())
+        { sb.append(li).append(xbRDS(_whiteOnParadeNullableToMany, "whiteOnParadeNullableToMany")); }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -204,10 +204,10 @@ public abstract class BsWhiteOnParadeRef extends AbstractEntity implements Domai
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteOnParadeNullableToMany != null && _whiteOnParadeNullableToMany.isPresent())
-        { sb.append(dm).append("whiteOnParadeNullableToMany"); }
         if (_whiteOnParade != null && _whiteOnParade.isPresent())
         { sb.append(dm).append("whiteOnParade"); }
+        if (_whiteOnParadeNullableToMany != null && _whiteOnParadeNullableToMany.isPresent())
+        { sb.append(dm).append("whiteOnParadeNullableToMany"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

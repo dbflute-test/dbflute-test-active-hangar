@@ -40,13 +40,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     
  *
  * [foreign-table]
- *     WHITE_ON_PARADE_NULLABLE_TO_MANY, WHITE_ON_PARADE
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
  *
  * [referrer-table]
  *     
  *
  * [foreign-property]
- *     whiteOnParadeNullableToMany, whiteOnParade
+ *     whiteOnParade, whiteOnParadeNullableToMany
  *
  * [referrer-property]
  *     
@@ -69,8 +69,8 @@ public abstract class BsWhiteOnParadeRefDtoMapper implements DtoMapper<WhiteOnPa
     protected boolean _exceptCommonColumn;
     protected boolean _reverseReference; // default: one-way reference
     protected boolean _instanceCache = true; // default: cached
-    protected boolean _suppressWhiteOnParadeNullableToMany;
     protected boolean _suppressWhiteOnParade;
+    protected boolean _suppressWhiteOnParadeNullableToMany;
 
     // ===================================================================================
     //                                                                         Constructor
@@ -115,32 +115,6 @@ public abstract class BsWhiteOnParadeRefDtoMapper implements DtoMapper<WhiteOnPa
             _relationDtoMap.put(localKey, dto);
         }
         boolean reverseReference = isReverseReference();
-        if (!_suppressWhiteOnParadeNullableToMany && entity.getWhiteOnParadeNullableToMany().isPresent()) {
-            WhiteOnParadeNullableToMany relationEntity = entity.getWhiteOnParadeNullableToMany().get();
-            Entity relationKey = createInstanceKeyEntity(relationEntity);
-            Object cachedDto = instanceCache ? _relationDtoMap.get(relationKey) : null;
-            if (cachedDto != null) {
-                WhiteOnParadeNullableToManyDto relationDto = (WhiteOnParadeNullableToManyDto)cachedDto;
-                dto.setWhiteOnParadeNullableToMany(relationDto);
-                if (reverseReference) {
-                    relationDto.getWhiteOnParadeRefList().add(dto);
-                }
-            } else {
-                WhiteOnParadeNullableToManyDtoMapper mapper = new WhiteOnParadeNullableToManyDtoMapper(_relationDtoMap, _relationEntityMap);
-                mapper.setExceptCommonColumn(exceptCommonColumn);
-                mapper.setReverseReference(reverseReference);
-                if (!instanceCache) { mapper.disableInstanceCache(); }
-                mapper.suppressWhiteOnParadeRefList();
-                WhiteOnParadeNullableToManyDto relationDto = mapper.mappingToDto(relationEntity);
-                dto.setWhiteOnParadeNullableToMany(relationDto);
-                if (reverseReference) {
-                    relationDto.getWhiteOnParadeRefList().add(dto);
-                }
-                if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
-                    _relationDtoMap.put(relationKey, dto.getWhiteOnParadeNullableToMany());
-                }
-            }
-        };
         if (!_suppressWhiteOnParade && entity.getWhiteOnParade().isPresent()) {
             WhiteOnParade relationEntity = entity.getWhiteOnParade().get();
             Entity relationKey = createInstanceKeyEntity(relationEntity);
@@ -164,6 +138,32 @@ public abstract class BsWhiteOnParadeRefDtoMapper implements DtoMapper<WhiteOnPa
                 }
                 if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
                     _relationDtoMap.put(relationKey, dto.getWhiteOnParade());
+                }
+            }
+        };
+        if (!_suppressWhiteOnParadeNullableToMany && entity.getWhiteOnParadeNullableToMany().isPresent()) {
+            WhiteOnParadeNullableToMany relationEntity = entity.getWhiteOnParadeNullableToMany().get();
+            Entity relationKey = createInstanceKeyEntity(relationEntity);
+            Object cachedDto = instanceCache ? _relationDtoMap.get(relationKey) : null;
+            if (cachedDto != null) {
+                WhiteOnParadeNullableToManyDto relationDto = (WhiteOnParadeNullableToManyDto)cachedDto;
+                dto.setWhiteOnParadeNullableToMany(relationDto);
+                if (reverseReference) {
+                    relationDto.getWhiteOnParadeRefList().add(dto);
+                }
+            } else {
+                WhiteOnParadeNullableToManyDtoMapper mapper = new WhiteOnParadeNullableToManyDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                mapper.suppressWhiteOnParadeRefList();
+                WhiteOnParadeNullableToManyDto relationDto = mapper.mappingToDto(relationEntity);
+                dto.setWhiteOnParadeNullableToMany(relationDto);
+                if (reverseReference) {
+                    relationDto.getWhiteOnParadeRefList().add(dto);
+                }
+                if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
+                    _relationDtoMap.put(relationKey, dto.getWhiteOnParadeNullableToMany());
                 }
             }
         };
@@ -226,32 +226,6 @@ public abstract class BsWhiteOnParadeRefDtoMapper implements DtoMapper<WhiteOnPa
             _relationEntityMap.put(localKey, entity);
         }
         boolean reverseReference = isReverseReference();
-        if (!_suppressWhiteOnParadeNullableToMany && dto.getWhiteOnParadeNullableToMany() != null) {
-            WhiteOnParadeNullableToManyDto relationDto = dto.getWhiteOnParadeNullableToMany();
-            Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
-            Entity cachedEntity = instanceCache ? _relationEntityMap.get(relationKey) : null;
-            if (cachedEntity != null) {
-                WhiteOnParadeNullableToMany relationEntity = (WhiteOnParadeNullableToMany)cachedEntity;
-                entity.setWhiteOnParadeNullableToMany(OptionalEntity.of(relationEntity));
-                if (reverseReference) {
-                    relationEntity.getWhiteOnParadeRefList().add(entity);
-                }
-            } else {
-                WhiteOnParadeNullableToManyDtoMapper mapper = new WhiteOnParadeNullableToManyDtoMapper(_relationDtoMap, _relationEntityMap);
-                mapper.setExceptCommonColumn(exceptCommonColumn);
-                mapper.setReverseReference(reverseReference);
-                if (!instanceCache) { mapper.disableInstanceCache(); }
-                mapper.suppressWhiteOnParadeRefList();
-                WhiteOnParadeNullableToMany relationEntity = mapper.mappingToEntity(relationDto);
-                entity.setWhiteOnParadeNullableToMany(OptionalEntity.of(relationEntity));
-                if (reverseReference) {
-                    relationEntity.getWhiteOnParadeRefList().add(entity);
-                }
-                if (instanceCache && entity.getWhiteOnParadeNullableToMany().get().hasPrimaryKeyValue()) {
-                    _relationEntityMap.put(relationKey, entity.getWhiteOnParadeNullableToMany().get());
-                }
-            }
-        };
         if (!_suppressWhiteOnParade && dto.getWhiteOnParade() != null) {
             WhiteOnParadeDto relationDto = dto.getWhiteOnParade();
             Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
@@ -275,6 +249,32 @@ public abstract class BsWhiteOnParadeRefDtoMapper implements DtoMapper<WhiteOnPa
                 }
                 if (instanceCache && entity.getWhiteOnParade().get().hasPrimaryKeyValue()) {
                     _relationEntityMap.put(relationKey, entity.getWhiteOnParade().get());
+                }
+            }
+        };
+        if (!_suppressWhiteOnParadeNullableToMany && dto.getWhiteOnParadeNullableToMany() != null) {
+            WhiteOnParadeNullableToManyDto relationDto = dto.getWhiteOnParadeNullableToMany();
+            Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
+            Entity cachedEntity = instanceCache ? _relationEntityMap.get(relationKey) : null;
+            if (cachedEntity != null) {
+                WhiteOnParadeNullableToMany relationEntity = (WhiteOnParadeNullableToMany)cachedEntity;
+                entity.setWhiteOnParadeNullableToMany(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                    relationEntity.getWhiteOnParadeRefList().add(entity);
+                }
+            } else {
+                WhiteOnParadeNullableToManyDtoMapper mapper = new WhiteOnParadeNullableToManyDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                mapper.suppressWhiteOnParadeRefList();
+                WhiteOnParadeNullableToMany relationEntity = mapper.mappingToEntity(relationDto);
+                entity.setWhiteOnParadeNullableToMany(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                    relationEntity.getWhiteOnParadeRefList().add(entity);
+                }
+                if (instanceCache && entity.getWhiteOnParadeNullableToMany().get().hasPrimaryKeyValue()) {
+                    _relationEntityMap.put(relationKey, entity.getWhiteOnParadeNullableToMany().get());
                 }
             }
         };
@@ -396,19 +396,19 @@ public abstract class BsWhiteOnParadeRefDtoMapper implements DtoMapper<WhiteOnPa
     //                                                                   Suppress Relation
     //                                                                   =================
     // (basically) to suppress infinity loop
-    public void suppressWhiteOnParadeNullableToMany() {
-        _suppressWhiteOnParadeNullableToMany = true;
-    }
     public void suppressWhiteOnParade() {
         _suppressWhiteOnParade = true;
     }
+    public void suppressWhiteOnParadeNullableToMany() {
+        _suppressWhiteOnParadeNullableToMany = true;
+    }
     protected void doSuppressAll() { // internal
-        suppressWhiteOnParadeNullableToMany();
         suppressWhiteOnParade();
+        suppressWhiteOnParadeNullableToMany();
     }
     protected void doSuppressClear() { // internal
-        _suppressWhiteOnParadeNullableToMany = false;
         _suppressWhiteOnParade = false;
+        _suppressWhiteOnParadeNullableToMany = false;
     }
 
     // ===================================================================================

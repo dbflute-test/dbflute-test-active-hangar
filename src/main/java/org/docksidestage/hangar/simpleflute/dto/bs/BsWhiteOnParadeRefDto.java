@@ -25,13 +25,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  *     
  *
  * [foreign-table]
- *     WHITE_ON_PARADE_NULLABLE_TO_MANY, WHITE_ON_PARADE
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
  *
  * [referrer-table]
  *     
  *
  * [foreign-property]
- *     whiteOnParadeNullableToMany, whiteOnParade
+ *     whiteOnParade, whiteOnParadeNullableToMany
  *
  * [referrer-property]
  *     
@@ -99,16 +99,6 @@ public abstract class BsWhiteOnParadeRefDto implements Serializable {
     // ===================================================================================
     //                                                                       Foreign Table
     //                                                                       =============
-    protected WhiteOnParadeNullableToManyDto _whiteOnParadeNullableToMany;
-
-    public WhiteOnParadeNullableToManyDto getWhiteOnParadeNullableToMany() {
-        return _whiteOnParadeNullableToMany;
-    }
-
-    public void setWhiteOnParadeNullableToMany(WhiteOnParadeNullableToManyDto whiteOnParadeNullableToMany) {
-        this._whiteOnParadeNullableToMany = whiteOnParadeNullableToMany;
-    }
-
     protected WhiteOnParadeDto _whiteOnParade;
 
     public WhiteOnParadeDto getWhiteOnParade() {
@@ -117,6 +107,16 @@ public abstract class BsWhiteOnParadeRefDto implements Serializable {
 
     public void setWhiteOnParade(WhiteOnParadeDto whiteOnParade) {
         this._whiteOnParade = whiteOnParade;
+    }
+
+    protected WhiteOnParadeNullableToManyDto _whiteOnParadeNullableToMany;
+
+    public WhiteOnParadeNullableToManyDto getWhiteOnParadeNullableToMany() {
+        return _whiteOnParadeNullableToMany;
+    }
+
+    public void setWhiteOnParadeNullableToMany(WhiteOnParadeNullableToManyDto whiteOnParadeNullableToMany) {
+        this._whiteOnParadeNullableToMany = whiteOnParadeNullableToMany;
     }
 
     // ===================================================================================
