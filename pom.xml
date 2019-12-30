@@ -264,7 +264,12 @@
 			<artifactId>thymeleaf</artifactId>
 			<version>3.0.10.RELEASE</version>
 		</dependency>
-  
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-stream_2.12</artifactId>
+			<version>2.5.26</version>
+		</dependency>
+
   		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 		<!--                                                                       Testing -->
 		<!--                                                                       = = = = -->
