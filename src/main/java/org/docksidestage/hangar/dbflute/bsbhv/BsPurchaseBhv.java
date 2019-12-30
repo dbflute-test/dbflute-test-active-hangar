@@ -38,13 +38,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     VERSION_NO
  *
  * [foreign table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, WHITE_DATE_TERM(AsValid), MEMBER_LOGIN(AsBizManyToOne)
  *
  * [referrer table]
  *     PURCHASE_PAYMENT
  *
  * [foreign property]
- *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
+ *     member, product, summaryProduct, whiteDateTermAsValid, memberLoginAsBizManyToOne
  *
  * [referrer property]
  *     purchasePaymentList
@@ -497,20 +497,20 @@ public abstract class BsPurchaseBhv extends org.docksidestage.hangar.dbflute.nog
     { return helpPulloutInternally(purchaseList, "summaryProduct"); }
 
     /**
-     * Pull out the list of foreign table 'MemberLogin'.
-     * @param purchaseList The list of purchase. (NotNull, EmptyAllowed)
-     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<MemberLogin> pulloutMemberLoginAsBizManyToOne(List<Purchase> purchaseList)
-    { return helpPulloutInternally(purchaseList, "memberLoginAsBizManyToOne"); }
-
-    /**
      * Pull out the list of foreign table 'WhiteDateTerm'.
      * @param purchaseList The list of purchase. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
     public List<WhiteDateTerm> pulloutWhiteDateTermAsValid(List<Purchase> purchaseList)
     { return helpPulloutInternally(purchaseList, "whiteDateTermAsValid"); }
+
+    /**
+     * Pull out the list of foreign table 'MemberLogin'.
+     * @param purchaseList The list of purchase. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<MemberLogin> pulloutMemberLoginAsBizManyToOne(List<Purchase> purchaseList)
+    { return helpPulloutInternally(purchaseList, "memberLoginAsBizManyToOne"); }
 
     // ===================================================================================
     //                                                                      Extract Column

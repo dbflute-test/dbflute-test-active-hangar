@@ -31,13 +31,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     
  *
  * [referrer table]
- *     
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
  *
  * [foreign property]
  *     
  *
  * [referrer property]
- *     
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -105,6 +105,46 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
+    /** WHITE_COMPOUND_PK_REF_PHYSICAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefPhysicalList'. */
+    protected List<WhiteCompoundPkRefPhysical> _whiteCompoundPkRefPhysicalList;
+
+    /**
+     * [get] WHITE_COMPOUND_PK_REF_PHYSICAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefPhysicalList'.
+     * @return The entity list of referrer property 'whiteCompoundPkRefPhysicalList'. (NotNull: even if no loading, returns empty list)
+     */
+    public List<WhiteCompoundPkRefPhysical> getWhiteCompoundPkRefPhysicalList() {
+        if (_whiteCompoundPkRefPhysicalList == null) { _whiteCompoundPkRefPhysicalList = newReferrerList(); }
+        return _whiteCompoundPkRefPhysicalList;
+    }
+
+    /**
+     * [set] WHITE_COMPOUND_PK_REF_PHYSICAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefPhysicalList'.
+     * @param whiteCompoundPkRefPhysicalList The entity list of referrer property 'whiteCompoundPkRefPhysicalList'. (NullAllowed)
+     */
+    public void setWhiteCompoundPkRefPhysicalList(List<WhiteCompoundPkRefPhysical> whiteCompoundPkRefPhysicalList) {
+        _whiteCompoundPkRefPhysicalList = whiteCompoundPkRefPhysicalList;
+    }
+
+    /** WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'. */
+    protected List<WhiteCompoundPkRefVirturl> _whiteCompoundPkRefVirturlList;
+
+    /**
+     * [get] WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * @return The entity list of referrer property 'whiteCompoundPkRefVirturlList'. (NotNull: even if no loading, returns empty list)
+     */
+    public List<WhiteCompoundPkRefVirturl> getWhiteCompoundPkRefVirturlList() {
+        if (_whiteCompoundPkRefVirturlList == null) { _whiteCompoundPkRefVirturlList = newReferrerList(); }
+        return _whiteCompoundPkRefVirturlList;
+    }
+
+    /**
+     * [set] WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * @param whiteCompoundPkRefVirturlList The entity list of referrer property 'whiteCompoundPkRefVirturlList'. (NullAllowed)
+     */
+    public void setWhiteCompoundPkRefVirturlList(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList) {
+        _whiteCompoundPkRefVirturlList = whiteCompoundPkRefVirturlList;
+    }
+
     protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
@@ -135,7 +175,12 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
 
     @Override
     protected String doBuildStringWithRelation(String li) {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        if (_whiteCompoundPkRefPhysicalList != null) { for (WhiteCompoundPkRefPhysical et : _whiteCompoundPkRefPhysicalList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefPhysicalList")); } } }
+        if (_whiteCompoundPkRefVirturlList != null) { for (WhiteCompoundPkRefVirturl et : _whiteCompoundPkRefVirturlList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefVirturlList")); } } }
+        return sb.toString();
     }
 
     @Override
@@ -154,7 +199,15 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
 
     @Override
     protected String doBuildRelationString(String dm) {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        if (_whiteCompoundPkRefPhysicalList != null && !_whiteCompoundPkRefPhysicalList.isEmpty())
+        { sb.append(dm).append("whiteCompoundPkRefPhysicalList"); }
+        if (_whiteCompoundPkRefVirturlList != null && !_whiteCompoundPkRefVirturlList.isEmpty())
+        { sb.append(dm).append("whiteCompoundPkRefVirturlList"); }
+        if (sb.length() > dm.length()) {
+            sb.delete(0, dm.length()).insert(0, "(").append(")");
+        }
+        return sb.toString();
     }
 
     @Override

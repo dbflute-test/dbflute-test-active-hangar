@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.InstanceKeyEntity;
 import org.dbflute.dbmeta.dtomap.DtoMapper;
@@ -42,13 +43,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     
  *
  * [referrer-table]
- *     
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
  *
  * [foreign-property]
  *     
  *
  * [referrer-property]
- *     
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -68,6 +69,8 @@ public abstract class BsWhiteCompoundPkDtoMapper implements DtoMapper<WhiteCompo
     protected boolean _exceptCommonColumn;
     protected boolean _reverseReference; // default: one-way reference
     protected boolean _instanceCache = true; // default: cached
+    protected boolean _suppressWhiteCompoundPkRefPhysicalList;
+    protected boolean _suppressWhiteCompoundPkRefVirturlList;
 
     // ===================================================================================
     //                                                                         Constructor
@@ -95,12 +98,51 @@ public abstract class BsWhiteCompoundPkDtoMapper implements DtoMapper<WhiteCompo
         if (entity == null) {
             return null;
         }
+        boolean instanceCache = _instanceCache;
+        Entity localKey = createInstanceKeyEntity(entity);
+        Object cachedLocalDto = instanceCache ? _relationDtoMap.get(localKey) : null;
+        if (cachedLocalDto != null) {
+            return (WhiteCompoundPkDto)cachedLocalDto;
+        }
+        boolean exceptCommonColumn = isExceptCommonColumn();
         WhiteCompoundPkDto dto = new WhiteCompoundPkDto();
         dto.setPkFirstId(entity.getPkFirstId());
         dto.setPkSecondId(entity.getPkSecondId());
         dto.setCompoundPkName(entity.getCompoundPkName());
         dto.setReferredId(entity.getReferredId());
         reflectDerivedProperty(entity, dto, true);
+        if (instanceCache && entity.hasPrimaryKeyValue()) { // caches only a DTO that has a primary key value
+            _relationDtoMap.put(localKey, dto);
+        }
+        boolean reverseReference = isReverseReference();
+        if (!_suppressWhiteCompoundPkRefPhysicalList && !entity.getWhiteCompoundPkRefPhysicalList().isEmpty()) {
+            WhiteCompoundPkRefPhysicalDtoMapper mapper = new WhiteCompoundPkRefPhysicalDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressWhiteCompoundPk();
+            List<WhiteCompoundPkRefPhysicalDto> relationDtoList = mapper.mappingToDtoList(entity.getWhiteCompoundPkRefPhysicalList());
+            dto.setWhiteCompoundPkRefPhysicalList(relationDtoList);
+            if (reverseReference) {
+                for (WhiteCompoundPkRefPhysicalDto relationDto : relationDtoList) {
+                    relationDto.setWhiteCompoundPk(dto);
+                }
+            }
+        };
+        if (!_suppressWhiteCompoundPkRefVirturlList && !entity.getWhiteCompoundPkRefVirturlList().isEmpty()) {
+            WhiteCompoundPkRefVirturlDtoMapper mapper = new WhiteCompoundPkRefVirturlDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressWhiteCompoundPk();
+            List<WhiteCompoundPkRefVirturlDto> relationDtoList = mapper.mappingToDtoList(entity.getWhiteCompoundPkRefVirturlList());
+            dto.setWhiteCompoundPkRefVirturlList(relationDtoList);
+            if (reverseReference) {
+                for (WhiteCompoundPkRefVirturlDto relationDto : relationDtoList) {
+                    relationDto.setWhiteCompoundPk(dto);
+                }
+            }
+        };
         return dto;
     }
 
@@ -135,6 +177,13 @@ public abstract class BsWhiteCompoundPkDtoMapper implements DtoMapper<WhiteCompo
         if (dto == null) {
             return null;
         }
+        boolean instanceCache = _instanceCache;
+        Object localKey = createInstanceKeyDto(dto, dto.instanceHash());
+        Entity cachedLocalEntity = instanceCache ? _relationEntityMap.get(localKey) : null;
+        if (cachedLocalEntity != null) {
+            return (WhiteCompoundPk)cachedLocalEntity;
+        }
+        boolean exceptCommonColumn = isExceptCommonColumn();
         WhiteCompoundPk entity = new WhiteCompoundPk();
         if (needsMapping(dto, dto.getPkFirstId(), "pkFirstId")) {
             entity.setPkFirstId(dto.getPkFirstId());
@@ -149,6 +198,38 @@ public abstract class BsWhiteCompoundPkDtoMapper implements DtoMapper<WhiteCompo
             entity.setReferredId(dto.getReferredId());
         }
         reflectDerivedProperty(entity, dto, false);
+        if (instanceCache && entity.hasPrimaryKeyValue()) { // caches only an entity that has a primary key value
+            _relationEntityMap.put(localKey, entity);
+        }
+        boolean reverseReference = isReverseReference();
+        if (!_suppressWhiteCompoundPkRefPhysicalList && !dto.getWhiteCompoundPkRefPhysicalList().isEmpty()) {
+            WhiteCompoundPkRefPhysicalDtoMapper mapper = new WhiteCompoundPkRefPhysicalDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressWhiteCompoundPk();
+            List<WhiteCompoundPkRefPhysical> relationEntityList = mapper.mappingToEntityList(dto.getWhiteCompoundPkRefPhysicalList());
+            entity.setWhiteCompoundPkRefPhysicalList(relationEntityList);
+            if (reverseReference) {
+                for (WhiteCompoundPkRefPhysical relationEntity : relationEntityList) {
+                    relationEntity.setWhiteCompoundPk(OptionalEntity.of(entity));
+                }
+            }
+        };
+        if (!_suppressWhiteCompoundPkRefVirturlList && !dto.getWhiteCompoundPkRefVirturlList().isEmpty()) {
+            WhiteCompoundPkRefVirturlDtoMapper mapper = new WhiteCompoundPkRefVirturlDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressWhiteCompoundPk();
+            List<WhiteCompoundPkRefVirturl> relationEntityList = mapper.mappingToEntityList(dto.getWhiteCompoundPkRefVirturlList());
+            entity.setWhiteCompoundPkRefVirturlList(relationEntityList);
+            if (reverseReference) {
+                for (WhiteCompoundPkRefVirturl relationEntity : relationEntityList) {
+                    relationEntity.setWhiteCompoundPk(OptionalEntity.of(entity));
+                }
+            }
+        };
         return entity;
     }
 
@@ -267,9 +348,19 @@ public abstract class BsWhiteCompoundPkDtoMapper implements DtoMapper<WhiteCompo
     //                                                                   Suppress Relation
     //                                                                   =================
     // (basically) to suppress infinity loop
+    public void suppressWhiteCompoundPkRefPhysicalList() {
+        _suppressWhiteCompoundPkRefPhysicalList = true;
+    }
+    public void suppressWhiteCompoundPkRefVirturlList() {
+        _suppressWhiteCompoundPkRefVirturlList = true;
+    }
     protected void doSuppressAll() { // internal
+        suppressWhiteCompoundPkRefPhysicalList();
+        suppressWhiteCompoundPkRefVirturlList();
     }
     protected void doSuppressClear() { // internal
+        _suppressWhiteCompoundPkRefPhysicalList = false;
+        _suppressWhiteCompoundPkRefVirturlList = false;
     }
 
     // ===================================================================================

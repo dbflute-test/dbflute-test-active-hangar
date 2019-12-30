@@ -377,11 +377,11 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
         if (bq.hasConditionQuerySummaryProduct()) {
             uq.querySummaryProduct().reflectRelationOnUnionQuery(bq.querySummaryProduct(), uq.querySummaryProduct());
         }
-        if (bq.hasConditionQueryMemberLoginAsBizManyToOne()) {
-            uq.queryMemberLoginAsBizManyToOne().reflectRelationOnUnionQuery(bq.queryMemberLoginAsBizManyToOne(), uq.queryMemberLoginAsBizManyToOne());
-        }
         if (bq.hasConditionQueryWhiteDateTermAsValid()) {
             uq.queryWhiteDateTermAsValid().reflectRelationOnUnionQuery(bq.queryWhiteDateTermAsValid(), uq.queryWhiteDateTermAsValid());
+        }
+        if (bq.hasConditionQueryMemberLoginAsBizManyToOne()) {
+            uq.queryMemberLoginAsBizManyToOne().reflectRelationOnUnionQuery(bq.queryMemberLoginAsBizManyToOne(), uq.queryMemberLoginAsBizManyToOne());
         }
     }
 
@@ -450,26 +450,6 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
-     * @return The instance of condition-query. (NotNull)
-     */
-    public MemberLoginCQ queryMemberLoginAsBizManyToOne() {
-        return xdfgetConditionQueryMemberLoginAsBizManyToOne();
-    }
-    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsBizManyToOne() {
-        String prop = "memberLoginAsBizManyToOne";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsBizManyToOne()); xsetupOuterJoinMemberLoginAsBizManyToOne(); }
-        return xgetQueRlMap(prop);
-    }
-    protected MemberLoginCQ xcreateQueryMemberLoginAsBizManyToOne() {
-        String nrp = xresolveNRP("PURCHASE", "memberLoginAsBizManyToOne"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new MemberLoginCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberLoginAsBizManyToOne", nrp);
-    }
-    protected void xsetupOuterJoinMemberLoginAsBizManyToOne() { xregOutJo("memberLoginAsBizManyToOne"); }
-    public boolean hasConditionQueryMemberLoginAsBizManyToOne() { return xhasQueRlMap("memberLoginAsBizManyToOne"); }
-
-    /**
-     * Get the condition-query for relation table. <br>
      * WHITE_DATE_TERM by my , named 'whiteDateTermAsValid'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -487,6 +467,26 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
     }
     protected void xsetupOuterJoinWhiteDateTermAsValid() { xregOutJo("whiteDateTermAsValid"); }
     public boolean hasConditionQueryWhiteDateTermAsValid() { return xhasQueRlMap("whiteDateTermAsValid"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員ログイン)MEMBER_LOGIN by my MEMBER_ID, named 'memberLoginAsBizManyToOne'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public MemberLoginCQ queryMemberLoginAsBizManyToOne() {
+        return xdfgetConditionQueryMemberLoginAsBizManyToOne();
+    }
+    public MemberLoginCQ xdfgetConditionQueryMemberLoginAsBizManyToOne() {
+        String prop = "memberLoginAsBizManyToOne";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberLoginAsBizManyToOne()); xsetupOuterJoinMemberLoginAsBizManyToOne(); }
+        return xgetQueRlMap(prop);
+    }
+    protected MemberLoginCQ xcreateQueryMemberLoginAsBizManyToOne() {
+        String nrp = xresolveNRP("PURCHASE", "memberLoginAsBizManyToOne"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new MemberLoginCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberLoginAsBizManyToOne", nrp);
+    }
+    protected void xsetupOuterJoinMemberLoginAsBizManyToOne() { xregOutJo("memberLoginAsBizManyToOne"); }
+    public boolean hasConditionQueryMemberLoginAsBizManyToOne() { return xhasQueRlMap("memberLoginAsBizManyToOne"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

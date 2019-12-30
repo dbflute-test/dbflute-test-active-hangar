@@ -30,13 +30,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  *     VERSION_NO
  *
  * [foreign-table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, WHITE_DATE_TERM(AsValid), MEMBER_LOGIN(AsBizManyToOne)
  *
  * [referrer-table]
  *     PURCHASE_PAYMENT
  *
  * [foreign-property]
- *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
+ *     member, product, summaryProduct, whiteDateTermAsValid, memberLoginAsBizManyToOne
  *
  * [referrer-property]
  *     purchasePaymentList
@@ -232,16 +232,6 @@ public abstract class BsPurchaseDto implements Serializable {
         this._summaryProduct = summaryProduct;
     }
 
-    protected MemberLoginDto _memberLoginAsBizManyToOne;
-
-    public MemberLoginDto getMemberLoginAsBizManyToOne() {
-        return _memberLoginAsBizManyToOne;
-    }
-
-    public void setMemberLoginAsBizManyToOne(MemberLoginDto memberLoginAsBizManyToOne) {
-        this._memberLoginAsBizManyToOne = memberLoginAsBizManyToOne;
-    }
-
     protected WhiteDateTermDto _whiteDateTermAsValid;
 
     public WhiteDateTermDto getWhiteDateTermAsValid() {
@@ -250,6 +240,16 @@ public abstract class BsPurchaseDto implements Serializable {
 
     public void setWhiteDateTermAsValid(WhiteDateTermDto whiteDateTermAsValid) {
         this._whiteDateTermAsValid = whiteDateTermAsValid;
+    }
+
+    protected MemberLoginDto _memberLoginAsBizManyToOne;
+
+    public MemberLoginDto getMemberLoginAsBizManyToOne() {
+        return _memberLoginAsBizManyToOne;
+    }
+
+    public void setMemberLoginAsBizManyToOne(MemberLoginDto memberLoginAsBizManyToOne) {
+        this._memberLoginAsBizManyToOne = memberLoginAsBizManyToOne;
     }
 
     // ===================================================================================

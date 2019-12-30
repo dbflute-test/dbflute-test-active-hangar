@@ -1,4 +1,37 @@
 map:{
+    ; 2019/12/30 15:00:16 = map:{
+        ; diffDate = 2019/12/30 15:00:16
+        ; tableCount = map:{
+            ; next = 41
+            ; previous = 39
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_COMPOUND_PK_REF_PHYSICAL = map:{
+                ; tableName = WHITE_COMPOUND_PK_REF_PHYSICAL
+                ; diffType = ADD
+            }
+            ; WHITE_COMPOUND_PK_REF_VIRTURL = map:{
+                ; tableName = WHITE_COMPOUND_PK_REF_VIRTURL
+                ; diffType = ADD
+            }
+            ; WHITE_TSV_LOADING = map:{
+                ; tableName = WHITE_TSV_LOADING
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LARGE_FROM_FILE = map:{
+                        ; columnName = LARGE_FROM_FILE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 600
+                            ; previous = 500
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2019/12/30 13:57:58 = map:{
         ; diffDate = 2019/12/30 13:57:58
         ; tableCount = map:{

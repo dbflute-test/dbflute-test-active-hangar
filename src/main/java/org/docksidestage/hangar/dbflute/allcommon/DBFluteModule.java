@@ -193,6 +193,16 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteCompoundPkBhv.class).toInstance(bhv);
         }
         {
+            WhiteCompoundPkRefPhysicalBhv bhv = new WhiteCompoundPkRefPhysicalBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteCompoundPkRefPhysicalBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteCompoundPkRefVirturlBhv bhv = new WhiteCompoundPkRefVirturlBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteCompoundPkRefVirturlBhv.class).toInstance(bhv);
+        }
+        {
             WhiteDateTermBhv bhv = new WhiteDateTermBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteDateTermBhv.class).toInstance(bhv);

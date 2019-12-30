@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import net.vvakame.util.jsonpullparser.annotation.*;
+import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of WHITE_COMPOUND_PK as TABLE. <br>
@@ -27,13 +28,13 @@ import net.vvakame.util.jsonpullparser.annotation.*;
  *     
  *
  * [referrer-table]
- *     
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
  *
  * [foreign-property]
  *     
  *
  * [referrer-property]
- *     
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -101,6 +102,28 @@ public abstract class BsWhiteCompoundPkDto implements Serializable {
     // ===================================================================================
     //                                                                      Referrer Table
     //                                                                      ==============
+    protected List<WhiteCompoundPkRefPhysicalDto> _whiteCompoundPkRefPhysicalList;
+
+    public List<WhiteCompoundPkRefPhysicalDto> getWhiteCompoundPkRefPhysicalList() {
+        if (_whiteCompoundPkRefPhysicalList == null) { _whiteCompoundPkRefPhysicalList = new ArrayList<WhiteCompoundPkRefPhysicalDto>(); }
+        return _whiteCompoundPkRefPhysicalList;
+    }
+
+    public void setWhiteCompoundPkRefPhysicalList(List<WhiteCompoundPkRefPhysicalDto> whiteCompoundPkRefPhysicalList) {
+        this._whiteCompoundPkRefPhysicalList = whiteCompoundPkRefPhysicalList;
+    }
+
+    protected List<WhiteCompoundPkRefVirturlDto> _whiteCompoundPkRefVirturlList;
+
+    public List<WhiteCompoundPkRefVirturlDto> getWhiteCompoundPkRefVirturlList() {
+        if (_whiteCompoundPkRefVirturlList == null) { _whiteCompoundPkRefVirturlList = new ArrayList<WhiteCompoundPkRefVirturlDto>(); }
+        return _whiteCompoundPkRefVirturlList;
+    }
+
+    public void setWhiteCompoundPkRefVirturlList(List<WhiteCompoundPkRefVirturlDto> whiteCompoundPkRefVirturlList) {
+        this._whiteCompoundPkRefVirturlList = whiteCompoundPkRefVirturlList;
+    }
+
     // ===================================================================================
     //                                                                      Basic Override
     //                                                                      ==============

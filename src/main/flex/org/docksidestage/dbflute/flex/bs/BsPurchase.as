@@ -23,13 +23,13 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     VERSION_NO
  *
  * [foreign-table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, MEMBER_LOGIN(AsBizManyToOne), WHITE_DATE_TERM(AsValid)
+ *     MEMBER, PRODUCT, SUMMARY_PRODUCT, WHITE_DATE_TERM(AsValid), MEMBER_LOGIN(AsBizManyToOne)
  *
  * [referrer-table]
  *     PURCHASE_PAYMENT
  *
  * [foreign-property]
- *     member, product, summaryProduct, memberLoginAsBizManyToOne, whiteDateTermAsValid
+ *     member, product, summaryProduct, whiteDateTermAsValid, memberLoginAsBizManyToOne
  *
  * [referrer-property]
  *     purchasePaymentList
@@ -99,16 +99,6 @@ public class BsPurchase {
         this._summaryProduct = summaryProduct;
     }
 
-    private var _memberLoginAsBizManyToOne:MemberLoginDto;
-
-    public function get memberLoginAsBizManyToOne():MemberLoginDto {
-        return _memberLoginAsBizManyToOne;
-    }
-
-    public function set memberLoginAsBizManyToOne(memberLoginAsBizManyToOne:MemberLoginDto):void {
-        this._memberLoginAsBizManyToOne = memberLoginAsBizManyToOne;
-    }
-
     private var _whiteDateTermAsValid:WhiteDateTermDto;
 
     public function get whiteDateTermAsValid():WhiteDateTermDto {
@@ -117,6 +107,16 @@ public class BsPurchase {
 
     public function set whiteDateTermAsValid(whiteDateTermAsValid:WhiteDateTermDto):void {
         this._whiteDateTermAsValid = whiteDateTermAsValid;
+    }
+
+    private var _memberLoginAsBizManyToOne:MemberLoginDto;
+
+    public function get memberLoginAsBizManyToOne():MemberLoginDto {
+        return _memberLoginAsBizManyToOne;
+    }
+
+    public function set memberLoginAsBizManyToOne(memberLoginAsBizManyToOne:MemberLoginDto):void {
+        this._memberLoginAsBizManyToOne = memberLoginAsBizManyToOne;
     }
 
     // ===================================================================================

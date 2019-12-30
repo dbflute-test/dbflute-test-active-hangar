@@ -201,14 +201,14 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * LARGE_FROM_FILE: {VARCHAR(500)}
+     * LARGE_FROM_FILE: {VARCHAR(600)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_LargeFromFile_Asc() { regOBA("LARGE_FROM_FILE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * LARGE_FROM_FILE: {VARCHAR(500)}
+     * LARGE_FROM_FILE: {VARCHAR(600)}
      * @return this. (NotNull)
      */
     public BsWhiteTsvLoadingCQ addOrderBy_LargeFromFile_Desc() { regOBD("LARGE_FROM_FILE"); return this; }
