@@ -32,8 +32,10 @@ public abstract class ExtendedAbstractBehaviorWritable<ENTITY extends Entity, CB
     //                                                                              ======
     @Override
     public Source<ENTITY, NotUsed> source(CBCall<CB> cbLambda, Executor executor) {
-        return AkkaSourceHelper.<ENTITY> generator(Duration.ofSeconds(5)).mapMaterializedValue(generator -> generator.runAsync(() -> {
-            selectCursor(cbLambda, generator::pushNext);
-        }, executor));
+        return AkkaSourceHelper.<ENTITY> generator(Duration.ofSeconds(5)).mapMaterializedValue(generator -> {
+            return generator.runAsync(() -> {
+                selectCursor(cbLambda, generator::pushNext);
+            }, executor);
+        });
     }
 }
