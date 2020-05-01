@@ -7,7 +7,9 @@ import java.util.Set;
 
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.result.ListResultBean;
+import org.dbflute.exception.NonSpecifiedColumnAccessException;
 import org.dbflute.optional.OptionalEntity;
+import org.docksidestage.hangar.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.hangar.dbflute.cbean.PurchaseCB;
 import org.docksidestage.hangar.dbflute.dtomapper.MemberDtoMapper;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
@@ -270,6 +272,86 @@ public class WxSimpleDtoMapperBasicTest extends UnitContainerTestCase {
         } catch (IllegalArgumentException e) {
             // OK
             log(e.getMessage());
+        }
+    }
+
+    // -----------------------------------------------------
+    //                                    NonSpecifiedColumn
+    //                                    ------------------
+    public void test_mappingToDto_NonSpecifiedColumn_basic() throws Exception {
+        // ## Arrange ##
+        MemberDtoMapper mapper = new MemberDtoMapper();
+        ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            cb.specify().columnMemberAccount();
+            cb.setupSelect_MemberStatus();
+            cb.specify().specifyMemberStatus().columnDisplayOrder();
+        });
+
+        assertNotSame(0, memberList.size());
+        assertException(NonSpecifiedColumnAccessException.class, () -> {
+            for (Member member : memberList) {
+                // ## Act & Assert ##
+                mapper.mappingToDto(member);
+            }
+        });
+    }
+
+    public void test_mappingToDto_NonSpecifiedColumn_enableByConfig() throws Exception {
+        // ## Arrange ##
+        boolean originally = DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed();
+        DBFluteConfig.getInstance().unlock();
+        DBFluteConfig.getInstance().setNonSpecifiedColumnAccessAllowed(true); // same as settings by dfprop
+        try {
+            MemberDtoMapper mapper = new MemberDtoMapper();
+            ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+                cb.specify().columnMemberAccount();
+                cb.setupSelect_MemberStatus();
+                cb.specify().specifyMemberStatus().columnDisplayOrder();
+            });
+
+            assertNotSame(0, memberList.size());
+            for (Member member : memberList) {
+                // ## Act ##
+                MemberDto dto = mapper.mappingToDto(member);
+
+                // ## Assert ##
+                log(dto);
+                assertEqualsMember(member, dto);
+                assertNotNull(dto.getMemberAccount());
+                assertNull(dto.getMemberName());
+                assertNotNull(dto.getMemberStatusCode());
+                assertNull(dto.getMemberStatus().getMemberStatusName());
+                assertNotNull(dto.getMemberStatus().getDisplayOrder());
+            }
+        } finally {
+            DBFluteConfig.getInstance().unlock();
+            DBFluteConfig.getInstance().setNonSpecifiedColumnAccessAllowed(originally);
+        }
+    }
+
+    public void test_mappingToDto_NonSpecifiedColumn_enableByMethod() throws Exception {
+        // ## Arrange ##
+        MemberDtoMapper mapper = new MemberDtoMapper();
+        ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            cb.enableNonSpecifiedColumnAccess();
+            cb.specify().columnMemberAccount();
+            cb.setupSelect_MemberStatus();
+            cb.specify().specifyMemberStatus().columnDisplayOrder();
+        });
+
+        assertNotSame(0, memberList.size());
+        for (Member member : memberList) {
+            // ## Act ##
+            MemberDto dto = mapper.mappingToDto(member);
+
+            // ## Assert ##
+            log(dto);
+            assertEqualsMember(member, dto);
+            assertNotNull(dto.getMemberAccount());
+            assertNull(dto.getMemberName());
+            assertNotNull(dto.getMemberStatusCode());
+            assertNull(dto.getMemberStatus().getMemberStatusName());
+            assertNotNull(dto.getMemberStatus().getDisplayOrder());
         }
     }
 
