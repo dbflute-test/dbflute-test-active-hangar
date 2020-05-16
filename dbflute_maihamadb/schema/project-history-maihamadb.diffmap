@@ -1,4 +1,19 @@
 map:{
+    ; 2020/05/14 15:33:01 = map:{
+        ; diffDate = 2020/05/14 15:33:01
+        ; tableCount = map:{
+            ; next = 42
+            ; previous = 41
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; SUMMARY_PRODUCT_TEST1 = map:{
+                ; tableName = SUMMARY_PRODUCT_TEST1
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2019/12/30 15:00:16 = map:{
         ; diffDate = 2019/12/30 15:00:16
         ; tableCount = map:{

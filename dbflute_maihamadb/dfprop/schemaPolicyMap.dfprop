@@ -82,6 +82,10 @@ map:{
             # test of unknown variables
             #; if tableName is contain:$$sea$$ then bad
             #; if alias is $$ALL$$ then comment is $$land-oneman$$
+
+            # test of first_columnName for contraint name
+            # #dbms fitting with auto-naming of H2 database
+            ; if tableName is $$ALL$$ then uniqueName is prefix:UQ_$$table$$ or prefix:$$first_columnName$$_INDEX
         }
     }
     ; columnMap = map:{

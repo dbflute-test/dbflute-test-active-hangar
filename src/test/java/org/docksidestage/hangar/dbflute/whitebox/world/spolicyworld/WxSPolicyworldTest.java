@@ -72,6 +72,7 @@ public class WxSPolicyworldTest extends PlainTestCase {
 
     private void checkConstraint(String vioExp) {
         assertContains(vioExp, "table.statement: if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$");
+        assertNotContains(vioExp, "table.statement: if tableName is $$ALL$$ then uniqueName is prefix:UQ_$$table$$");
     }
 
     private void checkBasicFlgBadThenTheme(String vioExp) {
