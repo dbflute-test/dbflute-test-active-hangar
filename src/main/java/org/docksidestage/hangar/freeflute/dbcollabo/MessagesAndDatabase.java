@@ -141,12 +141,6 @@ public class MessagesAndDatabase implements Serializable {
     //  - PRODUCT_HANDLE_CODE
     //  - PRODUCT_STATUS_CODE
     //  - LATEST_PURCHASE_DATETIME
-    // SUMMARY_PRODUCT_TEST1
-    //  - PRODUCT_ID
-    //  - PRODUCT_NAME
-    //  - PRODUCT_HANDLE_CODE
-    //  - PRODUCT_STATUS_CODE
-    //  - LATEST_PURCHASE_DATETIME
     // SUMMARY_WITHDRAWAL
     //  - MEMBER_ID
     //  - MEMBER_NAME
@@ -252,6 +246,9 @@ public class MessagesAndDatabase implements Serializable {
     //  - REF_NAME
     //  - NULLABLE_FK_ON_PARADE_ID
     //  - NULLABLE_FK_TO_MANY_ID
+    // WHITE_READ_ONLY
+    //  - READ_ONLY_ID
+    //  - READ_ONLY_NAME
     // WHITE_SCHEMA_DIFF
     //  - SCHEMA_DIFF_ID
     //  - SCHEMA_DIFF_NAME
