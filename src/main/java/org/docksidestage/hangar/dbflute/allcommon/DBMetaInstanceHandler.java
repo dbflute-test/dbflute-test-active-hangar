@@ -66,6 +66,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("WHITE_ON_PARADE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeDbm");
         tmpMap.put("WHITE_ON_PARADE_NULLABLE_TO_MANY", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeNullableToManyDbm");
         tmpMap.put("WHITE_ON_PARADE_REF", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeRefDbm");
+        tmpMap.put("WHITE_READ_ONLY", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteReadOnlyDbm");
         tmpMap.put("WHITE_SCHEMA_DIFF", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSchemaDiffDbm");
         tmpMap.put("WHITE_SELF_REFERENCE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSelfReferenceDbm");
         tmpMap.put("WHITE_SIMPLE_DTO_EXCEPT", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSimpleDtoExceptDbm");

@@ -141,6 +141,12 @@ public class MessagesAndDatabase implements Serializable {
     //  - PRODUCT_HANDLE_CODE
     //  - PRODUCT_STATUS_CODE
     //  - LATEST_PURCHASE_DATETIME
+    // SUMMARY_PRODUCT_TEST1
+    //  - PRODUCT_ID
+    //  - PRODUCT_NAME
+    //  - PRODUCT_HANDLE_CODE
+    //  - PRODUCT_STATUS_CODE
+    //  - LATEST_PURCHASE_DATETIME
     // SUMMARY_WITHDRAWAL
     //  - MEMBER_ID
     //  - MEMBER_NAME

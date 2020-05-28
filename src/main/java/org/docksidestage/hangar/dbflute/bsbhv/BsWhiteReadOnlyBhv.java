@@ -1,0 +1,428 @@
+package org.docksidestage.hangar.dbflute.bsbhv;
+
+import java.util.List;
+
+import org.dbflute.*;
+import org.dbflute.bhv.*;
+import org.dbflute.bhv.readable.*;
+import org.dbflute.bhv.writable.*;
+import org.dbflute.bhv.writable.coins.DateUpdateAdjuster;
+import org.dbflute.bhv.referrer.*;
+import org.dbflute.cbean.*;
+import org.dbflute.cbean.chelper.HpSLSFunction;
+import org.dbflute.cbean.result.*;
+import org.dbflute.exception.*;
+import org.dbflute.optional.OptionalEntity;
+import org.dbflute.outsidesql.executor.*;
+import org.docksidestage.hangar.dbflute.exbhv.*;
+import org.docksidestage.hangar.dbflute.bsbhv.loader.*;
+import org.docksidestage.hangar.dbflute.exentity.*;
+import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
+import org.docksidestage.hangar.dbflute.cbean.*;
+
+/**
+ * The behavior of WHITE_READ_ONLY as TABLE. <br>
+ * <pre>
+ * [primary key]
+ *     READ_ONLY_ID
+ *
+ * [column]
+ *     READ_ONLY_ID, READ_ONLY_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ * </pre>
+ * @author DBFlute(AutoGenerator)
+ */
+public abstract class BsWhiteReadOnlyBhv extends AbstractBehaviorReadable<WhiteReadOnly, WhiteReadOnlyCB> {
+
+    // ===================================================================================
+    //                                                                          Definition
+    //                                                                          ==========
+    /*df:beginQueryPath*/
+    /*df:endQueryPath*/
+
+    // ===================================================================================
+    //                                                                             DB Meta
+    //                                                                             =======
+    /** {@inheritDoc} */
+    public WhiteReadOnlyDbm asDBMeta() { return WhiteReadOnlyDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "WHITE_READ_ONLY"; }
+
+    // ===================================================================================
+    //                                                                        New Instance
+    //                                                                        ============
+    /** {@inheritDoc} */
+    public WhiteReadOnlyCB newConditionBean() { return new WhiteReadOnlyCB(); }
+
+    // ===================================================================================
+    //                                                                        Count Select
+    //                                                                        ============
+    /**
+     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
+     * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
+     * <pre>
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
+     * @return The count for the condition. (NotMinus)
+     */
+    public int selectCount(CBCall<WhiteReadOnlyCB> cbLambda) {
+        return facadeSelectCount(createCB(cbLambda));
+    }
+
+    // ===================================================================================
+    //                                                                       Entity Select
+    //                                                                       =============
+    /**
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
+     * <pre>
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteReadOnly</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">whiteReadOnly</span>.get...
+     * });
+     *
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteReadOnly</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">whiteReadOnly</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     */
+    public OptionalEntity<WhiteReadOnly> selectEntity(CBCall<WhiteReadOnlyCB> cbLambda) {
+        return facadeSelectEntity(createCB(cbLambda));
+    }
+
+    protected OptionalEntity<WhiteReadOnly> facadeSelectEntity(WhiteReadOnlyCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
+    }
+
+    protected <ENTITY extends WhiteReadOnly> OptionalEntity<ENTITY> doSelectOptionalEntity(WhiteReadOnlyCB cb, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectEntity(cb, tp), cb);
+    }
+
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
+
+    /**
+     * Select the entity by the condition-bean with deleted check. <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
+     * <pre>
+     * WhiteReadOnly <span style="color: #553000">whiteReadOnly</span> = <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteReadOnly</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * </pre>
+     * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
+     * @return The entity selected by the condition. (NotNull: if no data, throws exception)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     */
+    public WhiteReadOnly selectEntityWithDeletedCheck(CBCall<WhiteReadOnlyCB> cbLambda) {
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
+    }
+
+    /**
+     * Select the entity by the primary-key value.
+     * @param readOnlyId : PK, NotNull, DECIMAL(16). (NotNull)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     */
+    public OptionalEntity<WhiteReadOnly> selectByPK(Long readOnlyId) {
+        return facadeSelectByPK(readOnlyId);
+    }
+
+    protected OptionalEntity<WhiteReadOnly> facadeSelectByPK(Long readOnlyId) {
+        return doSelectOptionalByPK(readOnlyId, typeOfSelectedEntity());
+    }
+
+    protected <ENTITY extends WhiteReadOnly> ENTITY doSelectByPK(Long readOnlyId, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(readOnlyId), tp);
+    }
+
+    protected <ENTITY extends WhiteReadOnly> OptionalEntity<ENTITY> doSelectOptionalByPK(Long readOnlyId, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(readOnlyId, tp), readOnlyId);
+    }
+
+    protected WhiteReadOnlyCB xprepareCBAsPK(Long readOnlyId) {
+        assertObjectNotNull("readOnlyId", readOnlyId);
+        return newConditionBean().acceptPK(readOnlyId);
+    }
+
+    // ===================================================================================
+    //                                                                         List Select
+    //                                                                         ===========
+    /**
+     * Select the list as result bean.
+     * <pre>
+     * ListResultBean&lt;WhiteReadOnly&gt; <span style="color: #553000">whiteReadOnlyList</span> = <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
+     * });
+     * <span style="color: #70226C">for</span> (WhiteReadOnly <span style="color: #553000">whiteReadOnly</span> : <span style="color: #553000">whiteReadOnlyList</span>) {
+     *     ... = <span style="color: #553000">whiteReadOnly</span>.get...;
+     * }
+     * </pre>
+     * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
+     * @return The result bean of selected list. (NotNull: if no data, returns empty list)
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
+     */
+    public ListResultBean<WhiteReadOnly> selectList(CBCall<WhiteReadOnlyCB> cbLambda) {
+        return facadeSelectList(createCB(cbLambda));
+    }
+
+    @Override
+    protected boolean isEntityDerivedMappable() { return true; }
+
+    // ===================================================================================
+    //                                                                         Page Select
+    //                                                                         ===========
+    /**
+     * Select the page as result bean. <br>
+     * (both count-select and paging-select are executed)
+     * <pre>
+     * PagingResultBean&lt;WhiteReadOnly&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * <span style="color: #70226C">int</span> allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * <span style="color: #70226C">int</span> allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
+     * ...
+     * <span style="color: #70226C">for</span> (WhiteReadOnly whiteReadOnly : <span style="color: #553000">page</span>) {
+     *     ... = whiteReadOnly.get...;
+     * }
+     * </pre>
+     * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
+     * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
+     */
+    public PagingResultBean<WhiteReadOnly> selectPage(CBCall<WhiteReadOnlyCB> cbLambda) {
+        return facadeSelectPage(createCB(cbLambda));
+    }
+
+    // ===================================================================================
+    //                                                                       Cursor Select
+    //                                                                       =============
+    /**
+     * Select the cursor by the condition-bean.
+     * <pre>
+     * <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
+     * });
+     * </pre>
+     * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
+     * @param entityLambda The handler of entity row of WhiteReadOnly. (NotNull)
+     */
+    public void selectCursor(CBCall<WhiteReadOnlyCB> cbLambda, EntityRowHandler<WhiteReadOnly> entityLambda) {
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
+    }
+
+    // ===================================================================================
+    //                                                                       Scalar Select
+    //                                                                       =============
+    /**
+     * Select the scalar value derived by a function from uniquely-selected records. <br>
+     * You should call a function method after this method called like as follows:
+     * <pre>
+     * <span style="color: #0000C0">whiteReadOnlyBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * </pre>
+     * @param <RESULT> The type of result.
+     * @param resultType The type of result. (NotNull)
+     * @return The scalar function object to specify function for scalar value. (NotNull)
+     */
+    public <RESULT> HpSLSFunction<WhiteReadOnlyCB, RESULT> selectScalar(Class<RESULT> resultType) {
+        return facadeScalarSelect(resultType);
+    }
+
+    // ===================================================================================
+    //                                                                            Sequence
+    //                                                                            ========
+    @Override
+    protected Number doReadNextVal() {
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
+        throw new UnsupportedOperationException(msg);
+    }
+
+    // ===================================================================================
+    //                                                                       Load Referrer
+    //                                                                       =============
+    /**
+     * Load referrer for the list by the referrer loader.
+     * <pre>
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     *
+     *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
+     *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * <span style="color: #70226C">for</span> (Member member : <span style="color: #553000">memberList</span>) {
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
+     *     <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
+     *         ...
+     *     }
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has order by FK before callback.
+     * @param whiteReadOnlyList The entity list of whiteReadOnly. (NotNull)
+     * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
+     */
+    public void load(List<WhiteReadOnly> whiteReadOnlyList, ReferrerLoaderHandler<LoaderOfWhiteReadOnly> loaderLambda) {
+        xassLRArg(whiteReadOnlyList, loaderLambda);
+        loaderLambda.handle(new LoaderOfWhiteReadOnly().ready(whiteReadOnlyList, _behaviorSelector));
+    }
+
+    /**
+     * Load referrer for the entity by the referrer loader.
+     * <pre>
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     *
+     *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
+     *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * <span style="color: #70226C">for</span> (Purchase purchase : purchaseList) {
+     *     ...
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has order by FK before callback.
+     * @param whiteReadOnly The entity of whiteReadOnly. (NotNull)
+     * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
+     */
+    public void load(WhiteReadOnly whiteReadOnly, ReferrerLoaderHandler<LoaderOfWhiteReadOnly> loaderLambda) {
+        xassLRArg(whiteReadOnly, loaderLambda);
+        loaderLambda.handle(new LoaderOfWhiteReadOnly().ready(xnewLRAryLs(whiteReadOnly), _behaviorSelector));
+    }
+
+    // ===================================================================================
+    //                                                                   Pull out Relation
+    //                                                                   =================
+    // ===================================================================================
+    //                                                                      Extract Column
+    //                                                                      ==============
+    /**
+     * Extract the value list of (single) primary key readOnlyId.
+     * @param whiteReadOnlyList The list of whiteReadOnly. (NotNull, EmptyAllowed)
+     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<Long> extractReadOnlyIdList(List<WhiteReadOnly> whiteReadOnlyList)
+    { return helpExtractListInternally(whiteReadOnlyList, "readOnlyId"); }
+
+
+    // ===================================================================================
+    //                                                                          OutsideSql
+    //                                                                          ==========
+    /**
+     * Prepare the all facade executor of outside-SQL to execute it.
+     * <pre>
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteReadOnlyBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
+     * whiteReadOnlyBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * whiteReadOnlyBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
+     * whiteReadOnlyBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * whiteReadOnlyBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
+     * whiteReadOnlyBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
+     * whiteReadOnlyBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
+     *
+     * <span style="color: #3F7E5E">// traditional style</span>
+     * whiteReadOnlyBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
+     * whiteReadOnlyBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
+     * whiteReadOnlyBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
+     * whiteReadOnlyBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
+     * whiteReadOnlyBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
+     * whiteReadOnlyBhv.outideSql().traditionalStyle().execute(path, pmb);
+     *
+     * <span style="color: #3F7E5E">// options</span>
+     * whiteReadOnlyBhv.outideSql().removeBlockComment().selectList()
+     * whiteReadOnlyBhv.outideSql().removeLineComment().selectList()
+     * whiteReadOnlyBhv.outideSql().formatSql().selectList()
+     * </pre>
+     * <p>The invoker of behavior command should be not null when you call this method.</p>
+     * @return The new-created all facade executor of outside-SQL. (NotNull)
+     */
+    public OutsideSqlAllFacadeExecutor<WhiteReadOnlyBhv> outsideSql() {
+        return doOutsideSql();
+    }
+
+    // ===================================================================================
+    //                                                           Framework Filter Override
+    //                                                           =========================
+    @Override
+    protected void frameworkFilterEntityOfInsert(Entity entity, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> option) {
+        super.frameworkFilterEntityOfInsert(entity, option);
+        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
+    }
+
+    // ===================================================================================
+    //                                                                         Type Helper
+    //                                                                         ===========
+    protected Class<? extends WhiteReadOnly> typeOfSelectedEntity() { return WhiteReadOnly.class; }
+    protected Class<WhiteReadOnly> typeOfHandlingEntity() { return WhiteReadOnly.class; }
+    protected Class<WhiteReadOnlyCB> typeOfHandlingConditionBean() { return WhiteReadOnlyCB.class; }
+}

@@ -243,6 +243,11 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteOnParadeRefBhv.class).toInstance(bhv);
         }
         {
+            WhiteReadOnlyBhv bhv = new WhiteReadOnlyBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor);
+            bind(WhiteReadOnlyBhv.class).toInstance(bhv);
+        }
+        {
             WhiteSchemaDiffBhv bhv = new WhiteSchemaDiffBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteSchemaDiffBhv.class).toInstance(bhv);

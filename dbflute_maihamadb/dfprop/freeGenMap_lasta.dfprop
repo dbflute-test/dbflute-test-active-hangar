@@ -1,0 +1,16 @@
+map:{
+    ; LastaAppClsGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = APP_CLS
+            ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.lasta.appcls
+            ; templateFile = lasta/HangarAppCls.vm
+            ; className = MysticAppCls
+        }
+        ; optionMap = map:{
+        }
+    }
+}

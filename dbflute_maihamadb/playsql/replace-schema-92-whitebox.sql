@@ -141,6 +141,15 @@ ALTER TABLE WHITE_ON_PARADE_REF ADD CONSTRAINT FK_WHITE_ON_PARADE_REF_MANY_MANY
 	FOREIGN KEY (NULLABLE_FK_TO_MANY_ID)
 	REFERENCES WHITE_ON_PARADE_NULLABLE_TO_MANY (MANY_ID) ;
 
+-- /= = = = = = = = = = = = = = = = = = = = =
+-- for the test of read-only table
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_READ_ONLY (
+	READ_ONLY_ID NUMERIC(16) NOT NULL,
+	READ_ONLY_NAME VARCHAR(200) NOT NULL,
+	PRIMARY KEY(READ_ONLY_ID)
+);
+
 -- /= = = = = = = = = = = = = =
 -- for the test of schema diff
 -- = = = = = = = = = =/

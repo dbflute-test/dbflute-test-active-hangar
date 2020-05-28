@@ -112,6 +112,7 @@ map:{
                 ; WHITE_SCHEMA_DIFF
                 ; WHITE_SIMPLE_DTO_EXCEPT
                 ; prefix:WHITE_COMPOUND_PK
+                ; WHITE_READ_ONLY
                 ; WHITE_SINGLE_PK
             }
             ; tableTargetList = list:{}

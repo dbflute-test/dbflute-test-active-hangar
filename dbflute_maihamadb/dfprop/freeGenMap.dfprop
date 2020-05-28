@@ -1,4 +1,9 @@
 map:{
+    ; $$split$$ = map:{
+        ; lasta = dummy
+        ; solr = dummy
+    }
+
     # ====================================================================================
     #                                                                                Basic
     #                                                                                =====
@@ -161,28 +166,6 @@ map:{
     }
 
     # ====================================================================================
-    #                                                                                Solr
-    #                                                                               ======
-    ; SolrBeanGen = map:{
-        ; resourceMap = map:{
-            ; resourceType = SOLR
-            ; resourceFile = ../src/main/resources/freedb/solr_schema.xml
-        }
-        ; outputMap = map:{
-            ; templateFile = unused
-            ; outputDirectory = ../src/main/java
-            ; package = org.docksidestage.hangar.freeflute.solr
-            ; className = unused
-        }
-        ; optionMap = map:{
-            ; baseBeanClassName = BsSolrFooBean
-            ; extendedBeanClassName = SolrFooBean
-            ; isContainsDynamicField = true
-            ; mappingMap = map:{ type = map:{ foo = String } }
-        }
-    }
-
-    # ====================================================================================
     #                                                                             Database
     #                                                                             ========
     ; DatabaseCollaborationGen = map:{
@@ -202,24 +185,6 @@ map:{
                     ; schemaDir = ./schema
                 }
             }
-        }
-    }
-
-    # ====================================================================================
-    #                                                                           LastaFlute
-    #                                                                           ==========
-    ; LastaAppClsGen = map:{
-        ; resourceMap = map:{
-            ; resourceType = APP_CLS
-            ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
-        }
-        ; outputMap = map:{
-            ; outputDirectory = ../src/main/java
-            ; package = org.docksidestage.hangar.freeflute.lasta.appcls
-            ; templateFile = lasta/HangarAppCls.vm
-            ; className = MysticAppCls
-        }
-        ; optionMap = map:{
         }
     }
 }

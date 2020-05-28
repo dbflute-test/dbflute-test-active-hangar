@@ -51,6 +51,9 @@ map:{
     # the test of common original methods for behavior
     ; extendedAbstractBehaviorWritableClass = org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable
 
+    # the test of read-only table
+    ; readOnlyTableNameList = list:{ WHITE_READ_ONLY }
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]

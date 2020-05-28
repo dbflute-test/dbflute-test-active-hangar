@@ -1,0 +1,20 @@
+map:{
+    ; SolrBeanGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = SOLR
+            ; resourceFile = ../src/main/resources/freedb/solr_schema.xml
+        }
+        ; outputMap = map:{
+            ; templateFile = unused
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.solr
+            ; className = unused
+        }
+        ; optionMap = map:{
+            ; baseBeanClassName = BsSolrFooBean
+            ; extendedBeanClassName = SolrFooBean
+            ; isContainsDynamicField = true
+            ; mappingMap = map:{ type = map:{ foo = String } }
+        }
+    }
+}

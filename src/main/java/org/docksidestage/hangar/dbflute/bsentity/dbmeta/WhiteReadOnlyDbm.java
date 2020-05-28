@@ -13,17 +13,17 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of VENDOR_IDENTITY_ONLY. (Singleton)
+ * The DB meta of WHITE_READ_ONLY. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class VendorIdentityOnlyDbm extends AbstractDBMeta {
+public class WhiteReadOnlyDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final VendorIdentityOnlyDbm _instance = new VendorIdentityOnlyDbm();
-    private VendorIdentityOnlyDbm() {}
-    public static VendorIdentityOnlyDbm getInstance() { return _instance; }
+    private static final WhiteReadOnlyDbm _instance = new WhiteReadOnlyDbm();
+    private WhiteReadOnlyDbm() {}
+    public static WhiteReadOnlyDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -42,7 +42,8 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((VendorIdentityOnly)et).getIdentityOnlyId(), (et, vl) -> ((VendorIdentityOnly)et).setIdentityOnlyId(ctl(vl)), "identityOnlyId");
+        setupEpg(_epgMap, et -> ((WhiteReadOnly)et).getReadOnlyId(), (et, vl) -> ((WhiteReadOnly)et).setReadOnlyId(ctl(vl)), "readOnlyId");
+        setupEpg(_epgMap, et -> ((WhiteReadOnly)et).getReadOnlyName(), (et, vl) -> ((WhiteReadOnly)et).setReadOnlyName((String)vl), "readOnlyName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -50,10 +51,10 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "VENDOR_IDENTITY_ONLY";
-    protected final String _tableDispName = "VENDOR_IDENTITY_ONLY";
-    protected final String _tablePropertyName = "vendorIdentityOnly";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.VENDOR_IDENTITY_ONLY", _tableDbName);
+    protected final String _tableDbName = "WHITE_READ_ONLY";
+    protected final String _tableDispName = "WHITE_READ_ONLY";
+    protected final String _tablePropertyName = "whiteReadOnly";
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_READ_ONLY", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -63,17 +64,24 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnIdentityOnlyId = cci("IDENTITY_ONLY_ID", "IDENTITY_ONLY_ID", null, null, Long.class, "identityOnlyId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_2D676729_A78C_4C30_AC00_B18C39C68590\"", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReadOnlyId = cci("READ_ONLY_ID", "READ_ONLY_ID", null, null, Long.class, "readOnlyId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReadOnlyName = cci("READ_ONLY_NAME", "READ_ONLY_NAME", null, null, String.class, "readOnlyName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * IDENTITY_ONLY_ID: {PK, ID, NotNull, BIGINT(19)}
+     * READ_ONLY_ID: {PK, NotNull, DECIMAL(16)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnIdentityOnlyId() { return _columnIdentityOnlyId; }
+    public ColumnInfo columnReadOnlyId() { return _columnReadOnlyId; }
+    /**
+     * READ_ONLY_NAME: {NotNull, VARCHAR(200)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnReadOnlyName() { return _columnReadOnlyName; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnIdentityOnlyId());
+        ls.add(columnReadOnlyId());
+        ls.add(columnReadOnlyName());
         return ls;
     }
 
@@ -85,7 +93,7 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnIdentityOnlyId()); }
+    protected UniqueInfo cpui() { return hpcpui(columnReadOnlyId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
@@ -105,32 +113,31 @@ public class VendorIdentityOnlyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
-    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.VendorIdentityOnly"; }
-    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.VendorIdentityOnlyCB"; }
-    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.VendorIdentityOnlyBhv"; }
+    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteReadOnly"; }
+    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteReadOnlyCB"; }
+    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteReadOnlyBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<VendorIdentityOnly> getEntityType() { return VendorIdentityOnly.class; }
+    public Class<WhiteReadOnly> getEntityType() { return WhiteReadOnly.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public VendorIdentityOnly newEntity() { return new VendorIdentityOnly(); }
+    public WhiteReadOnly newEntity() { return new WhiteReadOnly(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((VendorIdentityOnly)et, mp); }
+    { doAcceptPrimaryKeyMap((WhiteReadOnly)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((VendorIdentityOnly)et, mp); }
+    { doAcceptAllColumnMap((WhiteReadOnly)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }
