@@ -183,6 +183,101 @@ public class DBFluteModule extends AbstractModule {
             bind(VendorTheLongAndWindingTableAndColumnRefBhv.class).toInstance(bhv);
         }
         {
+            WhiteBaseBhv bhv = new WhiteBaseBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne01SeaBhv bhv = new WhiteBaseOne01SeaBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne01SeaBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne01SeaBroadwayBhv bhv = new WhiteBaseOne01SeaBroadwayBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne01SeaBroadwayBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne01SeaDocksideBhv bhv = new WhiteBaseOne01SeaDocksideBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne01SeaDocksideBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne01SeaHangarBhv bhv = new WhiteBaseOne01SeaHangarBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne01SeaHangarBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne01SeaMagiclampBhv bhv = new WhiteBaseOne01SeaMagiclampBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne01SeaMagiclampBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne02LandBhv bhv = new WhiteBaseOne02LandBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne02LandBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne03PiariBhv bhv = new WhiteBaseOne03PiariBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne03PiariBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne04BonvoBhv bhv = new WhiteBaseOne04BonvoBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne04BonvoBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne04BonvoParksideBhv bhv = new WhiteBaseOne04BonvoParksideBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne04BonvoParksideBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne04BonvoStationsideBhv bhv = new WhiteBaseOne04BonvoStationsideBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne04BonvoStationsideBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne05DstoreBhv bhv = new WhiteBaseOne05DstoreBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne05DstoreBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne06AmbaBhv bhv = new WhiteBaseOne06AmbaBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne06AmbaBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne07MiracoBhv bhv = new WhiteBaseOne07MiracoBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne07MiracoBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne08DohotelBhv bhv = new WhiteBaseOne08DohotelBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne08DohotelBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne09PalmBhv bhv = new WhiteBaseOne09PalmBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne09PalmBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne10CelebBhv bhv = new WhiteBaseOne10CelebBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne10CelebBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne11CirqueBhv bhv = new WhiteBaseOne11CirqueBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne11CirqueBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteBaseOne12AmphiBhv bhv = new WhiteBaseOne12AmphiBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteBaseOne12AmphiBhv.class).toInstance(bhv);
+        }
+        {
             WhiteClassificationDeploymentBhv bhv = new WhiteClassificationDeploymentBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteClassificationDeploymentBhv.class).toInstance(bhv);

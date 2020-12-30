@@ -48,7 +48,7 @@ public class WxLRevworldTest extends PlainTestCase {
             assertContains(console, "BUILD SUCCESSFUL");
 
             String dataPath = getOutputDocPath() + "/data";
-            assertTrue(new File(dataPath + "/reverse-data-05-MEMBER.xls").exists());
+            assertTrue(new File(dataPath + "/reverse-data-06-MEMBER.xls").exists());
             assertTrue(new File(dataPath + "/reverse-data-result.dfmark").exists());
             assertTrue(new File(dataPath + "/tableNameMap.dataprop").exists());
         } finally {

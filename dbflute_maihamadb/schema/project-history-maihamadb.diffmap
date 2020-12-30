@@ -1,4 +1,181 @@
 map:{
+    ; 2020/12/30 16:42:42 = map:{
+        ; diffDate = 2020/12/30 16:42:42
+        ; tableCount = map:{
+            ; next = 61
+            ; previous = 59
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_BASE_ONE04_BONVO_PARKSIDE = map:{
+                ; tableName = WHITE_BASE_ONE04_BONVO_PARKSIDE
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE04_BONVO_STATIONSIDE = map:{
+                ; tableName = WHITE_BASE_ONE04_BONVO_STATIONSIDE
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE04_BONVO = map:{
+                ; tableName = WHITE_BASE_ONE04_BONVO
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PARKSIDE_ID = map:{
+                        ; columnName = PARKSIDE_ID
+                        ; diffType = ADD
+                    }
+                    ; STATIONSIDE_ID = map:{
+                        ; columnName = STATIONSIDE_ID
+                        ; diffType = ADD
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_PARKSIDE = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_PARKSIDE
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_STATIONSIDE = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_STATIONSIDE
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_PARKSIDE_INDEX_4 = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_PARKSIDE_INDEX_4
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_STATIONSIDE_INDEX_4 = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE04_BONVO_WHITE_BASE_ONE04_BONVO_STATIONSIDE_INDEX_4
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/12/30 16:19:31 = map:{
+        ; diffDate = 2020/12/30 16:19:31
+        ; tableCount = map:{
+            ; next = 59
+            ; previous = 55
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_BASE_ONE01_SEA_BROADWAY = map:{
+                ; tableName = WHITE_BASE_ONE01_SEA_BROADWAY
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE01_SEA_DOCKSIDE = map:{
+                ; tableName = WHITE_BASE_ONE01_SEA_DOCKSIDE
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE01_SEA_HANGAR = map:{
+                ; tableName = WHITE_BASE_ONE01_SEA_HANGAR
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE01_SEA_MAGICLAMP = map:{
+                ; tableName = WHITE_BASE_ONE01_SEA_MAGICLAMP
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE01_SEA = map:{
+                ; tableName = WHITE_BASE_ONE01_SEA
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BROADWAY_ID = map:{
+                        ; columnName = BROADWAY_ID
+                        ; diffType = ADD
+                    }
+                    ; DOCKSIDE_ID = map:{
+                        ; columnName = DOCKSIDE_ID
+                        ; diffType = ADD
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_BROADWAY = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_BROADWAY
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_DOCKSIDE = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_DOCKSIDE
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_BROADWAY_INDEX_4 = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_BROADWAY_INDEX_4
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_DOCKSIDE_INDEX_4 = map:{
+                        ; constraintName = FK_WHITE_BASE_ONE01_SEA_WHITE_BASE_ONE01_SEA_DOCKSIDE_INDEX_4
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/12/30 15:05:20 = map:{
+        ; diffDate = 2020/12/30 15:05:20
+        ; tableCount = map:{
+            ; next = 55
+            ; previous = 42
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_BASE = map:{
+                ; tableName = WHITE_BASE
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE01_SEA = map:{
+                ; tableName = WHITE_BASE_ONE01_SEA
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE02_LAND = map:{
+                ; tableName = WHITE_BASE_ONE02_LAND
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE03_PIARI = map:{
+                ; tableName = WHITE_BASE_ONE03_PIARI
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE04_BONVO = map:{
+                ; tableName = WHITE_BASE_ONE04_BONVO
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE05_DSTORE = map:{
+                ; tableName = WHITE_BASE_ONE05_DSTORE
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE06_AMBA = map:{
+                ; tableName = WHITE_BASE_ONE06_AMBA
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE07_MIRACO = map:{
+                ; tableName = WHITE_BASE_ONE07_MIRACO
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE08_DOHOTEL = map:{
+                ; tableName = WHITE_BASE_ONE08_DOHOTEL
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE09_PALM = map:{
+                ; tableName = WHITE_BASE_ONE09_PALM
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE10_CELEB = map:{
+                ; tableName = WHITE_BASE_ONE10_CELEB
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE11_CIRQUE = map:{
+                ; tableName = WHITE_BASE_ONE11_CIRQUE
+                ; diffType = ADD
+            }
+            ; WHITE_BASE_ONE12_AMPHI = map:{
+                ; tableName = WHITE_BASE_ONE12_AMPHI
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2020/05/28 11:57:48 = map:{
         ; diffDate = 2020/05/28 11:57:48
         ; diffAuthor = jflute

@@ -58,6 +58,13 @@ map:{
         ; localTableName  = WHITE_COMPOUND_PK_REF_VIRTURL   ; foreignTableName  = WHITE_COMPOUND_PK
         ; localColumnName = REF_FIRST_ID/REF_SECOND_ID ; foreignColumnName  = PK_FIRST_ID/PK_SECOND_ID
     }
+    # for the test of too-many relations
+    ; FK_WHITE_BASE_WHITE_BASE_ONE08_DOHOTEL = map:{
+        ; localTableName  = WHITE_BASE   ; foreignTableName  = WHITE_BASE_ONE08_DOHOTEL
+    }
+    ; FK_WHITE_BASE_ONE12_AMPHI_WHITE_BASE = map:{
+        ; localTableName  = WHITE_BASE_ONE12_AMPHI   ; foreignTableName  = WHITE_BASE
+    }
 
     # ====================================================================================
     #                                                                          BizOneToOne

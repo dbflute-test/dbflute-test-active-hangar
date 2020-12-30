@@ -1,0 +1,161 @@
+package org.docksidestage.hangar.dbflute.bsbhv.loader;
+
+import java.util.List;
+
+import org.dbflute.bhv.*;
+import org.dbflute.bhv.referrer.*;
+import org.docksidestage.hangar.dbflute.exbhv.*;
+import org.docksidestage.hangar.dbflute.exentity.*;
+import org.docksidestage.hangar.dbflute.cbean.*;
+
+/**
+ * The referrer loader of WHITE_BASE_ONE01_SEA as TABLE. <br>
+ * <pre>
+ * [primary key]
+ *     SEA_ID
+ *
+ * [column]
+ *     SEA_ID, SEA_NAME, BROADWAY_ID, DOCKSIDE_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_BASE_ONE01_SEA_BROADWAY, WHITE_BASE_ONE01_SEA_DOCKSIDE, WHITE_BASE_ONE01_SEA_HANGAR(AsOne)
+ *
+ * [referrer table]
+ *     WHITE_BASE, WHITE_BASE_ONE01_SEA_MAGICLAMP, WHITE_BASE_ONE01_SEA_HANGAR
+ *
+ * [foreign property]
+ *     whiteBaseOne01SeaBroadway, whiteBaseOne01SeaDockside, whiteBaseOne01SeaHangarAsOne
+ *
+ * [referrer property]
+ *     whiteBaseList, whiteBaseOne01SeaMagiclampList
+ * </pre>
+ * @author DBFlute(AutoGenerator)
+ */
+public class LoaderOfWhiteBaseOne01Sea {
+
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
+    protected List<WhiteBaseOne01Sea> _selectedList;
+    protected BehaviorSelector _selector;
+    protected WhiteBaseOne01SeaBhv _myBhv; // lazy-loaded
+
+    // ===================================================================================
+    //                                                                   Ready for Loading
+    //                                                                   =================
+    public LoaderOfWhiteBaseOne01Sea ready(List<WhiteBaseOne01Sea> selectedList, BehaviorSelector selector)
+    { _selectedList = selectedList; _selector = selector; return this; }
+
+    protected WhiteBaseOne01SeaBhv myBhv()
+    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(WhiteBaseOne01SeaBhv.class); return _myBhv; } }
+
+    // ===================================================================================
+    //                                                                       Load Referrer
+    //                                                                       =============
+    protected List<WhiteBase> _referrerWhiteBase;
+
+    /**
+     * Load referrer of whiteBaseList by the set-upper of referrer. <br>
+     * WHITE_BASE by SEA_ID, named 'whiteBaseList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteBaseOne01SeaBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteBaseOne01SeaList</span>, <span style="color: #553000">seaLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">seaLoader</span>.<span style="color: #CC4747">loadWhiteBase</span>(<span style="color: #553000">baseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">baseCB</span>.setupSelect...
+     *         <span style="color: #553000">baseCB</span>.query().set...
+     *         <span style="color: #553000">baseCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">baseLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    baseLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteBaseOne01Sea whiteBaseOne01Sea : <span style="color: #553000">whiteBaseOne01SeaList</span>) {
+     *     ... = whiteBaseOne01Sea.<span style="color: #CC4747">getWhiteBaseList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setSeaId_InScope(pkList);
+     * cb.query().addOrderBy_SeaId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<LoaderOfWhiteBase> loadWhiteBase(ReferrerConditionSetupper<WhiteBaseCB> refCBLambda) {
+        myBhv().loadWhiteBase(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteBase = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteBase().ready(_referrerWhiteBase, _selector));
+    }
+
+    protected List<WhiteBaseOne01SeaMagiclamp> _referrerWhiteBaseOne01SeaMagiclamp;
+
+    /**
+     * Load referrer of whiteBaseOne01SeaMagiclampList by the set-upper of referrer. <br>
+     * WHITE_BASE_ONE01_SEA_MAGICLAMP by SEA_ID, named 'whiteBaseOne01SeaMagiclampList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteBaseOne01SeaBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteBaseOne01SeaList</span>, <span style="color: #553000">seaLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">seaLoader</span>.<span style="color: #CC4747">loadWhiteBaseOne01SeaMagiclamp</span>(<span style="color: #553000">magiclampCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">magiclampCB</span>.setupSelect...
+     *         <span style="color: #553000">magiclampCB</span>.query().set...
+     *         <span style="color: #553000">magiclampCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">magiclampLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    magiclampLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (WhiteBaseOne01Sea whiteBaseOne01Sea : <span style="color: #553000">whiteBaseOne01SeaList</span>) {
+     *     ... = whiteBaseOne01Sea.<span style="color: #CC4747">getWhiteBaseOne01SeaMagiclampList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setSeaId_InScope(pkList);
+     * cb.query().addOrderBy_SeaId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<LoaderOfWhiteBaseOne01SeaMagiclamp> loadWhiteBaseOne01SeaMagiclamp(ReferrerConditionSetupper<WhiteBaseOne01SeaMagiclampCB> refCBLambda) {
+        myBhv().loadWhiteBaseOne01SeaMagiclamp(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteBaseOne01SeaMagiclamp = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteBaseOne01SeaMagiclamp().ready(_referrerWhiteBaseOne01SeaMagiclamp, _selector));
+    }
+
+    // ===================================================================================
+    //                                                                    Pull out Foreign
+    //                                                                    ================
+    protected LoaderOfWhiteBaseOne01SeaBroadway _foreignWhiteBaseOne01SeaBroadwayLoader;
+    public LoaderOfWhiteBaseOne01SeaBroadway pulloutWhiteBaseOne01SeaBroadway() {
+        if (_foreignWhiteBaseOne01SeaBroadwayLoader == null)
+        { _foreignWhiteBaseOne01SeaBroadwayLoader = new LoaderOfWhiteBaseOne01SeaBroadway().ready(myBhv().pulloutWhiteBaseOne01SeaBroadway(_selectedList), _selector); }
+        return _foreignWhiteBaseOne01SeaBroadwayLoader;
+    }
+
+    protected LoaderOfWhiteBaseOne01SeaDockside _foreignWhiteBaseOne01SeaDocksideLoader;
+    public LoaderOfWhiteBaseOne01SeaDockside pulloutWhiteBaseOne01SeaDockside() {
+        if (_foreignWhiteBaseOne01SeaDocksideLoader == null)
+        { _foreignWhiteBaseOne01SeaDocksideLoader = new LoaderOfWhiteBaseOne01SeaDockside().ready(myBhv().pulloutWhiteBaseOne01SeaDockside(_selectedList), _selector); }
+        return _foreignWhiteBaseOne01SeaDocksideLoader;
+    }
+
+    protected LoaderOfWhiteBaseOne01SeaHangar _foreignWhiteBaseOne01SeaHangarAsOneLoader;
+    public LoaderOfWhiteBaseOne01SeaHangar pulloutWhiteBaseOne01SeaHangarAsOne() {
+        if (_foreignWhiteBaseOne01SeaHangarAsOneLoader == null)
+        { _foreignWhiteBaseOne01SeaHangarAsOneLoader = new LoaderOfWhiteBaseOne01SeaHangar().ready(myBhv().pulloutWhiteBaseOne01SeaHangarAsOne(_selectedList), _selector); }
+        return _foreignWhiteBaseOne01SeaHangarAsOneLoader;
+    }
+
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    public List<WhiteBaseOne01Sea> getSelectedList() { return _selectedList; }
+    public BehaviorSelector getSelector() { return _selector; }
+}

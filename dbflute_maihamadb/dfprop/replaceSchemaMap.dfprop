@@ -101,6 +101,7 @@ map:{
             ; workableRepsEnvTypeList = list:{ut}
             ; tableExceptList = list:{
                 ; prefix:VENDOR_
+                ; prefix:WHITE_BASE
                 ; WHITE_CLASSIFICATION_DEPLOYMENT
                 ; WHITE_DATE_TERM
                 ; WHITE_DB_COMMENT
