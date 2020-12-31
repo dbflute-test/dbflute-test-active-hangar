@@ -197,6 +197,80 @@ public class MessagesAndDatabase implements Serializable {
     //  - THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID
     //  - THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF_DATE
     //  - SHORT_DATE
+    // WHITE_BASE
+    //  - BASE_ID
+    //  - BASE_NAME
+    //  - SEA_ID
+    //  - LAND_ID
+    //  - PIARI_ID
+    //  - BONVO_ID
+    //  - DSTORE_ID
+    //  - AMBA_ID
+    //  - MIRACO_ID
+    //  - DOHOTEL_ID
+    // WHITE_BASE_ONE01_SEA
+    //  - SEA_ID
+    //  - SEA_NAME
+    //  - BROADWAY_ID
+    //  - DOCKSIDE_ID
+    // WHITE_BASE_ONE01_SEA_BROADWAY
+    //  - BROADWAY_ID
+    //  - BROADWAY_NAME
+    // WHITE_BASE_ONE01_SEA_DOCKSIDE
+    //  - DOCKSIDE_ID
+    //  - DOCKSIDE_NAME
+    // WHITE_BASE_ONE01_SEA_HANGAR
+    //  - HANGAR_ID
+    //  - HANGAR_NAME
+    //  - SEA_ID
+    // WHITE_BASE_ONE01_SEA_MAGICLAMP
+    //  - MAGICLAMP_ID
+    //  - MAGICLAMP_NAME
+    //  - SEA_ID
+    // WHITE_BASE_ONE02_LAND
+    //  - LAND_ID
+    //  - LAND_NAME
+    // WHITE_BASE_ONE03_PIARI
+    //  - PIARI_ID
+    //  - PIARI_NAME
+    // WHITE_BASE_ONE04_BONVO
+    //  - BONVO_ID
+    //  - BONVO_NAME
+    //  - PARKSIDE_ID
+    //  - STATIONSIDE_ID
+    // WHITE_BASE_ONE04_BONVO_PARKSIDE
+    //  - PARKSIDE_ID
+    //  - PARKSIDE_NAME
+    // WHITE_BASE_ONE04_BONVO_STATIONSIDE
+    //  - STATIONSIDE_ID
+    //  - STATIONSIDE_NAME
+    // WHITE_BASE_ONE05_DSTORE
+    //  - DSTORE_ID
+    //  - DSTORE_NAME
+    // WHITE_BASE_ONE06_AMBA
+    //  - AMBA_ID
+    //  - AMBA_NAME
+    // WHITE_BASE_ONE07_MIRACO
+    //  - MIRACO_ID
+    //  - MIRACO_NAME
+    // WHITE_BASE_ONE08_DOHOTEL
+    //  - DOHOTEL_ID
+    //  - DOHOTEL_NAME
+    // WHITE_BASE_ONE09_PALM
+    //  - PALM_ID
+    //  - PALM_NAME
+    //  - BASE_ID
+    // WHITE_BASE_ONE10_CELEB
+    //  - CELEB_ID
+    //  - CELEB_NAME
+    //  - BASE_ID
+    // WHITE_BASE_ONE11_CIRQUE
+    //  - CIRQUE_ID
+    //  - CIRQUE_NAME
+    // WHITE_BASE_ONE12_AMPHI
+    //  - AMPHI_ID
+    //  - AMPHI_NAME
+    //  - BASE_ID
     // WHITE_CLASSIFICATION_DEPLOYMENT
     //  - DEPLOYMENT_ID
     //  - SEA_FLG
