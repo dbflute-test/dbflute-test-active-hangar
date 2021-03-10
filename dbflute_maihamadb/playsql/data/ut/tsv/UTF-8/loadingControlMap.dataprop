@@ -25,4 +25,7 @@ map:{
     ; largeTextFileMap = map:{
         ; WHITE_TSV_LOADING = list:{ LARGE_FROM_FILE }
     }
+
+    # for framework test
+    #; delimiterDataBatchLimit = 3
 }
