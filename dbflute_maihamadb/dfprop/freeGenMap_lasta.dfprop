@@ -13,4 +13,19 @@ map:{
         ; optionMap = map:{
         }
     }
+    ; LastaNamedClsDfpropGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = APP_CLS
+            ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/resources
+            ; package = namedcls
+            ; templateFile = lasta/NamedClsDfProp.vm
+            ; className = hangar_self_cls
+            ; fileExt = dfprop
+        }
+        ; optionMap = map:{
+        }
+    }
 }
