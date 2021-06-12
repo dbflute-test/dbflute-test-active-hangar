@@ -20,5 +20,13 @@ map:{
         ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
         ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
     }
+    ; TestDeprecatedClsStatus = list:{
+        ; map:{
+            ; topComment=MemberStatus for search condition ; codeType=String
+            ; isDeprecated=true
+        }
+        ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
+        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
+    }
 }
 # ----------------/
