@@ -1,0 +1,46 @@
+# /---------------------------------------------------------------------------
+# lastafluteMap: (NotRequired - Default map:{})
+#
+# Specification:
+# map:{
+#     ; serviceName = [your service name]
+#     ; domainPackage = [package]
+#     ; commonMap = map:{
+#         ; path = [relative path to common project from DBFlute client]
+#         ; freeGenList = list:{ [env or config or label or message or html] }
+#         ; propertiesHtmlList = list:{ [env or config or label or message] }
+#     }
+#     ; appMap = map:{
+#         ; [application name, camel case, initial uncapitalised] = map:{
+#             ; path = [relative path to application project from DBFlute client]
+#             ; freeGenList = list:{ [env or config or label or message or html] }
+#             ; propertiesHtmlList = list:{ [env or config or label or message] }
+#         }
+#     }
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    # your service name, camel case, initial uncapitalised
+    ; serviceName = hangar
+
+    # package for your domain name, e.g. com.example
+    ; domainPackage = org.docksidestage.hangar
+
+    # settings for web applications
+    ; appMap = map:{
+        ; hangar = map:{
+            ; path = ..
+            ; freeGenList = list:{ appcls ; namedcls }
+            ; propertiesHtmlList = list:{}
+        }
+    }
+
+    # you can override (several) default settings like this:
+    ; overrideMap = map:{
+        # test of option to suppress redundant comment stop
+        #; hangar.freeGen.leonardo_cls.isSuppressRedundantCommentStop = true
+    }
+}
+# ----------------/
