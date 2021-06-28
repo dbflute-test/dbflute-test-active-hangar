@@ -37,9 +37,6 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-    # ====================================================================================
-    #                                                                               Common
-    #                                                                               ======
     ; WhiteClassifiationDeploymentType = list:{
         ; map:{
             ; topComment=test of deployment
@@ -47,6 +44,36 @@ map:{
         }
         ; map:{code=SEA;name=Sea ;alias=sea}
         ; map:{code=LAN;name=Land;alias=land}
+    }
+    ; WhiteTableOptionStatus = list:{
+        ; map:{
+            ; topComment=test of various options when table classification
+            ; codeType=String ; undefinedHandlingType=EXCEPTION
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    ; groupComment=can use service
+
+                    # by name attribute, safety (exception if not found)
+                    ; elementList=list:{ Formalized ; Provisional }
+                }
+            }
+        }
+        ; map:{
+            ; table=MEMBER_STATUS
+            ; code=MEMBER_STATUS_CODE; name=MEMBER_STATUS_NAME
+            ; comment=DESCRIPTION; orderBy=DISPLAY_ORDER
+
+            # can use column name for sister code
+            # while, cannot define sisters if no column
+            ; sisterCode=list:{ DISPLAY_ORDER }
+
+            # can use column name for sub item
+            # while, cannot define sisters if no column
+            ; subItemMap=map:{
+                ; key1=DISPLAY_ORDER
+                ; key2=DESCRIPTION
+            }
+        }
     }
 }
 # ----------------/
