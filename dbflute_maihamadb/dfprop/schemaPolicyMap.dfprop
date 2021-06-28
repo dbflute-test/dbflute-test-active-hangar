@@ -97,12 +97,15 @@ map:{
 
             # test of manual identityIfPureIDPK
             # add "or contain:_SINGLE_" then failure
-            ; if tableName is prefix:M or prefix:P or contain:_COMPOUND_ and column is singlePK and columnName is suffix:_ID and column is not fk then identity => instead of identityIfPureIDPK
+            ; if tableName is prefix:M or prefix:P or contain:_COMPOUND_ and column is singlePK and columnName is suffix:_ID and column is not fk then identity
+                => instead of identityIfPureIDPK
 
             # test of basic FLG
-            ; if columnName is suffix:_FLAG then bad
+            ; if columnName is suffix:_FLAG then bad => use _FLG instead of _FLAG
+            # test of line separated supplement comment
             ; if columnName is suffix:_FLG then notNull
-            ; if columnName is suffix:_FLG then dbType is INTEGER
+                => FLG should be not null, and true or false only
+            ; if columnName is suffix:_FLG then dbType is INTEGER => old style
             ; if columnName is suffix:_FLG then classification
             ; if columnName is suffix:_FLG then classification(Flg)
 
