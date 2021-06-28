@@ -11,6 +11,8 @@ map:{
             ; className = MysticAppCls
         }
         ; optionMap = map:{
+            # test of option to supress redundant comment stop
+            #; isSuppressRedundantCommentStop = true
         }
     }
     ; LastaNamedClsDfpropGen = map:{
@@ -19,7 +21,7 @@ map:{
             ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
         }
         ; outputMap = map:{
-            ; outputDirectory = ../src/main/resources
+            ; outputDirectory = ../target
             ; package = namedcls
             ; templateFile = lasta/NamedClsDfProp.vm
             ; className = hangar_self_cls
