@@ -57,7 +57,6 @@ map:{
     #                                                                               Member
     #                                                                               ======
     ; MemberStatus = list:{
-        # for the test of default code type
         ; map:{
             ; topComment=status of member from entry to withdrawal
             ; codeType=String ; undefinedHandlingType=EXCEPTION
