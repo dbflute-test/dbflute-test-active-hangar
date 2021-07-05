@@ -36,22 +36,44 @@ map:{
     ; ${classificationName} = list:{
         ; map:{
 #if ($classificationTop.hasTopComment())
-            ; topComment=${classificationTop.topComment}
+            ; topComment=${classificationTop.topCommentPlainlyForDfpropMap}
 #end
             ; codeType=${classificationTop.codeType}
 #if ($classificationTop.isDeprecated())
-## TODO jflute working?
             ; isDeprecated=true
 #end
-## TODO jflute group map, deprecated map
+#if ($classificationTop.hasGroup())
+            ; groupingMap = map:{
+#foreach ($group in $classificationTop.groupList)
+                ; ${group.groupName} = map:{
+#if ($classificationTop.hasGroupComment())
+                    groupComment = ${group.groupCommentForDfpropMap}
+#end
+                    elementList = list:{ ${group.elementNameExpForDfpropMap} }
+                }
+#end
+            }
+#end
+#if (!$classificationTop.deprecatedMap.isEmpty())
+            ; deprecatedMap = map:{
+#foreach ($entry in $classificationTop.deprecatedMap.entrySet())
+                ; ${entry.key} = ${entry.value}
+#end
+            }
+#end
         }
 #foreach ($classificationElement in $classificationTop.classificationElementList)
         ; map:{
-## TODO jflute comment is not required
-            ; code=${classificationElement.code} ; name=${classificationElement.name} ; alias=${classificationElement.alias} ; comment=${classificationElement.comment}
-            
-## TODO jflute sister cod, subitemmap
-## needs to add new methods to DfClassificationElement
+            ; code=${classificationElement.code} ; name=${classificationElement.name} ; alias=${classificationElement.alias}
+#if ($classificationElement.hasComment())
+            ; comment=${classificationElement.commentPlainlyForDfpropMap}
+#end
+#if ($classificationElement.hasSiserCode())
+            ; sisterCode=${classificationElement.buildSisterCodeExpForDfpropMap()}
+#end
+#if ($classificationElement.hasSubItem())
+            ; subItemMap=${classificationElement.buildSubItemExpForDfpropMap()}
+#end
         }
 #end
     }

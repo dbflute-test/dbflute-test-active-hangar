@@ -1,4 +1,4 @@
-package org.docksidestage.hangar.freeflute.lasta.appcls;
+package org.docksidestage.hangar.mylasta.namedcls;
 
 import java.util.*;
 
@@ -12,15 +12,15 @@ import static org.dbflute.util.DfTypeUtil.emptyStrings;
 import org.docksidestage.hangar.dbflute.allcommon.*;
 
 /**
- * The definition of ${optionMap.clsTitle} classification.
+ * The definition of leonardo classification.
  * @author FreeGen
  */
-public interface MysticAppCls extends Classification {
+public interface LeonardoCDef extends Classification {
 
     /**
-     * MemberStatus for search condition
+     * Sea Cls
      */
-    public enum SearchMemberStatus implements MysticAppCls {
+    public enum DaSea implements LeonardoCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -30,14 +30,11 @@ public interface MysticAppCls extends Classification {
         /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
         @Deprecated
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
-        /** All Statuses: without status filter */
-        All("ALL", "All Statuses", emptyStrings())
         ;
-        private static final Map<String, SearchMemberStatus> _codeClsMap = new HashMap<String, SearchMemberStatus>();
-        private static final Map<String, SearchMemberStatus> _nameClsMap = new HashMap<String, SearchMemberStatus>();
+        private static final Map<String, DaSea> _codeClsMap = new HashMap<String, DaSea>();
+        private static final Map<String, DaSea> _nameClsMap = new HashMap<String, DaSea>();
         static {
-            for (SearchMemberStatus value : values()) {
+            for (DaSea value : values()) {
                 _codeClsMap.put(value.code().toLowerCase(), value);
                 for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
             }
@@ -62,18 +59,22 @@ public interface MysticAppCls extends Classification {
                 subItemMap.put("desc", "first status after entry, allowed to use only part of service");
                 _subItemMapMap.put(Provisional.code(), Collections.unmodifiableMap(subItemMap));
             }
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                _subItemMapMap.put(All.code(), Collections.unmodifiableMap(subItemMap));
-            }
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
-        private SearchMemberStatus(String code, String alias, String[] sisters)
+        private DaSea(String code, String alias, String[] sisters)
         { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return MysticAppCls.DefMeta.SearchMemberStatus; }
+        public ClassificationMeta meta() { return LeonardoCDef.DefMeta.DaSea; }
+
+        public String order() {
+            return (String)subItemMap().get("order");
+        }
+
+        public String desc() {
+            return (String)subItemMap().get("desc");
+        }
 
         /**
          * Is the classification in the group? <br>
@@ -106,9 +107,9 @@ public interface MysticAppCls extends Classification {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<SearchMemberStatus> of(Object code) {
+        public static OptionalThing<DaSea> of(Object code) {
             if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof SearchMemberStatus) { return OptionalThing.of((SearchMemberStatus)code); }
+            if (code instanceof DaSea) { return OptionalThing.of((DaSea)code); }
             if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
             return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
                 throw new ClassificationNotFoundException("Unknown classification code: " + code);
@@ -120,7 +121,7 @@ public interface MysticAppCls extends Classification {
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<SearchMemberStatus> byName(String name) {
+        public static OptionalThing<DaSea> byName(String name) {
             if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
             return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
                 throw new ClassificationNotFoundException("Unknown classification name: " + name);
@@ -133,9 +134,9 @@ public interface MysticAppCls extends Classification {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static SearchMemberStatus codeOf(Object code) {
+        public static DaSea codeOf(Object code) {
             if (code == null) { return null; }
-            if (code instanceof SearchMemberStatus) { return (SearchMemberStatus)code; }
+            if (code instanceof DaSea) { return (DaSea)code; }
             return _codeClsMap.get(code.toString().toLowerCase());
         }
 
@@ -145,7 +146,7 @@ public interface MysticAppCls extends Classification {
          * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          */
-        public static SearchMemberStatus nameOf(String name) {
+        public static DaSea nameOf(String name) {
             if (name == null) { return null; }
             try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
         }
@@ -154,8 +155,8 @@ public interface MysticAppCls extends Classification {
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<SearchMemberStatus> listAll() {
-            return new ArrayList<SearchMemberStatus>(Arrays.asList(values()));
+        public static List<DaSea> listAll() {
+            return new ArrayList<DaSea>(Arrays.asList(values()));
         }
 
         /**
@@ -163,11 +164,11 @@ public interface MysticAppCls extends Classification {
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
          */
-        public static List<SearchMemberStatus> listByGroup(String groupName) {
+        public static List<DaSea> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
-            throw new ClassificationNotFoundException("Unknown classification group: SearchMemberStatus." + groupName);
+            throw new ClassificationNotFoundException("Unknown classification group: DaSea." + groupName);
         }
 
         /**
@@ -175,9 +176,9 @@ public interface MysticAppCls extends Classification {
          * @param codeList The list of plain code, which is case-insensitive. (NotNull)
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          */
-        public static List<SearchMemberStatus> listOf(Collection<String> codeList) {
+        public static List<DaSea> listOf(Collection<String> codeList) {
             if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<SearchMemberStatus> clsList = new ArrayList<SearchMemberStatus>(codeList.size());
+            List<DaSea> clsList = new ArrayList<DaSea>(codeList.size());
             for (String code : codeList) { clsList.add(of(code).get()); }
             return clsList;
         }
@@ -188,8 +189,8 @@ public interface MysticAppCls extends Classification {
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
-        public static List<SearchMemberStatus> listOfServiceAvailable() {
-            return new ArrayList<SearchMemberStatus>(Arrays.asList(Formalized, Provisional));
+        public static List<DaSea> listOfServiceAvailable() {
+            return new ArrayList<DaSea>(Arrays.asList(Formalized, Provisional));
         }
 
         /**
@@ -198,8 +199,8 @@ public interface MysticAppCls extends Classification {
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
-        public static List<SearchMemberStatus> listOfShortOfFormalized() {
-            return new ArrayList<SearchMemberStatus>(Arrays.asList(Provisional));
+        public static List<DaSea> listOfShortOfFormalized() {
+            return new ArrayList<DaSea>(Arrays.asList(Provisional));
         }
 
         /**
@@ -207,20 +208,20 @@ public interface MysticAppCls extends Classification {
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
-        public static List<SearchMemberStatus> groupOf(String groupName) {
+        public static List<DaSea> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            return new ArrayList<SearchMemberStatus>(4);
+            return new ArrayList<DaSea>(4);
         }
 
         /**
          * @param dbCls The DB classification to find. (NullAllowed: if null, returns empty)
          * @return The the app classification corresponding to the DB classification. (NotNull, EmptyAllowed: when null specified, not found)
          */
-        public static OptionalThing<SearchMemberStatus> fromDBCls(CDef.MemberStatus dbCls) {
+        public static OptionalThing<DaSea> fromDBCls(CDef.MemberStatus dbCls) {
             String dbCode = dbCls != null ? dbCls.code() : null;
             return OptionalThing.ofNullable(codeOf(dbCode), () -> {
-                throw new IllegalStateException("Cannot convert CDef.MemberStatus to SearchMemberStatus by the DB code: " + dbCode);
+                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaSea by the DB code: " + dbCode);
             });
         }
 
@@ -230,7 +231,7 @@ public interface MysticAppCls extends Classification {
         public OptionalThing<CDef.MemberStatus> toDBCls() {
             String appCode = code();
             return OptionalThing.ofNullable(CDef.MemberStatus.codeOf(appCode), () -> {
-                throw new IllegalStateException("Cannot convert SearchMemberStatus to MemberStatus by the app code: " + appCode);
+                throw new IllegalStateException("Cannot convert DaSea to MemberStatus by the app code: " + appCode);
             });
         }
 
@@ -238,26 +239,19 @@ public interface MysticAppCls extends Classification {
     }
 
     /**
-     * MemberStatus for search condition
+     * Land Cls
      */
-    public enum DeepWxDeprecatedCls implements MysticAppCls {
-        /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
+    public enum DaLand implements LeonardoCDef {
+        /** ShowBase: Formalized */
+        OneMan("FML", "ShowBase", emptyStrings())
         ,
-        /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
-        ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
-        /** All Statuses: without status filter */
-        All("ALL", "All Statuses", emptyStrings())
+        /** Orlean: Withdrawal */
+        MiniO("WDL", "Orlean", emptyStrings())
         ;
-        private static final Map<String, DeepWxDeprecatedCls> _codeClsMap = new HashMap<String, DeepWxDeprecatedCls>();
-        private static final Map<String, DeepWxDeprecatedCls> _nameClsMap = new HashMap<String, DeepWxDeprecatedCls>();
+        private static final Map<String, DaLand> _codeClsMap = new HashMap<String, DaLand>();
+        private static final Map<String, DaLand> _nameClsMap = new HashMap<String, DaLand>();
         static {
-            for (DeepWxDeprecatedCls value : values()) {
+            for (DaLand value : values()) {
                 _codeClsMap.put(value.code().toLowerCase(), value);
                 for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
             }
@@ -266,58 +260,28 @@ public interface MysticAppCls extends Classification {
         static {
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "1");
-                subItemMap.put("desc", "as formal member, allowed to use all service");
-                _subItemMapMap.put(Formalized.code(), Collections.unmodifiableMap(subItemMap));
+                subItemMap.put("keyword", "shining");
+                _subItemMapMap.put(OneMan.code(), Collections.unmodifiableMap(subItemMap));
             }
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "2");
-                subItemMap.put("desc", "withdrawal is fixed, not allowed to use service");
-                _subItemMapMap.put(Withdrawal.code(), Collections.unmodifiableMap(subItemMap));
-            }
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "3");
-                subItemMap.put("desc", "first status after entry, allowed to use only part of service");
-                _subItemMapMap.put(Provisional.code(), Collections.unmodifiableMap(subItemMap));
-            }
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                _subItemMapMap.put(All.code(), Collections.unmodifiableMap(subItemMap));
+                subItemMap.put("keyword", "party");
+                _subItemMapMap.put(MiniO.code(), Collections.unmodifiableMap(subItemMap));
             }
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
-        private DeepWxDeprecatedCls(String code, String alias, String[] sisters)
+        private DaLand(String code, String alias, String[] sisters)
         { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return MysticAppCls.DefMeta.DeepWxDeprecatedCls; }
+        public ClassificationMeta meta() { return LeonardoCDef.DefMeta.DaLand; }
 
-        /**
-         * Is the classification in the group? <br>
-         * means member that can use services <br>
-         * The group elements:[Formalized, Provisional]
-         * @return The determination, true or false.
-         */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
-        /**
-         * Is the classification in the group? <br>
-         * Members are not formalized yet <br>
-         * The group elements:[Provisional]
-         * @return The determination, true or false.
-         */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
+        public String keyword() {
+            return (String)subItemMap().get("keyword");
         }
 
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
             return false;
         }
 
@@ -326,9 +290,9 @@ public interface MysticAppCls extends Classification {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedCls> of(Object code) {
+        public static OptionalThing<DaLand> of(Object code) {
             if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof DeepWxDeprecatedCls) { return OptionalThing.of((DeepWxDeprecatedCls)code); }
+            if (code instanceof DaLand) { return OptionalThing.of((DaLand)code); }
             if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
             return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
                 throw new ClassificationNotFoundException("Unknown classification code: " + code);
@@ -340,7 +304,7 @@ public interface MysticAppCls extends Classification {
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedCls> byName(String name) {
+        public static OptionalThing<DaLand> byName(String name) {
             if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
             return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
                 throw new ClassificationNotFoundException("Unknown classification name: " + name);
@@ -353,9 +317,9 @@ public interface MysticAppCls extends Classification {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxDeprecatedCls codeOf(Object code) {
+        public static DaLand codeOf(Object code) {
             if (code == null) { return null; }
-            if (code instanceof DeepWxDeprecatedCls) { return (DeepWxDeprecatedCls)code; }
+            if (code instanceof DaLand) { return (DaLand)code; }
             return _codeClsMap.get(code.toString().toLowerCase());
         }
 
@@ -365,7 +329,7 @@ public interface MysticAppCls extends Classification {
          * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxDeprecatedCls nameOf(String name) {
+        public static DaLand nameOf(String name) {
             if (name == null) { return null; }
             try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
         }
@@ -374,8 +338,8 @@ public interface MysticAppCls extends Classification {
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<DeepWxDeprecatedCls> listAll() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(values()));
+        public static List<DaLand> listAll() {
+            return new ArrayList<DaLand>(Arrays.asList(values()));
         }
 
         /**
@@ -383,11 +347,9 @@ public interface MysticAppCls extends Classification {
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
          */
-        public static List<DeepWxDeprecatedCls> listByGroup(String groupName) {
+        public static List<DaLand> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
-            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
-            throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedCls." + groupName);
+            throw new ClassificationNotFoundException("Unknown classification group: DaLand." + groupName);
         }
 
         /**
@@ -395,31 +357,11 @@ public interface MysticAppCls extends Classification {
          * @param codeList The list of plain code, which is case-insensitive. (NotNull)
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          */
-        public static List<DeepWxDeprecatedCls> listOf(Collection<String> codeList) {
+        public static List<DaLand> listOf(Collection<String> codeList) {
             if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<DeepWxDeprecatedCls> clsList = new ArrayList<DeepWxDeprecatedCls>(codeList.size());
+            List<DaLand> clsList = new ArrayList<DaLand>(codeList.size());
             for (String code : codeList) { clsList.add(of(code).get()); }
             return clsList;
-        }
-
-        /**
-         * Get the list of group classification elements. (returns new copied list) <br>
-         * means member that can use services <br>
-         * The group elements:[Formalized, Provisional]
-         * @return The snapshot list of classification elements in the group. (NotNull)
-         */
-        public static List<DeepWxDeprecatedCls> listOfServiceAvailable() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Formalized, Provisional));
-        }
-
-        /**
-         * Get the list of group classification elements. (returns new copied list) <br>
-         * Members are not formalized yet <br>
-         * The group elements:[Provisional]
-         * @return The snapshot list of classification elements in the group. (NotNull)
-         */
-        public static List<DeepWxDeprecatedCls> listOfShortOfFormalized() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Provisional));
         }
 
         /**
@@ -427,20 +369,18 @@ public interface MysticAppCls extends Classification {
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
-        public static List<DeepWxDeprecatedCls> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            return new ArrayList<DeepWxDeprecatedCls>(4);
+        public static List<DaLand> groupOf(String groupName) {
+            return new ArrayList<DaLand>(4);
         }
 
         /**
          * @param dbCls The DB classification to find. (NullAllowed: if null, returns empty)
          * @return The the app classification corresponding to the DB classification. (NotNull, EmptyAllowed: when null specified, not found)
          */
-        public static OptionalThing<DeepWxDeprecatedCls> fromDBCls(CDef.MemberStatus dbCls) {
+        public static OptionalThing<DaLand> fromDBCls(CDef.MemberStatus dbCls) {
             String dbCode = dbCls != null ? dbCls.code() : null;
             return OptionalThing.ofNullable(codeOf(dbCode), () -> {
-                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DeepWxDeprecatedCls by the DB code: " + dbCode);
+                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaLand by the DB code: " + dbCode);
             });
         }
 
@@ -450,7 +390,7 @@ public interface MysticAppCls extends Classification {
         public OptionalThing<CDef.MemberStatus> toDBCls() {
             String appCode = code();
             return OptionalThing.ofNullable(CDef.MemberStatus.codeOf(appCode), () -> {
-                throw new IllegalStateException("Cannot convert DeepWxDeprecatedCls to MemberStatus by the app code: " + appCode);
+                throw new IllegalStateException("Cannot convert DaLand to MemberStatus by the app code: " + appCode);
             });
         }
 
@@ -458,87 +398,35 @@ public interface MysticAppCls extends Classification {
     }
 
     /**
-     * MemberStatus for search condition
+     * Piari Cls
      */
-    public enum DeepWxDeprecatedElement implements MysticAppCls {
-        /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
+    public enum DaPiari implements LeonardoCDef {
+        /** ShowBase: Formalized */
+        OneMan("FML", "ShowBase", emptyStrings())
         ,
-        /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
+        /** Dstore: Provisional */
+        Dstore("PRV", "Dstore", emptyStrings())
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
-        /** All Statuses: without status filter (deprecated: why?why?) */
-        @Deprecated
-        All("ALL", "All Statuses", emptyStrings())
+        /** Orlean: Withdrawal */
+        MiniO("WDL", "Orlean", emptyStrings())
         ;
-        private static final Map<String, DeepWxDeprecatedElement> _codeClsMap = new HashMap<String, DeepWxDeprecatedElement>();
-        private static final Map<String, DeepWxDeprecatedElement> _nameClsMap = new HashMap<String, DeepWxDeprecatedElement>();
+        private static final Map<String, DaPiari> _codeClsMap = new HashMap<String, DaPiari>();
+        private static final Map<String, DaPiari> _nameClsMap = new HashMap<String, DaPiari>();
         static {
-            for (DeepWxDeprecatedElement value : values()) {
+            for (DaPiari value : values()) {
                 _codeClsMap.put(value.code().toLowerCase(), value);
                 for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
             }
         }
-        private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
-        static {
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "1");
-                subItemMap.put("desc", "as formal member, allowed to use all service");
-                _subItemMapMap.put(Formalized.code(), Collections.unmodifiableMap(subItemMap));
-            }
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "2");
-                subItemMap.put("desc", "withdrawal is fixed, not allowed to use service");
-                _subItemMapMap.put(Withdrawal.code(), Collections.unmodifiableMap(subItemMap));
-            }
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "3");
-                subItemMap.put("desc", "first status after entry, allowed to use only part of service");
-                _subItemMapMap.put(Provisional.code(), Collections.unmodifiableMap(subItemMap));
-            }
-            {
-                Map<String, Object> subItemMap = new HashMap<String, Object>();
-                _subItemMapMap.put(All.code(), Collections.unmodifiableMap(subItemMap));
-            }
-        }
         private String _code; private String _alias; private Set<String> _sisterSet;
-        private DeepWxDeprecatedElement(String code, String alias, String[] sisters)
+        private DaPiari(String code, String alias, String[] sisters)
         { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
-        public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return MysticAppCls.DefMeta.DeepWxDeprecatedElement; }
-
-        /**
-         * Is the classification in the group? <br>
-         * means member that can use services <br>
-         * The group elements:[Formalized, Provisional]
-         * @return The determination, true or false.
-         */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
-        /**
-         * Is the classification in the group? <br>
-         * Members are not formalized yet <br>
-         * The group elements:[Provisional]
-         * @return The determination, true or false.
-         */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
+        public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
+        public ClassificationMeta meta() { return LeonardoCDef.DefMeta.DaPiari; }
 
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
             return false;
         }
 
@@ -547,9 +435,9 @@ public interface MysticAppCls extends Classification {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedElement> of(Object code) {
+        public static OptionalThing<DaPiari> of(Object code) {
             if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof DeepWxDeprecatedElement) { return OptionalThing.of((DeepWxDeprecatedElement)code); }
+            if (code instanceof DaPiari) { return OptionalThing.of((DaPiari)code); }
             if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
             return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
                 throw new ClassificationNotFoundException("Unknown classification code: " + code);
@@ -561,7 +449,7 @@ public interface MysticAppCls extends Classification {
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedElement> byName(String name) {
+        public static OptionalThing<DaPiari> byName(String name) {
             if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
             return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
                 throw new ClassificationNotFoundException("Unknown classification name: " + name);
@@ -574,9 +462,9 @@ public interface MysticAppCls extends Classification {
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxDeprecatedElement codeOf(Object code) {
+        public static DaPiari codeOf(Object code) {
             if (code == null) { return null; }
-            if (code instanceof DeepWxDeprecatedElement) { return (DeepWxDeprecatedElement)code; }
+            if (code instanceof DaPiari) { return (DaPiari)code; }
             return _codeClsMap.get(code.toString().toLowerCase());
         }
 
@@ -586,7 +474,7 @@ public interface MysticAppCls extends Classification {
          * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxDeprecatedElement nameOf(String name) {
+        public static DaPiari nameOf(String name) {
             if (name == null) { return null; }
             try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
         }
@@ -595,8 +483,8 @@ public interface MysticAppCls extends Classification {
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<DeepWxDeprecatedElement> listAll() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(values()));
+        public static List<DaPiari> listAll() {
+            return new ArrayList<DaPiari>(Arrays.asList(values()));
         }
 
         /**
@@ -604,11 +492,9 @@ public interface MysticAppCls extends Classification {
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
          */
-        public static List<DeepWxDeprecatedElement> listByGroup(String groupName) {
+        public static List<DaPiari> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
-            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
-            throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedElement." + groupName);
+            throw new ClassificationNotFoundException("Unknown classification group: DaPiari." + groupName);
         }
 
         /**
@@ -616,31 +502,11 @@ public interface MysticAppCls extends Classification {
          * @param codeList The list of plain code, which is case-insensitive. (NotNull)
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          */
-        public static List<DeepWxDeprecatedElement> listOf(Collection<String> codeList) {
+        public static List<DaPiari> listOf(Collection<String> codeList) {
             if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<DeepWxDeprecatedElement> clsList = new ArrayList<DeepWxDeprecatedElement>(codeList.size());
+            List<DaPiari> clsList = new ArrayList<DaPiari>(codeList.size());
             for (String code : codeList) { clsList.add(of(code).get()); }
             return clsList;
-        }
-
-        /**
-         * Get the list of group classification elements. (returns new copied list) <br>
-         * means member that can use services <br>
-         * The group elements:[Formalized, Provisional]
-         * @return The snapshot list of classification elements in the group. (NotNull)
-         */
-        public static List<DeepWxDeprecatedElement> listOfServiceAvailable() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Formalized, Provisional));
-        }
-
-        /**
-         * Get the list of group classification elements. (returns new copied list) <br>
-         * Members are not formalized yet <br>
-         * The group elements:[Provisional]
-         * @return The snapshot list of classification elements in the group. (NotNull)
-         */
-        public static List<DeepWxDeprecatedElement> listOfShortOfFormalized() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Provisional));
         }
 
         /**
@@ -648,20 +514,18 @@ public interface MysticAppCls extends Classification {
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
-        public static List<DeepWxDeprecatedElement> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            return new ArrayList<DeepWxDeprecatedElement>(4);
+        public static List<DaPiari> groupOf(String groupName) {
+            return new ArrayList<DaPiari>(4);
         }
 
         /**
          * @param dbCls The DB classification to find. (NullAllowed: if null, returns empty)
          * @return The the app classification corresponding to the DB classification. (NotNull, EmptyAllowed: when null specified, not found)
          */
-        public static OptionalThing<DeepWxDeprecatedElement> fromDBCls(CDef.MemberStatus dbCls) {
+        public static OptionalThing<DaPiari> fromDBCls(CDef.MemberStatus dbCls) {
             String dbCode = dbCls != null ? dbCls.code() : null;
             return OptionalThing.ofNullable(codeOf(dbCode), () -> {
-                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DeepWxDeprecatedElement by the DB code: " + dbCode);
+                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaPiari by the DB code: " + dbCode);
             });
         }
 
@@ -671,7 +535,7 @@ public interface MysticAppCls extends Classification {
         public OptionalThing<CDef.MemberStatus> toDBCls() {
             String appCode = code();
             return OptionalThing.ofNullable(CDef.MemberStatus.codeOf(appCode), () -> {
-                throw new IllegalStateException("Cannot convert DeepWxDeprecatedElement to MemberStatus by the app code: " + appCode);
+                throw new IllegalStateException("Cannot convert DaPiari to MemberStatus by the app code: " + appCode);
             });
         }
 
@@ -679,72 +543,72 @@ public interface MysticAppCls extends Classification {
     }
 
     public enum DefMeta implements ClassificationMeta {
-        /** MemberStatus for search condition */
-        SearchMemberStatus
+        /** Sea Cls */
+        DaSea
         ,
-        /** MemberStatus for search condition */
-        DeepWxDeprecatedCls
+        /** Land Cls */
+        DaLand
         ,
-        /** MemberStatus for search condition */
-        DeepWxDeprecatedElement
+        /** Piari Cls */
+        DaPiari
         ;
         public String classificationName() {
             return name(); // same as definition name
         }
 
         public OptionalThing<? extends Classification> of(Object code) {
-            if (SearchMemberStatus.name().equals(name())) { return MysticAppCls.SearchMemberStatus.of(code); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedCls.of(code); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedElement.of(code); }
+            if (DaSea.name().equals(name())) { return LeonardoCDef.DaSea.of(code); }
+            if (DaLand.name().equals(name())) { return LeonardoCDef.DaLand.of(code); }
+            if (DaPiari.name().equals(name())) { return LeonardoCDef.DaPiari.of(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public OptionalThing<? extends Classification> byName(String name) {
-            if (SearchMemberStatus.name().equals(name())) { return MysticAppCls.SearchMemberStatus.byName(name); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedCls.byName(name); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedElement.byName(name); }
+            if (DaSea.name().equals(name())) { return LeonardoCDef.DaSea.byName(name); }
+            if (DaLand.name().equals(name())) { return LeonardoCDef.DaLand.byName(name); }
+            if (DaPiari.name().equals(name())) { return LeonardoCDef.DaPiari.byName(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public Classification codeOf(Object code) { // null if not found, old style so use of(code)
-            if (SearchMemberStatus.name().equals(name())) { return MysticAppCls.SearchMemberStatus.codeOf(code); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedCls.codeOf(code); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedElement.codeOf(code); }
+            if (DaSea.name().equals(name())) { return LeonardoCDef.DaSea.codeOf(code); }
+            if (DaLand.name().equals(name())) { return LeonardoCDef.DaLand.codeOf(code); }
+            if (DaPiari.name().equals(name())) { return LeonardoCDef.DaPiari.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public Classification nameOf(String name) { // null if not found, old style so use byName(name)
-            if (SearchMemberStatus.name().equals(name())) { return MysticAppCls.SearchMemberStatus.valueOf(name); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedCls.valueOf(name); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return MysticAppCls.DeepWxDeprecatedElement.valueOf(name); }
+            if (DaSea.name().equals(name())) { return LeonardoCDef.DaSea.valueOf(name); }
+            if (DaLand.name().equals(name())) { return LeonardoCDef.DaLand.valueOf(name); }
+            if (DaPiari.name().equals(name())) { return LeonardoCDef.DaPiari.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listAll() {
-            if (SearchMemberStatus.name().equals(name())) { return toClsList(MysticAppCls.SearchMemberStatus.listAll()); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedCls.listAll()); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedElement.listAll()); }
+            if (DaSea.name().equals(name())) { return toClsList(LeonardoCDef.DaSea.listAll()); }
+            if (DaLand.name().equals(name())) { return toClsList(LeonardoCDef.DaLand.listAll()); }
+            if (DaPiari.name().equals(name())) { return toClsList(LeonardoCDef.DaPiari.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listByGroup(String groupName) { // exception if not found
-            if (SearchMemberStatus.name().equals(name())) { return toClsList(MysticAppCls.SearchMemberStatus.listByGroup(groupName)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedCls.listByGroup(groupName)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedElement.listByGroup(groupName)); }
+            if (DaSea.name().equals(name())) { return toClsList(LeonardoCDef.DaSea.listByGroup(groupName)); }
+            if (DaLand.name().equals(name())) { return toClsList(LeonardoCDef.DaLand.listByGroup(groupName)); }
+            if (DaPiari.name().equals(name())) { return toClsList(LeonardoCDef.DaPiari.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown groupName: " + groupName + ", " + this); // basically unreachable
         }
 
         public List<Classification> listOf(Collection<String> codeList) {
-            if (SearchMemberStatus.name().equals(name())) { return toClsList(MysticAppCls.SearchMemberStatus.listOf(codeList)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedCls.listOf(codeList)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedElement.listOf(codeList)); }
+            if (DaSea.name().equals(name())) { return toClsList(LeonardoCDef.DaSea.listOf(codeList)); }
+            if (DaLand.name().equals(name())) { return toClsList(LeonardoCDef.DaLand.listOf(codeList)); }
+            if (DaPiari.name().equals(name())) { return toClsList(LeonardoCDef.DaPiari.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> groupOf(String groupName) { // old style
-            if (SearchMemberStatus.name().equals(name())) { return toClsList(MysticAppCls.SearchMemberStatus.groupOf(groupName)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedCls.groupOf(groupName)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(MysticAppCls.DeepWxDeprecatedElement.groupOf(groupName)); }
+            if (DaSea.name().equals(name())) { return toClsList(LeonardoCDef.DaSea.groupOf(groupName)); }
+            if (DaLand.name().equals(name())) { return toClsList(LeonardoCDef.DaLand.groupOf(groupName)); }
+            if (DaPiari.name().equals(name())) { return toClsList(LeonardoCDef.DaPiari.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -754,34 +618,34 @@ public interface MysticAppCls extends Classification {
         }
 
         public ClassificationCodeType codeType() {
-            if (SearchMemberStatus.name().equals(name())) { return ClassificationCodeType.String; }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return ClassificationCodeType.String; }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return ClassificationCodeType.String; }
+            if (DaSea.name().equals(name())) { return ClassificationCodeType.String; }
+            if (DaLand.name().equals(name())) { return ClassificationCodeType.String; }
+            if (DaPiari.name().equals(name())) { return ClassificationCodeType.String; }
             return ClassificationCodeType.String; // as default
         }
 
         public ClassificationUndefinedHandlingType undefinedHandlingType() {
-            if (SearchMemberStatus.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
+            if (DaSea.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
+            if (DaLand.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
+            if (DaPiari.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
             return ClassificationUndefinedHandlingType.LOGGING; // as default
         }
 
-        public static OptionalThing<MysticAppCls.DefMeta> find(String classificationName) { // instead of valueOf()
+        public static OptionalThing<LeonardoCDef.DefMeta> find(String classificationName) { // instead of valueOf()
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (SearchMemberStatus.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(MysticAppCls.DefMeta.SearchMemberStatus); }
-            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(MysticAppCls.DefMeta.DeepWxDeprecatedCls); }
-            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(MysticAppCls.DefMeta.DeepWxDeprecatedElement); }
+            if (DaSea.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(LeonardoCDef.DefMeta.DaSea); }
+            if (DaLand.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(LeonardoCDef.DefMeta.DaLand); }
+            if (DaPiari.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(LeonardoCDef.DefMeta.DaPiari); }
             return OptionalThing.ofNullable(null, () -> {
                 throw new ClassificationNotFoundException("Unknown classification: " + classificationName);
             });
         }
 
-        public static MysticAppCls.DefMeta meta(String classificationName) { // old style so use find(name)
+        public static LeonardoCDef.DefMeta meta(String classificationName) { // old style so use find(name)
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (SearchMemberStatus.name().equalsIgnoreCase(classificationName)) { return MysticAppCls.DefMeta.SearchMemberStatus; }
-            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return MysticAppCls.DefMeta.DeepWxDeprecatedCls; }
-            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return MysticAppCls.DefMeta.DeepWxDeprecatedElement; }
+            if (DaSea.name().equalsIgnoreCase(classificationName)) { return LeonardoCDef.DefMeta.DaSea; }
+            if (DaLand.name().equalsIgnoreCase(classificationName)) { return LeonardoCDef.DefMeta.DaLand; }
+            if (DaPiari.name().equalsIgnoreCase(classificationName)) { return LeonardoCDef.DefMeta.DaPiari; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
         }
 

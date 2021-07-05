@@ -15,19 +15,22 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    # as Manual FreeGen, so generating MysticAppCls.java
+    # _/_/_/_/_/_/_/_/_/_/
+
+    # ====================================================================================
+    #                                                                           Simulation
+    #                                                                           ==========
     ; SearchMemberStatus = list:{
         ; map:{ topComment=MemberStatus for search condition ; codeType=String }
         ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
         ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
     }
-    ; TestDeprecatedClsStatus = list:{
-        ; map:{
-            ; topComment=MemberStatus for search condition ; codeType=String
-            ; isDeprecated=true
-        }
-        ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
-        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
-    }
+
+    # ====================================================================================
+    #                                                                    Redundant Comment
+    #                                                                    =================
     # test of redundant comment stop
     #; TestRedundantCommentStatus = list:{
     #    ; map:{
@@ -37,5 +40,28 @@ map:{
     #    ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
     #    ; map:{ code=ALL; name=All; alias=All Statuses; comment=All Statuses }
     #}
+
+    # ====================================================================================
+    #                                                                        Deep Whitebox
+    #                                                                        =============
+    ; DeepWxDeprecatedCls = list:{
+        ; map:{
+            ; topComment=MemberStatus for search condition ; codeType=String
+            ; isDeprecated=true
+        }
+        ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
+        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
+    }
+    ; DeepWxDeprecatedElement = list:{
+        ; map:{
+            ; topComment=MemberStatus for search condition ; codeType=String
+            ; deprecatedMap = map:{
+                ; Provisional = why?
+                ; All = why?why?
+            }
+        }
+        ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
+        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
+    }
 }
 # ----------------/

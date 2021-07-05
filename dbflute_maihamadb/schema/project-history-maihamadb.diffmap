@@ -1,4 +1,54 @@
 map:{
+    ; 2021/06/17 16:22:49 = map:{
+        ; diffDate = 2021/06/17 16:22:49
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; craftDiff = map:{
+            ; MemberStatus = map:{
+                ; craftTitle = MemberStatus
+                ; craftRowDiff = map:{
+                    ; DRA = map:{
+                        ; craftKeyName = DRA
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; TableCls = map:{
+                ; craftTitle = TableCls
+                ; craftRowDiff = map:{
+                    ; MEMBER_STATUS::DRA = map:{
+                        ; craftKeyName = MEMBER_STATUS::DRA
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2021/06/17 16:21:40 = map:{
+        ; diffDate = 2021/06/17 16:21:40
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; craftDiff = map:{
+            ; MemberStatus = map:{
+                ; craftTitle = MemberStatus
+                ; craftRowDiff = map:{
+                    ; DRA = map:{
+                        ; craftKeyName = DRA
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; TableCls = map:{
+                ; craftTitle = TableCls
+                ; craftRowDiff = map:{
+                    ; MEMBER_STATUS::DRA = map:{
+                        ; craftKeyName = MEMBER_STATUS::DRA
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
     ; 2020/12/30 16:42:42 = map:{
         ; diffDate = 2020/12/30 16:42:42
         ; tableCount = map:{

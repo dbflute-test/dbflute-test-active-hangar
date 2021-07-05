@@ -60,12 +60,23 @@ map:{
         ; map:{
             ; topComment=status of member from entry to withdrawal
             ; codeType=String ; undefinedHandlingType=EXCEPTION
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    ; groupComment = means member that can use services
+                    ; elementList = list:{Formalized;Provisional}
+                }
+                ; shortOfFormalized = map:{
+                    ; groupComment = Members are not formalized yet
+                    ; elementList = list:{Provisional}
+                }
+            }
         }
         ; map:{
             ; table=MEMBER_STATUS
             ; code=MEMBER_STATUS_CODE; name=MEMBER_STATUS_NAME
             ; comment=DESCRIPTION; orderBy=DISPLAY_ORDER
-            ; subItemMap=map:{key1=DISPLAY_ORDER;key2=DESCRIPTION}
+            ; subItemMap=map:{ order=DISPLAY_ORDER ; desc=DESCRIPTION }
+            ; sisterCode=list:{ MEMBER_STATUS_NAME ; DISPLAY_ORDER }
         }
     }
     ; ServiceRank = list:{
