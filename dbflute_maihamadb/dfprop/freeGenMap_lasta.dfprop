@@ -1,4 +1,5 @@
 map:{
+    # test of independent classification generation
     ; LastaAppClsGen = map:{
         ; resourceMap = map:{
             ; resourceType = APP_CLS
@@ -15,19 +16,21 @@ map:{
             #; isSuppressRedundantCommentStop = true
         }
     }
-    ; LastaNamedClsDfpropGen = map:{
+    # test of dfprop generation, already embedded however quick test here
+    ; LastaClientClsGen = map:{
         ; resourceMap = map:{
             ; resourceType = APP_CLS
             ; resourceFile = ../src/main/resources/hangar_appcls.dfprop
         }
         ; outputMap = map:{
             ; outputDirectory = ../target
-            ; package = namedcls
-            ; templateFile = lasta/NamedClsDfProp.vm
-            ; className = hangar_sharedself_cls
+            ; package = self_clientcls
+            ; templateFile = lasta/HangarClientCls.vm
+            ; className = hangar_selfclient_cls
             ; fileExt = dfprop
         }
         ; optionMap = map:{
+            ; serverServiceName = hangar
         }
     }
 }

@@ -29,8 +29,17 @@
 #
 # *The line that starts with '#' means comment-out.
 #
-## TODO jflute needs to escape for dfprop value
 map:{
+    # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    # Auto-generated dfprop for classification in client project of ${optionMap.serverServiceName}
+    #
+    # (Don't fix this file manually)
+    #
+#foreach ($classificationTop in $optionMap.classificationTopList)
+#set ($classificationName = $classificationTop.classificationName)
+    # ${classificationName}: ${classificationTop.topCommentDisp}
+#end
+    # _/_/_/_/_/_/_/_/_/_/
 #foreach ($classificationTop in $optionMap.classificationTopList)
 #set ($classificationName = $classificationTop.classificationName)
     ; ${classificationName} = list:{

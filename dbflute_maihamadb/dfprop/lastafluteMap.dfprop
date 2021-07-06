@@ -32,7 +32,7 @@ map:{
     ; appMap = map:{
         ; hangar = map:{
             ; path = ..
-            ; freeGenList = list:{ appcls ; namedcls }
+            ; freeGenList = list:{ appcls ; namedcls ; clientcls }
             ; propertiesHtmlList = list:{}
         }
     }
