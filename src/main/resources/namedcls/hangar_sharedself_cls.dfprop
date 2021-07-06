@@ -1,0 +1,415 @@
+# /---------------------------------------------------------------------------
+# appcls: (NotRequired - Default map:{})
+#
+# The definition of application classification.
+#
+# Specification:
+# map: {
+#     [classification-name] = list:{
+#         ; map:{ topComment=[comment]; codeType=[String(default) or Number or Boolean] }
+#         ; map:{ refCls=[projectName]@[DB classification name] ; refType=[included or exists or matches] }
+#         ; map:{ code=[code]; name=[name]; alias=[alias]; comment=[comment] }
+#     }
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    ; AppSea = list:{
+        ; map:{
+            ; topComment=test of included, expects grouping, sub-item, sisters
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ Withdrawal }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=Withdrawal ; alias=Withdrawal
+            ; comment=withdrawal is fixed, not allowed to use service
+            ; sisterCode=list:{Withdrawal}
+            ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+    }
+    ; AppLand = list:{
+        ; map:{
+            ; topComment=test of exists, expects no grouping, no sub-item, sisters
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ MiniO }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+        }
+        ; map:{
+            ; code=WDL ; name=MiniO ; alias=Orlean
+            ; comment=Withdrawal
+        }
+    }
+    ; AppPiari = list:{
+        ; map:{
+            ; topComment=test of matches, expects no grouping, no sub-item, sisters
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan ; Parade }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Parade }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ MiniO }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+        }
+        ; map:{
+            ; code=PRV ; name=Parade ; alias=Castle
+            ; comment=Provisional
+        }
+        ; map:{
+            ; code=WDL ; name=MiniO ; alias=Orlean
+            ; comment=Withdrawal
+        }
+    }
+    ; AppBonvo = list:{
+        ; map:{
+            ; topComment=test of manual grouping map using refCls as included, expects overridden, added
+            ; codeType=String
+            ; groupingMap = map:{
+                ; appNewLiteralAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional ; Mystic }
+                }
+                ; appNewRefExistingGroupAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional ; Mystic }
+                }
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ Withdrawal }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=Withdrawal ; alias=Withdrawal
+            ; comment=withdrawal is fixed, not allowed to use service
+            ; sisterCode=list:{Withdrawal}
+            ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+        ; map:{
+            ; code=MYS ; name=Mystic ; alias=Hangar
+            ; comment=Rhythms
+            ; subItemMap=map:{order=88}
+        }
+    }
+    ; AppDstore = list:{
+        ; map:{
+            ; topComment=test of manual grouping map using refCls as exists, expects new grouping is available
+            ; codeType=String
+            ; groupingMap = map:{
+                ; appNewAvailable = map:{
+                    elementList = list:{ OneMan ; MiniO }
+                }
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ MiniO }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+        }
+        ; map:{
+            ; code=WDL ; name=MiniO ; alias=Orlean
+            ; comment=Withdrawal
+        }
+    }
+    ; AppAmba = list:{
+        ; map:{
+            ; topComment=test of manual sub-item and sisters as included, expects merged, only order() exists
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ Withdrawal }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=Withdrawal ; alias=Withdrawal
+            ; comment=withdrawal is fixed, not allowed to use service
+            ; sisterCode=list:{Withdrawal}
+            ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+        ; map:{
+            ; code=MYS ; name=Mystic ; alias=Hangar
+            ; comment=Rhythms
+            ; sisterCode=list:{Choucho}
+            ; subItemMap=map:{order=1;newKeyword=shining}
+        }
+    }
+    ; AppMiraco = list:{
+        ; map:{
+            ; topComment=test of manual sub-item and sisters as exists, expects new only here
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ MiniO }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+            ; sisterCode=list:{ONE}
+            ; subItemMap=map:{order=1;newKeyword=shining}
+        }
+        ; map:{
+            ; code=WDL ; name=MiniO ; alias=Orlean
+            ; comment=Withdrawal
+            ; sisterCode=list:{MIN}
+            ; subItemMap=map:{order=8;newKeyword=party}
+        }
+    }
+    ; AppDohotel = list:{
+        ; map:{
+            ; topComment=test of referring group, expects grouped elements only and sub-item, sisters exist
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+    }
+    ; AppFlg = list:{
+        ; map:{
+            ; topComment=test of including sub-item and sisters when implicit classification
+            ; codeType=String
+        }
+        ; map:{
+            ; code=1 ; name=True ; alias=Yes
+            ; comment=means valid
+            ; sisterCode=list:{true}
+            ; subItemMap=map:{key1=value1}
+        }
+        ; map:{
+            ; code=0 ; name=False ; alias=No
+            ; comment=means invalid
+            ; sisterCode=list:{false}
+            ; subItemMap=map:{key1=value1}
+        }
+    }
+    ; AppPaymentMethod = list:{
+        ; map:{
+            ; topComment=test of including grouping map when implicit classification
+            ; codeType=String
+            ; groupingMap = map:{
+                ; recommended = map:{
+                    elementList = list:{ ByHand }
+                }
+            }
+        }
+        ; map:{
+            ; code=HAN ; name=ByHand ; alias=by hand
+            ; comment=payment by hand, face-to-face
+        }
+        ; map:{
+            ; code=BAK ; name=BankTransfer ; alias=bank transfer
+            ; comment=bank transfer payment
+        }
+        ; map:{
+            ; code=CRC ; name=CreditCard ; alias=credit card
+            ; comment=credit card payment
+        }
+    }
+    ; DeepWxLiteralGrouping = list:{
+        ; map:{
+            ; topComment=test of groupingMap when literal only
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan ; Parade }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+        }
+        ; map:{
+            ; code=PRV ; name=Parade ; alias=Castle
+            ; comment=Provisional
+        }
+        ; map:{
+            ; code=WDL ; name=MiniO ; alias=Orlean
+            ; comment=Withdrawal
+        }
+    }
+    ; DeepWxDeprecatedCls = list:{
+        ; map:{
+            ; topComment=test of deprecated classification top
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ Withdrawal }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=Withdrawal ; alias=Withdrawal
+            ; comment=withdrawal is fixed, not allowed to use service
+            ; sisterCode=list:{Withdrawal}
+            ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+        ; map:{
+            ; code=ALL ; name=All ; alias=All Statuses
+            ; comment=without status filter
+        }
+    }
+    ; DeepWxDeprecatedElement = list:{
+        ; map:{
+            ; topComment=test of deprecatedMap
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ Withdrawal }
+                }
+            }
+            ; deprecatedMap = map:{
+                ; Provisional = test of deprecated
+                ; All = and also test of deprecated
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=Withdrawal ; alias=Withdrawal
+            ; comment=withdrawal is fixed, not allowed to use service
+            ; sisterCode=list:{Withdrawal}
+            ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+        ; map:{
+            ; code=ALL ; name=All ; alias=All Statuses
+            ; comment=without status filter
+        }
+    }
+}
+# ----------------/

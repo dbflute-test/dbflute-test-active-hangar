@@ -24,7 +24,7 @@ map:{
             ; outputDirectory = ../target
             ; package = namedcls
             ; templateFile = lasta/NamedClsDfProp.vm
-            ; className = hangar_self_cls
+            ; className = hangar_sharedself_cls
             ; fileExt = dfprop
         }
         ; optionMap = map:{
