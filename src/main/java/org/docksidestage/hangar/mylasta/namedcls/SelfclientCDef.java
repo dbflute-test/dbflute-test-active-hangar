@@ -11,15 +11,15 @@ import org.dbflute.optional.OptionalThing;
 import static org.dbflute.util.DfTypeUtil.emptyStrings;
 
 /**
- * The definition of sharedself classification.
+ * The definition of selfclient classification.
  * @author FreeGen
  */
-public interface SharedselfCDef extends Classification {
+public interface SelfclientCDef extends Classification {
 
     /**
      * test of included, expects grouping, sub-item, sisters
      */
-    public enum AppSea implements SharedselfCDef {
+    public enum AppSea implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -64,7 +64,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppSea; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppSea; }
 
         public String order() {
             return (String)subItemMap().get("order");
@@ -235,7 +235,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of exists, expects no grouping, no sub-item, sisters
      */
-    public enum AppLand implements SharedselfCDef {
+    public enum AppLand implements SelfclientCDef {
         /** ShowBase: Formalized */
         OneMan("FML", "ShowBase", emptyStrings())
         ,
@@ -256,7 +256,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppLand; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppLand; }
 
         /**
          * Is the classification in the group? <br>
@@ -398,7 +398,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of matches, expects no grouping, no sub-item, sisters
      */
-    public enum AppPiari implements SharedselfCDef {
+    public enum AppPiari implements SelfclientCDef {
         /** ShowBase: Formalized */
         OneMan("FML", "ShowBase", emptyStrings())
         ,
@@ -422,7 +422,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppPiari; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppPiari; }
 
         /**
          * Is the classification in the group? <br>
@@ -585,7 +585,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of manual grouping map using refCls as included, expects overridden, added
      */
-    public enum AppBonvo implements SharedselfCDef {
+    public enum AppBonvo implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -638,7 +638,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppBonvo; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppBonvo; }
 
         public String order() {
             return (String)subItemMap().get("order");
@@ -847,7 +847,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of manual grouping map using refCls as exists, expects new grouping is available
      */
-    public enum AppDstore implements SharedselfCDef {
+    public enum AppDstore implements SelfclientCDef {
         /** ShowBase: Formalized */
         OneMan("FML", "ShowBase", emptyStrings())
         ,
@@ -868,7 +868,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppDstore; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppDstore; }
 
         /**
          * Is the classification in the group? <br>
@@ -1031,7 +1031,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of manual sub-item and sisters as included, expects merged, only order() exists
      */
-    public enum AppAmba implements SharedselfCDef {
+    public enum AppAmba implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -1085,7 +1085,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppAmba; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppAmba; }
 
         public String order() {
             return (String)subItemMap().get("order");
@@ -1252,7 +1252,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of manual sub-item and sisters as exists, expects new only here
      */
-    public enum AppMiraco implements SharedselfCDef {
+    public enum AppMiraco implements SelfclientCDef {
         /** ShowBase: Formalized */
         OneMan("FML", "ShowBase", new String[] {"ONE"})
         ,
@@ -1288,7 +1288,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppMiraco; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppMiraco; }
 
         public String order() {
             return (String)subItemMap().get("order");
@@ -1438,7 +1438,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of referring group, expects grouped elements only and sub-item, sisters exist
      */
-    public enum AppDohotel implements SharedselfCDef {
+    public enum AppDohotel implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -1474,7 +1474,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppDohotel; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppDohotel; }
 
         public String order() {
             return (String)subItemMap().get("order");
@@ -1624,7 +1624,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of including sub-item and sisters when implicit classification
      */
-    public enum AppFlg implements SharedselfCDef {
+    public enum AppFlg implements SelfclientCDef {
         /** Yes: means valid */
         True("1", "Yes", new String[] {"true"})
         ,
@@ -1658,7 +1658,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppFlg; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppFlg; }
 
         public String key1() {
             return (String)subItemMap().get("key1");
@@ -1762,7 +1762,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of including grouping map when implicit classification
      */
-    public enum AppPaymentMethod implements SharedselfCDef {
+    public enum AppPaymentMethod implements SelfclientCDef {
         /** by hand: payment by hand, face-to-face */
         ByHand("HAN", "by hand", emptyStrings())
         ,
@@ -1786,7 +1786,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.AppPaymentMethod; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppPaymentMethod; }
 
         /**
          * Is the classification in the group? <br>
@@ -1907,7 +1907,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of groupingMap when literal only
      */
-    public enum DeepWxLiteralGrouping implements SharedselfCDef {
+    public enum DeepWxLiteralGrouping implements SelfclientCDef {
         /** ShowBase: Formalized */
         OneMan("FML", "ShowBase", emptyStrings())
         ,
@@ -1931,7 +1931,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.DeepWxLiteralGrouping; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.DeepWxLiteralGrouping; }
 
         /**
          * Is the classification in the group? <br>
@@ -2052,7 +2052,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of deprecated classification top
      */
-    public enum DeepWxDeprecatedCls implements SharedselfCDef {
+    public enum DeepWxDeprecatedCls implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -2104,7 +2104,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.DeepWxDeprecatedCls; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.DeepWxDeprecatedCls; }
 
         /**
          * Is the classification in the group? <br>
@@ -2267,7 +2267,7 @@ public interface SharedselfCDef extends Classification {
     /**
      * test of deprecatedMap
      */
-    public enum DeepWxDeprecatedElement implements SharedselfCDef {
+    public enum DeepWxDeprecatedElement implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
@@ -2321,7 +2321,7 @@ public interface SharedselfCDef extends Classification {
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
-        public ClassificationMeta meta() { return SharedselfCDef.DefMeta.DeepWxDeprecatedElement; }
+        public ClassificationMeta meta() { return SelfclientCDef.DefMeta.DeepWxDeprecatedElement; }
 
         /**
          * Is the classification in the group? <br>
@@ -2526,138 +2526,138 @@ public interface SharedselfCDef extends Classification {
         }
 
         public OptionalThing<? extends Classification> of(Object code) {
-            if (AppSea.name().equals(name())) { return SharedselfCDef.AppSea.of(code); }
-            if (AppLand.name().equals(name())) { return SharedselfCDef.AppLand.of(code); }
-            if (AppPiari.name().equals(name())) { return SharedselfCDef.AppPiari.of(code); }
-            if (AppBonvo.name().equals(name())) { return SharedselfCDef.AppBonvo.of(code); }
-            if (AppDstore.name().equals(name())) { return SharedselfCDef.AppDstore.of(code); }
-            if (AppAmba.name().equals(name())) { return SharedselfCDef.AppAmba.of(code); }
-            if (AppMiraco.name().equals(name())) { return SharedselfCDef.AppMiraco.of(code); }
-            if (AppDohotel.name().equals(name())) { return SharedselfCDef.AppDohotel.of(code); }
-            if (AppFlg.name().equals(name())) { return SharedselfCDef.AppFlg.of(code); }
-            if (AppPaymentMethod.name().equals(name())) { return SharedselfCDef.AppPaymentMethod.of(code); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SharedselfCDef.DeepWxLiteralGrouping.of(code); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedCls.of(code); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedElement.of(code); }
+            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.of(code); }
+            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.of(code); }
+            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.of(code); }
+            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.of(code); }
+            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.of(code); }
+            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.of(code); }
+            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.of(code); }
+            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.of(code); }
+            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.of(code); }
+            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.of(code); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.of(code); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.of(code); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.of(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public OptionalThing<? extends Classification> byName(String name) {
-            if (AppSea.name().equals(name())) { return SharedselfCDef.AppSea.byName(name); }
-            if (AppLand.name().equals(name())) { return SharedselfCDef.AppLand.byName(name); }
-            if (AppPiari.name().equals(name())) { return SharedselfCDef.AppPiari.byName(name); }
-            if (AppBonvo.name().equals(name())) { return SharedselfCDef.AppBonvo.byName(name); }
-            if (AppDstore.name().equals(name())) { return SharedselfCDef.AppDstore.byName(name); }
-            if (AppAmba.name().equals(name())) { return SharedselfCDef.AppAmba.byName(name); }
-            if (AppMiraco.name().equals(name())) { return SharedselfCDef.AppMiraco.byName(name); }
-            if (AppDohotel.name().equals(name())) { return SharedselfCDef.AppDohotel.byName(name); }
-            if (AppFlg.name().equals(name())) { return SharedselfCDef.AppFlg.byName(name); }
-            if (AppPaymentMethod.name().equals(name())) { return SharedselfCDef.AppPaymentMethod.byName(name); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SharedselfCDef.DeepWxLiteralGrouping.byName(name); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedCls.byName(name); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedElement.byName(name); }
+            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.byName(name); }
+            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.byName(name); }
+            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.byName(name); }
+            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.byName(name); }
+            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.byName(name); }
+            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.byName(name); }
+            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.byName(name); }
+            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.byName(name); }
+            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.byName(name); }
+            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.byName(name); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.byName(name); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.byName(name); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.byName(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public Classification codeOf(Object code) { // null if not found, old style so use of(code)
-            if (AppSea.name().equals(name())) { return SharedselfCDef.AppSea.codeOf(code); }
-            if (AppLand.name().equals(name())) { return SharedselfCDef.AppLand.codeOf(code); }
-            if (AppPiari.name().equals(name())) { return SharedselfCDef.AppPiari.codeOf(code); }
-            if (AppBonvo.name().equals(name())) { return SharedselfCDef.AppBonvo.codeOf(code); }
-            if (AppDstore.name().equals(name())) { return SharedselfCDef.AppDstore.codeOf(code); }
-            if (AppAmba.name().equals(name())) { return SharedselfCDef.AppAmba.codeOf(code); }
-            if (AppMiraco.name().equals(name())) { return SharedselfCDef.AppMiraco.codeOf(code); }
-            if (AppDohotel.name().equals(name())) { return SharedselfCDef.AppDohotel.codeOf(code); }
-            if (AppFlg.name().equals(name())) { return SharedselfCDef.AppFlg.codeOf(code); }
-            if (AppPaymentMethod.name().equals(name())) { return SharedselfCDef.AppPaymentMethod.codeOf(code); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SharedselfCDef.DeepWxLiteralGrouping.codeOf(code); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedCls.codeOf(code); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedElement.codeOf(code); }
+            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.codeOf(code); }
+            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.codeOf(code); }
+            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.codeOf(code); }
+            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.codeOf(code); }
+            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.codeOf(code); }
+            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.codeOf(code); }
+            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.codeOf(code); }
+            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.codeOf(code); }
+            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.codeOf(code); }
+            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.codeOf(code); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.codeOf(code); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.codeOf(code); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public Classification nameOf(String name) { // null if not found, old style so use byName(name)
-            if (AppSea.name().equals(name())) { return SharedselfCDef.AppSea.valueOf(name); }
-            if (AppLand.name().equals(name())) { return SharedselfCDef.AppLand.valueOf(name); }
-            if (AppPiari.name().equals(name())) { return SharedselfCDef.AppPiari.valueOf(name); }
-            if (AppBonvo.name().equals(name())) { return SharedselfCDef.AppBonvo.valueOf(name); }
-            if (AppDstore.name().equals(name())) { return SharedselfCDef.AppDstore.valueOf(name); }
-            if (AppAmba.name().equals(name())) { return SharedselfCDef.AppAmba.valueOf(name); }
-            if (AppMiraco.name().equals(name())) { return SharedselfCDef.AppMiraco.valueOf(name); }
-            if (AppDohotel.name().equals(name())) { return SharedselfCDef.AppDohotel.valueOf(name); }
-            if (AppFlg.name().equals(name())) { return SharedselfCDef.AppFlg.valueOf(name); }
-            if (AppPaymentMethod.name().equals(name())) { return SharedselfCDef.AppPaymentMethod.valueOf(name); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SharedselfCDef.DeepWxLiteralGrouping.valueOf(name); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedCls.valueOf(name); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SharedselfCDef.DeepWxDeprecatedElement.valueOf(name); }
+            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.valueOf(name); }
+            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.valueOf(name); }
+            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.valueOf(name); }
+            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.valueOf(name); }
+            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.valueOf(name); }
+            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.valueOf(name); }
+            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.valueOf(name); }
+            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.valueOf(name); }
+            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.valueOf(name); }
+            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.valueOf(name); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.valueOf(name); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.valueOf(name); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listAll() {
-            if (AppSea.name().equals(name())) { return toClsList(SharedselfCDef.AppSea.listAll()); }
-            if (AppLand.name().equals(name())) { return toClsList(SharedselfCDef.AppLand.listAll()); }
-            if (AppPiari.name().equals(name())) { return toClsList(SharedselfCDef.AppPiari.listAll()); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SharedselfCDef.AppBonvo.listAll()); }
-            if (AppDstore.name().equals(name())) { return toClsList(SharedselfCDef.AppDstore.listAll()); }
-            if (AppAmba.name().equals(name())) { return toClsList(SharedselfCDef.AppAmba.listAll()); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SharedselfCDef.AppMiraco.listAll()); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SharedselfCDef.AppDohotel.listAll()); }
-            if (AppFlg.name().equals(name())) { return toClsList(SharedselfCDef.AppFlg.listAll()); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SharedselfCDef.AppPaymentMethod.listAll()); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxLiteralGrouping.listAll()); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedCls.listAll()); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedElement.listAll()); }
+            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.listAll()); }
+            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.listAll()); }
+            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.listAll()); }
+            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.listAll()); }
+            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.listAll()); }
+            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.listAll()); }
+            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.listAll()); }
+            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.listAll()); }
+            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.listAll()); }
+            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.listAll()); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.listAll()); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.listAll()); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listByGroup(String groupName) { // exception if not found
-            if (AppSea.name().equals(name())) { return toClsList(SharedselfCDef.AppSea.listByGroup(groupName)); }
-            if (AppLand.name().equals(name())) { return toClsList(SharedselfCDef.AppLand.listByGroup(groupName)); }
-            if (AppPiari.name().equals(name())) { return toClsList(SharedselfCDef.AppPiari.listByGroup(groupName)); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SharedselfCDef.AppBonvo.listByGroup(groupName)); }
-            if (AppDstore.name().equals(name())) { return toClsList(SharedselfCDef.AppDstore.listByGroup(groupName)); }
-            if (AppAmba.name().equals(name())) { return toClsList(SharedselfCDef.AppAmba.listByGroup(groupName)); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SharedselfCDef.AppMiraco.listByGroup(groupName)); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SharedselfCDef.AppDohotel.listByGroup(groupName)); }
-            if (AppFlg.name().equals(name())) { return toClsList(SharedselfCDef.AppFlg.listByGroup(groupName)); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SharedselfCDef.AppPaymentMethod.listByGroup(groupName)); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxLiteralGrouping.listByGroup(groupName)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedCls.listByGroup(groupName)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedElement.listByGroup(groupName)); }
+            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.listByGroup(groupName)); }
+            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.listByGroup(groupName)); }
+            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.listByGroup(groupName)); }
+            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.listByGroup(groupName)); }
+            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.listByGroup(groupName)); }
+            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.listByGroup(groupName)); }
+            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.listByGroup(groupName)); }
+            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.listByGroup(groupName)); }
+            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.listByGroup(groupName)); }
+            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.listByGroup(groupName)); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.listByGroup(groupName)); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.listByGroup(groupName)); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown groupName: " + groupName + ", " + this); // basically unreachable
         }
 
         public List<Classification> listOf(Collection<String> codeList) {
-            if (AppSea.name().equals(name())) { return toClsList(SharedselfCDef.AppSea.listOf(codeList)); }
-            if (AppLand.name().equals(name())) { return toClsList(SharedselfCDef.AppLand.listOf(codeList)); }
-            if (AppPiari.name().equals(name())) { return toClsList(SharedselfCDef.AppPiari.listOf(codeList)); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SharedselfCDef.AppBonvo.listOf(codeList)); }
-            if (AppDstore.name().equals(name())) { return toClsList(SharedselfCDef.AppDstore.listOf(codeList)); }
-            if (AppAmba.name().equals(name())) { return toClsList(SharedselfCDef.AppAmba.listOf(codeList)); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SharedselfCDef.AppMiraco.listOf(codeList)); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SharedselfCDef.AppDohotel.listOf(codeList)); }
-            if (AppFlg.name().equals(name())) { return toClsList(SharedselfCDef.AppFlg.listOf(codeList)); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SharedselfCDef.AppPaymentMethod.listOf(codeList)); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxLiteralGrouping.listOf(codeList)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedCls.listOf(codeList)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedElement.listOf(codeList)); }
+            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.listOf(codeList)); }
+            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.listOf(codeList)); }
+            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.listOf(codeList)); }
+            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.listOf(codeList)); }
+            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.listOf(codeList)); }
+            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.listOf(codeList)); }
+            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.listOf(codeList)); }
+            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.listOf(codeList)); }
+            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.listOf(codeList)); }
+            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.listOf(codeList)); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.listOf(codeList)); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.listOf(codeList)); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> groupOf(String groupName) { // old style
-            if (AppSea.name().equals(name())) { return toClsList(SharedselfCDef.AppSea.groupOf(groupName)); }
-            if (AppLand.name().equals(name())) { return toClsList(SharedselfCDef.AppLand.groupOf(groupName)); }
-            if (AppPiari.name().equals(name())) { return toClsList(SharedselfCDef.AppPiari.groupOf(groupName)); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SharedselfCDef.AppBonvo.groupOf(groupName)); }
-            if (AppDstore.name().equals(name())) { return toClsList(SharedselfCDef.AppDstore.groupOf(groupName)); }
-            if (AppAmba.name().equals(name())) { return toClsList(SharedselfCDef.AppAmba.groupOf(groupName)); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SharedselfCDef.AppMiraco.groupOf(groupName)); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SharedselfCDef.AppDohotel.groupOf(groupName)); }
-            if (AppFlg.name().equals(name())) { return toClsList(SharedselfCDef.AppFlg.groupOf(groupName)); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SharedselfCDef.AppPaymentMethod.groupOf(groupName)); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxLiteralGrouping.groupOf(groupName)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedCls.groupOf(groupName)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SharedselfCDef.DeepWxDeprecatedElement.groupOf(groupName)); }
+            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.groupOf(groupName)); }
+            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.groupOf(groupName)); }
+            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.groupOf(groupName)); }
+            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.groupOf(groupName)); }
+            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.groupOf(groupName)); }
+            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.groupOf(groupName)); }
+            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.groupOf(groupName)); }
+            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.groupOf(groupName)); }
+            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.groupOf(groupName)); }
+            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.groupOf(groupName)); }
+            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.groupOf(groupName)); }
+            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.groupOf(groupName)); }
+            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -2700,41 +2700,41 @@ public interface SharedselfCDef extends Classification {
             return ClassificationUndefinedHandlingType.LOGGING; // as default
         }
 
-        public static OptionalThing<SharedselfCDef.DefMeta> find(String classificationName) { // instead of valueOf()
+        public static OptionalThing<SelfclientCDef.DefMeta> find(String classificationName) { // instead of valueOf()
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (AppSea.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppSea); }
-            if (AppLand.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppLand); }
-            if (AppPiari.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppPiari); }
-            if (AppBonvo.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppBonvo); }
-            if (AppDstore.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppDstore); }
-            if (AppAmba.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppAmba); }
-            if (AppMiraco.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppMiraco); }
-            if (AppDohotel.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppDohotel); }
-            if (AppFlg.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppFlg); }
-            if (AppPaymentMethod.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.AppPaymentMethod); }
-            if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.DeepWxLiteralGrouping); }
-            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.DeepWxDeprecatedCls); }
-            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SharedselfCDef.DefMeta.DeepWxDeprecatedElement); }
+            if (AppSea.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppSea); }
+            if (AppLand.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppLand); }
+            if (AppPiari.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppPiari); }
+            if (AppBonvo.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppBonvo); }
+            if (AppDstore.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppDstore); }
+            if (AppAmba.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppAmba); }
+            if (AppMiraco.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppMiraco); }
+            if (AppDohotel.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppDohotel); }
+            if (AppFlg.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppFlg); }
+            if (AppPaymentMethod.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppPaymentMethod); }
+            if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.DeepWxLiteralGrouping); }
+            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.DeepWxDeprecatedCls); }
+            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.DeepWxDeprecatedElement); }
             return OptionalThing.ofNullable(null, () -> {
                 throw new ClassificationNotFoundException("Unknown classification: " + classificationName);
             });
         }
 
-        public static SharedselfCDef.DefMeta meta(String classificationName) { // old style so use find(name)
+        public static SelfclientCDef.DefMeta meta(String classificationName) { // old style so use find(name)
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (AppSea.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppSea; }
-            if (AppLand.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppLand; }
-            if (AppPiari.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppPiari; }
-            if (AppBonvo.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppBonvo; }
-            if (AppDstore.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppDstore; }
-            if (AppAmba.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppAmba; }
-            if (AppMiraco.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppMiraco; }
-            if (AppDohotel.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppDohotel; }
-            if (AppFlg.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppFlg; }
-            if (AppPaymentMethod.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.AppPaymentMethod; }
-            if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.DeepWxLiteralGrouping; }
-            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.DeepWxDeprecatedCls; }
-            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return SharedselfCDef.DefMeta.DeepWxDeprecatedElement; }
+            if (AppSea.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppSea; }
+            if (AppLand.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppLand; }
+            if (AppPiari.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppPiari; }
+            if (AppBonvo.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppBonvo; }
+            if (AppDstore.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppDstore; }
+            if (AppAmba.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppAmba; }
+            if (AppMiraco.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppMiraco; }
+            if (AppDohotel.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppDohotel; }
+            if (AppFlg.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppFlg; }
+            if (AppPaymentMethod.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppPaymentMethod; }
+            if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.DeepWxLiteralGrouping; }
+            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.DeepWxDeprecatedCls; }
+            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.DeepWxDeprecatedElement; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
         }
 

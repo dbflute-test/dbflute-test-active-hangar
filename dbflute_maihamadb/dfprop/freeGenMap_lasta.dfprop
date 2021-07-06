@@ -24,9 +24,9 @@ map:{
         }
         ; outputMap = map:{
             ; outputDirectory = ../target
-            ; package = self_clientcls
+            ; package = freegen
             ; templateFile = lasta/HangarClientCls.vm
-            ; className = hangar_selfclient_cls
+            ; className = hangar_quickself_cls
             ; fileExt = dfprop
         }
         ; optionMap = map:{
