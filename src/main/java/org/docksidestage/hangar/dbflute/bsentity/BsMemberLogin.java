@@ -277,6 +277,36 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
         return cdef != null ? cdef.equals(CDef.MemberStatus.Provisional) : false;
     }
 
+    /**
+     * means member that can use services <br>
+     * The group elements:[Formalized, Provisional]
+     * @return The determination, true or false.
+     */
+    public boolean isLoginMemberStatusCode_ServiceAvailable() {
+        CDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null && cdef.isServiceAvailable();
+    }
+
+    /**
+     * Members are not formalized yet <br>
+     * The group elements:[Provisional]
+     * @return The determination, true or false.
+     */
+    public boolean isLoginMemberStatusCode_ShortOfFormalized() {
+        CDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null && cdef.isShortOfFormalized();
+    }
+
+    /**
+     * cannot auth <br>
+     * The group elements:[Withdrawal]
+     * @return The determination, true or false.
+     */
+    public boolean isLoginMemberStatusCode_Unauthorized() {
+        CDef.MemberStatus cdef = getLoginMemberStatusCodeAsMemberStatus();
+        return cdef != null && cdef.isUnauthorized();
+    }
+
     // ===================================================================================
     //                                                           Classification Name/Alias
     //                                                           =========================

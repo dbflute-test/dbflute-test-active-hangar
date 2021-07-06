@@ -42,26 +42,29 @@ map:{
         ; map:{ code=PRV ; name=Parade ; alias=Castle ; comment=Provisional }
         ; map:{ code=WDL ; name=MiniO ; alias=Orlean ; comment=Withdrawal }
     }
-    # test of manual grouping map using refCls as included, expects overridden, added
+    # test of manual grouping map using refCls as included, expects added
     ; AppBonvo = list:{
         ; map:{
             ; topComment=test of manual grouping map using refCls as included, expects overridden, added
             ; codeType=String
             ; groupingMap = map:{
-                # TODO jflute cannot override now (2021/07/05)
-                ; serviceAvailable = map:{
-                    ; groupComment = @Override, elements are changed
-                    ; elementList = list:{ Formalized ; Withdrawal ; New }
+                # cannot same group as refCls-side group (conflict)
+                #; serviceAvailable = map:{
+                #    ; groupComment = @Override, elements are changed
+                #    ; elementList = list:{ Formalized ; Withdrawal ; New }
+                #}
+                ; appNewLiteralAvailable = map:{
+                    ; groupComment = new group name by literal
+                    ; elementList = list:{ Formalized ; Provisional ; Mystic }
                 }
-                # TODO jflute cannot add now (2021/07/05)
-                ; appNewAvailable = map:{
-                    ; groupComment = new group name as app classfication
-                    ; elementList = list:{ Formalized ; Provisional ; New }
+                ; appNewRefExistingGroupAvailable = map:{
+                    ; groupComment = new group name referring existing group
+                    ; elementList = list:{ $$ref$$.serviceAvailable ; Mystic }
                 }
             }
         }
         ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
-        ; map:{ code=NEW ; name=New ; alias=NewNew ; comment=NewNewNew }
+        ; map:{ code=MYS ; name=Mystic ; alias=Hangar ; comment=Rhythms ; subItemMap=map:{order=88} }
     }
     # test of manual grouping map using refCls as exists, expects new grouping is available
     ; AppDstore = list:{
@@ -69,10 +72,11 @@ map:{
             ; topComment=test of manual grouping map using refCls as exists, expects new grouping is available
             ; codeType=String
             ; groupingMap = map:{
-                ; serviceAvailable = map:{
-                    ; groupComment = @Override elements are changed
-                    ; elementList = list:{ OneMan }
-                }
+                # cannot same group as refCls-side group (conflict)
+                #; serviceAvailable = map:{
+                #    ; groupComment = @Override elements are changed
+                #    ; elementList = list:{ OneMan }
+                #}
                 ; appNewAvailable = map:{
                     ; groupComment = new group name as app classfication
                     ; elementList = list:{ OneMan ; MiniO }
@@ -88,7 +92,7 @@ map:{
         ; map:{ topComment=test of manual sub-item and sisters as included, expects merged, only order() exists ; codeType=String }
         ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
         ; map:{
-            ; code=MYS ; name=Mystic ; alias=Hangar ; comment=Rythms
+            ; code=MYS ; name=Mystic ; alias=Hangar ; comment=Rhythms
             ; sisterCode=Choucho
             ; subItemMap=map:{ order=1 ; newKeyword=shining }
         }
@@ -163,8 +167,8 @@ map:{
             ; topComment=test of deprecatedMap
             ; codeType=String
             ; deprecatedMap = map:{
-                ; Provisional = why?
-                ; All = why?why?
+                ; Provisional = test of deprecated
+                ; All = and also test of deprecated
             }
         }
         ; map:{ refCls=maihamadb@MemberStatus ; refType=included }

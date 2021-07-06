@@ -27,8 +27,7 @@ public interface MysticAppCls extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ,
         /** All Statuses: without status filter */
@@ -95,9 +94,20 @@ public interface MysticAppCls extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -167,6 +177,7 @@ public interface MysticAppCls extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: SearchMemberStatus." + groupName);
         }
 
@@ -203,6 +214,16 @@ public interface MysticAppCls extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<SearchMemberStatus> listOfUnauthorized() {
+            return new ArrayList<SearchMemberStatus>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -210,6 +231,7 @@ public interface MysticAppCls extends Classification {
         public static List<SearchMemberStatus> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<SearchMemberStatus>(4);
         }
 
@@ -247,8 +269,7 @@ public interface MysticAppCls extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ,
         /** All Statuses: without status filter */
@@ -315,9 +336,20 @@ public interface MysticAppCls extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -387,6 +419,7 @@ public interface MysticAppCls extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedCls." + groupName);
         }
 
@@ -423,6 +456,16 @@ public interface MysticAppCls extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DeepWxDeprecatedCls> listOfUnauthorized() {
+            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -430,6 +473,7 @@ public interface MysticAppCls extends Classification {
         public static List<DeepWxDeprecatedCls> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DeepWxDeprecatedCls>(4);
         }
 
@@ -536,9 +580,20 @@ public interface MysticAppCls extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -608,6 +663,7 @@ public interface MysticAppCls extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedElement." + groupName);
         }
 
@@ -644,6 +700,16 @@ public interface MysticAppCls extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DeepWxDeprecatedElement> listOfUnauthorized() {
+            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -651,6 +717,7 @@ public interface MysticAppCls extends Classification {
         public static List<DeepWxDeprecatedElement> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DeepWxDeprecatedElement>(4);
         }
 

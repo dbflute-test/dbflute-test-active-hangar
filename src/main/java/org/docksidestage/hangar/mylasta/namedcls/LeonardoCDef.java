@@ -27,8 +27,7 @@ public interface LeonardoCDef extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ;
         private static final Map<String, DaSea> _codeClsMap = new HashMap<String, DaSea>();
@@ -96,9 +95,20 @@ public interface LeonardoCDef extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -168,6 +178,7 @@ public interface LeonardoCDef extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DaSea." + groupName);
         }
 
@@ -204,6 +215,16 @@ public interface LeonardoCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DaSea> listOfUnauthorized() {
+            return new ArrayList<DaSea>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -211,6 +232,7 @@ public interface LeonardoCDef extends Classification {
         public static List<DaSea> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DaSea>(4);
         }
 
@@ -281,7 +303,29 @@ public interface LeonardoCDef extends Classification {
             return (String)subItemMap().get("keyword");
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return OneMan.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return MiniO.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -349,6 +393,8 @@ public interface LeonardoCDef extends Classification {
          */
         public static List<DaLand> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DaLand." + groupName);
         }
 
@@ -365,11 +411,33 @@ public interface LeonardoCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DaLand> listOfServiceAvailable() {
+            return new ArrayList<DaLand>(Arrays.asList(OneMan));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DaLand> listOfUnauthorized() {
+            return new ArrayList<DaLand>(Arrays.asList(MiniO));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<DaLand> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DaLand>(4);
         }
 
@@ -426,7 +494,40 @@ public interface LeonardoCDef extends Classification {
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return LeonardoCDef.DefMeta.DaPiari; }
 
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan, Dstore]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return OneMan.equals(this) || Dstore.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Dstore]
+         * @return The determination, true or false.
+         */
+        public boolean isShortOfFormalized() {
+            return Dstore.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return MiniO.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -494,6 +595,9 @@ public interface LeonardoCDef extends Classification {
          */
         public static List<DaPiari> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DaPiari." + groupName);
         }
 
@@ -510,11 +614,44 @@ public interface LeonardoCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan, Dstore]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DaPiari> listOfServiceAvailable() {
+            return new ArrayList<DaPiari>(Arrays.asList(OneMan, Dstore));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Dstore]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DaPiari> listOfShortOfFormalized() {
+            return new ArrayList<DaPiari>(Arrays.asList(Dstore));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DaPiari> listOfUnauthorized() {
+            return new ArrayList<DaPiari>(Arrays.asList(MiniO));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<DaPiari> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DaPiari>(4);
         }
 

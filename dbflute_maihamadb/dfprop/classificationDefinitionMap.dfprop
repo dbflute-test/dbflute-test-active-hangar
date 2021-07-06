@@ -69,6 +69,10 @@ map:{
                     ; groupComment = Members are not formalized yet
                     ; elementList = list:{Provisional}
                 }
+                ; unauthorized = map:{
+                    ; groupComment = cannot auth
+                    ; elementList = list:{Withdrawal}
+                }
             }
         }
         ; map:{

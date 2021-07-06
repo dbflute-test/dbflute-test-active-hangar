@@ -207,13 +207,13 @@ public interface HangarCDef {
      */
     public enum MemberStatus implements HangarCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", emptyStrings())
+        Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", emptyStrings())
+        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
         /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", emptyStrings())
+        Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ;
         private static final Map<String, MemberStatus> _codeClsMap = new HashMap<String, MemberStatus>();
         private static final Map<String, MemberStatus> _nameClsMap = new HashMap<String, MemberStatus>();
@@ -228,20 +228,20 @@ public interface HangarCDef {
         static {
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("key1", "1");
-                subItemMap.put("key2", "as formal member, allowed to use all service");
+                subItemMap.put("order", "1");
+                subItemMap.put("desc", "as formal member, allowed to use all service");
                 _subItemMapMap.put(Formalized.code(), Collections.unmodifiableMap(subItemMap));
             }
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("key1", "2");
-                subItemMap.put("key2", "withdrawal is fixed, not allowed to use service");
+                subItemMap.put("order", "2");
+                subItemMap.put("desc", "withdrawal is fixed, not allowed to use service");
                 _subItemMapMap.put(Withdrawal.code(), Collections.unmodifiableMap(subItemMap));
             }
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("key1", "3");
-                subItemMap.put("key2", "first status after entry, allowed to use only part of service");
+                subItemMap.put("order", "3");
+                subItemMap.put("desc", "first status after entry, allowed to use only part of service");
                 _subItemMapMap.put(Provisional.code(), Collections.unmodifiableMap(subItemMap));
             }
         }
@@ -253,15 +253,48 @@ public interface HangarCDef {
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public DefMeta meta() { return HangarCDef.DefMeta.MemberStatus; }
 
-        public String key1() {
-            return (String)subItemMap().get("key1");
+        public String order() {
+            return (String)subItemMap().get("order");
         }
 
-        public String key2() {
-            return (String)subItemMap().get("key2");
+        public String desc() {
+            return (String)subItemMap().get("desc");
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[Formalized, Provisional]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return Formalized.equals(this) || Provisional.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Provisional]
+         * @return The determination, true or false.
+         */
+        public boolean isShortOfFormalized() {
+            return Provisional.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
         }
 
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -325,6 +358,9 @@ public interface HangarCDef {
          */
         public static List<MemberStatus> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: MemberStatus." + groupName);
         }
 
@@ -341,11 +377,44 @@ public interface HangarCDef {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[Formalized, Provisional]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<MemberStatus> listOfServiceAvailable() {
+            return new ArrayList<MemberStatus>(Arrays.asList(Formalized, Provisional));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Provisional]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<MemberStatus> listOfShortOfFormalized() {
+            return new ArrayList<MemberStatus>(Arrays.asList(Provisional));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<MemberStatus> listOfUnauthorized() {
+            return new ArrayList<MemberStatus>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<MemberStatus> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<MemberStatus>(4);
         }
 
@@ -1237,6 +1306,179 @@ public interface HangarCDef {
         @Override public String toString() { return code(); }
     }
 
+    /**
+     * test of various options when table classification
+     */
+    public enum WhiteTableOptionStatus implements HangarCDef {
+        /** Formalized: as formal member, allowed to use all service */
+        Formalized("FML", "Formalized", new String[] {"1"})
+        ,
+        /** Withdrawal: withdrawal is fixed, not allowed to use service */
+        Withdrawal("WDL", "Withdrawal", new String[] {"2"})
+        ,
+        /** Provisional: first status after entry, allowed to use only part of service */
+        Provisional("PRV", "Provisional", new String[] {"3"})
+        ;
+        private static final Map<String, WhiteTableOptionStatus> _codeClsMap = new HashMap<String, WhiteTableOptionStatus>();
+        private static final Map<String, WhiteTableOptionStatus> _nameClsMap = new HashMap<String, WhiteTableOptionStatus>();
+        static {
+            for (WhiteTableOptionStatus value : values()) {
+                _codeClsMap.put(value.code().toLowerCase(), value);
+                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
+                _nameClsMap.put(value.name().toLowerCase(), value);
+            }
+        }
+        private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
+        static {
+            {
+                Map<String, Object> subItemMap = new HashMap<String, Object>();
+                subItemMap.put("key1", "1");
+                subItemMap.put("key2", "as formal member, allowed to use all service");
+                _subItemMapMap.put(Formalized.code(), Collections.unmodifiableMap(subItemMap));
+            }
+            {
+                Map<String, Object> subItemMap = new HashMap<String, Object>();
+                subItemMap.put("key1", "2");
+                subItemMap.put("key2", "withdrawal is fixed, not allowed to use service");
+                _subItemMapMap.put(Withdrawal.code(), Collections.unmodifiableMap(subItemMap));
+            }
+            {
+                Map<String, Object> subItemMap = new HashMap<String, Object>();
+                subItemMap.put("key1", "3");
+                subItemMap.put("key2", "first status after entry, allowed to use only part of service");
+                _subItemMapMap.put(Provisional.code(), Collections.unmodifiableMap(subItemMap));
+            }
+        }
+        private String _code; private String _alias; private Set<String> _sisterSet;
+        private WhiteTableOptionStatus(String code, String alias, String[] sisters)
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        public String code() { return _code; } public String alias() { return _alias; }
+        public Set<String> sisterSet() { return _sisterSet; }
+        public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
+        public DefMeta meta() { return HangarCDef.DefMeta.WhiteTableOptionStatus; }
+
+        public String key1() {
+            return (String)subItemMap().get("key1");
+        }
+
+        public String key2() {
+            return (String)subItemMap().get("key2");
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * can use service <br>
+         * The group elements:[Formalized, Provisional]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return Formalized.equals(this) || Provisional.equals(this);
+        }
+
+        public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            return false;
+        }
+
+        /**
+         * Get the classification of the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
+         * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static Optional<WhiteTableOptionStatus> of(Object code) {
+            if (code == null) { return Optional.empty(); }
+            if (code instanceof WhiteTableOptionStatus) { return Optional.of((WhiteTableOptionStatus)code); }
+            if (code instanceof Optional<?>) { return of(((Optional<?>)code).orElse(null)); }
+            return Optional.ofNullable(_codeClsMap.get(code.toString().toLowerCase()));
+        }
+
+        /**
+         * Find the classification by the name. (CaseInsensitive)
+         * @param name The string of name, which is case-insensitive. (NotNull)
+         * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static Optional<WhiteTableOptionStatus> byName(String name) {
+            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
+            return Optional.ofNullable(_nameClsMap.get(name.toLowerCase()));
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
+         * Get the classification by the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
+         */
+        public static WhiteTableOptionStatus codeOf(Object code) {
+            if (code == null) { return null; }
+            if (code instanceof WhiteTableOptionStatus) { return (WhiteTableOptionStatus)code; }
+            return _codeClsMap.get(code.toString().toLowerCase());
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
+         * Get the classification by the name (also called 'value' in ENUM world).
+         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
+         */
+        public static WhiteTableOptionStatus nameOf(String name) {
+            if (name == null) { return null; }
+            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
+        }
+
+        /**
+         * Get the list of all classification elements. (returns new copied list)
+         * @return The snapshot list of all classification elements. (NotNull)
+         */
+        public static List<WhiteTableOptionStatus> listAll() {
+            return new ArrayList<WhiteTableOptionStatus>(Arrays.asList(values()));
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         */
+        public static List<WhiteTableOptionStatus> listByGroup(String groupName) {
+            if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            throw new ClassificationNotFoundException("Unknown classification group: WhiteTableOptionStatus." + groupName);
+        }
+
+        /**
+         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
+         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
+         */
+        public static List<WhiteTableOptionStatus> listOf(Collection<String> codeList) {
+            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
+            List<WhiteTableOptionStatus> clsList = new ArrayList<WhiteTableOptionStatus>(codeList.size());
+            for (String code : codeList) { clsList.add(of(code).get()); }
+            return clsList;
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * can use service <br>
+         * The group elements:[Formalized, Provisional]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<WhiteTableOptionStatus> listOfServiceAvailable() {
+            return new ArrayList<WhiteTableOptionStatus>(Arrays.asList(Formalized, Provisional));
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
+         */
+        public static List<WhiteTableOptionStatus> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            return new ArrayList<WhiteTableOptionStatus>(4);
+        }
+
+        @Override public String toString() { return code(); }
+    }
+
     public enum DefMeta {
         /** general boolean classification for every flg-column */
         Flg
@@ -1264,6 +1506,9 @@ public interface HangarCDef {
         ,
         /** test of deployment */
         WhiteClassifiationDeploymentType
+        ,
+        /** test of various options when table classification */
+        WhiteTableOptionStatus
         ;
         public String classificationName() {
             return name(); // same as definition name
@@ -1279,6 +1524,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equals(name())) { return HangarCDef.ProductStatus.codeOf(code); }
             if (PaymentMethod.name().equals(name())) { return HangarCDef.PaymentMethod.codeOf(code); }
             if (WhiteClassifiationDeploymentType.name().equals(name())) { return HangarCDef.WhiteClassifiationDeploymentType.codeOf(code); }
+            if (WhiteTableOptionStatus.name().equals(name())) { return HangarCDef.WhiteTableOptionStatus.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1292,6 +1538,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equals(name())) { return HangarCDef.ProductStatus.valueOf(name); }
             if (PaymentMethod.name().equals(name())) { return HangarCDef.PaymentMethod.valueOf(name); }
             if (WhiteClassifiationDeploymentType.name().equals(name())) { return HangarCDef.WhiteClassifiationDeploymentType.valueOf(name); }
+            if (WhiteTableOptionStatus.name().equals(name())) { return HangarCDef.WhiteTableOptionStatus.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1305,6 +1552,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.listAll()); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.listAll()); }
             if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.listAll()); }
+            if (WhiteTableOptionStatus.name().equals(name())) { return toClsList(HangarCDef.WhiteTableOptionStatus.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1318,6 +1566,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.listByGroup(groupName)); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.listByGroup(groupName)); }
             if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.listByGroup(groupName)); }
+            if (WhiteTableOptionStatus.name().equals(name())) { return toClsList(HangarCDef.WhiteTableOptionStatus.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1331,6 +1580,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.listOf(codeList)); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.listOf(codeList)); }
             if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.listOf(codeList)); }
+            if (WhiteTableOptionStatus.name().equals(name())) { return toClsList(HangarCDef.WhiteTableOptionStatus.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1344,6 +1594,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equals(name())) { return toClsList(HangarCDef.ProductStatus.groupOf(groupName)); }
             if (PaymentMethod.name().equals(name())) { return toClsList(HangarCDef.PaymentMethod.groupOf(groupName)); }
             if (WhiteClassifiationDeploymentType.name().equals(name())) { return toClsList(HangarCDef.WhiteClassifiationDeploymentType.groupOf(groupName)); }
+            if (WhiteTableOptionStatus.name().equals(name())) { return toClsList(HangarCDef.WhiteTableOptionStatus.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -1363,6 +1614,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.ProductStatus); }
             if (PaymentMethod.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.PaymentMethod); }
             if (WhiteClassifiationDeploymentType.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.WhiteClassifiationDeploymentType); }
+            if (WhiteTableOptionStatus.name().equalsIgnoreCase(classificationName)) { return Optional.of(HangarCDef.DefMeta.WhiteTableOptionStatus); }
             return Optional.empty();
         }
 
@@ -1377,6 +1629,7 @@ public interface HangarCDef {
             if (ProductStatus.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.ProductStatus; }
             if (PaymentMethod.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.PaymentMethod; }
             if (WhiteClassifiationDeploymentType.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.WhiteClassifiationDeploymentType; }
+            if (WhiteTableOptionStatus.name().equalsIgnoreCase(classificationName)) { return HangarCDef.DefMeta.WhiteTableOptionStatus; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
         }
 

@@ -614,6 +614,36 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
         doSetLoginMemberStatusCode_InScope(cTStrL(cdefList));
     }
 
+    /**
+     * InScope {in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * status of member from entry to withdrawal <br>
+     * means member that can use services <br>
+     * The group elements:[Formalized, Provisional]
+     */
+    public void setLoginMemberStatusCode_InScope_ServiceAvailable() {
+        setLoginMemberStatusCode_InScope_AsMemberStatus(CDef.MemberStatus.listOfServiceAvailable());
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * status of member from entry to withdrawal <br>
+     * Members are not formalized yet <br>
+     * The group elements:[Provisional]
+     */
+    public void setLoginMemberStatusCode_InScope_ShortOfFormalized() {
+        setLoginMemberStatusCode_InScope_AsMemberStatus(CDef.MemberStatus.listOfShortOfFormalized());
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * status of member from entry to withdrawal <br>
+     * cannot auth <br>
+     * The group elements:[Withdrawal]
+     */
+    public void setLoginMemberStatusCode_InScope_Unauthorized() {
+        setLoginMemberStatusCode_InScope_AsMemberStatus(CDef.MemberStatus.listOfUnauthorized());
+    }
+
     protected void doSetLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
         regINS(CK_INS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "LOGIN_MEMBER_STATUS_CODE");
     }

@@ -27,8 +27,7 @@ public interface AppCDef extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ;
         private static final Map<String, AppSea> _codeClsMap = new HashMap<String, AppSea>();
@@ -96,9 +95,20 @@ public interface AppCDef extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -168,6 +178,7 @@ public interface AppCDef extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppSea." + groupName);
         }
 
@@ -204,6 +215,16 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppSea> listOfUnauthorized() {
+            return new ArrayList<AppSea>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -211,6 +232,7 @@ public interface AppCDef extends Classification {
         public static List<AppSea> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppSea>(4);
         }
 
@@ -264,7 +286,29 @@ public interface AppCDef extends Classification {
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return AppCDef.DefMeta.AppLand; }
 
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return OneMan.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return MiniO.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -332,6 +376,8 @@ public interface AppCDef extends Classification {
          */
         public static List<AppLand> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppLand." + groupName);
         }
 
@@ -348,11 +394,33 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppLand> listOfServiceAvailable() {
+            return new ArrayList<AppLand>(Arrays.asList(OneMan));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppLand> listOfUnauthorized() {
+            return new ArrayList<AppLand>(Arrays.asList(MiniO));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<AppLand> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppLand>(4);
         }
 
@@ -409,7 +477,40 @@ public interface AppCDef extends Classification {
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return AppCDef.DefMeta.AppPiari; }
 
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan, Parade]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return OneMan.equals(this) || Parade.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Parade]
+         * @return The determination, true or false.
+         */
+        public boolean isShortOfFormalized() {
+            return Parade.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return MiniO.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -477,6 +578,9 @@ public interface AppCDef extends Classification {
          */
         public static List<AppPiari> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppPiari." + groupName);
         }
 
@@ -493,11 +597,44 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan, Parade]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppPiari> listOfServiceAvailable() {
+            return new ArrayList<AppPiari>(Arrays.asList(OneMan, Parade));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Parade]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppPiari> listOfShortOfFormalized() {
+            return new ArrayList<AppPiari>(Arrays.asList(Parade));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppPiari> listOfUnauthorized() {
+            return new ArrayList<AppPiari>(Arrays.asList(MiniO));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<AppPiari> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppPiari>(4);
         }
 
@@ -535,12 +672,11 @@ public interface AppCDef extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ,
-        /** NewNew: NewNewNew */
-        New("NEW", "NewNew", emptyStrings())
+        /** Hangar: Rhythms */
+        Mystic("MYS", "Hangar", emptyStrings())
         ;
         private static final Map<String, AppBonvo> _codeClsMap = new HashMap<String, AppBonvo>();
         private static final Map<String, AppBonvo> _nameClsMap = new HashMap<String, AppBonvo>();
@@ -572,7 +708,8 @@ public interface AppCDef extends Classification {
             }
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                _subItemMapMap.put(New.code(), Collections.unmodifiableMap(subItemMap));
+                subItemMap.put("order", "88");
+                _subItemMapMap.put(Mystic.code(), Collections.unmodifiableMap(subItemMap));
             }
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
@@ -582,6 +719,30 @@ public interface AppCDef extends Classification {
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return AppCDef.DefMeta.AppBonvo; }
+
+        public String order() {
+            return (String)subItemMap().get("order");
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * new group name by literal <br>
+         * The group elements:[Formalized, Provisional, Mystic]
+         * @return The determination, true or false.
+         */
+        public boolean isAppNewLiteralAvailable() {
+            return Formalized.equals(this) || Provisional.equals(this) || Mystic.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * new group name referring existing group <br>
+         * The group elements:[Formalized, Provisional, Mystic]
+         * @return The determination, true or false.
+         */
+        public boolean isAppNewRefExistingGroupAvailable() {
+            return Formalized.equals(this) || Provisional.equals(this) || Mystic.equals(this);
+        }
 
         /**
          * Is the classification in the group? <br>
@@ -603,9 +764,22 @@ public interface AppCDef extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("appNewLiteralAvailable".equals(groupName)) { return isAppNewLiteralAvailable(); }
+            if ("appNewRefExistingGroupAvailable".equals(groupName)) { return isAppNewRefExistingGroupAvailable(); }
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -673,8 +847,11 @@ public interface AppCDef extends Classification {
          */
         public static List<AppBonvo> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("appNewLiteralAvailable".equalsIgnoreCase(groupName)) { return listOfAppNewLiteralAvailable(); }
+            if ("appNewRefExistingGroupAvailable".equalsIgnoreCase(groupName)) { return listOfAppNewRefExistingGroupAvailable(); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppBonvo." + groupName);
         }
 
@@ -688,6 +865,26 @@ public interface AppCDef extends Classification {
             List<AppBonvo> clsList = new ArrayList<AppBonvo>(codeList.size());
             for (String code : codeList) { clsList.add(of(code).get()); }
             return clsList;
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * new group name by literal <br>
+         * The group elements:[Formalized, Provisional, Mystic]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppBonvo> listOfAppNewLiteralAvailable() {
+            return new ArrayList<AppBonvo>(Arrays.asList(Formalized, Provisional, Mystic));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * new group name referring existing group <br>
+         * The group elements:[Formalized, Provisional, Mystic]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppBonvo> listOfAppNewRefExistingGroupAvailable() {
+            return new ArrayList<AppBonvo>(Arrays.asList(Formalized, Provisional, Mystic));
         }
 
         /**
@@ -711,13 +908,26 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppBonvo> listOfUnauthorized() {
+            return new ArrayList<AppBonvo>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<AppBonvo> groupOf(String groupName) {
+            if ("appNewLiteralAvailable".equals(groupName)) { return listOfAppNewLiteralAvailable(); }
+            if ("appNewRefExistingGroupAvailable".equals(groupName)) { return listOfAppNewRefExistingGroupAvailable(); }
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppBonvo>(4);
         }
 
@@ -773,7 +983,17 @@ public interface AppCDef extends Classification {
 
         /**
          * Is the classification in the group? <br>
-         * @Override elements are changed <br>
+         * new group name as app classfication <br>
+         * The group elements:[OneMan, MiniO]
+         * @return The determination, true or false.
+         */
+        public boolean isAppNewAvailable() {
+            return OneMan.equals(this) || MiniO.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
          * The group elements:[OneMan]
          * @return The determination, true or false.
          */
@@ -783,17 +1003,18 @@ public interface AppCDef extends Classification {
 
         /**
          * Is the classification in the group? <br>
-         * new group name as app classfication <br>
-         * The group elements:[OneMan, MiniO]
+         * cannot auth <br>
+         * The group elements:[MiniO]
          * @return The determination, true or false.
          */
-        public boolean isAppNewAvailable() {
-            return OneMan.equals(this) || MiniO.equals(this);
+        public boolean isUnauthorized() {
+            return MiniO.equals(this);
         }
 
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("appNewAvailable".equals(groupName)) { return isAppNewAvailable(); }
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -861,8 +1082,9 @@ public interface AppCDef extends Classification {
          */
         public static List<AppDstore> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
-            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("appNewAvailable".equalsIgnoreCase(groupName)) { return listOfAppNewAvailable(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppDstore." + groupName);
         }
 
@@ -880,16 +1102,6 @@ public interface AppCDef extends Classification {
 
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
-         * @Override elements are changed <br>
-         * The group elements:[OneMan]
-         * @return The snapshot list of classification elements in the group. (NotNull)
-         */
-        public static List<AppDstore> listOfServiceAvailable() {
-            return new ArrayList<AppDstore>(Arrays.asList(OneMan));
-        }
-
-        /**
-         * Get the list of group classification elements. (returns new copied list) <br>
          * new group name as app classfication <br>
          * The group elements:[OneMan, MiniO]
          * @return The snapshot list of classification elements in the group. (NotNull)
@@ -899,13 +1111,34 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppDstore> listOfServiceAvailable() {
+            return new ArrayList<AppDstore>(Arrays.asList(OneMan));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppDstore> listOfUnauthorized() {
+            return new ArrayList<AppDstore>(Arrays.asList(MiniO));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<AppDstore> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("appNewAvailable".equals(groupName)) { return listOfAppNewAvailable(); }
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppDstore>(4);
         }
 
@@ -943,11 +1176,10 @@ public interface AppCDef extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ,
-        /** Hangar: Rythms */
+        /** Hangar: Rhythms */
         Mystic("MYS", "Hangar", new String[] {"Choucho"})
         ;
         private static final Map<String, AppAmba> _codeClsMap = new HashMap<String, AppAmba>();
@@ -1017,9 +1249,20 @@ public interface AppCDef extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -1089,6 +1332,7 @@ public interface AppCDef extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppAmba." + groupName);
         }
 
@@ -1125,6 +1369,16 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppAmba> listOfUnauthorized() {
+            return new ArrayList<AppAmba>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -1132,6 +1386,7 @@ public interface AppCDef extends Classification {
         public static List<AppAmba> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppAmba>(4);
         }
 
@@ -1208,7 +1463,29 @@ public interface AppCDef extends Classification {
             return (String)subItemMap().get("newKeyword");
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return OneMan.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return MiniO.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -1276,6 +1553,8 @@ public interface AppCDef extends Classification {
          */
         public static List<AppMiraco> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppMiraco." + groupName);
         }
 
@@ -1292,11 +1571,33 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[OneMan]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppMiraco> listOfServiceAvailable() {
+            return new ArrayList<AppMiraco>(Arrays.asList(OneMan));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[MiniO]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppMiraco> listOfUnauthorized() {
+            return new ArrayList<AppMiraco>(Arrays.asList(MiniO));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<AppMiraco> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<AppMiraco>(4);
         }
 
@@ -1331,8 +1632,7 @@ public interface AppCDef extends Classification {
         /** Formalized: as formal member, allowed to use all service */
         Formalized("FML", "Formalized", new String[] {"Formalized"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ;
         private static final Map<String, AppDohotel> _codeClsMap = new HashMap<String, AppDohotel>();
@@ -1374,7 +1674,29 @@ public interface AppCDef extends Classification {
             return (String)subItemMap().get("desc");
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * means member that can use services <br>
+         * The group elements:[Formalized, Provisional]
+         * @return The determination, true or false.
+         */
+        public boolean isServiceAvailable() {
+            return Formalized.equals(this) || Provisional.equals(this);
+        }
+
+        /**
+         * Is the classification in the group? <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Provisional]
+         * @return The determination, true or false.
+         */
+        public boolean isShortOfFormalized() {
+            return Provisional.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
             return false;
         }
 
@@ -1442,6 +1764,8 @@ public interface AppCDef extends Classification {
          */
         public static List<AppDohotel> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppDohotel." + groupName);
         }
 
@@ -1458,11 +1782,33 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * means member that can use services <br>
+         * The group elements:[Formalized, Provisional]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppDohotel> listOfServiceAvailable() {
+            return new ArrayList<AppDohotel>(Arrays.asList(Formalized, Provisional));
+        }
+
+        /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * Members are not formalized yet <br>
+         * The group elements:[Provisional]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<AppDohotel> listOfShortOfFormalized() {
+            return new ArrayList<AppDohotel>(Arrays.asList(Provisional));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          */
         public static List<AppDohotel> groupOf(String groupName) {
+            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
+            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
             return new ArrayList<AppDohotel>(4);
         }
 
@@ -1974,8 +2320,7 @@ public interface AppCDef extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
-        @Deprecated
+        /** Provisional: first status after entry, allowed to use only part of service */
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ,
         /** All Statuses: without status filter */
@@ -2042,9 +2387,20 @@ public interface AppCDef extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -2114,6 +2470,7 @@ public interface AppCDef extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedCls." + groupName);
         }
 
@@ -2150,6 +2507,16 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DeepWxDeprecatedCls> listOfUnauthorized() {
+            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -2157,6 +2524,7 @@ public interface AppCDef extends Classification {
         public static List<DeepWxDeprecatedCls> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DeepWxDeprecatedCls>(4);
         }
 
@@ -2194,11 +2562,11 @@ public interface AppCDef extends Classification {
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service (deprecated: why?) */
+        /** Provisional: first status after entry, allowed to use only part of service (deprecated: test of deprecated) */
         @Deprecated
         Provisional("PRV", "Provisional", new String[] {"Provisional"})
         ,
-        /** All Statuses: without status filter (deprecated: why?why?) */
+        /** All Statuses: without status filter (deprecated: and also test of deprecated) */
         @Deprecated
         All("ALL", "All Statuses", emptyStrings())
         ;
@@ -2263,9 +2631,20 @@ public interface AppCDef extends Classification {
             return Provisional.equals(this);
         }
 
+        /**
+         * Is the classification in the group? <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The determination, true or false.
+         */
+        public boolean isUnauthorized() {
+            return Withdrawal.equals(this);
+        }
+
         public boolean inGroup(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
             return false;
         }
 
@@ -2335,6 +2714,7 @@ public interface AppCDef extends Classification {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedElement." + groupName);
         }
 
@@ -2371,6 +2751,16 @@ public interface AppCDef extends Classification {
         }
 
         /**
+         * Get the list of group classification elements. (returns new copied list) <br>
+         * cannot auth <br>
+         * The group elements:[Withdrawal]
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         */
+        public static List<DeepWxDeprecatedElement> listOfUnauthorized() {
+            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Withdrawal));
+        }
+
+        /**
          * Get the list of classification elements in the specified group. (returns new copied list) <br>
          * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
@@ -2378,6 +2768,7 @@ public interface AppCDef extends Classification {
         public static List<DeepWxDeprecatedElement> groupOf(String groupName) {
             if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
+            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
             return new ArrayList<DeepWxDeprecatedElement>(4);
         }
 
