@@ -22,6 +22,11 @@ map:{
     # ====================================================================================
     #                                                          refCls Table Classification
     #                                                          ===========================
+    # test of no theme refCls, expects DB cls
+    ; AppMaihama = list:{
+        ; map:{ topComment=test of no theme refCls, expects DB cls ; codeType=String }
+        ; map:{ refCls=MemberStatus ; refType=included }
+    }
     # test of included, expects grouping, sub-item, sisters
     ; AppSea = list:{
         ; map:{ topComment=test of included, expects grouping, sub-item, sisters ; codeType=String }
@@ -116,6 +121,32 @@ map:{
     ; AppDohotel = list:{
         ; map:{ topComment=test of referring group, expects grouped elements only and sub-item, sisters exist ; codeType=String }
         ; map:{ refCls=maihamadb@MemberStatus.serviceAvailable ; refType=included }
+    }
+
+    # ====================================================================================
+    #                                                                   refCls to namedcls
+    #                                                                   ==================
+    # test of reference to namedcls
+    ; AppDockside = list:{
+        ; map:{ topComment=test of reference to namedcls, case1 ; codeType=String }
+        ; map:{ refCls=leonardo_cls@DaSea ; refType=included }
+    }
+    ; AppHangar = list:{
+        ; map:{ topComment=test of reference to namedcls, case2 ; codeType=String }
+        ; map:{ refCls=leonardo_cls@DaLand ; refType=included }
+    }
+    ; AppMagiclamp = list:{
+        ; map:{ topComment=test of reference to namedcls, exists ; codeType=String }
+        ; map:{ refCls=leonardo_cls@DaSea ; refType=exists }
+        ; map:{ code=FML ; name=OneMan ; alias=ShowBase ; comment=Formalized }
+        ; map:{ code=WDL ; name=MiniO ; alias=Orlean ; comment=Withdrawal }
+    }
+    ; AppBroadway = list:{
+        ; map:{ topComment=test of reference to namedcls, matches ; codeType=String }
+        ; map:{ refCls=leonardo_cls@DaPiari ; refType=matches }
+        ; map:{ code=FML ; name=OneMan ; alias=ShowBase ; comment=Formalized }
+        ; map:{ code=PRV ; name=Dstore ; alias=Dstore ; comment=Provisional }
+        ; map:{ code=WDL ; name=MiniO ; alias=Orlean ; comment=Withdrawal }
     }
 
     # ====================================================================================

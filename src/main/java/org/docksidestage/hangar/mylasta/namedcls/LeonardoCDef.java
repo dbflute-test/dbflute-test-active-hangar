@@ -9,7 +9,7 @@ import org.dbflute.jdbc.ClassificationMeta;
 import org.dbflute.jdbc.ClassificationUndefinedHandlingType;
 import org.dbflute.optional.OptionalThing;
 import static org.dbflute.util.DfTypeUtil.emptyStrings;
-import org.docksidestage.hangar.dbflute.allcommon.*;
+import org.docksidestage.hangar.dbflute.allcommon.CDef;
 
 /**
  * The definition of leonardo classification.
@@ -237,13 +237,13 @@ public interface LeonardoCDef extends Classification {
         }
 
         /**
-         * @param dbCls The DB classification to find. (NullAllowed: if null, returns empty)
+         * @param refCls The DB classification to find. (NullAllowed: if null, returns empty)
          * @return The the app classification corresponding to the DB classification. (NotNull, EmptyAllowed: when null specified, not found)
          */
-        public static OptionalThing<DaSea> fromDBCls(CDef.MemberStatus dbCls) {
-            String dbCode = dbCls != null ? dbCls.code() : null;
-            return OptionalThing.ofNullable(codeOf(dbCode), () -> {
-                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaSea by the DB code: " + dbCode);
+        public static OptionalThing<DaSea> fromDBCls(CDef.MemberStatus refCls) {
+            String refCode = refCls != null ? refCls.code() : null;
+            return OptionalThing.ofNullable(codeOf(refCode), () -> {
+                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaSea by the referred code: " + refCode);
             });
         }
 
@@ -442,13 +442,13 @@ public interface LeonardoCDef extends Classification {
         }
 
         /**
-         * @param dbCls The DB classification to find. (NullAllowed: if null, returns empty)
+         * @param refCls The DB classification to find. (NullAllowed: if null, returns empty)
          * @return The the app classification corresponding to the DB classification. (NotNull, EmptyAllowed: when null specified, not found)
          */
-        public static OptionalThing<DaLand> fromDBCls(CDef.MemberStatus dbCls) {
-            String dbCode = dbCls != null ? dbCls.code() : null;
-            return OptionalThing.ofNullable(codeOf(dbCode), () -> {
-                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaLand by the DB code: " + dbCode);
+        public static OptionalThing<DaLand> fromDBCls(CDef.MemberStatus refCls) {
+            String refCode = refCls != null ? refCls.code() : null;
+            return OptionalThing.ofNullable(codeOf(refCode), () -> {
+                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaLand by the referred code: " + refCode);
             });
         }
 
@@ -656,13 +656,13 @@ public interface LeonardoCDef extends Classification {
         }
 
         /**
-         * @param dbCls The DB classification to find. (NullAllowed: if null, returns empty)
+         * @param refCls The DB classification to find. (NullAllowed: if null, returns empty)
          * @return The the app classification corresponding to the DB classification. (NotNull, EmptyAllowed: when null specified, not found)
          */
-        public static OptionalThing<DaPiari> fromDBCls(CDef.MemberStatus dbCls) {
-            String dbCode = dbCls != null ? dbCls.code() : null;
-            return OptionalThing.ofNullable(codeOf(dbCode), () -> {
-                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaPiari by the DB code: " + dbCode);
+        public static OptionalThing<DaPiari> fromDBCls(CDef.MemberStatus refCls) {
+            String refCode = refCls != null ? refCls.code() : null;
+            return OptionalThing.ofNullable(codeOf(refCode), () -> {
+                throw new IllegalStateException("Cannot convert CDef.MemberStatus to DaPiari by the referred code: " + refCode);
             });
         }
 
