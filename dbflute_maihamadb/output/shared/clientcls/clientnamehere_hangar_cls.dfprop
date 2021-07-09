@@ -38,6 +38,7 @@ map:{
     # DeepWxLiteralGrouping: test of groupingMap when literal only
     # DeepWxDeprecatedCls: test of deprecated classification top
     # DeepWxDeprecatedElement: test of deprecatedMap
+    # AppWxNameOf: test of path parameter by nameof() in LastaFlute action
     # _/_/_/_/_/_/_/_/_/_/
     ; AppMaihama = list:{
         ; map:{
@@ -578,6 +579,22 @@ map:{
         ; map:{
             ; code=ALL ; name=All ; alias=All Statuses
             ; comment=without status filter
+        }
+    }
+    ; AppWxNameOf = list:{
+        ; map:{
+            ; topComment=test of path parameter by nameof() in LastaFlute action
+            ; codeType=String
+        }
+        ; map:{
+            ; code=ONE ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+            ; sisterCode=list:{oneman}
+        }
+        ; map:{
+            ; code=MIN ; name=MiniO ; alias=Orlean
+            ; comment=Withdrawal
+            ; sisterCode=list:{minio}
         }
     }
 }

@@ -3890,6 +3890,127 @@ public interface AppCDef extends Classification {
         @Override public String toString() { return code(); }
     }
 
+    /**
+     * test of path parameter by nameof() in LastaFlute action
+     */
+    public enum AppWxNameOf implements AppCDef {
+        /** ShowBase: Formalized */
+        OneMan("ONE", "ShowBase", new String[] {"oneman"})
+        ,
+        /** Orlean: Withdrawal */
+        MiniO("MIN", "Orlean", new String[] {"minio"})
+        ;
+        private static final Map<String, AppWxNameOf> _codeClsMap = new HashMap<String, AppWxNameOf>();
+        private static final Map<String, AppWxNameOf> _nameClsMap = new HashMap<String, AppWxNameOf>();
+        static {
+            for (AppWxNameOf value : values()) {
+                _codeClsMap.put(value.code().toLowerCase(), value);
+                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
+            }
+        }
+        private String _code; private String _alias; private Set<String> _sisterSet;
+        private AppWxNameOf(String code, String alias, String[] sisters)
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        public String code() { return _code; } public String alias() { return _alias; }
+        public Set<String> sisterSet() { return _sisterSet; }
+        public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
+        public ClassificationMeta meta() { return AppCDef.DefMeta.AppWxNameOf; }
+
+        public boolean inGroup(String groupName) {
+            return false;
+        }
+
+        /**
+         * Get the classification of the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
+         * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static OptionalThing<AppWxNameOf> of(Object code) {
+            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
+            if (code instanceof AppWxNameOf) { return OptionalThing.of((AppWxNameOf)code); }
+            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
+            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
+                throw new ClassificationNotFoundException("Unknown classification code: " + code);
+            });
+        }
+
+        /**
+         * Find the classification by the name. (CaseInsensitive)
+         * @param name The string of name, which is case-insensitive. (NotNull)
+         * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static OptionalThing<AppWxNameOf> byName(String name) {
+            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
+            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
+                throw new ClassificationNotFoundException("Unknown classification name: " + name);
+            });
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
+         * Get the classification by the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
+         */
+        public static AppWxNameOf codeOf(Object code) {
+            if (code == null) { return null; }
+            if (code instanceof AppWxNameOf) { return (AppWxNameOf)code; }
+            return _codeClsMap.get(code.toString().toLowerCase());
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
+         * Get the classification by the name (also called 'value' in ENUM world).
+         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
+         */
+        public static AppWxNameOf nameOf(String name) {
+            if (name == null) { return null; }
+            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
+        }
+
+        /**
+         * Get the list of all classification elements. (returns new copied list)
+         * @return The snapshot list of all classification elements. (NotNull)
+         */
+        public static List<AppWxNameOf> listAll() {
+            return new ArrayList<AppWxNameOf>(Arrays.asList(values()));
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         */
+        public static List<AppWxNameOf> listByGroup(String groupName) {
+            if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            throw new ClassificationNotFoundException("Unknown classification group: AppWxNameOf." + groupName);
+        }
+
+        /**
+         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
+         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
+         */
+        public static List<AppWxNameOf> listOf(Collection<String> codeList) {
+            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
+            List<AppWxNameOf> clsList = new ArrayList<AppWxNameOf>(codeList.size());
+            for (String code : codeList) { clsList.add(of(code).get()); }
+            return clsList;
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
+         */
+        public static List<AppWxNameOf> groupOf(String groupName) {
+            return new ArrayList<AppWxNameOf>(4);
+        }
+
+        @Override public String toString() { return code(); }
+    }
+
     public enum DefMeta implements ClassificationMeta {
         /** test of no theme refCls, expects DB cls */
         AppMaihama
@@ -3944,6 +4065,9 @@ public interface AppCDef extends Classification {
         ,
         /** test of deprecatedMap */
         DeepWxDeprecatedElement
+        ,
+        /** test of path parameter by nameof() in LastaFlute action */
+        AppWxNameOf
         ;
         public String classificationName() {
             return name(); // same as definition name
@@ -3968,6 +4092,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return AppCDef.DeepWxLiteralGrouping.of(code); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return AppCDef.DeepWxDeprecatedCls.of(code); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return AppCDef.DeepWxDeprecatedElement.of(code); }
+            if (AppWxNameOf.name().equals(name())) { return AppCDef.AppWxNameOf.of(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -3990,6 +4115,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return AppCDef.DeepWxLiteralGrouping.byName(name); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return AppCDef.DeepWxDeprecatedCls.byName(name); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return AppCDef.DeepWxDeprecatedElement.byName(name); }
+            if (AppWxNameOf.name().equals(name())) { return AppCDef.AppWxNameOf.byName(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -4012,6 +4138,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return AppCDef.DeepWxLiteralGrouping.codeOf(code); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return AppCDef.DeepWxDeprecatedCls.codeOf(code); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return AppCDef.DeepWxDeprecatedElement.codeOf(code); }
+            if (AppWxNameOf.name().equals(name())) { return AppCDef.AppWxNameOf.codeOf(code); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -4034,6 +4161,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return AppCDef.DeepWxLiteralGrouping.valueOf(name); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return AppCDef.DeepWxDeprecatedCls.valueOf(name); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return AppCDef.DeepWxDeprecatedElement.valueOf(name); }
+            if (AppWxNameOf.name().equals(name())) { return AppCDef.AppWxNameOf.valueOf(name); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -4056,6 +4184,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(AppCDef.DeepWxLiteralGrouping.listAll()); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedCls.listAll()); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedElement.listAll()); }
+            if (AppWxNameOf.name().equals(name())) { return toClsList(AppCDef.AppWxNameOf.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -4078,6 +4207,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(AppCDef.DeepWxLiteralGrouping.listByGroup(groupName)); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedCls.listByGroup(groupName)); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedElement.listByGroup(groupName)); }
+            if (AppWxNameOf.name().equals(name())) { return toClsList(AppCDef.AppWxNameOf.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown groupName: " + groupName + ", " + this); // basically unreachable
         }
 
@@ -4100,6 +4230,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(AppCDef.DeepWxLiteralGrouping.listOf(codeList)); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedCls.listOf(codeList)); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedElement.listOf(codeList)); }
+            if (AppWxNameOf.name().equals(name())) { return toClsList(AppCDef.AppWxNameOf.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -4122,6 +4253,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(AppCDef.DeepWxLiteralGrouping.groupOf(groupName)); }
             if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedCls.groupOf(groupName)); }
             if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(AppCDef.DeepWxDeprecatedElement.groupOf(groupName)); }
+            if (AppWxNameOf.name().equals(name())) { return toClsList(AppCDef.AppWxNameOf.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
@@ -4149,6 +4281,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return ClassificationCodeType.String; }
             if (DeepWxDeprecatedCls.name().equals(name())) { return ClassificationCodeType.String; }
             if (DeepWxDeprecatedElement.name().equals(name())) { return ClassificationCodeType.String; }
+            if (AppWxNameOf.name().equals(name())) { return ClassificationCodeType.String; }
             return ClassificationCodeType.String; // as default
         }
 
@@ -4171,6 +4304,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
             if (DeepWxDeprecatedCls.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
             if (DeepWxDeprecatedElement.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
+            if (AppWxNameOf.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
             return ClassificationUndefinedHandlingType.LOGGING; // as default
         }
 
@@ -4194,6 +4328,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(AppCDef.DefMeta.DeepWxLiteralGrouping); }
             if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(AppCDef.DefMeta.DeepWxDeprecatedCls); }
             if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(AppCDef.DefMeta.DeepWxDeprecatedElement); }
+            if (AppWxNameOf.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(AppCDef.DefMeta.AppWxNameOf); }
             return OptionalThing.ofNullable(null, () -> {
                 throw new ClassificationNotFoundException("Unknown classification: " + classificationName);
             });
@@ -4219,6 +4354,7 @@ public interface AppCDef extends Classification {
             if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return AppCDef.DefMeta.DeepWxLiteralGrouping; }
             if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return AppCDef.DefMeta.DeepWxDeprecatedCls; }
             if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return AppCDef.DefMeta.DeepWxDeprecatedElement; }
+            if (AppWxNameOf.name().equalsIgnoreCase(classificationName)) { return AppCDef.DefMeta.AppWxNameOf; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
         }
 

@@ -205,5 +205,11 @@ map:{
         ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
         ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
     }
+    # test of path parameter by nameof() in LastaFlute action
+    ; AppWxNameOf = list:{
+        ; map:{ topComment=test of path parameter by nameof() in LastaFlute action ; codeType=String }
+        ; map:{ code=ONE ; name=OneMan ; alias=ShowBase ; comment=Formalized ; sisterCode=oneman}
+        ; map:{ code=MIN ; name=MiniO ; alias=Orlean ; comment=Withdrawal ; sisterCode=minio}
+    }
 }
 # ----------------/
