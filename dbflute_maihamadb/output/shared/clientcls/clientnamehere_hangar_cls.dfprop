@@ -22,8 +22,8 @@ map:{
     #
     # AppMaihama: test of no theme refCls, expects DB cls
     # AppSea: test of included, expects grouping, sub-item, sisters
-    # AppLand: test of exists, expects no grouping, no sub-item, sisters
-    # AppPiari: test of matches, expects no grouping, no sub-item, sisters
+    # AppLand: test of exists, expects minimum grouping, no sub-item, sisters
+    # AppPiari: test of matches, expects minimum grouping, no sub-item, sisters
     # AppBonvo: test of manual grouping map using refCls as included, expects overridden, added
     # AppDstore: test of manual grouping map using refCls as exists, expects new grouping is available
     # AppAmba: test of manual sub-item and sisters as included, expects merged, only order() exists
@@ -113,7 +113,7 @@ map:{
     }
     ; AppLand = list:{
         ; map:{
-            ; topComment=test of exists, expects no grouping, no sub-item, sisters
+            ; topComment=test of exists, expects minimum grouping, no sub-item, sisters
             ; codeType=String
             ; groupingMap = map:{
                 ; serviceAvailable = map:{
@@ -135,7 +135,7 @@ map:{
     }
     ; AppPiari = list:{
         ; map:{
-            ; topComment=test of matches, expects no grouping, no sub-item, sisters
+            ; topComment=test of matches, expects minimum grouping, no sub-item, sisters
             ; codeType=String
             ; groupingMap = map:{
                 ; serviceAvailable = map:{
