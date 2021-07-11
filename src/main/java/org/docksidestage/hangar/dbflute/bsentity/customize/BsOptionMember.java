@@ -257,6 +257,36 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
+     * means member that can use services <br>
+     * The group elements:[Formalized, Provisional]
+     * @return The determination, true or false.
+     */
+    public boolean isMemberStatusCode_ServiceAvailable() {
+        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null && cdef.isServiceAvailable();
+    }
+
+    /**
+     * Members are not formalized yet <br>
+     * The group elements:[Provisional]
+     * @return The determination, true or false.
+     */
+    public boolean isMemberStatusCode_ShortOfFormalized() {
+        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null && cdef.isShortOfFormalized();
+    }
+
+    /**
+     * cannot auth <br>
+     * The group elements:[Withdrawal]
+     * @return The determination, true or false.
+     */
+    public boolean isMemberStatusCode_Unauthorized() {
+        CDef.MemberStatus cdef = getMemberStatusCodeAsMemberStatus();
+        return cdef != null && cdef.isUnauthorized();
+    }
+
+    /**
      * Is the value of dummyFlg True? <br>
      * Yes: means valid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
