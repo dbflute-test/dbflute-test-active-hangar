@@ -29,7 +29,7 @@ map:{
     # AppAmba: test of manual sub-item and sisters as included, expects merged, only order() exists
     # AppMiraco: test of manual sub-item and sisters as exists, expects new only here
     # AppDohotel: test of referring group, expects grouped elements only and sub-item, sisters exist
-    # AppAmphi: test of included with overriding
+    # AppAmphi: test of included with overriding, expected merged
     # AppDockside: test of reference to namedcls, case1
     # AppHangar: test of reference to namedcls, case2
     # AppMagiclamp: test of reference to namedcls, exists
@@ -328,11 +328,11 @@ map:{
     }
     ; AppAmphi = list:{
         ; map:{
-            ; topComment=test of included with overriding
+            ; topComment=test of included with overriding, expected merged
             ; codeType=String
             ; groupingMap = map:{
                 ; serviceAvailable = map:{
-                    elementList = list:{ Formalized ; Provisional }
+                    elementList = list:{ OneMan ; Provisional }
                 }
                 ; shortOfFormalized = map:{
                     elementList = list:{ Provisional }
@@ -343,7 +343,7 @@ map:{
             }
         }
         ; map:{
-            ; code=FML ; name=Formalized ; alias=Formalized
+            ; code=FML ; name=OneMan ; alias=Formalized
             ; comment=as formal member, allowed to use all service
             ; sisterCode=list:{Formalized}
             ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
@@ -355,10 +355,10 @@ map:{
             ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
         }
         ; map:{
-            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; code=PRV ; name=Provisional ; alias=Castle
             ; comment=first status after entry, allowed to use only part of service
-            ; sisterCode=list:{Provisional}
-            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+            ; sisterCode=list:{Route}
+            ; subItemMap=map:{order=9}
         }
     }
     ; AppDockside = list:{

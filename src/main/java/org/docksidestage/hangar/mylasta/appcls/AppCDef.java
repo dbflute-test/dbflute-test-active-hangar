@@ -2081,17 +2081,17 @@ public interface AppCDef extends Classification {
     }
 
     /**
-     * test of included with overriding
+     * test of included with overriding, expected merged
      */
     public enum AppAmphi implements AppCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
+        OneMan("FML", "Formalized", new String[] {"Formalized"})
         ,
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
         Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
         ,
-        /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
+        /** Castle: first status after entry, allowed to use only part of service */
+        Provisional("PRV", "Castle", new String[] {"Route"})
         ;
         private static final Map<String, AppAmphi> _codeClsMap = new HashMap<String, AppAmphi>();
         private static final Map<String, AppAmphi> _nameClsMap = new HashMap<String, AppAmphi>();
@@ -2107,7 +2107,7 @@ public interface AppCDef extends Classification {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
                 subItemMap.put("order", "1");
                 subItemMap.put("desc", "as formal member, allowed to use all service");
-                _subItemMapMap.put(Formalized.code(), Collections.unmodifiableMap(subItemMap));
+                _subItemMapMap.put(OneMan.code(), Collections.unmodifiableMap(subItemMap));
             }
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
@@ -2117,8 +2117,7 @@ public interface AppCDef extends Classification {
             }
             {
                 Map<String, Object> subItemMap = new HashMap<String, Object>();
-                subItemMap.put("order", "3");
-                subItemMap.put("desc", "first status after entry, allowed to use only part of service");
+                subItemMap.put("order", "9");
                 _subItemMapMap.put(Provisional.code(), Collections.unmodifiableMap(subItemMap));
             }
         }
@@ -2134,18 +2133,14 @@ public interface AppCDef extends Classification {
             return (String)subItemMap().get("order");
         }
 
-        public String desc() {
-            return (String)subItemMap().get("desc");
-        }
-
         /**
          * Is the classification in the group? <br>
          * means member that can use services <br>
-         * The group elements:[Formalized, Provisional]
+         * The group elements:[OneMan, Provisional]
          * @return The determination, true or false.
          */
         public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
+            return OneMan.equals(this) || Provisional.equals(this);
         }
 
         /**
@@ -2260,11 +2255,11 @@ public interface AppCDef extends Classification {
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * means member that can use services <br>
-         * The group elements:[Formalized, Provisional]
+         * The group elements:[OneMan, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppAmphi> listOfServiceAvailable() {
-            return new ArrayList<AppAmphi>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<AppAmphi>(Arrays.asList(OneMan, Provisional));
         }
 
         /**
@@ -4282,7 +4277,7 @@ public interface AppCDef extends Classification {
         /** test of referring group, expects grouped elements only and sub-item, sisters exist */
         AppDohotel
         ,
-        /** test of included with overriding */
+        /** test of included with overriding, expected merged */
         AppAmphi
         ,
         /** test of reference to namedcls, case1 */

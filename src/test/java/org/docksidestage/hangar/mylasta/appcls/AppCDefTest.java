@@ -6,6 +6,7 @@ import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppAmba;
+import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppAmphi;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppBonvo;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppDockside;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppDohotel;
@@ -115,6 +116,19 @@ public class AppCDefTest extends PlainTestCase {
         assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppDohotel.Formalized.sisterSet());
         assertEquals("1", AppDohotel.Formalized.order());
         assertEquals("3", AppDohotel.Provisional.order());
+    }
+
+    public void test_AppAmphi_basic() { // included with overriding
+        assertEquals(Arrays.asList(AppAmphi.OneMan, AppAmphi.Withdrawal, AppAmphi.Provisional), AppAmphi.listAll());
+        assertEquals(Arrays.asList(AppAmphi.OneMan, AppAmphi.Provisional), AppAmphi.listOfServiceAvailable());
+        assertEquals(Arrays.asList(AppAmphi.Provisional), AppAmphi.listOfShortOfFormalized());
+        assertEquals(Arrays.asList(AppAmphi.Withdrawal), AppAmphi.listOfUnauthorized());
+        assertEquals("Formalized", AppAmphi.OneMan.alias()); // kept
+        assertEquals("Castle", AppAmphi.Provisional.alias()); // overridden
+        assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppAmphi.OneMan.sisterSet()); // kept
+        assertEquals(DfCollectionUtil.newHashSet("Route"), AppAmphi.Provisional.sisterSet()); // overridden
+        assertEquals("1", AppAmphi.OneMan.order());
+        assertEquals("9", AppAmphi.Provisional.order()); // overridden
     }
 
     // ===================================================================================
