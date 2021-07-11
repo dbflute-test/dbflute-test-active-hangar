@@ -29,6 +29,7 @@ map:{
     # AppAmba: test of manual sub-item and sisters as included, expects merged, only order() exists
     # AppMiraco: test of manual sub-item and sisters as exists, expects new only here
     # AppDohotel: test of referring group, expects grouped elements only and sub-item, sisters exist
+    # AppAmphi: test of included with overriding
     # AppDockside: test of reference to namedcls, case1
     # AppHangar: test of reference to namedcls, case2
     # AppMagiclamp: test of reference to namedcls, exists
@@ -317,6 +318,41 @@ map:{
             ; comment=as formal member, allowed to use all service
             ; sisterCode=list:{Formalized}
             ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+    }
+    ; AppAmphi = list:{
+        ; map:{
+            ; topComment=test of included with overriding
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ Withdrawal }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=Withdrawal ; alias=Withdrawal
+            ; comment=withdrawal is fixed, not allowed to use service
+            ; sisterCode=list:{Withdrawal}
+            ; subItemMap=map:{order=2;desc=withdrawal is fixed, not allowed to use service}
         }
         ; map:{
             ; code=PRV ; name=Provisional ; alias=Provisional
