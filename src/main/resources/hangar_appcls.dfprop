@@ -140,9 +140,9 @@ map:{
         ; map:{ code=WDL ; name=MiniO ; alias=Orleans ; subItemMap=map:{order=5} }
         ; map:{ code=PRV ; inherit=true ; alias=Castle ; sisterCode=Provisional ; subItemMap=map:{order=9} }
     }
-    # test of referring group as exists, expects grouped elements only and existence checked
+    # test of referring group as included, expects grouped elements only and sub-item, sisters exist
     ; AppCeleb = list:{
-        ; map:{ topComment=test of referring group, expects grouped elements only and sub-item, sisters exist ; codeType=String }
+        ; map:{ topComment=test of referring group as included, expects grouped elements only and sub-item, sisters exist ; codeType=String }
         ; map:{ refCls=maihamadb@MemberStatus.serviceAvailable ; refType=included }
     }
     # test of referring group as exists, expects grouped elements only and existence checked
@@ -153,7 +153,7 @@ map:{
     }
     # test of referring group as matches, expects grouped elements only and matching checked
     ; AppBrighton = list:{
-        ; map:{ topComment=test of referring group as exists, expects grouped elements only and existence checked ; codeType=String }
+        ; map:{ topComment=test of referring group as matches, expects grouped elements only and matching checked ; codeType=String }
         ; map:{ refCls=maihamadb@MemberStatus.serviceAvailable ; refType=matches }
         ; map:{ code=FML ; name=OneMan ; alias=ShowBase ; comment=Formalized }
         ; map:{ code=PRV ; name=Parade ; alias=Castle ; comment=Provisional }

@@ -31,9 +31,9 @@ map:{
     # AppDohotel: test of included with overriding, expected merged
     # AppAmphi: test of exists with inheriting, expected merged
     # AppOrien: test of matches with inheriting, expected merged
-    # AppCeleb: test of referring group, expects grouped elements only and sub-item, sisters exist
+    # AppCeleb: test of referring group as included, expects grouped elements only and sub-item, sisters exist
     # AppToys: test of referring group as exists, expects grouped elements only and existence checked
-    # AppBrighton: test of referring group as exists, expects grouped elements only and existence checked
+    # AppBrighton: test of referring group as matches, expects grouped elements only and matching checked
     # AppDockside: test of reference to namedcls, case1
     # AppHangar: test of reference to namedcls, case2
     # AppMagiclamp: test of reference to namedcls, exists
@@ -405,7 +405,7 @@ map:{
     }
     ; AppCeleb = list:{
         ; map:{
-            ; topComment=test of referring group, expects grouped elements only and sub-item, sisters exist
+            ; topComment=test of referring group as included, expects grouped elements only and sub-item, sisters exist
             ; codeType=String
             ; groupingMap = map:{
                 ; serviceAvailable = map:{
@@ -446,7 +446,7 @@ map:{
     }
     ; AppBrighton = list:{
         ; map:{
-            ; topComment=test of referring group as exists, expects grouped elements only and existence checked
+            ; topComment=test of referring group as matches, expects grouped elements only and matching checked
             ; codeType=String
             ; groupingMap = map:{
                 ; serviceAvailable = map:{

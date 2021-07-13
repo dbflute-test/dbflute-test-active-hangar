@@ -2564,7 +2564,7 @@ public interface AppCDef extends Classification {
     }
 
     /**
-     * test of referring group, expects grouped elements only and sub-item, sisters exist
+     * test of referring group as included, expects grouped elements only and sub-item, sisters exist
      */
     public enum AppCeleb implements AppCDef {
         /** Formalized: as formal member, allowed to use all service */
@@ -2937,7 +2937,7 @@ public interface AppCDef extends Classification {
     }
 
     /**
-     * test of referring group as exists, expects grouped elements only and existence checked
+     * test of referring group as matches, expects grouped elements only and matching checked
      */
     public enum AppBrighton implements AppCDef {
         /** ShowBase: Formalized */
@@ -5089,13 +5089,13 @@ public interface AppCDef extends Classification {
         /** test of matches with inheriting, expected merged */
         AppOrien
         ,
-        /** test of referring group, expects grouped elements only and sub-item, sisters exist */
+        /** test of referring group as included, expects grouped elements only and sub-item, sisters exist */
         AppCeleb
         ,
         /** test of referring group as exists, expects grouped elements only and existence checked */
         AppToys
         ,
-        /** test of referring group as exists, expects grouped elements only and existence checked */
+        /** test of referring group as matches, expects grouped elements only and matching checked */
         AppBrighton
         ,
         /** test of reference to namedcls, case1 */
