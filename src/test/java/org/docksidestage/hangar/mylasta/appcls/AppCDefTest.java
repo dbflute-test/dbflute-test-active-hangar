@@ -8,6 +8,8 @@ import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppAmba;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppAmphi;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppBonvo;
+import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppBrighton;
+import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppCeleb;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppDockside;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppDohotel;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppDstore;
@@ -16,8 +18,10 @@ import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppLand;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppMagiclamp;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppMaihama;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppMiraco;
+import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppOrien;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppPiari;
 import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppSea;
+import org.docksidestage.hangar.mylasta.appcls.AppCDef.AppToys;
 import org.docksidestage.hangar.mylasta.namedcls.LeonardoCDef;
 
 /**
@@ -108,27 +112,90 @@ public class AppCDefTest extends PlainTestCase {
         assertEquals("8", AppMiraco.MiniO.order());
     }
 
-    public void test_AppDohotel_basic() { // included as group reference
-        assertEquals(Arrays.asList(AppDohotel.Formalized, AppDohotel.Provisional), AppDohotel.listAll());
-        assertEquals(Arrays.asList(AppDohotel.Formalized, AppDohotel.Provisional), AppDohotel.listOfServiceAvailable());
+    public void test_AppDohotel_basic() { // included with overriding
+        assertEquals(CDef.MemberStatus.Formalized.alias(), AppDohotel.OneMan.alias());
+        assertEquals(CDef.MemberStatus.Withdrawal.alias(), AppDohotel.Withdrawal.alias());
+        assertEquals("Castle", AppDohotel.Provisional.alias());
+        assertEquals("Hangar", AppDohotel.Mystic.alias());
+        // visual check
+        //assertEquals("ParadeTwoYears", AppDohotel.Mystic.comment());
+        assertEquals(Arrays.asList(AppDohotel.OneMan, AppDohotel.Withdrawal, AppDohotel.Provisional, AppDohotel.Mystic),
+                AppDohotel.listAll());
+        assertEquals(Arrays.asList(AppDohotel.OneMan, AppDohotel.Provisional), AppDohotel.listOfServiceAvailable());
         assertEquals(Arrays.asList(AppDohotel.Provisional), AppDohotel.listOfShortOfFormalized());
-        assertTrue(AppDohotel.groupOf("unauthorized").isEmpty());
-        assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppDohotel.Formalized.sisterSet());
-        assertEquals("1", AppDohotel.Formalized.order());
-        assertEquals("3", AppDohotel.Provisional.order());
+        assertEquals(Arrays.asList(AppDohotel.Withdrawal), AppDohotel.listOfUnauthorized());
+        assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppDohotel.OneMan.sisterSet());
+        assertEquals(DfCollectionUtil.newHashSet("Route"), AppDohotel.Provisional.sisterSet());
+        assertEquals("1", AppDohotel.OneMan.order());
+        assertEquals("2", AppDohotel.Withdrawal.order());
+        assertEquals("9", AppDohotel.Provisional.order());
+        assertEquals("88", AppDohotel.Mystic.order());
     }
 
-    public void test_AppAmphi_basic() { // included with overriding
-        assertEquals(Arrays.asList(AppAmphi.OneMan, AppAmphi.Withdrawal, AppAmphi.Provisional), AppAmphi.listAll());
-        assertEquals(Arrays.asList(AppAmphi.OneMan, AppAmphi.Provisional), AppAmphi.listOfServiceAvailable());
+    public void test_AppAmphi_basic() { // exists with inheriting
+        assertEquals(CDef.MemberStatus.Formalized.alias(), AppAmphi.Formalized.alias()); // inherited
+        assertEquals("Castle", AppAmphi.Provisional.alias()); // customized
+        // visual check
+        //assertEquals("as formal member, allowed to use all service", AppAmphi.Formalized.comment()); // inherited
+        //assertEquals("ParadeTwoYears", AppAmphi.Provisional.comment()); // inherited
+        assertEquals(Arrays.asList(AppAmphi.Formalized, AppAmphi.Provisional), AppAmphi.listAll());
+        assertEquals(Arrays.asList(AppAmphi.Formalized, AppAmphi.Provisional), AppAmphi.listOfServiceAvailable());
         assertEquals(Arrays.asList(AppAmphi.Provisional), AppAmphi.listOfShortOfFormalized());
-        assertEquals(Arrays.asList(AppAmphi.Withdrawal), AppAmphi.listOfUnauthorized());
-        assertEquals("Formalized", AppAmphi.OneMan.alias()); // kept
-        assertEquals("Castle", AppAmphi.Provisional.alias()); // overridden
-        assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppAmphi.OneMan.sisterSet()); // kept
-        assertEquals(DfCollectionUtil.newHashSet("Route"), AppAmphi.Provisional.sisterSet()); // overridden
-        assertEquals("1", AppAmphi.OneMan.order());
-        assertEquals("9", AppAmphi.Provisional.order()); // overridden
+        assertTrue(AppAmphi.groupOf("unauthorized").isEmpty());
+        assertEquals(CDef.MemberStatus.Formalized.sisterSet(), AppAmphi.Formalized.sisterSet()); // inherited
+        assertEquals(CDef.MemberStatus.Provisional.sisterSet(), AppAmphi.Provisional.sisterSet()); // inherited
+        assertEquals("1", AppAmphi.Formalized.subItemMap().get("order")); // inherited
+        assertEquals("3", AppAmphi.Provisional.subItemMap().get("order")); // inherited
+    }
+
+    public void test_AppOrien_basic() { // matches with inheriting
+        assertEquals(CDef.MemberStatus.Formalized.alias(), AppOrien.OneMan.alias()); // inherited
+        assertEquals("Orleans", AppOrien.MiniO.alias()); // plain
+        assertEquals("Castle", AppOrien.Provisional.alias()); // customized
+        // visual check
+        //assertEquals("as formal member, allowed to use all service", AppOrien.OneMan.comment()); // inherited
+        //assertEquals(null, AppOrien.MiniO.comment()); // inherited
+        //assertEquals("first status after entry, allowed to use only part of service", AppOrien.Provisional.comment()); // inherited
+        assertEquals(Arrays.asList(AppOrien.OneMan, AppOrien.MiniO, AppOrien.Provisional), AppOrien.listAll());
+        assertEquals(Arrays.asList(AppOrien.OneMan, AppOrien.Provisional), AppOrien.listOfServiceAvailable());
+        assertEquals(Arrays.asList(AppOrien.Provisional), AppOrien.listOfShortOfFormalized());
+        assertEquals(Arrays.asList(AppOrien.MiniO), AppOrien.listOfUnauthorized());
+        assertEquals(CDef.MemberStatus.Formalized.sisterSet(), AppOrien.OneMan.sisterSet()); // inherited
+        assertTrue(AppOrien.MiniO.sisterSet().isEmpty()); // plain
+        assertEquals(CDef.MemberStatus.Provisional.sisterSet(), AppOrien.Provisional.sisterSet()); // inherited
+        assertEquals("1", AppOrien.OneMan.order()); // inherited
+        assertEquals("5", AppOrien.MiniO.order()); // plain
+        assertEquals("9", AppOrien.Provisional.order()); // customized
+    }
+
+    public void test_AppCeleb_basic() { // included as group reference
+        assertEquals(Arrays.asList(AppCeleb.Formalized, AppCeleb.Provisional), AppCeleb.listAll());
+        assertEquals(Arrays.asList(AppCeleb.Formalized, AppCeleb.Provisional), AppCeleb.listOfServiceAvailable());
+        assertEquals(Arrays.asList(AppCeleb.Provisional), AppCeleb.listOfShortOfFormalized());
+        assertTrue(AppCeleb.groupOf("unauthorized").isEmpty());
+        assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppCeleb.Formalized.sisterSet());
+        assertEquals("1", AppCeleb.Formalized.order());
+        assertEquals("3", AppCeleb.Provisional.order());
+    }
+
+    public void test_AppToys_basic() { // exists as group reference
+        assertEquals(Arrays.asList(AppToys.OneMan), AppToys.listAll());
+        assertEquals(Arrays.asList(AppToys.OneMan), AppToys.listOfServiceAvailable());
+        assertTrue(AppToys.groupOf("shortOfFormalized").isEmpty());
+        assertTrue(AppToys.groupOf("unauthorized").isEmpty());
+        assertTrue(AppToys.OneMan.sisterSet().isEmpty());
+        assertTrue(AppToys.OneMan.subItemMap().isEmpty());
+    }
+
+    public void test_AppBrighton_basic() { // matches as group reference
+        assertEquals(Arrays.asList(AppBrighton.OneMan, AppBrighton.Parade), AppBrighton.listAll());
+        assertEquals(Arrays.asList(AppBrighton.OneMan, AppBrighton.Parade), AppBrighton.listOfServiceAvailable());
+        assertEquals(Arrays.asList(AppBrighton.Parade), AppBrighton.listOfShortOfFormalized());
+        assertTrue(AppBrighton.groupOf("unauthorized").isEmpty());
+        assertTrue(AppBrighton.OneMan.sisterSet().isEmpty());
+        assertTrue(AppBrighton.Parade.sisterSet().isEmpty());
+        assertTrue(AppBrighton.OneMan.subItemMap().isEmpty());
+        assertTrue(AppBrighton.Parade.subItemMap().isEmpty());
     }
 
     // ===================================================================================

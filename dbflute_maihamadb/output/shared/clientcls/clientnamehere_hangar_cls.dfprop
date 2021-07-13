@@ -28,8 +28,12 @@ map:{
     # AppDstore: test of manual grouping map using refCls as exists, expects new grouping is available
     # AppAmba: test of manual sub-item and sisters as included, expects merged, only order() exists
     # AppMiraco: test of manual sub-item and sisters as exists, expects new only here
-    # AppDohotel: test of referring group, expects grouped elements only and sub-item, sisters exist
-    # AppAmphi: test of included with overriding, expected merged
+    # AppDohotel: test of included with overriding, expected merged
+    # AppAmphi: test of exists with inheriting, expected merged
+    # AppOrien: test of matches with inheriting, expected merged
+    # AppCeleb: test of referring group, expects grouped elements only and sub-item, sisters exist
+    # AppToys: test of referring group as exists, expects grouped elements only and existence checked
+    # AppBrighton: test of referring group as exists, expects grouped elements only and existence checked
     # AppDockside: test of reference to namedcls, case1
     # AppHangar: test of reference to namedcls, case2
     # AppMagiclamp: test of reference to namedcls, exists
@@ -302,32 +306,6 @@ map:{
     }
     ; AppDohotel = list:{
         ; map:{
-            ; topComment=test of referring group, expects grouped elements only and sub-item, sisters exist
-            ; codeType=String
-            ; groupingMap = map:{
-                ; serviceAvailable = map:{
-                    elementList = list:{ Formalized ; Provisional }
-                }
-                ; shortOfFormalized = map:{
-                    elementList = list:{ Provisional }
-                }
-            }
-        }
-        ; map:{
-            ; code=FML ; name=Formalized ; alias=Formalized
-            ; comment=as formal member, allowed to use all service
-            ; sisterCode=list:{Formalized}
-            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
-        }
-        ; map:{
-            ; code=PRV ; name=Provisional ; alias=Provisional
-            ; comment=first status after entry, allowed to use only part of service
-            ; sisterCode=list:{Provisional}
-            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
-        }
-    }
-    ; AppAmphi = list:{
-        ; map:{
             ; topComment=test of included with overriding, expected merged
             ; codeType=String
             ; groupingMap = map:{
@@ -356,9 +334,136 @@ map:{
         }
         ; map:{
             ; code=PRV ; name=Provisional ; alias=Castle
-            ; comment=first status after entry, allowed to use only part of service
+            ; comment=ParadeTwoYears
             ; sisterCode=list:{Route}
             ; subItemMap=map:{order=9}
+        }
+        ; map:{
+            ; code=MYS ; name=Mystic ; alias=Hangar
+            ; comment=Rhythms
+            ; subItemMap=map:{order=88}
+        }
+    }
+    ; AppAmphi = list:{
+        ; map:{
+            ; topComment=test of exists with inheriting, expected merged
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Castle
+            ; comment=ParadeTwoYears
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+    }
+    ; AppOrien = list:{
+        ; map:{
+            ; topComment=test of matches with inheriting, expected merged
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+                ; unauthorized = map:{
+                    elementList = list:{ MiniO }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=WDL ; name=MiniO ; alias=Orleans
+            ; subItemMap=map:{order=5}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Castle
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=9}
+        }
+    }
+    ; AppCeleb = list:{
+        ; map:{
+            ; topComment=test of referring group, expects grouped elements only and sub-item, sisters exist
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ Formalized ; Provisional }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Provisional }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=Formalized ; alias=Formalized
+            ; comment=as formal member, allowed to use all service
+            ; sisterCode=list:{Formalized}
+            ; subItemMap=map:{order=1;desc=as formal member, allowed to use all service}
+        }
+        ; map:{
+            ; code=PRV ; name=Provisional ; alias=Provisional
+            ; comment=first status after entry, allowed to use only part of service
+            ; sisterCode=list:{Provisional}
+            ; subItemMap=map:{order=3;desc=first status after entry, allowed to use only part of service}
+        }
+    }
+    ; AppToys = list:{
+        ; map:{
+            ; topComment=test of referring group as exists, expects grouped elements only and existence checked
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+        }
+    }
+    ; AppBrighton = list:{
+        ; map:{
+            ; topComment=test of referring group as exists, expects grouped elements only and existence checked
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    elementList = list:{ OneMan ; Parade }
+                }
+                ; shortOfFormalized = map:{
+                    elementList = list:{ Parade }
+                }
+            }
+        }
+        ; map:{
+            ; code=FML ; name=OneMan ; alias=ShowBase
+            ; comment=Formalized
+        }
+        ; map:{
+            ; code=PRV ; name=Parade ; alias=Castle
+            ; comment=Provisional
         }
     }
     ; AppDockside = list:{
