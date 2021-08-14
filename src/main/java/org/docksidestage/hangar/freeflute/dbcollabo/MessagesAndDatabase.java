@@ -586,7 +586,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(ERRORS_URL), arg0);
     }
 
-    /** -------------, name=ErrorsNumber, variable=1 */
+    /** , name=ErrorsNumber, variable=1 */
     public static final String ERRORS_NUMBER = "errors.number";
     /**
      * value=input number for {0}
@@ -655,7 +655,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(ERRORS_UPLOAD_SIZE), arg0, arg1);
     }
 
-    /** ----------------, name=ErrorsEmptyLogin, variable=0 */
+    /** , name=ErrorsEmptyLogin, variable=0 */
     public static final String ERRORS_EMPTY_LOGIN = "errors.empty.login";
     /**
      * value=input mail address or password
@@ -697,7 +697,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(ERRORS_ALREADY_REGISTERED), arg0, arg1);
     }
 
-    /** ---------------------, name=ErrorsAppIllegalTransition, variable=0 */
+    /** , name=ErrorsAppIllegalTransition, variable=0 */
     public static final String ERRORS_APP_ILLEGAL_TRANSITION = "errors.app.illegal.transition";
     /**
      * value=retry because of illegal transition
@@ -737,7 +737,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(ERRORS_APP_ALREADY_EXISTS), (Object[])null);
     }
 
-    /** ------, name=LabelsMember, variable=0 */
+    /** , name=LabelsMember, variable=0 */
     public static final String LABELS_MEMBER = "labels.member";
     /**
      * value=Member
@@ -747,7 +747,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(LABELS_MEMBER), (Object[])null);
     }
 
-    /** ---------, name=LabelsMemberId, variable=0 */
+    /** , name=LabelsMemberId, variable=0 */
     public static final String LABELS_MEMBER_ID = "labels.memberId";
     /**
      * value=Member ID
@@ -807,7 +807,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(LABELS_VERSION_NO), (Object[])null);
     }
 
-    /** ------, name=LabelsList, variable=0 */
+    /** , name=LabelsList, variable=0 */
     public static final String LABELS_LIST = "labels.list";
     /**
      * value=List
@@ -897,7 +897,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(LABELS_MEMBER_EDIT), (Object[])null);
     }
 
-    /** ------------, name=LabelsHeaderTitleErrorMessage, variable=0 */
+    /** , name=LabelsHeaderTitleErrorMessage, variable=0 */
     public static final String LABELS_HEADER_TITLE_ERROR_MESSAGE = "labels.header.title.error.message";
     /**
      * value=Notice
@@ -907,7 +907,7 @@ public class MessagesAndDatabase implements Serializable {
         return MessageFormat.format(BUNDLE.getString(LABELS_HEADER_TITLE_ERROR_MESSAGE), (Object[])null);
     }
 
-    /** ----------, name=MessagesInputNoteKeyword, variable=0 */
+    /** , name=MessagesInputNoteKeyword, variable=0 */
     public static final String MESSAGES_INPUT_NOTE_KEYWORD = "messages.input.note.keyword";
     /**
      * value=Input keyword to search 
