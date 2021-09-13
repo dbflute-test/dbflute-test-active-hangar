@@ -1,6 +1,12 @@
 $manager.info("requestList: ${requestList.size()}")
 
-## generate as basic way (of standard pattern)
+## /- - - - - - - - - - - - - - - - - - - - - - - - - -
+## generate as basic way
+## it can be handled by suffix of FreeGen request name
+##  e.g.
+##   ; SeaBasicSingleGen = map:{
+##   ; LandBasicMultipleGen = map:{
+## - - - - - - - - - -/
 #parse("./basic/ControlFreeGenBasicSingle.vm")
 #parse("./basic/ControlFreeGenBasicMultiple.vm")
 

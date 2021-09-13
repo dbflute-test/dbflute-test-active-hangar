@@ -3,7 +3,7 @@ map:{
     #                                                                           Compatible
     #                                                                           ==========
     # test of old tableMap way (instead of optionMap)
-    ; BasicMultipleCompatibleTableMapGen = map:{
+    ; CompatibleTableMapBasicMultipleGen = map:{
         ; resourceMap = map:{
             ; resourceType = JSON_SCHEMA
             ; resourceFile = ../src/main/resources/freedb/sea_schema.json

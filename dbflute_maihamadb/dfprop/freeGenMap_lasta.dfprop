@@ -3,7 +3,7 @@ map:{
     #                                                                AppCls as Single File
     #                                                                =====================
     # test of independent classification generation
-    ; BasicSingleLastaAppClsGen = map:{
+    ; LastaAppClsBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = APP_CLS
             ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
@@ -20,7 +20,7 @@ map:{
         }
     }
     # test of dfprop generation, already embedded however quick test here
-    ; BasicSingleLastaClientClsGen = map:{
+    ; LastaClientClsBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = APP_CLS
             ; resourceFile = ../src/main/resources/hangar_appcls.dfprop
@@ -51,6 +51,8 @@ map:{
             ; outputDirectory = ../src/main/java
             ; package = org.docksidestage.hangar.freeflute.lasta.appcls.independent
             ; templateFile = lasta/appcls/independent/HangarAppClsIndependent.vm
+            # because of customization of control file
+            #; className = unused
         }
         ; optionMap = map:{
             # test of option to supress redundant comment stop

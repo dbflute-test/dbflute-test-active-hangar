@@ -2,7 +2,7 @@
 ## BasicSingleGen: generate single object as basic way
 ## _/_/_/_/_/_/_/_/_/_/
 #foreach ($request in $requestList)
-  #if ($request.requestName.startsWith("BasicSingle"))
+  #if ($request.requestName.endsWith("BasicSingleGen"))
     ## prepare output directory (make if not exists)
     $request.enableOutputDirectory()
     $manager.makeDirectory($request.generateDirPath)

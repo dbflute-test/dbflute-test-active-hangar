@@ -2,7 +2,7 @@ map:{
     # ====================================================================================
     #                                                                         from JsonKey
     #                                                                         ============
-    ; BasicSingleJsonMapEmptyExampleGen = map:{
+    ; JsonMapEmptyExampleBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = JSON_KEY
             ; resourceFile = ../src/main/resources/freedb/jsonkey_map_empty.json
@@ -17,7 +17,7 @@ map:{
             ; keyPath = emptyKey -> map.keys
         }
     }
-    ; BasicSingleJsonMapKeysExampleGen = map:{
+    ; JsonMapKeysExampleBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = JSON_KEY
             ; resourceFile = ../src/main/resources/freedb/jsonkey_map_keys.json
@@ -32,7 +32,7 @@ map:{
             ; keyPath = basicKey -> map.keys
         }
     }
-    ; BasicSingleJsonListMapNameExampleGen = map:{
+    ; JsonListMapNameExampleBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = JSON_KEY
             ; resourceFile = ../src/main/resources/freedb/jsonkey_list_map_name.json
@@ -47,7 +47,7 @@ map:{
             ; keyPath = simpleKey -> list.map.code
         }
     }
-    ; BasicSingleJsonMapNameMapKeysExampleGen = map:{
+    ; JsonMapNameMapKeysExampleBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = JSON_KEY
             ; resourceFile = ../src/main/resources/freedb/jsonkey_map_name_map_keys.json
@@ -62,7 +62,7 @@ map:{
             ; keyPath = topKey -> map.fooBarStatus -> map.keys
         }
     }
-    ; BasicSingleJsonMapValuesExampleGen = map:{
+    ; JsonMapValuesExampleBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = JSON_KEY
             ; resourceFile = ../src/main/resources/freedb/jsonkey_map_values_list.json
@@ -81,7 +81,7 @@ map:{
     # ====================================================================================
     #                                                                      from JsonSchema
     #                                                                      ===============
-    ; BasicMultipleJsonSchemaExampleGen = map:{
+    ; JsonSchemaExampleBasicMultipleGen = map:{
         ; resourceMap = map:{
             ; baseDir = ../src/main
             ; resourceType = JSON_SCHEMA
@@ -106,7 +106,7 @@ map:{
     # ====================================================================================
     #                                                                      from Properties
     #                                                                      ===============
-    ; BasicSingleMessagesGen = map:{
+    ; MessagesBasicSingleGen = map:{
         ; resourceMap = map:{
             ; baseDir = ../src/main
             ; resourceType = PROP
@@ -123,7 +123,7 @@ map:{
     # ====================================================================================
     #                                                                        with Database
     #                                                                        =============
-    ; BasicSingleDatabaseCollaborationExampleGen = map:{
+    ; WithDatabaseBasicSingleGen = map:{
         ; resourceMap = map:{
             ; resourceType = PROP
             ; resourceFile = ../src/main/resources/freedb/land_message.properties
