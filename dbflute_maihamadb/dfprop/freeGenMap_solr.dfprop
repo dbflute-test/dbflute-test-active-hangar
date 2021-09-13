@@ -1,4 +1,5 @@
 map:{
+    # test of plain solr generation (without SolrFlute)
     ; SolrBeanGen = map:{
         ; resourceMap = map:{
             ; resourceType = SOLR

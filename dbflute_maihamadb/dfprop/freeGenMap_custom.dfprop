@@ -1,0 +1,25 @@
+map:{
+    # ====================================================================================
+    #                                                                       Generation Gap
+    #                                                                       ==============
+    ; GapPatternCustomExampleGen = map:{
+        ; resourceMap = map:{
+            ; baseDir = ../src/main
+            ; resourceType = JSON_SCHEMA
+            ; resourceFile = $$baseDir$$/resources/freedb/sea_schema.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = $$baseDir$$/java
+            ; package = org.docksidestage.hangar.freeflute.custom.gengap
+        }
+        ; optionMap = map:{
+        	; tablePath = map
+            ; mappingMap = map:{
+                ; type = map:{
+                    ; numeric = Integer ; varchar = String
+                    ; date = java.time.LocalDate ; datetime = java.time.LocalDateTime
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+## _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+## BasicGen: case of Standard structure as FreeGen
+## _/_/_/_/_/_/_/_/_/_/
+
+#foreach ($request in $requestList)
+  #if ($request.requestName.startsWith("LastaAppClsIndependent"))
+    ## prepare output directory (make if not exists)
+    $request.enableOutputDirectory()
+    $manager.makeDirectory($request.generateDirPath)
+
+    #set ($optionMap = $request.optionMap)
+    #set ($table = $request.table)
+    #foreach ($classificationTop in $optionMap.classificationTopList)
+      #set ($path = "${request.generateDirPath}/${classificationTop.classificationName}.java")
+      $manager.info("parse('${path}')")
+      $generator.parse($request.templatePath, $path, "", "")
+    #end
+  #end
+#end

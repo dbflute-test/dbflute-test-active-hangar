@@ -1,6 +1,9 @@
 map:{
+    # ====================================================================================
+    #                                                                AppCls as Single File
+    #                                                                =====================
     # test of independent classification generation
-    ; LastaAppClsGen = map:{
+    ; BasicSingleLastaAppClsGen = map:{
         ; resourceMap = map:{
             ; resourceType = APP_CLS
             ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
@@ -8,7 +11,7 @@ map:{
         ; outputMap = map:{
             ; outputDirectory = ../src/main/java
             ; package = org.docksidestage.hangar.freeflute.lasta.appcls
-            ; templateFile = lasta/HangarAppCls.vm
+            ; templateFile = lasta/appcls/HangarAppCls.vm
             ; className = MysticAppCls
         }
         ; optionMap = map:{
@@ -17,7 +20,7 @@ map:{
         }
     }
     # test of dfprop generation, already embedded however quick test here
-    ; LastaClientClsGen = map:{
+    ; BasicSingleLastaClientClsGen = map:{
         ; resourceMap = map:{
             ; resourceType = APP_CLS
             ; resourceFile = ../src/main/resources/hangar_appcls.dfprop
@@ -25,12 +28,33 @@ map:{
         ; outputMap = map:{
             ; outputDirectory = ../target
             ; package = freegen
-            ; templateFile = lasta/HangarClientCls.vm
+            ; templateFile = lasta/appcls/HangarClientCls.vm
             ; className = hangar_quickself_cls
             ; fileExt = dfprop
         }
         ; optionMap = map:{
             ; serverServiceName = hangar
+        }
+    }
+
+    # ====================================================================================
+    #                                                          AppCls as Independent Files
+    #                                                          ===========================
+    # test of application classification as independent files
+    # APP_CLS is only-one table style so you need to customize it by control file
+    ; LastaAppClsIndependentGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = APP_CLS
+            ; resourceFile = ../src/main/resources/freedb/mystic_appcls.dfprop
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.lasta.appcls.independent
+            ; templateFile = lasta/appcls/independent/HangarAppClsIndependent.vm
+        }
+        ; optionMap = map:{
+            # test of option to supress redundant comment stop
+            #; isSuppressRedundantCommentStop = true
         }
     }
 }

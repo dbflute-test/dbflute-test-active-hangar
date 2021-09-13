@@ -1,0 +1,9 @@
+## _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+## LastaGen: generate anything for LastaFlute
+## _/_/_/_/_/_/_/_/_/_/
+
+## generate LastaFlute class/resource
+#parse("./custom/gengap/ControlFreeGenGapTable.vm")
+
+## simple AppClsGen examples are handled as basic way
+## (APP_CLS is treated as only-one table)

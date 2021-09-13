@@ -1,0 +1,26 @@
+map:{
+    # ====================================================================================
+    #                                                                           Compatible
+    #                                                                           ==========
+    # test of old tableMap way (instead of optionMap)
+    ; BasicMultipleCompatibleTableMapGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = JSON_SCHEMA
+            ; resourceFile = ../src/main/resources/freedb/sea_schema.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.tricky.compatible
+            ; templateFile = basic/jsonschema/AnythingFromJsonSchema.vm
+        }
+        ; tableMap = map:{
+        	; tablePath = map
+            ; mappingMap = map:{
+                ; type = map:{
+                    ; numeric = Integer ; varchar = String
+                    ; date = java.time.LocalDate ; datetime = java.time.LocalDateTime
+                }
+            }
+        }
+    }
+}

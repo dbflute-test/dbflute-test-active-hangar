@@ -1,0 +1,25 @@
+## _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+## GapPatternGen: generate classes as generation gap
+## _/_/_/_/_/_/_/_/_/_/
+#foreach ($request in $requestList)
+  #if ($request.requestName.startsWith("GapPattern"))
+    #foreach ($table in $request.tableList)
+      ## prepare output directory (make if not exists)
+      $request.enableOutputDirectory()
+      $manager.makeDirectory($request.generateDirPath)
+
+      #set ($path = "${request.generateDirPath}bsentity/Bs${table.camelizedName}.java")
+  
+      $manager.makeDirectory($path)
+      $manager.info("parse('${path}')")
+      $generator.parse("./custom/gengap/BsTableBean.vm", $path, "", "")
+
+      #set ($path = "${request.generateDirPath}exentity/${table.camelizedName}.java")
+      $manager.makeDirectory($path)
+      $manager.info("parse('${path}')")
+      #if (!$files.file(${generator.outputPath},$path).exists())
+        $generator.parse("./custom/gengap/ExTableBean.vm", $path, "", "")
+      #end
+    #end
+  #end
+#end

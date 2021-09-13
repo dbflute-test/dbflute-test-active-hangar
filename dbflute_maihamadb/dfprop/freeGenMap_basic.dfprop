@@ -1,0 +1,145 @@
+map:{
+    # ====================================================================================
+    #                                                                         from JsonKey
+    #                                                                         ============
+    ; BasicSingleJsonMapEmptyExampleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = JSON_KEY
+            ; resourceFile = ../src/main/resources/freedb/jsonkey_map_empty.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.jsonkey
+            ; templateFile = basic/jsonkey/AnythingFromJsonKeys.vm
+            ; className = JsonMapEmpty
+        }
+        ; optionMap = map:{
+            ; keyPath = emptyKey -> map.keys
+        }
+    }
+    ; BasicSingleJsonMapKeysExampleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = JSON_KEY
+            ; resourceFile = ../src/main/resources/freedb/jsonkey_map_keys.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.jsonkey
+            ; templateFile = basic/jsonkey/AnythingFromJsonKeys.vm
+            ; className = JsonMapKeys
+        }
+        ; optionMap = map:{
+            ; keyPath = basicKey -> map.keys
+        }
+    }
+    ; BasicSingleJsonListMapNameExampleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = JSON_KEY
+            ; resourceFile = ../src/main/resources/freedb/jsonkey_list_map_name.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.jsonkey
+            ; templateFile = basic/jsonkey/AnythingFromJsonKeys.vm
+            ; className = JsonListMapName
+        }
+        ; tableMap = map:{
+            ; keyPath = simpleKey -> list.map.code
+        }
+    }
+    ; BasicSingleJsonMapNameMapKeysExampleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = JSON_KEY
+            ; resourceFile = ../src/main/resources/freedb/jsonkey_map_name_map_keys.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.jsonkey
+            ; templateFile = basic/jsonkey/AnythingFromJsonKeys.vm
+            ; className = JsonMapNameMapKeys
+        }
+        ; optionMap = map:{
+            ; keyPath = topKey -> map.fooBarStatus -> map.keys
+        }
+    }
+    ; BasicSingleJsonMapValuesExampleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = JSON_KEY
+            ; resourceFile = ../src/main/resources/freedb/jsonkey_map_values_list.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.jsonkey
+            ; templateFile = basic/jsonkey/AnythingFromJsonKeys.vm
+            ; className = JsonMapValuesListKey
+        }
+        ; optionMap = map:{
+            ; keyPath = clarinetKey -> map.values -> list.elements
+        }
+    }
+
+    # ====================================================================================
+    #                                                                      from JsonSchema
+    #                                                                      ===============
+    ; BasicMultipleJsonSchemaExampleGen = map:{
+        ; resourceMap = map:{
+            ; baseDir = ../src/main
+            ; resourceType = JSON_SCHEMA
+            ; resourceFile = $$baseDir$$/resources/freedb/sea_schema.json
+        }
+        ; outputMap = map:{
+            ; outputDirectory = $$baseDir$$/java
+            ; package = org.docksidestage.hangar.freeflute.basic.jsonschema
+            ; templateFile = basic/jsonschema/AnythingFromJsonSchema.vm
+        }
+        ; optionMap = map:{
+        	; tablePath = map
+            ; mappingMap = map:{
+                ; type = map:{
+                    ; numeric = Integer ; varchar = String
+                    ; date = java.time.LocalDate ; datetime = java.time.LocalDateTime
+                }
+            }
+        }
+    }
+
+    # ====================================================================================
+    #                                                                      from Properties
+    #                                                                      ===============
+    ; BasicSingleMessagesGen = map:{
+        ; resourceMap = map:{
+            ; baseDir = ../src/main
+            ; resourceType = PROP
+            ; resourceFile = $$baseDir$$/resources/freedb/land_message.properties
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.properties
+            ; templateFile = basic/properties/AnythingFromProperties.vm
+            ; className = LandMessages
+        }
+    }
+
+    # ====================================================================================
+    #                                                                        with Database
+    #                                                                        =============
+    ; BasicSingleDatabaseCollaborationExampleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = PROP
+            ; resourceFile = ../src/main/resources/freedb/land_message.properties
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.withdb
+            ; templateFile = basic/withdb/AnythingWithDatabase.vm
+            ; className = MessagesAndDatabase
+        }
+        ; optionMap = map:{
+            ; databaseMap = map:{
+                ; maihamadb = map:{
+                    ; schemaDir = ./schema
+                }
+            }
+        }
+    }
+}

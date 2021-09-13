@@ -1,20 +1,14 @@
-
 $manager.info("requestList: ${requestList.size()}")
 
-#foreach ($request in $requestList)
-  #set ($optionMap = $request.optionMap)
-  $request.enableOutputDirectory()
-  $manager.makeDirectory($request.generateDirPath)
+## generate as basic way (of standard pattern)
+#parse("./basic/ControlFreeGenBasicSingle.vm")
+#parse("./basic/ControlFreeGenBasicMultiple.vm")
 
-  ## customization point: if, else-if
-  #if ($request.requestName == "MultipleTableManualGen")
-    #parse("./basic/ControlFreeGenManual.vm")
-  #elseif ($request.isResourceTypeSolr())
-    #parse("./solr/ControlFreeGenSolr.vm")
-  #else
-    ##
-    ## basically here
-    ##
-    #parse("./basic/ControlFreeGenBasic.vm")
-  #end
-#end
+## generate as custom way (of standard pattern)
+#parse("./custom/ControlFreeGenCustom.vm")
+
+## generate LastaFlute classes/resourcees
+#parse("./lasta/ControlFreeGenLasta.vm")
+
+## generate Solr classes/resourcees
+#parse("./solr/ControlFreeGenSolr.vm")
