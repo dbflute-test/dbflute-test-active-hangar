@@ -5,6 +5,7 @@ import java.util.*;
 import org.dbflute.outsidesql.paging.SimplePagingBean;
 import org.dbflute.outsidesql.typed.*;
 import org.dbflute.jdbc.*;
+import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.outsidesql.PmbCustodial;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.hangar.dbflute.allcommon.*;
@@ -12,17 +13,26 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of PaymentCompletePurchase. <br>
- * This is related to "<span style="color: #AD4747">selectPaymentCompletePurchase</span>" on PurchaseBhv.
+ * The base class for typed parameter-bean of PagingWithCursorMember. <br>
+ * This is related to "<span style="color: #AD4747">whitebox:pmbean:selectPagingWithCursorMember</span>" on MemberBhv.
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsPaymentCompletePurchasePmb extends SimplePagingBean implements ManualPagingHandlingPmb<PurchaseBhv, PaymentCompletePurchase>, CursorHandlingPmb<PurchaseBhv, PaymentCompletePurchase>, FetchBean {
+public abstract class BsPagingWithCursorMemberPmb extends SimplePagingBean implements ManualPagingHandlingPmb<MemberBhv, PagingWithCursorMember>, CursorHandlingPmb<MemberBhv, PagingWithCursorMember>, FetchBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** The parameter of paymentCompleteFlg:cls(Flg.True). */
-    protected Integer _paymentCompleteFlg = toNumber(CDef.Flg.True.code(), Integer.class);
+    /** The parameter of memberId. */
+    protected Integer _memberId;
+
+    /** The parameter of memberNameList:likePrefix. */
+    protected List<String> _memberNameList;
+
+    /** The option of like-search for memberNameList. */
+    protected LikeSearchOption _memberNameListInternalLikeSearchOption;
+
+    /** The parameter of memberStatusCodeList:cls(MemberStatus). */
+    protected List<org.docksidestage.hangar.dbflute.allcommon.CDef.MemberStatus> _memberStatusCodeList;
 
     /** The time-zone for filtering e.g. from-to. (NullAllowed: if null, default zone) */
     protected TimeZone _timeZone;
@@ -31,10 +41,10 @@ public abstract class BsPaymentCompletePurchasePmb extends SimplePagingBean impl
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of PaymentCompletePurchase. <br>
-     * This is related to "<span style="color: #AD4747">selectPaymentCompletePurchase</span>" on PurchaseBhv.
+     * Constructor for the typed parameter-bean of PagingWithCursorMember. <br>
+     * This is related to "<span style="color: #AD4747">whitebox:pmbean:selectPagingWithCursorMember</span>" on MemberBhv.
      */
-    public BsPaymentCompletePurchasePmb() {
+    public BsPagingWithCursorMemberPmb() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -46,13 +56,13 @@ public abstract class BsPaymentCompletePurchasePmb extends SimplePagingBean impl
     /**
      * {@inheritDoc}
      */
-    public String getOutsideSqlPath() { return "selectPaymentCompletePurchase"; }
+    public String getOutsideSqlPath() { return "whitebox:pmbean:selectPagingWithCursorMember"; }
 
     /**
      * Get the type of an entity for result. (implementation)
      * @return The type instance of an entity, cursor handling. (NotNull)
      */
-    public Class<PaymentCompletePurchase> getEntityType() { return PaymentCompletePurchase.class; }
+    public Class<PagingWithCursorMember> getEntityType() { return PagingWithCursorMember.class; }
 
     // ===================================================================================
     //                                                                   Alternate Boolean
@@ -72,6 +82,8 @@ public abstract class BsPaymentCompletePurchasePmb extends SimplePagingBean impl
     protected String filterStringParameter(String value) { return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value); }
     protected boolean isEmptyStringParameterAllowed() { return DBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
     protected String convertEmptyToNull(String value) { return PmbCustodial.convertEmptyToNull(value); }
+
+    protected void assertLikeSearchOptionValid(String name, LikeSearchOption option) { PmbCustodial.assertLikeSearchOptionValid(name, option); }
 
     // -----------------------------------------------------
     //                                                  Date
@@ -113,7 +125,9 @@ public abstract class BsPaymentCompletePurchasePmb extends SimplePagingBean impl
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_paymentCompleteFlg);
+        sb.append(dm).append(_memberId);
+        sb.append(dm).append(_memberNameList);
+        sb.append(dm).append(_memberStatusCodeList);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
@@ -123,10 +137,63 @@ public abstract class BsPaymentCompletePurchasePmb extends SimplePagingBean impl
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] paymentCompleteFlg:cls(Flg.True) <br>
-     * @return The value of paymentCompleteFlg. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     * [get] memberId <br>
+     * // not required / used as equal
+     * @return The value of memberId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public Integer getPaymentCompleteFlg() {
-        return _paymentCompleteFlg;
+    public Integer getMemberId() {
+        return _memberId;
+    }
+
+    /**
+     * [set] memberId <br>
+     * // not required / used as equal
+     * @param memberId The value of memberId. (NullAllowed)
+     */
+    public void setMemberId(Integer memberId) {
+        _memberId = memberId;
+    }
+
+    /**
+     * [get] memberNameList:likePrefix <br>
+     * // list of prefix keyword
+     * @return The value of memberNameList. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public List<String> getMemberNameList() {
+        return _memberNameList;
+    }
+
+    /**
+     * [set as prefixSearch] memberNameList:likePrefix <br>
+     * // list of prefix keyword
+     * @param memberNameList The value of memberNameList. (NullAllowed)
+     */
+    public void setMemberNameList_PrefixSearch(List<String> memberNameList) {
+        _memberNameList = memberNameList;
+        _memberNameListInternalLikeSearchOption = new LikeSearchOption().likePrefix();
+    }
+
+    /**
+     * Get the internal option of likeSearch for memberNameList. {Internal Method: Don't invoke this}
+     * @return The internal option of likeSearch for memberNameList. (NullAllowed)
+     */
+    public LikeSearchOption getMemberNameListInternalLikeSearchOption() {
+        return _memberNameListInternalLikeSearchOption;
+    }
+
+    /**
+     * [get] memberStatusCodeList:cls(MemberStatus) <br>
+     * @return The value of memberStatusCodeList. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public List<org.docksidestage.hangar.dbflute.allcommon.CDef.MemberStatus> getMemberStatusCodeList() {
+        return _memberStatusCodeList;
+    }
+
+    /**
+     * [set] memberStatusCodeList:cls(MemberStatus) <br>
+     * @param memberStatusCodeList The value of memberStatusCodeList. (NullAllowed)
+     */
+    public void setMemberStatusCodeList(List<org.docksidestage.hangar.dbflute.allcommon.CDef.MemberStatus> memberStatusCodeList) {
+        _memberStatusCodeList = memberStatusCodeList;
     }
 }

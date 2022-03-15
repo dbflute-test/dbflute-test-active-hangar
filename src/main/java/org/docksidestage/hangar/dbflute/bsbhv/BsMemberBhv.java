@@ -80,7 +80,13 @@ public abstract class BsMemberBhv extends org.docksidestage.hangar.dbflute.nogen
     public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
     public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
     public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
+    /** Example for selecting cursor with scalar SQL */
+    public static final String PATH_whitebox_pmbean_selectCursorWithScalarMember = "whitebox:pmbean:selectCursorWithScalarMember";
     public static final String PATH_whitebox_pmbean_selectMapLikeSearch = "whitebox:pmbean:selectMapLikeSearch";
+    /** Example for selecting cursor by paging SQL */
+    public static final String PATH_whitebox_pmbean_selectPagingWithCursorMember = "whitebox:pmbean:selectPagingWithCursorMember";
+    /** Example for selecting list by paging SQL */
+    public static final String PATH_whitebox_pmbean_selectPagingWithListMember = "whitebox:pmbean:selectPagingWithListMember";
     /** parameter auto-detect */
     public static final String PATH_whitebox_pmbean_selectParameterAutoDetect = "whitebox:pmbean:selectParameterAutoDetect";
     /** definition order of parameter bean */
