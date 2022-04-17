@@ -130,7 +130,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.Flg getDoneFlgAsFlg() {
-        return CDef.Flg.codeOf(getDoneFlg());
+        return CDef.Flg.of(getDoneFlg()).orElse(null);
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
      * @param determination The determination, true or false. (NullAllowed: if null, null value is set to the column)
      */
     public void setDoneFlgAsBoolean(Boolean determination) {
-        setDoneFlgAsFlg(CDef.Flg.codeOf(determination));
+        setDoneFlgAsFlg(CDef.Flg.of(determination).orElse(null));
     }
 
     // ===================================================================================

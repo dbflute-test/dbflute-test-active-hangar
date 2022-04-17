@@ -54,6 +54,12 @@ map:{
     # the test of read-only table
     ; readOnlyTableNameList = list:{ WHITE_READ_ONLY }
 
+    # the test of suppressing CDef old style
+    ; isMakeCDefOldStyleCodeOfMethod = true
+    ; isMakeCDefOldStyleNameOfMethod = false
+    ; isMakeCDefOldStyleListOfMethod = false
+    ; isMakeCDefOldStyleGroupOfMethod = false
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]

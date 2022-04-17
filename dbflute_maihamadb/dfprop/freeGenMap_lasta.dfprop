@@ -17,6 +17,10 @@ map:{
         ; optionMap = map:{
             # test of option to supress redundant comment stop
             #; isSuppressRedundantCommentStop = true
+            ; isMakeCDefOldStyleCodeOfMethod = false
+            ; isMakeCDefOldStyleNameOfMethod = false
+            ; isMakeCDefOldStyleListOfMethod = false
+            ; isMakeCDefOldStyleGroupOfMethod = false
         }
     }
     # test of dfprop generation, already embedded however quick test here

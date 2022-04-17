@@ -13,7 +13,7 @@
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
-		<dbflute.version>1.2.5</dbflute.version>
+		<dbflute.version>1.2.6-B-SNAPSHOT</dbflute.version>
 		<h2.jdbc.version>1.4.199</h2.jdbc.version>
 		<guice.version>4.2.1</guice.version>
 		<utflute.version>0.9.4</utflute.version>
@@ -121,7 +121,7 @@
 			<plugin>
 				<groupId>org.dbflute</groupId>
 				<artifactId>dbflute-maven-plugin</artifactId>
-				<version>1.1.0-RC3</version>
+				<version>1.1.0</version>
 				<configuration>
 					<clientProject>maihamadb</clientProject>
 					<packageBase>org.docksidestage.hanger.dbflute</packageBase>
@@ -157,7 +157,7 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>local</id>
+			<id>local.repo</id>
 			<name>Local Repository</name>
 			<url>file:${basedir}/repo</url>
 		</repository>

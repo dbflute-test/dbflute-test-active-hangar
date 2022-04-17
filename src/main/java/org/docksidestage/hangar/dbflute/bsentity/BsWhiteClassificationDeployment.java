@@ -105,7 +105,7 @@ public abstract class BsWhiteClassificationDeployment extends AbstractEntity imp
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.Flg getSeaFlgAsFlg() {
-        return CDef.Flg.codeOf(getSeaFlg());
+        return CDef.Flg.of(getSeaFlg()).orElse(null);
     }
 
     /**
@@ -125,7 +125,7 @@ public abstract class BsWhiteClassificationDeployment extends AbstractEntity imp
      * @param determination The determination, true or false. (NullAllowed: if null, null value is set to the column)
      */
     public void setSeaFlgAsBoolean(Boolean determination) {
-        setSeaFlgAsFlg(CDef.Flg.codeOf(determination));
+        setSeaFlgAsFlg(CDef.Flg.of(determination).orElse(null));
     }
 
     /**
@@ -136,7 +136,7 @@ public abstract class BsWhiteClassificationDeployment extends AbstractEntity imp
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.WhiteClassifiationDeploymentType getDeploymentTypeCodeAsWhiteClassifiationDeploymentType() {
-        return CDef.WhiteClassifiationDeploymentType.codeOf(getDeploymentTypeCode());
+        return CDef.WhiteClassifiationDeploymentType.of(getDeploymentTypeCode()).orElse(null);
     }
 
     /**

@@ -1,6 +1,8 @@
 package org.docksidestage.hangar.mylasta.namedcls;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 import org.dbflute.exception.ClassificationNotFoundException;
 import org.dbflute.jdbc.Classification;
@@ -8,7 +10,6 @@ import org.dbflute.jdbc.ClassificationCodeType;
 import org.dbflute.jdbc.ClassificationMeta;
 import org.dbflute.jdbc.ClassificationUndefinedHandlingType;
 import org.dbflute.optional.OptionalThing;
-import static org.dbflute.util.DfTypeUtil.emptyStrings;
 
 /**
  * The definition of selfclient classification.
@@ -21,22 +22,12 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppSea implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
-        ,
+        Formalized("FML", "Formalized", new String[] {"Formalized"}),
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
-        ,
+        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"}),
         /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ;
-        private static final Map<String, AppSea> _codeClsMap = new HashMap<String, AppSea>();
-        private static final Map<String, AppSea> _nameClsMap = new HashMap<String, AppSea>();
-        static {
-            for (AppSea value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        Provisional("PRV", "Provisional", new String[] {"Provisional"});
+        private static ZzzoneSlimmer<AppSea> _slimmer = new ZzzoneSlimmer<>(AppSea.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -60,115 +51,69 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private AppSea(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppSea; }
-
         public String order() {
             return (String)subItemMap().get("order");
         }
-
         public String desc() {
             return (String)subItemMap().get("desc");
         }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return Formalized.equals(this) || Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Provisional]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Withdrawal]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return Withdrawal.equals(this);
-        }
-
+        public boolean isUnauthorized() { return Withdrawal.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppSea> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppSea) { return OptionalThing.of((AppSea)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppSea> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppSea> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppSea> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppSea codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppSea) { return (AppSea)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppSea nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppSea codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppSea> listAll() {
-            return new ArrayList<AppSea>(Arrays.asList(values()));
-        }
-
+        public static List<AppSea> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppSea> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -177,58 +122,30 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppSea." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppSea> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppSea> clsList = new ArrayList<AppSea>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppSea> listOfServiceAvailable() {
-            return new ArrayList<AppSea>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppSea> listOfShortOfFormalized() {
-            return new ArrayList<AppSea>(Arrays.asList(Provisional));
+            return new ArrayList<>(Arrays.asList(Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Withdrawal]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppSea> listOfUnauthorized() {
-            return new ArrayList<AppSea>(Arrays.asList(Withdrawal));
+            return new ArrayList<>(Arrays.asList(Withdrawal));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppSea> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppSea>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -237,112 +154,61 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppLand implements SelfclientCDef {
         /** ShowBase: Formalized */
-        OneMan("FML", "ShowBase", emptyStrings())
-        ,
+        OneMan("FML", "ShowBase"),
         /** Orlean: Withdrawal */
-        MiniO("WDL", "Orlean", emptyStrings())
-        ;
-        private static final Map<String, AppLand> _codeClsMap = new HashMap<String, AppLand>();
-        private static final Map<String, AppLand> _nameClsMap = new HashMap<String, AppLand>();
-        static {
-            for (AppLand value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
-        private String _code; private String _alias; private Set<String> _sisterSet;
-        private AppLand(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        MiniO("WDL", "Orlean");
+        private static ZzzoneSlimmer<AppLand> _slimmer = new ZzzoneSlimmer<>(AppLand.class, values());
+        private String _code; private String _alias;
+        private AppLand(String code, String alias) { _code = code; _alias = alias; }
         public String code() { return _code; } public String alias() { return _alias; }
-        public Set<String> sisterSet() { return _sisterSet; }
+        public Set<String> sisterSet() { return Collections.emptySet(); }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppLand; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[OneMan]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return OneMan.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return OneMan.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[MiniO]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return MiniO.equals(this);
-        }
-
+        public boolean isUnauthorized() { return MiniO.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppLand> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppLand) { return OptionalThing.of((AppLand)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppLand> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppLand> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppLand> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppLand codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppLand) { return (AppLand)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppLand nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppLand codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppLand> listAll() {
-            return new ArrayList<AppLand>(Arrays.asList(values()));
-        }
-
+        public static List<AppLand> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppLand> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -350,48 +216,22 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppLand." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppLand> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppLand> clsList = new ArrayList<AppLand>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[OneMan]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppLand> listOfServiceAvailable() {
-            return new ArrayList<AppLand>(Arrays.asList(OneMan));
+            return new ArrayList<>(Arrays.asList(OneMan));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[MiniO]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppLand> listOfUnauthorized() {
-            return new ArrayList<AppLand>(Arrays.asList(MiniO));
+            return new ArrayList<>(Arrays.asList(MiniO));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppLand> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppLand>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -400,125 +240,70 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppPiari implements SelfclientCDef {
         /** ShowBase: Formalized */
-        OneMan("FML", "ShowBase", emptyStrings())
-        ,
+        OneMan("FML", "ShowBase"),
         /** Castle: Provisional */
-        Parade("PRV", "Castle", emptyStrings())
-        ,
+        Parade("PRV", "Castle"),
         /** Orlean: Withdrawal */
-        MiniO("WDL", "Orlean", emptyStrings())
-        ;
-        private static final Map<String, AppPiari> _codeClsMap = new HashMap<String, AppPiari>();
-        private static final Map<String, AppPiari> _nameClsMap = new HashMap<String, AppPiari>();
-        static {
-            for (AppPiari value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
-        private String _code; private String _alias; private Set<String> _sisterSet;
-        private AppPiari(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        MiniO("WDL", "Orlean");
+        private static ZzzoneSlimmer<AppPiari> _slimmer = new ZzzoneSlimmer<>(AppPiari.class, values());
+        private String _code; private String _alias;
+        private AppPiari(String code, String alias) { _code = code; _alias = alias; }
         public String code() { return _code; } public String alias() { return _alias; }
-        public Set<String> sisterSet() { return _sisterSet; }
+        public Set<String> sisterSet() { return Collections.emptySet(); }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppPiari; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[OneMan, Parade]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return OneMan.equals(this) || Parade.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return OneMan.equals(this) || Parade.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Parade]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Parade.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Parade.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[MiniO]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return MiniO.equals(this);
-        }
-
+        public boolean isUnauthorized() { return MiniO.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppPiari> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppPiari) { return OptionalThing.of((AppPiari)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppPiari> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppPiari> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppPiari> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppPiari codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppPiari) { return (AppPiari)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppPiari nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppPiari codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppPiari> listAll() {
-            return new ArrayList<AppPiari>(Arrays.asList(values()));
-        }
-
+        public static List<AppPiari> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppPiari> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -527,58 +312,30 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppPiari." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppPiari> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppPiari> clsList = new ArrayList<AppPiari>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[OneMan, Parade]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppPiari> listOfServiceAvailable() {
-            return new ArrayList<AppPiari>(Arrays.asList(OneMan, Parade));
+            return new ArrayList<>(Arrays.asList(OneMan, Parade));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Parade]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppPiari> listOfShortOfFormalized() {
-            return new ArrayList<AppPiari>(Arrays.asList(Parade));
+            return new ArrayList<>(Arrays.asList(Parade));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[MiniO]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppPiari> listOfUnauthorized() {
-            return new ArrayList<AppPiari>(Arrays.asList(MiniO));
+            return new ArrayList<>(Arrays.asList(MiniO));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppPiari> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppPiari>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -587,25 +344,15 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppBonvo implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
-        ,
+        Formalized("FML", "Formalized", new String[] {"Formalized"}),
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
-        ,
+        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"}),
         /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
+        Provisional("PRV", "Provisional", new String[] {"Provisional"}),
         /** Hangar: Rhythms */
-        Mystic("MYS", "Hangar", emptyStrings())
-        ;
-        private static final Map<String, AppBonvo> _codeClsMap = new HashMap<String, AppBonvo>();
-        private static final Map<String, AppBonvo> _nameClsMap = new HashMap<String, AppBonvo>();
-        static {
-            for (AppBonvo value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        Mystic("MYS", "Hangar", emptyStrings());
+        private static String[] emptyStrings() { return new String[0]; }
+        private static ZzzoneSlimmer<AppBonvo> _slimmer = new ZzzoneSlimmer<>(AppBonvo.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -634,131 +381,80 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private AppBonvo(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppBonvo; }
-
         public String order() {
             return (String)subItemMap().get("order");
         }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional, Mystic]
          * @return The determination, true or false.
          */
-        public boolean isAppNewLiteralAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this) || Mystic.equals(this);
-        }
-
+        public boolean isAppNewLiteralAvailable() { return Formalized.equals(this) || Provisional.equals(this) || Mystic.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional, Mystic]
          * @return The determination, true or false.
          */
-        public boolean isAppNewRefExistingGroupAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this) || Mystic.equals(this);
-        }
-
+        public boolean isAppNewRefExistingGroupAvailable() { return Formalized.equals(this) || Provisional.equals(this) || Mystic.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return Formalized.equals(this) || Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Provisional]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Withdrawal]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return Withdrawal.equals(this);
-        }
-
+        public boolean isUnauthorized() { return Withdrawal.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("appNewLiteralAvailable".equals(groupName)) { return isAppNewLiteralAvailable(); }
-            if ("appNewRefExistingGroupAvailable".equals(groupName)) { return isAppNewRefExistingGroupAvailable(); }
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("appNewLiteralAvailable".equalsIgnoreCase(groupName)) { return isAppNewLiteralAvailable(); }
+            if ("appNewRefExistingGroupAvailable".equalsIgnoreCase(groupName)) { return isAppNewRefExistingGroupAvailable(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppBonvo> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppBonvo) { return OptionalThing.of((AppBonvo)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppBonvo> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppBonvo> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppBonvo> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppBonvo codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppBonvo) { return (AppBonvo)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppBonvo nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppBonvo codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppBonvo> listAll() {
-            return new ArrayList<AppBonvo>(Arrays.asList(values()));
-        }
-
+        public static List<AppBonvo> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppBonvo> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -769,78 +465,46 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppBonvo." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppBonvo> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppBonvo> clsList = new ArrayList<AppBonvo>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional, Mystic]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppBonvo> listOfAppNewLiteralAvailable() {
-            return new ArrayList<AppBonvo>(Arrays.asList(Formalized, Provisional, Mystic));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional, Mystic));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional, Mystic]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppBonvo> listOfAppNewRefExistingGroupAvailable() {
-            return new ArrayList<AppBonvo>(Arrays.asList(Formalized, Provisional, Mystic));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional, Mystic));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppBonvo> listOfServiceAvailable() {
-            return new ArrayList<AppBonvo>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppBonvo> listOfShortOfFormalized() {
-            return new ArrayList<AppBonvo>(Arrays.asList(Provisional));
+            return new ArrayList<>(Arrays.asList(Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Withdrawal]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppBonvo> listOfUnauthorized() {
-            return new ArrayList<AppBonvo>(Arrays.asList(Withdrawal));
+            return new ArrayList<>(Arrays.asList(Withdrawal));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppBonvo> groupOf(String groupName) {
-            if ("appNewLiteralAvailable".equals(groupName)) { return listOfAppNewLiteralAvailable(); }
-            if ("appNewRefExistingGroupAvailable".equals(groupName)) { return listOfAppNewRefExistingGroupAvailable(); }
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppBonvo>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -849,122 +513,68 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppDstore implements SelfclientCDef {
         /** ShowBase: Formalized */
-        OneMan("FML", "ShowBase", emptyStrings())
-        ,
+        OneMan("FML", "ShowBase"),
         /** Orlean: Withdrawal */
-        MiniO("WDL", "Orlean", emptyStrings())
-        ;
-        private static final Map<String, AppDstore> _codeClsMap = new HashMap<String, AppDstore>();
-        private static final Map<String, AppDstore> _nameClsMap = new HashMap<String, AppDstore>();
-        static {
-            for (AppDstore value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
-        private String _code; private String _alias; private Set<String> _sisterSet;
-        private AppDstore(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        MiniO("WDL", "Orlean");
+        private static ZzzoneSlimmer<AppDstore> _slimmer = new ZzzoneSlimmer<>(AppDstore.class, values());
+        private String _code; private String _alias;
+        private AppDstore(String code, String alias) { _code = code; _alias = alias; }
         public String code() { return _code; } public String alias() { return _alias; }
-        public Set<String> sisterSet() { return _sisterSet; }
+        public Set<String> sisterSet() { return Collections.emptySet(); }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppDstore; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[OneMan, MiniO]
          * @return The determination, true or false.
          */
-        public boolean isAppNewAvailable() {
-            return OneMan.equals(this) || MiniO.equals(this);
-        }
-
+        public boolean isAppNewAvailable() { return OneMan.equals(this) || MiniO.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[OneMan]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return OneMan.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return OneMan.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[MiniO]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return MiniO.equals(this);
-        }
-
+        public boolean isUnauthorized() { return MiniO.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("appNewAvailable".equals(groupName)) { return isAppNewAvailable(); }
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("appNewAvailable".equalsIgnoreCase(groupName)) { return isAppNewAvailable(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppDstore> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppDstore) { return OptionalThing.of((AppDstore)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppDstore> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppDstore> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppDstore> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppDstore codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppDstore) { return (AppDstore)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppDstore nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppDstore codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppDstore> listAll() {
-            return new ArrayList<AppDstore>(Arrays.asList(values()));
-        }
-
+        public static List<AppDstore> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppDstore> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -973,58 +583,30 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppDstore." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppDstore> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppDstore> clsList = new ArrayList<AppDstore>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[OneMan, MiniO]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppDstore> listOfAppNewAvailable() {
-            return new ArrayList<AppDstore>(Arrays.asList(OneMan, MiniO));
+            return new ArrayList<>(Arrays.asList(OneMan, MiniO));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[OneMan]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppDstore> listOfServiceAvailable() {
-            return new ArrayList<AppDstore>(Arrays.asList(OneMan));
+            return new ArrayList<>(Arrays.asList(OneMan));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[MiniO]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppDstore> listOfUnauthorized() {
-            return new ArrayList<AppDstore>(Arrays.asList(MiniO));
+            return new ArrayList<>(Arrays.asList(MiniO));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppDstore> groupOf(String groupName) {
-            if ("appNewAvailable".equals(groupName)) { return listOfAppNewAvailable(); }
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppDstore>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -1033,25 +615,14 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppAmba implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
-        ,
+        Formalized("FML", "Formalized", new String[] {"Formalized"}),
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
-        ,
+        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"}),
         /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
+        Provisional("PRV", "Provisional", new String[] {"Provisional"}),
         /** Hangar: Rhythms */
-        Mystic("MYS", "Hangar", new String[] {"Choucho"})
-        ;
-        private static final Map<String, AppAmba> _codeClsMap = new HashMap<String, AppAmba>();
-        private static final Map<String, AppAmba> _nameClsMap = new HashMap<String, AppAmba>();
-        static {
-            for (AppAmba value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        Mystic("MYS", "Hangar", new String[] {"Choucho"});
+        private static ZzzoneSlimmer<AppAmba> _slimmer = new ZzzoneSlimmer<>(AppAmba.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -1081,111 +652,66 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private AppAmba(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppAmba; }
-
         public String order() {
             return (String)subItemMap().get("order");
         }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return Formalized.equals(this) || Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Provisional]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Withdrawal]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return Withdrawal.equals(this);
-        }
-
+        public boolean isUnauthorized() { return Withdrawal.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppAmba> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppAmba) { return OptionalThing.of((AppAmba)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppAmba> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppAmba> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppAmba> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppAmba codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppAmba) { return (AppAmba)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppAmba nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppAmba codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppAmba> listAll() {
-            return new ArrayList<AppAmba>(Arrays.asList(values()));
-        }
-
+        public static List<AppAmba> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppAmba> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -1194,58 +720,30 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppAmba." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppAmba> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppAmba> clsList = new ArrayList<AppAmba>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppAmba> listOfServiceAvailable() {
-            return new ArrayList<AppAmba>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppAmba> listOfShortOfFormalized() {
-            return new ArrayList<AppAmba>(Arrays.asList(Provisional));
+            return new ArrayList<>(Arrays.asList(Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Withdrawal]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppAmba> listOfUnauthorized() {
-            return new ArrayList<AppAmba>(Arrays.asList(Withdrawal));
+            return new ArrayList<>(Arrays.asList(Withdrawal));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppAmba> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppAmba>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -1254,19 +752,10 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppMiraco implements SelfclientCDef {
         /** ShowBase: Formalized */
-        OneMan("FML", "ShowBase", new String[] {"ONE"})
-        ,
+        OneMan("FML", "ShowBase", new String[] {"ONE"}),
         /** Orlean: Withdrawal */
-        MiniO("WDL", "Orlean", new String[] {"MIN"})
-        ;
-        private static final Map<String, AppMiraco> _codeClsMap = new HashMap<String, AppMiraco>();
-        private static final Map<String, AppMiraco> _nameClsMap = new HashMap<String, AppMiraco>();
-        static {
-            for (AppMiraco value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        MiniO("WDL", "Orlean", new String[] {"MIN"});
+        private static ZzzoneSlimmer<AppMiraco> _slimmer = new ZzzoneSlimmer<>(AppMiraco.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -1284,105 +773,62 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private AppMiraco(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppMiraco; }
-
         public String order() {
             return (String)subItemMap().get("order");
         }
-
         public String newKeyword() {
             return (String)subItemMap().get("newKeyword");
         }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[OneMan]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return OneMan.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return OneMan.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[MiniO]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return MiniO.equals(this);
-        }
-
+        public boolean isUnauthorized() { return MiniO.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppMiraco> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppMiraco) { return OptionalThing.of((AppMiraco)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppMiraco> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppMiraco> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppMiraco> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppMiraco codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppMiraco) { return (AppMiraco)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppMiraco nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppMiraco codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppMiraco> listAll() {
-            return new ArrayList<AppMiraco>(Arrays.asList(values()));
-        }
-
+        public static List<AppMiraco> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppMiraco> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -1390,48 +836,22 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppMiraco." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppMiraco> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppMiraco> clsList = new ArrayList<AppMiraco>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[OneMan]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppMiraco> listOfServiceAvailable() {
-            return new ArrayList<AppMiraco>(Arrays.asList(OneMan));
+            return new ArrayList<>(Arrays.asList(OneMan));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[MiniO]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppMiraco> listOfUnauthorized() {
-            return new ArrayList<AppMiraco>(Arrays.asList(MiniO));
+            return new ArrayList<>(Arrays.asList(MiniO));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppMiraco> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<AppMiraco>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -1440,19 +860,10 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppDohotel implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
-        ,
+        Formalized("FML", "Formalized", new String[] {"Formalized"}),
         /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ;
-        private static final Map<String, AppDohotel> _codeClsMap = new HashMap<String, AppDohotel>();
-        private static final Map<String, AppDohotel> _nameClsMap = new HashMap<String, AppDohotel>();
-        static {
-            for (AppDohotel value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        Provisional("PRV", "Provisional", new String[] {"Provisional"});
+        private static ZzzoneSlimmer<AppDohotel> _slimmer = new ZzzoneSlimmer<>(AppDohotel.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -1470,105 +881,62 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private AppDohotel(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppDohotel; }
-
         public String order() {
             return (String)subItemMap().get("order");
         }
-
         public String desc() {
             return (String)subItemMap().get("desc");
         }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return Formalized.equals(this) || Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Provisional]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Provisional.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppDohotel> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppDohotel) { return OptionalThing.of((AppDohotel)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppDohotel> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppDohotel> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppDohotel> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppDohotel codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppDohotel) { return (AppDohotel)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppDohotel nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppDohotel codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppDohotel> listAll() {
-            return new ArrayList<AppDohotel>(Arrays.asList(values()));
-        }
-
+        public static List<AppDohotel> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppDohotel> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -1576,48 +944,22 @@ public interface SelfclientCDef extends Classification {
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppDohotel." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppDohotel> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppDohotel> clsList = new ArrayList<AppDohotel>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppDohotel> listOfServiceAvailable() {
-            return new ArrayList<AppDohotel>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppDohotel> listOfShortOfFormalized() {
-            return new ArrayList<AppDohotel>(Arrays.asList(Provisional));
+            return new ArrayList<>(Arrays.asList(Provisional));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppDohotel> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            return new ArrayList<AppDohotel>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -1626,19 +968,10 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppFlg implements SelfclientCDef {
         /** Yes: means valid */
-        True("1", "Yes", new String[] {"true"})
-        ,
+        True("1", "Yes", new String[] {"true"}),
         /** No: means invalid */
-        False("0", "No", new String[] {"false"})
-        ;
-        private static final Map<String, AppFlg> _codeClsMap = new HashMap<String, AppFlg>();
-        private static final Map<String, AppFlg> _nameClsMap = new HashMap<String, AppFlg>();
-        static {
-            for (AppFlg value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        False("0", "No", new String[] {"false"});
+        private static ZzzoneSlimmer<AppFlg> _slimmer = new ZzzoneSlimmer<>(AppFlg.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -1654,108 +987,48 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private AppFlg(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppFlg; }
-
         public String key1() {
             return (String)subItemMap().get("key1");
         }
-
-        public boolean inGroup(String groupName) {
-            return false;
-        }
-
+        public boolean inGroup(String groupName) { return false; }
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppFlg> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppFlg) { return OptionalThing.of((AppFlg)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppFlg> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppFlg> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppFlg> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppFlg codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppFlg) { return (AppFlg)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppFlg nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppFlg codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppFlg> listAll() {
-            return new ArrayList<AppFlg>(Arrays.asList(values()));
-        }
-
+        public static List<AppFlg> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppFlg> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             throw new ClassificationNotFoundException("Unknown classification group: AppFlg." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppFlg> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppFlg> clsList = new ArrayList<AppFlg>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppFlg> groupOf(String groupName) {
-            return new ArrayList<AppFlg>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -1764,143 +1037,70 @@ public interface SelfclientCDef extends Classification {
      */
     public enum AppPaymentMethod implements SelfclientCDef {
         /** by hand: payment by hand, face-to-face */
-        ByHand("HAN", "by hand", emptyStrings())
-        ,
+        ByHand("HAN", "by hand"),
         /** bank transfer: bank transfer payment */
-        BankTransfer("BAK", "bank transfer", emptyStrings())
-        ,
+        BankTransfer("BAK", "bank transfer"),
         /** credit card: credit card payment */
-        CreditCard("CRC", "credit card", emptyStrings())
-        ;
-        private static final Map<String, AppPaymentMethod> _codeClsMap = new HashMap<String, AppPaymentMethod>();
-        private static final Map<String, AppPaymentMethod> _nameClsMap = new HashMap<String, AppPaymentMethod>();
-        static {
-            for (AppPaymentMethod value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
-        private String _code; private String _alias; private Set<String> _sisterSet;
-        private AppPaymentMethod(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        CreditCard("CRC", "credit card");
+        private static ZzzoneSlimmer<AppPaymentMethod> _slimmer = new ZzzoneSlimmer<>(AppPaymentMethod.class, values());
+        private String _code; private String _alias;
+        private AppPaymentMethod(String code, String alias) { _code = code; _alias = alias; }
         public String code() { return _code; } public String alias() { return _alias; }
-        public Set<String> sisterSet() { return _sisterSet; }
+        public Set<String> sisterSet() { return Collections.emptySet(); }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.AppPaymentMethod; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[ByHand]
          * @return The determination, true or false.
          */
-        public boolean isRecommended() {
-            return ByHand.equals(this);
-        }
-
+        public boolean isRecommended() { return ByHand.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("recommended".equals(groupName)) { return isRecommended(); }
+            if ("recommended".equalsIgnoreCase(groupName)) { return isRecommended(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppPaymentMethod> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof AppPaymentMethod) { return OptionalThing.of((AppPaymentMethod)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<AppPaymentMethod> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<AppPaymentMethod> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<AppPaymentMethod> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static AppPaymentMethod codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof AppPaymentMethod) { return (AppPaymentMethod)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static AppPaymentMethod nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static AppPaymentMethod codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<AppPaymentMethod> listAll() {
-            return new ArrayList<AppPaymentMethod>(Arrays.asList(values()));
-        }
-
+        public static List<AppPaymentMethod> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<AppPaymentMethod> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("recommended".equalsIgnoreCase(groupName)) { return listOfRecommended(); }
             throw new ClassificationNotFoundException("Unknown classification group: AppPaymentMethod." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<AppPaymentMethod> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<AppPaymentMethod> clsList = new ArrayList<AppPaymentMethod>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[ByHand]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<AppPaymentMethod> listOfRecommended() {
-            return new ArrayList<AppPaymentMethod>(Arrays.asList(ByHand));
+            return new ArrayList<>(Arrays.asList(ByHand));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<AppPaymentMethod> groupOf(String groupName) {
-            if ("recommended".equals(groupName)) { return listOfRecommended(); }
-            return new ArrayList<AppPaymentMethod>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -1909,143 +1109,70 @@ public interface SelfclientCDef extends Classification {
      */
     public enum DeepWxLiteralGrouping implements SelfclientCDef {
         /** ShowBase: Formalized */
-        OneMan("FML", "ShowBase", emptyStrings())
-        ,
+        OneMan("FML", "ShowBase"),
         /** Castle: Provisional */
-        Parade("PRV", "Castle", emptyStrings())
-        ,
+        Parade("PRV", "Castle"),
         /** Orlean: Withdrawal */
-        MiniO("WDL", "Orlean", emptyStrings())
-        ;
-        private static final Map<String, DeepWxLiteralGrouping> _codeClsMap = new HashMap<String, DeepWxLiteralGrouping>();
-        private static final Map<String, DeepWxLiteralGrouping> _nameClsMap = new HashMap<String, DeepWxLiteralGrouping>();
-        static {
-            for (DeepWxLiteralGrouping value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
-        private String _code; private String _alias; private Set<String> _sisterSet;
-        private DeepWxLiteralGrouping(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        MiniO("WDL", "Orlean");
+        private static ZzzoneSlimmer<DeepWxLiteralGrouping> _slimmer = new ZzzoneSlimmer<>(DeepWxLiteralGrouping.class, values());
+        private String _code; private String _alias;
+        private DeepWxLiteralGrouping(String code, String alias) { _code = code; _alias = alias; }
         public String code() { return _code; } public String alias() { return _alias; }
-        public Set<String> sisterSet() { return _sisterSet; }
+        public Set<String> sisterSet() { return Collections.emptySet(); }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.DeepWxLiteralGrouping; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[OneMan, Parade]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return OneMan.equals(this) || Parade.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return OneMan.equals(this) || Parade.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxLiteralGrouping> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof DeepWxLiteralGrouping) { return OptionalThing.of((DeepWxLiteralGrouping)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<DeepWxLiteralGrouping> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxLiteralGrouping> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<DeepWxLiteralGrouping> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxLiteralGrouping codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof DeepWxLiteralGrouping) { return (DeepWxLiteralGrouping)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static DeepWxLiteralGrouping nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static DeepWxLiteralGrouping codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<DeepWxLiteralGrouping> listAll() {
-            return new ArrayList<DeepWxLiteralGrouping>(Arrays.asList(values()));
-        }
-
+        public static List<DeepWxLiteralGrouping> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<DeepWxLiteralGrouping> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxLiteralGrouping." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<DeepWxLiteralGrouping> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<DeepWxLiteralGrouping> clsList = new ArrayList<DeepWxLiteralGrouping>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[OneMan, Parade]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxLiteralGrouping> listOfServiceAvailable() {
-            return new ArrayList<DeepWxLiteralGrouping>(Arrays.asList(OneMan, Parade));
+            return new ArrayList<>(Arrays.asList(OneMan, Parade));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<DeepWxLiteralGrouping> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            return new ArrayList<DeepWxLiteralGrouping>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -2054,25 +1181,15 @@ public interface SelfclientCDef extends Classification {
      */
     public enum DeepWxDeprecatedCls implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
-        ,
+        Formalized("FML", "Formalized", new String[] {"Formalized"}),
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
-        ,
+        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"}),
         /** Provisional: first status after entry, allowed to use only part of service */
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
+        Provisional("PRV", "Provisional", new String[] {"Provisional"}),
         /** All Statuses: without status filter */
-        All("ALL", "All Statuses", emptyStrings())
-        ;
-        private static final Map<String, DeepWxDeprecatedCls> _codeClsMap = new HashMap<String, DeepWxDeprecatedCls>();
-        private static final Map<String, DeepWxDeprecatedCls> _nameClsMap = new HashMap<String, DeepWxDeprecatedCls>();
-        static {
-            for (DeepWxDeprecatedCls value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        All("ALL", "All Statuses", emptyStrings());
+        private static String[] emptyStrings() { return new String[0]; }
+        private static ZzzoneSlimmer<DeepWxDeprecatedCls> _slimmer = new ZzzoneSlimmer<>(DeepWxDeprecatedCls.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -2100,107 +1217,63 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private DeepWxDeprecatedCls(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.DeepWxDeprecatedCls; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return Formalized.equals(this) || Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Provisional]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Withdrawal]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return Withdrawal.equals(this);
-        }
-
+        public boolean isUnauthorized() { return Withdrawal.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedCls> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof DeepWxDeprecatedCls) { return OptionalThing.of((DeepWxDeprecatedCls)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<DeepWxDeprecatedCls> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedCls> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<DeepWxDeprecatedCls> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxDeprecatedCls codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof DeepWxDeprecatedCls) { return (DeepWxDeprecatedCls)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static DeepWxDeprecatedCls nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static DeepWxDeprecatedCls codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<DeepWxDeprecatedCls> listAll() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(values()));
-        }
-
+        public static List<DeepWxDeprecatedCls> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<DeepWxDeprecatedCls> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -2209,58 +1282,30 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedCls." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<DeepWxDeprecatedCls> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<DeepWxDeprecatedCls> clsList = new ArrayList<DeepWxDeprecatedCls>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxDeprecatedCls> listOfServiceAvailable() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxDeprecatedCls> listOfShortOfFormalized() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Provisional));
+            return new ArrayList<>(Arrays.asList(Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Withdrawal]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxDeprecatedCls> listOfUnauthorized() {
-            return new ArrayList<DeepWxDeprecatedCls>(Arrays.asList(Withdrawal));
+            return new ArrayList<>(Arrays.asList(Withdrawal));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<DeepWxDeprecatedCls> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<DeepWxDeprecatedCls>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
@@ -2269,27 +1314,17 @@ public interface SelfclientCDef extends Classification {
      */
     public enum DeepWxDeprecatedElement implements SelfclientCDef {
         /** Formalized: as formal member, allowed to use all service */
-        Formalized("FML", "Formalized", new String[] {"Formalized"})
-        ,
+        Formalized("FML", "Formalized", new String[] {"Formalized"}),
         /** Withdrawal: withdrawal is fixed, not allowed to use service */
-        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"})
-        ,
+        Withdrawal("WDL", "Withdrawal", new String[] {"Withdrawal"}),
         /** Provisional: first status after entry, allowed to use only part of service (deprecated: test of deprecated) */
         @Deprecated
-        Provisional("PRV", "Provisional", new String[] {"Provisional"})
-        ,
+        Provisional("PRV", "Provisional", new String[] {"Provisional"}),
         /** All Statuses: without status filter (deprecated: and also test of deprecated) */
         @Deprecated
-        All("ALL", "All Statuses", emptyStrings())
-        ;
-        private static final Map<String, DeepWxDeprecatedElement> _codeClsMap = new HashMap<String, DeepWxDeprecatedElement>();
-        private static final Map<String, DeepWxDeprecatedElement> _nameClsMap = new HashMap<String, DeepWxDeprecatedElement>();
-        static {
-            for (DeepWxDeprecatedElement value : values()) {
-                _codeClsMap.put(value.code().toLowerCase(), value);
-                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
-            }
-        }
+        All("ALL", "All Statuses", emptyStrings());
+        private static String[] emptyStrings() { return new String[0]; }
+        private static ZzzoneSlimmer<DeepWxDeprecatedElement> _slimmer = new ZzzoneSlimmer<>(DeepWxDeprecatedElement.class, values());
         private static final Map<String, Map<String, Object>> _subItemMapMap = new HashMap<String, Map<String, Object>>();
         static {
             {
@@ -2317,107 +1352,63 @@ public interface SelfclientCDef extends Classification {
         }
         private String _code; private String _alias; private Set<String> _sisterSet;
         private DeepWxDeprecatedElement(String code, String alias, String[] sisters)
-        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        { _code = code; _alias = alias; _sisterSet = ZzzoneSlimmer.toSisterSet(sisters); }
         public String code() { return _code; } public String alias() { return _alias; }
         public Set<String> sisterSet() { return _sisterSet; }
         public Map<String, Object> subItemMap() { return _subItemMapMap.get(code()); }
         public ClassificationMeta meta() { return SelfclientCDef.DefMeta.DeepWxDeprecatedElement; }
-
         /**
          * Is the classification in the group? <br>
          * The group elements:[Formalized, Provisional]
          * @return The determination, true or false.
          */
-        public boolean isServiceAvailable() {
-            return Formalized.equals(this) || Provisional.equals(this);
-        }
-
+        public boolean isServiceAvailable() { return Formalized.equals(this) || Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Provisional]
          * @return The determination, true or false.
          */
-        public boolean isShortOfFormalized() {
-            return Provisional.equals(this);
-        }
-
+        public boolean isShortOfFormalized() { return Provisional.equals(this); }
         /**
          * Is the classification in the group? <br>
          * The group elements:[Withdrawal]
          * @return The determination, true or false.
          */
-        public boolean isUnauthorized() {
-            return Withdrawal.equals(this);
-        }
-
+        public boolean isUnauthorized() { return Withdrawal.equals(this); }
         public boolean inGroup(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return isServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return isShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return isUnauthorized(); }
+            if ("serviceAvailable".equalsIgnoreCase(groupName)) { return isServiceAvailable(); }
+            if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return isShortOfFormalized(); }
+            if ("unauthorized".equalsIgnoreCase(groupName)) { return isUnauthorized(); }
             return false;
         }
-
         /**
          * Get the classification of the code. (CaseInsensitive)
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
          * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedElement> of(Object code) {
-            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
-            if (code instanceof DeepWxDeprecatedElement) { return OptionalThing.of((DeepWxDeprecatedElement)code); }
-            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
-            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification code: " + code);
-            });
-        }
-
+        public static OptionalThing<DeepWxDeprecatedElement> of(Object code) { return _slimmer.of(code); }
         /**
          * Find the classification by the name. (CaseInsensitive)
          * @param name The string of name, which is case-insensitive. (NotNull)
          * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
          */
-        public static OptionalThing<DeepWxDeprecatedElement> byName(String name) {
-            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
-            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
-                throw new ClassificationNotFoundException("Unknown classification name: " + name);
-            });
-        }
-
+        public static OptionalThing<DeepWxDeprecatedElement> byName(String name) { return _slimmer.byName(name); }
         /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
-         * Get the classification by the code. (CaseInsensitive)
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span>
          * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
          * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
          */
-        public static DeepWxDeprecatedElement codeOf(Object code) {
-            if (code == null) { return null; }
-            if (code instanceof DeepWxDeprecatedElement) { return (DeepWxDeprecatedElement)code; }
-            return _codeClsMap.get(code.toString().toLowerCase());
-        }
-
-        /**
-         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
-         * Get the classification by the name (also called 'value' in ENUM world).
-         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
-         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
-         */
-        public static DeepWxDeprecatedElement nameOf(String name) {
-            if (name == null) { return null; }
-            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
-        }
-
+        public static DeepWxDeprecatedElement codeOf(Object code) { return _slimmer.codeOf(code); }
         /**
          * Get the list of all classification elements. (returns new copied list)
          * @return The snapshot list of all classification elements. (NotNull)
          */
-        public static List<DeepWxDeprecatedElement> listAll() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(values()));
-        }
-
+        public static List<DeepWxDeprecatedElement> listAll() { return _slimmer.listAll(values()); }
         /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * Get the list of classification elements in the specified group. (returns new copied list)
          * @param groupName The string of group name, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         * @return The snapshot list of classification elements in the group. (NotNull)
+         * @throws ClassificationNotFoundException When the group is not found.
          */
         public static List<DeepWxDeprecatedElement> listByGroup(String groupName) {
             if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
@@ -2426,321 +1417,266 @@ public interface SelfclientCDef extends Classification {
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
             throw new ClassificationNotFoundException("Unknown classification group: DeepWxDeprecatedElement." + groupName);
         }
-
-        /**
-         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
-         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
-         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
-         */
-        public static List<DeepWxDeprecatedElement> listOf(Collection<String> codeList) {
-            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
-            List<DeepWxDeprecatedElement> clsList = new ArrayList<DeepWxDeprecatedElement>(codeList.size());
-            for (String code : codeList) { clsList.add(of(code).get()); }
-            return clsList;
-        }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Formalized, Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxDeprecatedElement> listOfServiceAvailable() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Formalized, Provisional));
+            return new ArrayList<>(Arrays.asList(Formalized, Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Provisional]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxDeprecatedElement> listOfShortOfFormalized() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Provisional));
+            return new ArrayList<>(Arrays.asList(Provisional));
         }
-
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
          * The group elements:[Withdrawal]
          * @return The snapshot list of classification elements in the group. (NotNull)
          */
         public static List<DeepWxDeprecatedElement> listOfUnauthorized() {
-            return new ArrayList<DeepWxDeprecatedElement>(Arrays.asList(Withdrawal));
+            return new ArrayList<>(Arrays.asList(Withdrawal));
         }
-
-        /**
-         * Get the list of classification elements in the specified group. (returns new copied list) <br>
-         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
-         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
-         */
-        public static List<DeepWxDeprecatedElement> groupOf(String groupName) {
-            if ("serviceAvailable".equals(groupName)) { return listOfServiceAvailable(); }
-            if ("shortOfFormalized".equals(groupName)) { return listOfShortOfFormalized(); }
-            if ("unauthorized".equals(groupName)) { return listOfUnauthorized(); }
-            return new ArrayList<DeepWxDeprecatedElement>(4);
-        }
-
         @Override public String toString() { return code(); }
     }
 
     public enum DefMeta implements ClassificationMeta {
         /** test of included, expects grouping, sub-item, sisters */
-        AppSea
-        ,
+        AppSea(cd -> SelfclientCDef.AppSea.of(cd), nm -> SelfclientCDef.AppSea.byName(nm)
+        , () -> SelfclientCDef.AppSea.listAll(), gp -> SelfclientCDef.AppSea.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of exists, expects no grouping, no sub-item, sisters */
-        AppLand
-        ,
+        AppLand(cd -> SelfclientCDef.AppLand.of(cd), nm -> SelfclientCDef.AppLand.byName(nm)
+        , () -> SelfclientCDef.AppLand.listAll(), gp -> SelfclientCDef.AppLand.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of matches, expects no grouping, no sub-item, sisters */
-        AppPiari
-        ,
+        AppPiari(cd -> SelfclientCDef.AppPiari.of(cd), nm -> SelfclientCDef.AppPiari.byName(nm)
+        , () -> SelfclientCDef.AppPiari.listAll(), gp -> SelfclientCDef.AppPiari.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of manual grouping map using refCls as included, expects overridden, added */
-        AppBonvo
-        ,
+        AppBonvo(cd -> SelfclientCDef.AppBonvo.of(cd), nm -> SelfclientCDef.AppBonvo.byName(nm)
+        , () -> SelfclientCDef.AppBonvo.listAll(), gp -> SelfclientCDef.AppBonvo.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of manual grouping map using refCls as exists, expects new grouping is available */
-        AppDstore
-        ,
+        AppDstore(cd -> SelfclientCDef.AppDstore.of(cd), nm -> SelfclientCDef.AppDstore.byName(nm)
+        , () -> SelfclientCDef.AppDstore.listAll(), gp -> SelfclientCDef.AppDstore.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of manual sub-item and sisters as included, expects merged, only order() exists */
-        AppAmba
-        ,
+        AppAmba(cd -> SelfclientCDef.AppAmba.of(cd), nm -> SelfclientCDef.AppAmba.byName(nm)
+        , () -> SelfclientCDef.AppAmba.listAll(), gp -> SelfclientCDef.AppAmba.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of manual sub-item and sisters as exists, expects new only here */
-        AppMiraco
-        ,
+        AppMiraco(cd -> SelfclientCDef.AppMiraco.of(cd), nm -> SelfclientCDef.AppMiraco.byName(nm)
+        , () -> SelfclientCDef.AppMiraco.listAll(), gp -> SelfclientCDef.AppMiraco.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of referring group, expects grouped elements only and sub-item, sisters exist */
-        AppDohotel
-        ,
+        AppDohotel(cd -> SelfclientCDef.AppDohotel.of(cd), nm -> SelfclientCDef.AppDohotel.byName(nm)
+        , () -> SelfclientCDef.AppDohotel.listAll(), gp -> SelfclientCDef.AppDohotel.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of including sub-item and sisters when implicit classification */
-        AppFlg
-        ,
+        AppFlg(cd -> SelfclientCDef.AppFlg.of(cd), nm -> SelfclientCDef.AppFlg.byName(nm)
+        , () -> SelfclientCDef.AppFlg.listAll(), gp -> SelfclientCDef.AppFlg.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of including grouping map when implicit classification */
-        AppPaymentMethod
-        ,
+        AppPaymentMethod(cd -> SelfclientCDef.AppPaymentMethod.of(cd), nm -> SelfclientCDef.AppPaymentMethod.byName(nm)
+        , () -> SelfclientCDef.AppPaymentMethod.listAll(), gp -> SelfclientCDef.AppPaymentMethod.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of groupingMap when literal only */
-        DeepWxLiteralGrouping
-        ,
+        DeepWxLiteralGrouping(cd -> SelfclientCDef.DeepWxLiteralGrouping.of(cd), nm -> SelfclientCDef.DeepWxLiteralGrouping.byName(nm)
+        , () -> SelfclientCDef.DeepWxLiteralGrouping.listAll(), gp -> SelfclientCDef.DeepWxLiteralGrouping.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of deprecated classification top */
-        DeepWxDeprecatedCls
-        ,
+        DeepWxDeprecatedCls(cd -> SelfclientCDef.DeepWxDeprecatedCls.of(cd), nm -> SelfclientCDef.DeepWxDeprecatedCls.byName(nm)
+        , () -> SelfclientCDef.DeepWxDeprecatedCls.listAll(), gp -> SelfclientCDef.DeepWxDeprecatedCls.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
+
         /** test of deprecatedMap */
-        DeepWxDeprecatedElement
-        ;
-        public String classificationName() {
-            return name(); // same as definition name
+        DeepWxDeprecatedElement(cd -> SelfclientCDef.DeepWxDeprecatedElement.of(cd), nm -> SelfclientCDef.DeepWxDeprecatedElement.byName(nm)
+        , () -> SelfclientCDef.DeepWxDeprecatedElement.listAll(), gp -> SelfclientCDef.DeepWxDeprecatedElement.listByGroup(gp)
+        , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING);
+
+        private static final Map<String, DefMeta> _nameMetaMap = new HashMap<>();
+        static {
+            for (DefMeta value : values()) {
+                _nameMetaMap.put(value.name().toLowerCase(), value);
+            }
+        }
+        private final Function<Object, OptionalThing<? extends Classification>> _ofCall;
+        private final Function<String, OptionalThing<? extends Classification>> _byNameCall;
+        private final Supplier<List<? extends Classification>> _listAllCall;
+        private final Function<String, List<? extends Classification>> _listByGroupCall;
+        private final ClassificationCodeType _codeType;
+        private final ClassificationUndefinedHandlingType _undefinedHandlingType;
+        private DefMeta(Function<Object, OptionalThing<? extends Classification>> ofCall
+                      , Function<String, OptionalThing<? extends Classification>> byNameCall
+                      , Supplier<List<? extends Classification>> listAllCall
+                      , Function<String, List<? extends Classification>> listByGroupCall
+                      , ClassificationCodeType codeType
+                      , ClassificationUndefinedHandlingType undefinedHandlingType
+                ) {
+            _ofCall = ofCall;
+            _byNameCall = byNameCall;
+            _listAllCall = listAllCall;
+            _listByGroupCall = listByGroupCall;
+            _codeType = codeType;
+            _undefinedHandlingType = undefinedHandlingType;
+        }
+        public String classificationName() { return name(); } // same as definition name
+
+        public OptionalThing<? extends Classification> of(Object code) { return _ofCall.apply(code); }
+        public OptionalThing<? extends Classification> byName(String name) { return _byNameCall.apply(name); }
+
+        public Classification codeOf(Object code) // null allowed, old style
+        { return of(code).orElse(null); }
+        public Classification nameOf(String name) { // null allowed, old style
+            if (name == null) { return null; } // for compatible
+            return byName(name).orElse(null); // case insensitive
         }
 
-        public OptionalThing<? extends Classification> of(Object code) {
-            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.of(code); }
-            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.of(code); }
-            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.of(code); }
-            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.of(code); }
-            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.of(code); }
-            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.of(code); }
-            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.of(code); }
-            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.of(code); }
-            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.of(code); }
-            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.of(code); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.of(code); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.of(code); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.of(code); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
-
-        public OptionalThing<? extends Classification> byName(String name) {
-            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.byName(name); }
-            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.byName(name); }
-            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.byName(name); }
-            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.byName(name); }
-            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.byName(name); }
-            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.byName(name); }
-            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.byName(name); }
-            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.byName(name); }
-            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.byName(name); }
-            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.byName(name); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.byName(name); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.byName(name); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.byName(name); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
-
-        public Classification codeOf(Object code) { // null if not found, old style so use of(code)
-            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.codeOf(code); }
-            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.codeOf(code); }
-            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.codeOf(code); }
-            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.codeOf(code); }
-            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.codeOf(code); }
-            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.codeOf(code); }
-            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.codeOf(code); }
-            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.codeOf(code); }
-            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.codeOf(code); }
-            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.codeOf(code); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.codeOf(code); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.codeOf(code); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.codeOf(code); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
-
-        public Classification nameOf(String name) { // null if not found, old style so use byName(name)
-            if (AppSea.name().equals(name())) { return SelfclientCDef.AppSea.valueOf(name); }
-            if (AppLand.name().equals(name())) { return SelfclientCDef.AppLand.valueOf(name); }
-            if (AppPiari.name().equals(name())) { return SelfclientCDef.AppPiari.valueOf(name); }
-            if (AppBonvo.name().equals(name())) { return SelfclientCDef.AppBonvo.valueOf(name); }
-            if (AppDstore.name().equals(name())) { return SelfclientCDef.AppDstore.valueOf(name); }
-            if (AppAmba.name().equals(name())) { return SelfclientCDef.AppAmba.valueOf(name); }
-            if (AppMiraco.name().equals(name())) { return SelfclientCDef.AppMiraco.valueOf(name); }
-            if (AppDohotel.name().equals(name())) { return SelfclientCDef.AppDohotel.valueOf(name); }
-            if (AppFlg.name().equals(name())) { return SelfclientCDef.AppFlg.valueOf(name); }
-            if (AppPaymentMethod.name().equals(name())) { return SelfclientCDef.AppPaymentMethod.valueOf(name); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return SelfclientCDef.DeepWxLiteralGrouping.valueOf(name); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedCls.valueOf(name); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return SelfclientCDef.DeepWxDeprecatedElement.valueOf(name); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
-
-        public List<Classification> listAll() {
-            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.listAll()); }
-            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.listAll()); }
-            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.listAll()); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.listAll()); }
-            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.listAll()); }
-            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.listAll()); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.listAll()); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.listAll()); }
-            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.listAll()); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.listAll()); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.listAll()); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.listAll()); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.listAll()); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
-
-        public List<Classification> listByGroup(String groupName) { // exception if not found
-            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.listByGroup(groupName)); }
-            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.listByGroup(groupName)); }
-            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.listByGroup(groupName)); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.listByGroup(groupName)); }
-            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.listByGroup(groupName)); }
-            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.listByGroup(groupName)); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.listByGroup(groupName)); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.listByGroup(groupName)); }
-            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.listByGroup(groupName)); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.listByGroup(groupName)); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.listByGroup(groupName)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.listByGroup(groupName)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.listByGroup(groupName)); }
-            throw new IllegalStateException("Unknown groupName: " + groupName + ", " + this); // basically unreachable
-        }
-
-        public List<Classification> listOf(Collection<String> codeList) {
-            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.listOf(codeList)); }
-            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.listOf(codeList)); }
-            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.listOf(codeList)); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.listOf(codeList)); }
-            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.listOf(codeList)); }
-            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.listOf(codeList)); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.listOf(codeList)); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.listOf(codeList)); }
-            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.listOf(codeList)); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.listOf(codeList)); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.listOf(codeList)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.listOf(codeList)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.listOf(codeList)); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
-
-        public List<Classification> groupOf(String groupName) { // old style
-            if (AppSea.name().equals(name())) { return toClsList(SelfclientCDef.AppSea.groupOf(groupName)); }
-            if (AppLand.name().equals(name())) { return toClsList(SelfclientCDef.AppLand.groupOf(groupName)); }
-            if (AppPiari.name().equals(name())) { return toClsList(SelfclientCDef.AppPiari.groupOf(groupName)); }
-            if (AppBonvo.name().equals(name())) { return toClsList(SelfclientCDef.AppBonvo.groupOf(groupName)); }
-            if (AppDstore.name().equals(name())) { return toClsList(SelfclientCDef.AppDstore.groupOf(groupName)); }
-            if (AppAmba.name().equals(name())) { return toClsList(SelfclientCDef.AppAmba.groupOf(groupName)); }
-            if (AppMiraco.name().equals(name())) { return toClsList(SelfclientCDef.AppMiraco.groupOf(groupName)); }
-            if (AppDohotel.name().equals(name())) { return toClsList(SelfclientCDef.AppDohotel.groupOf(groupName)); }
-            if (AppFlg.name().equals(name())) { return toClsList(SelfclientCDef.AppFlg.groupOf(groupName)); }
-            if (AppPaymentMethod.name().equals(name())) { return toClsList(SelfclientCDef.AppPaymentMethod.groupOf(groupName)); }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxLiteralGrouping.groupOf(groupName)); }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedCls.groupOf(groupName)); }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return toClsList(SelfclientCDef.DeepWxDeprecatedElement.groupOf(groupName)); }
-            throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
-        }
+        public List<Classification> listAll()
+        { return toClsList(_listAllCall.get()); }
+        public List<Classification> listByGroup(String groupName) // exception if not found
+        { return toClsList(_listByGroupCall.apply(groupName)); }
 
         @SuppressWarnings("unchecked")
-        private List<Classification> toClsList(List<?> clsList) {
-            return (List<Classification>)clsList;
+        private List<Classification> toClsList(List<?> clsList) { return (List<Classification>)clsList; }
+
+        public List<Classification> listOf(Collection<String> codeList) { // copied from slimmer, old style
+            if (codeList == null) {
+                throw new IllegalArgumentException("The argument 'codeList' should not be null.");
+            }
+            List<Classification> clsList = new ArrayList<>(codeList.size());
+            for (String code : codeList) {
+                clsList.add(of(code).get());
+            }
+            return clsList;
+        }
+        public List<Classification> groupOf(String groupName) { // empty if not found, old style
+            try {
+                return listByGroup(groupName); // case insensitive
+            } catch (IllegalArgumentException | ClassificationNotFoundException e) {
+                return new ArrayList<>();
+            }
         }
 
-        public ClassificationCodeType codeType() {
-            if (AppSea.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppLand.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppPiari.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppBonvo.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppDstore.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppAmba.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppMiraco.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppDohotel.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppFlg.name().equals(name())) { return ClassificationCodeType.String; }
-            if (AppPaymentMethod.name().equals(name())) { return ClassificationCodeType.String; }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return ClassificationCodeType.String; }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return ClassificationCodeType.String; }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return ClassificationCodeType.String; }
-            return ClassificationCodeType.String; // as default
-        }
-
-        public ClassificationUndefinedHandlingType undefinedHandlingType() {
-            if (AppSea.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppLand.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppPiari.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppBonvo.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppDstore.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppAmba.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppMiraco.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppDohotel.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppFlg.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (AppPaymentMethod.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (DeepWxLiteralGrouping.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (DeepWxDeprecatedCls.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            if (DeepWxDeprecatedElement.name().equals(name())) { return ClassificationUndefinedHandlingType.LOGGING; }
-            return ClassificationUndefinedHandlingType.LOGGING; // as default
-        }
+        public ClassificationCodeType codeType() { return _codeType; }
+        public ClassificationUndefinedHandlingType undefinedHandlingType() { return _undefinedHandlingType; }
 
         public static OptionalThing<SelfclientCDef.DefMeta> find(String classificationName) { // instead of valueOf()
             if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (AppSea.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppSea); }
-            if (AppLand.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppLand); }
-            if (AppPiari.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppPiari); }
-            if (AppBonvo.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppBonvo); }
-            if (AppDstore.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppDstore); }
-            if (AppAmba.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppAmba); }
-            if (AppMiraco.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppMiraco); }
-            if (AppDohotel.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppDohotel); }
-            if (AppFlg.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppFlg); }
-            if (AppPaymentMethod.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.AppPaymentMethod); }
-            if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.DeepWxLiteralGrouping); }
-            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.DeepWxDeprecatedCls); }
-            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(SelfclientCDef.DefMeta.DeepWxDeprecatedElement); }
-            return OptionalThing.ofNullable(null, () -> {
+            return OptionalThing.ofNullable(_nameMetaMap.get(classificationName.toLowerCase()), () -> {
                 throw new ClassificationNotFoundException("Unknown classification: " + classificationName);
             });
         }
-
         public static SelfclientCDef.DefMeta meta(String classificationName) { // old style so use find(name)
-            if (classificationName == null) { throw new IllegalArgumentException("The argument 'classificationName' should not be null."); }
-            if (AppSea.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppSea; }
-            if (AppLand.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppLand; }
-            if (AppPiari.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppPiari; }
-            if (AppBonvo.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppBonvo; }
-            if (AppDstore.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppDstore; }
-            if (AppAmba.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppAmba; }
-            if (AppMiraco.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppMiraco; }
-            if (AppDohotel.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppDohotel; }
-            if (AppFlg.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppFlg; }
-            if (AppPaymentMethod.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.AppPaymentMethod; }
-            if (DeepWxLiteralGrouping.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.DeepWxLiteralGrouping; }
-            if (DeepWxDeprecatedCls.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.DeepWxDeprecatedCls; }
-            if (DeepWxDeprecatedElement.name().equalsIgnoreCase(classificationName)) { return SelfclientCDef.DefMeta.DeepWxDeprecatedElement; }
-            throw new IllegalStateException("Unknown classification: " + classificationName);
+            return find(classificationName).orElse(null);
+        }
+    }
+
+    public static class ZzzoneSlimmer<CLS extends SelfclientCDef> {
+
+        public static Set<String> toSisterSet(String[] sisters) { // used by initializer so static
+            return Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters)));
         }
 
-        @SuppressWarnings("unused")
-        private String[] xinternalEmptyString() {
-            return emptyStrings(); // to suppress 'unused' warning of import statement
+        private final Class<CLS> _clsType;
+        private final Map<String, CLS> _codeClsMap = new HashMap<>();
+        private final Map<String, CLS> _nameClsMap = new HashMap<>();
+
+        public ZzzoneSlimmer(Class<CLS> clsType, CLS[] values) {
+            _clsType = clsType;
+            initMap(values);
+        }
+
+        private void initMap(CLS[] values) {
+            for (CLS value : values) {
+                _codeClsMap.put(value.code().toLowerCase(), value);
+                for (String sister : value.sisterSet()) {
+                    _codeClsMap.put(sister.toLowerCase(), value);
+                }
+                _nameClsMap.put(value.name().toLowerCase(), value);
+            }
+        }
+
+        public OptionalThing<CLS> of(Object code) {
+            if (code == null) {
+                return OptionalThing.ofNullable(null, () -> {
+                    throw new ClassificationNotFoundException("null code specified");
+                });
+            }
+            if (_clsType.isAssignableFrom(code.getClass())) {
+                @SuppressWarnings("unchecked")
+                CLS cls = (CLS) code;
+                return OptionalThing.of(cls);
+            }
+            if (code instanceof OptionalThing<?>) {
+                return of(((OptionalThing<?>) code).orElse(null));
+            }
+            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () -> {
+                throw new ClassificationNotFoundException("Unknown classification code: " + code);
+            });
+        }
+
+        public OptionalThing<CLS> byName(String name) {
+            if (name == null) {
+                throw new IllegalArgumentException("The argument 'name' should not be null.");
+            }
+            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () -> {
+                throw new ClassificationNotFoundException("Unknown classification name: " + name);
+            });
+        }
+
+        public CLS codeOf(Object code) {
+            if (code == null) {
+                return null;
+            }
+            if (_clsType.isAssignableFrom(code.getClass())) {
+                @SuppressWarnings("unchecked")
+                CLS cls = (CLS) code;
+                return cls;
+            }
+            return _codeClsMap.get(code.toString().toLowerCase());
+        }
+
+        public CLS nameOf(String name, java.util.function.Function<String, CLS> valueOfCall) {
+            if (name == null) {
+                return null;
+            }
+            try {
+                return valueOfCall.apply(name);
+            } catch (RuntimeException ignored) { // not found
+                return null;
+            }
+        }
+
+        public List<CLS> listAll(CLS[] clss) {
+            return new ArrayList<>(Arrays.asList(clss));
+        }
+
+        public List<CLS> listOf(Collection<String> codeList) {
+            if (codeList == null) {
+                throw new IllegalArgumentException("The argument 'codeList' should not be null.");
+            }
+            List<CLS> clsList = new ArrayList<>(codeList.size());
+            for (String code : codeList) {
+                clsList.add(of(code).get());
+            }
+            return clsList;
         }
     }
 }

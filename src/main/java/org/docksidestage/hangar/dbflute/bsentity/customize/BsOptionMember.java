@@ -133,7 +133,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
-        return CDef.MemberStatus.codeOf(getMemberStatusCode());
+        return CDef.MemberStatus.of(getMemberStatusCode()).orElse(null);
     }
 
     /**
@@ -154,7 +154,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.Flg getDummyFlgAsFlg() {
-        return CDef.Flg.codeOf(getDummyFlg());
+        return CDef.Flg.of(getDummyFlg()).orElse(null);
     }
 
     /**
@@ -174,7 +174,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
      * @param determination The determination, true or false. (NullAllowed: if null, null value is set to the column)
      */
     public void setDummyFlgAsBoolean(Boolean determination) {
-        setDummyFlgAsFlg(CDef.Flg.codeOf(determination));
+        setDummyFlgAsFlg(CDef.Flg.of(determination).orElse(null));
     }
 
     // ===================================================================================

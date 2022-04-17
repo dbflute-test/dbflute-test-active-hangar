@@ -39,8 +39,17 @@ map:{
 
     # you can override (several) default settings like this:
     ; overrideMap = map:{
+        # test of option to suppress DB classification collaboration
+        ; hangar.freeGen.appcls.isSuppressDBClsCollaboration = false
+
         # test of option to suppress redundant comment stop
-        #; hangar.freeGen.leonardo_cls.isSuppressRedundantCommentStop = true
+        ; hangar.freeGen.leonardo_cls.isSuppressRedundantCommentStop = false
+
+        # test of option for CDef old style methods (related to littleAdjustmentMap.dfprop)
+        #; hangar.freeGen.appcls.isMakeCDefOldStyleCodeOfMethod = false
+        ; hangar.freeGen.appcls.isMakeCDefOldStyleNameOfMethod = false
+        #; hangar.freeGen.appcls.isMakeCDefOldStyleListOfMethod = false
+        ; hangar.freeGen.appcls.isMakeCDefOldStyleGroupOfMethod = true
     }
 }
 # ----------------/

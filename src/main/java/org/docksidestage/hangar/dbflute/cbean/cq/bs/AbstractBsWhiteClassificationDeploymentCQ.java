@@ -198,7 +198,7 @@ public abstract class AbstractBsWhiteClassificationDeploymentCQ extends Abstract
      * @param determination The determination, true or false. (basically NotNull: error as default, or no condition as option)
      */
     public void setSeaFlg_Equal_AsBoolean(Boolean determination) {
-        setSeaFlg_Equal_AsFlg(CDef.Flg.codeOf(determination));
+        setSeaFlg_Equal_AsFlg(CDef.Flg.of(determination).get());
     }
 
     /**

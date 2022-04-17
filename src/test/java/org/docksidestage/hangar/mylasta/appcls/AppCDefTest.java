@@ -1,7 +1,11 @@
 package org.docksidestage.hangar.mylasta.appcls;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import org.dbflute.exception.ClassificationNotFoundException;
+import org.dbflute.optional.OptionalThing;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
@@ -31,6 +35,65 @@ import org.docksidestage.hangar.mylasta.namedcls.LeonardoCDef;
 public class AppCDefTest extends PlainTestCase {
 
     // ===================================================================================
+    //                                                                          Basic CDef
+    //                                                                          ==========
+    @SuppressWarnings("deprecation")
+    public void test_basic_CDef() {
+        assertEquals(AppMaihama.Formalized, AppMaihama.of("FML").get());
+        assertEquals(AppMaihama.Formalized, AppMaihama.of("fMl").get());
+        assertEquals(AppMaihama.Formalized, AppMaihama.of(OptionalThing.of(AppMaihama.Formalized)).get());
+        assertEquals(AppMaihama.Formalized, AppMaihama.of(OptionalThing.of("FML")).get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.of(null).get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.of("none").get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.of(OptionalThing.of("none")).get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.of(OptionalThing.of(1)).get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.of(OptionalThing.of(CDef.Flg.True)).get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.of(OptionalThing.empty()).get());
+
+        assertEquals(AppMaihama.Formalized, AppMaihama.byName("Formalized").get());
+        assertEquals(AppMaihama.Formalized, AppMaihama.byName("forMaliZed").get());
+        assertException(IllegalArgumentException.class, () -> AppMaihama.byName(null).get());
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.byName("none").get());
+
+        assertEquals(AppMaihama.Formalized, AppMaihama.codeOf("FML"));
+        assertEquals(AppMaihama.Formalized, AppMaihama.codeOf("fMl"));
+        // nameOf() is not generated
+
+        List<AppMaihama> allList = Arrays.asList(AppMaihama.Formalized, AppMaihama.Withdrawal, AppMaihama.Provisional);
+        assertEquals(allList, AppMaihama.listAll());
+
+        assertTrue(AppMaihama.Formalized.inGroup("serviceAvailable"));
+        assertTrue(AppMaihama.Formalized.inGroup("sErvIcEavailable")); // case insensitive since 1.2.6
+        assertFalse(AppMaihama.Formalized.inGroup("none"));
+
+        // listOf is not generated
+        //assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), AppMaihama.listOf(Arrays.asList("FML", "PRV")));
+
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), AppMaihama.listByGroup("serviceAvailable"));
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), AppMaihama.listByGroup("ServiCeavailAble"));
+        assertException(IllegalArgumentException.class, () -> AppMaihama.listByGroup(null));
+        assertException(ClassificationNotFoundException.class, () -> AppMaihama.listByGroup("none"));
+
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), AppMaihama.groupOf("serviceAvailable"));
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), AppMaihama.groupOf("ServiCeavailAble"));
+        assertEquals(new ArrayList<>(), AppMaihama.groupOf("none"));
+
+        AppCDef.DefMeta defmeta = AppCDef.DefMeta.AppMaihama;
+        assertEquals(AppMaihama.Formalized, defmeta.of("FML").get());
+        assertEquals(AppMaihama.Formalized, defmeta.byName("Formalized").get());
+        assertEquals(AppMaihama.Formalized, defmeta.codeOf("FML"));
+        assertEquals(AppMaihama.Formalized, defmeta.nameOf("Formalized"));
+        assertEquals(allList, defmeta.listAll());
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Withdrawal), defmeta.listOf(Arrays.asList("FML", "WDL")));
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), defmeta.listByGroup("serviceAvailable"));
+        assertException(IllegalArgumentException.class, () -> defmeta.listByGroup(null));
+        assertException(ClassificationNotFoundException.class, () -> defmeta.listByGroup("none"));
+        assertEquals(new ArrayList<>(), defmeta.groupOf(null));
+        assertEquals(new ArrayList<>(), defmeta.groupOf("none"));
+        assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), defmeta.groupOf("serviceAvailable"));
+    }
+
+    // ===================================================================================
     //                                                         refCls Table Classification
     //                                                         ===========================
     public void test_AppMaihama_basic() { // included, without project name, expects DB reference
@@ -55,7 +118,7 @@ public class AppCDefTest extends PlainTestCase {
     public void test_AppLand_basic() { // exists
         assertEquals(Arrays.asList(AppLand.OneMan, AppLand.MiniO), AppLand.listAll());
         assertEquals(Arrays.asList(AppLand.OneMan), AppLand.listOfServiceAvailable());
-        assertTrue(AppLand.groupOf("shortOfFormalized").isEmpty());
+        assertException(ClassificationNotFoundException.class, () -> AppLand.listByGroup("shortOfFormalized"));
         assertEquals(Arrays.asList(AppLand.MiniO), AppLand.listOfUnauthorized());
         assertTrue(AppLand.OneMan.sisterSet().isEmpty());
         assertTrue(AppLand.OneMan.subItemMap().isEmpty());
@@ -141,7 +204,7 @@ public class AppCDefTest extends PlainTestCase {
         assertEquals(Arrays.asList(AppAmphi.Formalized, AppAmphi.Provisional), AppAmphi.listAll());
         assertEquals(Arrays.asList(AppAmphi.Formalized, AppAmphi.Provisional), AppAmphi.listOfServiceAvailable());
         assertEquals(Arrays.asList(AppAmphi.Provisional), AppAmphi.listOfShortOfFormalized());
-        assertTrue(AppAmphi.groupOf("unauthorized").isEmpty());
+        assertException(ClassificationNotFoundException.class, () -> AppAmphi.listByGroup("unauthorized"));
         assertEquals(CDef.MemberStatus.Formalized.sisterSet(), AppAmphi.Formalized.sisterSet()); // inherited
         assertEquals(CDef.MemberStatus.Provisional.sisterSet(), AppAmphi.Provisional.sisterSet()); // inherited
         assertEquals("1", AppAmphi.Formalized.subItemMap().get("order")); // inherited
@@ -172,7 +235,7 @@ public class AppCDefTest extends PlainTestCase {
         assertEquals(Arrays.asList(AppCeleb.Formalized, AppCeleb.Provisional), AppCeleb.listAll());
         assertEquals(Arrays.asList(AppCeleb.Formalized, AppCeleb.Provisional), AppCeleb.listOfServiceAvailable());
         assertEquals(Arrays.asList(AppCeleb.Provisional), AppCeleb.listOfShortOfFormalized());
-        assertTrue(AppCeleb.groupOf("unauthorized").isEmpty());
+        assertException(ClassificationNotFoundException.class, () -> AppCeleb.listByGroup("unauthorized"));
         assertEquals(DfCollectionUtil.newHashSet("Formalized"), AppCeleb.Formalized.sisterSet());
         assertEquals("1", AppCeleb.Formalized.order());
         assertEquals("3", AppCeleb.Provisional.order());
@@ -181,8 +244,8 @@ public class AppCDefTest extends PlainTestCase {
     public void test_AppToys_basic() { // exists as group reference
         assertEquals(Arrays.asList(AppToys.OneMan), AppToys.listAll());
         assertEquals(Arrays.asList(AppToys.OneMan), AppToys.listOfServiceAvailable());
-        assertTrue(AppToys.groupOf("shortOfFormalized").isEmpty());
-        assertTrue(AppToys.groupOf("unauthorized").isEmpty());
+        assertException(ClassificationNotFoundException.class, () -> AppToys.listByGroup("shortOfFormalized"));
+        assertException(ClassificationNotFoundException.class, () -> AppToys.listByGroup("unauthorized"));
         assertTrue(AppToys.OneMan.sisterSet().isEmpty());
         assertTrue(AppToys.OneMan.subItemMap().isEmpty());
     }
@@ -191,7 +254,7 @@ public class AppCDefTest extends PlainTestCase {
         assertEquals(Arrays.asList(AppBrighton.OneMan, AppBrighton.Parade), AppBrighton.listAll());
         assertEquals(Arrays.asList(AppBrighton.OneMan, AppBrighton.Parade), AppBrighton.listOfServiceAvailable());
         assertEquals(Arrays.asList(AppBrighton.Parade), AppBrighton.listOfShortOfFormalized());
-        assertTrue(AppBrighton.groupOf("unauthorized").isEmpty());
+        assertException(ClassificationNotFoundException.class, () -> AppToys.listByGroup("unauthorized"));
         assertTrue(AppBrighton.OneMan.sisterSet().isEmpty());
         assertTrue(AppBrighton.Parade.sisterSet().isEmpty());
         assertTrue(AppBrighton.OneMan.subItemMap().isEmpty());
