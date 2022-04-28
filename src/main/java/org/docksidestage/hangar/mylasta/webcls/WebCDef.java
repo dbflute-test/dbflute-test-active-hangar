@@ -255,7 +255,9 @@ public interface WebCDef extends Classification {
             });
         }
         public static WebCDef.DefMeta meta(String classificationName) { // old style so use find(name)
-            return find(classificationName).orElse(null);
+            return find(classificationName).orElseTranslatingThrow(cause -> {
+                return new IllegalStateException("Unknown classification: " + classificationName);
+            });
         }
     }
 

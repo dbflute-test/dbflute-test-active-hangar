@@ -1,4 +1,4 @@
-package org.docksidestage.hangar.howto;
+package org.docksidestage.hangar.dbflute.howto;
 
 import org.docksidestage.hangar.dbflute.exbhv.PurchaseBhv;
 import org.docksidestage.hangar.dbflute.exentity.Purchase;

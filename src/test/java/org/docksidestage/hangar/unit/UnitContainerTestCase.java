@@ -4,19 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import javax.naming.NameNotFoundException;
 import javax.sql.DataSource;
-import javax.transaction.SystemException;
-import javax.transaction.TransactionManager;
-import javax.transaction.UserTransaction;
 
-import org.dbflute.bhv.BehaviorSelector;
 import org.dbflute.bhv.BehaviorWritable;
 import org.dbflute.bhv.writable.DeleteOption;
 import org.dbflute.cbean.ConditionBean;
 import org.dbflute.exception.NonSpecifiedColumnAccessException;
 import org.dbflute.utflute.core.exception.ExceptionExaminer;
 import org.dbflute.utflute.guice.ContainerTestCase;
-import org.docksidestage.hangar.EmbeddedH2UrlFactoryBean;
+import org.docksidestage.hangar.dbflute.allcommon.ImplementedBehaviorSelector;
 import org.docksidestage.hangar.dbflute.exbhv.MemberAddressBhv;
 import org.docksidestage.hangar.dbflute.exbhv.MemberFollowingBhv;
 import org.docksidestage.hangar.dbflute.exbhv.MemberLoginBhv;
@@ -26,11 +23,10 @@ import org.docksidestage.hangar.dbflute.exbhv.MemberWithdrawalBhv;
 import org.docksidestage.hangar.dbflute.exbhv.PurchaseBhv;
 import org.docksidestage.hangar.dbflute.exbhv.PurchasePaymentBhv;
 import org.docksidestage.hangar.dbflute.nogen.ExtendedDBFluteModule;
+import org.docksidestage.hangar.unit.db.MaihamaDbArranger;
+import org.docksidestage.hangar.unit.db.TestTransactionModule;
 
-import com.atomikos.icatch.jta.UserTransactionImp;
-import com.atomikos.icatch.jta.UserTransactionManager;
-import com.atomikos.jdbc.nonxa.AtomikosNonXADataSourceBean;
-import com.google.inject.AbstractModule;
+import com.atomikos.util.IntraVmObjectRegistry;
 import com.google.inject.Module;
 
 /**
@@ -44,7 +40,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     //                                                                           Attribute
     //                                                                           =========
     private final Stack<ConditionBean> _cbStack = new Stack<ConditionBean>();
-    private BehaviorSelector _behaviorSelector;
+    private ImplementedBehaviorSelector _behaviorSelector;
 
     // ===================================================================================
     //                                                                            Settings
@@ -64,16 +60,20 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     protected boolean isUseTestCaseLooseBinding() {
         return true;
     }
-    
+
     // -----------------------------------------------------
     //                                                Module
     //                                                ------
     @Override
     protected List<Module> prepareModuleList() {
+        // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+        // default is single DB structure by jflute (2022/04/28)
+        // tests for multiple DB are under multipledb package 
+        // _/_/_/_/_/_/_/_/_/_/
         final DataSource dataSource = createDataSource();
         final List<Module> moduleList = new ArrayList<Module>();
         moduleList.add(newExtendedDBFluteModule(dataSource));
-        final TransactionModule transactionModule = createTransactionModule(dataSource);
+        final TestTransactionModule transactionModule = createTransactionModule(dataSource);
         if (transactionModule != null) {
             moduleList.add(transactionModule);
         }
@@ -85,57 +85,26 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     }
 
     protected DataSource createDataSource() {
-        final AtomikosNonXADataSourceBean bean = new AtomikosNonXADataSourceBean();
-        bean.setUniqueResourceName("NONXADBMS");
-        bean.setDriverClassName("org.h2.Driver");
-        final EmbeddedH2UrlFactoryBean factoryBean = new EmbeddedH2UrlFactoryBean();
-        factoryBean.setUrlSuffix("/database/maihamadb");
-        factoryBean.setReferenceClassName(EmbeddedH2UrlFactoryBean.class.getName());
-        final String url;
+        return new MaihamaDbArranger().createDataSource();
+    }
+
+    protected TestTransactionModule createTransactionModule(DataSource dataSource) {
+        return new TestTransactionModule(dataSource);
+    }
+
+    @Override
+    protected void xdestroyContainer() {
+        super.xdestroyContainer();
+        final String uniqueResourceName = new MaihamaDbArranger().getUniqueResourceName();
+        xclearAtomikosResourceIfExists(uniqueResourceName);
+    }
+
+    protected void xclearAtomikosResourceIfExists(String uniqueResourceName) {
         try {
-            url = factoryBean.getObject().toString();
-        } catch (Exception e) {
-            String msg = "The factoryBean was invalid: " + factoryBean;
-            throw new IllegalStateException(msg, e);
-        }
-        bean.setUrl(url.toString());
-        bean.setUser("sa");
-        bean.setPassword("");
-        bean.setPoolSize(20);
-        bean.setBorrowConnectionTimeout(60);
-        return bean;
-    }
-
-    protected TransactionModule createTransactionModule(DataSource dataSource) {
-        return new TransactionModule(dataSource);
-    }
-
-    protected static class TransactionModule extends AbstractModule {
-
-        protected final DataSource _dataSource;
-
-        public TransactionModule(DataSource dataSource) {
-            if (dataSource == null) {
-                String msg = "The argument 'dataSource' should not be null!";
-                throw new IllegalArgumentException(msg);
-            }
-            _dataSource = dataSource;
-        }
-
-        @Override
-        protected void configure() {
-            try {
-                final UserTransactionImp userTransactionImp = new UserTransactionImp();
-                userTransactionImp.setTransactionTimeout(300);
-                UserTransactionManager userTransactionManager = new UserTransactionManager();
-                userTransactionManager.setForceShutdown(true);
-                userTransactionManager.init();
-                bind(UserTransaction.class).toInstance(userTransactionImp);
-                bind(TransactionManager.class).toInstance(userTransactionManager);
-                bind(DataSource.class).toInstance(_dataSource);
-            } catch (SystemException e) {
-                throw new IllegalStateException(e);
-            }
+            // because Atomikos keep resources as static
+            IntraVmObjectRegistry.removeResource(uniqueResourceName);
+        } catch (NameNotFoundException continued) { // when e.g. first destruction
+            log("Not found the Atomikos resource: {}", uniqueResourceName);
         }
     }
 

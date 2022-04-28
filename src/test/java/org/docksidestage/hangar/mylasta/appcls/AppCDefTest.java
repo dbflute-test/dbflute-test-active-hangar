@@ -91,6 +91,13 @@ public class AppCDefTest extends PlainTestCase {
         assertEquals(new ArrayList<>(), defmeta.groupOf(null));
         assertEquals(new ArrayList<>(), defmeta.groupOf("none"));
         assertEquals(Arrays.asList(AppMaihama.Formalized, AppMaihama.Provisional), defmeta.groupOf("serviceAvailable"));
+
+        assertEquals(AppCDef.DefMeta.AppMaihama, AppCDef.DefMeta.find("AppMaihama").get());
+        assertTrue(AppCDef.DefMeta.find("none").isEmpty());
+        assertException(IllegalArgumentException.class, () -> AppCDef.DefMeta.find(null));
+        assertEquals(AppCDef.DefMeta.AppMaihama, AppCDef.DefMeta.meta("AppMaihama"));
+        assertException(IllegalStateException.class, () -> AppCDef.DefMeta.meta("none"));
+        assertException(IllegalArgumentException.class, () -> AppCDef.DefMeta.meta(null));
     }
 
     // ===================================================================================

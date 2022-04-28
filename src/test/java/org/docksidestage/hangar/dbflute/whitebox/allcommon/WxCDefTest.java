@@ -332,6 +332,7 @@ public class WxCDefTest extends PlainTestCase {
         assertEquals(CDef.DefMeta.MemberStatus, CDef.DefMeta.find("MemberStatus").get());
         assertEquals(CDef.DefMeta.MemberStatus, CDef.DefMeta.find("memBerStatus").get());
         assertException(ClassificationNotFoundException.class, () -> CDef.DefMeta.find("none").get());
+        assertException(IllegalArgumentException.class, () -> CDef.DefMeta.find(null).get());
     }
 
     // -----------------------------------------------------
@@ -340,7 +341,8 @@ public class WxCDefTest extends PlainTestCase {
     public void test_meta_meta() { // old style
         assertEquals(CDef.DefMeta.MemberStatus, CDef.DefMeta.meta("MemberStatus"));
         assertEquals(CDef.DefMeta.MemberStatus, CDef.DefMeta.meta("memBerStatus"));
-        assertNull(CDef.DefMeta.meta("none"));
+        assertException(IllegalStateException.class, () -> CDef.DefMeta.meta("none"));
+        assertException(IllegalArgumentException.class, () -> CDef.DefMeta.meta(null));
     }
 
     // ===================================================================================

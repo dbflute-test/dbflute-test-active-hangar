@@ -1,4 +1,4 @@
-package org.docksidestage.hangar.howto;
+package org.docksidestage.hangar.dbflute.howto;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
