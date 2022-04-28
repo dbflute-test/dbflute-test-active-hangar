@@ -4,7 +4,7 @@ import javax.sql.DataSource;
 
 import org.docksidestage.hangar.EmbeddedH2UrlFactoryBean;
 
-import com.atomikos.jdbc.nonxa.AtomikosNonXADataSourceBean;
+import com.atomikos.jdbc.AtomikosNonXADataSourceBean;
 
 /**
  * @author jflute
