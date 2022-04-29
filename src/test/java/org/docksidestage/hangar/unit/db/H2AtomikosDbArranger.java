@@ -14,6 +14,7 @@ public abstract class H2AtomikosDbArranger {
 
     public DataSource createDataSource() {
         final AtomikosNonXADataSourceBean bean = new AtomikosNonXADataSourceBean();
+        bean.setLocalTransactionMode(true); // needed since 5.0.9?
         bean.setUniqueResourceName(getUniqueResourceName());
         bean.setDriverClassName("org.h2.Driver");
         final EmbeddedH2UrlFactoryBean factoryBean = new EmbeddedH2UrlFactoryBean();
