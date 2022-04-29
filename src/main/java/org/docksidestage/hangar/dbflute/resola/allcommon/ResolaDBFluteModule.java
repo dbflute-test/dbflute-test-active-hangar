@@ -36,10 +36,10 @@ public class ResolaDBFluteModule extends AbstractModule {
         behaviorCommandInvoker.setInvokerAssistant(invokerAssistant);
         ResolaImplementedCommonColumnAutoSetupper commonColumnAutoSetupper = createImplementedCommonColumnAutoSetupper();
 
-        bind(BehaviorSelector.class).annotatedWith(Names.named("resolaBehaviorSelector")).toInstance(behaviorSelector);
-        bind(BehaviorCommandInvoker.class).annotatedWith(Names.named("resolaBehaviorCommandInvoker")).toInstance(behaviorCommandInvoker);
-        bind(InvokerAssistant.class).annotatedWith(Names.named("resolaInvokerAssistant")).toInstance(invokerAssistant);
-        bind(CommonColumnAutoSetupper.class).annotatedWith(Names.named("resolaCommonColumnAutoSetupper")).toInstance(commonColumnAutoSetupper);
+        bind(BehaviorSelector.class).annotatedWith(Names.named("resola")).toInstance(behaviorSelector);
+        bind(BehaviorCommandInvoker.class).annotatedWith(Names.named("resola")).toInstance(behaviorCommandInvoker);
+        bind(InvokerAssistant.class).annotatedWith(Names.named("resola")).toInstance(invokerAssistant);
+        bind(CommonColumnAutoSetupper.class).annotatedWith(Names.named("resola")).toInstance(commonColumnAutoSetupper);
 
         // The components of Behavior.
         setupBehavior(behaviorCommandInvoker, behaviorSelector, commonColumnAutoSetupper);

@@ -3,12 +3,14 @@ package org.docksidestage.hangar.dbflute.whitebox.multipledb;
 import java.util.List;
 
 import org.dbflute.bhv.BehaviorSelector;
+import org.dbflute.hook.CommonColumnAutoSetupper;
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.allcommon.ImplementedBehaviorSelector;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.dbflute.exbhv.pmbean.SimpleMemberPmb;
 import org.docksidestage.hangar.dbflute.resola.allcommon.ResolaDBFluteModule;
 import org.docksidestage.hangar.dbflute.resola.allcommon.ResolaImplementedBehaviorSelector;
+import org.docksidestage.hangar.dbflute.resola.allcommon.ResolaImplementedCommonColumnAutoSetupper;
 import org.docksidestage.hangar.dbflute.resola.exbhv.ResolaStationBhv;
 import org.docksidestage.hangar.dbflute.resola.exentity.ResolaStation;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
@@ -33,16 +35,15 @@ public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also te
     private ResolaStationBhv stationBhv;
 
     @Inject
-    private BehaviorSelector behaviorSelector; // can be injected
+    // maihamadb is byType only
+    //@Named("behaviorSelector")
+    private BehaviorSelector maiBehaviorSelector; // can be injected
     @Inject
-    @Named("behaviorSelector") // ignored because of unsupported by UTFlute
-    private BehaviorSelector maiBehaviorSelector;
-    @Inject
-    @Named("resolaBehaviorSelector") // me too
+    @Named("resola") // ignored because of unsupported by UTFlute
     private BehaviorSelector resolaBehaviorSelector; // so for maihamadb
 
     @Inject
-    private MockUsingSelectorComponent mockUsingSelectorComponent;
+    private MockUsingRuntimeComponent mockUsingRuntimeComponent;
 
     // ===================================================================================
     //                                                                            Settings
@@ -59,7 +60,7 @@ public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also te
         moduleList.add(new AbstractModule() {
             @Override
             protected void configure() {
-                bind(MockUsingSelectorComponent.class).toInstance(new MockUsingSelectorComponent());
+                bind(MockUsingRuntimeComponent.class).toInstance(new MockUsingRuntimeComponent());
             }
         });
         return moduleList;
@@ -93,8 +94,6 @@ public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also te
     //                                                                    BehaviorSelector
     //                                                                    ================
     public void test_behaviorSelector() {
-        assertNotNull(behaviorSelector);
-
         log(maiBehaviorSelector);
         log(resolaBehaviorSelector);
         assertNotNull(maiBehaviorSelector);
@@ -102,25 +101,32 @@ public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also te
         assertTrue(maiBehaviorSelector instanceof ImplementedBehaviorSelector);
         assertTrue(resolaBehaviorSelector instanceof ImplementedBehaviorSelector); // because of byType
 
-        assertNotNull(mockUsingSelectorComponent);
-        BehaviorSelector maiSelector = mockUsingSelectorComponent.getMaiBehaviorSelector();
-        BehaviorSelector resolaSelector = mockUsingSelectorComponent.getResolaBehaviorSelector();
+        assertNotNull(mockUsingRuntimeComponent);
+        BehaviorSelector maiSelector = mockUsingRuntimeComponent.getMaiBehaviorSelector();
+        BehaviorSelector resolaSelector = mockUsingRuntimeComponent.getResolaBehaviorSelector();
         log(maiSelector);
         log(resolaSelector);
         assertNotNull(maiSelector);
         assertNotNull(resolaSelector);
         assertTrue(maiSelector instanceof ImplementedBehaviorSelector);
         assertTrue(resolaSelector instanceof ResolaImplementedBehaviorSelector);
+        CommonColumnAutoSetupper resolaSetupper = mockUsingRuntimeComponent.getResolaCommonColumnAutoSetupper();
+        assertNotNull(resolaSetupper);
+        assertTrue(resolaSetupper instanceof ResolaImplementedCommonColumnAutoSetupper);
     }
 
-    public static class MockUsingSelectorComponent {
+    public static class MockUsingRuntimeComponent {
 
         @Inject
         private BehaviorSelector maiBehaviorSelector;
 
         @Inject
-        @Named("resolaBehaviorSelector")
+        @Named("resola")
         private BehaviorSelector resolaBehaviorSelector;
+
+        @Inject
+        @Named("resola")
+        private CommonColumnAutoSetupper resolaCommonColumnAutoSetupper;
 
         public BehaviorSelector getMaiBehaviorSelector() {
             return maiBehaviorSelector;
@@ -128,6 +134,10 @@ public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also te
 
         public BehaviorSelector getResolaBehaviorSelector() {
             return resolaBehaviorSelector;
+        }
+
+        public CommonColumnAutoSetupper getResolaCommonColumnAutoSetupper() {
+            return resolaCommonColumnAutoSetupper;
         }
     }
 }
