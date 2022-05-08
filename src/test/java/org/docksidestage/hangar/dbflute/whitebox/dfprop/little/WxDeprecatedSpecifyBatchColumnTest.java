@@ -1,7 +1,5 @@
 package org.docksidestage.hangar.dbflute.whitebox.dfprop.little;
 
-import javax.annotation.Resource;
-
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.dbflute.exbhv.WhiteDeprecatedSpecifyBatchColumnBhv;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
@@ -11,9 +9,7 @@ import org.docksidestage.hangar.unit.UnitContainerTestCase;
  */
 public class WxDeprecatedSpecifyBatchColumnTest extends UnitContainerTestCase {
 
-    @Resource
     private WhiteDeprecatedSpecifyBatchColumnBhv specifyBatchColumnBhv;
-    @Resource
     private MemberBhv memberBhv;
 
     @SuppressWarnings("deprecation")

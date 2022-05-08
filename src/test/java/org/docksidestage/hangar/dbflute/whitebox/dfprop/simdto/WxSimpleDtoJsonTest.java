@@ -6,8 +6,6 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -33,7 +31,6 @@ import net.arnx.jsonic.JSONHint;
  */
 public class WxSimpleDtoJsonTest extends UnitContainerTestCase {
 
-    @Resource
     protected MemberBhv memberBhv;
 
     // ===================================================================================

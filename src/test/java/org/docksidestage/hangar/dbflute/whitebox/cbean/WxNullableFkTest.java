@@ -1,7 +1,5 @@
 package org.docksidestage.hangar.dbflute.whitebox.cbean;
 
-import javax.annotation.Resource;
-
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.hangar.dbflute.exbhv.WhiteOnParadeBhv;
 import org.docksidestage.hangar.dbflute.exentity.WhiteOnParade;
@@ -12,7 +10,6 @@ import org.docksidestage.hangar.unit.UnitContainerTestCase;
  */
 public class WxNullableFkTest extends UnitContainerTestCase {
 
-    @Resource
     private WhiteOnParadeBhv paradeBhv;
 
     public void test_nullableFk_InnerJoinAutoDetect_loadReferrer() {

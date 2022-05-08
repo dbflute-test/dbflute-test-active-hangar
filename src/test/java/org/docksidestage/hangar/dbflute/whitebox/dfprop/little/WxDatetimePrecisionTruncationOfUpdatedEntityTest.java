@@ -3,8 +3,6 @@ package org.docksidestage.hangar.dbflute.whitebox.dfprop.little;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import javax.annotation.Resource;
-
 import org.dbflute.exception.NonSpecifiedColumnAccessException;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.dbflute.exentity.Member;
@@ -16,7 +14,6 @@ import org.docksidestage.hangar.unit.UnitContainerTestCase;
  */
 public class WxDatetimePrecisionTruncationOfUpdatedEntityTest extends UnitContainerTestCase {
 
-    @Resource
     private MemberBhv memberBhv;
 
     // enabled as default by dfprop

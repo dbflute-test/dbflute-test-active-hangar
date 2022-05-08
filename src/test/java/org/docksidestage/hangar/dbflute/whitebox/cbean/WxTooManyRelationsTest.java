@@ -1,7 +1,5 @@
 package org.docksidestage.hangar.dbflute.whitebox.cbean;
 
-import javax.annotation.Resource;
-
 import org.docksidestage.hangar.dbflute.exbhv.WhiteBaseBhv;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
 
@@ -10,7 +8,6 @@ import org.docksidestage.hangar.unit.UnitContainerTestCase;
  */
 public class WxTooManyRelationsTest extends UnitContainerTestCase {
 
-    @Resource
     private WhiteBaseBhv whiteBaseBhv;
 
     // ===================================================================================

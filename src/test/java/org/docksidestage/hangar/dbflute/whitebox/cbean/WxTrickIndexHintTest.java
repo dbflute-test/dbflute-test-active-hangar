@@ -1,7 +1,5 @@
 package org.docksidestage.hangar.dbflute.whitebox.cbean;
 
-import javax.annotation.Resource;
-
 import org.dbflute.exception.SQLFailureException;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
@@ -11,7 +9,6 @@ import org.docksidestage.hangar.unit.UnitContainerTestCase;
  */
 public class WxTrickIndexHintTest extends UnitContainerTestCase {
 
-    @Resource
     private MemberBhv memberBhv;
 
     public void test_TrickPrimaryIndexForcedly_basic() throws Exception {
