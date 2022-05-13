@@ -65,9 +65,6 @@ map:{
     #   [true]
     #     Add schema to table SQL name. (The table name on query is SCHEMA.TABLE)
     #
-    #   [false]
-    #     Non.
-    #
     ; isAvailableAddingSchemaToTableSqlName = true
     # - - - - - - - - - -/
 
@@ -77,20 +74,13 @@ map:{
     #     Add catalog to table SQL name. (The table name on query is CATALOG.SCHEMA.TABLE)
     #     This property works only when isAvailableAddingSchemaToTableSqlName is true.
     #
-    #   [false]
-    #     Non.
-    #
     ; isAvailableAddingCatalogToTableSqlName = true
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableDatabaseDependency: (NotRequired - Default false)
     #   [true]
-    #     Generate the method that depends on the database.
-    #     For example: cb.lockWithRR() at DB2.
-    #
-    #   [false]
-    #     Non.
+    #     Generate the method that depends on the database. e.g. cb.lockWithRR() at DB2.
     #
     #; isAvailableDatabaseDependency = false
     # - - - - - - - - - -/
@@ -98,12 +88,8 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableDatabaseNativeJDBC: (NotRequired - Default false)
     #   [true]
-    #     Use classes of database native JDBC on generated classes
-    #     to get best performances of DB access.
+    #     Use classes of database native JDBC on generated classes to get best performances of DB access.
     #     Your project needs to refer to database native JDBC.
-    #
-    #   [false]
-    #     Non.
     #
     #; isAvailableDatabaseNativeJDBC = false
     # - - - - - - - - - -/
@@ -112,9 +98,6 @@ map:{
     # o isAvailableNonPrimaryKeyWritable: (NotRequired - Default false)
     #   [true]
     #     Generate writable methods at non-primary-key table.
-    #
-    #   [false]
-    #     Non.
     #
     #; isAvailableNonPrimaryKeyWritable = false
     # - - - - - - - - - -/
@@ -137,9 +120,6 @@ map:{
     #     For example: member.chaseMemberStatus().getMemberStatusName()
     #     This statement doesn't have a null pointer if the MemberStatus doesn't exist.
     #
-    #   [false]
-    #     Non.
-    #
     #; isMakeEntityChaseRelation = false
     # - - - - - - - - - -/
 
@@ -148,9 +128,6 @@ map:{
     #   [true]
     #     Convert empty-string data to null in entity.
     #
-    #   [false]
-    #     Non.
-    #
     ; isEntityConvertEmptyStringToNull = true
     # - - - - - - - - - -/
 
@@ -158,12 +135,17 @@ map:{
     # o isMakeConditionQueryEqualEmptyString: (NotRequired - Default false)
     #   [true]
     #     Make equal-empty-string methods of condition-query.
-    #     For example: cb.query().setMemberName_Equal_EmptyString()
-    #
-    #   [false]
-    #     Non.
+    #     e.g. cb.query().setMemberName_Equal_EmptyString()
     #
     #; isMakeConditionQueryEqualEmptyString = false
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isTableDispNameUpperCase: (NotRequired - Default false)
+    #   [true]
+    #     Table names for display, e.g. on documents, are forcedly treated as upper case.
+    #
+    #; isTableDispNameUpperCase = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -171,9 +153,6 @@ map:{
     #   [true]
     #     Table names on SQL executed by condition-bean or behavior
     #     are forcedly treated as upper case. (except outside-SQL)
-    #
-    #   [false]
-    #     Non.
     #
     #; isTableSqlNameUpperCase = false
     # - - - - - - - - - -/
@@ -183,9 +162,6 @@ map:{
     #   [true]
     #     Column names on SQL executed by condition-bean or behavior
     #     are forcedly treated as upper case. (except outside-SQL)
-    #
-    #   [false]
-    #     Non.
     #
     #; isColumnSqlNameUpperCase = false
     # - - - - - - - - - -/
@@ -205,7 +181,6 @@ map:{
     #  that extends the embedded one.
     #  *Basically for fixed DBFluteConfig settings
     #
-    # @JavaOnly
     ; extendedDBFluteInitializerClass = org.docksidestage.hangar.dbflute.nogen.ExtendedDBFluteInitializer
     # - - - - - - - - - -/
 
