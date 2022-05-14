@@ -82,6 +82,19 @@ map:{
             }
         }
     }
+    # #for_now existing at mysql test by jflute (2022/05/14)
+    ## test of isSuppressNameCamelizing, which is only for table classification
+    #; WhiteNamingNoCamelizingType = list:{
+    #    ; map:{
+    #        ; topComment=no camelizing classification
+    #        ; codeType=String
+    #        ; isSuppressNameCamelizing=true
+    #    }
+    #    ; map:{
+    #        ; table=WHITE_CLS_NO_CAMELIZING
+    #        ; code=NO_CAMELIZING_CODE; name=NO_CAMELIZING_NAME
+    #    }
+    #}
 
     # ====================================================================================
     #                                                                   Grouping Reference
