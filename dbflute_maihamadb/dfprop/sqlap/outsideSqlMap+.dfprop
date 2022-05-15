@@ -10,7 +10,8 @@ map:{
     #     (NotRequired - Default Java:'src/main/java' CSharp:'source')
     #
     ; applicationOutsideSqlMap = map:{
-        # #for_now needs new sqlap project, but rare function so pending by jflute (2022/05/15)
+        # #for_now needs ApplicationOutsideSql test project but already rare function? by jflute (2022/05/15)
+        # (no exception so keep the settings in spite of no directory)
         ; ../../../dbflute-example-referrerpj/dbflute-sqlap-example = map:{
             # default setting here
             #; sqlDirectory = src/main/resources

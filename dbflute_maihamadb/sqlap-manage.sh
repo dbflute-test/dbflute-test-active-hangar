@@ -3,6 +3,10 @@
 cd `dirname $0`
 . _project.sh
 
+# #for_now needs ApplicationOutsideSql test project but already rare function? by jflute (2022/05/15)
+echo *ApplicationBehavior environment is not complete so cannot execute it
+exit 0;
+
 export answer=y
 
 export DBFLUTE_ENVIRONMENT_TYPE=sqlap
