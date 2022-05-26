@@ -28,7 +28,7 @@ import org.dbflute.optional.OptionalThing;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
 
 /**
- * The definition of ${optionMap.clsTitle} classification.
+ * The definition of mystic classification.
  * @author FreeGen
  */
 public interface MysticAppCls extends Classification {

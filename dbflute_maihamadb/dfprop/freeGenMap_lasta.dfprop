@@ -15,6 +15,8 @@ map:{
             ; className = MysticAppCls
         }
         ; optionMap = map:{
+            ; clsTitle = mystic
+
             # test of option to supress redundant comment stop
             #; isSuppressRedundantCommentStop = true
             ; isMakeCDefOldStyleCodeOfMethod = false
