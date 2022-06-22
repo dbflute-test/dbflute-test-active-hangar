@@ -1,20 +1,22 @@
 # /---------------------------------------------------------------------------
-# documentDefinitionMap: (NotRequired - Default map:{})
+# documentMap: (NotRequired - Default map:{})
 #
-# o documentOutputDirectory (NotRequired - Default './output/doc')
-# o aliasDelimiterInDbComment (NotRequired - Default '')
-# o isDbCommentOnAliasBasis (NotRequired - Default false)
-# o isEntityJavaDocDbCommentValid (NotRequired - Default true)
-# o isEntityDBMetaDbCommentValid (NotRequired - Default false)
-# o schemaHtmlFileName (NotRequired - Default 'schema-[project-name].html')
-# o isSuppressSchemaHtmlOutsideSql (NotRequired - Default false)
-# o isSuppressSchemaHtmlProcedure (NotRequired - Default false)
-# o historyHtmlFileName (NotRequired - Default 'history-[project-name].html')
-# o isCheckColumnDefOrderDiff (NotRequired - Default false)
-# o isCheckDbCommentDiff (NotRequired - Default false)
-# o isCheckProcedureDiff (NotRequired - Default false)
-# o loadDataReverseMap (NotRequired - Default map:{})
-# o schemaSyncCheckMap (NotRequired - Default map:{})
+# o documentOutputDirectory: (NotRequired - Default './output/doc')
+# o aliasDelimiterInDbComment: (NotRequired - Default '')
+# o isDbCommentOnAliasBasis: (NotRequired - Default false)
+# o isEntityJavaDocDbCommentValid: (NotRequired - Default true)
+# o isEntityDBMetaDbCommentValid: (NotRequired - Default false)
+# o schemaHtmlFileName: (NotRequired - Default 'schema-[project-name].html')
+# o isSuppressSchemaHtmlOutsideSql: (NotRequired - Default false)
+# o isSuppressSchemaHtmlProcedure: (NotRequired - Default false)
+# o neighborhoodSchemaHtmlMap: (NotRequired - Default map:{})
+# o schemaDiagramMap: (NotRequired - Default map:{})
+# o historyHtmlFileName: (NotRequired - Default 'history-[project-name].html')
+# o isCheckColumnDefOrderDiff: (NotRequired - Default false)
+# o isCheckDbCommentDiff: (NotRequired - Default false)
+# o isCheckProcedureDiff: (NotRequired - Default false)
+# o loadDataReverseMap: (NotRequired - Default map:{})
+# o schemaSyncCheckMap: (NotRequired - Default map:{})
 # o propertiesHtmlMap: (NotRequired - Default map:{})
 #
 # Example:
@@ -27,6 +29,8 @@
 #     ; schemaHtmlFileName = xxx.html
 #     ; isSuppressSchemaHtmlOutsideSql = false
 #     ; isSuppressSchemaHtmlProcedure = false
+#     ; neighborhoodSchemaHtmlMap = map:{}
+#     ; schemaDiagramMap = map:{}
 #     ; historyHtmlFileName = xxx.html
 #     ; isCheckColumnDefOrderDiff = true
 #     ; isCheckDbCommentDiff = true
