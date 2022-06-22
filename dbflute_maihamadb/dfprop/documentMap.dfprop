@@ -135,13 +135,29 @@ map:{
     #; isSuppressSchemaHtmlProcedure = false
     # - - - - - - - - - -/
 
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o neighborhoodSchemaHtmlMap: (NotRequired - map:{})
+    #  You can add links to other SchemaHtmls on your SchemaHtml.
+    #  The path is relative from your SchemaHtml.
+    #
     ; neighborhoodSchemaHtmlMap = map:{
-        ; dockside_maihama = map:{ path = ../../../../dbflute-test-active-dockside/dbflute_maihamadb/output/doc/schema-maihamadb.html }
+        ; dockside_maihama = map:{
+            ; path = ../../../../dbflute-test-active-dockside/dbflute_maihamadb/output/doc/schema-maihamadb.html
+        }
     }
+    # - - - - - - - - - -/
 
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o schemaDiagramMap: (NotRequired - map:{})
+    #  You can display your ER diagram on your SchemaHtml.
+    #  The path is relative from your SchemaHtml.
+    #
     ; schemaDiagramMap = map:{
-        ; maihama_erd = map:{ path = ../../../etc/erd/maihamadb.png ; width = 100% ; height = 100% }
+        ; maihama_erd = map:{
+            ; path = ../../../etc/erd/maihamadb.png ; width = 100% ; height = 100%
+        }
     }
+    # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o historyHtmlFileName: (NotRequired - Default 'history-[project-name].html')
