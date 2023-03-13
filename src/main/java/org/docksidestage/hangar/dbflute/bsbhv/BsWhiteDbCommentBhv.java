@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (DBコメント)WHITE_DB_COMMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     DB_COMMENT_ID
- *
- * [column]
- *     DB_COMMENT_ID, DB_COMMENT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (DBコメント)WHITE_DB_COMMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDbCommentBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDbComment, WhiteDbCommentCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteDbCommentBhv extends org.docksidestage.hangar.dbflu
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteDbCommentBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDbComment, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDbCommentBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

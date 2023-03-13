@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_BASE as TABLE. <br>
- * <pre>
- * [primary key]
- *     BASE_ID
- *
- * [column]
- *     BASE_ID, BASE_NAME, SEA_ID, LAND_ID, PIARI_ID, BONVO_ID, DSTORE_ID, AMBA_ID, MIRACO_ID, DOHOTEL_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE_ONE06_AMBA, WHITE_BASE_ONE04_BONVO, WHITE_BASE_ONE05_DSTORE, WHITE_BASE_ONE02_LAND, WHITE_BASE_ONE07_MIRACO, WHITE_BASE_ONE03_PIARI, WHITE_BASE_ONE01_SEA, WHITE_BASE_ONE08_DOHOTEL, WHITE_BASE_ONE09_PALM(AsOne), WHITE_BASE_ONE10_CELEB(AsOne), WHITE_BASE_ONE11_CIRQUE(AsOne), WHITE_BASE_ONE12_AMPHI(AsOne)
- *
- * [referrer table]
- *     WHITE_BASE_ONE09_PALM, WHITE_BASE_ONE10_CELEB, WHITE_BASE_ONE11_CIRQUE, WHITE_BASE_ONE12_AMPHI
- *
- * [foreign property]
- *     whiteBaseOne06Amba, whiteBaseOne04Bonvo, whiteBaseOne05Dstore, whiteBaseOne02Land, whiteBaseOne07Miraco, whiteBaseOne03Piari, whiteBaseOne01Sea, whiteBaseOne08Dohotel, whiteBaseOne09PalmAsOne, whiteBaseOne10CelebAsOne, whiteBaseOne11CirqueAsOne, whiteBaseOne12AmphiAsOne
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_BASE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBase, WhiteBaseCB> {
@@ -698,7 +670,7 @@ public abstract class BsWhiteBaseBhv extends org.docksidestage.hangar.dbflute.no
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteBaseBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteBase, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteBaseBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -24,35 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE06_AMBA as TABLE. <br>
- * <pre>
- * [primary key]
- *     AMBA_ID
- *
- * [column]
- *     AMBA_ID, AMBA_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseList
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE06_AMBA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne06Amba {

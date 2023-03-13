@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_FIRST_DATE as TABLE. <br>
- * <pre>
- * [primary key]
- *     FIRST_DATE_ID
- *
- * [column]
- *     FIRST_DATE_ID, FIRST_DATE_NAME, ADDED_AT_TABLE_SAME_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_FIRST_DATE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteFirstDate {

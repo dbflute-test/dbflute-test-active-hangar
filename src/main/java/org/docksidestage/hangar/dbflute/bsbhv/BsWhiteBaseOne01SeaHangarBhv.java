@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_BASE_ONE01_SEA_HANGAR as TABLE. <br>
- * <pre>
- * [primary key]
- *     HANGAR_ID
- *
- * [column]
- *     HANGAR_ID, HANGAR_NAME, SEA_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE_ONE01_SEA
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteBaseOne01Sea
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_BASE_ONE01_SEA_HANGAR as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne01SeaHangarBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne01SeaHangar, WhiteBaseOne01SeaHangarCB> {
@@ -643,7 +615,7 @@ public abstract class BsWhiteBaseOne01SeaHangarBhv extends org.docksidestage.han
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteBaseOne01SeaHangarBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteBaseOne01SeaHangar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteBaseOne01SeaHangarBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

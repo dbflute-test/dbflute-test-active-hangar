@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_REF_PHYSICAL as TABLE. <br>
- * <pre>
- * [primary key]
- *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
- *
- * [column]
- *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID, COMPOUND_REF_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPk
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_COMPOUND_PK_REF_PHYSICAL as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteCompoundPkRefPhysical {

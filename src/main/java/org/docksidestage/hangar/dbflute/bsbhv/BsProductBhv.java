@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (商品)PRODUCT as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     SEQ_MEMBER_LOGIN
- *
- * [identity]
- *     PRODUCT_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     PRODUCT_CATEGORY, PRODUCT_STATUS
- *
- * [referrer table]
- *     PURCHASE
- *
- * [foreign property]
- *     productCategory, productStatus
- *
- * [referrer property]
- *     purchaseList
- * </pre>
+ * The behavior of (商品)PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<Product, ProductCB> {
@@ -827,7 +799,7 @@ public abstract class BsProductBhv extends org.docksidestage.hangar.dbflute.noge
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">queryDelete</span>(product, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE01_SEA_HANGAR as TABLE. <br>
- * <pre>
- * [primary key]
- *     HANGAR_ID
- *
- * [column]
- *     HANGAR_ID, HANGAR_NAME, SEA_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE_ONE01_SEA
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteBaseOne01Sea
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE01_SEA_HANGAR as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne01SeaHangar {

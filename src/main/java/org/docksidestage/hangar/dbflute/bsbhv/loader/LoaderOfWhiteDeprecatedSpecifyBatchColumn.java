@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE. <br>
- * <pre>
- * [primary key]
- *     SPECIFY_BATCH_COLUMN_ID
- *
- * [column]
- *     SPECIFY_BATCH_COLUMN_ID, SPECIFY_BATCH_COLUMN_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteDeprecatedSpecifyBatchColumn {

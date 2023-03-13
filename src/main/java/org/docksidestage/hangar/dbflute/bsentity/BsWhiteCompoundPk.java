@@ -25,47 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PK_FIRST_ID, PK_SECOND_ID
- *
- * [column]
- *     PK_FIRST_ID, PK_SECOND_ID, COMPOUND_PK_NAME, REFERRED_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long pkFirstId = entity.getPkFirstId();
- * Long pkSecondId = entity.getPkSecondId();
- * String compoundPkName = entity.getCompoundPkName();
- * Integer referredId = entity.getReferredId();
- * entity.setPkFirstId(pkFirstId);
- * entity.setPkSecondId(pkSecondId);
- * entity.setCompoundPkName(compoundPkName);
- * entity.setReferredId(referredId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPk extends AbstractEntity implements DomainEntity {

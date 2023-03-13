@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE12_AMPHI as TABLE. <br>
- * <pre>
- * [primary key]
- *     AMPHI_ID
- *
- * [column]
- *     AMPHI_ID, AMPHI_NAME, BASE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteBase
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE12_AMPHI as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne12Amphi {

@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_DEPRECATED_SELECT_BY_PKUQ as TABLE. <br>
- * <pre>
- * [primary key]
- *     SELECT_BY_PKUQ_ID
- *
- * [column]
- *     SELECT_BY_PKUQ_ID, SELECT_BY_PKUQ_NAME, SELECT_BY_PKUQ_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_DEPRECATED_SELECT_BY_PKUQ as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedSelectByPkuqBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDeprecatedSelectByPkuq, WhiteDeprecatedSelectByPkuqCB> {
@@ -637,7 +609,7 @@ public abstract class BsWhiteDeprecatedSelectByPkuqBhv extends org.docksidestage
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteDeprecatedSelectByPkuqBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDeprecatedSelectByPkuq, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedSelectByPkuqBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

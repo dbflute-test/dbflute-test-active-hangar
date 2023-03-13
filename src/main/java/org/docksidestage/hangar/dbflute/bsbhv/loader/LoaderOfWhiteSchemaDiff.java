@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SCHEMA_DIFF as TABLE. <br>
- * <pre>
- * [primary key]
- *     SCHEMA_DIFF_ID
- *
- * [column]
- *     SCHEMA_DIFF_ID, SCHEMA_DIFF_NAME, SCHEMA_DIFF_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SCHEMA_DIFF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSchemaDiff {

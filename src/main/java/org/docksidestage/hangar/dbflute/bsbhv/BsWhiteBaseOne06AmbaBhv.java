@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_BASE_ONE06_AMBA as TABLE. <br>
- * <pre>
- * [primary key]
- *     AMBA_ID
- *
- * [column]
- *     AMBA_ID, AMBA_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseList
- * </pre>
+ * The behavior of WHITE_BASE_ONE06_AMBA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne06AmbaBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne06Amba, WhiteBaseOne06AmbaCB> {
@@ -666,7 +638,7 @@ public abstract class BsWhiteBaseOne06AmbaBhv extends org.docksidestage.hangar.d
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteBaseOne06AmbaBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteBaseOne06Amba, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteBaseOne06AmbaBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

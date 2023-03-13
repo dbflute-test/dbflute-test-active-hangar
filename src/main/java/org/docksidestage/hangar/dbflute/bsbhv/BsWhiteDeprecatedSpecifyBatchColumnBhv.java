@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE. <br>
- * <pre>
- * [primary key]
- *     SPECIFY_BATCH_COLUMN_ID
- *
- * [column]
- *     SPECIFY_BATCH_COLUMN_ID, SPECIFY_BATCH_COLUMN_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedSpecifyBatchColumnBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDeprecatedSpecifyBatchColumn, WhiteDeprecatedSpecifyBatchColumnCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteDeprecatedSpecifyBatchColumnBhv extends org.docksid
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteDeprecatedSpecifyBatchColumnBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDeprecatedSpecifyBatchColumn, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedSpecifyBatchColumnBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

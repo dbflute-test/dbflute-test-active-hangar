@@ -25,43 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ON_PARADE_NULLABLE_TO_MANY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MANY_ID
- *
- * [column]
- *     MANY_ID, MANY_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_ON_PARADE_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteOnParadeRefList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long manyId = entity.getManyId();
- * String manyName = entity.getManyName();
- * entity.setManyId(manyId);
- * entity.setManyName(manyName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_ON_PARADE_NULLABLE_TO_MANY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteOnParadeNullableToMany extends AbstractEntity implements DomainEntity {

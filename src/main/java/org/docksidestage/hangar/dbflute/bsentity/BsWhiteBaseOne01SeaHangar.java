@@ -27,45 +27,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BASE_ONE01_SEA_HANGAR as TABLE. <br>
- * <pre>
- * [primary-key]
- *     HANGAR_ID
- *
- * [column]
- *     HANGAR_ID, HANGAR_NAME, SEA_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE_ONE01_SEA
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteBaseOne01Sea
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer hangarId = entity.getHangarId();
- * String hangarName = entity.getHangarName();
- * Integer seaId = entity.getSeaId();
- * entity.setHangarId(hangarId);
- * entity.setHangarName(hangarName);
- * entity.setSeaId(seaId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BASE_ONE01_SEA_HANGAR as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne01SeaHangar extends AbstractEntity implements DomainEntity {

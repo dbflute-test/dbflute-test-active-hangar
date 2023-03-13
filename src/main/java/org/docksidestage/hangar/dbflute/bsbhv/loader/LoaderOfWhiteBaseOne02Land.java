@@ -24,35 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE02_LAND as TABLE. <br>
- * <pre>
- * [primary key]
- *     LAND_ID
- *
- * [column]
- *     LAND_ID, LAND_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseList
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE02_LAND as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne02Land {

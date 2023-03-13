@@ -36,35 +36,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_READ_ONLY as TABLE. <br>
- * <pre>
- * [primary key]
- *     READ_ONLY_ID
- *
- * [column]
- *     READ_ONLY_ID, READ_ONLY_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_READ_ONLY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteReadOnlyBhv extends AbstractBehaviorReadable<WhiteReadOnly, WhiteReadOnlyCB> {

@@ -24,35 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_ON_PARADE_NULLABLE_TO_MANY as TABLE. <br>
- * <pre>
- * [primary key]
- *     MANY_ID
- *
- * [column]
- *     MANY_ID, MANY_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_ON_PARADE_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteOnParadeRefList
- * </pre>
+ * The referrer loader of WHITE_ON_PARADE_NULLABLE_TO_MANY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteOnParadeNullableToMany {

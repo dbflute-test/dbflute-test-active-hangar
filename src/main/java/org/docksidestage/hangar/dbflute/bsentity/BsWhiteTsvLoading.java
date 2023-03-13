@@ -26,55 +26,7 @@ import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_TSV_LOADING as TABLE. <br>
- * <pre>
- * [primary-key]
- *     TSV_LOADING_ID
- *
- * [column]
- *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, DONE_FLG
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long tsvLoadingId = entity.getTsvLoadingId();
- * String tsvLoadingName = entity.getTsvLoadingName();
- * Integer loadingCount = entity.getLoadingCount();
- * java.time.LocalDate loadingDate = entity.getLoadingDate();
- * java.time.LocalDateTime beginDatetime = entity.getBeginDatetime();
- * java.time.LocalDateTime endDatetime = entity.getEndDatetime();
- * String largeFromFile = entity.getLargeFromFile();
- * Boolean doneFlg = entity.getDoneFlg();
- * entity.setTsvLoadingId(tsvLoadingId);
- * entity.setTsvLoadingName(tsvLoadingName);
- * entity.setLoadingCount(loadingCount);
- * entity.setLoadingDate(loadingDate);
- * entity.setBeginDatetime(beginDatetime);
- * entity.setEndDatetime(endDatetime);
- * entity.setLargeFromFile(largeFromFile);
- * entity.setDoneFlg(doneFlg);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_TSV_LOADING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteTsvLoading extends AbstractEntity implements DomainEntity {

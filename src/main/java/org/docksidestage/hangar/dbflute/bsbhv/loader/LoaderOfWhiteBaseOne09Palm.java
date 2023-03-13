@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE09_PALM as TABLE. <br>
- * <pre>
- * [primary key]
- *     PALM_ID
- *
- * [column]
- *     PALM_ID, PALM_NAME, BASE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteBase
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE09_PALM as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne09Palm {

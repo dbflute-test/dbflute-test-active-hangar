@@ -25,45 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_FIRST_DATE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     FIRST_DATE_ID
- *
- * [column]
- *     FIRST_DATE_ID, FIRST_DATE_NAME, ADDED_AT_TABLE_SAME_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long firstDateId = entity.getFirstDateId();
- * String firstDateName = entity.getFirstDateName();
- * java.time.LocalDate addedAtTableSameDate = entity.getAddedAtTableSameDate();
- * entity.setFirstDateId(firstDateId);
- * entity.setFirstDateName(firstDateName);
- * entity.setAddedAtTableSameDate(addedAtTableSameDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_FIRST_DATE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteFirstDate extends AbstractEntity implements DomainEntity {

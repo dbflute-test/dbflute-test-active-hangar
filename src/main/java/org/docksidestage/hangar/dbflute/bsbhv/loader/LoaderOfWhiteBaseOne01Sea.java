@@ -24,35 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE01_SEA as TABLE. <br>
- * <pre>
- * [primary key]
- *     SEA_ID
- *
- * [column]
- *     SEA_ID, SEA_NAME, BROADWAY_ID, DOCKSIDE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE_ONE01_SEA_BROADWAY, WHITE_BASE_ONE01_SEA_DOCKSIDE, WHITE_BASE_ONE01_SEA_HANGAR(AsOne)
- *
- * [referrer table]
- *     WHITE_BASE, WHITE_BASE_ONE01_SEA_MAGICLAMP, WHITE_BASE_ONE01_SEA_HANGAR
- *
- * [foreign property]
- *     whiteBaseOne01SeaBroadway, whiteBaseOne01SeaDockside, whiteBaseOne01SeaHangarAsOne
- *
- * [referrer property]
- *     whiteBaseList, whiteBaseOne01SeaMagiclampList
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE01_SEA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne01Sea {

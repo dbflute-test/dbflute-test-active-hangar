@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ON_PARADE_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     REF_ID
- *
- * [column]
- *     REF_ID, REF_NAME, NULLABLE_FK_ON_PARADE_ID, NULLABLE_FK_TO_MANY_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteOnParade, whiteOnParadeNullableToMany
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_ON_PARADE_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteOnParadeRef {

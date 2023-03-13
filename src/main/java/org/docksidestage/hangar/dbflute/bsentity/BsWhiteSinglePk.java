@@ -25,45 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SINGLE_PK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     ONLY_ONE_PK_ID
- *
- * [column]
- *     ONLY_ONE_PK_ID, SINGLE_PK_NAME, REFERRED_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long onlyOnePkId = entity.getOnlyOnePkId();
- * String singlePkName = entity.getSinglePkName();
- * Integer referredId = entity.getReferredId();
- * entity.setOnlyOnePkId(onlyOnePkId);
- * entity.setSinglePkName(singlePkName);
- * entity.setReferredId(referredId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SINGLE_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSinglePk extends AbstractEntity implements DomainEntity {

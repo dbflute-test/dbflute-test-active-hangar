@@ -25,43 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BASE_ONE07_MIRACO as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MIRACO_ID
- *
- * [column]
- *     MIRACO_ID, MIRACO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer miracoId = entity.getMiracoId();
- * String miracoName = entity.getMiracoName();
- * entity.setMiracoId(miracoId);
- * entity.setMiracoName(miracoName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BASE_ONE07_MIRACO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne07Miraco extends AbstractEntity implements DomainEntity {

@@ -24,35 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE. <br>
- * <pre>
- * [primary key]
- *     PARKSIDE_ID
- *
- * [column]
- *     PARKSIDE_ID, PARKSIDE_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE_ONE04_BONVO
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseOne04BonvoList
- * </pre>
+ * The referrer loader of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBaseOne04BonvoParkside {

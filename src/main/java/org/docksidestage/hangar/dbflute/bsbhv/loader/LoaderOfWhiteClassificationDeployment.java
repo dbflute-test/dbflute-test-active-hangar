@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_CLASSIFICATION_DEPLOYMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     DEPLOYMENT_ID
- *
- * [column]
- *     DEPLOYMENT_ID, SEA_FLG, DEPLOYMENT_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_CLASSIFICATION_DEPLOYMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteClassificationDeployment {

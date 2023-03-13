@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_DATE_TERM as TABLE. <br>
- * <pre>
- * [primary key]
- *     DATE_TERM_ID
- *
- * [column]
- *     DATE_TERM_ID, DATE_TERM_VALUE, BEGIN_DATE, END_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_DATE_TERM as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteDateTerm {

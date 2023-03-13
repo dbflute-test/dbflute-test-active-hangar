@@ -27,45 +27,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BASE_ONE10_CELEB as TABLE. <br>
- * <pre>
- * [primary-key]
- *     CELEB_ID
- *
- * [column]
- *     CELEB_ID, CELEB_NAME, BASE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_BASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteBase
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer celebId = entity.getCelebId();
- * String celebName = entity.getCelebName();
- * Integer baseId = entity.getBaseId();
- * entity.setCelebId(celebId);
- * entity.setCelebName(celebName);
- * entity.setBaseId(baseId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BASE_ONE10_CELEB as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne10Celeb extends AbstractEntity implements DomainEntity {

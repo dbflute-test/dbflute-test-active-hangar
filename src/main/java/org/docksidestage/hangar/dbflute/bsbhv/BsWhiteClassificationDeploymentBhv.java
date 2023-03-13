@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_CLASSIFICATION_DEPLOYMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     DEPLOYMENT_ID
- *
- * [column]
- *     DEPLOYMENT_ID, SEA_FLG, DEPLOYMENT_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_CLASSIFICATION_DEPLOYMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteClassificationDeploymentBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteClassificationDeployment, WhiteClassificationDeploymentCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteClassificationDeploymentBhv extends org.docksidesta
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteClassificationDeploymentBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteClassificationDeployment, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteClassificationDeploymentBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

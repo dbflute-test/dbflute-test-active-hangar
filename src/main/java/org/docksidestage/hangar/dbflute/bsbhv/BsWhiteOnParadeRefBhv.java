@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ON_PARADE_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     REF_ID
- *
- * [column]
- *     REF_ID, REF_NAME, NULLABLE_FK_ON_PARADE_ID, NULLABLE_FK_TO_MANY_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteOnParade, whiteOnParadeNullableToMany
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_ON_PARADE_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteOnParadeRefBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteOnParadeRef, WhiteOnParadeRefCB> {
@@ -618,7 +590,7 @@ public abstract class BsWhiteOnParadeRefBhv extends org.docksidestage.hangar.dbf
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteOnParadeRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteOnParadeRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteOnParadeRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

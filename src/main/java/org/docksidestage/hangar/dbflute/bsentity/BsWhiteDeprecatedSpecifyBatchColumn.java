@@ -25,43 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE. <br>
- * <pre>
- * [primary-key]
- *     SPECIFY_BATCH_COLUMN_ID
- *
- * [column]
- *     SPECIFY_BATCH_COLUMN_ID, SPECIFY_BATCH_COLUMN_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long specifyBatchColumnId = entity.getSpecifyBatchColumnId();
- * String specifyBatchColumnName = entity.getSpecifyBatchColumnName();
- * entity.setSpecifyBatchColumnId(specifyBatchColumnId);
- * entity.setSpecifyBatchColumnName(specifyBatchColumnName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedSpecifyBatchColumn extends AbstractEntity implements DomainEntity {

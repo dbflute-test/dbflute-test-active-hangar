@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE. <br>
- * <pre>
- * [primary key]
- *     PARKSIDE_ID
- *
- * [column]
- *     PARKSIDE_ID, PARKSIDE_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE_ONE04_BONVO
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseOne04BonvoList
- * </pre>
+ * The behavior of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne04BonvoParksideBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne04BonvoParkside, WhiteBaseOne04BonvoParksideCB> {
@@ -666,7 +638,7 @@ public abstract class BsWhiteBaseOne04BonvoParksideBhv extends org.docksidestage
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteBaseOne04BonvoParksideBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteBaseOne04BonvoParkside, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteBaseOne04BonvoParksideBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

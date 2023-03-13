@@ -25,45 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SCHEMA_DIFF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     SCHEMA_DIFF_ID
- *
- * [column]
- *     SCHEMA_DIFF_ID, SCHEMA_DIFF_NAME, SCHEMA_DIFF_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long schemaDiffId = entity.getSchemaDiffId();
- * String schemaDiffName = entity.getSchemaDiffName();
- * java.time.LocalDate schemaDiffDate = entity.getSchemaDiffDate();
- * entity.setSchemaDiffId(schemaDiffId);
- * entity.setSchemaDiffName(schemaDiffName);
- * entity.setSchemaDiffDate(schemaDiffDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SCHEMA_DIFF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSchemaDiff extends AbstractEntity implements DomainEntity {

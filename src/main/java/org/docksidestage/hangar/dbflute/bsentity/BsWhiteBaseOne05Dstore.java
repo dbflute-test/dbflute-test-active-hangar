@@ -25,43 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BASE_ONE05_DSTORE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     DSTORE_ID
- *
- * [column]
- *     DSTORE_ID, DSTORE_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer dstoreId = entity.getDstoreId();
- * String dstoreName = entity.getDstoreName();
- * entity.setDstoreId(dstoreId);
- * entity.setDstoreName(dstoreName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BASE_ONE05_DSTORE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne05Dstore extends AbstractEntity implements DomainEntity {

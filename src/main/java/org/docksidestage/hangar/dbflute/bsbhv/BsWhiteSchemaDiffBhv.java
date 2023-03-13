@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SCHEMA_DIFF as TABLE. <br>
- * <pre>
- * [primary key]
- *     SCHEMA_DIFF_ID
- *
- * [column]
- *     SCHEMA_DIFF_ID, SCHEMA_DIFF_NAME, SCHEMA_DIFF_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_SCHEMA_DIFF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSchemaDiffBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteSchemaDiff, WhiteSchemaDiffCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteSchemaDiffBhv extends org.docksidestage.hangar.dbfl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSchemaDiffBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSchemaDiff, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSchemaDiffBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

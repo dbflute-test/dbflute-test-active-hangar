@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SINGLE_PK as TABLE. <br>
- * <pre>
- * [primary key]
- *     ONLY_ONE_PK_ID
- *
- * [column]
- *     ONLY_ONE_PK_ID, SINGLE_PK_NAME, REFERRED_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SINGLE_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSinglePk {

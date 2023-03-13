@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of (DBコメント)WHITE_DB_COMMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     DB_COMMENT_ID
- *
- * [column]
- *     DB_COMMENT_ID, DB_COMMENT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of (DBコメント)WHITE_DB_COMMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteDbComment {

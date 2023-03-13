@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SIMPLE_DTO_EXCEPT as TABLE. <br>
- * <pre>
- * [primary key]
- *     SIMPLE_DTO_EXCEPT_ID
- *
- * [column]
- *     SIMPLE_DTO_EXCEPT_ID, SIMPLE_DTO_EXCEPT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_SIMPLE_DTO_EXCEPT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSimpleDtoExceptBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteSimpleDtoExcept, WhiteSimpleDtoExceptCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteSimpleDtoExceptBhv extends org.docksidestage.hangar
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSimpleDtoExceptBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSimpleDtoExcept, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSimpleDtoExceptBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

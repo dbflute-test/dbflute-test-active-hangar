@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of VENDOR_IDENTITY_ONLY as TABLE. <br>
- * <pre>
- * [primary key]
- *     IDENTITY_ONLY_ID
- *
- * [column]
- *     IDENTITY_ONLY_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     IDENTITY_ONLY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of VENDOR_IDENTITY_ONLY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorIdentityOnlyBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<VendorIdentityOnly, VendorIdentityOnlyCB> {
@@ -602,7 +574,7 @@ public abstract class BsVendorIdentityOnlyBhv extends org.docksidestage.hangar.d
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorIdentityOnlyBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorIdentityOnly, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorIdentityOnlyBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SINGLE_PK as TABLE. <br>
- * <pre>
- * [primary key]
- *     ONLY_ONE_PK_ID
- *
- * [column]
- *     ONLY_ONE_PK_ID, SINGLE_PK_NAME, REFERRED_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_SINGLE_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSinglePkBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteSinglePk, WhiteSinglePkCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteSinglePkBhv extends org.docksidestage.hangar.dbflut
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSinglePkBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSinglePk, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSinglePkBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

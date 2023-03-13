@@ -22,35 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SIMPLE_DTO_EXCEPT as TABLE. <br>
- * <pre>
- * [primary key]
- *     SIMPLE_DTO_EXCEPT_ID
- *
- * [column]
- *     SIMPLE_DTO_EXCEPT_ID, SIMPLE_DTO_EXCEPT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SIMPLE_DTO_EXCEPT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSimpleDtoExcept {

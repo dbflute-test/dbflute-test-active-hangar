@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_COMPOUND_PK as TABLE. <br>
- * <pre>
- * [primary key]
- *     PK_FIRST_ID, PK_SECOND_ID
- *
- * [column]
- *     PK_FIRST_ID, PK_SECOND_ID, COMPOUND_PK_NAME, REFERRED_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
- * </pre>
+ * The behavior of WHITE_COMPOUND_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteCompoundPk, WhiteCompoundPkCB> {
@@ -723,7 +695,7 @@ public abstract class BsWhiteCompoundPkBhv extends org.docksidestage.hangar.dbfl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPk, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

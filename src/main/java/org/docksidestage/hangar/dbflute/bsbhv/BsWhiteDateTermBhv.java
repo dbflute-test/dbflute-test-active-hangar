@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_DATE_TERM as TABLE. <br>
- * <pre>
- * [primary key]
- *     DATE_TERM_ID
- *
- * [column]
- *     DATE_TERM_ID, DATE_TERM_VALUE, BEGIN_DATE, END_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_DATE_TERM as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDateTermBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDateTerm, WhiteDateTermCB> {
@@ -602,7 +574,7 @@ public abstract class BsWhiteDateTermBhv extends org.docksidestage.hangar.dbflut
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteDateTermBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDateTerm, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDateTermBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

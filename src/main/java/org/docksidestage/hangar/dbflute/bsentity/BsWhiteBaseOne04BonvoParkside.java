@@ -25,43 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PARKSIDE_ID
- *
- * [column]
- *     PARKSIDE_ID, PARKSIDE_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE_ONE04_BONVO
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseOne04BonvoList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer parksideId = entity.getParksideId();
- * String parksideName = entity.getParksideName();
- * entity.setParksideId(parksideId);
- * entity.setParksideName(parksideName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne04BonvoParkside extends AbstractEntity implements DomainEntity {

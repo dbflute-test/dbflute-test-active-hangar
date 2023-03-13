@@ -25,43 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BASE_ONE06_AMBA as TABLE. <br>
- * <pre>
- * [primary-key]
- *     AMBA_ID
- *
- * [column]
- *     AMBA_ID, AMBA_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteBaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer ambaId = entity.getAmbaId();
- * String ambaName = entity.getAmbaName();
- * entity.setAmbaId(ambaId);
- * entity.setAmbaName(ambaName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BASE_ONE06_AMBA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne06Amba extends AbstractEntity implements DomainEntity {

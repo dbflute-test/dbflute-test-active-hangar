@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (会員ログイン)MEMBER_LOGIN as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_LOGIN_ID
- *
- * [column]
- *     MEMBER_LOGIN_ID, MEMBER_ID, LOGIN_DATETIME, MOBILE_LOGIN_FLG, LOGIN_MEMBER_STATUS_CODE
- *
- * [sequence]
- *     MAIHAMADB.PUBLIC.SEQ_MEMBER_LOGIN
- *
- * [identity]
- *     MEMBER_LOGIN_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     MEMBER_STATUS, MEMBER
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     memberStatus, member
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (会員ログイン)MEMBER_LOGIN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberLoginBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<MemberLogin, MemberLoginCB> {
@@ -661,7 +633,7 @@ public abstract class BsMemberLoginBhv extends org.docksidestage.hangar.dbflute.
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberLogin, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

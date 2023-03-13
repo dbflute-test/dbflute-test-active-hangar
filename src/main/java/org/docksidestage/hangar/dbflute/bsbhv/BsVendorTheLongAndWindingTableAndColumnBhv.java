@@ -35,35 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN as TABLE. <br>
- * <pre>
- * [primary key]
- *     THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID
- *
- * [column]
- *     THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, THE_LONG_AND_WINDING_TABLE_AND_COLUMN_NAME, SHORT_NAME, SHORT_SIZE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorTheLongAndWindingTableAndColumnRefList
- * </pre>
+ * The behavior of VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorTheLongAndWindingTableAndColumnBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<VendorTheLongAndWindingTableAndColumn, VendorTheLongAndWindingTableAndColumnCB> {
@@ -699,7 +671,7 @@ public abstract class BsVendorTheLongAndWindingTableAndColumnBhv extends org.doc
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorTheLongAndWindingTableAndColumnBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorTheLongAndWindingTableAndColumn, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorTheLongAndWindingTableAndColumnBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

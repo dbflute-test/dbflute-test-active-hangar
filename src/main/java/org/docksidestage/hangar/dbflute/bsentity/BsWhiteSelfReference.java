@@ -27,45 +27,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SELF_REFERENCE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     SELF_REFERENCE_ID
- *
- * [column]
- *     SELF_REFERENCE_ID, SELF_REFERENCE_NAME, PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SELF_REFERENCE
- *
- * [referrer table]
- *     WHITE_SELF_REFERENCE
- *
- * [foreign property]
- *     whiteSelfReferenceSelf
- *
- * [referrer property]
- *     whiteSelfReferenceSelfList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer selfReferenceId = entity.getSelfReferenceId();
- * String selfReferenceName = entity.getSelfReferenceName();
- * Integer parentId = entity.getParentId();
- * entity.setSelfReferenceId(selfReferenceId);
- * entity.setSelfReferenceName(selfReferenceName);
- * entity.setParentId(parentId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SELF_REFERENCE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSelfReference extends AbstractEntity implements DomainEntity {
