@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN as TABLE.
+ * <pre>
+ * [primary-key]
+ *     SPECIFY_BATCH_COLUMN_ID
+ *
+ * [column]
+ *     SPECIFY_BATCH_COLUMN_ID, SPECIFY_BATCH_COLUMN_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long specifyBatchColumnId = entity.getSpecifyBatchColumnId();
+ * String specifyBatchColumnName = entity.getSpecifyBatchColumnName();
+ * entity.setSpecifyBatchColumnId(specifyBatchColumnId);
+ * entity.setSpecifyBatchColumnName(specifyBatchColumnName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedSpecifyBatchColumnBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDeprecatedSpecifyBatchColumn, WhiteDeprecatedSpecifyBatchColumnCB> {

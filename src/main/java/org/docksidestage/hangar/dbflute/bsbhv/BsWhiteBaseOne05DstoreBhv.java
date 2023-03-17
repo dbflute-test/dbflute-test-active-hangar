@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_BASE_ONE05_DSTORE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     DSTORE_ID
+ *
+ * [column]
+ *     DSTORE_ID, DSTORE_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer dstoreId = entity.getDstoreId();
+ * String dstoreName = entity.getDstoreName();
+ * entity.setDstoreId(dstoreId);
+ * entity.setDstoreName(dstoreName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne05DstoreBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne05Dstore, WhiteBaseOne05DstoreCB> {

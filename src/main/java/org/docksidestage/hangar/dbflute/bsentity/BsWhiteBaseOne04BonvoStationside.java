@@ -26,6 +26,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_BASE_ONE04_BONVO_STATIONSIDE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     STATIONSIDE_ID
+ *
+ * [column]
+ *     STATIONSIDE_ID, STATIONSIDE_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE_ONE04_BONVO
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseOne04BonvoList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer stationsideId = entity.getStationsideId();
+ * String stationsideName = entity.getStationsideName();
+ * entity.setStationsideId(stationsideId);
+ * entity.setStationsideName(stationsideName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne04BonvoStationside extends AbstractEntity implements DomainEntity {

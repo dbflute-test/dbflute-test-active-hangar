@@ -26,6 +26,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_BASE_ONE02_LAND as TABLE.
+ * <pre>
+ * [primary-key]
+ *     LAND_ID
+ *
+ * [column]
+ *     LAND_ID, LAND_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer landId = entity.getLandId();
+ * String landName = entity.getLandName();
+ * entity.setLandId(landId);
+ * entity.setLandName(landName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne02Land extends AbstractEntity implements DomainEntity {

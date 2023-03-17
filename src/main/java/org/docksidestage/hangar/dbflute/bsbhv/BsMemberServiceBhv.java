@@ -36,6 +36,56 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of (会員サービス)MEMBER_SERVICE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     MEMBER_SERVICE_ID
+ *
+ * [column]
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     MEMBER_SERVICE_ID
+ *
+ * [version-no]
+ *     VERSION_NO
+ *
+ * [foreign table]
+ *     MEMBER, SERVICE_RANK
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     member, serviceRank
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer memberServiceId = entity.getMemberServiceId();
+ * Integer memberId = entity.getMemberId();
+ * Integer servicePointCount = entity.getServicePointCount();
+ * String serviceRankCode = entity.getServiceRankCode();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
+ * String registerUser = entity.getRegisterUser();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
+ * String updateUser = entity.getUpdateUser();
+ * Long versionNo = entity.getVersionNo();
+ * entity.setMemberServiceId(memberServiceId);
+ * entity.setMemberId(memberId);
+ * entity.setServicePointCount(servicePointCount);
+ * entity.setServiceRankCode(serviceRankCode);
+ * entity.setRegisterDatetime(registerDatetime);
+ * entity.setRegisterUser(registerUser);
+ * entity.setUpdateDatetime(updateDatetime);
+ * entity.setUpdateUser(updateUser);
+ * entity.setVersionNo(versionNo);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberServiceBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<MemberService, MemberServiceCB> {

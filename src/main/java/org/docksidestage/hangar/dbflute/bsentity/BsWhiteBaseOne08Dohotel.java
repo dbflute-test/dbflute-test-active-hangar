@@ -26,6 +26,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_BASE_ONE08_DOHOTEL as TABLE.
+ * <pre>
+ * [primary-key]
+ *     DOHOTEL_ID
+ *
+ * [column]
+ *     DOHOTEL_ID, DOHOTEL_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer dohotelId = entity.getDohotelId();
+ * String dohotelName = entity.getDohotelName();
+ * entity.setDohotelId(dohotelId);
+ * entity.setDohotelName(dohotelName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne08Dohotel extends AbstractEntity implements DomainEntity {

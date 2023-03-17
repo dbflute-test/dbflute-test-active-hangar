@@ -26,6 +26,46 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN as TABLE.
+ * <pre>
+ * [primary-key]
+ *     THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID
+ *
+ * [column]
+ *     THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID, THE_LONG_AND_WINDING_TABLE_AND_COLUMN_NAME, SHORT_NAME, SHORT_SIZE
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     VENDOR_THE_LONG_AND_WINDING_TABLE_AND_COLUMN_REF
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     vendorTheLongAndWindingTableAndColumnRefList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long theLongAndWindingTableAndColumnId = entity.getTheLongAndWindingTableAndColumnId();
+ * String theLongAndWindingTableAndColumnName = entity.getTheLongAndWindingTableAndColumnName();
+ * String shortName = entity.getShortName();
+ * Integer shortSize = entity.getShortSize();
+ * entity.setTheLongAndWindingTableAndColumnId(theLongAndWindingTableAndColumnId);
+ * entity.setTheLongAndWindingTableAndColumnName(theLongAndWindingTableAndColumnName);
+ * entity.setShortName(shortName);
+ * entity.setShortSize(shortSize);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorTheLongAndWindingTableAndColumn extends AbstractEntity implements DomainEntity {

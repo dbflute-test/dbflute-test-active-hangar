@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_BASE_ONE07_MIRACO as TABLE.
+ * <pre>
+ * [primary-key]
+ *     MIRACO_ID
+ *
+ * [column]
+ *     MIRACO_ID, MIRACO_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer miracoId = entity.getMiracoId();
+ * String miracoName = entity.getMiracoName();
+ * entity.setMiracoId(miracoId);
+ * entity.setMiracoName(miracoName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne07MiracoBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne07Miraco, WhiteBaseOne07MiracoCB> {

@@ -36,6 +36,44 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_BASE_ONE01_SEA_MAGICLAMP as TABLE.
+ * <pre>
+ * [primary-key]
+ *     MAGICLAMP_ID
+ *
+ * [column]
+ *     MAGICLAMP_ID, MAGICLAMP_NAME, SEA_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_BASE_ONE01_SEA
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteBaseOne01Sea
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer magiclampId = entity.getMagiclampId();
+ * String magiclampName = entity.getMagiclampName();
+ * Integer seaId = entity.getSeaId();
+ * entity.setMagiclampId(magiclampId);
+ * entity.setMagiclampName(magiclampName);
+ * entity.setSeaId(seaId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne01SeaMagiclampBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne01SeaMagiclamp, WhiteBaseOne01SeaMagiclampCB> {

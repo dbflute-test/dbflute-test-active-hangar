@@ -36,6 +36,58 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of (会員セキュリティ情報)MEMBER_SECURITY as TABLE.
+ * <pre>
+ * [primary-key]
+ *     MEMBER_ID
+ *
+ * [column]
+ *     MEMBER_ID, LOGIN_PASSWORD, REMINDER_QUESTION, REMINDER_ANSWER, REMINDER_USE_COUNT, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     VERSION_NO
+ *
+ * [foreign table]
+ *     MEMBER
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     member
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer memberId = entity.getMemberId();
+ * String loginPassword = entity.getLoginPassword();
+ * String reminderQuestion = entity.getReminderQuestion();
+ * String reminderAnswer = entity.getReminderAnswer();
+ * Integer reminderUseCount = entity.getReminderUseCount();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
+ * String registerUser = entity.getRegisterUser();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
+ * String updateUser = entity.getUpdateUser();
+ * Long versionNo = entity.getVersionNo();
+ * entity.setMemberId(memberId);
+ * entity.setLoginPassword(loginPassword);
+ * entity.setReminderQuestion(reminderQuestion);
+ * entity.setReminderAnswer(reminderAnswer);
+ * entity.setReminderUseCount(reminderUseCount);
+ * entity.setRegisterDatetime(registerDatetime);
+ * entity.setRegisterUser(registerUser);
+ * entity.setUpdateDatetime(updateDatetime);
+ * entity.setUpdateUser(updateUser);
+ * entity.setVersionNo(versionNo);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberSecurityBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<MemberSecurity, MemberSecurityCB> {

@@ -36,6 +36,44 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_BASE_ONE01_SEA_HANGAR as TABLE.
+ * <pre>
+ * [primary-key]
+ *     HANGAR_ID
+ *
+ * [column]
+ *     HANGAR_ID, HANGAR_NAME, SEA_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_BASE_ONE01_SEA
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteBaseOne01Sea
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer hangarId = entity.getHangarId();
+ * String hangarName = entity.getHangarName();
+ * Integer seaId = entity.getSeaId();
+ * entity.setHangarId(hangarId);
+ * entity.setHangarName(hangarName);
+ * entity.setSeaId(seaId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne01SeaHangarBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne01SeaHangar, WhiteBaseOne01SeaHangarCB> {

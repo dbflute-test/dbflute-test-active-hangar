@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of (DBコメント)WHITE_DB_COMMENT as TABLE.
+ * <pre>
+ * [primary-key]
+ *     DB_COMMENT_ID
+ *
+ * [column]
+ *     DB_COMMENT_ID, DB_COMMENT_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long dbCommentId = entity.getDbCommentId();
+ * String dbCommentName = entity.getDbCommentName();
+ * entity.setDbCommentId(dbCommentId);
+ * entity.setDbCommentName(dbCommentName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDbCommentBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDbComment, WhiteDbCommentCB> {

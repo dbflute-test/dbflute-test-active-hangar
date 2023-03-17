@@ -60,6 +60,9 @@ map:{
     ; isMakeCDefOldStyleListOfMethod = false
     ; isMakeCDefOldStyleGroupOfMethod = false
 
+    # the test of table detail javadoc (2023/03/17)
+    ; isGenerateTableDetailJavaDoc = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]

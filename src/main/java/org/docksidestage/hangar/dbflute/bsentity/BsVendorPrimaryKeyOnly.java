@@ -26,6 +26,40 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of VENDOR_PRIMARY_KEY_ONLY as TABLE.
+ * <pre>
+ * [primary-key]
+ *     PRIMARY_KEY_ONLY_ID
+ *
+ * [column]
+ *     PRIMARY_KEY_ONLY_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long primaryKeyOnlyId = entity.getPrimaryKeyOnlyId();
+ * entity.setPrimaryKeyOnlyId(primaryKeyOnlyId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorPrimaryKeyOnly extends AbstractEntity implements DomainEntity {

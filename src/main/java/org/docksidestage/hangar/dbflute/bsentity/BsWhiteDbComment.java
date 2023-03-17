@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * o (table)あと、DBコメントは、"JavaDoc" でも使われるし、DBMetaで "文字列リテラル" で使われるけど大丈夫？<br>
  * o (table)なので、@author jflute とか入ってても大丈夫？ あと、改行 "\n" とか、エスケエスケ "\\" とか大丈夫？<br>
  * _/_/_/_/_/_/_/_/_/_/
+ * <pre>
+ * [primary-key]
+ *     DB_COMMENT_ID
+ *
+ * [column]
+ *     DB_COMMENT_ID, DB_COMMENT_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long dbCommentId = entity.getDbCommentId();
+ * String dbCommentName = entity.getDbCommentName();
+ * entity.setDbCommentId(dbCommentId);
+ * entity.setDbCommentName(dbCommentName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDbComment extends AbstractEntity implements DomainEntity {

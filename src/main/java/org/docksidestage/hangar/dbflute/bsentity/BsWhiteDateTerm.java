@@ -26,6 +26,46 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_DATE_TERM as TABLE.
+ * <pre>
+ * [primary-key]
+ *     DATE_TERM_ID
+ *
+ * [column]
+ *     DATE_TERM_ID, DATE_TERM_VALUE, BEGIN_DATE, END_DATE
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long dateTermId = entity.getDateTermId();
+ * String dateTermValue = entity.getDateTermValue();
+ * java.time.LocalDate beginDate = entity.getBeginDate();
+ * java.time.LocalDate endDate = entity.getEndDate();
+ * entity.setDateTermId(dateTermId);
+ * entity.setDateTermValue(dateTermValue);
+ * entity.setBeginDate(beginDate);
+ * entity.setEndDate(endDate);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDateTerm extends AbstractEntity implements DomainEntity {

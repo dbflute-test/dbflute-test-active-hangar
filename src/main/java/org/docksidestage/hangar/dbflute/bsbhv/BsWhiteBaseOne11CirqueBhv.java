@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_BASE_ONE11_CIRQUE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     CIRQUE_ID
+ *
+ * [column]
+ *     CIRQUE_ID, CIRQUE_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_BASE
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteBase
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer cirqueId = entity.getCirqueId();
+ * String cirqueName = entity.getCirqueName();
+ * entity.setCirqueId(cirqueId);
+ * entity.setCirqueName(cirqueName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne11CirqueBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne11Cirque, WhiteBaseOne11CirqueCB> {

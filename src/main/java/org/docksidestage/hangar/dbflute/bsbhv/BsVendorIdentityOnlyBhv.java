@@ -36,6 +36,40 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of VENDOR_IDENTITY_ONLY as TABLE.
+ * <pre>
+ * [primary-key]
+ *     IDENTITY_ONLY_ID
+ *
+ * [column]
+ *     IDENTITY_ONLY_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     IDENTITY_ONLY_ID
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long identityOnlyId = entity.getIdentityOnlyId();
+ * entity.setIdentityOnlyId(identityOnlyId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorIdentityOnlyBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<VendorIdentityOnly, VendorIdentityOnlyCB> {

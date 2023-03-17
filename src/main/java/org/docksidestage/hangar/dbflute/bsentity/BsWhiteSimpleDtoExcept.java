@@ -26,6 +26,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_SIMPLE_DTO_EXCEPT as TABLE.
+ * <pre>
+ * [primary-key]
+ *     SIMPLE_DTO_EXCEPT_ID
+ *
+ * [column]
+ *     SIMPLE_DTO_EXCEPT_ID, SIMPLE_DTO_EXCEPT_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long simpleDtoExceptId = entity.getSimpleDtoExceptId();
+ * String simpleDtoExceptName = entity.getSimpleDtoExceptName();
+ * entity.setSimpleDtoExceptId(simpleDtoExceptId);
+ * entity.setSimpleDtoExceptName(simpleDtoExceptName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSimpleDtoExcept extends AbstractEntity implements DomainEntity {

@@ -26,6 +26,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_ON_PARADE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     ON_PARADE_ID
+ *
+ * [column]
+ *     ON_PARADE_ID, ON_PARADE_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_ON_PARADE_REF
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteOnParadeRefList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long onParadeId = entity.getOnParadeId();
+ * String onParadeName = entity.getOnParadeName();
+ * entity.setOnParadeId(onParadeId);
+ * entity.setOnParadeName(onParadeName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteOnParade extends AbstractEntity implements DomainEntity {

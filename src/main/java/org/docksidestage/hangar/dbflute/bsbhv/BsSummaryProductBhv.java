@@ -36,6 +36,48 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of SUMMARY_PRODUCT as VIEW.
+ * <pre>
+ * [primary-key]
+ *     PRODUCT_ID
+ *
+ * [column]
+ *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     PRODUCT_STATUS
+ *
+ * [referrer table]
+ *     PURCHASE
+ *
+ * [foreign property]
+ *     productStatus
+ *
+ * [referrer property]
+ *     purchaseList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer productId = entity.getProductId();
+ * String productName = entity.getProductName();
+ * String productHandleCode = entity.getProductHandleCode();
+ * String productStatusCode = entity.getProductStatusCode();
+ * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
+ * entity.setProductId(productId);
+ * entity.setProductName(productName);
+ * entity.setProductHandleCode(productHandleCode);
+ * entity.setProductStatusCode(productStatusCode);
+ * entity.setLatestPurchaseDatetime(latestPurchaseDatetime);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSummaryProductBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<SummaryProduct, SummaryProductCB> {

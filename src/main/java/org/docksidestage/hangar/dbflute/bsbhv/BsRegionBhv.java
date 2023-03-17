@@ -37,6 +37,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of (地域)REGION as TABLE.
+ * <pre>
+ * [primary-key]
+ *     REGION_ID
+ *
+ * [column]
+ *     REGION_ID, REGION_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     MEMBER_ADDRESS
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     memberAddressList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer regionId = entity.getRegionId();
+ * String regionName = entity.getRegionName();
+ * entity.setRegionId(regionId);
+ * entity.setRegionName(regionName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsRegionBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<Region, RegionCB> {

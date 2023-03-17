@@ -36,6 +36,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_BASE_ONE04_BONVO_PARKSIDE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     PARKSIDE_ID
+ *
+ * [column]
+ *     PARKSIDE_ID, PARKSIDE_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE_ONE04_BONVO
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseOne04BonvoList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer parksideId = entity.getParksideId();
+ * String parksideName = entity.getParksideName();
+ * entity.setParksideId(parksideId);
+ * entity.setParksideName(parksideName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne04BonvoParksideBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteBaseOne04BonvoParkside, WhiteBaseOne04BonvoParksideCB> {

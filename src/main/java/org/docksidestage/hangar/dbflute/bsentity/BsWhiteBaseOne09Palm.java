@@ -28,6 +28,44 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_BASE_ONE09_PALM as TABLE.
+ * <pre>
+ * [primary-key]
+ *     PALM_ID
+ *
+ * [column]
+ *     PALM_ID, PALM_NAME, BASE_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_BASE
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteBase
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer palmId = entity.getPalmId();
+ * String palmName = entity.getPalmName();
+ * Integer baseId = entity.getBaseId();
+ * entity.setPalmId(palmId);
+ * entity.setPalmName(palmName);
+ * entity.setBaseId(baseId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne09Palm extends AbstractEntity implements DomainEntity {

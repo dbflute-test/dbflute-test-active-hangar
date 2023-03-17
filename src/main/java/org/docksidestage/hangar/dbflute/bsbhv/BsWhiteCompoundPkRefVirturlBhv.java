@@ -36,6 +36,46 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_COMPOUND_PK_REF_VIRTURL as TABLE.
+ * <pre>
+ * [primary-key]
+ *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
+ *
+ * [column]
+ *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID, COMPOUND_REF_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_COMPOUND_PK
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteCompoundPk
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long refFirstId = entity.getRefFirstId();
+ * Long refSecondId = entity.getRefSecondId();
+ * Long refThirdId = entity.getRefThirdId();
+ * String compoundRefName = entity.getCompoundRefName();
+ * entity.setRefFirstId(refFirstId);
+ * entity.setRefSecondId(refSecondId);
+ * entity.setRefThirdId(refThirdId);
+ * entity.setCompoundRefName(compoundRefName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteCompoundPkRefVirturl, WhiteCompoundPkRefVirturlCB> {

@@ -37,6 +37,44 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of (商品ステータス)PRODUCT_STATUS as TABLE.
+ * <pre>
+ * [primary-key]
+ *     PRODUCT_STATUS_CODE
+ *
+ * [column]
+ *     PRODUCT_STATUS_CODE, PRODUCT_STATUS_NAME, DISPLAY_ORDER
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     PRODUCT, SUMMARY_PRODUCT
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     productList, summaryProductList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * String productStatusCode = entity.getProductStatusCode();
+ * String productStatusName = entity.getProductStatusName();
+ * Integer displayOrder = entity.getDisplayOrder();
+ * entity.setProductStatusCode(productStatusCode);
+ * entity.setProductStatusName(productStatusName);
+ * entity.setDisplayOrder(displayOrder);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductStatusBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<ProductStatus, ProductStatusCB> {

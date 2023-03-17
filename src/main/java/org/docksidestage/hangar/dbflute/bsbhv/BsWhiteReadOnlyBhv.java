@@ -37,6 +37,42 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_READ_ONLY as TABLE.
+ * <pre>
+ * [primary-key]
+ *     READ_ONLY_ID
+ *
+ * [column]
+ *     READ_ONLY_ID, READ_ONLY_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long readOnlyId = entity.getReadOnlyId();
+ * String readOnlyName = entity.getReadOnlyName();
+ * entity.setReadOnlyId(readOnlyId);
+ * entity.setReadOnlyName(readOnlyName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteReadOnlyBhv extends AbstractBehaviorReadable<WhiteReadOnly, WhiteReadOnlyCB> {

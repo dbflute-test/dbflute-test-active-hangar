@@ -36,6 +36,44 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_DEPRECATED_SELECT_BY_PKUQ as TABLE.
+ * <pre>
+ * [primary-key]
+ *     SELECT_BY_PKUQ_ID
+ *
+ * [column]
+ *     SELECT_BY_PKUQ_ID, SELECT_BY_PKUQ_NAME, SELECT_BY_PKUQ_CODE
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long selectByPkuqId = entity.getSelectByPkuqId();
+ * String selectByPkuqName = entity.getSelectByPkuqName();
+ * String selectByPkuqCode = entity.getSelectByPkuqCode();
+ * entity.setSelectByPkuqId(selectByPkuqId);
+ * entity.setSelectByPkuqName(selectByPkuqName);
+ * entity.setSelectByPkuqCode(selectByPkuqCode);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedSelectByPkuqBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDeprecatedSelectByPkuq, WhiteDeprecatedSelectByPkuqCB> {

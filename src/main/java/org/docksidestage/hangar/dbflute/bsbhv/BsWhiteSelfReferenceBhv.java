@@ -36,6 +36,44 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of WHITE_SELF_REFERENCE as TABLE.
+ * <pre>
+ * [primary-key]
+ *     SELF_REFERENCE_ID
+ *
+ * [column]
+ *     SELF_REFERENCE_ID, SELF_REFERENCE_NAME, PARENT_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_SELF_REFERENCE
+ *
+ * [referrer table]
+ *     WHITE_SELF_REFERENCE
+ *
+ * [foreign property]
+ *     whiteSelfReferenceSelf
+ *
+ * [referrer property]
+ *     whiteSelfReferenceSelfList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer selfReferenceId = entity.getSelfReferenceId();
+ * String selfReferenceName = entity.getSelfReferenceName();
+ * Integer parentId = entity.getParentId();
+ * entity.setSelfReferenceId(selfReferenceId);
+ * entity.setSelfReferenceName(selfReferenceName);
+ * entity.setParentId(parentId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSelfReferenceBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteSelfReference, WhiteSelfReferenceCB> {

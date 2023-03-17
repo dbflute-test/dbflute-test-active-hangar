@@ -25,6 +25,40 @@ import org.docksidestage.hangar.dbflute.exentity.customize.*;
 
 /**
  * The entity of ForcedType.
+ * <pre>
+ * [primary-key]
+ *     
+ *
+ * [column]
+ *     MAX_MEMBER_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * java.math.BigInteger maxMemberId = entity.getMaxMemberId();
+ * entity.setMaxMemberId(maxMemberId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsForcedType extends AbstractEntity implements CustomizeEntity {

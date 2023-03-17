@@ -25,6 +25,46 @@ import org.docksidestage.hangar.dbflute.exentity.customize.*;
 
 /**
  * The entity of Sql2SimpleDtoExcept.
+ * <pre>
+ * [primary-key]
+ *     
+ *
+ * [column]
+ *     MEMBER_ID, MEMBER_NAME, BIRTHDATE, MEMBER_STATUS_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer memberId = entity.getMemberId();
+ * String memberName = entity.getMemberName();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
+ * String memberStatusName = entity.getMemberStatusName();
+ * entity.setMemberId(memberId);
+ * entity.setMemberName(memberName);
+ * entity.setBirthdate(birthdate);
+ * entity.setMemberStatusName(memberStatusName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSql2SimpleDtoExcept extends AbstractEntity implements CustomizeEntity {

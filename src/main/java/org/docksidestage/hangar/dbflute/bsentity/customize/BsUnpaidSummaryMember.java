@@ -26,6 +26,46 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of UnpaidSummaryMember.
+ * <pre>
+ * [primary-key]
+ *     UNPAID_MAN_ID
+ *
+ * [column]
+ *     UNPAID_MAN_ID, UNPAID_MAN_NAME, UNPAID_PRICE_SUMMARY, STATUS_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer unpaidManId = entity.getUnpaidManId();
+ * String unpaidManName = entity.getUnpaidManName();
+ * Long unpaidPriceSummary = entity.getUnpaidPriceSummary();
+ * String statusName = entity.getStatusName();
+ * entity.setUnpaidManId(unpaidManId);
+ * entity.setUnpaidManName(unpaidManName);
+ * entity.setUnpaidPriceSummary(unpaidPriceSummary);
+ * entity.setStatusName(statusName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsUnpaidSummaryMember extends AbstractEntity implements CustomizeEntity {

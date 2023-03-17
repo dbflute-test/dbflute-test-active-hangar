@@ -26,6 +26,42 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_BASE_ONE01_SEA_BROADWAY as TABLE.
+ * <pre>
+ * [primary-key]
+ *     BROADWAY_ID
+ *
+ * [column]
+ *     BROADWAY_ID, BROADWAY_NAME
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     WHITE_BASE_ONE01_SEA
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     whiteBaseOne01SeaList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer broadwayId = entity.getBroadwayId();
+ * String broadwayName = entity.getBroadwayName();
+ * entity.setBroadwayId(broadwayId);
+ * entity.setBroadwayName(broadwayName);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne01SeaBroadway extends AbstractEntity implements DomainEntity {

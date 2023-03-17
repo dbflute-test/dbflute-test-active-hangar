@@ -27,6 +27,44 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_CLASSIFICATION_DEPLOYMENT as TABLE.
+ * <pre>
+ * [primary-key]
+ *     DEPLOYMENT_ID
+ *
+ * [column]
+ *     DEPLOYMENT_ID, SEA_FLG, DEPLOYMENT_TYPE_CODE
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long deploymentId = entity.getDeploymentId();
+ * Integer seaFlg = entity.getSeaFlg();
+ * String deploymentTypeCode = entity.getDeploymentTypeCode();
+ * entity.setDeploymentId(deploymentId);
+ * entity.setSeaFlg(seaFlg);
+ * entity.setDeploymentTypeCode(deploymentTypeCode);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteClassificationDeployment extends AbstractEntity implements DomainEntity {

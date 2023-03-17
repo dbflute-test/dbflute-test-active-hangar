@@ -28,6 +28,44 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_BASE_ONE12_AMPHI as TABLE.
+ * <pre>
+ * [primary-key]
+ *     AMPHI_ID
+ *
+ * [column]
+ *     AMPHI_ID, AMPHI_NAME, BASE_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_BASE
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteBase
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Integer amphiId = entity.getAmphiId();
+ * String amphiName = entity.getAmphiName();
+ * Integer baseId = entity.getBaseId();
+ * entity.setAmphiId(amphiId);
+ * entity.setAmphiName(amphiName);
+ * entity.setBaseId(baseId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBaseOne12Amphi extends AbstractEntity implements DomainEntity {

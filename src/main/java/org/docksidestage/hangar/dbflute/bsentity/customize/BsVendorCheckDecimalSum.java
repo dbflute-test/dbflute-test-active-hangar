@@ -25,6 +25,40 @@ import org.docksidestage.hangar.dbflute.exentity.customize.*;
 
 /**
  * The entity of VendorCheckDecimalSum.
+ * <pre>
+ * [primary-key]
+ *     
+ *
+ * [column]
+ *     DECIMAL_DIGIT_SUM
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * java.math.BigDecimal decimalDigitSum = entity.getDecimalDigitSum();
+ * entity.setDecimalDigitSum(decimalDigitSum);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorCheckDecimalSum extends AbstractEntity implements CustomizeEntity {

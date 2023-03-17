@@ -28,6 +28,46 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_ON_PARADE_REF as TABLE.
+ * <pre>
+ * [primary-key]
+ *     REF_ID
+ *
+ * [column]
+ *     REF_ID, REF_NAME, NULLABLE_FK_ON_PARADE_ID, NULLABLE_FK_TO_MANY_ID
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     WHITE_ON_PARADE, WHITE_ON_PARADE_NULLABLE_TO_MANY
+ *
+ * [referrer table]
+ *     
+ *
+ * [foreign property]
+ *     whiteOnParade, whiteOnParadeNullableToMany
+ *
+ * [referrer property]
+ *     
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * Long refId = entity.getRefId();
+ * String refName = entity.getRefName();
+ * Long nullableFkOnParadeId = entity.getNullableFkOnParadeId();
+ * Long nullableFkToManyId = entity.getNullableFkToManyId();
+ * entity.setRefId(refId);
+ * entity.setRefName(refName);
+ * entity.setNullableFkOnParadeId(nullableFkOnParadeId);
+ * entity.setNullableFkToManyId(nullableFkToManyId);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteOnParadeRef extends AbstractEntity implements DomainEntity {

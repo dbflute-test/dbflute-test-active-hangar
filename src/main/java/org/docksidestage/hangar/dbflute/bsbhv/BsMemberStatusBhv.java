@@ -37,6 +37,46 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
  * The behavior of (会員ステータス)MEMBER_STATUS as TABLE.
+ * <pre>
+ * [primary-key]
+ *     MEMBER_STATUS_CODE
+ *
+ * [column]
+ *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
+ *
+ * [sequence]
+ *     
+ *
+ * [identity]
+ *     
+ *
+ * [version-no]
+ *     
+ *
+ * [foreign table]
+ *     
+ *
+ * [referrer table]
+ *     MEMBER, MEMBER_LOGIN
+ *
+ * [foreign property]
+ *     
+ *
+ * [referrer property]
+ *     memberList, memberLoginList
+ *
+ * [get/set template]
+ * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+ * String memberStatusCode = entity.getMemberStatusCode();
+ * String memberStatusName = entity.getMemberStatusName();
+ * String description = entity.getDescription();
+ * Integer displayOrder = entity.getDisplayOrder();
+ * entity.setMemberStatusCode(memberStatusCode);
+ * entity.setMemberStatusName(memberStatusName);
+ * entity.setDescription(description);
+ * entity.setDisplayOrder(displayOrder);
+ * = = = = = = = = = =/
+ * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberStatusBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<MemberStatus, MemberStatusCB> {
