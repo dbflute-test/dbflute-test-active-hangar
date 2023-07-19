@@ -27,5 +27,54 @@ map:{
         ; map:{ topComment=test of reference to appcls, case1 ; codeType=String }
         ; map:{ refCls=appcls@AppDockside ; refType=included }
     }
+
+    # ====================================================================================
+    #                                                                        Deep Whitebox
+    #                                                                        =============
+    # test of groupingMap when literal only
+    ; DeepWxLiteralGrouping = list:{
+        ; map:{
+            ; topComment=test of groupingMap when literal only
+            ; codeType=String
+            ; groupingMap = map:{
+                ; serviceAvailable = map:{
+                    ; groupComment = can login
+                    ; elementList = list:{ OneMan ; Parade }
+                }
+            }
+        }
+        ; map:{ code=FML ; name=OneMan ; alias=ShowBase ; comment=Formalized }
+        ; map:{ code=PRV ; name=Parade ; alias=Castle ; comment=Provisional }
+        ; map:{ code=WDL ; name=MiniO ; alias=Orlean ; comment=Withdrawal }
+    }
+    # test of deprecated classification top
+    ; DeepWxDeprecatedCls = list:{
+        ; map:{
+            ; topComment=test of deprecated classification top
+            ; codeType=String
+            ; isDeprecated=true
+        }
+        ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
+        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
+    }
+    # test of deprecatedMap
+    ; DeepWxDeprecatedElement = list:{
+        ; map:{
+            ; topComment=test of deprecatedMap
+            ; codeType=String
+            ; deprecatedMap = map:{
+                ; Provisional = test of deprecated
+                ; All = and also test of deprecated
+            }
+        }
+        ; map:{ refCls=maihamadb@MemberStatus ; refType=included }
+        ; map:{ code=ALL; name=All; alias=All Statuses; comment=without status filter }
+    }
+    # test of path parameter by nameof() in LastaFlute action
+    ; AppWxNameOf = list:{
+        ; map:{ topComment=test of path parameter by nameof() in LastaFlute action ; codeType=String }
+        ; map:{ code=ONE ; name=OneMan ; alias=ShowBase ; comment=Formalized ; sisterCode=oneman}
+        ; map:{ code=MIN ; name=MiniO ; alias=Orlean ; comment=Withdrawal ; sisterCode=minio}
+    }
 }
 # ----------------/

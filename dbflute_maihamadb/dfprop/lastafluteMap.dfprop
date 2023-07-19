@@ -45,6 +45,12 @@ map:{
         # test of option to suppress redundant comment stop
         ; hangar.freeGen.leonardo_cls.isSuppressRedundantCommentStop = false
 
+        # test of option to make simple determination method e.g. cls.isFormalized()
+        #; hangar.freeGen.namedcls.isMakeSimpleDeterminationMethod = true
+        #; hangar.freeGen.leonardo_cls.isMakeSimpleDeterminationMethod = true
+        ; hangar.freeGen.vinci_cls.isMakeSimpleDeterminationMethod = true
+        ; hangar.freeGen.webcls.isMakeSimpleDeterminationMethod = true
+
         # test of option for CDef old style methods (related to littleAdjustmentMap.dfprop)
         #; hangar.freeGen.appcls.isMakeCDefOldStyleCodeOfMethod = false
         ; hangar.freeGen.appcls.isMakeCDefOldStyleNameOfMethod = false

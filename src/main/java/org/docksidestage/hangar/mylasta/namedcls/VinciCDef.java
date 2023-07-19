@@ -79,6 +79,24 @@ public interface VinciCDef extends Classification {
             return (String)subItemMap().get("desc");
         }
         /**
+         * Is the classification Formalized? <br>
+         * as formal member, allowed to use all service <br>
+         * @return The determination, true or false.
+         */
+        public boolean isFormalized() { return Formalized.equals(this); }
+        /**
+         * Is the classification Withdrawal? <br>
+         * withdrawal is fixed, not allowed to use service <br>
+         * @return The determination, true or false.
+         */
+        public boolean isWithdrawal() { return Withdrawal.equals(this); }
+        /**
+         * Is the classification Provisional? <br>
+         * first status after entry, allowed to use only part of service <br>
+         * @return The determination, true or false.
+         */
+        public boolean isProvisional() { return Provisional.equals(this); }
+        /**
          * Is the classification in the group? <br>
          * means member that can use services <br>
          * The group elements:[Formalized, Provisional]
@@ -222,6 +240,18 @@ public interface VinciCDef extends Classification {
             return (String)subItemMap().get("keyword");
         }
         /**
+         * Is the classification OneMan? <br>
+         * Formalized <br>
+         * @return The determination, true or false.
+         */
+        public boolean isOneMan() { return OneMan.equals(this); }
+        /**
+         * Is the classification MiniO? <br>
+         * Withdrawal <br>
+         * @return The determination, true or false.
+         */
+        public boolean isMiniO() { return MiniO.equals(this); }
+        /**
          * Is the classification in the group? <br>
          * means member that can use services <br>
          * The group elements:[OneMan]
@@ -332,6 +362,24 @@ public interface VinciCDef extends Classification {
         public Set<String> sisterSet() { return Collections.emptySet(); }
         public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
         public ClassificationMeta meta() { return VinciCDef.DefMeta.DaPiari; }
+        /**
+         * Is the classification OneMan? <br>
+         * Formalized <br>
+         * @return The determination, true or false.
+         */
+        public boolean isOneMan() { return OneMan.equals(this); }
+        /**
+         * Is the classification Dstore? <br>
+         * Provisional <br>
+         * @return The determination, true or false.
+         */
+        public boolean isDstore() { return Dstore.equals(this); }
+        /**
+         * Is the classification MiniO? <br>
+         * Withdrawal <br>
+         * @return The determination, true or false.
+         */
+        public boolean isMiniO() { return MiniO.equals(this); }
         /**
          * Is the classification in the group? <br>
          * means member that can use services <br>
