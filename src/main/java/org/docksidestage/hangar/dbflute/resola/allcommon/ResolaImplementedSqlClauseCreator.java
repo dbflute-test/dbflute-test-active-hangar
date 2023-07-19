@@ -179,6 +179,9 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
         if (isThatsBadTimingWarningOnly()) {
             sqlClause.enableThatsBadTimingWarningOnly();
         }
+        if (isOrScopeQueryPurposeCheckWarningOnly()) {
+            sqlClause.enableOrScopeQueryPurposeCheckWarningOnly();
+        }
     }
 
     protected void doSetupSqlClauseNullOrEmptyQuery(SqlClause sqlClause) {
@@ -258,6 +261,10 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
 
     protected boolean isThatsBadTimingWarningOnly() {
         return ResolaDBFluteConfig.getInstance().isThatsBadTimingWarningOnly();
+    }
+
+    protected boolean isOrScopeQueryPurposeCheckWarningOnly() {
+        return ResolaDBFluteConfig.getInstance().isOrScopeQueryPurposeCheckWarningOnly();
     }
 
     protected boolean isNullOrEmptyQueryAllowed() {

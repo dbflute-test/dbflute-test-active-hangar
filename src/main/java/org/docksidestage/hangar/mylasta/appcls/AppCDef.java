@@ -175,6 +175,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppMaihama> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -344,6 +345,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppSea> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -465,6 +467,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppLand> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
@@ -605,6 +608,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppPiari> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -815,6 +819,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppBonvo> groupOf(String groupName) {
             if ("appNewLiteralAvailable".equalsIgnoreCase(groupName)) { return listOfAppNewLiteralAvailable(); }
             if ("appNewRefExistingGroupAvailable".equalsIgnoreCase(groupName)) { return listOfAppNewRefExistingGroupAvailable(); }
@@ -956,6 +961,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppDstore> groupOf(String groupName) {
             if ("appNewAvailable".equalsIgnoreCase(groupName)) { return listOfAppNewAvailable(); }
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
@@ -1130,6 +1136,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppAmba> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -1273,6 +1280,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppMiraco> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
@@ -1445,6 +1453,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppDohotel> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -1588,6 +1597,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppAmphi> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -1752,6 +1762,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppOrien> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -1895,6 +1906,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppCeleb> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -1995,6 +2007,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppToys> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             return new ArrayList<>();
@@ -2114,6 +2127,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppBrighton> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -2282,6 +2296,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppDockside> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -2419,6 +2434,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppHangar> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
@@ -2539,6 +2555,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppMagiclamp> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("unauthorized".equalsIgnoreCase(groupName)) { return listOfUnauthorized(); }
@@ -2679,6 +2696,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppBroadway> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -2779,6 +2797,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppFlg> groupOf(String groupName) { return new ArrayList<>(); }
         /**
          * @param refCls The DB classification to find. (NullAllowed: if null, returns empty)
@@ -2879,6 +2898,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppPaymentMethod> groupOf(String groupName) {
             if ("recommended".equalsIgnoreCase(groupName)) { return listOfRecommended(); }
             return new ArrayList<>();
@@ -2982,6 +3002,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<DeepWxLiteralGrouping> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             return new ArrayList<>();
@@ -3131,6 +3152,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<DeepWxDeprecatedCls> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -3303,6 +3325,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<DeepWxDeprecatedElement> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("shortOfFormalized".equalsIgnoreCase(groupName)) { return listOfShortOfFormalized(); }
@@ -3387,6 +3410,7 @@ public interface AppCDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<AppWxNameOf> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
