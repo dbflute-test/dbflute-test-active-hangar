@@ -13,7 +13,7 @@
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
-		<dbflute.version>1.2.7-F-SNAPSHOT</dbflute.version>
+		<dbflute.version>1.2.7-J-SNAPSHOT</dbflute.version>
 		<h2.jdbc.version>1.4.199</h2.jdbc.version> <!-- old for now, truncate headache? at 200 -->
 		<guice.version>5.1.0</guice.version>
 		<utflute.version>0.9.5</utflute.version>
@@ -250,32 +250,46 @@
 		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 		<!--                                                          GoodNeighbor Library -->
 		<!--                                                           = = = = = = = = = = -->
-		<!-- trial library (unrelated to Guice) -->
+		<!--
+		 trial library (unrelated to Guice)
+		 -->
+		<!-- Japanese JSON -->
 		<dependency>
 			<groupId>net.arnx</groupId>
 			<artifactId>jsonic</artifactId>
 			<version>1.3.10</version>
 		</dependency>
+		<!-- Japanese JSON 2 -->
 		<dependency>
 			<groupId>net.vvakame</groupId>
 			<artifactId>jsonpullparser-core</artifactId>
 			<version>1.6.2</version>
 		</dependency>
+		<!-- de facto standard JSON -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.2.2</version>
 		</dependency>
+		<!-- Google presents JSON -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.9.0</version>
+			<version>2.10.1</version>
 		</dependency>
+		<!-- gson facade -->
+		<dependency>
+		    <groupId>io.gsonfire</groupId>
+		    <artifactId>gson-fire</artifactId>
+		    <version>1.8.5</version>
+		</dependency>
+		<!-- famous HTML template -->
         <dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
 			<version>3.0.15.RELEASE</version>
 		</dependency>
+		<!-- famous concurrent library -->
 		<dependency>
 			<groupId>com.typesafe.akka</groupId>
 			<artifactId>akka-stream_2.12</artifactId>
