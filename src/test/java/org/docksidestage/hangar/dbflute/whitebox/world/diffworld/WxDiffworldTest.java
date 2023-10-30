@@ -321,9 +321,9 @@ public class WxDiffworldTest extends PlainTestCase {
             assertEquals("50", columnSizeDiffMap.get("previous"));
         }
         {
-            Map<String, Object> securityMap = (Map<String, Object>) tableDiffMap.get("MEMBER_WITHDRAWAL");
-            assertEquals("CHANGE", securityMap.get("diffType"));
-            Map<String, Map<String, Object>> columnDiffMap = (Map<String, Map<String, Object>>) securityMap.get("columnDiff");
+            Map<String, Object> withdrawalMap = (Map<String, Object>) tableDiffMap.get("MEMBER_WITHDRAWAL");
+            assertEquals("CHANGE", withdrawalMap.get("diffType"));
+            Map<String, Map<String, Object>> columnDiffMap = (Map<String, Map<String, Object>>) withdrawalMap.get("columnDiff");
             Map<String, Object> passwordMap = columnDiffMap.get("VERSION_NO");
             assertEquals("DELETE", passwordMap.get("diffType"));
         }
