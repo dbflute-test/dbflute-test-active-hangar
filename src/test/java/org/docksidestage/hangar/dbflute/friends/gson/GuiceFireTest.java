@@ -11,10 +11,8 @@ import org.docksidestage.hangar.dbflute.friends.gson.GuiceFireTest.Maihama.Stage
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 
 import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.TypeSelector;
 
 /**
  * Does the gson-fire work with latest Gson? <br>
@@ -146,17 +144,17 @@ public class GuiceFireTest extends UnitContainerTestCase {
         return new GsonFireBuilder();
     }
 
-    private GsonFireBuilder createTypedFire() {
-        GsonFireBuilder builder = new GsonFireBuilder();
-        builder.registerTypeSelector(LocalDate.class, new TypeSelector<LocalDate>() {
-            public Class<? extends LocalDate> getClassForElement(JsonElement readElement) {
-                // TODO jflute xxxxxxx (2023/08/25)
-                return null;
-            }
-        });
-        return builder;
-    }
-    
+    // // #for_now jflute needs to test "typed" pattern (2024/02/13)
+    //private GsonFireBuilder createTypedFire() {
+    //    GsonFireBuilder builder = new GsonFireBuilder();
+    //    builder.registerTypeSelector(LocalDate.class, new TypeSelector<LocalDate>() {
+    //        public Class<? extends LocalDate> getClassForElement(JsonElement readElement) {
+    //            return null;
+    //        }
+    //    });
+    //    return builder;
+    //}
+
     public static class Maihama {
 
         public Sea sea;
