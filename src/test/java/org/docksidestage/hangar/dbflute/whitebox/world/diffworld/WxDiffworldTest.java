@@ -175,6 +175,31 @@ public class WxDiffworldTest extends PlainTestCase {
             Map<String, Object> loginDatetimeIndexMap = indexDiffMap.get("IX_MEMBER_LOGIN_DATETIME");
             assertEquals("DELETE", loginDatetimeIndexMap.get("diffType"));
         }
+        {
+            Map<String, Object> productMap = tableDiffMap.get("PRODUCT");
+            assertEquals("CHANGE", productMap.get("diffType"));
+            @SuppressWarnings("unchecked")
+            Map<String, Map<String, Object>> columnDiffMap = (Map<String, Map<String, Object>>) productMap.get("columnDiff");
+            Map<String, Object> accountMap = columnDiffMap.get("PRODUCT_NAME");
+            assertEquals("CHANGE", accountMap.get("diffType"));
+            @SuppressWarnings("unchecked")
+            Map<String, String> columnSizeDiffMap = (Map<String, String>) accountMap.get("columnSizeDiff");
+            assertEquals("90", columnSizeDiffMap.get("next"));
+            assertEquals("50", columnSizeDiffMap.get("previous"));
+        }
+        {
+            // also view's metadata updated
+            Map<String, Object> productMap = tableDiffMap.get("SUMMARY_PRODUCT");
+            assertEquals("CHANGE", productMap.get("diffType"));
+            @SuppressWarnings("unchecked")
+            Map<String, Map<String, Object>> columnDiffMap = (Map<String, Map<String, Object>>) productMap.get("columnDiff");
+            Map<String, Object> accountMap = columnDiffMap.get("PRODUCT_NAME");
+            assertEquals("CHANGE", accountMap.get("diffType"));
+            @SuppressWarnings("unchecked")
+            Map<String, String> columnSizeDiffMap = (Map<String, String>) accountMap.get("columnSizeDiff");
+            assertEquals("90", columnSizeDiffMap.get("next"));
+            assertEquals("50", columnSizeDiffMap.get("previous"));
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -293,14 +318,17 @@ public class WxDiffworldTest extends PlainTestCase {
 
     @SuppressWarnings("unchecked")
     private void doCheckAlterCheckBasic(Map<String, Object> firstMap) {
+        doCheckSchemaSyncCheckBasic(firstMap); // same
+
         Map<String, Object> tableCount = (Map<String, Object>) firstMap.get("tableCount");
         assertNotNull(tableCount.get("next")); // may be increased (test table will be added)
         assertEquals("22", tableCount.get("previous"));
-        doCheckSchemaSyncCheckBasic(firstMap); // same
     }
 
     @SuppressWarnings("unchecked")
     private void doCheckAlterCheckTableDiff(Map<String, Object> firstMap) {
+        doCheckSchemaSyncCheckTableDiff(firstMap); // same
+
         Map<String, Object> tableDiffMap = (Map<String, Object>) firstMap.get("tableDiff");
         {
             Map<String, Object> followingMap = (Map<String, Object>) tableDiffMap.get("MEMBER_FOLLOWING");
@@ -327,7 +355,6 @@ public class WxDiffworldTest extends PlainTestCase {
             Map<String, Object> passwordMap = columnDiffMap.get("VERSION_NO");
             assertEquals("DELETE", passwordMap.get("diffType"));
         }
-        doCheckSchemaSyncCheckTableDiff(firstMap); // same
     }
 
     private void doCheckAlterCheckSequenceDiff(Map<String, Object> firstMap) {

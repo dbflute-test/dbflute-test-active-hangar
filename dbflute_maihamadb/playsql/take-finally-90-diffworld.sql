@@ -17,6 +17,11 @@ alter table MEMBER_LOGIN add constraint FK_MEMBER_LOGIN_MEMBER
     FOREIGN KEY (MEMBER_ID) references MEMBER (MEMBER_ID);
 alter table MEMBER_LOGIN add constraint UQ_MEMBER_LOGIN UNIQUE (MEMBER_ID, LOGIN_DATETIME);
 
+-- change size 50 to 80 and remove not null (for view's metadata)
+-- (however nullable first on view of H2 database so cannot test it at this project)
+alter table PRODUCT alter column PRODUCT_NAME VARCHAR(90)
+;
+
 create SEQUENCE SEQ_DIFFWORLD START 1 INCREMENT 1
 ;
 drop sequence SEQ_PURCHASE;
