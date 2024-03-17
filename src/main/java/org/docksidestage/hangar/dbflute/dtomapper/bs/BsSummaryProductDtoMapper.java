@@ -41,7 +41,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * The DTO mapper of SUMMARY_PRODUCT as VIEW. <br>
  * <pre>
  * [primary-key]
- *     PRODUCT_ID
+ *     PRODUCT_ID, PRODUCT_NAME
  *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME

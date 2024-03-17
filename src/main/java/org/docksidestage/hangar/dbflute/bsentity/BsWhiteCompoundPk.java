@@ -46,13 +46,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     
  *
  * [referrer table]
- *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTUAL
  *
  * [foreign property]
  *     
  *
  * [referrer property]
- *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirtualList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -140,24 +140,24 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
         _whiteCompoundPkRefPhysicalList = whiteCompoundPkRefPhysicalList;
     }
 
-    /** WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'. */
-    protected List<WhiteCompoundPkRefVirturl> _whiteCompoundPkRefVirturlList;
+    /** WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'. */
+    protected List<WhiteCompoundPkRefVirtual> _whiteCompoundPkRefVirtualList;
 
     /**
-     * [get] WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
-     * @return The entity list of referrer property 'whiteCompoundPkRefVirturlList'. (NotNull: even if no loading, returns empty list)
+     * [get] WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'.
+     * @return The entity list of referrer property 'whiteCompoundPkRefVirtualList'. (NotNull: even if no loading, returns empty list)
      */
-    public List<WhiteCompoundPkRefVirturl> getWhiteCompoundPkRefVirturlList() {
-        if (_whiteCompoundPkRefVirturlList == null) { _whiteCompoundPkRefVirturlList = newReferrerList(); }
-        return _whiteCompoundPkRefVirturlList;
+    public List<WhiteCompoundPkRefVirtual> getWhiteCompoundPkRefVirtualList() {
+        if (_whiteCompoundPkRefVirtualList == null) { _whiteCompoundPkRefVirtualList = newReferrerList(); }
+        return _whiteCompoundPkRefVirtualList;
     }
 
     /**
-     * [set] WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
-     * @param whiteCompoundPkRefVirturlList The entity list of referrer property 'whiteCompoundPkRefVirturlList'. (NullAllowed)
+     * [set] WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'.
+     * @param whiteCompoundPkRefVirtualList The entity list of referrer property 'whiteCompoundPkRefVirtualList'. (NullAllowed)
      */
-    public void setWhiteCompoundPkRefVirturlList(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList) {
-        _whiteCompoundPkRefVirturlList = whiteCompoundPkRefVirturlList;
+    public void setWhiteCompoundPkRefVirtualList(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList) {
+        _whiteCompoundPkRefVirtualList = whiteCompoundPkRefVirtualList;
     }
 
     protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
@@ -193,8 +193,8 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
         StringBuilder sb = new StringBuilder();
         if (_whiteCompoundPkRefPhysicalList != null) { for (WhiteCompoundPkRefPhysical et : _whiteCompoundPkRefPhysicalList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefPhysicalList")); } } }
-        if (_whiteCompoundPkRefVirturlList != null) { for (WhiteCompoundPkRefVirturl et : _whiteCompoundPkRefVirturlList)
-        { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefVirturlList")); } } }
+        if (_whiteCompoundPkRefVirtualList != null) { for (WhiteCompoundPkRefVirtual et : _whiteCompoundPkRefVirtualList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "whiteCompoundPkRefVirtualList")); } } }
         return sb.toString();
     }
 
@@ -217,8 +217,8 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
         StringBuilder sb = new StringBuilder();
         if (_whiteCompoundPkRefPhysicalList != null && !_whiteCompoundPkRefPhysicalList.isEmpty())
         { sb.append(dm).append("whiteCompoundPkRefPhysicalList"); }
-        if (_whiteCompoundPkRefVirturlList != null && !_whiteCompoundPkRefVirturlList.isEmpty())
-        { sb.append(dm).append("whiteCompoundPkRefVirturlList"); }
+        if (_whiteCompoundPkRefVirtualList != null && !_whiteCompoundPkRefVirtualList.isEmpty())
+        { sb.append(dm).append("whiteCompoundPkRefVirtualList"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

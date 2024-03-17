@@ -28,7 +28,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * The simple DTO of SUMMARY_PRODUCT as VIEW. <br>
  * <pre>
  * [primary-key]
- *     PRODUCT_ID
+ *     PRODUCT_ID, PRODUCT_NAME
  *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
@@ -75,7 +75,7 @@ public abstract class BsSummaryProductDto implements Serializable {
     @JsonKey
     protected Integer _productId;
 
-    /** PRODUCT_NAME: {VARCHAR(50)} */
+    /** PRODUCT_NAME: {PK, VARCHAR(50)} */
     @JsonKey
     protected String _productName;
 
@@ -237,6 +237,7 @@ public abstract class BsSummaryProductDto implements Serializable {
         if (other == null || !(other instanceof BsSummaryProductDto)) { return false; }
         final BsSummaryProductDto otherEntity = (BsSummaryProductDto)other;
         if (!helpComparingValue(getProductId(), otherEntity.getProductId())) { return false; }
+        if (!helpComparingValue(getProductName(), otherEntity.getProductName())) { return false; }
         return true;
     }
 
@@ -249,6 +250,7 @@ public abstract class BsSummaryProductDto implements Serializable {
         int result = 17;
         result = xCH(result, "SUMMARY_PRODUCT");
         result = xCH(result, getProductId());
+        result = xCH(result, getProductName());
         return result;
     }
     protected int xCH(int result, Object value) { // calculateHashcode()
@@ -296,7 +298,7 @@ public abstract class BsSummaryProductDto implements Serializable {
     }
 
     /**
-     * [get] PRODUCT_NAME: {VARCHAR(50)} <br>
+     * [get] PRODUCT_NAME: {PK, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (NullAllowed)
      */
     public String getProductName() {
@@ -304,7 +306,7 @@ public abstract class BsSummaryProductDto implements Serializable {
     }
 
     /**
-     * [set] PRODUCT_NAME: {VARCHAR(50)} <br>
+     * [set] PRODUCT_NAME: {PK, VARCHAR(50)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (NullAllowed)
      */
     public void setProductName(String productName) {

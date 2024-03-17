@@ -37,7 +37,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of WHITE_COMPOUND_PK_REF_VIRTURL as TABLE. <br>
+ * The DTO mapper of WHITE_COMPOUND_PK_REF_VIRTUAL as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
@@ -68,7 +68,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<WhiteCompoundPkRefVirturl, WhiteCompoundPkRefVirturlDto>, Serializable {
+public abstract class BsWhiteCompoundPkRefVirtualDtoMapper implements DtoMapper<WhiteCompoundPkRefVirtual, WhiteCompoundPkRefVirtualDto>, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -89,12 +89,12 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsWhiteCompoundPkRefVirturlDtoMapper() {
+    public BsWhiteCompoundPkRefVirtualDtoMapper() {
         _relationDtoMap = new HashMap<Entity, Object>();
         _relationEntityMap = new HashMap<Object, Entity>();
     }
 
-    public BsWhiteCompoundPkRefVirturlDtoMapper(Map<Entity, Object> relationDtoMap, Map<Object, Entity> relationEntityMap) {
+    public BsWhiteCompoundPkRefVirtualDtoMapper(Map<Entity, Object> relationDtoMap, Map<Object, Entity> relationEntityMap) {
         _relationDtoMap = relationDtoMap;
         _relationEntityMap = relationEntityMap;
     }
@@ -108,7 +108,7 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
     /**
      * {@inheritDoc}
      */
-    public WhiteCompoundPkRefVirturlDto mappingToDto(WhiteCompoundPkRefVirturl entity) {
+    public WhiteCompoundPkRefVirtualDto mappingToDto(WhiteCompoundPkRefVirtual entity) {
         if (entity == null) {
             return null;
         }
@@ -116,10 +116,10 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
         Entity localKey = createInstanceKeyEntity(entity);
         Object cachedLocalDto = instanceCache ? _relationDtoMap.get(localKey) : null;
         if (cachedLocalDto != null) {
-            return (WhiteCompoundPkRefVirturlDto)cachedLocalDto;
+            return (WhiteCompoundPkRefVirtualDto)cachedLocalDto;
         }
         boolean exceptCommonColumn = isExceptCommonColumn();
-        WhiteCompoundPkRefVirturlDto dto = new WhiteCompoundPkRefVirturlDto();
+        WhiteCompoundPkRefVirtualDto dto = new WhiteCompoundPkRefVirtualDto();
         dto.setRefFirstId(entity.getRefFirstId());
         dto.setRefSecondId(entity.getRefSecondId());
         dto.setRefThirdId(entity.getRefThirdId());
@@ -137,18 +137,18 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
                 WhiteCompoundPkDto relationDto = (WhiteCompoundPkDto)cachedDto;
                 dto.setWhiteCompoundPk(relationDto);
                 if (reverseReference) {
-                    relationDto.getWhiteCompoundPkRefVirturlList().add(dto);
+                    relationDto.getWhiteCompoundPkRefVirtualList().add(dto);
                 }
             } else {
                 WhiteCompoundPkDtoMapper mapper = new WhiteCompoundPkDtoMapper(_relationDtoMap, _relationEntityMap);
                 mapper.setExceptCommonColumn(exceptCommonColumn);
                 mapper.setReverseReference(reverseReference);
                 if (!instanceCache) { mapper.disableInstanceCache(); }
-                mapper.suppressWhiteCompoundPkRefVirturlList();
+                mapper.suppressWhiteCompoundPkRefVirtualList();
                 WhiteCompoundPkDto relationDto = mapper.mappingToDto(relationEntity);
                 dto.setWhiteCompoundPk(relationDto);
                 if (reverseReference) {
-                    relationDto.getWhiteCompoundPkRefVirturlList().add(dto);
+                    relationDto.getWhiteCompoundPkRefVirtualList().add(dto);
                 }
                 if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
                     _relationDtoMap.put(relationKey, dto.getWhiteCompoundPk());
@@ -161,13 +161,13 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
     /**
      * {@inheritDoc}
      */
-    public List<WhiteCompoundPkRefVirturlDto> mappingToDtoList(List<WhiteCompoundPkRefVirturl> entityList) {
+    public List<WhiteCompoundPkRefVirtualDto> mappingToDtoList(List<WhiteCompoundPkRefVirtual> entityList) {
         if (entityList == null) {
             throw new IllegalArgumentException("The argument 'entityList' should not be null.");
         }
-        List<WhiteCompoundPkRefVirturlDto> dtoList = new ArrayList<WhiteCompoundPkRefVirturlDto>();
-        for (WhiteCompoundPkRefVirturl entity : entityList) {
-            WhiteCompoundPkRefVirturlDto dto = mappingToDto(entity);
+        List<WhiteCompoundPkRefVirtualDto> dtoList = new ArrayList<WhiteCompoundPkRefVirtualDto>();
+        for (WhiteCompoundPkRefVirtual entity : entityList) {
+            WhiteCompoundPkRefVirtualDto dto = mappingToDto(entity);
             if (dto != null) {
                 dtoList.add(dto);
             } else {
@@ -185,7 +185,7 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
     /**
      * {@inheritDoc}
      */
-    public WhiteCompoundPkRefVirturl mappingToEntity(WhiteCompoundPkRefVirturlDto dto) {
+    public WhiteCompoundPkRefVirtual mappingToEntity(WhiteCompoundPkRefVirtualDto dto) {
         if (dto == null) {
             return null;
         }
@@ -193,10 +193,10 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
         Object localKey = createInstanceKeyDto(dto, dto.instanceHash());
         Entity cachedLocalEntity = instanceCache ? _relationEntityMap.get(localKey) : null;
         if (cachedLocalEntity != null) {
-            return (WhiteCompoundPkRefVirturl)cachedLocalEntity;
+            return (WhiteCompoundPkRefVirtual)cachedLocalEntity;
         }
         boolean exceptCommonColumn = isExceptCommonColumn();
-        WhiteCompoundPkRefVirturl entity = new WhiteCompoundPkRefVirturl();
+        WhiteCompoundPkRefVirtual entity = new WhiteCompoundPkRefVirtual();
         if (needsMapping(dto, dto.getRefFirstId(), "refFirstId")) {
             entity.setRefFirstId(dto.getRefFirstId());
         }
@@ -222,18 +222,18 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
                 WhiteCompoundPk relationEntity = (WhiteCompoundPk)cachedEntity;
                 entity.setWhiteCompoundPk(OptionalEntity.of(relationEntity));
                 if (reverseReference) {
-                    relationEntity.getWhiteCompoundPkRefVirturlList().add(entity);
+                    relationEntity.getWhiteCompoundPkRefVirtualList().add(entity);
                 }
             } else {
                 WhiteCompoundPkDtoMapper mapper = new WhiteCompoundPkDtoMapper(_relationDtoMap, _relationEntityMap);
                 mapper.setExceptCommonColumn(exceptCommonColumn);
                 mapper.setReverseReference(reverseReference);
                 if (!instanceCache) { mapper.disableInstanceCache(); }
-                mapper.suppressWhiteCompoundPkRefVirturlList();
+                mapper.suppressWhiteCompoundPkRefVirtualList();
                 WhiteCompoundPk relationEntity = mapper.mappingToEntity(relationDto);
                 entity.setWhiteCompoundPk(OptionalEntity.of(relationEntity));
                 if (reverseReference) {
-                    relationEntity.getWhiteCompoundPkRefVirturlList().add(entity);
+                    relationEntity.getWhiteCompoundPkRefVirtualList().add(entity);
                 }
                 if (instanceCache && entity.getWhiteCompoundPk().get().hasPrimaryKeyValue()) {
                     _relationEntityMap.put(relationKey, entity.getWhiteCompoundPk().get());
@@ -252,7 +252,7 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
      * @param propName The property name of DTO. (NotNull)
      * @return The determination, true or false.
      */
-    protected boolean needsMapping(WhiteCompoundPkRefVirturlDto dto, Object value, String propName) {
+    protected boolean needsMapping(WhiteCompoundPkRefVirtualDto dto, Object value, String propName) {
         Set<String> modifiedProperties = dto.mymodifiedProperties();
         if (modifiedProperties.isEmpty()) {
             return isMappingToEntityContainsNull() || value != null;
@@ -273,13 +273,13 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
     /**
      * {@inheritDoc}
      */
-    public List<WhiteCompoundPkRefVirturl> mappingToEntityList(List<WhiteCompoundPkRefVirturlDto> dtoList) {
+    public List<WhiteCompoundPkRefVirtual> mappingToEntityList(List<WhiteCompoundPkRefVirtualDto> dtoList) {
         if (dtoList == null) {
             throw new IllegalArgumentException("The argument 'dtoList' should not be null.");
         }
-        List<WhiteCompoundPkRefVirturl> entityList = new ArrayList<WhiteCompoundPkRefVirturl>();
-        for (WhiteCompoundPkRefVirturlDto dto : dtoList) {
-            WhiteCompoundPkRefVirturl entity = mappingToEntity(dto);
+        List<WhiteCompoundPkRefVirtual> entityList = new ArrayList<WhiteCompoundPkRefVirtual>();
+        for (WhiteCompoundPkRefVirtualDto dto : dtoList) {
+            WhiteCompoundPkRefVirtual entity = mappingToEntity(dto);
             if (entity != null) {
                 entityList.add(entity);
             } else {
@@ -411,26 +411,26 @@ public abstract class BsWhiteCompoundPkRefVirturlDtoMapper implements DtoMapper<
      * Enable base-only mapping that means the mapping ignores all references.
      * @return this. (NotNull)
      */
-    public WhiteCompoundPkRefVirturlDtoMapper baseOnlyMapping() {
+    public WhiteCompoundPkRefVirtualDtoMapper baseOnlyMapping() {
         setBaseOnlyMapping(true);
-        return (WhiteCompoundPkRefVirturlDtoMapper)this;
+        return (WhiteCompoundPkRefVirtualDtoMapper)this;
     }
 
     /**
      * Enable except common column that means the mapping excepts common column.
      * @return this. (NotNull)
      */
-    public WhiteCompoundPkRefVirturlDtoMapper exceptCommonColumn() {
+    public WhiteCompoundPkRefVirtualDtoMapper exceptCommonColumn() {
         setExceptCommonColumn(true);
-        return (WhiteCompoundPkRefVirturlDtoMapper)this;
+        return (WhiteCompoundPkRefVirtualDtoMapper)this;
     }
 
     /**
      * Enable reverse reference that means the mapping contains reverse references.
      * @return this. (NotNull)
      */
-    public WhiteCompoundPkRefVirturlDtoMapper reverseReference() {
+    public WhiteCompoundPkRefVirtualDtoMapper reverseReference() {
         setReverseReference(true);
-        return (WhiteCompoundPkRefVirturlDtoMapper)this;
+        return (WhiteCompoundPkRefVirtualDtoMapper)this;
     }
 }

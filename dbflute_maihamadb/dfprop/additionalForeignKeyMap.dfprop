@@ -54,8 +54,8 @@ map:{
         ; fixedSuffix = AsValid
     }
     # for the test of compound PK
-    ; FK_WHITE_COMPOUND_PK_REF_VIRTURL_FIRST_SECOND = map:{
-        ; localTableName  = WHITE_COMPOUND_PK_REF_VIRTURL   ; foreignTableName  = WHITE_COMPOUND_PK
+    ; FK_WHITE_COMPOUND_PK_REF_VIRTUAL_FIRST_SECOND = map:{
+        ; localTableName  = WHITE_COMPOUND_PK_REF_VIRTUAL   ; foreignTableName  = WHITE_COMPOUND_PK
         ; localColumnName = REF_FIRST_ID/REF_SECOND_ID ; foreignColumnName  = PK_FIRST_ID/PK_SECOND_ID
     }
     # for the test of too-many relations

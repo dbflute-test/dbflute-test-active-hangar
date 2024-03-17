@@ -20,13 +20,13 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of SUMMARY_PRODUCT as VIEW.
+ * The flex DTO of WHITE_COMPOUND_PK_REF_VIRTUAL as TABLE.
  * <pre>
  * [primary-key]
- *     PRODUCT_ID, PRODUCT_NAME
+ *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
  *
  * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
+ *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID, COMPOUND_REF_NAME
  *
  * [sequence]
  *     
@@ -38,105 +38,83 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     
  *
  * [foreign-table]
- *     PRODUCT_STATUS
+ *     WHITE_COMPOUND_PK
  *
  * [referrer-table]
- *     PURCHASE
+ *     
  *
  * [foreign-property]
- *     productStatus
+ *     whiteCompoundPk
  *
  * [referrer-property]
- *     purchaseList
+ *     
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public class BsSummaryProduct {
+public class BsWhiteCompoundPkRefVirtual {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    private var _productId:int;
+    private var _refFirstId:Number;
 
-    private var _productName:String;
+    private var _refSecondId:Number;
 
-    private var _productHandleCode:String;
+    private var _refThirdId:Number;
 
-    private var _productStatusCode:String;
-
-    private var _latestPurchaseDatetime:Date;
+    private var _compoundRefName:String;
 
 
     // ===================================================================================
     //                                                                       Foreign Table
     //                                                                       =============
-    private var _productStatus:ProductStatusDto;
+    private var _whiteCompoundPk:WhiteCompoundPkDto;
 
-    public function get productStatus():ProductStatusDto {
-        return _productStatus;
+    public function get whiteCompoundPk():WhiteCompoundPkDto {
+        return _whiteCompoundPk;
     }
 
-    public function set productStatus(productStatus:ProductStatusDto):void {
-        this._productStatus = productStatus;
+    public function set whiteCompoundPk(whiteCompoundPk:WhiteCompoundPkDto):void {
+        this._whiteCompoundPk = whiteCompoundPk;
     }
 
     // ===================================================================================
     //                                                                      Referrer Table
     //                                                                      ==============
-    PurchaseDto;
-    protected var _purchaseList:ArrayCollection; /* of the entity 'PurchaseDto'. */
-
-    public function get purchaseList():ArrayCollection {
-        if (_purchaseList == null) { _purchaseList = new ArrayCollection(); }
-        return _purchaseList;
-    }
-
-    public function set purchaseList(purchaseList:ArrayCollection):void {
-        this._purchaseList = purchaseList;
-    }
-
 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    public function get productId():int {
-        return _productId;
+    public function get refFirstId():Number {
+        return _refFirstId;
     }
 
-    public function set productId(productId:int):void {
-        this._productId = productId;
+    public function set refFirstId(refFirstId:Number):void {
+        this._refFirstId = refFirstId;
     }
 
-    public function get productName():String {
-        return _productName;
+    public function get refSecondId():Number {
+        return _refSecondId;
     }
 
-    public function set productName(productName:String):void {
-        this._productName = productName;
+    public function set refSecondId(refSecondId:Number):void {
+        this._refSecondId = refSecondId;
     }
 
-    public function get productHandleCode():String {
-        return _productHandleCode;
+    public function get refThirdId():Number {
+        return _refThirdId;
     }
 
-    public function set productHandleCode(productHandleCode:String):void {
-        this._productHandleCode = productHandleCode;
+    public function set refThirdId(refThirdId:Number):void {
+        this._refThirdId = refThirdId;
     }
 
-    public function get productStatusCode():String {
-        return _productStatusCode;
+    public function get compoundRefName():String {
+        return _compoundRefName;
     }
 
-    public function set productStatusCode(productStatusCode:String):void {
-        this._productStatusCode = productStatusCode;
-    }
-
-    public function get latestPurchaseDatetime():Date {
-        return _latestPurchaseDatetime;
-    }
-
-    public function set latestPurchaseDatetime(latestPurchaseDatetime:Date):void {
-        this._latestPurchaseDatetime = latestPurchaseDatetime;
+    public function set compoundRefName(compoundRefName:String):void {
+        this._compoundRefName = compoundRefName;
     }
 
 }

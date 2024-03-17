@@ -13,7 +13,7 @@
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
-		<dbflute.version>1.2.7</dbflute.version>
+		<dbflute.version>1.2.8-A-SNAPSHOT</dbflute.version>
 		<h2.jdbc.version>1.4.199</h2.jdbc.version> <!-- old for now, truncate headache? at 200 -->
 		<guice.version>5.1.0</guice.version>
 		<utflute.version>0.9.5</utflute.version>
@@ -294,6 +294,19 @@
 			<groupId>com.typesafe.akka</groupId>
 			<artifactId>akka-stream_2.12</artifactId>
 			<version>2.5.26</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+		<dependency>
+		    <groupId>com.rabbitmq</groupId>
+		    <artifactId>amqp-client</artifactId>
+		    <version>5.20.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
+		<dependency>
+		    <groupId>org.springframework.amqp</groupId>
+		    <artifactId>spring-rabbit</artifactId>
+		    <version>3.1.1</version>
 		</dependency>
 
   		<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->

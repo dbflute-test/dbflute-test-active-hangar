@@ -13,29 +13,17 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package org.docksidestage.hangar.dbflute.dtomapper;
+package org.docksidestage.hangar.dbflute.exbhv;
 
-import java.util.Map;
-import org.dbflute.Entity;
-import org.docksidestage.hangar.dbflute.dtomapper.bs.BsWhiteCompoundPkRefVirturlDtoMapper;
+import org.docksidestage.hangar.dbflute.bsbhv.BsWhiteCompoundPkRefVirtualBhv;
 
 /**
- * The DTO mapper of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The behavior of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlDtoMapper extends BsWhiteCompoundPkRefVirturlDtoMapper {
-
-    /** The serial version UID for object serialization. (Default) */
-    private static final long serialVersionUID = 1L;
-
-    public WhiteCompoundPkRefVirturlDtoMapper() {
-    }
-
-    public WhiteCompoundPkRefVirturlDtoMapper(Map<Entity, Object> relationDtoMap, Map<Object, Entity> relationEntityMap) {
-        super(relationDtoMap, relationEntityMap);
-    }
+public class WhiteCompoundPkRefVirtualBhv extends BsWhiteCompoundPkRefVirtualBhv {
 }

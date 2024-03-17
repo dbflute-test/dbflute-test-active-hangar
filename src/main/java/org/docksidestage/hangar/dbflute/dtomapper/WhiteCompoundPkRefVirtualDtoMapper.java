@@ -13,17 +13,29 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package org.docksidestage.hangar.dbflute.cbean;
+package org.docksidestage.hangar.dbflute.dtomapper;
 
-import org.docksidestage.hangar.dbflute.cbean.bs.BsWhiteCompoundPkRefVirturlCB;
+import java.util.Map;
+import org.dbflute.Entity;
+import org.docksidestage.hangar.dbflute.dtomapper.bs.BsWhiteCompoundPkRefVirtualDtoMapper;
 
 /**
- * The condition-bean of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The DTO mapper of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlCB extends BsWhiteCompoundPkRefVirturlCB {
+public class WhiteCompoundPkRefVirtualDtoMapper extends BsWhiteCompoundPkRefVirtualDtoMapper {
+
+    /** The serial version UID for object serialization. (Default) */
+    private static final long serialVersionUID = 1L;
+
+    public WhiteCompoundPkRefVirtualDtoMapper() {
+    }
+
+    public WhiteCompoundPkRefVirtualDtoMapper(Map<Entity, Object> relationDtoMap, Map<Object, Entity> relationEntityMap) {
+        super(relationDtoMap, relationEntityMap);
+    }
 }

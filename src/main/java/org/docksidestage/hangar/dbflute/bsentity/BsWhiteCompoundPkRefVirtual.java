@@ -27,7 +27,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF_VIRTURL as TABLE.
+ * The entity of WHITE_COMPOUND_PK_REF_VIRTUAL as TABLE.
  * <pre>
  * [primary-key]
  *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
@@ -70,7 +70,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPkRefVirturl extends AbstractEntity implements DomainEntity {
+public abstract class BsWhiteCompoundPkRefVirtual extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -103,7 +103,7 @@ public abstract class BsWhiteCompoundPkRefVirturl extends AbstractEntity impleme
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "WHITE_COMPOUND_PK_REF_VIRTURL";
+        return "WHITE_COMPOUND_PK_REF_VIRTUAL";
     }
 
     // ===================================================================================
@@ -153,8 +153,8 @@ public abstract class BsWhiteCompoundPkRefVirturl extends AbstractEntity impleme
     //                                                                      ==============
     @Override
     protected boolean doEquals(Object obj) {
-        if (obj instanceof BsWhiteCompoundPkRefVirturl) {
-            BsWhiteCompoundPkRefVirturl other = (BsWhiteCompoundPkRefVirturl)obj;
+        if (obj instanceof BsWhiteCompoundPkRefVirtual) {
+            BsWhiteCompoundPkRefVirtual other = (BsWhiteCompoundPkRefVirtual)obj;
             if (!xSV(_refFirstId, other._refFirstId)) { return false; }
             if (!xSV(_refSecondId, other._refSecondId)) { return false; }
             if (!xSV(_refThirdId, other._refThirdId)) { return false; }
@@ -211,8 +211,8 @@ public abstract class BsWhiteCompoundPkRefVirturl extends AbstractEntity impleme
     }
 
     @Override
-    public WhiteCompoundPkRefVirturl clone() {
-        return (WhiteCompoundPkRefVirturl)super.clone();
+    public WhiteCompoundPkRefVirtual clone() {
+        return (WhiteCompoundPkRefVirtual)super.clone();
     }
 
     // ===================================================================================

@@ -243,18 +243,18 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
 
     /**
      * Set up ExistsReferrer (correlated sub-query by compound key). <br>
-     * {exists (select ... from WHITE_COMPOUND_PK_REF_VIRTURL where ...)}
-     * @param subQuery The sub-query of WhiteCompoundPkRefVirturlList for 'exists'. (NotNull)
+     * {exists (select ... from WHITE_COMPOUND_PK_REF_VIRTUAL where ...)}
+     * @param subQuery The sub-query of WhiteCompoundPkRefVirtualList for 'exists'. (NotNull)
      */
-    public void existsWhiteCompoundPkRefVirturl(SubQuery<WhiteCompoundPkRefVirturlCB> subQuery) {
-        assertObjectNotNull("subQuery<WhiteCompoundPkRefVirturlCB>", subQuery);
-        WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB(); cb.xsetupForExistsReferrer(this);
+    public void existsWhiteCompoundPkRefVirtual(SubQuery<WhiteCompoundPkRefVirtualCB> subQuery) {
+        assertObjectNotNull("subQuery<WhiteCompoundPkRefVirtualCB>", subQuery);
+        WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
-        String pp = keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirturlList(cb.query());
-        registerExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefVirturlList");
+        String pp = keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirtualList(cb.query());
+        registerExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefVirtualList");
     }
-    public Map<String, WhiteCompoundPkRefVirturlCQ> xdfgetTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirturlList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirturlList"); }
-    public String keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirturlList(WhiteCompoundPkRefVirturlCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirturlList", sq); }
+    public Map<String, WhiteCompoundPkRefVirtualCQ> xdfgetTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirtualList() { return xgetSQueMap("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirtualList"); }
+    public String keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirtualList(WhiteCompoundPkRefVirtualCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefVirtualList", sq); }
 
     /**
      * Set up NotExistsReferrer (correlated sub-query by compound key). <br>
@@ -273,18 +273,18 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
 
     /**
      * Set up NotExistsReferrer (correlated sub-query by compound key). <br>
-     * {not exists (select ... from WHITE_COMPOUND_PK_REF_VIRTURL where ...)}
-     * @param subQuery The sub-query of WhiteCompoundPkRefVirturlList for 'not exists'. (NotNull)
+     * {not exists (select ... from WHITE_COMPOUND_PK_REF_VIRTUAL where ...)}
+     * @param subQuery The sub-query of WhiteCompoundPkRefVirtualList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteCompoundPkRefVirturl(SubQuery<WhiteCompoundPkRefVirturlCB> subQuery) {
-        assertObjectNotNull("subQuery<WhiteCompoundPkRefVirturlCB>", subQuery);
-        WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB(); cb.xsetupForExistsReferrer(this);
+    public void notExistsWhiteCompoundPkRefVirtual(SubQuery<WhiteCompoundPkRefVirtualCB> subQuery) {
+        assertObjectNotNull("subQuery<WhiteCompoundPkRefVirtualCB>", subQuery);
+        WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB(); cb.xsetupForExistsReferrer(this);
         try { lock(); subQuery.query(cb); } finally { unlock(); }
-        String pp = keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirturlList(cb.query());
-        registerNotExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefVirturlList");
+        String pp = keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirtualList(cb.query());
+        registerNotExistsReferrer(cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefVirtualList");
     }
-    public Map<String, WhiteCompoundPkRefVirturlCQ> xdfgetTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirturlList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirturlList"); }
-    public String keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirturlList(WhiteCompoundPkRefVirturlCQ sq) { return xkeepSQue("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirturlList", sq); }
+    public Map<String, WhiteCompoundPkRefVirtualCQ> xdfgetTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirtualList() { return xgetSQueMap("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirtualList"); }
+    public String keepTwoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirtualList(WhiteCompoundPkRefVirtualCQ sq) { return xkeepSQue("twoOrMorePk_NotExistsReferrer_WhiteCompoundPkRefVirtualList", sq); }
 
     // ===================================================================================
     //                                            (Specify)DerivedReferrer for Compound PK
@@ -299,15 +299,15 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     public Map<String, WhiteCompoundPkRefPhysicalCQ> xdfgetTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefPhysicalList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefPhysicalList"); }
     public String keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefPhysicalList(WhiteCompoundPkRefPhysicalCQ sq) { return xkeepSQue("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefPhysicalList", sq); }
 
-    public void xsderiveWhiteCompoundPkRefVirturlList(String fn, SubQuery<WhiteCompoundPkRefVirturlCB> sq, String al, DerivedReferrerOption op) {
+    public void xsderiveWhiteCompoundPkRefVirtualList(String fn, SubQuery<WhiteCompoundPkRefVirtualCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
-        WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB(); cb.xsetupForDerivedReferrer(this);
+        WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB(); cb.xsetupForDerivedReferrer(this);
         try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirturlList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefVirturlList", al, op);
+        String pp = keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirtualList(cb.query());
+        registerSpecifyDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", pp, "whiteCompoundPkRefVirtualList", al, op);
     }
-    public Map<String, WhiteCompoundPkRefVirturlCQ> xdfgetTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirturlList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirturlList"); }
-    public String keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirturlList(WhiteCompoundPkRefVirturlCQ sq) { return xkeepSQue("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirturlList", sq); }
+    public Map<String, WhiteCompoundPkRefVirtualCQ> xdfgetTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirtualList() { return xgetSQueMap("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirtualList"); }
+    public String keepTwoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirtualList(WhiteCompoundPkRefVirtualCQ sq) { return xkeepSQue("twoOrMorePk_SpecifyDerivedReferrer_WhiteCompoundPkRefVirtualList", sq); }
 
     // ===================================================================================
     //                                              (Query)DerivedReferrer for Compound PK
@@ -350,11 +350,11 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
 
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
-     * {FOO &lt;= (select max(BAR) from WHITE_COMPOUND_PK_REF_VIRTURL where ...)} <br>
-     * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlAsOne'.
+     * {FOO &lt;= (select max(BAR) from WHITE_COMPOUND_PK_REF_VIRTUAL where ...)} <br>
+     * WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefVirturl()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefVirturlCB&gt;() {
-     *     public void query(WhiteCompoundPkRefVirturlCB subCB) {
+     * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefVirtual()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefVirtualCB&gt;() {
+     *     public void query(WhiteCompoundPkRefVirtualCB subCB) {
      *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      *     }
@@ -362,27 +362,27 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteCompoundPkRefVirturlCB> derivedWhiteCompoundPkRefVirturl() {
-        return xcreateQDRFunctionWhiteCompoundPkRefVirturlList();
+    public HpQDRFunction<WhiteCompoundPkRefVirtualCB> derivedWhiteCompoundPkRefVirtual() {
+        return xcreateQDRFunctionWhiteCompoundPkRefVirtualList();
     }
-    protected HpQDRFunction<WhiteCompoundPkRefVirturlCB> xcreateQDRFunctionWhiteCompoundPkRefVirturlList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteCompoundPkRefVirturlCB>() {
-            public void setup(String fn, SubQuery<WhiteCompoundPkRefVirturlCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteCompoundPkRefVirturlList(fn, sq, rd, vl, op);
+    protected HpQDRFunction<WhiteCompoundPkRefVirtualCB> xcreateQDRFunctionWhiteCompoundPkRefVirtualList() {
+        return xcQDRFunc(new HpQDRSetupper<WhiteCompoundPkRefVirtualCB>() {
+            public void setup(String fn, SubQuery<WhiteCompoundPkRefVirtualCB> sq, String rd, Object vl, DerivedReferrerOption op) {
+                xqderiveWhiteCompoundPkRefVirtualList(fn, sq, rd, vl, op);
             }
         });
     }
-    public void xqderiveWhiteCompoundPkRefVirturlList(String fn, SubQuery<WhiteCompoundPkRefVirturlCB> sq, String rd, Object vl, DerivedReferrerOption op) {
+    public void xqderiveWhiteCompoundPkRefVirtualList(String fn, SubQuery<WhiteCompoundPkRefVirtualCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
-        WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB(); cb.xsetupForDerivedReferrer(this);
+        WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB(); cb.xsetupForDerivedReferrer(this);
         try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList(cb.query()); String prpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", sqpp, "whiteCompoundPkRefVirturlList", rd, vl, prpp, op);
+        String sqpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList(cb.query()); String prpp = keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualListParameter(vl);
+        registerQueryDerivedReferrer(fn, cb.query(), "PK_FIRST_ID, PK_SECOND_ID", "REF_FIRST_ID, REF_SECOND_ID", sqpp, "whiteCompoundPkRefVirtualList", rd, vl, prpp, op);
     }
-    public Map<String, WhiteCompoundPkRefVirturlCQ> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList() { return xgetSQueMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList"); }
-    public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList(WhiteCompoundPkRefVirturlCQ sq) { return xkeepSQue("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList", sq); }
-    public Map<String, Object> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlListParameter() { return xgetSQuePmMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList"); }
-    public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlListParameter(Object pm) { return xkeepSQuePm("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirturlList", pm); }
+    public Map<String, WhiteCompoundPkRefVirtualCQ> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList() { return xgetSQueMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList"); }
+    public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList(WhiteCompoundPkRefVirtualCQ sq) { return xkeepSQue("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList", sq); }
+    public Map<String, Object> xdfgetTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualListParameter() { return xgetSQuePmMap("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList"); }
+    public String keepTwoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualListParameter(Object pm) { return xkeepSQuePm("twoOrMorePk_QueryDerivedReferrer_WhiteCompoundPkRefVirtualList", pm); }
 
     // ===================================================================================
     //                                                                       Very Internal

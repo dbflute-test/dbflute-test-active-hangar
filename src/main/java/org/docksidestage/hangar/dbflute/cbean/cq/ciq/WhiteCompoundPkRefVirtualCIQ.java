@@ -27,21 +27,21 @@ import org.docksidestage.hangar.dbflute.cbean.cq.bs.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The condition-query for in-line of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlCIQ extends AbstractBsWhiteCompoundPkRefVirturlCQ {
+public class WhiteCompoundPkRefVirtualCIQ extends AbstractBsWhiteCompoundPkRefVirtualCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsWhiteCompoundPkRefVirturlCQ _myCQ;
+    protected BsWhiteCompoundPkRefVirtualCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public WhiteCompoundPkRefVirturlCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsWhiteCompoundPkRefVirturlCQ myCQ) {
+    public WhiteCompoundPkRefVirtualCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsWhiteCompoundPkRefVirtualCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -81,7 +81,7 @@ public class WhiteCompoundPkRefVirturlCIQ extends AbstractBsWhiteCompoundPkRefVi
     protected ConditionValue xgetCValueRefThirdId() { return _myCQ.xdfgetRefThirdId(); }
     protected ConditionValue xgetCValueCompoundRefName() { return _myCQ.xdfgetCompoundRefName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(WhiteCompoundPkRefVirturlCQ sq)
+    public String keepScalarCondition(WhiteCompoundPkRefVirtualCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
 
     protected void throwIICBOE(String name)
@@ -91,6 +91,6 @@ public class WhiteCompoundPkRefVirturlCIQ extends AbstractBsWhiteCompoundPkRefVi
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return WhiteCompoundPkRefVirturlCB.class.getName(); }
-    protected String xinCQ() { return WhiteCompoundPkRefVirturlCQ.class.getName(); }
+    protected String xinCB() { return WhiteCompoundPkRefVirtualCB.class.getName(); }
+    protected String xinCQ() { return WhiteCompoundPkRefVirtualCQ.class.getName(); }
 }

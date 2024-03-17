@@ -352,20 +352,20 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from WHITE_COMPOUND_PK_REF_VIRTURL where ...) as FOO_MAX} <br>
-         * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+         * {select max(FOO) from WHITE_COMPOUND_PK_REF_VIRTUAL where ...) as FOO_MAX} <br>
+         * WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'.
          * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(virturlCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     virturlCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     virturlCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, WhiteCompoundPkRefVirturl.<span style="color: #CC4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(virtualCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     virtualCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     virtualCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteCompoundPkRefVirtual.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkCQ> derivedWhiteCompoundPkRefVirturl() {
-            assertDerived("whiteCompoundPkRefVirturlList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteCompoundPkRefVirturlCB> sq, WhiteCompoundPkCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderiveWhiteCompoundPkRefVirturlList(fn, sq, al, op), _dbmetaProvider);
+        public HpSDRFunction<WhiteCompoundPkRefVirtualCB, WhiteCompoundPkCQ> derivedWhiteCompoundPkRefVirtual() {
+            assertDerived("whiteCompoundPkRefVirtualList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteCompoundPkRefVirtualCB> sq, WhiteCompoundPkCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteCompoundPkRefVirtualList(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

@@ -41,13 +41,13 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     
  *
  * [referrer-table]
- *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTUAL
  *
  * [foreign-property]
  *     
  *
  * [referrer-property]
- *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirtualList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -83,16 +83,16 @@ public class BsWhiteCompoundPk {
         this._whiteCompoundPkRefPhysicalList = whiteCompoundPkRefPhysicalList;
     }
 
-    WhiteCompoundPkRefVirturlDto;
-    protected var _whiteCompoundPkRefVirturlList:ArrayCollection; /* of the entity 'WhiteCompoundPkRefVirturlDto'. */
+    WhiteCompoundPkRefVirtualDto;
+    protected var _whiteCompoundPkRefVirtualList:ArrayCollection; /* of the entity 'WhiteCompoundPkRefVirtualDto'. */
 
-    public function get whiteCompoundPkRefVirturlList():ArrayCollection {
-        if (_whiteCompoundPkRefVirturlList == null) { _whiteCompoundPkRefVirturlList = new ArrayCollection(); }
-        return _whiteCompoundPkRefVirturlList;
+    public function get whiteCompoundPkRefVirtualList():ArrayCollection {
+        if (_whiteCompoundPkRefVirtualList == null) { _whiteCompoundPkRefVirtualList = new ArrayCollection(); }
+        return _whiteCompoundPkRefVirtualList;
     }
 
-    public function set whiteCompoundPkRefVirturlList(whiteCompoundPkRefVirturlList:ArrayCollection):void {
-        this._whiteCompoundPkRefVirturlList = whiteCompoundPkRefVirturlList;
+    public function set whiteCompoundPkRefVirtualList(whiteCompoundPkRefVirtualList:ArrayCollection):void {
+        this._whiteCompoundPkRefVirtualList = whiteCompoundPkRefVirtualList;
     }
 
 

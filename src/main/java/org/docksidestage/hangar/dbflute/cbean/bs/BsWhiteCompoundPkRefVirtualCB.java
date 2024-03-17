@@ -35,20 +35,20 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The base condition-bean of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * @author DBFlute(AutoGenerator)
  */
-public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
+public class BsWhiteCompoundPkRefVirtualCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteCompoundPkRefVirturlCQ _conditionQuery;
+    protected WhiteCompoundPkRefVirtualCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsWhiteCompoundPkRefVirturlCB() {
+    public BsWhiteCompoundPkRefVirtualCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -91,7 +91,7 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "WHITE_COMPOUND_PK_REF_VIRTURL";
+        return "WHITE_COMPOUND_PK_REF_VIRTUAL";
     }
 
     // ===================================================================================
@@ -104,11 +104,11 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * @param refThirdId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return this. (NotNull)
      */
-    public WhiteCompoundPkRefVirturlCB acceptPK(Long refFirstId, Long refSecondId, Long refThirdId) {
+    public WhiteCompoundPkRefVirtualCB acceptPK(Long refFirstId, Long refSecondId, Long refThirdId) {
         assertObjectNotNull("refFirstId", refFirstId);assertObjectNotNull("refSecondId", refSecondId);assertObjectNotNull("refThirdId", refThirdId);
-        BsWhiteCompoundPkRefVirturlCB cb = this;
+        BsWhiteCompoundPkRefVirtualCB cb = this;
         cb.query().setRefFirstId_Equal(refFirstId);cb.query().setRefSecondId_Equal(refSecondId);cb.query().setRefThirdId_Equal(refThirdId);
-        return (WhiteCompoundPkRefVirturlCB)this;
+        return (WhiteCompoundPkRefVirtualCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
@@ -185,34 +185,34 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public WhiteCompoundPkRefVirturlCQ query() {
+    public WhiteCompoundPkRefVirtualCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public WhiteCompoundPkRefVirturlCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public WhiteCompoundPkRefVirtualCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected WhiteCompoundPkRefVirturlCQ doGetConditionQuery() {
+    protected WhiteCompoundPkRefVirtualCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected WhiteCompoundPkRefVirturlCQ createLocalCQ() {
+    protected WhiteCompoundPkRefVirtualCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected WhiteCompoundPkRefVirturlCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        WhiteCompoundPkRefVirturlCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected WhiteCompoundPkRefVirtualCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        WhiteCompoundPkRefVirtualCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected WhiteCompoundPkRefVirturlCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new WhiteCompoundPkRefVirturlCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected WhiteCompoundPkRefVirtualCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new WhiteCompoundPkRefVirtualCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -236,10 +236,10 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<WhiteCompoundPkRefVirturlCB> unionCBLambda) {
-        final WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void union(UnionQuery<WhiteCompoundPkRefVirtualCB> unionCBLambda) {
+        final WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final WhiteCompoundPkRefVirturlCQ cq = cb.query(); query().xsetUnionQuery(cq);
+        final WhiteCompoundPkRefVirtualCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
     /**
@@ -253,10 +253,10 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<WhiteCompoundPkRefVirturlCB> unionCBLambda) {
-        final WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void unionAll(UnionQuery<WhiteCompoundPkRefVirtualCB> unionCBLambda) {
+        final WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final WhiteCompoundPkRefVirturlCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
+        final WhiteCompoundPkRefVirtualCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
     // ===================================================================================
@@ -266,11 +266,11 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * Set up relation columns to select clause. <br>
      * WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteCompoundPk()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">whiteCompoundPkRefVirturl</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">whiteCompoundPkRefVirturl</span>.<span style="color: #CC4747">getWhiteCompoundPk()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * }).alwaysPresent(<span style="color: #553000">whiteCompoundPkRefVirtual</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">whiteCompoundPkRefVirtual</span>.<span style="color: #CC4747">getWhiteCompoundPk()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
      */
@@ -319,9 +319,9 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkRefVirturlCQ> {
+    public static class HpSpecification extends HpAbstractSpecification<WhiteCompoundPkRefVirtualCQ> {
         protected WhiteCompoundPkCB.HpSpecification _whiteCompoundPk;
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteCompoundPkRefVirturlCQ> qyCall
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteCompoundPkRefVirtualCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
@@ -354,7 +354,7 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
             columnRefThirdId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "WHITE_COMPOUND_PK_REF_VIRTURL"; }
+        protected String getTableDbName() { return "WHITE_COMPOUND_PK_REF_VIRTUAL"; }
         /**
          * Prepare to specify functions about relation table. <br>
          * WHITE_COMPOUND_PK by my REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPk'.
@@ -385,9 +385,9 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public WhiteCompoundPkRefVirturlCB dreamCruiseCB() {
-        WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB();
-        cb.xsetupForDreamCruise((WhiteCompoundPkRefVirturlCB) this);
+    public WhiteCompoundPkRefVirtualCB dreamCruiseCB() {
+        WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB();
+        cb.xsetupForDreamCruise((WhiteCompoundPkRefVirtualCB) this);
         return cb;
     }
 
@@ -412,15 +412,15 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<WhiteCompoundPkRefVirturlCB> columnQuery(final SpecifyQuery<WhiteCompoundPkRefVirturlCB> colCBLambda) {
+    public HpColQyOperand<WhiteCompoundPkRefVirtualCB> columnQuery(final SpecifyQuery<WhiteCompoundPkRefVirtualCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected WhiteCompoundPkRefVirturlCB xcreateColumnQueryCB() {
-        WhiteCompoundPkRefVirturlCB cb = new WhiteCompoundPkRefVirturlCB();
-        cb.xsetupForColumnQuery((WhiteCompoundPkRefVirturlCB)this);
+    protected WhiteCompoundPkRefVirtualCB xcreateColumnQueryCB() {
+        WhiteCompoundPkRefVirtualCB cb = new WhiteCompoundPkRefVirtualCB();
+        cb.xsetupForColumnQuery((WhiteCompoundPkRefVirtualCB)this);
         return cb;
     }
 
@@ -440,8 +440,8 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<WhiteCompoundPkRefVirturlCB> orCBLambda) {
-        xorSQ((WhiteCompoundPkRefVirturlCB)this, orCBLambda);
+    public void orScopeQuery(OrQuery<WhiteCompoundPkRefVirtualCB> orCBLambda) {
+        xorSQ((WhiteCompoundPkRefVirtualCB)this, orCBLambda);
     }
 
     /**
@@ -459,8 +459,8 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<WhiteCompoundPkRefVirturlCB> andCBLambda) {
-        xorSQAP((WhiteCompoundPkRefVirturlCB)this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<WhiteCompoundPkRefVirtualCB> andCBLambda) {
+        xorSQAP((WhiteCompoundPkRefVirtualCB)this, andCBLambda);
     }
 
     // ===================================================================================
@@ -490,11 +490,11 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final WhiteCompoundPkRefVirturlCB cb;
+        final WhiteCompoundPkRefVirtualCB cb;
         if (mainCB != null) {
-            cb = (WhiteCompoundPkRefVirturlCB)mainCB;
+            cb = (WhiteCompoundPkRefVirtualCB)mainCB;
         } else {
-            cb = new WhiteCompoundPkRefVirturlCB();
+            cb = new WhiteCompoundPkRefVirtualCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -503,8 +503,8 @@ public class BsWhiteCompoundPkRefVirturlCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xgetConditionBeanClassNameInternally() { return WhiteCompoundPkRefVirturlCB.class.getName(); }
-    protected String xgetConditionQueryClassNameInternally() { return WhiteCompoundPkRefVirturlCQ.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteCompoundPkRefVirtualCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteCompoundPkRefVirtualCQ.class.getName(); }
     protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
     protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

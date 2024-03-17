@@ -100,22 +100,25 @@ public class BsSummaryProductCB extends AbstractConditionBean {
     /**
      * Accept the query condition of primary key as equal.
      * @param productId : PK, INTEGER(10). (NotNull)
+     * @param productName : PK, VARCHAR(50). (NotNull)
      * @return this. (NotNull)
      */
-    public SummaryProductCB acceptPK(Integer productId) {
-        assertObjectNotNull("productId", productId);
+    public SummaryProductCB acceptPK(Integer productId, String productName) {
+        assertObjectNotNull("productId", productId);assertObjectNotNull("productName", productName);
         BsSummaryProductCB cb = this;
-        cb.query().setProductId_Equal(productId);
+        cb.query().setProductId_Equal(productId);cb.query().setProductName_Equal(productName);
         return (SummaryProductCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
         query().addOrderBy_ProductId_Asc();
+        query().addOrderBy_ProductName_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
         query().addOrderBy_ProductId_Desc();
+        query().addOrderBy_ProductName_Desc();
         return this;
     }
 
@@ -328,7 +331,7 @@ public class BsSummaryProductCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * PRODUCT_NAME: {VARCHAR(50)}
+         * PRODUCT_NAME: {PK, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
@@ -352,6 +355,7 @@ public class BsSummaryProductCB extends AbstractConditionBean {
         @Override
         protected void doSpecifyRequiredColumn() {
             columnProductId(); // PK
+            columnProductName(); // PK
             if (qyCall().qy().hasConditionQueryProductStatus()
                     || qyCall().qy().xgetReferrerQuery() instanceof ProductStatusCQ) {
                 columnProductStatusCode(); // FK or one-to-one referrer
@@ -395,15 +399,6 @@ public class BsSummaryProductCB extends AbstractConditionBean {
             assertDerived("purchaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<PurchaseCB> sq, SummaryProductCQ cq, String al, DerivedReferrerOption op)
                     -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
-        }
-        /**
-         * Prepare for (Specify)MyselfDerived (SubQuery).
-         * @return The object to set up a function for myself table. (NotNull)
-         */
-        public HpSDRFunction<SummaryProductCB, SummaryProductCQ> myselfDerived() {
-            assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<SummaryProductCB> sq, SummaryProductCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

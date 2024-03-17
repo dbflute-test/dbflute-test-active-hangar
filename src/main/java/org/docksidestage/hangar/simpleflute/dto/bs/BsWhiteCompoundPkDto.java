@@ -43,13 +43,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  *     
  *
  * [referrer-table]
- *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTUAL
  *
  * [foreign-property]
  *     
  *
  * [referrer-property]
- *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirtualList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -128,15 +128,15 @@ public abstract class BsWhiteCompoundPkDto implements Serializable {
         this._whiteCompoundPkRefPhysicalList = whiteCompoundPkRefPhysicalList;
     }
 
-    protected List<WhiteCompoundPkRefVirturlDto> _whiteCompoundPkRefVirturlList;
+    protected List<WhiteCompoundPkRefVirtualDto> _whiteCompoundPkRefVirtualList;
 
-    public List<WhiteCompoundPkRefVirturlDto> getWhiteCompoundPkRefVirturlList() {
-        if (_whiteCompoundPkRefVirturlList == null) { _whiteCompoundPkRefVirturlList = new ArrayList<WhiteCompoundPkRefVirturlDto>(); }
-        return _whiteCompoundPkRefVirturlList;
+    public List<WhiteCompoundPkRefVirtualDto> getWhiteCompoundPkRefVirtualList() {
+        if (_whiteCompoundPkRefVirtualList == null) { _whiteCompoundPkRefVirtualList = new ArrayList<WhiteCompoundPkRefVirtualDto>(); }
+        return _whiteCompoundPkRefVirtualList;
     }
 
-    public void setWhiteCompoundPkRefVirturlList(List<WhiteCompoundPkRefVirturlDto> whiteCompoundPkRefVirturlList) {
-        this._whiteCompoundPkRefVirturlList = whiteCompoundPkRefVirturlList;
+    public void setWhiteCompoundPkRefVirtualList(List<WhiteCompoundPkRefVirtualDto> whiteCompoundPkRefVirtualList) {
+        this._whiteCompoundPkRefVirtualList = whiteCompoundPkRefVirtualList;
     }
 
     // ===================================================================================

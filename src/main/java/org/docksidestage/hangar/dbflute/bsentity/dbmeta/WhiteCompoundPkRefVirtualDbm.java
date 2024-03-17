@@ -29,17 +29,17 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of WHITE_COMPOUND_PK_REF_VIRTURL. (Singleton)
+ * The DB meta of WHITE_COMPOUND_PK_REF_VIRTUAL. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlDbm extends AbstractDBMeta {
+public class WhiteCompoundPkRefVirtualDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final WhiteCompoundPkRefVirturlDbm _instance = new WhiteCompoundPkRefVirturlDbm();
-    private WhiteCompoundPkRefVirturlDbm() {}
-    public static WhiteCompoundPkRefVirturlDbm getInstance() { return _instance; }
+    private static final WhiteCompoundPkRefVirtualDbm _instance = new WhiteCompoundPkRefVirtualDbm();
+    private WhiteCompoundPkRefVirtualDbm() {}
+    public static WhiteCompoundPkRefVirtualDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -58,10 +58,10 @@ public class WhiteCompoundPkRefVirturlDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirturl)et).getRefFirstId(), (et, vl) -> ((WhiteCompoundPkRefVirturl)et).setRefFirstId(ctl(vl)), "refFirstId");
-        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirturl)et).getRefSecondId(), (et, vl) -> ((WhiteCompoundPkRefVirturl)et).setRefSecondId(ctl(vl)), "refSecondId");
-        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirturl)et).getRefThirdId(), (et, vl) -> ((WhiteCompoundPkRefVirturl)et).setRefThirdId(ctl(vl)), "refThirdId");
-        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirturl)et).getCompoundRefName(), (et, vl) -> ((WhiteCompoundPkRefVirturl)et).setCompoundRefName((String)vl), "compoundRefName");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirtual)et).getRefFirstId(), (et, vl) -> ((WhiteCompoundPkRefVirtual)et).setRefFirstId(ctl(vl)), "refFirstId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirtual)et).getRefSecondId(), (et, vl) -> ((WhiteCompoundPkRefVirtual)et).setRefSecondId(ctl(vl)), "refSecondId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirtual)et).getRefThirdId(), (et, vl) -> ((WhiteCompoundPkRefVirtual)et).setRefThirdId(ctl(vl)), "refThirdId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPkRefVirtual)et).getCompoundRefName(), (et, vl) -> ((WhiteCompoundPkRefVirtual)et).setCompoundRefName((String)vl), "compoundRefName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -73,7 +73,7 @@ public class WhiteCompoundPkRefVirturlDbm extends AbstractDBMeta {
     { xsetupEfpg(); }
     @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefVirturl)et).getWhiteCompoundPk(), (et, vl) -> ((WhiteCompoundPkRefVirturl)et).setWhiteCompoundPk((OptionalEntity<WhiteCompoundPk>)vl), "whiteCompoundPk");
+        setupEfpg(_efpgMap, et -> ((WhiteCompoundPkRefVirtual)et).getWhiteCompoundPk(), (et, vl) -> ((WhiteCompoundPkRefVirtual)et).setWhiteCompoundPk((OptionalEntity<WhiteCompoundPk>)vl), "whiteCompoundPk");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -81,10 +81,10 @@ public class WhiteCompoundPkRefVirturlDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "WHITE_COMPOUND_PK_REF_VIRTURL";
-    protected final String _tableDispName = "WHITE_COMPOUND_PK_REF_VIRTURL";
-    protected final String _tablePropertyName = "whiteCompoundPkRefVirturl";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_COMPOUND_PK_REF_VIRTURL", _tableDbName);
+    protected final String _tableDbName = "WHITE_COMPOUND_PK_REF_VIRTUAL";
+    protected final String _tableDispName = "WHITE_COMPOUND_PK_REF_VIRTUAL";
+    protected final String _tablePropertyName = "whiteCompoundPkRefVirtual";
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_COMPOUND_PK_REF_VIRTUAL", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -163,7 +163,7 @@ public class WhiteCompoundPkRefVirturlDbm extends AbstractDBMeta {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
         mp.put(columnRefFirstId(), WhiteCompoundPkDbm.getInstance().columnPkFirstId());
         mp.put(columnRefSecondId(), WhiteCompoundPkDbm.getInstance().columnPkSecondId());
-        return cfi("FK_WHITE_COMPOUND_PK_REF_VIRTURL_FIRST_SECOND", "whiteCompoundPk", this, WhiteCompoundPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteCompoundPkRefVirturlList", false);
+        return cfi("FK_WHITE_COMPOUND_PK_REF_VIRTUAL_FIRST_SECOND", "whiteCompoundPk", this, WhiteCompoundPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteCompoundPkRefVirtualList", false);
     }
 
     // -----------------------------------------------------
@@ -177,27 +177,27 @@ public class WhiteCompoundPkRefVirturlDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteCompoundPkRefVirturl"; }
-    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteCompoundPkRefVirturlCB"; }
-    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteCompoundPkRefVirturlBhv"; }
+    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteCompoundPkRefVirtual"; }
+    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteCompoundPkRefVirtualCB"; }
+    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteCompoundPkRefVirtualBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<WhiteCompoundPkRefVirturl> getEntityType() { return WhiteCompoundPkRefVirturl.class; }
+    public Class<WhiteCompoundPkRefVirtual> getEntityType() { return WhiteCompoundPkRefVirtual.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public WhiteCompoundPkRefVirturl newEntity() { return new WhiteCompoundPkRefVirturl(); }
+    public WhiteCompoundPkRefVirtual newEntity() { return new WhiteCompoundPkRefVirtual(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((WhiteCompoundPkRefVirturl)et, mp); }
+    { doAcceptPrimaryKeyMap((WhiteCompoundPkRefVirtual)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((WhiteCompoundPkRefVirturl)et, mp); }
+    { doAcceptAllColumnMap((WhiteCompoundPkRefVirtual)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

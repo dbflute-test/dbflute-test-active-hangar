@@ -130,14 +130,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
@@ -280,30 +280,6 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     //                                                                     ===============
     public Map<String, SummaryProductCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(SummaryProductCQ sq) { return xkeepSQue("scalarCondition", sq); }
-
-    // ===================================================================================
-    //                                                                       MyselfDerived
-    //                                                                       =============
-    public Map<String, SummaryProductCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
-    public String keepSpecifyMyselfDerived(SummaryProductCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
-
-    public Map<String, SummaryProductCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
-    public String keepQueryMyselfDerived(SummaryProductCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
-    public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
-
-    // ===================================================================================
-    //                                                                        MyselfExists
-    //                                                                        ============
-    protected Map<String, SummaryProductCQ> _myselfExistsMap;
-    public Map<String, SummaryProductCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
-    public String keepMyselfExists(SummaryProductCQ sq) { return xkeepSQue("myselfExists", sq); }
-
-    // ===================================================================================
-    //                                                                       MyselfInScope
-    //                                                                       =============
-    public Map<String, SummaryProductCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
-    public String keepMyselfInScope(SummaryProductCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
     //                                                                       Very Internal

@@ -81,8 +81,8 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPkFirstId = cci("PK_FIRST_ID", "PK_FIRST_ID", null, null, Long.class, "pkFirstId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteCompoundPkRefPhysicalList,whiteCompoundPkRefVirturlList", null, false);
-    protected final ColumnInfo _columnPkSecondId = cci("PK_SECOND_ID", "PK_SECOND_ID", null, null, Long.class, "pkSecondId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteCompoundPkRefPhysicalList,whiteCompoundPkRefVirturlList", null, false);
+    protected final ColumnInfo _columnPkFirstId = cci("PK_FIRST_ID", "PK_FIRST_ID", null, null, Long.class, "pkFirstId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteCompoundPkRefPhysicalList,whiteCompoundPkRefVirtualList", null, false);
+    protected final ColumnInfo _columnPkSecondId = cci("PK_SECOND_ID", "PK_SECOND_ID", null, null, Long.class, "pkSecondId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteCompoundPkRefPhysicalList,whiteCompoundPkRefVirtualList", null, false);
     protected final ColumnInfo _columnCompoundPkName = cci("COMPOUND_PK_NAME", "COMPOUND_PK_NAME", null, null, String.class, "compoundPkName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
 
@@ -156,14 +156,14 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
         return cri("FK_WHITE_COMPOUND_PK_REF_PHYSICAL_FIRST_SECOND", "whiteCompoundPkRefPhysicalList", this, WhiteCompoundPkRefPhysicalDbm.getInstance(), mp, false, "whiteCompoundPk");
     }
     /**
-     * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'.
      * @return The information object of referrer property. (NotNull)
      */
-    public ReferrerInfo referrerWhiteCompoundPkRefVirturlList() {
+    public ReferrerInfo referrerWhiteCompoundPkRefVirtualList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
-        mp.put(columnPkFirstId(), WhiteCompoundPkRefVirturlDbm.getInstance().columnRefFirstId());
-        mp.put(columnPkSecondId(), WhiteCompoundPkRefVirturlDbm.getInstance().columnRefSecondId());
-        return cri("FK_WHITE_COMPOUND_PK_REF_VIRTURL_FIRST_SECOND", "whiteCompoundPkRefVirturlList", this, WhiteCompoundPkRefVirturlDbm.getInstance(), mp, false, "whiteCompoundPk");
+        mp.put(columnPkFirstId(), WhiteCompoundPkRefVirtualDbm.getInstance().columnRefFirstId());
+        mp.put(columnPkSecondId(), WhiteCompoundPkRefVirtualDbm.getInstance().columnRefSecondId());
+        return cri("FK_WHITE_COMPOUND_PK_REF_VIRTUAL_FIRST_SECOND", "whiteCompoundPkRefVirtualList", this, WhiteCompoundPkRefVirtualDbm.getInstance(), mp, false, "whiteCompoundPk");
     }
 
     // ===================================================================================

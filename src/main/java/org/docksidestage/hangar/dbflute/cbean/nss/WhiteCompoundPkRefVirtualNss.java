@@ -15,19 +15,19 @@
  */
 package org.docksidestage.hangar.dbflute.cbean.nss;
 
-import org.docksidestage.hangar.dbflute.cbean.cq.WhiteCompoundPkRefVirturlCQ;
+import org.docksidestage.hangar.dbflute.cbean.cq.WhiteCompoundPkRefVirtualCQ;
 
 /**
- * The nest select set-upper of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The nest select set-upper of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlNss {
+public class WhiteCompoundPkRefVirtualNss {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected final WhiteCompoundPkRefVirturlCQ _query;
-    public WhiteCompoundPkRefVirturlNss(WhiteCompoundPkRefVirturlCQ query) { _query = query; }
+    protected final WhiteCompoundPkRefVirtualCQ _query;
+    public WhiteCompoundPkRefVirtualNss(WhiteCompoundPkRefVirtualCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 
     // ===================================================================================

@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_COMPOUND_PK_REF_VIRTURL as TABLE.
+ * The behavior of WHITE_COMPOUND_PK_REF_VIRTUAL as TABLE.
  * <pre>
  * [primary-key]
  *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
@@ -78,7 +78,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteCompoundPkRefVirturl, WhiteCompoundPkRefVirturlCB> {
+public abstract class BsWhiteCompoundPkRefVirtualBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteCompoundPkRefVirtual, WhiteCompoundPkRefVirtualCB> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -90,15 +90,15 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     //                                                                             DB Meta
     //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteCompoundPkRefVirturlDbm asDBMeta() { return WhiteCompoundPkRefVirturlDbm.getInstance(); }
+    public WhiteCompoundPkRefVirtualDbm asDBMeta() { return WhiteCompoundPkRefVirtualDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "WHITE_COMPOUND_PK_REF_VIRTURL"; }
+    public String asTableDbName() { return "WHITE_COMPOUND_PK_REF_VIRTUAL"; }
 
     // ===================================================================================
     //                                                                        New Instance
     //                                                                        ============
     /** {@inheritDoc} */
-    public WhiteCompoundPkRefVirturlCB newConditionBean() { return new WhiteCompoundPkRefVirturlCB(); }
+    public WhiteCompoundPkRefVirtualCB newConditionBean() { return new WhiteCompoundPkRefVirtualCB(); }
 
     // ===================================================================================
     //                                                                        Count Select
@@ -107,14 +107,14 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
-    public int selectCount(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
+    public int selectCount(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
         return facadeSelectCount(createCB(cbLambda));
     }
 
@@ -128,38 +128,38 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteCompoundPkRefVirturl</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteCompoundPkRefVirtual</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = <span style="color: #553000">whiteCompoundPkRefVirturl</span>.get...
+     *     ... = <span style="color: #553000">whiteCompoundPkRefVirtual</span>.get...
      * });
      *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteCompoundPkRefVirturl</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteCompoundPkRefVirtual</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = <span style="color: #553000">whiteCompoundPkRefVirturl</span>.get...
+     *     ... = <span style="color: #553000">whiteCompoundPkRefVirtual</span>.get...
      * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhiteCompoundPkRefVirturl> selectEntity(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
+    public OptionalEntity<WhiteCompoundPkRefVirtual> selectEntity(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
-    protected OptionalEntity<WhiteCompoundPkRefVirturl> facadeSelectEntity(WhiteCompoundPkRefVirturlCB cb) {
+    protected OptionalEntity<WhiteCompoundPkRefVirtual> facadeSelectEntity(WhiteCompoundPkRefVirtualCB cb) {
         return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhiteCompoundPkRefVirturl> OptionalEntity<ENTITY> doSelectOptionalEntity(WhiteCompoundPkRefVirturlCB cb, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhiteCompoundPkRefVirtual> OptionalEntity<ENTITY> doSelectOptionalEntity(WhiteCompoundPkRefVirtualCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
@@ -169,16 +169,16 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteCompoundPkRefVirturl <span style="color: #553000">whiteCompoundPkRefVirturl</span> = <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
-     * ... = <span style="color: #553000">whiteCompoundPkRefVirturl</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteCompoundPkRefVirtual <span style="color: #553000">whiteCompoundPkRefVirtual</span> = <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteCompoundPkRefVirtual</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WhiteCompoundPkRefVirturl selectEntityWithDeletedCheck(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
+    public WhiteCompoundPkRefVirtual selectEntityWithDeletedCheck(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
@@ -192,23 +192,23 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhiteCompoundPkRefVirturl> selectByPK(Long refFirstId, Long refSecondId, Long refThirdId) {
+    public OptionalEntity<WhiteCompoundPkRefVirtual> selectByPK(Long refFirstId, Long refSecondId, Long refThirdId) {
         return facadeSelectByPK(refFirstId, refSecondId, refThirdId);
     }
 
-    protected OptionalEntity<WhiteCompoundPkRefVirturl> facadeSelectByPK(Long refFirstId, Long refSecondId, Long refThirdId) {
+    protected OptionalEntity<WhiteCompoundPkRefVirtual> facadeSelectByPK(Long refFirstId, Long refSecondId, Long refThirdId) {
         return doSelectOptionalByPK(refFirstId, refSecondId, refThirdId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhiteCompoundPkRefVirturl> ENTITY doSelectByPK(Long refFirstId, Long refSecondId, Long refThirdId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhiteCompoundPkRefVirtual> ENTITY doSelectByPK(Long refFirstId, Long refSecondId, Long refThirdId, Class<? extends ENTITY> tp) {
         return doSelectEntity(xprepareCBAsPK(refFirstId, refSecondId, refThirdId), tp);
     }
 
-    protected <ENTITY extends WhiteCompoundPkRefVirturl> OptionalEntity<ENTITY> doSelectOptionalByPK(Long refFirstId, Long refSecondId, Long refThirdId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhiteCompoundPkRefVirtual> OptionalEntity<ENTITY> doSelectOptionalByPK(Long refFirstId, Long refSecondId, Long refThirdId, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectByPK(refFirstId, refSecondId, refThirdId, tp), refFirstId, refSecondId, refThirdId);
     }
 
-    protected WhiteCompoundPkRefVirturlCB xprepareCBAsPK(Long refFirstId, Long refSecondId, Long refThirdId) {
+    protected WhiteCompoundPkRefVirtualCB xprepareCBAsPK(Long refFirstId, Long refSecondId, Long refThirdId) {
         assertObjectNotNull("refFirstId", refFirstId);assertObjectNotNull("refSecondId", refSecondId);assertObjectNotNull("refThirdId", refThirdId);
         return newConditionBean().acceptPK(refFirstId, refSecondId, refThirdId);
     }
@@ -219,19 +219,19 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteCompoundPkRefVirturl&gt; <span style="color: #553000">whiteCompoundPkRefVirturlList</span> = <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * ListResultBean&lt;WhiteCompoundPkRefVirtual&gt; <span style="color: #553000">whiteCompoundPkRefVirtualList</span> = <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * <span style="color: #70226C">for</span> (WhiteCompoundPkRefVirturl <span style="color: #553000">whiteCompoundPkRefVirturl</span> : <span style="color: #553000">whiteCompoundPkRefVirturlList</span>) {
-     *     ... = <span style="color: #553000">whiteCompoundPkRefVirturl</span>.get...;
+     * <span style="color: #70226C">for</span> (WhiteCompoundPkRefVirtual <span style="color: #553000">whiteCompoundPkRefVirtual</span> : <span style="color: #553000">whiteCompoundPkRefVirtualList</span>) {
+     *     ... = <span style="color: #553000">whiteCompoundPkRefVirtual</span>.get...;
      * }
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
-    public ListResultBean<WhiteCompoundPkRefVirturl> selectList(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
+    public ListResultBean<WhiteCompoundPkRefVirtual> selectList(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
     }
 
@@ -245,7 +245,7 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * PagingResultBean&lt;WhiteCompoundPkRefVirturl&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * PagingResultBean&lt;WhiteCompoundPkRefVirtual&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
@@ -255,15 +255,15 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
      * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * <span style="color: #70226C">for</span> (WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl : <span style="color: #553000">page</span>) {
-     *     ... = whiteCompoundPkRefVirturl.get...;
+     * <span style="color: #70226C">for</span> (WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual : <span style="color: #553000">page</span>) {
+     *     ... = whiteCompoundPkRefVirtual.get...;
      * }
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
      * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
-    public PagingResultBean<WhiteCompoundPkRefVirturl> selectPage(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
+    public PagingResultBean<WhiteCompoundPkRefVirtual> selectPage(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
     }
 
@@ -273,16 +273,16 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
-     * @param entityLambda The handler of entity row of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
+     * @param entityLambda The handler of entity row of WhiteCompoundPkRefVirtual. (NotNull)
      */
-    public void selectCursor(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda, EntityRowHandler<WhiteCompoundPkRefVirturl> entityLambda) {
+    public void selectCursor(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda, EntityRowHandler<WhiteCompoundPkRefVirtual> entityLambda) {
         facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
@@ -293,7 +293,7 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -302,7 +302,7 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteCompoundPkRefVirturlCB, RESULT> selectScalar(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteCompoundPkRefVirtualCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -347,12 +347,12 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
-     * @param whiteCompoundPkRefVirturlList The entity list of whiteCompoundPkRefVirturl. (NotNull)
+     * @param whiteCompoundPkRefVirtualList The entity list of whiteCompoundPkRefVirtual. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
      */
-    public void load(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList, ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefVirturl> loaderLambda) {
-        xassLRArg(whiteCompoundPkRefVirturlList, loaderLambda);
-        loaderLambda.handle(new LoaderOfWhiteCompoundPkRefVirturl().ready(whiteCompoundPkRefVirturlList, _behaviorSelector));
+    public void load(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList, ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefVirtual> loaderLambda) {
+        xassLRArg(whiteCompoundPkRefVirtualList, loaderLambda);
+        loaderLambda.handle(new LoaderOfWhiteCompoundPkRefVirtual().ready(whiteCompoundPkRefVirtualList, _behaviorSelector));
     }
 
     /**
@@ -380,12 +380,12 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
-     * @param whiteCompoundPkRefVirturl The entity of whiteCompoundPkRefVirturl. (NotNull)
+     * @param whiteCompoundPkRefVirtual The entity of whiteCompoundPkRefVirtual. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
      */
-    public void load(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefVirturl> loaderLambda) {
-        xassLRArg(whiteCompoundPkRefVirturl, loaderLambda);
-        loaderLambda.handle(new LoaderOfWhiteCompoundPkRefVirturl().ready(xnewLRAryLs(whiteCompoundPkRefVirturl), _behaviorSelector));
+    public void load(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRefVirtual> loaderLambda) {
+        xassLRArg(whiteCompoundPkRefVirtual, loaderLambda);
+        loaderLambda.handle(new LoaderOfWhiteCompoundPkRefVirtual().ready(xnewLRAryLs(whiteCompoundPkRefVirtual), _behaviorSelector));
     }
 
     // ===================================================================================
@@ -393,11 +393,11 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     //                                                                   =================
     /**
      * Pull out the list of foreign table 'WhiteCompoundPk'.
-     * @param whiteCompoundPkRefVirturlList The list of whiteCompoundPkRefVirturl. (NotNull, EmptyAllowed)
+     * @param whiteCompoundPkRefVirtualList The list of whiteCompoundPkRefVirtual. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<WhiteCompoundPk> pulloutWhiteCompoundPk(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList)
-    { return helpPulloutInternally(whiteCompoundPkRefVirturlList, "whiteCompoundPk"); }
+    public List<WhiteCompoundPk> pulloutWhiteCompoundPk(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList)
+    { return helpPulloutInternally(whiteCompoundPkRefVirtualList, "whiteCompoundPk"); }
 
     // ===================================================================================
     //                                                                      Extract Column
@@ -408,80 +408,80 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
-     * whiteCompoundPkRefVirturl.setFoo...(value);
-     * whiteCompoundPkRefVirturl.setBar...(value);
+     * whiteCompoundPkRefVirtual.setFoo...(value);
+     * whiteCompoundPkRefVirtual.setBar...(value);
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.set...;</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">insert</span>(whiteCompoundPkRefVirturl);
-     * ... = whiteCompoundPkRefVirturl.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.set...;</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">insert</span>(whiteCompoundPkRefVirtual);
+     * ... = whiteCompoundPkRefVirtual.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
-     * @param whiteCompoundPkRefVirturl The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param whiteCompoundPkRefVirtual The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void insert(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl) {
-        doInsert(whiteCompoundPkRefVirturl, null);
+    public void insert(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual) {
+        doInsert(whiteCompoundPkRefVirtual, null);
     }
 
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
-     * whiteCompoundPkRefVirturl.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * whiteCompoundPkRefVirturl.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
+     * whiteCompoundPkRefVirtual.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * whiteCompoundPkRefVirtual.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.set...;</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteCompoundPkRefVirturl.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundPkRefVirturl);
+     * whiteCompoundPkRefVirtual.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundPkRefVirtual);
      * </pre>
-     * @param whiteCompoundPkRefVirturl The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtual The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void update(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl) {
-        doUpdate(whiteCompoundPkRefVirturl, null);
+    public void update(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual) {
+        doUpdate(whiteCompoundPkRefVirtual, null);
     }
 
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param whiteCompoundPkRefVirturl The entity of insert or update. (NotNull, ...depends on insert or update)
+     * @param whiteCompoundPkRefVirtual The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void insertOrUpdate(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl) {
-        doInsertOrUpdate(whiteCompoundPkRefVirturl, null, null);
+    public void insertOrUpdate(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual) {
+        doInsertOrUpdate(whiteCompoundPkRefVirtual, null, null);
     }
 
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
-     * whiteCompoundPkRefVirturl.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
+     * whiteCompoundPkRefVirtual.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteCompoundPkRefVirturl.<span style="color: #CC4747">setVersionNo</span>(value);
+     * whiteCompoundPkRefVirtual.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #70226C">try</span> {
-     *     <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">delete</span>(whiteCompoundPkRefVirturl);
+     *     <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">delete</span>(whiteCompoundPkRefVirtual);
      * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
-     * @param whiteCompoundPkRefVirturl The entity of delete. (NotNull, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtual The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void delete(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl) {
-        doDelete(whiteCompoundPkRefVirturl, null);
+    public void delete(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual) {
+        doDelete(whiteCompoundPkRefVirtual, null);
     }
 
     // ===================================================================================
@@ -493,26 +493,26 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * <span style="color: #70226C">for</span> (... : ...) {
-     *     WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
-     *     whiteCompoundPkRefVirturl.setFooName("foo");
+     *     WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
+     *     whiteCompoundPkRefVirtual.setFooName("foo");
      *     <span style="color: #70226C">if</span> (...) {
-     *         whiteCompoundPkRefVirturl.setFooPrice(123);
+     *         whiteCompoundPkRefVirtual.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
      *     <span style="color: #3F7E5E">// FOO_PRICE not-called in any entities are registered as null without default value</span>
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
-     *     whiteCompoundPkRefVirturlList.add(whiteCompoundPkRefVirturl);
+     *     whiteCompoundPkRefVirtualList.add(whiteCompoundPkRefVirtual);
      * }
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteCompoundPkRefVirturlList);
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteCompoundPkRefVirtualList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
      * (When you use the (normal) insert(), you can get the incremented value from your entity)</p>
-     * @param whiteCompoundPkRefVirturlList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
+     * @param whiteCompoundPkRefVirtualList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
      * @return The array of inserted count. (NotNull, EmptyAllowed)
      */
-    public int[] batchInsert(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList) {
-        return doBatchInsert(whiteCompoundPkRefVirturlList, null);
+    public int[] batchInsert(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList) {
+        return doBatchInsert(whiteCompoundPkRefVirtualList, null);
     }
 
     /**
@@ -521,37 +521,37 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
-     *     whiteCompoundPkRefVirturl.setFooName("foo");
+     *     WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
+     *     whiteCompoundPkRefVirtual.setFooName("foo");
      *     <span style="color: #70226C">if</span> (...) {
-     *         whiteCompoundPkRefVirturl.setFooPrice(123);
+     *         whiteCompoundPkRefVirtual.setFooPrice(123);
      *     } <span style="color: #70226C">else</span> {
-     *         whiteCompoundPkRefVirturl.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setFooDate(...); // *not allowed, fragmented</span>
+     *         whiteCompoundPkRefVirtual.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
+     *         <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setFooDate(...); // *not allowed, fragmented</span>
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     whiteCompoundPkRefVirturlList.add(whiteCompoundPkRefVirturl);
+     *     whiteCompoundPkRefVirtualList.add(whiteCompoundPkRefVirtual);
      * }
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteCompoundPkRefVirturlList);
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteCompoundPkRefVirtualList);
      * </pre>
-     * @param whiteCompoundPkRefVirturlList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtualList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
-    public int[] batchUpdate(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList) {
-        return doBatchUpdate(whiteCompoundPkRefVirturlList, null);
+    public int[] batchUpdate(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList) {
+        return doBatchUpdate(whiteCompoundPkRefVirtualList, null);
     }
 
     /**
      * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param whiteCompoundPkRefVirturlList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtualList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
-    public int[] batchDelete(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList) {
-        return doBatchDelete(whiteCompoundPkRefVirturlList, null);
+    public int[] batchDelete(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList) {
+        return doBatchDelete(whiteCompoundPkRefVirtualList, null);
     }
 
     // ===================================================================================
@@ -560,8 +560,8 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteCompoundPkRefVirturl, WhiteCompoundPkRefVirturlCB&gt;() {
-     *     public ConditionBean setup(WhiteCompoundPkRefVirturl entity, WhiteCompoundPkRefVirturlCB intoCB) {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteCompoundPkRefVirtual, WhiteCompoundPkRefVirtualCB&gt;() {
+     *     public ConditionBean setup(WhiteCompoundPkRefVirtual entity, WhiteCompoundPkRefVirtualCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
      *
@@ -583,48 +583,48 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * @param manyArgLambda The callback to set up query-insert. (NotNull)
      * @return The inserted count.
      */
-    public int queryInsert(QueryInsertSetupper<WhiteCompoundPkRefVirturl, WhiteCompoundPkRefVirturlCB> manyArgLambda) {
+    public int queryInsert(QueryInsertSetupper<WhiteCompoundPkRefVirtual, WhiteCompoundPkRefVirtualCB> manyArgLambda) {
         return doQueryInsert(manyArgLambda, null);
     }
 
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setPK...(value);</span>
-     * whiteCompoundPkRefVirturl.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setPK...(value);</span>
+     * whiteCompoundPkRefVirtual.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.set...;</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.set...;</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setVersionNo(value);</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundPkRefVirturl, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setVersionNo(value);</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundPkRefVirtual, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
-     * @param whiteCompoundPkRefVirturl The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param whiteCompoundPkRefVirtual The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The updated count.
      * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
-    public int queryUpdate(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
-        return doQueryUpdate(whiteCompoundPkRefVirturl, createCB(cbLambda), null);
+    public int queryUpdate(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
+        return doQueryUpdate(whiteCompoundPkRefVirtual, createCB(cbLambda), null);
     }
 
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @return The deleted count.
      * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
-    public int queryDelete(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda) {
+    public int queryDelete(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
     }
 
@@ -639,22 +639,22 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
-     * whiteCompoundPkRefVirturl.setFoo...(value);
-     * whiteCompoundPkRefVirturl.setBar...(value);
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundPkRefVirturl, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * whiteCompoundPkRefVirtual.setFoo...(value);
+     * whiteCompoundPkRefVirtual.setBar...(value);
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundPkRefVirtual, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
      * });
-     * ... = whiteCompoundPkRefVirturl.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * ... = whiteCompoundPkRefVirtual.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
-     * @param whiteCompoundPkRefVirturl The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param whiteCompoundPkRefVirtual The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, WritableOptionCall<WhiteCompoundPkRefVirturlCB, InsertOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        doInsert(whiteCompoundPkRefVirturl, createInsertOption(opLambda));
+    public void varyingInsert(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, WritableOptionCall<WhiteCompoundPkRefVirtualCB, InsertOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        doInsert(whiteCompoundPkRefVirtual, createInsertOption(opLambda));
     }
 
     /**
@@ -662,53 +662,53 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
-     * whiteCompoundPkRefVirturl.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * whiteCompoundPkRefVirturl.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
+     * whiteCompoundPkRefVirtual.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * whiteCompoundPkRefVirtual.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteCompoundPkRefVirturl.<span style="color: #CC4747">setVersionNo</span>(value);
+     * whiteCompoundPkRefVirtual.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundPkRefVirturl, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundPkRefVirtual, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param whiteCompoundPkRefVirturl The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtual The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, WritableOptionCall<WhiteCompoundPkRefVirturlCB, UpdateOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        doUpdate(whiteCompoundPkRefVirturl, createUpdateOption(opLambda));
+    public void varyingUpdate(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, WritableOptionCall<WhiteCompoundPkRefVirtualCB, UpdateOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        doUpdate(whiteCompoundPkRefVirtual, createUpdateOption(opLambda));
     }
 
     /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
-     * @param whiteCompoundPkRefVirturl The entity of insert or update. (NotNull)
+     * @param whiteCompoundPkRefVirtual The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, WritableOptionCall<WhiteCompoundPkRefVirturlCB, InsertOption<WhiteCompoundPkRefVirturlCB>> insertOpLambda, WritableOptionCall<WhiteCompoundPkRefVirturlCB, UpdateOption<WhiteCompoundPkRefVirturlCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteCompoundPkRefVirturl, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, WritableOptionCall<WhiteCompoundPkRefVirtualCB, InsertOption<WhiteCompoundPkRefVirtualCB>> insertOpLambda, WritableOptionCall<WhiteCompoundPkRefVirtualCB, UpdateOption<WhiteCompoundPkRefVirtualCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteCompoundPkRefVirtual, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
      * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
-     * @param whiteCompoundPkRefVirturl The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param whiteCompoundPkRefVirtual The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, WritableOptionCall<WhiteCompoundPkRefVirturlCB, DeleteOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        doDelete(whiteCompoundPkRefVirturl, createDeleteOption(opLambda));
+    public void varyingDelete(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, WritableOptionCall<WhiteCompoundPkRefVirtualCB, DeleteOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        doDelete(whiteCompoundPkRefVirtual, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -719,12 +719,12 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * For example, disableCommonColumnAutoSetup()
      * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
      * Other specifications are same as batchInsert(entityList).
-     * @param whiteCompoundPkRefVirturlList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtualList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList, WritableOptionCall<WhiteCompoundPkRefVirturlCB, InsertOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        return doBatchInsert(whiteCompoundPkRefVirturlList, createInsertOption(opLambda));
+    public int[] varyingBatchInsert(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList, WritableOptionCall<WhiteCompoundPkRefVirtualCB, InsertOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        return doBatchInsert(whiteCompoundPkRefVirtualList, createInsertOption(opLambda));
     }
 
     /**
@@ -732,24 +732,24 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
      * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
      * Other specifications are same as batchUpdate(entityList).
-     * @param whiteCompoundPkRefVirturlList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtualList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList, WritableOptionCall<WhiteCompoundPkRefVirturlCB, UpdateOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        return doBatchUpdate(whiteCompoundPkRefVirturlList, createUpdateOption(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList, WritableOptionCall<WhiteCompoundPkRefVirtualCB, UpdateOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        return doBatchUpdate(whiteCompoundPkRefVirtualList, createUpdateOption(opLambda));
     }
 
     /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
-     * @param whiteCompoundPkRefVirturlList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteCompoundPkRefVirtualList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteCompoundPkRefVirturl> whiteCompoundPkRefVirturlList, WritableOptionCall<WhiteCompoundPkRefVirturlCB, DeleteOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        return doBatchDelete(whiteCompoundPkRefVirturlList, createDeleteOption(opLambda));
+    public int[] varyingBatchDelete(List<WhiteCompoundPkRefVirtual> whiteCompoundPkRefVirtualList, WritableOptionCall<WhiteCompoundPkRefVirtualCB, DeleteOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        return doBatchDelete(whiteCompoundPkRefVirtualList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -763,7 +763,7 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteCompoundPkRefVirturl, WhiteCompoundPkRefVirturlCB> manyArgLambda, WritableOptionCall<WhiteCompoundPkRefVirturlCB, InsertOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteCompoundPkRefVirtual, WhiteCompoundPkRefVirtualCB> manyArgLambda, WritableOptionCall<WhiteCompoundPkRefVirtualCB, InsertOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
         return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
@@ -774,14 +774,14 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirturl();
+     * WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual = <span style="color: #70226C">new</span> WhiteCompoundPkRefVirtual();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setPK...(value);</span>
-     * whiteCompoundPkRefVirturl.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setPK...(value);</span>
+     * whiteCompoundPkRefVirtual.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirturl.setVersionNo(value);</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRefVirturl, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">//whiteCompoundPkRefVirtual.setVersionNo(value);</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRefVirtual, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -789,14 +789,14 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
      * });
      * </pre>
-     * @param whiteCompoundPkRefVirturl The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param whiteCompoundPkRefVirtual The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
      * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteCompoundPkRefVirturl whiteCompoundPkRefVirturl, CBCall<WhiteCompoundPkRefVirturlCB> cbLambda, WritableOptionCall<WhiteCompoundPkRefVirturlCB, UpdateOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
-        return doQueryUpdate(whiteCompoundPkRefVirturl, createCB(cbLambda), createUpdateOption(opLambda));
+    public int varyingQueryUpdate(WhiteCompoundPkRefVirtual whiteCompoundPkRefVirtual, CBCall<WhiteCompoundPkRefVirtualCB> cbLambda, WritableOptionCall<WhiteCompoundPkRefVirtualCB, UpdateOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
+        return doQueryUpdate(whiteCompoundPkRefVirtual, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -804,18 +804,18 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as queryDelete(cb).
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefVirturlBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRefVirturl, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefVirtualBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRefVirtual, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirturl. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteCompoundPkRefVirtual. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
      * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteCompoundPkRefVirturlCB> cbLambda, WritableOptionCall<WhiteCompoundPkRefVirturlCB, DeleteOption<WhiteCompoundPkRefVirturlCB>> opLambda) {
+    public int varyingQueryDelete(CBCall<WhiteCompoundPkRefVirtualCB> cbLambda, WritableOptionCall<WhiteCompoundPkRefVirtualCB, DeleteOption<WhiteCompoundPkRefVirtualCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
@@ -826,31 +826,31 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
      * <span style="color: #3F7E5E">// main style</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
+     * whiteCompoundPkRefVirtualBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
      * <span style="color: #3F7E5E">// traditional style</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
-     * whiteCompoundPkRefVirturlBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
-     * whiteCompoundPkRefVirturlBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
-     * whiteCompoundPkRefVirturlBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
-     * whiteCompoundPkRefVirturlBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
-     * whiteCompoundPkRefVirturlBhv.outideSql().traditionalStyle().execute(path, pmb);
+     * whiteCompoundPkRefVirtualBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
+     * whiteCompoundPkRefVirtualBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
+     * whiteCompoundPkRefVirtualBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
+     * whiteCompoundPkRefVirtualBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
+     * whiteCompoundPkRefVirtualBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
+     * whiteCompoundPkRefVirtualBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
      * <span style="color: #3F7E5E">// options</span>
-     * whiteCompoundPkRefVirturlBhv.outideSql().removeBlockComment().selectList()
-     * whiteCompoundPkRefVirturlBhv.outideSql().removeLineComment().selectList()
-     * whiteCompoundPkRefVirturlBhv.outideSql().formatSql().selectList()
+     * whiteCompoundPkRefVirtualBhv.outideSql().removeBlockComment().selectList()
+     * whiteCompoundPkRefVirtualBhv.outideSql().removeLineComment().selectList()
+     * whiteCompoundPkRefVirtualBhv.outideSql().formatSql().selectList()
      * </pre>
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlAllFacadeExecutor<WhiteCompoundPkRefVirturlBhv> outsideSql() {
+    public OutsideSqlAllFacadeExecutor<WhiteCompoundPkRefVirtualBhv> outsideSql() {
         return doOutsideSql();
     }
 
@@ -872,7 +872,7 @@ public abstract class BsWhiteCompoundPkRefVirturlBhv extends org.docksidestage.h
     // ===================================================================================
     //                                                                         Type Helper
     //                                                                         ===========
-    protected Class<? extends WhiteCompoundPkRefVirturl> typeOfSelectedEntity() { return WhiteCompoundPkRefVirturl.class; }
-    protected Class<WhiteCompoundPkRefVirturl> typeOfHandlingEntity() { return WhiteCompoundPkRefVirturl.class; }
-    protected Class<WhiteCompoundPkRefVirturlCB> typeOfHandlingConditionBean() { return WhiteCompoundPkRefVirturlCB.class; }
+    protected Class<? extends WhiteCompoundPkRefVirtual> typeOfSelectedEntity() { return WhiteCompoundPkRefVirtual.class; }
+    protected Class<WhiteCompoundPkRefVirtual> typeOfHandlingEntity() { return WhiteCompoundPkRefVirtual.class; }
+    protected Class<WhiteCompoundPkRefVirtualCB> typeOfHandlingConditionBean() { return WhiteCompoundPkRefVirtualCB.class; }
 }

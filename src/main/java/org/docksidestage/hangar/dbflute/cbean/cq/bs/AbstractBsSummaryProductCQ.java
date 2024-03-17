@@ -262,7 +262,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      * @param productName The value of productName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_Equal(String productName) {
@@ -274,8 +274,21 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
+     * @param productNameList The collection of productName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setProductName_InScope(Collection<String> productNameList) {
+        doSetProductName_InScope(productNameList);
+    }
+
+    protected void doSetProductName_InScope(Collection<String> productNameList) {
+        regINS(CK_INS, cTL(productNameList), xgetCValueProductName(), "PRODUCT_NAME");
+    }
+
+    /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)} <br>
+     * PRODUCT_NAME: {PK, VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -286,7 +299,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)} <br>
+     * PRODUCT_NAME: {PK, VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -298,7 +311,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -309,7 +322,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -319,19 +332,13 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      */
     public void setProductName_IsNull() { regProductName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
-     */
-    public void setProductName_IsNullOrEmpty() { regProductName(CK_ISNOE, DOBJ); }
-
-    /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      */
     public void setProductName_IsNotNull() { regProductName(CK_ISNN, DOBJ); }
 
@@ -815,51 +822,6 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     protected SummaryProductCB xcreateScalarConditionPartitionByCB() {
         SummaryProductCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
-
-    // ===================================================================================
-    //                                                                       MyselfDerived
-    //                                                                       =============
-    public void xsmyselfDerive(String fn, SubQuery<SummaryProductCB> sq, String al, DerivedReferrerOption op) {
-        assertObjectNotNull("subQuery", sq);
-        SummaryProductCB cb = new SummaryProductCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "PRODUCT_ID";
-        registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
-    }
-    public abstract String keepSpecifyMyselfDerived(SummaryProductCQ sq);
-
-    /**
-     * Prepare for (Query)MyselfDerived (correlated sub-query).
-     * @return The object to set up a function for myself table. (NotNull)
-     */
-    public HpQDRFunction<SummaryProductCB> myselfDerived() {
-        return xcreateQDRFunctionMyselfDerived(SummaryProductCB.class);
-    }
-    @SuppressWarnings("unchecked")
-    protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
-        assertObjectNotNull("subQuery", sq);
-        SummaryProductCB cb = new SummaryProductCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "PRODUCT_ID";
-        String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
-        String prpp = keepQueryMyselfDerivedParameter(vl);
-        registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);
-    }
-    public abstract String keepQueryMyselfDerived(SummaryProductCQ sq);
-    public abstract String keepQueryMyselfDerivedParameter(Object vl);
-
-    // ===================================================================================
-    //                                                                        MyselfExists
-    //                                                                        ============
-    /**
-     * Prepare for MyselfExists (correlated sub-query).
-     * @param subCBLambda The implementation of sub-query. (NotNull)
-     */
-    public void myselfExists(SubQuery<SummaryProductCB> subCBLambda) {
-        assertObjectNotNull("subCBLambda", subCBLambda);
-        SummaryProductCB cb = new SummaryProductCB(); cb.xsetupForMyselfExists(this);
-        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
-        registerMyselfExists(cb.query(), pp);
-    }
-    public abstract String keepMyselfExists(SummaryProductCQ sq);
 
     // ===================================================================================
     //                                                                        Manual Order

@@ -22,26 +22,26 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_REF_VIRTURL as TABLE.
+ * The referrer loader of WHITE_COMPOUND_PK_REF_VIRTUAL as TABLE.
  * @author DBFlute(AutoGenerator)
  */
-public class LoaderOfWhiteCompoundPkRefVirturl {
+public class LoaderOfWhiteCompoundPkRefVirtual {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected List<WhiteCompoundPkRefVirturl> _selectedList;
+    protected List<WhiteCompoundPkRefVirtual> _selectedList;
     protected BehaviorSelector _selector;
-    protected WhiteCompoundPkRefVirturlBhv _myBhv; // lazy-loaded
+    protected WhiteCompoundPkRefVirtualBhv _myBhv; // lazy-loaded
 
     // ===================================================================================
     //                                                                   Ready for Loading
     //                                                                   =================
-    public LoaderOfWhiteCompoundPkRefVirturl ready(List<WhiteCompoundPkRefVirturl> selectedList, BehaviorSelector selector)
+    public LoaderOfWhiteCompoundPkRefVirtual ready(List<WhiteCompoundPkRefVirtual> selectedList, BehaviorSelector selector)
     { _selectedList = selectedList; _selector = selector; return this; }
 
-    protected WhiteCompoundPkRefVirturlBhv myBhv()
-    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(WhiteCompoundPkRefVirturlBhv.class); return _myBhv; } }
+    protected WhiteCompoundPkRefVirtualBhv myBhv()
+    { if (_myBhv != null) { return _myBhv; } else { _myBhv = _selector.select(WhiteCompoundPkRefVirtualBhv.class); return _myBhv; } }
 
     // ===================================================================================
     //                                                                    Pull out Foreign
@@ -56,6 +56,6 @@ public class LoaderOfWhiteCompoundPkRefVirturl {
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
-    public List<WhiteCompoundPkRefVirturl> getSelectedList() { return _selectedList; }
+    public List<WhiteCompoundPkRefVirtual> getSelectedList() { return _selectedList; }
     public BehaviorSelector getSelector() { return _selector; }
 }

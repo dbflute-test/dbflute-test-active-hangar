@@ -20,7 +20,7 @@
 #
 map:{
     ; PK_SUMMARY_PRODUCT = map:{
-        ; tableName = SUMMARY_PRODUCT ; columnName = PRODUCT_ID
+        ; tableName = SUMMARY_PRODUCT ; columnName = PRODUCT_ID/PRODUCT_NAME
     }
 }
 # ----------------/

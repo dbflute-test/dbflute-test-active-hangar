@@ -32,7 +32,7 @@ import org.docksidestage.hangar.dbflute.nogen.cache.*;
  * The entity of SUMMARY_PRODUCT as VIEW.
  * <pre>
  * [primary-key]
- *     PRODUCT_ID
+ *     PRODUCT_ID, PRODUCT_NAME
  *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
@@ -88,7 +88,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     /** PRODUCT_ID: {PK, INTEGER(10)} */
     protected Integer _productId;
 
-    /** PRODUCT_NAME: {VARCHAR(50)} */
+    /** PRODUCT_NAME: {PK, VARCHAR(50)} */
     protected String _productName;
 
     /** PRODUCT_HANDLE_CODE: {VARCHAR(100)} */
@@ -119,6 +119,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_productId == null) { return false; }
+        if (_productName == null) { return false; }
         return true;
     }
 
@@ -269,6 +270,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
         if (obj instanceof BsSummaryProduct) {
             BsSummaryProduct other = (BsSummaryProduct)obj;
             if (!xSV(_productId, other._productId)) { return false; }
+            if (!xSV(_productName, other._productName)) { return false; }
             return true;
         } else {
             return false;
@@ -280,6 +282,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
         int hs = initial;
         hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
+        hs = xCH(hs, _productName);
         return hs;
     }
 
@@ -351,7 +354,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] PRODUCT_NAME: {VARCHAR(50)} <br>
+     * [get] PRODUCT_NAME: {PK, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductName() {
@@ -360,7 +363,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] PRODUCT_NAME: {VARCHAR(50)} <br>
+     * [set] PRODUCT_NAME: {PK, VARCHAR(50)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductName(String productName) {

@@ -17,17 +17,17 @@ package org.docksidestage.hangar.dbflute.cbean.cq;
 
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.sqlclause.SqlClause;
-import org.docksidestage.hangar.dbflute.cbean.cq.bs.BsWhiteCompoundPkRefVirturlCQ;
+import org.docksidestage.hangar.dbflute.cbean.cq.bs.BsWhiteCompoundPkRefVirtualCQ;
 
 /**
- * The condition-query of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The condition-query of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlCQ extends BsWhiteCompoundPkRefVirturlCQ {
+public class WhiteCompoundPkRefVirtualCQ extends BsWhiteCompoundPkRefVirtualCQ {
 
     // ===================================================================================
     //                                                                         Constructor
@@ -40,7 +40,7 @@ public class WhiteCompoundPkRefVirturlCQ extends BsWhiteCompoundPkRefVirturlCQ {
      * @param aliasName The alias name for this query. (NotNull)
      * @param nestLevel The nest level of this query. (if zero, this is base query)
      */
-    public WhiteCompoundPkRefVirturlCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+    public WhiteCompoundPkRefVirtualCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
     }
 

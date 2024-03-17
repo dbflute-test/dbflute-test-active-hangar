@@ -103,7 +103,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, false, false, "INTEGER", 10, 0, null, null, false, null, null, null, "purchaseList", null, false);
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, false, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, true, false, false, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, null, String.class, "productHandleCode", null, false, false, false, "VARCHAR", 100, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, false, "CHAR", 3, 0, null, null, false, null, null, "productStatus", null, CDef.DefMeta.ProductStatus, false);
     protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
@@ -114,7 +114,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnProductId() { return _columnProductId; }
     /**
-     * PRODUCT_NAME: {VARCHAR(50)}
+     * PRODUCT_NAME: {PK, VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductName() { return _columnProductName; }
@@ -152,9 +152,14 @@ public class SummaryProductDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnProductId()); }
+    protected UniqueInfo cpui() {
+        List<ColumnInfo> ls = newArrayListSized(4);
+        ls.add(columnProductId());
+        ls.add(columnProductName());
+        return hpcpui(ls);
+    }
     public boolean hasPrimaryKey() { return true; }
-    public boolean hasCompoundPrimaryKey() { return false; }
+    public boolean hasCompoundPrimaryKey() { return true; }
 
     // ===================================================================================
     //                                                                       Relation Info

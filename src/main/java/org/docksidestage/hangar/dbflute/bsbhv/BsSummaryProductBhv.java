@@ -38,7 +38,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * The behavior of SUMMARY_PRODUCT as VIEW.
  * <pre>
  * [primary-key]
- *     PRODUCT_ID
+ *     PRODUCT_ID, PRODUCT_NAME
  *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
@@ -187,30 +187,31 @@ public abstract class BsSummaryProductBhv extends org.docksidestage.hangar.dbflu
     /**
      * Select the entity by the primary-key value.
      * @param productId : PK, INTEGER(10). (NotNull)
+     * @param productName : PK, VARCHAR(50). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<SummaryProduct> selectByPK(Integer productId) {
-        return facadeSelectByPK(productId);
+    public OptionalEntity<SummaryProduct> selectByPK(Integer productId, String productName) {
+        return facadeSelectByPK(productId, productName);
     }
 
-    protected OptionalEntity<SummaryProduct> facadeSelectByPK(Integer productId) {
-        return doSelectOptionalByPK(productId, typeOfSelectedEntity());
+    protected OptionalEntity<SummaryProduct> facadeSelectByPK(Integer productId, String productName) {
+        return doSelectOptionalByPK(productId, productName, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends SummaryProduct> ENTITY doSelectByPK(Integer productId, Class<? extends ENTITY> tp) {
-        return doSelectEntity(xprepareCBAsPK(productId), tp);
+    protected <ENTITY extends SummaryProduct> ENTITY doSelectByPK(Integer productId, String productName, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(productId, productName), tp);
     }
 
-    protected <ENTITY extends SummaryProduct> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer productId, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectByPK(productId, tp), productId);
+    protected <ENTITY extends SummaryProduct> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer productId, String productName, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(productId, productName, tp), productId, productName);
     }
 
-    protected SummaryProductCB xprepareCBAsPK(Integer productId) {
-        assertObjectNotNull("productId", productId);
-        return newConditionBean().acceptPK(productId);
+    protected SummaryProductCB xprepareCBAsPK(Integer productId, String productName) {
+        assertObjectNotNull("productId", productId);assertObjectNotNull("productName", productName);
+        return newConditionBean().acceptPK(productId, productName);
     }
 
     // ===================================================================================
@@ -466,14 +467,6 @@ public abstract class BsSummaryProductBhv extends org.docksidestage.hangar.dbflu
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============
-    /**
-     * Extract the value list of (single) primary key productId.
-     * @param summaryProductList The list of summaryProduct. (NotNull, EmptyAllowed)
-     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<Integer> extractProductIdList(List<SummaryProduct> summaryProductList)
-    { return helpExtractListInternally(summaryProductList, "productId"); }
-
     // ===================================================================================
     //                                                                       Entity Update
     //                                                                       =============

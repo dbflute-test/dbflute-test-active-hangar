@@ -56,13 +56,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTURL
+ *     WHITE_COMPOUND_PK_REF_PHYSICAL, WHITE_COMPOUND_PK_REF_VIRTUAL
  *
  * [foreign property]
  *     
  *
  * [referrer property]
- *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirturlList
+ *     whiteCompoundPkRefPhysicalList, whiteCompoundPkRefVirtualList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -452,19 +452,19 @@ public abstract class BsWhiteCompoundPkBhv extends org.docksidestage.hangar.dbfl
     }
 
     /**
-     * Load referrer of whiteCompoundPkRefVirturlList by the set-upper of referrer. <br>
-     * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * Load referrer of whiteCompoundPkRefVirtualList by the set-upper of referrer. <br>
+     * WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefVirturl</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">virturlCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">virturlCB</span>.setupSelect...
-     *     <span style="color: #553000">virturlCB</span>.query().set...
-     *     <span style="color: #553000">virturlCB</span>.query().addOrderBy...
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefVirtual</span>(<span style="color: #553000">whiteCompoundPkList</span>, <span style="color: #553000">virtualCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">virtualCB</span>.setupSelect...
+     *     <span style="color: #553000">virtualCB</span>.query().set...
+     *     <span style="color: #553000">virtualCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * <span style="color: #70226C">for</span> (WhiteCompoundPk whiteCompoundPk : <span style="color: #553000">whiteCompoundPkList</span>) {
-     *     ... = whiteCompoundPk.<span style="color: #CC4747">getWhiteCompoundPkRefVirturlList()</span>;
+     *     ... = whiteCompoundPk.<span style="color: #CC4747">getWhiteCompoundPkRefVirtualList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
@@ -477,24 +477,24 @@ public abstract class BsWhiteCompoundPkBhv extends org.docksidestage.hangar.dbfl
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRefVirturl> loadWhiteCompoundPkRefVirturl(List<WhiteCompoundPk> whiteCompoundPkList, ReferrerConditionSetupper<WhiteCompoundPkRefVirturlCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPkRefVirtual> loadWhiteCompoundPkRefVirtual(List<WhiteCompoundPk> whiteCompoundPkList, ReferrerConditionSetupper<WhiteCompoundPkRefVirtualCB> refCBLambda) {
         xassLRArg(whiteCompoundPkList, refCBLambda);
-        return doLoadWhiteCompoundPkRefVirturl(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkRefVirturl>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPkRefVirtual(whiteCompoundPkList, new LoadReferrerOption<WhiteCompoundPkRefVirtualCB, WhiteCompoundPkRefVirtual>().xinit(refCBLambda));
     }
 
     /**
-     * Load referrer of whiteCompoundPkRefVirturlList by the set-upper of referrer. <br>
-     * WHITE_COMPOUND_PK_REF_VIRTURL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirturlList'.
+     * Load referrer of whiteCompoundPkRefVirtualList by the set-upper of referrer. <br>
+     * WHITE_COMPOUND_PK_REF_VIRTUAL by REF_FIRST_ID, REF_SECOND_ID, named 'whiteCompoundPkRefVirtualList'.
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefVirturl</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">virturlCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">virturlCB</span>.setupSelect...
-     *     <span style="color: #553000">virturlCB</span>.query().set...
-     *     <span style="color: #553000">virturlCB</span>.query().addOrderBy...
+     * <span style="color: #0000C0">whiteCompoundPkBhv</span>.<span style="color: #CC4747">loadWhiteCompoundPkRefVirtual</span>(<span style="color: #553000">whiteCompoundPk</span>, <span style="color: #553000">virtualCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">virtualCB</span>.setupSelect...
+     *     <span style="color: #553000">virtualCB</span>.query().set...
+     *     <span style="color: #553000">virtualCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = <span style="color: #553000">whiteCompoundPk</span>.<span style="color: #CC4747">getWhiteCompoundPkRefVirturlList()</span>;
+     * ... = <span style="color: #553000">whiteCompoundPk</span>.<span style="color: #CC4747">getWhiteCompoundPkRefVirtualList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -506,13 +506,13 @@ public abstract class BsWhiteCompoundPkBhv extends org.docksidestage.hangar.dbfl
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteCompoundPkRefVirturl> loadWhiteCompoundPkRefVirturl(WhiteCompoundPk whiteCompoundPk, ReferrerConditionSetupper<WhiteCompoundPkRefVirturlCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteCompoundPkRefVirtual> loadWhiteCompoundPkRefVirtual(WhiteCompoundPk whiteCompoundPk, ReferrerConditionSetupper<WhiteCompoundPkRefVirtualCB> refCBLambda) {
         xassLRArg(whiteCompoundPk, refCBLambda);
-        return doLoadWhiteCompoundPkRefVirturl(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkRefVirturl>().xinit(refCBLambda));
+        return doLoadWhiteCompoundPkRefVirtual(xnewLRLs(whiteCompoundPk), new LoadReferrerOption<WhiteCompoundPkRefVirtualCB, WhiteCompoundPkRefVirtual>().xinit(refCBLambda));
     }
 
-    protected NestedReferrerListGateway<WhiteCompoundPkRefVirturl> doLoadWhiteCompoundPkRefVirturl(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefVirturlCB, WhiteCompoundPkRefVirturl> option) {
-        return helpLoadReferrerInternally(whiteCompoundPkList, option, "whiteCompoundPkRefVirturlList");
+    protected NestedReferrerListGateway<WhiteCompoundPkRefVirtual> doLoadWhiteCompoundPkRefVirtual(List<WhiteCompoundPk> whiteCompoundPkList, LoadReferrerOption<WhiteCompoundPkRefVirtualCB, WhiteCompoundPkRefVirtual> option) {
+        return helpLoadReferrerInternally(whiteCompoundPkList, option, "whiteCompoundPkRefVirtualList");
     }
 
     // ===================================================================================

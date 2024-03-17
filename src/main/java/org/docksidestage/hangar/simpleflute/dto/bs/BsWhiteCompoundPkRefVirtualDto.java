@@ -22,7 +22,7 @@ import net.vvakame.util.jsonpullparser.annotation.*;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of WHITE_COMPOUND_PK_REF_VIRTURL as TABLE. <br>
+ * The simple DTO of WHITE_COMPOUND_PK_REF_VIRTUAL as TABLE. <br>
  * <pre>
  * [primary-key]
  *     REF_FIRST_ID, REF_SECOND_ID, REF_THIRD_ID
@@ -54,7 +54,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  * @author DBFlute(AutoGenerator)
  */
 @JsonModel(decamelize = false)
-public abstract class BsWhiteCompoundPkRefVirturlDto implements Serializable {
+public abstract class BsWhiteCompoundPkRefVirtualDto implements Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -93,7 +93,7 @@ public abstract class BsWhiteCompoundPkRefVirturlDto implements Serializable {
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsWhiteCompoundPkRefVirturlDto() {
+    public BsWhiteCompoundPkRefVirtualDto() {
     }
 
     // ===================================================================================
@@ -131,8 +131,8 @@ public abstract class BsWhiteCompoundPkRefVirturlDto implements Serializable {
     //                                                                      Basic Override
     //                                                                      ==============
     public boolean equals(Object other) {
-        if (other == null || !(other instanceof BsWhiteCompoundPkRefVirturlDto)) { return false; }
-        final BsWhiteCompoundPkRefVirturlDto otherEntity = (BsWhiteCompoundPkRefVirturlDto)other;
+        if (other == null || !(other instanceof BsWhiteCompoundPkRefVirtualDto)) { return false; }
+        final BsWhiteCompoundPkRefVirtualDto otherEntity = (BsWhiteCompoundPkRefVirtualDto)other;
         if (!helpComparingValue(getRefFirstId(), otherEntity.getRefFirstId())) { return false; }
         if (!helpComparingValue(getRefSecondId(), otherEntity.getRefSecondId())) { return false; }
         if (!helpComparingValue(getRefThirdId(), otherEntity.getRefThirdId())) { return false; }
@@ -146,7 +146,7 @@ public abstract class BsWhiteCompoundPkRefVirturlDto implements Serializable {
 
     public int hashCode() {
         int result = 17;
-        result = xCH(result, "WHITE_COMPOUND_PK_REF_VIRTURL");
+        result = xCH(result, "WHITE_COMPOUND_PK_REF_VIRTUAL");
         result = xCH(result, getRefFirstId());
         result = xCH(result, getRefSecondId());
         result = xCH(result, getRefThirdId());

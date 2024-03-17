@@ -31,15 +31,15 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The abstract condition-query of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The abstract condition-query of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * @author DBFlute(AutoGenerator)
  */
-public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractConditionQuery {
+public abstract class AbstractBsWhiteCompoundPkRefVirtualCQ extends AbstractConditionQuery {
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public AbstractBsWhiteCompoundPkRefVirturlCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+    public AbstractBsWhiteCompoundPkRefVirtualCQ(ConditionQuery referrerQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
     }
 
@@ -52,7 +52,7 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
     }
 
     public String asTableDbName() {
-        return "WHITE_COMPOUND_PK_REF_VIRTURL";
+        return "WHITE_COMPOUND_PK_REF_VIRTUAL";
     }
 
     // ===================================================================================
@@ -519,8 +519,8 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<WhiteCompoundPkRefVirturlCB> scalar_Equal() {
-        return xcreateSLCFunction(CK_EQ, WhiteCompoundPkRefVirturlCB.class);
+    public HpSLCFunction<WhiteCompoundPkRefVirtualCB> scalar_Equal() {
+        return xcreateSLCFunction(CK_EQ, WhiteCompoundPkRefVirtualCB.class);
     }
 
     /**
@@ -534,8 +534,8 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<WhiteCompoundPkRefVirturlCB> scalar_NotEqual() {
-        return xcreateSLCFunction(CK_NES, WhiteCompoundPkRefVirturlCB.class);
+    public HpSLCFunction<WhiteCompoundPkRefVirtualCB> scalar_NotEqual() {
+        return xcreateSLCFunction(CK_NES, WhiteCompoundPkRefVirtualCB.class);
     }
 
     /**
@@ -549,8 +549,8 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<WhiteCompoundPkRefVirturlCB> scalar_GreaterThan() {
-        return xcreateSLCFunction(CK_GT, WhiteCompoundPkRefVirturlCB.class);
+    public HpSLCFunction<WhiteCompoundPkRefVirtualCB> scalar_GreaterThan() {
+        return xcreateSLCFunction(CK_GT, WhiteCompoundPkRefVirtualCB.class);
     }
 
     /**
@@ -564,8 +564,8 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<WhiteCompoundPkRefVirturlCB> scalar_LessThan() {
-        return xcreateSLCFunction(CK_LT, WhiteCompoundPkRefVirturlCB.class);
+    public HpSLCFunction<WhiteCompoundPkRefVirtualCB> scalar_LessThan() {
+        return xcreateSLCFunction(CK_LT, WhiteCompoundPkRefVirtualCB.class);
     }
 
     /**
@@ -579,16 +579,16 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<WhiteCompoundPkRefVirturlCB> scalar_GreaterEqual() {
-        return xcreateSLCFunction(CK_GE, WhiteCompoundPkRefVirturlCB.class);
+    public HpSLCFunction<WhiteCompoundPkRefVirtualCB> scalar_GreaterEqual() {
+        return xcreateSLCFunction(CK_GE, WhiteCompoundPkRefVirtualCB.class);
     }
 
     /**
      * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)}
      * <pre>
-     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteCompoundPkRefVirturlCB&gt;() {
-     *     public void query(WhiteCompoundPkRefVirturlCB subCB) {
+     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteCompoundPkRefVirtualCB&gt;() {
+     *     public void query(WhiteCompoundPkRefVirtualCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
      *     }
@@ -596,26 +596,26 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
      * </pre>
      * @return The object to set up a function. (NotNull)
      */
-    public HpSLCFunction<WhiteCompoundPkRefVirturlCB> scalar_LessEqual() {
-        return xcreateSLCFunction(CK_LE, WhiteCompoundPkRefVirturlCB.class);
+    public HpSLCFunction<WhiteCompoundPkRefVirtualCB> scalar_LessEqual() {
+        return xcreateSLCFunction(CK_LE, WhiteCompoundPkRefVirtualCB.class);
     }
 
     @SuppressWarnings("unchecked")
     protected <CB extends ConditionBean> void xscalarCondition(String fn, SubQuery<CB> sq, String rd, HpSLCCustomized<CB> cs, ScalarConditionOption op) {
         assertObjectNotNull("subQuery", sq);
-        WhiteCompoundPkRefVirturlCB cb = xcreateScalarConditionCB(); sq.query((CB)cb);
+        WhiteCompoundPkRefVirtualCB cb = xcreateScalarConditionCB(); sq.query((CB)cb);
         String pp = keepScalarCondition(cb.query()); // for saving query-value
         cs.setPartitionByCBean((CB)xcreateScalarConditionPartitionByCB()); // for using partition-by
         registerScalarCondition(fn, cb.query(), pp, rd, cs, op);
     }
-    public abstract String keepScalarCondition(WhiteCompoundPkRefVirturlCQ sq);
+    public abstract String keepScalarCondition(WhiteCompoundPkRefVirtualCQ sq);
 
-    protected WhiteCompoundPkRefVirturlCB xcreateScalarConditionCB() {
-        WhiteCompoundPkRefVirturlCB cb = newMyCB(); cb.xsetupForScalarCondition(this); return cb;
+    protected WhiteCompoundPkRefVirtualCB xcreateScalarConditionCB() {
+        WhiteCompoundPkRefVirtualCB cb = newMyCB(); cb.xsetupForScalarCondition(this); return cb;
     }
 
-    protected WhiteCompoundPkRefVirturlCB xcreateScalarConditionPartitionByCB() {
-        WhiteCompoundPkRefVirturlCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
+    protected WhiteCompoundPkRefVirtualCB xcreateScalarConditionPartitionByCB() {
+        WhiteCompoundPkRefVirtualCB cb = newMyCB(); cb.xsetupForScalarConditionPartitionBy(this); return cb;
     }
 
     // ===================================================================================
@@ -660,12 +660,12 @@ public abstract class AbstractBsWhiteCompoundPkRefVirturlCQ extends AbstractCond
     // ===================================================================================
     //                                                                       Very Internal
     //                                                                       =============
-    protected WhiteCompoundPkRefVirturlCB newMyCB() {
-        return new WhiteCompoundPkRefVirturlCB();
+    protected WhiteCompoundPkRefVirtualCB newMyCB() {
+        return new WhiteCompoundPkRefVirtualCB();
     }
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xabUDT() { return Date.class.getName(); }
-    protected String xabCQ() { return WhiteCompoundPkRefVirturlCQ.class.getName(); }
+    protected String xabCQ() { return WhiteCompoundPkRefVirtualCQ.class.getName(); }
     protected String xabLSO() { return LikeSearchOption.class.getName(); }
     protected String xabSLCS() { return HpSLCSetupper.class.getName(); }
     protected String xabSCP() { return SubQuery.class.getName(); }

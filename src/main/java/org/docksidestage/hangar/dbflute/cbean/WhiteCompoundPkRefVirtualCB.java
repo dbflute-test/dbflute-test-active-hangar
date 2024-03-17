@@ -13,20 +13,17 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package org.docksidestage.hangar.simpleflute.dto;
+package org.docksidestage.hangar.dbflute.cbean;
 
-import org.docksidestage.hangar.simpleflute.dto.bs.BsWhiteCompoundPkRefVirturlDto;
+import org.docksidestage.hangar.dbflute.cbean.bs.BsWhiteCompoundPkRefVirtualCB;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF_VIRTURL.
+ * The condition-bean of WHITE_COMPOUND_PK_REF_VIRTUAL.
  * <p>
  * You can implement your original methods here.
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteCompoundPkRefVirturlDto extends BsWhiteCompoundPkRefVirturlDto {
-
-    /** The serial version UID for object serialization. (Default) */
-    private static final long serialVersionUID = 1L;
+public class WhiteCompoundPkRefVirtualCB extends BsWhiteCompoundPkRefVirtualCB {
 }
