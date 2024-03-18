@@ -300,7 +300,7 @@ public class MessagesAndDatabase implements Serializable {
     //  - REF_SECOND_ID
     //  - REF_THIRD_ID
     //  - COMPOUND_REF_NAME
-    // WHITE_COMPOUND_PK_REF_VIRTURL
+    // WHITE_COMPOUND_PK_REF_VIRTUAL
     //  - REF_FIRST_ID
     //  - REF_SECOND_ID
     //  - REF_THIRD_ID
