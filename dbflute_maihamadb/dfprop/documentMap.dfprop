@@ -216,7 +216,7 @@ map:{
         ; isReplaceSchemaDirectUse = false
         ; isOverrideExistingDataFile = false
         ; isSynchronizeOriginDate = false
-        # comment out if you test TSV output
+        # use if you test XLS output
         #; xlsLimit = 0
     }
     # - - - - - - - - - -/
