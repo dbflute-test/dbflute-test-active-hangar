@@ -217,10 +217,11 @@ map:{
         ; isOverrideExistingDataFile = false
         ; isSynchronizeOriginDate = false
         # use if you test TSV output
-        ; isDelimiterDataBasis = true
+        ; isDelimiterDataBasis = false
         #; isDelimiterDataMinimallyQuoted = true
         #; isDelimiterDataOnSectionDirectory = true
         #; xlsLimit = 0
+        #; sectionTableGuidelineLimit = 30
     }
     # - - - - - - - - - -/
 
