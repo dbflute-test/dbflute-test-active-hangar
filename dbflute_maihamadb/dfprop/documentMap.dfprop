@@ -212,11 +212,14 @@ map:{
     #   o isSynchronizeOriginDate: Does it synchronize origin date for date adjustment? (NotRequired - Default false)
     #
     ; loadDataReverseMap = map:{
-        ; recordLimit = 10
+        ; recordLimit = -1
         ; isReplaceSchemaDirectUse = false
         ; isOverrideExistingDataFile = false
         ; isSynchronizeOriginDate = false
-        # use if you test XLS output
+        # use if you test TSV output
+        ; isDelimiterDataBasis = true
+        #; isDelimiterDataMinimallyQuoted = true
+        #; isDelimiterDataOnSectionDirectory = true
         #; xlsLimit = 0
     }
     # - - - - - - - - - -/
