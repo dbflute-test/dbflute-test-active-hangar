@@ -201,7 +201,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select PRODUCT_STATUS_CODE from PRODUCT where ...)} <br>
-     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productAsOne'.
+     * (眠い商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
@@ -239,7 +239,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
      * {not exists (select PRODUCT_STATUS_CODE from PRODUCT where ...)} <br>
-     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productAsOne'.
+     * (眠い商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsProduct</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
@@ -293,7 +293,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from PRODUCT where ...)} <br>
-     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productAsOne'.
+     * (眠い商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedProduct()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>

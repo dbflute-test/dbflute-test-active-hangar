@@ -297,11 +297,11 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
         _member = member;
     }
 
-    /** (商品)PRODUCT by my PRODUCT_ID, named 'product'. */
+    /** (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'. */
     protected OptionalEntity<Product> _product;
 
     /**
-     * [get] (商品)PRODUCT by my PRODUCT_ID, named 'product'. <br>
+     * [get] (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'product'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -311,7 +311,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     }
 
     /**
-     * [set] (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * [set] (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @param product The entity of foreign property 'product'. (NullAllowed)
      */
     public void setProduct(OptionalEntity<Product> product) {
@@ -604,6 +604,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [get] (購入価格)PURCHASE_PRICE: {IX, NotNull, INTEGER(10)} <br>
+     * 眠いのはプライスレス。<br>
      * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
      * 基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。
      * @return The value of the column 'PURCHASE_PRICE'. (basically NotNull if selected: for the constraint)
@@ -615,6 +616,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
 
     /**
      * [set] (購入価格)PURCHASE_PRICE: {IX, NotNull, INTEGER(10)} <br>
+     * 眠いのはプライスレス。<br>
      * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
      * 基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。
      * @param purchasePrice The value of the column 'PURCHASE_PRICE'. (basically NotNull if update: for the constraint)

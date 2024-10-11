@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (商品)PRODUCT as TABLE.
+ * The behavior of (眠い商品)PRODUCT as TABLE.
  * <pre>
  * [primary-key]
  *     PRODUCT_ID

@@ -39,6 +39,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (会員)MEMBER as TABLE. <br>
+ * 眠いときは寝た方が良い。<br>
  * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
  * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
  * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。

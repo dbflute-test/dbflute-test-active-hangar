@@ -25,7 +25,8 @@ import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of (商品)PRODUCT as TABLE. <br>
+ * The simple DTO of (眠い商品)PRODUCT as TABLE. <br>
+ * 商品:
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
@@ -83,7 +84,7 @@ public abstract class BsProductDto implements Serializable {
     @JsonKey
     protected String _productHandleCode;
 
-    /** PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} */
+    /** (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} */
     @JsonKey
     protected String _productCategoryCode;
 
@@ -91,7 +92,7 @@ public abstract class BsProductDto implements Serializable {
     @JsonKey
     protected String _productStatusCode;
 
-    /** (定価)REGULAR_PRICE: {NotNull, INTEGER(10)} */
+    /** (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} */
     @JsonKey
     protected Integer _regularPrice;
 
@@ -376,7 +377,9 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [get] PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * [get] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * 眠いのも悪くない。<br>
+     * 
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public String getProductCategoryCode() {
@@ -384,7 +387,9 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [set] PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * [set] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * 眠いのも悪くない。<br>
+     * 
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public void setProductCategoryCode(String productCategoryCode) {
@@ -410,7 +415,9 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [get] (定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * [get] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * 眠いよぅ眠いよぅ。<br>
+     * 定価:
      * @return The value of the column 'REGULAR_PRICE'. (NullAllowed)
      */
     public Integer getRegularPrice() {
@@ -418,7 +425,9 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [set] (定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * [set] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * 眠いよぅ眠いよぅ。<br>
+     * 定価:
      * @param regularPrice The value of the column 'REGULAR_PRICE'. (NullAllowed)
      */
     public void setRegularPrice(Integer regularPrice) {

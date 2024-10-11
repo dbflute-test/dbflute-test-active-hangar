@@ -44,7 +44,7 @@ public class PurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductNss withProduct() {

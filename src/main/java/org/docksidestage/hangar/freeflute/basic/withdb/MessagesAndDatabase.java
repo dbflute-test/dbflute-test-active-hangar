@@ -313,6 +313,12 @@ public class MessagesAndDatabase implements Serializable {
     // WHITE_DB_COMMENT
     //  - DB_COMMENT_ID
     //  - DB_COMMENT_NAME
+    // WHITE_DB_COMMENT_ADDITIONAL
+    //  - DB_COMMENT_ID
+    //  - DB_COMMENT_NAME
+    //  - DB_COMMENT_COUNT
+    //  - DB_COMMENT_DATE
+    //  - DB_COMMENT_DATETIME
     // WHITE_DEPRECATED_SELECT_BY_PKUQ
     //  - SELECT_BY_PKUQ_ID
     //  - SELECT_BY_PKUQ_NAME

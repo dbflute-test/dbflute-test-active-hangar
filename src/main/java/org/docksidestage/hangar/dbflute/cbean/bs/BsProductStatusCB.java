@@ -340,7 +340,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from PRODUCT where ...) as FOO_MAX} <br>
-         * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
+         * (眠い商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     productCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

@@ -124,14 +124,14 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("PRODUCT_CATEGORY_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
      */
     public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("PRODUCT_CATEGORY_CODE"); return this; }

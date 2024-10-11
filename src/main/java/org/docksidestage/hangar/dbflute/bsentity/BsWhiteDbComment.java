@@ -88,7 +88,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
     /** DB_COMMENT_ID: {PK, NotNull, DECIMAL(16)} */
     protected Long _dbCommentId;
 
-    /** (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} */
+    /** (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} */
     protected String _dbCommentName;
 
     // ===================================================================================
@@ -194,7 +194,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
+     * [get] (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
      * カラムコメントのエスケープのテスト...<br>
      * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/<br>
      * o (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ <br>
@@ -213,7 +213,7 @@ public abstract class BsWhiteDbComment extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
+     * [set] (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
      * カラムコメントのエスケープのテスト...<br>
      * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/<br>
      * o (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ <br>

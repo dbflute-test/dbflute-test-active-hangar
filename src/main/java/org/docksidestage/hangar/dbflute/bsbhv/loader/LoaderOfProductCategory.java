@@ -52,7 +52,7 @@ public class LoaderOfProductCategory {
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
+     * (眠い商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryLoader</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

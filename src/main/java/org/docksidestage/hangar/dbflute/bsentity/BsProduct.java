@@ -30,7 +30,8 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.nogen.cache.*;
 
 /**
- * The entity of (商品)PRODUCT as TABLE.
+ * The entity of (眠い商品)PRODUCT as TABLE. <br>
+ * 商品:
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
@@ -107,13 +108,13 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     /** (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} */
     protected String _productHandleCode;
 
-    /** PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} */
+    /** (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} */
     protected String _productCategoryCode;
 
     /** PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} */
     protected String _productStatusCode;
 
-    /** (定価)REGULAR_PRICE: {NotNull, INTEGER(10)} */
+    /** (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} */
     protected Integer _regularPrice;
 
     /** REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
@@ -466,7 +467,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     }
 
     /**
-     * [get] PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * [get] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * 眠いのも悪くない。<br>
+     * 
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductCategoryCode() {
@@ -475,7 +478,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     }
 
     /**
-     * [set] PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * [set] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * 眠いのも悪くない。<br>
+     * 
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductCategoryCode(String productCategoryCode) {
@@ -503,7 +508,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     }
 
     /**
-     * [get] (定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * [get] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * 眠いよぅ眠いよぅ。<br>
+     * 定価:
      * @return The value of the column 'REGULAR_PRICE'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegularPrice() {
@@ -512,7 +519,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     }
 
     /**
-     * [set] (定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * [set] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
+     * 眠いよぅ眠いよぅ。<br>
+     * 定価:
      * @param regularPrice The value of the column 'REGULAR_PRICE'. (basically NotNull if update: for the constraint)
      */
     public void setRegularPrice(Integer regularPrice) {

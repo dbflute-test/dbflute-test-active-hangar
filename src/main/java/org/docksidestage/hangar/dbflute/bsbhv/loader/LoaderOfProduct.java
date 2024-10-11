@@ -24,7 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of (商品)PRODUCT as TABLE.
+ * The referrer loader of (眠い商品)PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfProduct {

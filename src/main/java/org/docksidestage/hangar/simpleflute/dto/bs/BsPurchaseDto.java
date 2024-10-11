@@ -435,6 +435,7 @@ public abstract class BsPurchaseDto implements Serializable {
 
     /**
      * [get] (購入価格)PURCHASE_PRICE: {IX, NotNull, INTEGER(10)} <br>
+     * 眠いのはプライスレス。<br>
      * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
      * 基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。
      * @return The value of the column 'PURCHASE_PRICE'. (NullAllowed)
@@ -445,6 +446,7 @@ public abstract class BsPurchaseDto implements Serializable {
 
     /**
      * [set] (購入価格)PURCHASE_PRICE: {IX, NotNull, INTEGER(10)} <br>
+     * 眠いのはプライスレス。<br>
      * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
      * 基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。
      * @param purchasePrice The value of the column 'PURCHASE_PRICE'. (NullAllowed)

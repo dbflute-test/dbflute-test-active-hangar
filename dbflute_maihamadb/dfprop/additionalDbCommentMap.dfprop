@@ -1,0 +1,132 @@
+# /---------------------------------------------------------------------------
+# additionalDbCommentMap: (NotRequired - Default 'map:{}')
+#
+# Both alias and descirption is not required.
+# If both DB and dfprop have alias, dfprop is only used.
+# If both DB and dfprop have description, both are connected as dfprop + DB.
+#
+# Basically dfprop alias and description are prior
+# because dfprop is more easier modifiable than DB's comment.
+# So dfprop is not supplement but is patch.
+#
+# Example:
+# map:{
+#     ; MEMBER = map:{
+#         ; alias = ...
+#         ; description = ...
+#         ; columnMap = map:{
+#             ; MEMBER_ID = map:{
+#                 ; alias = ...
+#                 ; description = ...
+#             } 
+#         }
+#     }
+# }
+# 
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    ; $$schema$$ = map:{
+        ; alias = まいはまDB (DBFluteで使うexampleのスキーマ)
+        ; description = まあちょっと色々と書いてみよう。
+大きくは以下の三つに分類されるるるん。
+  MEMBER* :: 会員系
+  PURCHASE* :: 購入系
+  PRODUCT* :: 商品系
+
+                   +----------------------+
+                   |         会員          |
+                   +----------------------+
+                                 |
+   +----------------------+      |
+   |         購入          | >----+
+   +----------------------+
+           v
+           |     +----------------------+
+           +-----|         商品          |
+                 +----------------------+
+
+後は区分値系のマスターテーブル、例えばサービスランクなど。
+ある程度はjfluteのDB設計スタイルでありながら、exampleなので割り切ってるところも多い。
+DBFluteの自動生成のテストのために、色々なパターンを入れているというのもあり。
+    }
+    ; MEMBER = map:{
+        # test of 説明を追加
+        ; description = 眠いときは寝た方が良い。
+        ; columnMap = map:{
+            ; BIRTHDATE = map:{
+                ; description = お腹が空いたら食べた方が良い。
+            } 
+        }
+    }
+    ; PRODUCT = map:{
+        # test of 別名を上書き (説明なしのまんま)
+        ; alias = 眠い商品
+        ; columnMap = map:{
+            ; PRODUCT_CATEGORY_CODE = map:{
+                # 別名も説明もないところに追加
+                ; alias = 眠い商品カテゴリーコードどん
+                ; description = 眠いのも悪くない。
+            }
+            ; REGULAR_PRICE = map:{
+                # 別名を上書き (説明なしだけどここで追加)
+                ; alias = 眠い定価
+                ; description = 眠いよぅ眠いよぅ。
+            }
+        }
+    }
+    ; PRODUCT_CATEGORY = map:{
+        # test of テーブルは何もなくてカラムだけaliasのみ
+        ; columnMap = map:{
+            ; PRODUCT_CATEGORY_CODE = map:{
+                # FKカラムと同じにしないとSchemaPolicyに怒られるので
+                # まあこれはこれで正しいのでOK
+                ; alias = 眠い商品カテゴリーコードどん
+            }
+        }
+    }
+    ; PURCHASE = map:{
+        # test of テーブルは何もなくてカラムだけdescriptionのみ
+        ; columnMap = map:{
+            ; PURCHASE_PRICE = map:{
+                ; description = 眠いのはプライスレス。
+            }
+        }
+    }
+    ; WHITE_DB_COMMENT_ADDITIONAL = map:{
+        ; description = まず一行目がこれで...
+二行目に改行を入れてみたけど...
+  三行目は空白二つでインデントしてみた。
+
+五行目の前に空行を開けた (つまり四行目が空行)
+
+        ; columnMap = map:{
+            ; DB_COMMENT_NAME = map:{
+                # test of トリムされるのでいきなり改行して表現してみる
+                # その代わり改行後の一行目は(整形のための)インデントしないこと(トリムされるので)
+                ; description = 
++----------------------+
+|  java.util.Calendar  |
++----------------------+
+
+                 +------------------+
+                 |  java.util.Date  | <>---- long millis
+                 +------------------+  <-------------------+
+                          △                               |
+                          ｜                               |
+          +------------------------------+                 |
+          |                              |                 |
+ +--------------------+        +-------------------+       |
+ | java.sql.Timestamp |        |   java.sql.Date   |       |
+ +--------------------+        +-------------------+       |
+       DB:DATETIME                    DB:DATE  ------------+
+            }
+            ; DB_COMMENT_COUNT = map:{
+                # test of 紛らわしいコロン地獄
+                ; alias = DB:コメント:件数
+                ; description = : いきなりコロンで始まったり : 途中でコロンが入ったり
+            }
+        }
+    }
+}
+# ----------------/

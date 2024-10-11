@@ -307,7 +307,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Product()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -560,7 +560,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+         * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public ProductCB.HpSpecification specifyProduct() {

@@ -69,7 +69,7 @@ public abstract class BsProductCategoryDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} */
+    /** (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} */
     @JsonKey
     protected String _productCategoryCode;
 
@@ -193,8 +193,8 @@ public abstract class BsProductCategoryDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
-     * 自分のテーブルの別のレコードからも参照される。
+     * [get] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 商品カテゴリコード: 自分のテーブルの別のレコードからも参照される。
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public String getProductCategoryCode() {
@@ -202,8 +202,8 @@ public abstract class BsProductCategoryDto implements Serializable {
     }
 
     /**
-     * [set] (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
-     * 自分のテーブルの別のレコードからも参照される。
+     * [set] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 商品カテゴリコード: 自分のテーブルの別のレコードからも参照される。
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public void setProductCategoryCode(String productCategoryCode) {

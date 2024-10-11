@@ -100,7 +100,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param productCategoryCode (商品カテゴリコード): PK, NotNull, CHAR(3). (NotNull)
+     * @param productCategoryCode (眠い商品カテゴリーコードどん): PK, NotNull, CHAR(3). (NotNull)
      * @return this. (NotNull)
      */
     public ProductCategoryCB acceptPK(String productCategoryCode) {
@@ -333,7 +333,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
+         * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductCategoryCode() { return doColumn("PRODUCT_CATEGORY_CODE"); }
@@ -382,7 +382,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from PRODUCT where ...) as FOO_MAX} <br>
-         * (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
+         * (眠い商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     productCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

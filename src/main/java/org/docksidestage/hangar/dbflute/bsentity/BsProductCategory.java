@@ -80,7 +80,7 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} */
+    /** (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} */
     protected String _productCategoryCode;
 
     /** (商品カテゴリ名称)PRODUCT_CATEGORY_NAME: {NotNull, VARCHAR(50)} */
@@ -138,11 +138,11 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'. */
+    /** (眠い商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'. */
     protected List<Product> _productList;
 
     /**
-     * [get] (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
+     * [get] (眠い商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
      * @return The entity list of referrer property 'productList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Product> getProductList() {
@@ -151,7 +151,7 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
+     * [set] (眠い商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
      * @param productList The entity list of referrer property 'productList'. (NullAllowed)
      */
     public void setProductList(List<Product> productList) {
@@ -256,8 +256,8 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
-     * 自分のテーブルの別のレコードからも参照される。
+     * [get] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 商品カテゴリコード: 自分のテーブルの別のレコードからも参照される。
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductCategoryCode() {
@@ -266,8 +266,8 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
-     * 自分のテーブルの別のレコードからも参照される。
+     * [set] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
+     * 商品カテゴリコード: 自分のテーブルの別のレコードからも参照される。
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductCategoryCode(String productCategoryCode) {

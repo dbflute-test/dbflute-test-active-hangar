@@ -412,7 +412,7 @@ public abstract class BsProductStatusBhv extends org.docksidestage.hangar.dbflut
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
+     * (眠い商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productStatusList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
@@ -443,7 +443,7 @@ public abstract class BsProductStatusBhv extends org.docksidestage.hangar.dbflut
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
-     * (商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
+     * (眠い商品)PRODUCT by PRODUCT_STATUS_CODE, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productStatusBhv</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productStatus</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...

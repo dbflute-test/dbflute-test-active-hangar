@@ -84,7 +84,7 @@ public class WhiteDbCommentDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnDbCommentId = cci("DB_COMMENT_ID", "DB_COMMENT_ID", null, null, Long.class, "dbCommentId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDbCommentName = cci("DB_COMMENT_NAME", "DB_COMMENT_NAME", null, "DBコメント", String.class, "dbCommentName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, "カラムコメントのエスケープのテスト...\n_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/\no (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ \no (column)mapStyle, map:\\{ sea \\= mystic \\; land \\= oneman \\} エスケープされてても大丈夫？ \no (column)DBコメントで、ベタッと 'シングルクォーテーション' で囲うけど大丈夫？\no (column)DBコメントで、ベタッと <span>HTMLタグ</span> で囲うけど大丈夫？\no (column)DBコメントで、ベタッと &lt;HTMLエスケープ表現&gt; で囲うけど大丈夫？ (もともとSchemaHTML的にダメみたい!?)\no (column)あと、DBコメントは、\"JavaDoc\" でも使われるし、DBMetaで \"文字列リテラル\" で使われるけど大丈夫？\no (column)なので、@author jflute とか入ってても大丈夫？ あと、改行 \"\\n\" とか、エスケエスケ \"\\\\\" とか大丈夫？\n_/_/_/_/_/_/_/_/_/_/", null, null, null, false);
+    protected final ColumnInfo _columnDbCommentName = cci("DB_COMMENT_NAME", "DB_COMMENT_NAME", null, "DBコメント名", String.class, "dbCommentName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, "カラムコメントのエスケープのテスト...\n_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/\no (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ \no (column)mapStyle, map:\\{ sea \\= mystic \\; land \\= oneman \\} エスケープされてても大丈夫？ \no (column)DBコメントで、ベタッと 'シングルクォーテーション' で囲うけど大丈夫？\no (column)DBコメントで、ベタッと <span>HTMLタグ</span> で囲うけど大丈夫？\no (column)DBコメントで、ベタッと &lt;HTMLエスケープ表現&gt; で囲うけど大丈夫？ (もともとSchemaHTML的にダメみたい!?)\no (column)あと、DBコメントは、\"JavaDoc\" でも使われるし、DBMetaで \"文字列リテラル\" で使われるけど大丈夫？\no (column)なので、@author jflute とか入ってても大丈夫？ あと、改行 \"\\n\" とか、エスケエスケ \"\\\\\" とか大丈夫？\n_/_/_/_/_/_/_/_/_/_/", null, null, null, false);
 
     /**
      * DB_COMMENT_ID: {PK, NotNull, DECIMAL(16)}
@@ -92,7 +92,7 @@ public class WhiteDbCommentDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnDbCommentId() { return _columnDbCommentId; }
     /**
-     * (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
+     * (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDbCommentName() { return _columnDbCommentName; }

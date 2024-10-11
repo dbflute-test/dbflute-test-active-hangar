@@ -285,7 +285,7 @@ o (table)なので、@author jflute とか入ってても大丈夫？ あと、�
 _/_/_/_/_/_/_/_/_/_/
 ';
 
-comment on column WHITE_DB_COMMENT.DB_COMMENT_NAME is 'DBコメント: カラムコメントのエスケープのテスト...
+comment on column WHITE_DB_COMMENT.DB_COMMENT_NAME is 'DBコメント名: カラムコメントのエスケープのテスト...
 _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
 o (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ 
 o (column)mapStyle, map:\{ sea \= mystic \; land \= oneman \} エスケープされてても大丈夫？ 
@@ -296,6 +296,39 @@ o (column)あと、DBコメントは、"JavaDoc" でも使われるし、DBMeta�
 o (column)なので、@author jflute とか入ってても大丈夫？ あと、改行 "\n" とか、エスケエスケ "\\" とか大丈夫？
 _/_/_/_/_/_/_/_/_/_/
 ';
+
+CREATE TABLE WHITE_DB_COMMENT_ADDITIONAL (
+	DB_COMMENT_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	DB_COMMENT_NAME VARCHAR(200) NOT NULL,
+	DB_COMMENT_COUNT INTEGER NOT NULL,
+	DB_COMMENT_DATE DATE NOT NULL,
+	DB_COMMENT_DATETIME DATETIME NOT NULL
+);
+
+comment on table WHITE_DB_COMMENT_ADDITIONAL is 'DBコメント追加的: テーブルコメントのエスケープのテスト...
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+o (table)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ 
+o (table)mapStyle, map:\{ sea \= mystic \; land \= oneman \} エスケープされてても大丈夫？ 
+o (table)DBコメントで、ベタッと ''シングルクォーテーション'' で囲うけど大丈夫？
+o (table)DBコメントで、ベタッと <span>HTMLタグ</span> で囲うけど大丈夫？
+o (table)DBコメントで、ベタッと &lt;HTMLエスケープ表現&gt; で囲うけど大丈夫？ (もともとSchemaHTML的にダメみたい!?)
+o (table)あと、DBコメントは、"JavaDoc" でも使われるし、DBMetaで "文字列リテラル" で使われるけど大丈夫？
+o (table)なので、@author jflute とか入ってても大丈夫？ あと、改行 "\n" とか、エスケエスケ "\\" とか大丈夫？
+_/_/_/_/_/_/_/_/_/_/
+';
+
+comment on column WHITE_DB_COMMENT_ADDITIONAL.DB_COMMENT_NAME is 'DBコメント名: カラムコメントのエスケープのテスト...
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+o (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ 
+o (column)mapStyle, map:\{ sea \= mystic \; land \= oneman \} エスケープされてても大丈夫？ 
+o (column)DBコメントで、ベタッと ''シングルクォーテーション'' で囲うけど大丈夫？
+o (column)DBコメントで、ベタッと <span>HTMLタグ</span> で囲うけど大丈夫？
+o (column)DBコメントで、ベタッと &lt;HTMLエスケープ表現&gt; で囲うけど大丈夫？ (もともとSchemaHTML的にダメみたい!?)
+o (column)あと、DBコメントは、"JavaDoc" でも使われるし、DBMetaで "文字列リテラル" で使われるけど大丈夫？
+o (column)なので、@author jflute とか入ってても大丈夫？ あと、改行 "\n" とか、エスケエスケ "\\" とか大丈夫？
+_/_/_/_/_/_/_/_/_/_/
+';
+
 
 -- /= = = = = = = = = = = = = = = = = = = = =
 -- for the test of deprecated select-by-pk-uq

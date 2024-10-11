@@ -104,7 +104,7 @@ map:{
                 ; prefix:WHITE_BASE
                 ; WHITE_CLASSIFICATION_DEPLOYMENT
                 ; WHITE_DATE_TERM
-                ; WHITE_DB_COMMENT
+                ; prefix:WHITE_DB_COMMENT
                 ; WHITE_DEPRECATED_SELECT_BY_PKUQ
                 ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
                 # test of firstDate (WHITE_FIRST_DATE (with FIRST_DATE_NAME) is created at 2018/05/18)

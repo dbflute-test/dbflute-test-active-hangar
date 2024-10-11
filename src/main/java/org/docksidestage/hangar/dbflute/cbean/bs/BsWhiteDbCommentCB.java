@@ -307,7 +307,7 @@ public class BsWhiteDbCommentCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnDbCommentId() { return doColumn("DB_COMMENT_ID"); }
         /**
-         * (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
+         * (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDbCommentName() { return doColumn("DB_COMMENT_NAME"); }

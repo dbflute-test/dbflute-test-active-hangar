@@ -97,12 +97,12 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductCategoryCode = cci("PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", null, "商品カテゴリコード", String.class, "productCategoryCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, "自分のテーブルの別のレコードからも参照される。", null, "productList,productCategorySelfList", null, false);
+    protected final ColumnInfo _columnProductCategoryCode = cci("PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", null, "眠い商品カテゴリーコードどん", String.class, "productCategoryCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, "商品カテゴリコード: 自分のテーブルの別のレコードからも参照される。", null, "productList,productCategorySelfList", null, false);
     protected final ColumnInfo _columnProductCategoryName = cci("PRODUCT_CATEGORY_NAME", "PRODUCT_CATEGORY_NAME", null, "商品カテゴリ名称", String.class, "productCategoryName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnParentCategoryCode = cci("PARENT_CATEGORY_CODE", "PARENT_CATEGORY_CODE", null, "親カテゴリコード", String.class, "parentCategoryCode", null, false, false, false, "CHAR", 3, 0, null, null, false, null, "最上位の場合はデータなし。まさひく自己参照FKカラム！", "productCategorySelf", null, null, false);
 
     /**
-     * (商品カテゴリコード)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductCategoryCode() { return _columnProductCategoryCode; }
@@ -158,7 +158,7 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
+     * (眠い商品)PRODUCT by PRODUCT_CATEGORY_CODE, named 'productList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerProductList() {

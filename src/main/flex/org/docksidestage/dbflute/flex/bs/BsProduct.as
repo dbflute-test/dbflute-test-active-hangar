@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (商品)PRODUCT as TABLE.
+ * The flex DTO of (眠い商品)PRODUCT as TABLE.
  * <pre>
  * [primary-key]
  *     PRODUCT_ID

@@ -425,7 +425,7 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCQ queryProduct() {

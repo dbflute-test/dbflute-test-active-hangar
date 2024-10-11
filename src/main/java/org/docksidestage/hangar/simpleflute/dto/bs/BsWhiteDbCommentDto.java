@@ -81,7 +81,7 @@ public abstract class BsWhiteDbCommentDto implements Serializable {
     @JsonKey
     protected Long _dbCommentId;
 
-    /** (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} */
+    /** (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} */
     @JsonKey
     protected String _dbCommentName;
 
@@ -181,7 +181,7 @@ public abstract class BsWhiteDbCommentDto implements Serializable {
     }
 
     /**
-     * [get] (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
+     * [get] (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
      * カラムコメントのエスケープのテスト...<br>
      * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/<br>
      * o (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ <br>
@@ -199,7 +199,7 @@ public abstract class BsWhiteDbCommentDto implements Serializable {
     }
 
     /**
-     * [set] (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
+     * [set] (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)} <br>
      * カラムコメントのエスケープのテスト...<br>
      * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/<br>
      * o (column)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ <br>

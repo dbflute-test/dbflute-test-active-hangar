@@ -323,6 +323,11 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteDbCommentBhv.class).toInstance(bhv);
         }
         {
+            WhiteDbCommentAdditionalBhv bhv = new WhiteDbCommentAdditionalBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteDbCommentAdditionalBhv.class).toInstance(bhv);
+        }
+        {
             WhiteDeprecatedSelectByPkuqBhv bhv = new WhiteDeprecatedSelectByPkuqBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteDeprecatedSelectByPkuqBhv.class).toInstance(bhv);

@@ -116,14 +116,14 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
+     * (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteDbCommentCQ addOrderBy_DbCommentName_Asc() { regOBA("DB_COMMENT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (DBコメント)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
+     * (DBコメント名)DB_COMMENT_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteDbCommentCQ addOrderBy_DbCommentName_Desc() { regOBD("DB_COMMENT_NAME"); return this; }

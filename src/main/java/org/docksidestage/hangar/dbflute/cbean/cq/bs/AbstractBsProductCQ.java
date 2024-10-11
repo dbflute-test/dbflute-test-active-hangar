@@ -421,7 +421,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
      * @param productCategoryCode The value of productCategoryCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductCategoryCode_Equal(String productCategoryCode) {
@@ -434,7 +434,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
      * @param productCategoryCode The value of productCategoryCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductCategoryCode_NotEqual(String productCategoryCode) {
@@ -447,7 +447,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
      * @param productCategoryCodeList The collection of productCategoryCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
@@ -460,7 +460,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
      * @param productCategoryCodeList The collection of productCategoryCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
@@ -473,7 +473,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
      * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productCategoryCode The value of productCategoryCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -484,7 +484,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
      * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productCategoryCode The value of productCategoryCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -496,7 +496,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
      * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -507,7 +507,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
+     * (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY}
      * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -663,7 +663,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPrice The value of regularPrice as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegularPrice_Equal(Integer regularPrice) {
@@ -676,7 +676,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPrice The value of regularPrice as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegularPrice_NotEqual(Integer regularPrice) {
@@ -689,7 +689,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPrice The value of regularPrice as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegularPrice_GreaterThan(Integer regularPrice) {
@@ -698,7 +698,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPrice The value of regularPrice as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegularPrice_LessThan(Integer regularPrice) {
@@ -707,7 +707,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPrice The value of regularPrice as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegularPrice_GreaterEqual(Integer regularPrice) {
@@ -716,7 +716,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPrice The value of regularPrice as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegularPrice_LessEqual(Integer regularPrice) {
@@ -727,7 +727,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param minNumber The min number of regularPrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of regularPrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -740,7 +740,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param minNumber The min number of regularPrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of regularPrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -751,7 +751,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPriceList The collection of regularPrice as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegularPrice_InScope(Collection<Integer> regularPriceList) {
@@ -764,7 +764,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
+     * (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)}
      * @param regularPriceList The collection of regularPrice as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegularPrice_NotInScope(Collection<Integer> regularPriceList) {

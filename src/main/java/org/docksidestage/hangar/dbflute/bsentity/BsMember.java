@@ -30,6 +30,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of (会員)MEMBER as TABLE. <br>
+ * 眠いときは寝た方が良い。<br>
  * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
  * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
  * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
@@ -743,6 +744,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [get] (生年月日)BIRTHDATE: {DATE(10)} <br>
+     * お腹が空いたら食べた方が良い。<br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
@@ -753,6 +755,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (生年月日)BIRTHDATE: {DATE(10)} <br>
+     * お腹が空いたら食べた方が良い。<br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
