@@ -50,13 +50,29 @@ map:{
 ある程度はjfluteのDB設計スタイルでありながら、exampleなので割り切ってるところも多い。
 DBFluteの自動生成のテストのために、色々なパターンを入れているというのもあり。
     }
+    ; $$ALL$$ = map:{
+        ; columnMap = map:{
+            ; REGISTER_DATETIME = map:{
+                ; alias = 登録日時
+            }
+            ; REGISTER_USER = map:{
+                ; description = 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
+            }
+            ; UPDATE_DATETIME = map:{
+                ; alias = 更新日時 ; description = 眠いときは眠いと言おう。
+            }
+            # test of カラムのmapを作っていて何にもないとき
+            ; VERSION_NO = map:{
+            }
+        }
+    }
     ; MEMBER = map:{
         # test of 説明を追加
         ; description = 眠いときは寝た方が良い。
         ; columnMap = map:{
             ; BIRTHDATE = map:{
                 ; description = お腹が空いたら食べた方が良い。
-            } 
+            }
         }
     }
     ; PRODUCT = map:{
@@ -72,6 +88,12 @@ DBFluteの自動生成のテストのために、色々なパターンを入れ�
                 # 別名を上書き (説明なしだけどここで追加)
                 ; alias = 眠い定価
                 ; description = 眠いよぅ眠いよぅ。
+            }
+            # test of ALLを上書きしてみる
+            ; UPDATE_DATETIME = map:{
+                # aliasは上書きするとSchemaPolicyに怒られるのでそこいいや
+                #; alias = 眠すぎる日時
+                ; description = ALL設定を上書きしてみる
             }
         }
     }
