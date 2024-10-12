@@ -1,0 +1,19 @@
+map:{
+    ; $$ALL$$ = map:{
+        ; columnMap = map:{
+            ; REGISTER_DATETIME = map:{
+                ; alias = 登録日時
+            }
+            ; REGISTER_USER = map:{
+                ; description = 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
+            }
+            ; UPDATE_DATETIME = map:{
+                ; alias = 更新日時 ; description = 眠いときは眠いと言おう。
+            }
+            # test of カラムのmapを作っていて何にもないとき
+            ; VERSION_NO = map:{
+            }
+        }
+    }
+}
+# ----------------/
