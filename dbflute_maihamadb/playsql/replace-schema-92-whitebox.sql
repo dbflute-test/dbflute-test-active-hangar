@@ -358,6 +358,17 @@ CREATE TABLE WHITE_FIRST_DATE (
 	ADDED_AT_TABLE_SAME_DATE DATE NOT NULL
 );
 
+-- /= = = = = = = = = = = =
+-- for the test of NotNull
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_NOT_NULL (
+	NOT_NULL_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	NOT_NULL_NAME VARCHAR(200) NOT NULL,
+	NOT_NULL_COUNT INTEGER,
+	NOT_NULL_DATE DATE,
+	NOT_NULL_DATETIME DATETIME
+);
+
 -- /= = = = = = = = = = = = = = = = = = = = =
 -- for the test of various
 -- = = = = = = = = = =/

@@ -330,6 +330,12 @@ public class MessagesAndDatabase implements Serializable {
     //  - FIRST_DATE_ID
     //  - FIRST_DATE_NAME
     //  - ADDED_AT_TABLE_SAME_DATE
+    // WHITE_NOT_NULL
+    //  - NOT_NULL_ID
+    //  - NOT_NULL_NAME
+    //  - NOT_NULL_COUNT
+    //  - NOT_NULL_DATE
+    //  - NOT_NULL_DATETIME
     // WHITE_ON_PARADE
     //  - ON_PARADE_ID
     //  - ON_PARADE_NAME

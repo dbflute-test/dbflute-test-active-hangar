@@ -109,6 +109,7 @@ map:{
                 ; WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN
                 # test of firstDate (WHITE_FIRST_DATE (with FIRST_DATE_NAME) is created at 2018/05/18)
                 #; WHITE_FIRST_DATE
+                ; WHITE_NOT_NULL
                 ; prefix:WHITE_ON_PARADE
                 ; WHITE_SCHEMA_DIFF
                 ; WHITE_SIMPLE_DTO_EXCEPT

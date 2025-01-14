@@ -1,0 +1,32 @@
+# /---------------------------------------------------------------------------
+# additionalNotNullMap: (NotRequired - Default 'map:{}')
+#
+# Example:
+# map:{
+#     ; MEMBER = map:{
+#         ; columnMap = map:{
+#             ; BIRTHDATE = map:{ nuance = business }
+#             ; FORMALIZED_DATETIME = map:{ nuance = maybe }
+#         }
+#     }
+# }
+# 
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    ; WHITE_NOT_NULL = map:{
+        ; columnMap = map:{
+            # test of originally notnull (this is ignored)
+            ; NOT_NULL_NAME = map:{ nuance = business }
+
+            # test of additional notnull
+            ; NOT_NULL_COUNT = map:{ nuance = business }
+            ; NOT_NULL_DATE = map:{ nuance = maybe }
+
+            # test of illegal
+            #; NOT_NULL_DATETIME = map:{}
+            #; NOT_NULL_DATETIME = map:{ nuance = sea }
+        }
+    }
+}
+# ----------------/
