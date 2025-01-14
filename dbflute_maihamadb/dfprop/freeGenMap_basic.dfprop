@@ -142,4 +142,21 @@ map:{
             }
         }
     }
+
+    # ====================================================================================
+    #                                                                       Empty Resource
+    #                                                                       ==============
+    ; EmptyResourceBasicSingleGen = map:{
+        ; resourceMap = map:{
+            ; resourceType = EMPTY
+        }
+        ; outputMap = map:{
+            ; outputDirectory = ../src/main/java
+            ; package = org.docksidestage.hangar.freeflute.basic.emptyresource
+            ; templateFile = basic/emptyresource/AnythingEmptyResource.vm
+            ; className = EmptyResourceFreeGen
+        }
+        ; optionMap = map:{
+        }
+    }
 }
