@@ -84,6 +84,21 @@ public class ResolaDBFluteModule extends AbstractModule {
 
     protected void setupBehavior(BehaviorCommandInvoker ker, BehaviorSelector tor, CommonColumnAutoSetupper per) {
         {
+            ResolaMemberBhv bhv = new ResolaMemberBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(ResolaMemberBhv.class).toInstance(bhv);
+        }
+        {
+            ResolaMemberSecurityBhv bhv = new ResolaMemberSecurityBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(ResolaMemberSecurityBhv.class).toInstance(bhv);
+        }
+        {
+            ResolaPurchaseBhv bhv = new ResolaPurchaseBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(ResolaPurchaseBhv.class).toInstance(bhv);
+        }
+        {
             ResolaStationBhv bhv = new ResolaStationBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(ResolaStationBhv.class).toInstance(bhv);

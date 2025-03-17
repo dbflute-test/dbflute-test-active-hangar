@@ -46,6 +46,9 @@ public class ResolaDBMetaInstanceHandler implements DBMetaProvider {
     protected static final Map<String, String> _tableDbNameClassNameMap;
     static {
         final Map<String, String> tmpMap = newHashMap();
+        tmpMap.put("MEMBER", "org.docksidestage.hangar.dbflute.resola.bsentity.dbmeta.ResolaMemberDbm");
+        tmpMap.put("MEMBER_SECURITY", "org.docksidestage.hangar.dbflute.resola.bsentity.dbmeta.ResolaMemberSecurityDbm");
+        tmpMap.put("PURCHASE", "org.docksidestage.hangar.dbflute.resola.bsentity.dbmeta.ResolaPurchaseDbm");
         tmpMap.put("STATION", "org.docksidestage.hangar.dbflute.resola.bsentity.dbmeta.ResolaStationDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }
