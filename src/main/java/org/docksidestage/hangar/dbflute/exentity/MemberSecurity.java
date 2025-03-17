@@ -15,13 +15,28 @@
  */
 package org.docksidestage.hangar.dbflute.exentity;
 
+import org.dbflute.optional.OptionalEntity;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMemberSecurity;
 
 /**
  * The entity of MEMBER_SECURITY.
  * @author DBFlute(AutoGenerator)
+ * @author jflute
  */
-public class MemberSecurity extends org.docksidestage.hangar.dbflute.bsentity.BsMemberSecurity {
+public class MemberSecurity extends org.docksidestage.hangar.dbflute.bsentity.BsMemberSecurity implements UnifiedMemberSecurity {
 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
+
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    // -----------------------------------------------------
+    //                                  Unified Relationship
+    //                                  --------------------
+    @Override
+    public OptionalEntity<? extends UnifiedMember> getUnifiedMember() {
+        return getMember();
+    }
 }

@@ -15,6 +15,9 @@
  */
 package org.docksidestage.hangar.dbflute.resola.exentity;
 
+import org.dbflute.optional.OptionalEntity;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMemberSecurity;
 import org.docksidestage.hangar.dbflute.resola.bsentity.ResolaBsMemberSecurity;
 
 /**
@@ -24,9 +27,15 @@ import org.docksidestage.hangar.dbflute.resola.bsentity.ResolaBsMemberSecurity;
  * This class remains when re-generating.
  * </p>
  * @author DBFlute(AutoGenerator)
+ * @author jflute
  */
-public class ResolaMemberSecurity extends ResolaBsMemberSecurity {
+public class ResolaMemberSecurity extends ResolaBsMemberSecurity implements UnifiedMemberSecurity {
 
     /** The serial version UID for object serialization. (Default) */
     private static final long serialVersionUID = 1L;
+
+    @Override
+    public OptionalEntity<? extends UnifiedMember> getUnifiedMember() {
+        return getMember();
+    }
 }

@@ -17,11 +17,16 @@ package org.docksidestage.hangar.dbflute.exentity;
 
 import java.time.LocalDateTime;
 
+import org.dbflute.optional.OptionalEntity;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMemberSecurity;
+
 /**
  * The entity of MEMBER.
  * @author DBFlute(AutoGenerator)
+ * @author jflute
  */
-public class Member extends org.docksidestage.hangar.dbflute.bsentity.BsMember {
+public class Member extends org.docksidestage.hangar.dbflute.bsentity.BsMember implements UnifiedMember {
 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
@@ -114,5 +119,13 @@ public class Member extends org.docksidestage.hangar.dbflute.bsentity.BsMember {
      */
     public void setPropTotalPaymentAmount(Integer propTotalPaymentAmount) {
         _propTotalPaymentAmount = propTotalPaymentAmount;
+    }
+
+    // -----------------------------------------------------
+    //                                  Unified Relationship
+    //                                  --------------------
+    @Override
+    public OptionalEntity<? extends UnifiedMemberSecurity> getUnifiedMemberSecurityAsOne() {
+        return getMemberSecurityAsOne();
     }
 }
