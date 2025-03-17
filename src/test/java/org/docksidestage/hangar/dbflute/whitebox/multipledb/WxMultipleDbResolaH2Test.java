@@ -1,30 +1,24 @@
 package org.docksidestage.hangar.dbflute.whitebox.multipledb;
 
-import java.util.List;
-
 import org.dbflute.bhv.BehaviorSelector;
 import org.dbflute.hook.CommonColumnAutoSetupper;
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.allcommon.ImplementedBehaviorSelector;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.dbflute.exbhv.pmbean.SimpleMemberPmb;
-import org.docksidestage.hangar.dbflute.resola.allcommon.ResolaDBFluteModule;
 import org.docksidestage.hangar.dbflute.resola.allcommon.ResolaImplementedBehaviorSelector;
 import org.docksidestage.hangar.dbflute.resola.allcommon.ResolaImplementedCommonColumnAutoSetupper;
 import org.docksidestage.hangar.dbflute.resola.exbhv.ResolaStationBhv;
 import org.docksidestage.hangar.dbflute.resola.exentity.ResolaStation;
-import org.docksidestage.hangar.unit.UnitContainerTestCase;
-import org.docksidestage.hangar.unit.db.ResortlineDbArranger;
+import org.docksidestage.hangar.dbflute.whitebox.multipledb.base.UnitContainerMultipleDbTestCase;
 
-import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-import com.google.inject.Module;
 import com.google.inject.name.Named;
 
 /**
  * @author jflute
  */
-public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also test multipleDb on Guice
+public class WxMultipleDbResolaH2Test extends UnitContainerMultipleDbTestCase { // also test multipleDb on Guice
 
     // ===================================================================================
     //                                                                           Attribute
@@ -44,33 +38,6 @@ public class WxMultipleDbResolaH2Test extends UnitContainerTestCase { // also te
 
     @Inject
     private MockUsingRuntimeComponent mockUsingRuntimeComponent;
-
-    // ===================================================================================
-    //                                                                            Settings
-    //                                                                            ========
-    @Override
-    protected boolean isUseOneTimeContainer() {
-        return true; // for batch execution
-    }
-
-    @Override
-    protected List<Module> prepareModuleList() {
-        List<Module> moduleList = super.prepareModuleList();
-        moduleList.add(new ResolaDBFluteModule(new ResortlineDbArranger().createDataSource()));
-        moduleList.add(new AbstractModule() {
-            @Override
-            protected void configure() {
-                bind(MockUsingRuntimeComponent.class).toInstance(new MockUsingRuntimeComponent());
-            }
-        });
-        return moduleList;
-    }
-
-    @Override
-    protected void xdestroyContainer() {
-        super.xdestroyContainer();
-        xclearAtomikosResourceIfExists(new ResortlineDbArranger().getUniqueResourceName());
-    }
 
     // ===================================================================================
     //                                                                              Access
