@@ -10,8 +10,8 @@ create table STATION(
 
 
 
--- test of backup way by other schema
--- (only part of MEMBER table's relationships are backup target)
+-- test of split way by other schema
+-- (only part of MEMBER table's relationships are split target)
 
 create table MEMBER(
     MEMBER_ID INTEGER IDENTITY NOT NULL PRIMARY KEY,

@@ -1,0 +1,11 @@
+
+* * * * * * * * * *
+*                 *
+* Tsv Data Result *
+*                 *
+* * * * * * * * * *
+data-directory: playsql/data/ut/tsv/UTF-8
+
+reverse_06_01-MEMBER.tsv (20)
+reverse_06_05-MEMBER_SECURITY.tsv (20)
+reverse_07_01-PURCHASE.tsv (70)
