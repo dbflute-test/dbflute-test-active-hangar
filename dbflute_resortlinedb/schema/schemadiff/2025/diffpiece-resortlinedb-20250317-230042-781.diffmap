@@ -1,0 +1,25 @@
+map:{
+    ; 2025/03/17 23:00:42.781 = map:{
+        ; diffDate = 2025/03/17 23:00:42.781
+        ; tableCount = map:{
+            ; next = 4
+            ; previous = 1
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; MEMBER = map:{
+                ; tableName = MEMBER
+                ; diffType = ADD
+            }
+            ; MEMBER_SECURITY = map:{
+                ; tableName = MEMBER_SECURITY
+                ; diffType = ADD
+            }
+            ; PURCHASE = map:{
+                ; tableName = PURCHASE
+                ; diffType = ADD
+            }
+        }
+    }
+}
