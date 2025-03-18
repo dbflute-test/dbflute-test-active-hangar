@@ -2,6 +2,8 @@ package org.docksidestage.hangar.dbflute.whitebox.multipledb.splitway;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.optional.OptionalEntity;
@@ -113,13 +115,20 @@ public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
             String memberStatusCode = member.getMemberStatusCode();
             return CDef.MemberStatus.of(memberStatusCode).orElseThrow(); // 絶対にズレてないこと前提
         });
-        memberStatusBhv.selectList(cb -> { // 関連するものだけ引いて...
+
+        // 関連するstatusだけ検索してきて...
+        Map<String, MemberStatus> statusMap = memberStatusBhv.selectList(cb -> {
             cb.query().setMemberStatusCode_InScope_AsMemberStatus(cdefList);
-        }).forEach(status -> {
-            for (ResolaMember member : memberList) { // 関連付ける
-                member.setMemberStatus(OptionalEntity.of(status));
+        }).stream().collect(Collectors.toMap(mb -> mb.getMemberStatusCode(), mb -> mb));
+
+        // 会員一覧にstatusを関連付ける
+        for (ResolaMember member : memberList) {
+            MemberStatus status = statusMap.get(member.getMemberStatusCode());
+            if (status == null) { // 絶対に存在するはず
+                throw new IllegalStateException("Not found the status: " + member.getMemberStatusCode());
             }
-        });
+            member.setMemberStatus(OptionalEntity.of(status));
+        }
     }
 
     private void mappingToResult(List<? extends UnifiedMember> memberList) {
