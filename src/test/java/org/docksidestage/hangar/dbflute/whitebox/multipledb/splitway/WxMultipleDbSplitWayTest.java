@@ -47,13 +47,15 @@ import com.google.inject.Inject;
  *  i MEMBER_SECURITY は join できる
  * </pre>
  * 
- * <pre>統合interfaceの作り方: (とりあえず MEMBER と MEMBER_SECURITY のみを対象に)
+ * <pre>統合interfaceの作り方:
+ * (ここでの説明は、MEMBER と MEMBER_SECURITY のみ分離されていると想定した場合)
  * 1. 本家スキーマのdbflute package配下に "nogen" package を作って...
- * 2. UnifiedMember.java, UnifiedMemberSecurity.java を作成する
- * 3. WxUnifiedInterfaceMakingTest.java を実行してログからgetterをコピーして貼り付ける
- * 4. Exクラスの Member.java, ResolaMember.java, (securityも) にて implements する
+ * 2. UnifiedMember.java, UnifiedMemberSecurity.java を作成する (この時点ではメソッドは空っぽ)
+ * 3. Exクラスの Member.java, ResolaMember.java, (securityも) にて implements する
+ * 4. WxUnifiedInterfaceMakingTest.java を実行してログからgetterをコピーして貼り付ける
  * 5. コンパイルエラーになるメソッドを実装、かつ、分離されたリレーションシップを埋める実装をResola側に実装
  * (exampleのコードを参考に)
+ * #for_now まだ one-to-many を試してない。Purchase入れたらちょっと変わるかも by jflute (2025/03/20)
  * </pre>
  * 
  * <pre>統合interfaceを使った検索のexample:
