@@ -16,6 +16,7 @@
 package org.docksidestage.hangar.dbflute.resola.exentity;
 
 import org.dbflute.optional.OptionalEntity;
+import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.MemberAddress;
 import org.docksidestage.hangar.dbflute.exentity.MemberService;
 import org.docksidestage.hangar.dbflute.exentity.MemberStatus;
@@ -99,6 +100,14 @@ public class ResolaMember extends ResolaBsMember implements UnifiedMember {
 
     public void setMemberWithdrawalAsOne(OptionalEntity<MemberWithdrawal> memberWithdrawalAsOne) {
         _memberWithdrawalAsOne = memberWithdrawalAsOne;
+    }
+
+    // -----------------------------------------------------
+    //                                Unified Classification
+    //                                ----------------------
+    @Override
+    public CDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
+        return CDef.MemberStatus.of(getMemberStatusCode()).orElseThrow();
     }
 
     // -----------------------------------------------------

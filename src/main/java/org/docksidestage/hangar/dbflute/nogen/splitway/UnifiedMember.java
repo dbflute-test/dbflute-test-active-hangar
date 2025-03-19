@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.dbflute.optional.OptionalEntity;
+import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.MemberAddress;
 import org.docksidestage.hangar.dbflute.exentity.MemberService;
 import org.docksidestage.hangar.dbflute.exentity.MemberStatus;
@@ -58,7 +59,7 @@ public interface UnifiedMember extends UnifiedEntity {
      * ステータスが変わるたびに、このカラムが更新される。
      * @return The value of the column 'MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
-    String getMemberStatusCode();
+    CDef.MemberStatus getMemberStatusCodeAsMemberStatus();
 
     /**
      * 正式会員日時: TIMESTAMP(26) null allowed <br>
@@ -118,6 +119,15 @@ public interface UnifiedMember extends UnifiedEntity {
     Long getVersionNo();
 
     /**
+     * 会員ステータス: 会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！ <br>
+     * 業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。 <br>
+     *  <br>
+     * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。
+     * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    OptionalEntity<MemberStatus> getMemberStatus();
+
+    /**
      * 会員住所情報: 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。 <br>
      * 会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！ <br>
      * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0..1" である。
@@ -153,13 +163,4 @@ public interface UnifiedMember extends UnifiedEntity {
      * @return The entity of foreign property 'memberWithdrawalAsOne'. (NotNull, EmptyAllowed: when e.g. no data, no setupSelect)
      */
     OptionalEntity<MemberWithdrawal> getMemberWithdrawalAsOne();
-
-    /**
-     * 会員ステータス: 会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！ <br>
-     * 業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。 <br>
-     *  <br>
-     * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。
-     * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
-     */
-    OptionalEntity<MemberStatus> getMemberStatus();
 }

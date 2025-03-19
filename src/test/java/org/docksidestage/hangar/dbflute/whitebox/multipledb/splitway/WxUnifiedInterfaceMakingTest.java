@@ -6,8 +6,10 @@ import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.info.ColumnInfo;
 import org.dbflute.dbmeta.info.ForeignInfo;
+import org.dbflute.jdbc.ClassificationMeta;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.Srl;
+import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.MemberSecurityDbm;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedEntity;
@@ -120,8 +122,20 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
 
             // method definition
             sb.append(indent);
-            sb.append(columnInfo.getPropertyAccessType().getSimpleName()); // return type
-            sb.append(" get").append(Srl.initCap(columnInfo.getPropertyName())).append("();");
+            ClassificationMeta classificationMeta = columnInfo.getClassificationMeta();
+            if (classificationMeta != null) { // means classification column
+                // e.g. CDef.MemberStatus getMemberStatusCodeAsMemberStatus();
+                String classificationName = classificationMeta.classificationName();
+                sb.append(CDef.class.getSimpleName()).append(".").append(classificationName); // return type
+                sb.append(" get").append(Srl.initCap(columnInfo.getPropertyName()));
+                sb.append("As").append(classificationName); // classification suffix
+                sb.append("();");
+            } else {
+                // e.g. String getMemberName();
+                sb.append(columnInfo.getPropertyAccessType().getSimpleName()); // return type
+                sb.append(" get").append(Srl.initCap(columnInfo.getPropertyName()));
+                sb.append("();");
+            }
             sb.append(ln());
         }
     }
