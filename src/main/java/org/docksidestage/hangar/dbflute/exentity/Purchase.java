@@ -15,8 +15,11 @@
  */
 package org.docksidestage.hangar.dbflute.exentity;
 
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.bsentity.BsPurchase;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.PurchaseDbm;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedPurchase;
 
 /**
  * The entity of PURCHASE.
@@ -27,7 +30,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.PurchaseDbm;
  * @author DBFlute(AutoGenerator)
  * @author jflute
  */
-public class Purchase extends BsPurchase {
+public class Purchase extends BsPurchase implements UnifiedPurchase {
 
     /** Serial version UID. (Default) */
     private static final long serialVersionUID = 1L;
@@ -38,5 +41,16 @@ public class Purchase extends BsPurchase {
     public void xznocheckSetPaymentCompleteFlg(Integer flg) {
         registerModifiedProperty(PurchaseDbm.getInstance().columnPaymentCompleteFlg().getPropertyName());
         _paymentCompleteFlg = flg;
+    }
+
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    // -----------------------------------------------------
+    //                                  Unified Relationship
+    //                                  --------------------
+    @Override
+    public OptionalEntity<? extends UnifiedMember> getUnifiedMember() {
+        return getMember();
     }
 }

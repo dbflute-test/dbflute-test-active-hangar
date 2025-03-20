@@ -5,17 +5,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.annotation.Resource;
+
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exbhv.MemberBhv;
 import org.docksidestage.hangar.dbflute.exbhv.MemberStatusBhv;
+import org.docksidestage.hangar.dbflute.exbhv.ProductBhv;
 import org.docksidestage.hangar.dbflute.exentity.Member;
 import org.docksidestage.hangar.dbflute.exentity.MemberStatus;
+import org.docksidestage.hangar.dbflute.exentity.Product;
+import org.docksidestage.hangar.dbflute.exentity.PurchasePayment;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMemberSecurity;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedPurchase;
 import org.docksidestage.hangar.dbflute.resola.exbhv.ResolaMemberBhv;
 import org.docksidestage.hangar.dbflute.resola.exentity.ResolaMember;
+import org.docksidestage.hangar.dbflute.resola.exentity.ResolaPurchase;
 import org.docksidestage.hangar.dbflute.whitebox.multipledb.base.UnitContainerMultipleDbTestCase;
 
 import com.google.inject.Inject;
@@ -48,14 +55,13 @@ import com.google.inject.Inject;
  * </pre>
  * 
  * <pre>統合interfaceの作り方:
- * (ここでの説明は、MEMBER と MEMBER_SECURITY のみ分離されていると想定した場合)
+ * (ここでの説明は、MEMBER と MEMBER_SECURITY と PURCHASE のみ分離されていると想定した場合)
  * 1. 本家スキーマのdbflute package配下に "nogen" package を作って...
- * 2. UnifiedMember.java, UnifiedMemberSecurity.java を作成する (この時点ではメソッドは空っぽ)
- * 3. Exクラスの Member.java, ResolaMember.java, (securityも) にて implements する
+ * 2. UnifiedMember.java, UnifiedMemberSecurity.java, UnifiedPurchase.java を作成する (ひとまずメソッドなし)
+ * 3. Exクラスの Member.java, ResolaMember.java, (security と purchase も同じく) にて implements する
  * 4. WxUnifiedInterfaceMakingTest.java を実行してログからgetterをコピーして貼り付ける
- * 5. コンパイルエラーになるメソッドを実装、かつ、分離されたリレーションシップを埋める実装をResola側に実装
+ * 5. とにかくコンパイルエラーになるメソッドを実装 (主にはResola側Entityで分離のギャップを埋める)
  * (exampleのコードを参考に)
- * #for_now まだ one-to-many を試してない。Purchase入れたらちょっと変わるかも by jflute (2025/03/20)
  * </pre>
  * 
  * <pre>統合interfaceを使った検索のexample:
@@ -71,12 +77,21 @@ public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    // -----------------------------------------------------
+    //                                           Split Table
+    //                                           -----------
     @Inject
     private MemberBhv memberBhv;
     @Inject
-    private MemberStatusBhv memberStatusBhv;
-    @Inject
     private ResolaMemberBhv resolaMemberBhv;
+
+    // -----------------------------------------------------
+    //                                   Broken Relationship
+    //                                   -------------------
+    @Inject
+    private MemberStatusBhv memberStatusBhv;
+    @Resource
+    private ProductBhv productBhv;
 
     // ===================================================================================
     //                                                                      Unified Select
@@ -89,6 +104,16 @@ public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
             cb.setupSelect_MemberStatus();
             cb.setupSelect_MemberSecurityAsOne();
         });
+        memberBhv.load(memberList, memberLoader -> {
+            memberLoader.loadPurchase(purchaseCB -> {
+                purchaseCB.setupSelect_Product();
+                purchaseCB.query().addOrderBy_PurchaseDatetime_Desc();
+            }).withNestedReferrer(purchaseLoader -> {
+                purchaseLoader.loadPurchasePayment(paymentCB -> {
+                    paymentCB.query().addOrderBy_PaymentDatetime_Desc();
+                });
+            });
+        });
 
         // ## Assert ##
         mappingToResult(memberList);
@@ -99,18 +124,35 @@ public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
 
         // ## Act ##
         ListResultBean<ResolaMember> memberList = resolaMemberBhv.selectList(cb -> {
+            // MEMBER_STATUSはSplitスキーマ側に存在しないので呼べない
+            //cb.setupSelect_MemberStatus();
             cb.setupSelect_MemberSecurityAsOne();
         });
-        joinMemberStatus(memberList); // setupSelect_MemberStatus()の代わり
+        loadMemberStatus(memberList); // setupSelect_MemberStatus()の代わり
+        resolaMemberBhv.loadPurchase(memberList, purchaseCB -> {
+            // PRODUCTはSplitスキーマ側に存在しないので呼べない
+            //purchaseCB.setupSelect_Product();
+            purchaseCB.query().addOrderBy_PurchaseDatetime_Desc();
+        }).withNestedReferrer(purchaseList -> {
+            loadProduct(purchaseList); // setupSelect_Product()の代わり
+
+            // #for_now jflute 型違いで呼べない。ただ、親がsplitされてるのに子がsplitされていないって考えにくい？ (2025/03/20)
+            // (FK参照的に本家スキーマ側で不整合が起きるので、やはりありえないと思われるのでここは気にしなくて良さそう)
+            //purchaseBhv.loadPurchasePayment(purchaseList, paymentCB -> {
+            //    paymentCB.query().addOrderBy_PaymentDatetime_Desc();
+            //});
+        });
 
         // ## Assert ##
         mappingToResult(memberList);
     }
 
     // ===================================================================================
-    //                                                                        Assist Logic
-    //                                                                        ============
-    private void joinMemberStatus(ListResultBean<ResolaMember> memberList) {
+    //                                                                          Load Honke
+    //                                                                          ==========
+    // #for_now jflute load本家、ちょっと頑張れば自動化できそうだけど... (2025/03/20)
+    private void loadMemberStatus(ListResultBean<ResolaMember> memberList) {
+        // 会員一覧が持っている会員ステータスコードの一覧を取得 (検索用)
         // split側にはMemberStatusの区分値が存在しないので、codeで変換するしかない。
         // (split側で区分値定義すると定義が冗長になるので)
         List<CDef.MemberStatus> cdefList = memberList.extractColumnList(member -> {
@@ -118,21 +160,45 @@ public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
             return CDef.MemberStatus.of(memberStatusCode).orElseThrow(); // 絶対にズレてないこと前提
         });
 
-        // 関連するstatusだけ検索してきて...
+        // 関連する会員ステータスだけ検索してきて...
         Map<String, MemberStatus> statusMap = memberStatusBhv.selectList(cb -> {
             cb.query().setMemberStatusCode_InScope_AsMemberStatus(cdefList);
         }).stream().collect(Collectors.toMap(mb -> mb.getMemberStatusCode(), mb -> mb));
 
-        // 会員一覧にstatusを関連付ける
+        // 会員一覧に会員ステータスを関連付ける
         for (ResolaMember member : memberList) {
             MemberStatus status = statusMap.get(member.getMemberStatusCode());
-            if (status == null) { // 絶対に存在するはず
-                throw new IllegalStateException("Not found the status: " + member.getMemberStatusCode());
+            if (status == null) { // 業務的に必ず存在するはず
+                throw new IllegalStateException("Not found the status: member=" + member);
             }
             member.setMemberStatus(OptionalEntity.of(status));
         }
     }
 
+    private void loadProduct(List<ResolaPurchase> purchaseList) {
+        // 購入一覧が持っている商品IDの一覧を取得 (検索用)
+        List<Integer> productIdList = purchaseList.stream().map(pur -> {
+            return pur.getProductId();
+        }).distinct().collect(Collectors.toList());
+
+        // 関連する商品だけ検索してきて...
+        Map<Integer, Product> productMap = productBhv.selectList(cb -> {
+            cb.query().setProductId_InScope(productIdList);
+        }).stream().collect(Collectors.toMap(bean -> bean.getProductId(), bean -> bean));
+
+        // 購入一覧に商品を関連付ける
+        for (ResolaPurchase purchase : purchaseList) {
+            Product product = productMap.get(purchase.getProductId()); // 業務的に必ず存在するはず
+            if (product == null) { // 業務的に必ず存在するはず
+                throw new IllegalStateException("Not found the product: purchase=" + purchase);
+            }
+            purchase.setProduct(OptionalEntity.of(product));
+        }
+    }
+
+    // ===================================================================================
+    //                                                                             Mapping
+    //                                                                             =======
     private void mappingToResult(List<? extends UnifiedMember> memberList) {
         for (UnifiedMember member : memberList) {
             String memberName = member.getMemberName();
@@ -140,8 +206,20 @@ public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
             MemberStatus status = member.getMemberStatus().get();
             UnifiedMemberSecurity security = member.getUnifiedMemberSecurityAsOne().get();
 
+            String memberStatusName = status.getMemberStatusName();
+            String reminderQuestion = security.getReminderQuestion();
+
             // dummy, only show log
-            log(memberName, birthdate, status.getMemberStatusName(), security.getReminderQuestion());
+            log(memberName, birthdate, memberStatusName, reminderQuestion);
+            List<? extends UnifiedPurchase> purchaseList = member.getUnifiedPurchaseList();
+            for (UnifiedPurchase purchase : purchaseList) {
+                Product product = purchase.getProduct().get();
+                log("  " + purchase.getPurchaseDatetime(), purchase.getPurchasePrice(), product.getProductName());
+                List<PurchasePayment> paymentList = purchase.getPurchasePaymentList();
+                for (PurchasePayment payment : paymentList) {
+                    log("    " + payment.getPaymentMethodCodeName());
+                }
+            }
         }
     }
 }

@@ -15,14 +15,20 @@
  */
 package org.docksidestage.hangar.dbflute.resola.exentity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.MemberAddress;
+import org.docksidestage.hangar.dbflute.exentity.MemberFollowing;
+import org.docksidestage.hangar.dbflute.exentity.MemberLogin;
 import org.docksidestage.hangar.dbflute.exentity.MemberService;
 import org.docksidestage.hangar.dbflute.exentity.MemberStatus;
 import org.docksidestage.hangar.dbflute.exentity.MemberWithdrawal;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMemberSecurity;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedPurchase;
 import org.docksidestage.hangar.dbflute.resola.bsentity.ResolaBsMember;
 
 /**
@@ -43,20 +49,38 @@ public class ResolaMember extends ResolaBsMember implements UnifiedMember {
     //                                                                           Attribute
     //                                                                           =========
     // -----------------------------------------------------
-    //                                    Split Relationship
-    //                                    ------------------
+    //                                   Broken Relationship
+    //                                   -------------------
+    // foreign relationship
     protected OptionalEntity<MemberStatus> _memberStatus = OptionalEntity.empty();
     protected OptionalEntity<MemberAddress> _memberAddressAsOne = OptionalEntity.empty();
     protected OptionalEntity<MemberService> _memberServiceWithIfComment = OptionalEntity.empty();
     protected OptionalEntity<MemberService> _memberServiceAsOne = OptionalEntity.empty();
     protected OptionalEntity<MemberWithdrawal> _memberWithdrawalAsOne = OptionalEntity.empty();
 
+    // referrer relationship
+    protected List<MemberLogin> _memberLoginList = new ArrayList<>();
+    protected List<MemberAddress> _memberAddressList = new ArrayList<>();
+    protected List<MemberFollowing> _memberFollowingByMyMemberId = new ArrayList<>();
+    protected List<MemberFollowing> _memberFollowingByYourMemberId = new ArrayList<>();
+
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
     // -----------------------------------------------------
-    //                                    Split Relationship
-    //                                    ------------------
+    //                                Unified Classification
+    //                                ----------------------
+    @Override
+    public CDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
+        return CDef.MemberStatus.of(getMemberStatusCode()).orElseThrow();
+    }
+
+    // -----------------------------------------------------
+    //                                   Broken Relationship
+    //                                   -------------------
+    // _/_/_/_/_/_/_/_/_/_/_/_/
+    //  foreign relationship
+    // _/_/_/_/
     @Override
     public OptionalEntity<MemberStatus> getMemberStatus() {
         return _memberStatus;
@@ -102,12 +126,43 @@ public class ResolaMember extends ResolaBsMember implements UnifiedMember {
         _memberWithdrawalAsOne = memberWithdrawalAsOne;
     }
 
-    // -----------------------------------------------------
-    //                                Unified Classification
-    //                                ----------------------
+    // _/_/_/_/_/_/_/_/_/_/_/_/
+    //  referrer relationship
+    // _/_/_/_/
     @Override
-    public CDef.MemberStatus getMemberStatusCodeAsMemberStatus() {
-        return CDef.MemberStatus.of(getMemberStatusCode()).orElseThrow();
+    public List<MemberLogin> getMemberLoginList() {
+        return _memberLoginList;
+    }
+
+    public void setMemberLoginList(List<MemberLogin> memberLoginList) {
+        _memberLoginList = memberLoginList;
+    }
+
+    @Override
+    public List<MemberAddress> getMemberAddressList() {
+        return _memberAddressList;
+    }
+
+    public void setMemberAddressList(List<MemberAddress> memberAddressList) {
+        _memberAddressList = memberAddressList;
+    }
+
+    @Override
+    public List<MemberFollowing> getMemberFollowingByMyMemberIdList() {
+        return _memberFollowingByMyMemberId;
+    }
+
+    public void setMemberFollowingByMyMemberId(List<MemberFollowing> memberFollowingByMyMemberId) {
+        _memberFollowingByMyMemberId = memberFollowingByMyMemberId;
+    }
+
+    @Override
+    public List<MemberFollowing> getMemberFollowingByYourMemberIdList() {
+        return _memberFollowingByYourMemberId;
+    }
+
+    public void setMemberFollowingByYourMemberId(List<MemberFollowing> memberFollowingByYourMemberId) {
+        _memberFollowingByYourMemberId = memberFollowingByYourMemberId;
     }
 
     // -----------------------------------------------------
@@ -116,5 +171,10 @@ public class ResolaMember extends ResolaBsMember implements UnifiedMember {
     @Override
     public OptionalEntity<? extends UnifiedMemberSecurity> getUnifiedMemberSecurityAsOne() {
         return getMemberSecurityAsOne();
+    }
+
+    @Override
+    public List<? extends UnifiedPurchase> getUnifiedPurchaseList() {
+        return getPurchaseList();
     }
 }

@@ -17,10 +17,13 @@ package org.docksidestage.hangar.dbflute.nogen.splitway;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.MemberAddress;
+import org.docksidestage.hangar.dbflute.exentity.MemberFollowing;
+import org.docksidestage.hangar.dbflute.exentity.MemberLogin;
 import org.docksidestage.hangar.dbflute.exentity.MemberService;
 import org.docksidestage.hangar.dbflute.exentity.MemberStatus;
 import org.docksidestage.hangar.dbflute.exentity.MemberWithdrawal;
@@ -163,4 +166,38 @@ public interface UnifiedMember extends UnifiedEntity {
      * @return The entity of foreign property 'memberWithdrawalAsOne'. (NotNull, EmptyAllowed: when e.g. no data, no setupSelect)
      */
     OptionalEntity<MemberWithdrawal> getMemberWithdrawalAsOne();
+
+    /**
+     * 会員ログイン: ログインするたびに登録されるログイン履歴。 <br>
+     * 登録されたら更新されるも削除されることもない。さらには、登録する人もプログラムもはっきりしているので、(紙面の都合上もあって)ここでは共通カラムは省略している。
+     * @return The entity list of referrer property 'memberLoginList'. (NotNull: even if no loading, returns empty list)
+     */
+    List<MemberLogin> getMemberLoginList();
+
+    /**
+     * 購入: 一つの商品に対する購入を表現する(購入履歴とも言える)。 <br>
+     * 実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。
+     * @return The entity list of referrer property 'purchaseList'. (NotNull: even if no loading, returns empty list)
+     */
+    List<? extends UnifiedPurchase> getUnifiedPurchaseList();
+
+    /**
+     * 会員住所情報: 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。 <br>
+     * 会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！ <br>
+     * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0..1" である。
+     * @return The entity list of referrer property 'memberAddressList'. (NotNull: even if no loading, returns empty list)
+     */
+    List<MemberAddress> getMemberAddressList();
+
+    /**
+     * 会員フォローイング: とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。
+     * @return The entity list of referrer property 'memberFollowingByMyMemberIdList'. (NotNull: even if no loading, returns empty list)
+     */
+    List<MemberFollowing> getMemberFollowingByMyMemberIdList();
+
+    /**
+     * 会員フォローイング: とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。
+     * @return The entity list of referrer property 'memberFollowingByYourMemberIdList'. (NotNull: even if no loading, returns empty list)
+     */
+    List<MemberFollowing> getMemberFollowingByYourMemberIdList();
 }

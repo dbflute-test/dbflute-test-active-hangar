@@ -6,12 +6,14 @@ import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.info.ColumnInfo;
 import org.dbflute.dbmeta.info.ForeignInfo;
+import org.dbflute.dbmeta.info.ReferrerInfo;
 import org.dbflute.jdbc.ClassificationMeta;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.dbflute.util.Srl;
 import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.MemberSecurityDbm;
+import org.docksidestage.hangar.dbflute.bsentity.dbmeta.PurchaseDbm;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedEntity;
 
 import scala.collection.mutable.StringBuilder;
@@ -51,6 +53,17 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
         log(ln() + interfaceString);
     }
 
+    public void test_makeInterfaceString_Purchase() {
+        // ## Arrange ##
+        PurchaseDbm dbm = PurchaseDbm.getInstance();
+
+        // ## Act ##
+        String interfaceString = buildInterfaceString(dbm);
+
+        // ## Assert ##
+        log(ln() + interfaceString);
+    }
+
     // ===================================================================================
     //                                                                      Building Logic
     //                                                                      ==============
@@ -61,17 +74,19 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
         sb.append(ln());
         String indent = "    ";
 
-        List<ColumnInfo> columnInfoList = dbmeta.getColumnInfoList();
-        doBuildColumnDef(sb, columnInfoList, indent);
-
-        List<ForeignInfo> foreignInfoList = dbmeta.getForeignInfoList();
-        doBuildForeignDef(sb, indent, foreignInfoList);
+        doBuildColumnDef(sb, dbmeta, indent);
+        doBuildForeignDef(sb, dbmeta, indent);
+        doBuildReferrerDef(sb, dbmeta, indent);
 
         sb.append("}");
         return sb.toString();
     }
 
-    private void doBuildColumnDef(StringBuilder sb, List<ColumnInfo> columnInfoList, String indent) {
+    // -----------------------------------------------------
+    //                                                Column
+    //                                                ------
+    private void doBuildColumnDef(StringBuilder sb, DBMeta dbmeta, String indent) {
+        List<ColumnInfo> columnInfoList = dbmeta.getColumnInfoList();
         for (ColumnInfo columnInfo : columnInfoList) {
             // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
             // e.g.
@@ -80,6 +95,9 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
             // _/_/_/_/_/_/_/_/_/_/
             sb.append(ln()); // line before javadoc
 
+            // _/_/_/_/_/_/_/_/_/_/
+            //  method javadoc
+            // _/_/_/_/
             // beginning of javadoc
             String columnAlias = columnInfo.getColumnAlias();
             sb.append(indent).append("/**").append(ln());
@@ -120,7 +138,9 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
             sb.append(indent).append(" */");
             sb.append(ln());
 
-            // method definition
+            // _/_/_/_/_/_/_/_/_/_/
+            //  method definition
+            // _/_/_/_/
             sb.append(indent);
             ClassificationMeta classificationMeta = columnInfo.getClassificationMeta();
             if (classificationMeta != null) { // means classification column
@@ -140,7 +160,11 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
         }
     }
 
-    private void doBuildForeignDef(StringBuilder sb, String indent, List<ForeignInfo> foreignInfoList) {
+    // -----------------------------------------------------
+    //                                      Foreign Property
+    //                                      ----------------
+    private void doBuildForeignDef(StringBuilder sb, DBMeta dbmeta, String indent) {
+        List<ForeignInfo> foreignInfoList = dbmeta.getForeignInfoList();
         for (ForeignInfo foreignInfo : foreignInfoList) {
             DBMeta foreignDBMeta = foreignInfo.getForeignDBMeta();
             Class<? extends Entity> foreignEntityType = foreignDBMeta.getEntityType();
@@ -157,18 +181,16 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
             // _/_/_/_/_/_/_/_/_/_/
             sb.append(ln()); // line before javadoc
 
+            // _/_/_/_/_/_/_/_/_/_/
+            //  method javadoc
+            // _/_/_/_/
             // beginning of javadoc
             sb.append(indent).append("/**").append(ln());
 
             // first line
             String tableAlias = foreignDBMeta.getTableAlias();
-            sb.append(indent).append(" * ").append(tableAlias);
             String tableComment = foreignDBMeta.getTableComment();
-            if (tableComment != null) {
-                String filtered = Srl.replace(tableComment, "\n", " <br>\n" + indent + " * ");
-                sb.append(": ").append(filtered);
-            }
-            sb.append(ln());
+            makeRelationshipJavaDocFirstLine(sb, indent, tableAlias, tableComment);
 
             // second line: has small differences with DBFlute entity (but no problem)
             sb.append(indent).append(" * @return The entity of foreign property '");
@@ -184,7 +206,9 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
             sb.append(indent).append(" */");
             sb.append(ln());
 
-            // method definition
+            // _/_/_/_/_/_/_/_/_/_/
+            //  method definition
+            // _/_/_/_/
             sb.append(indent);
             sb.append("OptionalEntity<");
             if (unified) {
@@ -204,5 +228,83 @@ public class WxUnifiedInterfaceMakingTest extends PlainTestCase {
             sb.append(" get").append(getterKeyword).append("();");
             sb.append(ln());
         }
+    }
+
+    // -----------------------------------------------------
+    //                                     Referrer Property
+    //                                     -----------------
+    private void doBuildReferrerDef(StringBuilder sb, DBMeta dbmeta, String indent) {
+        List<ReferrerInfo> referrerInfoList = dbmeta.getReferrerInfoList();
+        for (ReferrerInfo referrerInfo : referrerInfoList) {
+            DBMeta referrerDBMeta = referrerInfo.getReferrerDBMeta();
+            Class<? extends Entity> referrerEntityType = referrerDBMeta.getEntityType();
+            String referrerPropertyName = referrerInfo.getReferrerPropertyName(); // e.g. purchaseList
+
+            String unifiedPrefix = "Unified";
+            boolean unified = UnifiedEntity.class.isAssignableFrom(referrerEntityType);
+
+            // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+            // e.g.
+            //  List<Purchase> getPurchaseList();
+            //   or
+            //  List<? extends UnifiedPurchase> getUnifiedPurchaseList();
+            // _/_/_/_/_/_/_/_/_/_/
+            sb.append(ln()); // line before javadoc
+
+            // beginning of javadoc
+            sb.append(indent).append("/**").append(ln());
+
+            // first line
+            String tableAlias = referrerDBMeta.getTableAlias();
+            String tableComment = referrerDBMeta.getTableComment();
+            makeRelationshipJavaDocFirstLine(sb, indent, tableAlias, tableComment);
+
+            // second line: has small differences with DBFlute entity (but no problem)
+            sb.append(indent).append(" * @return The entity list of referrer property '");
+            sb.append(referrerPropertyName).append("'. ");
+            sb.append("(NotNull: even if no loading, returns empty list)");
+            sb.append(ln());
+
+            // ending of javadoc
+            sb.append(indent).append(" */");
+            sb.append(ln());
+
+            // _/_/_/_/_/_/_/_/_/_/
+            //  method definition
+            // _/_/_/_/
+            sb.append(indent);
+            sb.append("List<");
+            if (unified) {
+                sb.append("? extends ");
+            }
+            String genericTypeName = referrerEntityType.getSimpleName();
+            if (unified) {
+                genericTypeName = unifiedPrefix + genericTypeName;
+            }
+            sb.append(genericTypeName).append(">");
+
+            String getterKeyword = Srl.initCap(referrerPropertyName);
+            if (unified) {
+                getterKeyword = unifiedPrefix + getterKeyword;
+            }
+
+            sb.append(" get").append(getterKeyword).append("();");
+            sb.append(ln());
+        }
+    }
+
+    // -----------------------------------------------------
+    //                                          Assist Logic
+    //                                          ------------
+    private void makeRelationshipJavaDocFirstLine(StringBuilder sb, String indent, String tableAlias, String tableComment) {
+        if (tableAlias == null && tableComment == null) {
+            return; // skip first line
+        }
+        sb.append(indent).append(" * ").append(tableAlias);
+        if (tableComment != null) {
+            String filtered = Srl.replace(tableComment, "\n", " <br>\n" + indent + " * ");
+            sb.append(": ").append(filtered);
+        }
+        sb.append(ln());
     }
 }

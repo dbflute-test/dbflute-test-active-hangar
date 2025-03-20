@@ -34,6 +34,12 @@ public class ResolaMemberSecurity extends ResolaBsMemberSecurity implements Unif
     /** The serial version UID for object serialization. (Default) */
     private static final long serialVersionUID = 1L;
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    // -----------------------------------------------------
+    //                                  Unified Relationship
+    //                                  --------------------
     @Override
     public OptionalEntity<? extends UnifiedMember> getUnifiedMember() {
         return getMember();

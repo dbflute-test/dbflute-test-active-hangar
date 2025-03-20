@@ -16,10 +16,12 @@
 package org.docksidestage.hangar.dbflute.exentity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMember;
 import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedMemberSecurity;
+import org.docksidestage.hangar.dbflute.nogen.splitway.UnifiedPurchase;
 
 /**
  * The entity of MEMBER.
@@ -127,5 +129,10 @@ public class Member extends org.docksidestage.hangar.dbflute.bsentity.BsMember i
     @Override
     public OptionalEntity<? extends UnifiedMemberSecurity> getUnifiedMemberSecurityAsOne() {
         return getMemberSecurityAsOne();
+    }
+
+    @Override
+    public List<? extends UnifiedPurchase> getUnifiedPurchaseList() {
+        return getPurchaseList();
     }
 }
