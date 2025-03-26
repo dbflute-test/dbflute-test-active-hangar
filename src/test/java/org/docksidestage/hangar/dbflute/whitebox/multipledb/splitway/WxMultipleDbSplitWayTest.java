@@ -74,6 +74,13 @@ import com.google.inject.Inject;
  */
 public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
 
+    // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    // jflute memo: (2025/03/26)
+    // 現場からドキュメントとしてリンクされている可能性があるので、package移動やクラス名を変更などのリファクタリングは極力しない。
+    // リファクタリングするにしても、ダミークラスで以下のリンクを残して誘導するようにする。
+    // https://github.com/dbflute-test/dbflute-test-active-hangar/blob/master/src/test/java/org/docksidestage/hangar/dbflute/whitebox/multipledb/splitway/WxMultipleDbSplitWayTest.java
+    // _/_/_/_/_/_/_/_/_/_/
+
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
