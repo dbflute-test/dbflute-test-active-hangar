@@ -1,0 +1,53 @@
+
+see WxMultipleDbSplitWayTest.java
+
+
+javadoc snapshot: (2025/03/26)
+
+/**
+ * 複数DBでデータ分離方式 (SplitWay) をやってみる。<br>
+ * 例えば、会員テーブルの一部データのみ本家スキーマに残して、残りのデータは分離スキーマで保存していくなど。<br>
+ * または、購入テーブルの最新データのみ本家スキーマに残して、過去のデータは分離スキーマで保存していくなど。<br>
+ * 
+ * <p>ただ、アプリでは本家スキーマのみだけを検索するのではなく「分離スキーマのデータも検索する必要がある」
+ * というケースをここでは想定している。そのときアプリでは「どっちのスキーマか？」をある程度気にせずに扱えると嬉しい。
+ * ゆえに、ここでは統合されたEntity(UnifiedEntity)という概念を検証している。</p>
+ * 
+ * <pre>課題と解決方法:
+ * A. 同じテーブル(名)でも、Entityはそれぞれ別のプログラム型になってしまう
+ *  → 型を統合するためのinterfaceを用意して、アプリ側ではそのinterfaceを使ってEntityを扱う
+ * 
+ * B. 一部の関連テーブルが分離スキーマには存在しないので、SQL上でjoinして関連データとして扱うことができない
+ *  → 別途本家スキーマを検索して、プログラム上でEntityに紐づける (べたべたWay)
+ * </pre>
+ * 
+ * <pre>このExampleの構成/特徴:
+ * o 分離対象テーブルが、MEMBER, MEMBER_SECURITY, PURCHASE のみ
+ * o 分離スキーマとして、resortlinedb を使う
+ * 
+ * o MEMBER_STATUS や MEMBER_SERVICE などの関連テーブルは分離スキーマには存在しない
+ * o MEMBER を基点とすると分離スキーマでは...
+ *  i MEMBER_STATUS は join できない
+ *  i MEMBER_SECURITY は join できる
+ * </pre>
+ * 
+ * <pre>統合interfaceの作り方:
+ * (ここでの説明は、MEMBER と MEMBER_SECURITY と PURCHASE のみ分離されていると想定した場合)
+ * 1. 本家スキーマのdbflute package配下に "nogen" package を作って...
+ * 2. UnifiedMember.java, UnifiedMemberSecurity.java, UnifiedPurchase.java を作成する (ひとまずメソッドなし)
+ * 3. Exクラスの Member.java, ResolaMember.java, (security と purchase も同じく) にて implements する
+ * 4. WxUnifiedInterfaceMakingTest.java を実行してログからgetterをコピーして貼り付ける
+ * 5. とにかくコンパイルエラーになるメソッドを実装 (主にはResola側Entityで分離のギャップを埋める)
+ * (exampleのコードを参考に)
+ * </pre>
+ * 
+ * <pre>統合interfaceを使った検索のexample:
+ * o 本家スキーマの検索: test_unifiedSelect_selectHonke()
+ * o 分離スキーマの検索: test_unifiedSelect_selectSplit()
+ * </pre>
+ * 
+ * @author jflute
+ * @since DBFlute-1.2.8 (2025/03/18 Tuesday at ichihara)
+ */
+public class WxMultipleDbSplitWayTest extends UnitContainerMultipleDbTestCase {
+
