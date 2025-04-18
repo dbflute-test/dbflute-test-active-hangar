@@ -116,6 +116,7 @@ map:{
                 ; prefix:WHITE_COMPOUND_PK
                 ; WHITE_READ_ONLY
                 ; WHITE_SINGLE_PK
+                ; WHITE_TYPE_MAPPING
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = 2018/05/18

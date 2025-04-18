@@ -109,13 +109,13 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     /** (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _withdrawalDatetime;
 
-    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
+    /** (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _registerDatetime;
 
     /** REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
+    /** (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _updateDatetime;
 
     /** UPDATE_USER: {NotNull, VARCHAR(200)} */
@@ -479,7 +479,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -488,7 +488,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -498,6 +498,8 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
+     * 
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -507,6 +509,8 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
+     * 
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -515,7 +519,9 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * 眠いときは眠いと言おう。<br>
+     * 
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -524,7 +530,9 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * 眠いときは眠いと言おう。<br>
+     * 
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

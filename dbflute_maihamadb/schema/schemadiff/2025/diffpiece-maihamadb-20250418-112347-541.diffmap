@@ -1,0 +1,17 @@
+map:{
+    ; 2025/04/18 11:23:47.541 = map:{
+        ; diffDate = 2025/04/18 11:23:47.541
+        ; tableCount = map:{
+            ; next = 64
+            ; previous = 63
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_TYPE_MAPPING = map:{
+                ; tableName = WHITE_TYPE_MAPPING
+                ; diffType = ADD
+            }
+        }
+    }
+}

@@ -91,7 +91,7 @@ public abstract class BsMemberSecurityDto implements Serializable {
     @JsonKey
     protected Integer _reminderUseCount;
 
-    /** REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
+    /** (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _registerDatetime;
 
@@ -99,7 +99,7 @@ public abstract class BsMemberSecurityDto implements Serializable {
     @JsonKey
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
+    /** (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _updateDatetime;
 
@@ -307,7 +307,7 @@ public abstract class BsMemberSecurityDto implements Serializable {
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -317,7 +317,7 @@ public abstract class BsMemberSecurityDto implements Serializable {
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -327,6 +327,8 @@ public abstract class BsMemberSecurityDto implements Serializable {
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
+     * 
      * @return The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public String getRegisterUser() {
@@ -335,6 +337,8 @@ public abstract class BsMemberSecurityDto implements Serializable {
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
+     * 
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public void setRegisterUser(String registerUser) {
@@ -343,7 +347,9 @@ public abstract class BsMemberSecurityDto implements Serializable {
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * 眠いときは眠いと言おう。<br>
+     * 
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -353,7 +359,9 @@ public abstract class BsMemberSecurityDto implements Serializable {
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
+     * 眠いときは眠いと言おう。<br>
+     * 
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

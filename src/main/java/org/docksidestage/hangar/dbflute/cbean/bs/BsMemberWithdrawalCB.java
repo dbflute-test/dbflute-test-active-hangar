@@ -371,7 +371,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnWithdrawalDatetime() { return doColumn("WITHDRAWAL_DATETIME"); }
         /**
-         * REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
@@ -381,7 +381,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }

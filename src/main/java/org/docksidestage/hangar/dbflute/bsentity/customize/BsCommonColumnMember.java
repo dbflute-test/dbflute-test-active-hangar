@@ -242,7 +242,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
 
     /**
      * [get] (登録日時)REGISTER_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.REGISTER_DATETIME} <br>
-     * レコードが登録された日時。<br>
+     * 登録日時: レコードが登録された日時。<br>
      * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
      * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed even if selected: for no constraint)
@@ -254,7 +254,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
 
     /**
      * [set] (登録日時)REGISTER_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.REGISTER_DATETIME} <br>
-     * レコードが登録された日時。<br>
+     * 登録日時: レコードが登録された日時。<br>
      * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
      * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed: null update allowed for no constraint)
@@ -266,6 +266,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
 
     /**
      * [get] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
      * レコードを登録したユーザ。<br>
      * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @return The value of the column 'REGISTER_USER'. (NullAllowed even if selected: for no constraint)
@@ -277,6 +278,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
 
     /**
      * [set] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
      * レコードを登録したユーザ。<br>
      * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed: null update allowed for no constraint)
@@ -288,7 +290,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.UPDATE_DATETIME} <br>
-     * レコードが（最後に）更新された日時。<br>
+     * 眠いときは眠いと言おう。<br>
+     * 更新日時: レコードが（最後に）更新された日時。<br>
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -299,7 +302,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.UPDATE_DATETIME} <br>
-     * レコードが（最後に）更新された日時。<br>
+     * 眠いときは眠いと言おう。<br>
+     * 更新日時: レコードが（最後に）更新された日時。<br>
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */

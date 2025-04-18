@@ -22,6 +22,11 @@
 map:{
     # AutoMapping for Numeric and Decimal
     ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
+    ; $$df:point$$ = map:{
+        ; sql2entity: TypeMappingMember = map:{
+            ; BIRTHDATE = TIMESTAMP
+        }
+    }
 }
 # ----------------/
 #

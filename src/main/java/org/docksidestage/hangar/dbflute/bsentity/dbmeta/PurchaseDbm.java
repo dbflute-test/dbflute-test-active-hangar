@@ -117,16 +117,16 @@ public class PurchaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPurchaseId = cci("PURCHASE_ID", "PURCHASE_ID", null, null, Long.class, "purchaseId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_E8BA286E_E6D5_4B9A_90DB_BEB52F6B2149\"", false, null, null, null, "purchasePaymentList", null, false);
+    protected final ColumnInfo _columnPurchaseId = cci("PURCHASE_ID", "PURCHASE_ID", null, null, Long.class, "purchaseId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_594F0971_24C5_4C36_86C0_2940AE1C3E5E\"", false, null, null, null, "purchasePaymentList", null, false);
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "会員を参照するID。\n購入を識別する自然キー(複合ユニーク制約)の筆頭要素。", "member,memberLoginAsBizManyToOne", null, null, false);
     protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, "商品ID", Integer.class, "productId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "あなたは何を買ったのか？", "product,summaryProduct", null, null, false);
     protected final ColumnInfo _columnPurchaseDatetime = cci("PURCHASE_DATETIME", "PURCHASE_DATETIME", null, "購入日時", java.time.LocalDateTime.class, "purchaseDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, "購入した瞬間の日時。", null, null, null, false);
     protected final ColumnInfo _columnPurchaseCount = cci("PURCHASE_COUNT", "PURCHASE_COUNT", null, "購入数量", Integer.class, "purchaseCount", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "購入した商品の一回の購入における数量。", null, null, null, false);
     protected final ColumnInfo _columnPurchasePrice = cci("PURCHASE_PRICE", "PURCHASE_PRICE", null, "購入価格", Integer.class, "purchasePrice", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "眠いのはプライスレス。\n購入によって実際に会員が支払った（支払う予定の）価格。\n基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。", null, null, null, false);
     protected final ColumnInfo _columnPaymentCompleteFlg = cci("PAYMENT_COMPLETE_FLG", "PAYMENT_COMPLETE_FLG", null, "支払完了フラグ", Integer.class, "paymentCompleteFlg", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "この購入に関しての支払いが完了しているか否か。", null, null, CDef.DefMeta.Flg, false);
-    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, true, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, null, String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, null, java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, null, String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, "特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に\n", null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, true, null, "眠いときは眠いと言おう。\n", null, null, null, false);
     protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, null, String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, null, null, null, null, false);
     protected final ColumnInfo _columnVersionNo = cci("VERSION_NO", "VERSION_NO", null, null, Long.class, "versionNo", null, false, false, true, "BIGINT", 19, 0, null, null, false, OptimisticLockType.VERSION_NO, null, null, null, null, false);
 
@@ -166,7 +166,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnPaymentCompleteFlg() { return _columnPaymentCompleteFlg; }
     /**
-     * REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegisterDatetime() { return _columnRegisterDatetime; }
@@ -176,7 +176,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnRegisterUser() { return _columnRegisterUser; }
     /**
-     * UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnUpdateDatetime() { return _columnUpdateDatetime; }

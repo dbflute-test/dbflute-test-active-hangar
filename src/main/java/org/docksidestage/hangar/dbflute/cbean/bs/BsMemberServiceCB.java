@@ -386,7 +386,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnServiceRankCode() { return doColumn("SERVICE_RANK_CODE"); }
         /**
-         * REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
@@ -396,7 +396,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }

@@ -98,6 +98,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("WHITE_DEPRECATED_SELECT_BY_PKUQ", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSelectByPkuqDbm");
         tmpMap.put("WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSpecifyBatchColumnDbm");
         tmpMap.put("WHITE_FIRST_DATE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteFirstDateDbm");
+        tmpMap.put("WHITE_NOT_NULL", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteNotNullDbm");
         tmpMap.put("WHITE_ON_PARADE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeDbm");
         tmpMap.put("WHITE_ON_PARADE_NULLABLE_TO_MANY", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeNullableToManyDbm");
         tmpMap.put("WHITE_ON_PARADE_REF", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeRefDbm");
@@ -107,6 +108,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("WHITE_SIMPLE_DTO_EXCEPT", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSimpleDtoExceptDbm");
         tmpMap.put("WHITE_SINGLE_PK", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSinglePkDbm");
         tmpMap.put("WHITE_TSV_LOADING", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteTsvLoadingDbm");
+        tmpMap.put("WHITE_TYPE_MAPPING", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteTypeMappingDbm");
         tmpMap.put("WITHDRAWAL_REASON", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }

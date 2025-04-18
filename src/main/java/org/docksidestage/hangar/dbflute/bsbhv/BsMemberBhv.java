@@ -120,6 +120,8 @@ public abstract class BsMemberBhv extends org.docksidestage.hangar.dbflute.nogen
     public static final String PATH_subdirectory_selectSubDirectoryCheck = "subdirectory:selectSubDirectoryCheck";
     public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
     public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
+    /** test of typeMapping for Sql2Entity */
+    public static final String PATH_whitebox_cmentity_selectTypeMappingMember = "whitebox:cmentity:selectTypeMappingMember";
     public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
     /** Example for selecting cursor with scalar SQL */
     public static final String PATH_whitebox_pmbean_selectCursorWithScalarMember = "whitebox:pmbean:selectCursorWithScalarMember";
