@@ -71,7 +71,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * Integer typeMappingCount = entity.getTypeMappingCount();
  * java.time.LocalDate typeMappingDate = entity.getTypeMappingDate();
  * java.time.LocalDateTime typeMappingDatetime = entity.getTypeMappingDatetime();
- * java.time.LocalDateTime pointMappingDate = entity.getPointMappingDate();
+ * java.time.LocalDate pointMappingDate = entity.getPointMappingDate();
  * entity.setTypeMappingId(typeMappingId);
  * entity.setTypeMappingName(typeMappingName);
  * entity.setTypeMappingCount(typeMappingCount);

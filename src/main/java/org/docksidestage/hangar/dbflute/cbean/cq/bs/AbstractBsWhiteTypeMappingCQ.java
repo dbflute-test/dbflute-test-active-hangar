@@ -555,7 +555,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * POINT_MAPPING_DATE: {TIMESTAMP(26, 6)}
      * @param pointMappingDate The value of pointMappingDate as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPointMappingDate_Equal(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate_Equal(java.time.LocalDate pointMappingDate) {
         regPointMappingDate(CK_EQ,  pointMappingDate);
     }
 
@@ -564,7 +564,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * POINT_MAPPING_DATE: {TIMESTAMP(26, 6)}
      * @param pointMappingDate The value of pointMappingDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPointMappingDate_GreaterThan(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate_GreaterThan(java.time.LocalDate pointMappingDate) {
         regPointMappingDate(CK_GT,  pointMappingDate);
     }
 
@@ -573,7 +573,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * POINT_MAPPING_DATE: {TIMESTAMP(26, 6)}
      * @param pointMappingDate The value of pointMappingDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPointMappingDate_LessThan(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate_LessThan(java.time.LocalDate pointMappingDate) {
         regPointMappingDate(CK_LT,  pointMappingDate);
     }
 
@@ -582,7 +582,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * POINT_MAPPING_DATE: {TIMESTAMP(26, 6)}
      * @param pointMappingDate The value of pointMappingDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPointMappingDate_GreaterEqual(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate_GreaterEqual(java.time.LocalDate pointMappingDate) {
         regPointMappingDate(CK_GE,  pointMappingDate);
     }
 
@@ -591,7 +591,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * POINT_MAPPING_DATE: {TIMESTAMP(26, 6)}
      * @param pointMappingDate The value of pointMappingDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPointMappingDate_LessEqual(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate_LessEqual(java.time.LocalDate pointMappingDate) {
         regPointMappingDate(CK_LE, pointMappingDate);
     }
 
@@ -604,7 +604,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointMappingDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setPointMappingDate_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setPointMappingDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setPointMappingDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -617,7 +617,7 @@ public abstract class AbstractBsWhiteTypeMappingCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointMappingDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    protected void setPointMappingDate_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+    protected void setPointMappingDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
         String nm = "POINT_MAPPING_DATE"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValuePointMappingDate(), nm, op);
     }

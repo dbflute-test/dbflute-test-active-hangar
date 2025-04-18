@@ -91,7 +91,7 @@ public abstract class BsWhiteTypeMappingDto implements Serializable {
 
     /** POINT_MAPPING_DATE: {TIMESTAMP(26, 6)} */
     @JsonKey
-    protected java.time.LocalDateTime _pointMappingDate;
+    protected java.time.LocalDate _pointMappingDate;
 
     // -----------------------------------------------------
     //                                              Internal
@@ -268,9 +268,9 @@ public abstract class BsWhiteTypeMappingDto implements Serializable {
      * [get] POINT_MAPPING_DATE: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'POINT_MAPPING_DATE'. (NullAllowed)
      */
-    @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
-    public java.time.LocalDateTime getPointMappingDate() {
+    @JSONHint(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    public java.time.LocalDate getPointMappingDate() {
         return _pointMappingDate;
     }
 
@@ -278,7 +278,7 @@ public abstract class BsWhiteTypeMappingDto implements Serializable {
      * [set] POINT_MAPPING_DATE: {TIMESTAMP(26, 6)} <br>
      * @param pointMappingDate The value of the column 'POINT_MAPPING_DATE'. (NullAllowed)
      */
-    public void setPointMappingDate(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate(java.time.LocalDate pointMappingDate) {
         __modifiedProperties.add("pointMappingDate");
         this._pointMappingDate = pointMappingDate;
     }

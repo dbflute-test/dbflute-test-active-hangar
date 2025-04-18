@@ -61,7 +61,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * Integer typeMappingCount = entity.getTypeMappingCount();
  * java.time.LocalDate typeMappingDate = entity.getTypeMappingDate();
  * java.time.LocalDateTime typeMappingDatetime = entity.getTypeMappingDatetime();
- * java.time.LocalDateTime pointMappingDate = entity.getPointMappingDate();
+ * java.time.LocalDate pointMappingDate = entity.getPointMappingDate();
  * entity.setTypeMappingId(typeMappingId);
  * entity.setTypeMappingName(typeMappingName);
  * entity.setTypeMappingCount(typeMappingCount);
@@ -99,7 +99,7 @@ public abstract class BsWhiteTypeMapping extends AbstractEntity implements Domai
     protected java.time.LocalDateTime _typeMappingDatetime;
 
     /** POINT_MAPPING_DATE: {TIMESTAMP(26, 6)} */
-    protected java.time.LocalDateTime _pointMappingDate;
+    protected java.time.LocalDate _pointMappingDate;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -283,7 +283,7 @@ public abstract class BsWhiteTypeMapping extends AbstractEntity implements Domai
      * [get] POINT_MAPPING_DATE: {TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'POINT_MAPPING_DATE'. (NullAllowed even if selected: for no constraint)
      */
-    public java.time.LocalDateTime getPointMappingDate() {
+    public java.time.LocalDate getPointMappingDate() {
         checkSpecifiedProperty("pointMappingDate");
         return _pointMappingDate;
     }
@@ -292,7 +292,7 @@ public abstract class BsWhiteTypeMapping extends AbstractEntity implements Domai
      * [set] POINT_MAPPING_DATE: {TIMESTAMP(26, 6)} <br>
      * @param pointMappingDate The value of the column 'POINT_MAPPING_DATE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setPointMappingDate(java.time.LocalDateTime pointMappingDate) {
+    public void setPointMappingDate(java.time.LocalDate pointMappingDate) {
         registerModifiedProperty("pointMappingDate");
         _pointMappingDate = pointMappingDate;
     }

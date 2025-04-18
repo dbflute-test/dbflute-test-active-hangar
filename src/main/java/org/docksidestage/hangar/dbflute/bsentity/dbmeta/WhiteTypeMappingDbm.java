@@ -62,7 +62,7 @@ public class WhiteTypeMappingDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteTypeMapping)et).getTypeMappingCount(), (et, vl) -> ((WhiteTypeMapping)et).setTypeMappingCount(cti(vl)), "typeMappingCount");
         setupEpg(_epgMap, et -> ((WhiteTypeMapping)et).getTypeMappingDate(), (et, vl) -> ((WhiteTypeMapping)et).setTypeMappingDate(ctld(vl)), "typeMappingDate");
         setupEpg(_epgMap, et -> ((WhiteTypeMapping)et).getTypeMappingDatetime(), (et, vl) -> ((WhiteTypeMapping)et).setTypeMappingDatetime(ctldt(vl)), "typeMappingDatetime");
-        setupEpg(_epgMap, et -> ((WhiteTypeMapping)et).getPointMappingDate(), (et, vl) -> ((WhiteTypeMapping)et).setPointMappingDate(ctldt(vl)), "pointMappingDate");
+        setupEpg(_epgMap, et -> ((WhiteTypeMapping)et).getPointMappingDate(), (et, vl) -> ((WhiteTypeMapping)et).setPointMappingDate(ctld(vl)), "pointMappingDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -88,7 +88,7 @@ public class WhiteTypeMappingDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeMappingCount = cci("TYPE_MAPPING_COUNT", "TYPE_MAPPING_COUNT", null, null, Integer.class, "typeMappingCount", null, false, false, false, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeMappingDate = cci("TYPE_MAPPING_DATE", "TYPE_MAPPING_DATE", null, null, java.time.LocalDate.class, "typeMappingDate", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeMappingDatetime = cci("TYPE_MAPPING_DATETIME", "TYPE_MAPPING_DATETIME", null, null, java.time.LocalDateTime.class, "typeMappingDatetime", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPointMappingDate = cci("POINT_MAPPING_DATE", "POINT_MAPPING_DATE", null, null, java.time.LocalDateTime.class, "pointMappingDate", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPointMappingDate = cci("POINT_MAPPING_DATE", "POINT_MAPPING_DATE", null, null, java.time.LocalDate.class, "pointMappingDate", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
 
     /**
      * TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
