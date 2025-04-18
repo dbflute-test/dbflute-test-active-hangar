@@ -28,7 +28,7 @@ public class WxTypeMappingMapTest extends UnitContainerTestCase {
         TypeMappingMember member = new TypeMappingMember();
         LocalDate mappingDate = member.getTypeMappingDate();
         LocalDateTime mappingDatetime = member.getTypeMappingDatetime();
-        LocalDateTime pointMappingDate = member.getPointMappingDate();
-        log(mappingDate, mappingDatetime, pointMappingDate);
+        LocalDate pointMappingDate = member.getPointMappingDate();
+        log(mappingDate, mappingDatetime, pointMappingDate); // changed by dfprop (since 1.2.9)
     }
 }
