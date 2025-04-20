@@ -374,6 +374,13 @@ public class MessagesAndDatabase implements Serializable {
     //  - END_DATETIME
     //  - LARGE_FROM_FILE
     //  - DONE_FLG
+    // WHITE_TYPE_MAPPING
+    //  - TYPE_MAPPING_ID
+    //  - TYPE_MAPPING_NAME
+    //  - TYPE_MAPPING_COUNT
+    //  - TYPE_MAPPING_DATE
+    //  - TYPE_MAPPING_DATETIME
+    //  - POINT_MAPPING_DATE
     // WITHDRAWAL_REASON
     //  - WITHDRAWAL_REASON_CODE
     //  - WITHDRAWAL_REASON_TEXT
