@@ -1,3 +1,8 @@
 map:{
+    ; REGISTER_DATETIME = sysdate
+    ; REGISTER_USER     = foo
+    ; UPDATE_DATETIME   = sysdate
+    ; UPDATE_USER       = foo
+    ; VERSION_NO        = 0
     ; END_DATETIME = 9999/12/12
 }
