@@ -95,19 +95,19 @@ map:{
         #    o isSuppressCommonColumn: (NotRequired - Default false)
         #    o isSuppressProcedure: (NotRequired - Default false)
         #
+        # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+        # *cannot see next schema because of H2 file database
+        # (processes per files)
+        # _/_/_/_/
         #; additionalSchemaMap = map:{
-        #    ; nextexampledb.$$NoNameSchema$$ = map:{
+        #    ; resortlinedb.$$NoNameSchema$$ = map:{
         #        ; objectTypeTargetList=list:{TABLE ; VIEW}
         #        ; tableExceptList=list:{}
-        #        ; tableTargetList=list:{}
+        #        ; tableTargetList=list:{ STATION }
         #        ; columnExceptMap=map:{
-        #            ; NEXT_SCHEMA_PRODUCT = list:{
-        #                ; COLUMN_EXCEPT_TEST
-        #                ; COLUMN_EXCEPT_GEN_ONLY_TEST@gen
-        #            }
         #        }
         #        ; isSuppressCommonColumn=true
-        #        ; isSuppressProcedure=true
+        #        ; isSuppressProcedure=false
         #    }
         #}
 
