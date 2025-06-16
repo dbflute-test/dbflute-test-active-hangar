@@ -86,6 +86,13 @@ map:{
             # test of first_columnName for contraint name
             # #dbms fitting with auto-naming of H2 database
             ; if tableName is $$ALL$$ then uniqueName is prefix:UQ_$$table$$ or prefix:$$first_columnName$$_INDEX
+
+            # test of "then alias is" if non-alias table (also comment)
+            # #for_now jflute checked as empty string so use if alias is pattern:(.+) (2025/06/14)
+            #; if tableName is WHITE_BASE then alias is sea
+            #; if tableName is WHITE_BASE then comment is sea
+            ; if tableName is WHITE_BASE and alias is pattern:(.+) then alias is sea
+            ; if tableName is WHITE_BASE and alias is pattern:(.+) then comment is sea
         }
     }
     ; columnMap = map:{
