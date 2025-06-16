@@ -1,2 +1,2 @@
-# test of github codeowners
-* @jflute @dbflute
+# test of github codeowners (e.g. two spaces OK?)
+* @jflute  @dbflute
