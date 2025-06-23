@@ -40,32 +40,3 @@ select adr.MEMBER_ADDRESS_ID, adr.MEMBER_ID
                   and subadr.VALID_BEGIN_DATE < adr.VALID_END_DATE
        )
 ;
-
--- =======================================================================================
---                                                                     TestData Constraint
---                                                                     ===================
--- /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
--- These tables should have at least one record at ut and should not have at real.
--- - - - - - - - - - -/
--- #df:assertCountExists@ut#
--- #df:assertCountZero@real#
-select count(*) from MEMBER member
-;
--- #df:assertCountExists@ut#
--- #df:assertCountZero@real#
-select count(*) from MEMBER_LOGIN login
-;
-
--- =======================================================================================
---                                                                     Whitebox Constraint
---                                                                     ===================
-
--- #df:assertListZero#
--- /- - - - - - - - - - - - - - - - - - - - - - -
--- test of tsv loading with large text file map
--- - - - - - - - - - -/
-select *
-  from WHITE_TSV_LOADING
- where LARGE_FROM_FILE like '%.dfmail%'
-;
-

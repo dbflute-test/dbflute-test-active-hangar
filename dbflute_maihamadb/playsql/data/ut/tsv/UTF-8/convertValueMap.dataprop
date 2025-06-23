@@ -1,0 +1,4 @@
+map:{
+    # test of empty string for not null column
+    ; WHITE_TSV_LOADING.EMPTY_STRING_ALLOWED = map:{ $$null$$ = $$empty$$ }
+}

@@ -450,8 +450,9 @@ CREATE TABLE WHITE_SINGLE_PK (
 	PRIMARY KEY(ONLY_ONE_PK_ID)
 );
 
--- /= = = = = = = = = = = = = =
+-- /= = = = = = = = = = = = = = = = = = = = = = = = = =
 -- for the test of tsv loading
+-- (contains test of empty string for not null column)
 -- = = = = = = = = = =/
 CREATE TABLE WHITE_TSV_LOADING (
 	TSV_LOADING_ID NUMERIC(16) NOT NULL PRIMARY KEY,
@@ -461,6 +462,7 @@ CREATE TABLE WHITE_TSV_LOADING (
 	BEGIN_DATETIME DATETIME NOT NULL,
 	END_DATETIME DATETIME,
 	LARGE_FROM_FILE VARCHAR(600) NULL,
+	EMPTY_STRING_ALLOWED VARCHAR(32) NOT NULL,
 	DONE_FLG BOOLEAN NOT NULL
 );
 
