@@ -139,7 +139,16 @@ public class WxDiffworldTest extends PlainTestCase {
         doCheckSchemaSyncCheckProcedureDiff(firstMap, "MAIHAMADB"); // deleted function is main DB
         doCheckSchemaSyncCheckCraftDiff(firstMap);
         assertTrue(new File(schemaPath + "/project-sync-schema.xml").exists());
-        assertTrue(new File(getOutputDocPath() + "/diffworld-sync-check-result.html").exists());
+        File resultFile = new File(getOutputDocPath() + "/diffworld-sync-check-result.html");
+        assertTrue(resultFile.exists());
+        String wholeText = new FileTextIO().encodeAsUTF8().read(new FileInputStream(resultFile));
+        assertContains(wholeText, "MEMBER_ACCOUNT");
+        assertContains(wholeText, "MOBILE_LOGIN_FLG(4)");
+        assertContains(wholeText, "MOBILE_LOGIN_FLG(2)");
+        assertContains(wholeText, "IX_MEMBER_LOGIN_DATETIME");
+        assertContains(wholeText, "MEMBER_STATUS::DIF");
+        assertContains(wholeText, "diffNo. 1");
+        assertNotContains(wholeText, "diffNo. 2"); // not related to pieces
     }
 
     private void doCheckSchemaSyncCheckBasic(Map<String, Object> firstMap) {

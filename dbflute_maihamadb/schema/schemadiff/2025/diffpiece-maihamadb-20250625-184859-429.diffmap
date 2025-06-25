@@ -1,0 +1,19 @@
+map:{
+    ; 2025/06/25 18:48:59.429 = map:{
+        ; diffDate = 2025/06/25 18:48:59.429
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_TSV_LOADING = map:{
+                ; tableName = WHITE_TSV_LOADING
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; EMPTY_STRING_ALLOWED = map:{
+                        ; columnName = EMPTY_STRING_ALLOWED
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

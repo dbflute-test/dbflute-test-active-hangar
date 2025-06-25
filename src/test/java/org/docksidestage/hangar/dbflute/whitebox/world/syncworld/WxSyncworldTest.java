@@ -16,6 +16,7 @@ public class WxSyncworldTest extends PlainTestCase {
 
     public void test_syncworld() throws IOException {
         // #hope jflute will tests failure pattern here (2018/06/02)
+        // (WxDiffworldTest has failure pattern test, by the way)
         doTest_syncworld(/*clean*/true); // no existing resources
         doTest_syncworld(/*clean*/false); // overriding existing resources
     }
