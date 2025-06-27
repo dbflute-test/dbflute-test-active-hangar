@@ -33,6 +33,6 @@ public class WxRepsTsvLoadingTest extends UnitContainerTestCase {
         assertMarked("21");
         assertMarked("22");
 
-        assertEquals(18, loadingList.size());
+        assertEquals(19, loadingList.size());
     }
 }
