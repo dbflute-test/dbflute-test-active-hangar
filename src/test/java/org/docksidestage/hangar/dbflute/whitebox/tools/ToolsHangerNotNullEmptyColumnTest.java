@@ -28,12 +28,12 @@ public class ToolsHangerNotNullEmptyColumnTest extends UnitContainerTestCase {
     public void test_NotNull_but_EmptyString() {
         final Map<String, DBMeta> dbmetaMap = DBMetaInstanceHandler.getUnmodifiableDBMetaMap();
         final Map<String, List<ColumnInfo>> emptyColumnMap = newLinkedHashMap();
-        final int limit = 3; // tables
+        final int limit = 3; // tables (change it as you like it)
         int tableCount = 0;
         for (Entry<String, DBMeta> entry : dbmetaMap.entrySet()) {
             final String tableDbName = entry.getKey();
             final DBMeta dbmeta = entry.getValue();
-            log("...Analyzing {}", tableDbName);
+            log("...Analyzing table: {}", tableDbName);
             final List<ColumnInfo> emptyColumnList = analyzeEmptyColumnList(dbmeta);
             if (!emptyColumnList.isEmpty()) {
                 emptyColumnMap.put(tableDbName, emptyColumnList);
@@ -44,21 +44,21 @@ public class ToolsHangerNotNullEmptyColumnTest extends UnitContainerTestCase {
                 break;
             }
         }
+        log("The End!");
         final StringBuilder sb = new StringBuilder();
         emptyColumnMap.forEach((tableDbName, emptyColumnList) -> {
             for (ColumnInfo columnInfo : emptyColumnList) {
+                if (sb.length() >= 1) { // second or more
+                    sb.append(ln());
+                }
+                sb.append("    ; "); // indent
                 sb.append(tableDbName).append(".").append(columnInfo.getColumnDbName());
                 sb.append(" = map:{ $$null$$ = $$empty$$ }"); // for convertValueMap.dataprop
-                sb.append(ln());
             }
-            sb.append(ln());
         });
-        String resultDisp = sb.toString();
-        if (resultDisp.isEmpty()) {
-            log("*Not Found");
-        } else {
-            log(ln() + resultDisp);
-        }
+        sb.insert(0, "map:{" + ln());
+        sb.append(ln()).append("}");
+        log("convertValueMap.dataprop style:" + ln() + sb.toString());
     }
 
     private List<ColumnInfo> analyzeEmptyColumnList(DBMeta dbmeta) {
