@@ -216,8 +216,15 @@ map:{
         ; isReplaceSchemaDirectUse = false
         ; isOverrideExistingDataFile = false
         ; isSynchronizeOriginDate = false
+
         # use if you test TSV output
         ; isDelimiterDataBasis = false
+
+        # test of LoadDataReverse tableExceptList, tableTargetList
+        #; tableExceptList = list:{ PURCHASE }
+        #; tableTargetList = list:{ MEMBER }
+
+        # test of various options
         #; isDelimiterDataMinimallyQuoted = true
         #; isDelimiterDataOnSectionDirectory = true
         #; xlsLimit = 0
@@ -242,6 +249,9 @@ map:{
         ; password = 
         # you can rename the result html
         #; resultHtmlFileName = sync-check-result-ut.html
+
+        # test of SchemaSyncCheck tableExceptList
+        #; tableExceptList = list:{ WHITE_BASE }
     }
     # - - - - - - - - - -/
 
