@@ -218,7 +218,7 @@ map:{
         ; isSynchronizeOriginDate = false
 
         # use if you test TSV output
-        ; isDelimiterDataBasis = false
+        ; isDelimiterDataBasis = true
 
         # test of LoadDataReverse tableExceptList, tableTargetList
         #; tableExceptList = list:{ PURCHASE }
@@ -229,6 +229,7 @@ map:{
         #; isDelimiterDataOnSectionDirectory = true
         #; xlsLimit = 0
         #; sectionTableGuidelineLimit = 30
+        #; cursorSelectFetchSize = 100
     }
     # - - - - - - - - - -/
 
