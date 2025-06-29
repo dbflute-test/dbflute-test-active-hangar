@@ -44,13 +44,14 @@ public class WxLRevworldTest extends PlainTestCase {
             assertEquals(0, result.getExitCode());
             String console = result.getConsole();
             assertContains(console, "...Outputting load data");
-            assertContains(console, "MEMBER (20)");
+            assertContains(console, "MEMBER.tsv (20)");
             assertContains(console, "BUILD SUCCESSFUL");
 
-            String dataPath = getOutputDocPath() + "/data/xls";
-            assertTrue(new File(dataPath + "/reverse-data-07-MEMBER.xls").exists()); // changeable
+            String dataPath = getOutputDocPath() + "/data/tsv/UTF-8";
+            assertTrue(new File(dataPath + "/reverse_07_01-MEMBER.tsv").exists()); // changeable
             assertTrue(new File(dataPath + "/reverse-data-result.dfmark").exists());
-            assertTrue(new File(dataPath + "/tableNameMap.dataprop").exists());
+            // migrated from xls to tsv
+            //assertTrue(new File(dataPath + "/tableNameMap.dataprop").exists());
         } finally {
             long after = System.currentTimeMillis();
             log("performanceCost:[{}]", DfTraceViewUtil.convertToPerformanceView(after - before));
