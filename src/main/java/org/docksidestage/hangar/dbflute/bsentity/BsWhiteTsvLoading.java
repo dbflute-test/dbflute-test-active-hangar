@@ -32,7 +32,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     TSV_LOADING_ID
  *
  * [column]
- *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, DONE_FLG
+ *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, EMPTY_STRING_ALLOWED, DONE_FLG
  *
  * [sequence]
  *     
@@ -64,6 +64,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * java.time.LocalDateTime beginDatetime = entity.getBeginDatetime();
  * java.time.LocalDateTime endDatetime = entity.getEndDatetime();
  * String largeFromFile = entity.getLargeFromFile();
+ * String emptyStringAllowed = entity.getEmptyStringAllowed();
  * Boolean doneFlg = entity.getDoneFlg();
  * entity.setTsvLoadingId(tsvLoadingId);
  * entity.setTsvLoadingName(tsvLoadingName);
@@ -72,6 +73,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * entity.setBeginDatetime(beginDatetime);
  * entity.setEndDatetime(endDatetime);
  * entity.setLargeFromFile(largeFromFile);
+ * entity.setEmptyStringAllowed(emptyStringAllowed);
  * entity.setDoneFlg(doneFlg);
  * = = = = = = = = = =/
  * </pre>
@@ -108,6 +110,9 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
 
     /** LARGE_FROM_FILE: {VARCHAR(600)} */
     protected String _largeFromFile;
+
+    /** EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} */
+    protected String _emptyStringAllowed;
 
     /** DONE_FLG: {NotNull, BOOLEAN(1), classification=Flg} */
     protected Boolean _doneFlg;
@@ -280,6 +285,7 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
         sb.append(dm).append(xfND(_beginDatetime));
         sb.append(dm).append(xfND(_endDatetime));
         sb.append(dm).append(xfND(_largeFromFile));
+        sb.append(dm).append(xfND(_emptyStringAllowed));
         sb.append(dm).append(xfND(_doneFlg));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -425,6 +431,24 @@ public abstract class BsWhiteTsvLoading extends AbstractEntity implements Domain
     public void setLargeFromFile(String largeFromFile) {
         registerModifiedProperty("largeFromFile");
         _largeFromFile = largeFromFile;
+    }
+
+    /**
+     * [get] EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} <br>
+     * @return The value of the column 'EMPTY_STRING_ALLOWED'. (basically NotNull if selected: for the constraint)
+     */
+    public String getEmptyStringAllowed() {
+        checkSpecifiedProperty("emptyStringAllowed");
+        return convertEmptyToNull(_emptyStringAllowed);
+    }
+
+    /**
+     * [set] EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} <br>
+     * @param emptyStringAllowed The value of the column 'EMPTY_STRING_ALLOWED'. (basically NotNull if update: for the constraint)
+     */
+    public void setEmptyStringAllowed(String emptyStringAllowed) {
+        registerModifiedProperty("emptyStringAllowed");
+        _emptyStringAllowed = emptyStringAllowed;
     }
 
     /**

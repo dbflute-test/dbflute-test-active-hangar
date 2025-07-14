@@ -117,6 +117,7 @@ map:{
                 ; WHITE_READ_ONLY
                 ; WHITE_SINGLE_PK
                 ; WHITE_TYPE_MAPPING
+                ; prefix:WHITE_DEPRECATED
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = 2018/05/18

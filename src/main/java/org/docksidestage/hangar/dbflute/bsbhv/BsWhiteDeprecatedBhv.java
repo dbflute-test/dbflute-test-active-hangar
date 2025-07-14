@@ -35,13 +35,13 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_TSV_LOADING as TABLE.
+ * The behavior of WHITE_DEPRECATED as TABLE.
  * <pre>
  * [primary-key]
- *     TSV_LOADING_ID
+ *     DEPRECATED_ID
  *
  * [column]
- *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, EMPTY_STRING_ALLOWED, DONE_FLG
+ *     DEPRECATED_ID, DEPRECATED_NAME, DEPRECATED_CODE
  *
  * [sequence]
  *     
@@ -56,39 +56,27 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     
  *
  * [referrer table]
- *     
+ *     WHITE_DEPRECATED_REF
  *
  * [foreign property]
  *     
  *
  * [referrer property]
- *     
+ *     whiteDeprecatedRefList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long tsvLoadingId = entity.getTsvLoadingId();
- * String tsvLoadingName = entity.getTsvLoadingName();
- * Integer loadingCount = entity.getLoadingCount();
- * java.time.LocalDate loadingDate = entity.getLoadingDate();
- * java.time.LocalDateTime beginDatetime = entity.getBeginDatetime();
- * java.time.LocalDateTime endDatetime = entity.getEndDatetime();
- * String largeFromFile = entity.getLargeFromFile();
- * String emptyStringAllowed = entity.getEmptyStringAllowed();
- * Boolean doneFlg = entity.getDoneFlg();
- * entity.setTsvLoadingId(tsvLoadingId);
- * entity.setTsvLoadingName(tsvLoadingName);
- * entity.setLoadingCount(loadingCount);
- * entity.setLoadingDate(loadingDate);
- * entity.setBeginDatetime(beginDatetime);
- * entity.setEndDatetime(endDatetime);
- * entity.setLargeFromFile(largeFromFile);
- * entity.setEmptyStringAllowed(emptyStringAllowed);
- * entity.setDoneFlg(doneFlg);
+ * Long deprecatedId = entity.getDeprecatedId();
+ * String deprecatedName = entity.getDeprecatedName();
+ * String deprecatedCode = entity.getDeprecatedCode();
+ * entity.setDeprecatedId(deprecatedId);
+ * entity.setDeprecatedName(deprecatedName);
+ * entity.setDeprecatedCode(deprecatedCode);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteTsvLoading, WhiteTsvLoadingCB> {
+public abstract class BsWhiteDeprecatedBhv extends org.docksidestage.hangar.dbflute.nogen.ExtendedAbstractBehaviorWritable<WhiteDeprecated, WhiteDeprecatedCB> {
 
     // ===================================================================================
     //                                                                          Definition
@@ -100,15 +88,15 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     //                                                                             DB Meta
     //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteTsvLoadingDbm asDBMeta() { return WhiteTsvLoadingDbm.getInstance(); }
+    public WhiteDeprecatedDbm asDBMeta() { return WhiteDeprecatedDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "WHITE_TSV_LOADING"; }
+    public String asTableDbName() { return "WHITE_DEPRECATED"; }
 
     // ===================================================================================
     //                                                                        New Instance
     //                                                                        ============
     /** {@inheritDoc} */
-    public WhiteTsvLoadingCB newConditionBean() { return new WhiteTsvLoadingCB(); }
+    public WhiteDeprecatedCB newConditionBean() { return new WhiteDeprecatedCB(); }
 
     // ===================================================================================
     //                                                                        Count Select
@@ -117,14 +105,14 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #70226C">int</span> count = <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
-    public int selectCount(CBCall<WhiteTsvLoadingCB> cbLambda) {
+    public int selectCount(CBCall<WhiteDeprecatedCB> cbLambda) {
         return facadeSelectCount(createCB(cbLambda));
     }
 
@@ -138,38 +126,38 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteTsvLoading</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteDeprecated</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
-     *     ... = <span style="color: #553000">whiteTsvLoading</span>.get...
+     *     ... = <span style="color: #553000">whiteDeprecated</span>.get...
      * });
      *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
-     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteTsvLoading</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteDeprecated</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
-     *     ... = <span style="color: #553000">whiteTsvLoading</span>.get...
+     *     ... = <span style="color: #553000">whiteDeprecated</span>.get...
      * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if not present</span>
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhiteTsvLoading> selectEntity(CBCall<WhiteTsvLoadingCB> cbLambda) {
+    public OptionalEntity<WhiteDeprecated> selectEntity(CBCall<WhiteDeprecatedCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
-    protected OptionalEntity<WhiteTsvLoading> facadeSelectEntity(WhiteTsvLoadingCB cb) {
+    protected OptionalEntity<WhiteDeprecated> facadeSelectEntity(WhiteDeprecatedCB cb) {
         return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhiteTsvLoading> OptionalEntity<ENTITY> doSelectOptionalEntity(WhiteTsvLoadingCB cb, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhiteDeprecated> OptionalEntity<ENTITY> doSelectOptionalEntity(WhiteDeprecatedCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
@@ -179,46 +167,46 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * WhiteTsvLoading <span style="color: #553000">whiteTsvLoading</span> = <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
-     * ... = <span style="color: #553000">whiteTsvLoading</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * WhiteDeprecated <span style="color: #553000">whiteDeprecated</span> = <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">whiteDeprecated</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WhiteTsvLoading selectEntityWithDeletedCheck(CBCall<WhiteTsvLoadingCB> cbLambda) {
+    public WhiteDeprecated selectEntityWithDeletedCheck(CBCall<WhiteDeprecatedCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the primary-key value.
-     * @param tsvLoadingId : PK, NotNull, DECIMAL(16). (NotNull)
+     * @param deprecatedId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhiteTsvLoading> selectByPK(Long tsvLoadingId) {
-        return facadeSelectByPK(tsvLoadingId);
+    public OptionalEntity<WhiteDeprecated> selectByPK(Long deprecatedId) {
+        return facadeSelectByPK(deprecatedId);
     }
 
-    protected OptionalEntity<WhiteTsvLoading> facadeSelectByPK(Long tsvLoadingId) {
-        return doSelectOptionalByPK(tsvLoadingId, typeOfSelectedEntity());
+    protected OptionalEntity<WhiteDeprecated> facadeSelectByPK(Long deprecatedId) {
+        return doSelectOptionalByPK(deprecatedId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhiteTsvLoading> ENTITY doSelectByPK(Long tsvLoadingId, Class<? extends ENTITY> tp) {
-        return doSelectEntity(xprepareCBAsPK(tsvLoadingId), tp);
+    protected <ENTITY extends WhiteDeprecated> ENTITY doSelectByPK(Long deprecatedId, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(deprecatedId), tp);
     }
 
-    protected <ENTITY extends WhiteTsvLoading> OptionalEntity<ENTITY> doSelectOptionalByPK(Long tsvLoadingId, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectByPK(tsvLoadingId, tp), tsvLoadingId);
+    protected <ENTITY extends WhiteDeprecated> OptionalEntity<ENTITY> doSelectOptionalByPK(Long deprecatedId, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(deprecatedId, tp), deprecatedId);
     }
 
-    protected WhiteTsvLoadingCB xprepareCBAsPK(Long tsvLoadingId) {
-        assertObjectNotNull("tsvLoadingId", tsvLoadingId);
-        return newConditionBean().acceptPK(tsvLoadingId);
+    protected WhiteDeprecatedCB xprepareCBAsPK(Long deprecatedId) {
+        assertObjectNotNull("deprecatedId", deprecatedId);
+        return newConditionBean().acceptPK(deprecatedId);
     }
 
     // ===================================================================================
@@ -227,19 +215,19 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;WhiteTsvLoading&gt; <span style="color: #553000">whiteTsvLoadingList</span> = <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * ListResultBean&lt;WhiteDeprecated&gt; <span style="color: #553000">whiteDeprecatedList</span> = <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...;
      *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * <span style="color: #70226C">for</span> (WhiteTsvLoading <span style="color: #553000">whiteTsvLoading</span> : <span style="color: #553000">whiteTsvLoadingList</span>) {
-     *     ... = <span style="color: #553000">whiteTsvLoading</span>.get...;
+     * <span style="color: #70226C">for</span> (WhiteDeprecated <span style="color: #553000">whiteDeprecated</span> : <span style="color: #553000">whiteDeprecatedList</span>) {
+     *     ... = <span style="color: #553000">whiteDeprecated</span>.get...;
      * }
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
-    public ListResultBean<WhiteTsvLoading> selectList(CBCall<WhiteTsvLoadingCB> cbLambda) {
+    public ListResultBean<WhiteDeprecated> selectList(CBCall<WhiteDeprecatedCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
     }
 
@@ -253,7 +241,7 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
-     * PagingResultBean&lt;WhiteTsvLoading&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * PagingResultBean&lt;WhiteDeprecated&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      *     <span style="color: #553000">cb</span>.query().addOrderBy...
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
@@ -263,15 +251,15 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * <span style="color: #70226C">boolean</span> isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
      * <span style="color: #70226C">boolean</span> isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * <span style="color: #70226C">for</span> (WhiteTsvLoading whiteTsvLoading : <span style="color: #553000">page</span>) {
-     *     ... = whiteTsvLoading.get...;
+     * <span style="color: #70226C">for</span> (WhiteDeprecated whiteDeprecated : <span style="color: #553000">page</span>) {
+     *     ... = whiteDeprecated.get...;
      * }
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
      * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
-    public PagingResultBean<WhiteTsvLoading> selectPage(CBCall<WhiteTsvLoadingCB> cbLambda) {
+    public PagingResultBean<WhiteDeprecated> selectPage(CBCall<WhiteDeprecatedCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
     }
 
@@ -281,16 +269,16 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
      * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
-     * @param entityLambda The handler of entity row of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
+     * @param entityLambda The handler of entity row of WhiteDeprecated. (NotNull)
      */
-    public void selectCursor(CBCall<WhiteTsvLoadingCB> cbLambda, EntityRowHandler<WhiteTsvLoading> entityLambda) {
+    public void selectCursor(CBCall<WhiteDeprecatedCB> cbLambda, EntityRowHandler<WhiteDeprecated> entityLambda) {
         facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
@@ -301,7 +289,7 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -310,7 +298,7 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteTsvLoadingCB, RESULT> selectScalar(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteDeprecatedCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -355,12 +343,12 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
-     * @param whiteTsvLoadingList The entity list of whiteTsvLoading. (NotNull)
+     * @param whiteDeprecatedList The entity list of whiteDeprecated. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
      */
-    public void load(List<WhiteTsvLoading> whiteTsvLoadingList, ReferrerLoaderHandler<LoaderOfWhiteTsvLoading> loaderLambda) {
-        xassLRArg(whiteTsvLoadingList, loaderLambda);
-        loaderLambda.handle(new LoaderOfWhiteTsvLoading().ready(whiteTsvLoadingList, _behaviorSelector));
+    public void load(List<WhiteDeprecated> whiteDeprecatedList, ReferrerLoaderHandler<LoaderOfWhiteDeprecated> loaderLambda) {
+        xassLRArg(whiteDeprecatedList, loaderLambda);
+        loaderLambda.handle(new LoaderOfWhiteDeprecated().ready(whiteDeprecatedList, _behaviorSelector));
     }
 
     /**
@@ -388,12 +376,76 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
-     * @param whiteTsvLoading The entity of whiteTsvLoading. (NotNull)
+     * @param whiteDeprecated The entity of whiteDeprecated. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
      */
-    public void load(WhiteTsvLoading whiteTsvLoading, ReferrerLoaderHandler<LoaderOfWhiteTsvLoading> loaderLambda) {
-        xassLRArg(whiteTsvLoading, loaderLambda);
-        loaderLambda.handle(new LoaderOfWhiteTsvLoading().ready(xnewLRAryLs(whiteTsvLoading), _behaviorSelector));
+    public void load(WhiteDeprecated whiteDeprecated, ReferrerLoaderHandler<LoaderOfWhiteDeprecated> loaderLambda) {
+        xassLRArg(whiteDeprecated, loaderLambda);
+        loaderLambda.handle(new LoaderOfWhiteDeprecated().ready(xnewLRAryLs(whiteDeprecated), _behaviorSelector));
+    }
+
+    /**
+     * Load referrer of whiteDeprecatedRefList by the set-upper of referrer. <br>
+     * WHITE_DEPRECATED_REF by DEPRECATED_ID, named 'whiteDeprecatedRefList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">loadWhiteDeprecatedRef</span>(<span style="color: #553000">whiteDeprecatedList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refCB</span>.setupSelect...
+     *     <span style="color: #553000">refCB</span>.query().set...
+     *     <span style="color: #553000">refCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (WhiteDeprecated whiteDeprecated : <span style="color: #553000">whiteDeprecatedList</span>) {
+     *     ... = whiteDeprecated.<span style="color: #CC4747">getWhiteDeprecatedRefList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setDeprecatedId_InScope(pkList);
+     * cb.query().addOrderBy_DeprecatedId_Asc();
+     * </pre>
+     * @param whiteDeprecatedList The entity list of whiteDeprecated. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteDeprecatedRef> loadWhiteDeprecatedRef(List<WhiteDeprecated> whiteDeprecatedList, ReferrerConditionSetupper<WhiteDeprecatedRefCB> refCBLambda) {
+        xassLRArg(whiteDeprecatedList, refCBLambda);
+        return doLoadWhiteDeprecatedRef(whiteDeprecatedList, new LoadReferrerOption<WhiteDeprecatedRefCB, WhiteDeprecatedRef>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of whiteDeprecatedRefList by the set-upper of referrer. <br>
+     * WHITE_DEPRECATED_REF by DEPRECATED_ID, named 'whiteDeprecatedRefList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">loadWhiteDeprecatedRef</span>(<span style="color: #553000">whiteDeprecated</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refCB</span>.setupSelect...
+     *     <span style="color: #553000">refCB</span>.query().set...
+     *     <span style="color: #553000">refCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">whiteDeprecated</span>.<span style="color: #CC4747">getWhiteDeprecatedRefList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setDeprecatedId_InScope(pkList);
+     * cb.query().addOrderBy_DeprecatedId_Asc();
+     * </pre>
+     * @param whiteDeprecated The entity of whiteDeprecated. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteDeprecatedRef> loadWhiteDeprecatedRef(WhiteDeprecated whiteDeprecated, ReferrerConditionSetupper<WhiteDeprecatedRefCB> refCBLambda) {
+        xassLRArg(whiteDeprecated, refCBLambda);
+        return doLoadWhiteDeprecatedRef(xnewLRLs(whiteDeprecated), new LoadReferrerOption<WhiteDeprecatedRefCB, WhiteDeprecatedRef>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<WhiteDeprecatedRef> doLoadWhiteDeprecatedRef(List<WhiteDeprecated> whiteDeprecatedList, LoadReferrerOption<WhiteDeprecatedRefCB, WhiteDeprecatedRef> option) {
+        return helpLoadReferrerInternally(whiteDeprecatedList, option, "whiteDeprecatedRefList");
     }
 
     // ===================================================================================
@@ -403,12 +455,12 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     //                                                                      Extract Column
     //                                                                      ==============
     /**
-     * Extract the value list of (single) primary key tsvLoadingId.
-     * @param whiteTsvLoadingList The list of whiteTsvLoading. (NotNull, EmptyAllowed)
+     * Extract the value list of (single) primary key deprecatedId.
+     * @param whiteDeprecatedList The list of whiteDeprecated. (NotNull, EmptyAllowed)
      * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<Long> extractTsvLoadingIdList(List<WhiteTsvLoading> whiteTsvLoadingList)
-    { return helpExtractListInternally(whiteTsvLoadingList, "tsvLoadingId"); }
+    public List<Long> extractDeprecatedIdList(List<WhiteDeprecated> whiteDeprecatedList)
+    { return helpExtractListInternally(whiteDeprecatedList, "deprecatedId"); }
 
     // ===================================================================================
     //                                                                       Entity Update
@@ -416,80 +468,80 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     /**
      * Insert the entity modified-only. (DefaultConstraintsEnabled)
      * <pre>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
-     * whiteTsvLoading.setFoo...(value);
-     * whiteTsvLoading.setBar...(value);
+     * whiteDeprecated.setFoo...(value);
+     * whiteDeprecated.setBar...(value);
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.set...;</span>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">insert</span>(whiteTsvLoading);
-     * ... = whiteTsvLoading.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.set...;</span>
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">insert</span>(whiteDeprecated);
+     * ... = whiteDeprecated.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
-     * @param whiteTsvLoading The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param whiteDeprecated The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void insert(WhiteTsvLoading whiteTsvLoading) {
-        doInsert(whiteTsvLoading, null);
+    public void insert(WhiteDeprecated whiteDeprecated) {
+        doInsert(whiteDeprecated, null);
     }
 
     /**
      * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
-     * whiteTsvLoading.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * whiteTsvLoading.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
+     * whiteDeprecated.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * whiteDeprecated.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.set...;</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteTsvLoading.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">update</span>(whiteTsvLoading);
+     * whiteDeprecated.<span style="color: #CC4747">setVersionNo</span>(value);
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">update</span>(whiteDeprecated);
      * </pre>
-     * @param whiteTsvLoading The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param whiteDeprecated The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void update(WhiteTsvLoading whiteTsvLoading) {
-        doUpdate(whiteTsvLoading, null);
+    public void update(WhiteDeprecated whiteDeprecated) {
+        doUpdate(whiteDeprecated, null);
     }
 
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param whiteTsvLoading The entity of insert or update. (NotNull, ...depends on insert or update)
+     * @param whiteDeprecated The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void insertOrUpdate(WhiteTsvLoading whiteTsvLoading) {
-        doInsertOrUpdate(whiteTsvLoading, null, null);
+    public void insertOrUpdate(WhiteDeprecated whiteDeprecated) {
+        doInsertOrUpdate(whiteDeprecated, null, null);
     }
 
     /**
      * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
-     * whiteTsvLoading.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
+     * whiteDeprecated.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteTsvLoading.<span style="color: #CC4747">setVersionNo</span>(value);
+     * whiteDeprecated.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #70226C">try</span> {
-     *     <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">delete</span>(whiteTsvLoading);
+     *     <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">delete</span>(whiteDeprecated);
      * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
-     * @param whiteTsvLoading The entity of delete. (NotNull, PrimaryKeyNotNull)
+     * @param whiteDeprecated The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void delete(WhiteTsvLoading whiteTsvLoading) {
-        doDelete(whiteTsvLoading, null);
+    public void delete(WhiteDeprecated whiteDeprecated) {
+        doDelete(whiteDeprecated, null);
     }
 
     // ===================================================================================
@@ -501,26 +553,26 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * <span style="color: #70226C">for</span> (... : ...) {
-     *     WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
-     *     whiteTsvLoading.setFooName("foo");
+     *     WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
+     *     whiteDeprecated.setFooName("foo");
      *     <span style="color: #70226C">if</span> (...) {
-     *         whiteTsvLoading.setFooPrice(123);
+     *         whiteDeprecated.setFooPrice(123);
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are registered</span>
      *     <span style="color: #3F7E5E">// FOO_PRICE not-called in any entities are registered as null without default value</span>
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
-     *     whiteTsvLoadingList.add(whiteTsvLoading);
+     *     whiteDeprecatedList.add(whiteDeprecated);
      * }
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteTsvLoadingList);
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">batchInsert</span>(whiteDeprecatedList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
      * (When you use the (normal) insert(), you can get the incremented value from your entity)</p>
-     * @param whiteTsvLoadingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
+     * @param whiteDeprecatedList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNullAllowed: when auto-increment)
      * @return The array of inserted count. (NotNull, EmptyAllowed)
      */
-    public int[] batchInsert(List<WhiteTsvLoading> whiteTsvLoadingList) {
-        return doBatchInsert(whiteTsvLoadingList, null);
+    public int[] batchInsert(List<WhiteDeprecated> whiteDeprecatedList) {
+        return doBatchInsert(whiteDeprecatedList, null);
     }
 
     /**
@@ -529,37 +581,37 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
-     *     WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
-     *     whiteTsvLoading.setFooName("foo");
+     *     WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
+     *     whiteDeprecated.setFooName("foo");
      *     <span style="color: #70226C">if</span> (...) {
-     *         whiteTsvLoading.setFooPrice(123);
+     *         whiteDeprecated.setFooPrice(123);
      *     } <span style="color: #70226C">else</span> {
-     *         whiteTsvLoading.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//whiteTsvLoading.setFooDate(...); // *not allowed, fragmented</span>
+     *         whiteDeprecated.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
+     *         <span style="color: #3F7E5E">//whiteDeprecated.setFooDate(...); // *not allowed, fragmented</span>
      *     }
      *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     whiteTsvLoadingList.add(whiteTsvLoading);
+     *     whiteDeprecatedList.add(whiteDeprecated);
      * }
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteTsvLoadingList);
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">batchUpdate</span>(whiteDeprecatedList);
      * </pre>
-     * @param whiteTsvLoadingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteDeprecatedList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
-    public int[] batchUpdate(List<WhiteTsvLoading> whiteTsvLoadingList) {
-        return doBatchUpdate(whiteTsvLoadingList, null);
+    public int[] batchUpdate(List<WhiteDeprecated> whiteDeprecatedList) {
+        return doBatchUpdate(whiteDeprecatedList, null);
     }
 
     /**
      * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param whiteTsvLoadingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteDeprecatedList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
-    public int[] batchDelete(List<WhiteTsvLoading> whiteTsvLoadingList) {
-        return doBatchDelete(whiteTsvLoadingList, null);
+    public int[] batchDelete(List<WhiteDeprecated> whiteDeprecatedList) {
+        return doBatchDelete(whiteDeprecatedList, null);
     }
 
     // ===================================================================================
@@ -568,8 +620,8 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteTsvLoading, WhiteTsvLoadingCB&gt;() {
-     *     public ConditionBean setup(WhiteTsvLoading entity, WhiteTsvLoadingCB intoCB) {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteDeprecated, WhiteDeprecatedCB&gt;() {
+     *     public ConditionBean setup(WhiteDeprecated entity, WhiteDeprecatedCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
      *
@@ -591,48 +643,48 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * @param manyArgLambda The callback to set up query-insert. (NotNull)
      * @return The inserted count.
      */
-    public int queryInsert(QueryInsertSetupper<WhiteTsvLoading, WhiteTsvLoadingCB> manyArgLambda) {
+    public int queryInsert(QueryInsertSetupper<WhiteDeprecated, WhiteDeprecatedCB> manyArgLambda) {
         return doQueryInsert(manyArgLambda, null);
     }
 
     /**
      * Update the several entities by query non-strictly modified-only. (NonExclusiveControl)
      * <pre>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setPK...(value);</span>
-     * whiteTsvLoading.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.setPK...(value);</span>
+     * whiteDeprecated.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.set...;</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.setRegisterUser(value);</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.set...;</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setVersionNo(value);</span>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteTsvLoading, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">//whiteDeprecated.setVersionNo(value);</span>
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteDeprecated, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
-     * @param whiteTsvLoading The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param whiteDeprecated The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The updated count.
      * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
-    public int queryUpdate(WhiteTsvLoading whiteTsvLoading, CBCall<WhiteTsvLoadingCB> cbLambda) {
-        return doQueryUpdate(whiteTsvLoading, createCB(cbLambda), null);
+    public int queryUpdate(WhiteDeprecated whiteDeprecated, CBCall<WhiteDeprecatedCB> cbLambda) {
+        return doQueryUpdate(whiteDeprecated, createCB(cbLambda), null);
     }
 
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @return The deleted count.
      * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
-    public int queryDelete(CBCall<WhiteTsvLoadingCB> cbLambda) {
+    public int queryDelete(CBCall<WhiteDeprecatedCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
     }
 
@@ -647,22 +699,22 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
-     * whiteTsvLoading.setFoo...(value);
-     * whiteTsvLoading.setBar...(value);
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteTsvLoading, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * whiteDeprecated.setFoo...(value);
+     * whiteDeprecated.setBar...(value);
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteDeprecated, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
      * });
-     * ... = whiteTsvLoading.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
+     * ... = whiteDeprecated.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
-     * @param whiteTsvLoading The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
+     * @param whiteDeprecated The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteTsvLoading whiteTsvLoading, WritableOptionCall<WhiteTsvLoadingCB, InsertOption<WhiteTsvLoadingCB>> opLambda) {
-        doInsert(whiteTsvLoading, createInsertOption(opLambda));
+    public void varyingInsert(WhiteDeprecated whiteDeprecated, WritableOptionCall<WhiteDeprecatedCB, InsertOption<WhiteDeprecatedCB>> opLambda) {
+        doInsert(whiteDeprecated, createInsertOption(opLambda));
     }
 
     /**
@@ -670,53 +722,53 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
-     * whiteTsvLoading.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * whiteTsvLoading.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
+     * whiteDeprecated.setPK...(value); <span style="color: #3F7E5E">// required</span>
+     * whiteDeprecated.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteTsvLoading.<span style="color: #CC4747">setVersionNo</span>(value);
+     * whiteDeprecated.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteTsvLoading, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteDeprecated, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param whiteTsvLoading The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @param whiteDeprecated The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteTsvLoading whiteTsvLoading, WritableOptionCall<WhiteTsvLoadingCB, UpdateOption<WhiteTsvLoadingCB>> opLambda) {
-        doUpdate(whiteTsvLoading, createUpdateOption(opLambda));
+    public void varyingUpdate(WhiteDeprecated whiteDeprecated, WritableOptionCall<WhiteDeprecatedCB, UpdateOption<WhiteDeprecatedCB>> opLambda) {
+        doUpdate(whiteDeprecated, createUpdateOption(opLambda));
     }
 
     /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
-     * @param whiteTsvLoading The entity of insert or update. (NotNull)
+     * @param whiteDeprecated The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteTsvLoading whiteTsvLoading, WritableOptionCall<WhiteTsvLoadingCB, InsertOption<WhiteTsvLoadingCB>> insertOpLambda, WritableOptionCall<WhiteTsvLoadingCB, UpdateOption<WhiteTsvLoadingCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteTsvLoading, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteDeprecated whiteDeprecated, WritableOptionCall<WhiteDeprecatedCB, InsertOption<WhiteDeprecatedCB>> insertOpLambda, WritableOptionCall<WhiteDeprecatedCB, UpdateOption<WhiteDeprecatedCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteDeprecated, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
      * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
-     * @param whiteTsvLoading The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param whiteDeprecated The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteTsvLoading whiteTsvLoading, WritableOptionCall<WhiteTsvLoadingCB, DeleteOption<WhiteTsvLoadingCB>> opLambda) {
-        doDelete(whiteTsvLoading, createDeleteOption(opLambda));
+    public void varyingDelete(WhiteDeprecated whiteDeprecated, WritableOptionCall<WhiteDeprecatedCB, DeleteOption<WhiteDeprecatedCB>> opLambda) {
+        doDelete(whiteDeprecated, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -727,12 +779,12 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * For example, disableCommonColumnAutoSetup()
      * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
      * Other specifications are same as batchInsert(entityList).
-     * @param whiteTsvLoadingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteDeprecatedList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteTsvLoading> whiteTsvLoadingList, WritableOptionCall<WhiteTsvLoadingCB, InsertOption<WhiteTsvLoadingCB>> opLambda) {
-        return doBatchInsert(whiteTsvLoadingList, createInsertOption(opLambda));
+    public int[] varyingBatchInsert(List<WhiteDeprecated> whiteDeprecatedList, WritableOptionCall<WhiteDeprecatedCB, InsertOption<WhiteDeprecatedCB>> opLambda) {
+        return doBatchInsert(whiteDeprecatedList, createInsertOption(opLambda));
     }
 
     /**
@@ -740,24 +792,24 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
      * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
      * Other specifications are same as batchUpdate(entityList).
-     * @param whiteTsvLoadingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteDeprecatedList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteTsvLoading> whiteTsvLoadingList, WritableOptionCall<WhiteTsvLoadingCB, UpdateOption<WhiteTsvLoadingCB>> opLambda) {
-        return doBatchUpdate(whiteTsvLoadingList, createUpdateOption(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteDeprecated> whiteDeprecatedList, WritableOptionCall<WhiteDeprecatedCB, UpdateOption<WhiteDeprecatedCB>> opLambda) {
+        return doBatchUpdate(whiteDeprecatedList, createUpdateOption(opLambda));
     }
 
     /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
-     * @param whiteTsvLoadingList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
+     * @param whiteDeprecatedList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteTsvLoading> whiteTsvLoadingList, WritableOptionCall<WhiteTsvLoadingCB, DeleteOption<WhiteTsvLoadingCB>> opLambda) {
-        return doBatchDelete(whiteTsvLoadingList, createDeleteOption(opLambda));
+    public int[] varyingBatchDelete(List<WhiteDeprecated> whiteDeprecatedList, WritableOptionCall<WhiteDeprecatedCB, DeleteOption<WhiteDeprecatedCB>> opLambda) {
+        return doBatchDelete(whiteDeprecatedList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -771,7 +823,7 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteTsvLoading, WhiteTsvLoadingCB> manyArgLambda, WritableOptionCall<WhiteTsvLoadingCB, InsertOption<WhiteTsvLoadingCB>> opLambda) {
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteDeprecated, WhiteDeprecatedCB> manyArgLambda, WritableOptionCall<WhiteDeprecatedCB, InsertOption<WhiteDeprecatedCB>> opLambda) {
         return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
@@ -782,14 +834,14 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * WhiteTsvLoading whiteTsvLoading = <span style="color: #70226C">new</span> WhiteTsvLoading();
+     * WhiteDeprecated whiteDeprecated = <span style="color: #70226C">new</span> WhiteDeprecated();
      * <span style="color: #3F7E5E">// you don't need to set PK value</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setPK...(value);</span>
-     * whiteTsvLoading.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
+     * <span style="color: #3F7E5E">//whiteDeprecated.setPK...(value);</span>
+     * whiteDeprecated.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//whiteTsvLoading.setVersionNo(value);</span>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteTsvLoading, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">//whiteDeprecated.setVersionNo(value);</span>
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteDeprecated, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -797,14 +849,14 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
      * });
      * </pre>
-     * @param whiteTsvLoading The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param whiteDeprecated The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
      * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteTsvLoading whiteTsvLoading, CBCall<WhiteTsvLoadingCB> cbLambda, WritableOptionCall<WhiteTsvLoadingCB, UpdateOption<WhiteTsvLoadingCB>> opLambda) {
-        return doQueryUpdate(whiteTsvLoading, createCB(cbLambda), createUpdateOption(opLambda));
+    public int varyingQueryUpdate(WhiteDeprecated whiteDeprecated, CBCall<WhiteDeprecatedCB> cbLambda, WritableOptionCall<WhiteDeprecatedCB, UpdateOption<WhiteDeprecatedCB>> opLambda) {
+        return doQueryUpdate(whiteDeprecated, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -812,18 +864,18 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as queryDelete(cb).
      * <pre>
-     * <span style="color: #0000C0">whiteTsvLoadingBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteTsvLoading, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDeprecated, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">op</span>...
      * });
      * </pre>
-     * @param cbLambda The callback for condition-bean of WhiteTsvLoading. (NotNull)
+     * @param cbLambda The callback for condition-bean of WhiteDeprecated. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
      * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteTsvLoadingCB> cbLambda, WritableOptionCall<WhiteTsvLoadingCB, DeleteOption<WhiteTsvLoadingCB>> opLambda) {
+    public int varyingQueryDelete(CBCall<WhiteDeprecatedCB> cbLambda, WritableOptionCall<WhiteDeprecatedCB, DeleteOption<WhiteDeprecatedCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
@@ -834,31 +886,31 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
      * <span style="color: #3F7E5E">// main style</span>
-     * whiteTsvLoadingBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
-     * whiteTsvLoadingBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
-     * whiteTsvLoadingBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
-     * whiteTsvLoadingBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
-     * whiteTsvLoadingBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
-     * whiteTsvLoadingBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
-     * whiteTsvLoadingBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
+     * whiteDeprecatedBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
+     * whiteDeprecatedBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * whiteDeprecatedBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
+     * whiteDeprecatedBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
+     * whiteDeprecatedBhv.outideSql().selectCursor(pmb, handler); <span style="color: #3F7E5E">// (by handler)</span>
+     * whiteDeprecatedBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
+     * whiteDeprecatedBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
      * <span style="color: #3F7E5E">// traditional style</span>
-     * whiteTsvLoadingBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
-     * whiteTsvLoadingBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
-     * whiteTsvLoadingBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
-     * whiteTsvLoadingBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
-     * whiteTsvLoadingBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
-     * whiteTsvLoadingBhv.outideSql().traditionalStyle().execute(path, pmb);
+     * whiteDeprecatedBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
+     * whiteDeprecatedBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
+     * whiteDeprecatedBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
+     * whiteDeprecatedBhv.outideSql().traditionalStyle().selectPagedListOnly(path, pmb, entityType);
+     * whiteDeprecatedBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
+     * whiteDeprecatedBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
      * <span style="color: #3F7E5E">// options</span>
-     * whiteTsvLoadingBhv.outideSql().removeBlockComment().selectList()
-     * whiteTsvLoadingBhv.outideSql().removeLineComment().selectList()
-     * whiteTsvLoadingBhv.outideSql().formatSql().selectList()
+     * whiteDeprecatedBhv.outideSql().removeBlockComment().selectList()
+     * whiteDeprecatedBhv.outideSql().removeLineComment().selectList()
+     * whiteDeprecatedBhv.outideSql().formatSql().selectList()
      * </pre>
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlAllFacadeExecutor<WhiteTsvLoadingBhv> outsideSql() {
+    public OutsideSqlAllFacadeExecutor<WhiteDeprecatedBhv> outsideSql() {
         return doOutsideSql();
     }
 
@@ -880,7 +932,7 @@ public abstract class BsWhiteTsvLoadingBhv extends org.docksidestage.hangar.dbfl
     // ===================================================================================
     //                                                                         Type Helper
     //                                                                         ===========
-    protected Class<? extends WhiteTsvLoading> typeOfSelectedEntity() { return WhiteTsvLoading.class; }
-    protected Class<WhiteTsvLoading> typeOfHandlingEntity() { return WhiteTsvLoading.class; }
-    protected Class<WhiteTsvLoadingCB> typeOfHandlingConditionBean() { return WhiteTsvLoadingCB.class; }
+    protected Class<? extends WhiteDeprecated> typeOfSelectedEntity() { return WhiteDeprecated.class; }
+    protected Class<WhiteDeprecated> typeOfHandlingEntity() { return WhiteDeprecated.class; }
+    protected Class<WhiteDeprecatedCB> typeOfHandlingConditionBean() { return WhiteDeprecatedCB.class; }
 }

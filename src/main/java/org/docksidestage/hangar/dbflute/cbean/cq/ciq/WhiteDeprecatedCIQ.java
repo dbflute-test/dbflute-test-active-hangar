@@ -27,21 +27,21 @@ import org.docksidestage.hangar.dbflute.cbean.cq.bs.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of WHITE_TSV_LOADING.
+ * The condition-query for in-line of WHITE_DEPRECATED.
  * @author DBFlute(AutoGenerator)
  */
-public class WhiteTsvLoadingCIQ extends AbstractBsWhiteTsvLoadingCQ {
+public class WhiteDeprecatedCIQ extends AbstractBsWhiteDeprecatedCQ {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected BsWhiteTsvLoadingCQ _myCQ;
+    protected BsWhiteDeprecatedCQ _myCQ;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public WhiteTsvLoadingCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
-                        , String aliasName, int nestLevel, BsWhiteTsvLoadingCQ myCQ) {
+    public WhiteDeprecatedCIQ(ConditionQuery referrerQuery, SqlClause sqlClause
+                        , String aliasName, int nestLevel, BsWhiteDeprecatedCQ myCQ) {
         super(referrerQuery, sqlClause, aliasName, nestLevel);
         _myCQ = myCQ;
         _foreignPropertyName = _myCQ.xgetForeignPropertyName(); // accept foreign property name
@@ -76,25 +76,29 @@ public class WhiteTsvLoadingCIQ extends AbstractBsWhiteTsvLoadingCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue xgetCValueTsvLoadingId() { return _myCQ.xdfgetTsvLoadingId(); }
-    protected ConditionValue xgetCValueTsvLoadingName() { return _myCQ.xdfgetTsvLoadingName(); }
-    protected ConditionValue xgetCValueLoadingCount() { return _myCQ.xdfgetLoadingCount(); }
-    protected ConditionValue xgetCValueLoadingDate() { return _myCQ.xdfgetLoadingDate(); }
-    protected ConditionValue xgetCValueBeginDatetime() { return _myCQ.xdfgetBeginDatetime(); }
-    protected ConditionValue xgetCValueEndDatetime() { return _myCQ.xdfgetEndDatetime(); }
-    protected ConditionValue xgetCValueLargeFromFile() { return _myCQ.xdfgetLargeFromFile(); }
-    protected ConditionValue xgetCValueEmptyStringAllowed() { return _myCQ.xdfgetEmptyStringAllowed(); }
-    protected ConditionValue xgetCValueDoneFlg() { return _myCQ.xdfgetDoneFlg(); }
+    protected ConditionValue xgetCValueDeprecatedId() { return _myCQ.xdfgetDeprecatedId(); }
+    public String keepDeprecatedId_ExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepDeprecatedId_NotExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepDeprecatedId_SpecifyDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepDeprecatedId_QueryDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepDeprecatedId_QueryDerivedReferrer_WhiteDeprecatedRefListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    protected ConditionValue xgetCValueDeprecatedName() { return _myCQ.xdfgetDeprecatedName(); }
+    protected ConditionValue xgetCValueDeprecatedCode() { return _myCQ.xdfgetDeprecatedCode(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
-    public String keepScalarCondition(WhiteTsvLoadingCQ sq)
+    public String keepScalarCondition(WhiteDeprecatedCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }
-    public String keepSpecifyMyselfDerived(WhiteTsvLoadingCQ sq)
+    public String keepSpecifyMyselfDerived(WhiteDeprecatedCQ sq)
     { throwIICBOE("(Specify)MyselfDerived"); return null;}
-    public String keepQueryMyselfDerived(WhiteTsvLoadingCQ sq)
+    public String keepQueryMyselfDerived(WhiteDeprecatedCQ sq)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
     public String keepQueryMyselfDerivedParameter(Object vl)
     { throwIICBOE("(Query)MyselfDerived"); return null;}
-    public String keepMyselfExists(WhiteTsvLoadingCQ sq)
+    public String keepMyselfExists(WhiteDeprecatedCQ sq)
     { throwIICBOE("MyselfExists"); return null;}
 
     protected void throwIICBOE(String name)
@@ -104,6 +108,6 @@ public class WhiteTsvLoadingCIQ extends AbstractBsWhiteTsvLoadingCQ {
     //                                                                       Very Internal
     //                                                                       =============
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xinCB() { return WhiteTsvLoadingCB.class.getName(); }
-    protected String xinCQ() { return WhiteTsvLoadingCQ.class.getName(); }
+    protected String xinCB() { return WhiteDeprecatedCB.class.getName(); }
+    protected String xinCQ() { return WhiteDeprecatedCQ.class.getName(); }
 }

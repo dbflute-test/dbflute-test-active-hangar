@@ -1,0 +1,21 @@
+map:{
+    ; 2025/07/14 16:16:00.839 = map:{
+        ; diffDate = 2025/07/14 16:16:00.839
+        ; tableCount = map:{
+            ; next = 66
+            ; previous = 64
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_DEPRECATED = map:{
+                ; tableName = WHITE_DEPRECATED
+                ; diffType = ADD
+            }
+            ; WHITE_DEPRECATED_REF = map:{
+                ; tableName = WHITE_DEPRECATED_REF
+                ; diffType = ADD
+            }
+        }
+    }
+}

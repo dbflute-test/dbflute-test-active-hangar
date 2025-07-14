@@ -228,6 +228,26 @@ public class BsWhiteTsvLoadingCQ extends AbstractBsWhiteTsvLoadingCQ {
      */
     public BsWhiteTsvLoadingCQ addOrderBy_LargeFromFile_Desc() { regOBD("LARGE_FROM_FILE"); return this; }
 
+    protected ConditionValue _emptyStringAllowed;
+    public ConditionValue xdfgetEmptyStringAllowed()
+    { if (_emptyStringAllowed == null) { _emptyStringAllowed = nCV(); }
+      return _emptyStringAllowed; }
+    protected ConditionValue xgetCValueEmptyStringAllowed() { return xdfgetEmptyStringAllowed(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteTsvLoadingCQ addOrderBy_EmptyStringAllowed_Asc() { regOBA("EMPTY_STRING_ALLOWED"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteTsvLoadingCQ addOrderBy_EmptyStringAllowed_Desc() { regOBD("EMPTY_STRING_ALLOWED"); return this; }
+
     protected ConditionValue _doneFlg;
     public ConditionValue xdfgetDoneFlg()
     { if (_doneFlg == null) { _doneFlg = nCV(); }

@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
-import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -29,17 +28,17 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of MEMBER_FOLLOWING. (Singleton)
+ * The DB meta of WHITE_DEPRECATED. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class MemberFollowingDbm extends AbstractDBMeta {
+public class WhiteDeprecatedDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final MemberFollowingDbm _instance = new MemberFollowingDbm();
-    private MemberFollowingDbm() {}
-    public static MemberFollowingDbm getInstance() { return _instance; }
+    private static final WhiteDeprecatedDbm _instance = new WhiteDeprecatedDbm();
+    private WhiteDeprecatedDbm() {}
+    public static WhiteDeprecatedDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -58,79 +57,54 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getMemberFollowingId(), (et, vl) -> ((MemberFollowing)et).setMemberFollowingId(ctl(vl)), "memberFollowingId");
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getMyMemberId(), (et, vl) -> ((MemberFollowing)et).setMyMemberId(cti(vl)), "myMemberId");
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getYourMemberId(), (et, vl) -> ((MemberFollowing)et).setYourMemberId(cti(vl)), "yourMemberId");
-        setupEpg(_epgMap, et -> ((MemberFollowing)et).getFollowDatetime(), (et, vl) -> ((MemberFollowing)et).setFollowDatetime(ctldt(vl)), "followDatetime");
+        setupEpg(_epgMap, et -> ((WhiteDeprecated)et).getDeprecatedId(), (et, vl) -> ((WhiteDeprecated)et).setDeprecatedId(ctl(vl)), "deprecatedId");
+        setupEpg(_epgMap, et -> ((WhiteDeprecated)et).getDeprecatedName(), (et, vl) -> ((WhiteDeprecated)et).setDeprecatedName((String)vl), "deprecatedName");
+        setupEpg(_epgMap, et -> ((WhiteDeprecated)et).getDeprecatedCode(), (et, vl) -> ((WhiteDeprecated)et).setDeprecatedCode((String)vl), "deprecatedCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
 
-    // -----------------------------------------------------
-    //                                      Foreign Property
-    //                                      ----------------
-    protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    { xsetupEfpg(); }
-    @SuppressWarnings("unchecked")
-    protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((MemberFollowing)et).getMemberByMyMemberId(), (et, vl) -> ((MemberFollowing)et).setMemberByMyMemberId((OptionalEntity<Member>)vl), "memberByMyMemberId");
-        setupEfpg(_efpgMap, et -> ((MemberFollowing)et).getMemberByYourMemberId(), (et, vl) -> ((MemberFollowing)et).setMemberByYourMemberId((OptionalEntity<Member>)vl), "memberByYourMemberId");
-    }
-    public PropertyGateway findForeignPropertyGateway(String prop)
-    { return doFindEfpg(_efpgMap, prop); }
-
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "MEMBER_FOLLOWING";
-    protected final String _tableDispName = "MEMBER_FOLLOWING";
-    protected final String _tablePropertyName = "memberFollowing";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.MEMBER_FOLLOWING", _tableDbName);
+    protected final String _tableDbName = "WHITE_DEPRECATED";
+    protected final String _tableDispName = "WHITE_DEPRECATED";
+    protected final String _tablePropertyName = "whiteDeprecated";
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_DEPRECATED", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
-    protected final String _tableAlias = "会員フォローイング";
-    public String getTableAlias() { return _tableAlias; }
-    protected final String _tableComment = "とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。";
-    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberFollowingId = cci("MEMBER_FOLLOWING_ID", "MEMBER_FOLLOWING_ID", null, "会員フォローイングID", Long.class, "memberFollowingId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_ACF2DC29_B152_4B7C_AB65_0C06C28F16CA\"", false, null, "連番", null, null, null, false);
-    protected final ColumnInfo _columnMyMemberId = cci("MY_MEMBER_ID", "MY_MEMBER_ID", null, "わたし", Integer.class, "myMemberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "気になった人がいて...勇気を振り絞った会員のID。", "memberByMyMemberId", null, null, false);
-    protected final ColumnInfo _columnYourMemberId = cci("YOUR_MEMBER_ID", "YOUR_MEMBER_ID", null, "あなた", Integer.class, "yourMemberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "いきなりのアクションに...ちょっと心揺らいだ会員のID。", "memberByYourMemberId", null, null, false);
-    protected final ColumnInfo _columnFollowDatetime = cci("FOLLOW_DATETIME", "FOLLOW_DATETIME", null, "その瞬間", java.time.LocalDateTime.class, "followDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, "ふりかえるとちょっと恥ずかしい気持ちになる日時", null, null, null, false);
+    protected final ColumnInfo _columnDeprecatedId = cci("DEPRECATED_ID", "DEPRECATED_ID", null, null, Long.class, "deprecatedId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteDeprecatedRefList", null, false);
+    protected final ColumnInfo _columnDeprecatedName = cci("DEPRECATED_NAME", "DEPRECATED_NAME", null, null, String.class, "deprecatedName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDeprecatedCode = cci("DEPRECATED_CODE", "DEPRECATED_CODE", null, null, String.class, "deprecatedCode", null, false, false, true, "VARCHAR", 16, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
+     * DEPRECATED_ID: {PK, NotNull, DECIMAL(16)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnMemberFollowingId() { return _columnMemberFollowingId; }
+    public ColumnInfo columnDeprecatedId() { return _columnDeprecatedId; }
     /**
-     * (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * DEPRECATED_NAME: {NotNull, VARCHAR(200)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnMyMemberId() { return _columnMyMemberId; }
+    public ColumnInfo columnDeprecatedName() { return _columnDeprecatedName; }
     /**
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * DEPRECATED_CODE: {NotNull, VARCHAR(16)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnYourMemberId() { return _columnYourMemberId; }
-    /**
-     * (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnFollowDatetime() { return _columnFollowDatetime; }
+    public ColumnInfo columnDeprecatedCode() { return _columnDeprecatedCode; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
-        ls.add(columnMemberFollowingId());
-        ls.add(columnMyMemberId());
-        ls.add(columnYourMemberId());
-        ls.add(columnFollowDatetime());
+        ls.add(columnDeprecatedId());
+        ls.add(columnDeprecatedName());
+        ls.add(columnDeprecatedCode());
         return ls;
     }
 
@@ -142,19 +116,9 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                       Primary Element
     //                                       ---------------
-    protected UniqueInfo cpui() { return hpcpui(columnMemberFollowingId()); }
+    protected UniqueInfo cpui() { return hpcpui(columnDeprecatedId()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
-
-    // -----------------------------------------------------
-    //                                        Unique Element
-    //                                        --------------
-    public UniqueInfo uniqueOf() {
-        List<ColumnInfo> ls = newArrayListSized(4);
-        ls.add(columnMyMemberId());
-        ls.add(columnYourMemberId());
-        return hpcui(ls);
-    }
 
     // ===================================================================================
     //                                                                       Relation Info
@@ -164,56 +128,47 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     // -----------------------------------------------------
     //                                      Foreign Property
     //                                      ----------------
-    /**
-     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignMemberByMyMemberId() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMyMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_FOLLOWING_MY_MEMBER", "memberByMyMemberId", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByMyMemberIdList", false);
-    }
-    /**
-     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignMemberByYourMemberId() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnYourMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_FOLLOWING_YOUR_MEMBER", "memberByYourMemberId", this, MemberDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByYourMemberIdList", false);
-    }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
+    /**
+     * WHITE_DEPRECATED_REF by DEPRECATED_ID, named 'whiteDeprecatedRefList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerWhiteDeprecatedRefList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnDeprecatedId(), WhiteDeprecatedRefDbm.getInstance().columnDeprecatedId());
+        return cri("FK_WHITE_DEPRECATED_REF_WHITE_DEPRECATED", "whiteDeprecatedRefList", this, WhiteDeprecatedRefDbm.getInstance(), mp, false, "whiteDeprecated");
+    }
 
     // ===================================================================================
     //                                                                        Various Info
     //                                                                        ============
-    public boolean hasIdentity() { return true; }
 
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.MemberFollowing"; }
-    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.MemberFollowingCB"; }
-    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.MemberFollowingBhv"; }
+    public String getEntityTypeName() { return "org.docksidestage.hangar.dbflute.exentity.WhiteDeprecated"; }
+    public String getConditionBeanTypeName() { return "org.docksidestage.hangar.dbflute.cbean.WhiteDeprecatedCB"; }
+    public String getBehaviorTypeName() { return "org.docksidestage.hangar.dbflute.exbhv.WhiteDeprecatedBhv"; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<MemberFollowing> getEntityType() { return MemberFollowing.class; }
+    public Class<WhiteDeprecated> getEntityType() { return WhiteDeprecated.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public MemberFollowing newEntity() { return new MemberFollowing(); }
+    public WhiteDeprecated newEntity() { return new WhiteDeprecated(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((MemberFollowing)et, mp); }
+    { doAcceptPrimaryKeyMap((WhiteDeprecated)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((MemberFollowing)et, mp); }
+    { doAcceptAllColumnMap((WhiteDeprecated)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }

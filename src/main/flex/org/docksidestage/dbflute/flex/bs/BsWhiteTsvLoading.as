@@ -26,7 +26,7 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     TSV_LOADING_ID
  *
  * [column]
- *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, DONE_FLG
+ *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, EMPTY_STRING_ALLOWED, DONE_FLG
  *
  * [sequence]
  *     
@@ -69,6 +69,8 @@ public class BsWhiteTsvLoading {
     private var _endDatetime:Date;
 
     private var _largeFromFile:String;
+
+    private var _emptyStringAllowed:String;
 
     private var _doneFlg:Boolean;
 
@@ -137,6 +139,14 @@ public class BsWhiteTsvLoading {
 
     public function set largeFromFile(largeFromFile:String):void {
         this._largeFromFile = largeFromFile;
+    }
+
+    public function get emptyStringAllowed():String {
+        return _emptyStringAllowed;
+    }
+
+    public function set emptyStringAllowed(emptyStringAllowed:String):void {
+        this._emptyStringAllowed = emptyStringAllowed;
     }
 
     public function get doneFlg():Boolean {

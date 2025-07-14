@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.InstanceKeyEntity;
 import org.dbflute.dbmeta.dtomap.DtoMapper;
@@ -31,19 +32,18 @@ import org.dbflute.helper.beans.DfBeanDesc;
 import org.dbflute.helper.beans.DfPropertyDesc;
 import org.dbflute.helper.beans.factory.DfBeanDescFactory;
 import org.dbflute.jdbc.Classification;
-import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of WHITE_TSV_LOADING as TABLE. <br>
+ * The DTO mapper of WHITE_DEPRECATED as TABLE. <br>
  * <pre>
  * [primary-key]
- *     TSV_LOADING_ID
+ *     DEPRECATED_ID
  *
  * [column]
- *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, EMPTY_STRING_ALLOWED, DONE_FLG
+ *     DEPRECATED_ID, DEPRECATED_NAME, DEPRECATED_CODE
  *
  * [sequence]
  *     
@@ -58,17 +58,17 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     
  *
  * [referrer-table]
- *     
+ *     WHITE_DEPRECATED_REF
  *
  * [foreign-property]
  *     
  *
  * [referrer-property]
- *     
+ *     whiteDeprecatedRefList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLoading, WhiteTsvLoadingDto>, Serializable {
+public abstract class BsWhiteDeprecatedDtoMapper implements DtoMapper<WhiteDeprecated, WhiteDeprecatedDto>, Serializable {
 
     // ===================================================================================
     //                                                                          Definition
@@ -84,16 +84,17 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
     protected boolean _exceptCommonColumn;
     protected boolean _reverseReference; // default: one-way reference
     protected boolean _instanceCache = true; // default: cached
+    protected boolean _suppressWhiteDeprecatedRefList;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsWhiteTsvLoadingDtoMapper() {
+    public BsWhiteDeprecatedDtoMapper() {
         _relationDtoMap = new HashMap<Entity, Object>();
         _relationEntityMap = new HashMap<Object, Entity>();
     }
 
-    public BsWhiteTsvLoadingDtoMapper(Map<Entity, Object> relationDtoMap, Map<Object, Entity> relationEntityMap) {
+    public BsWhiteDeprecatedDtoMapper(Map<Entity, Object> relationDtoMap, Map<Object, Entity> relationEntityMap) {
         _relationDtoMap = relationDtoMap;
         _relationEntityMap = relationEntityMap;
     }
@@ -107,34 +108,53 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
     /**
      * {@inheritDoc}
      */
-    public WhiteTsvLoadingDto mappingToDto(WhiteTsvLoading entity) {
+    public WhiteDeprecatedDto mappingToDto(WhiteDeprecated entity) {
         if (entity == null) {
             return null;
         }
-        WhiteTsvLoadingDto dto = new WhiteTsvLoadingDto();
-        dto.setTsvLoadingId(entity.getTsvLoadingId());
-        dto.setTsvLoadingName(entity.getTsvLoadingName());
-        dto.setLoadingCount(entity.getLoadingCount());
-        dto.setLoadingDate(entity.getLoadingDate());
-        dto.setBeginDatetime(entity.getBeginDatetime());
-        dto.setEndDatetime(entity.getEndDatetime());
-        dto.setLargeFromFile(entity.getLargeFromFile());
-        dto.setEmptyStringAllowed(entity.getEmptyStringAllowed());
-        dto.setDoneFlg(entity.getDoneFlg());
+        boolean instanceCache = _instanceCache;
+        Entity localKey = createInstanceKeyEntity(entity);
+        Object cachedLocalDto = instanceCache ? _relationDtoMap.get(localKey) : null;
+        if (cachedLocalDto != null) {
+            return (WhiteDeprecatedDto)cachedLocalDto;
+        }
+        boolean exceptCommonColumn = isExceptCommonColumn();
+        WhiteDeprecatedDto dto = new WhiteDeprecatedDto();
+        dto.setDeprecatedId(entity.getDeprecatedId());
+        dto.setDeprecatedName(entity.getDeprecatedName());
+        dto.setDeprecatedCode(entity.getDeprecatedCode());
         reflectDerivedProperty(entity, dto, true);
+        if (instanceCache && entity.hasPrimaryKeyValue()) { // caches only a DTO that has a primary key value
+            _relationDtoMap.put(localKey, dto);
+        }
+        boolean reverseReference = isReverseReference();
+        if (!_suppressWhiteDeprecatedRefList && !entity.getWhiteDeprecatedRefList().isEmpty()) {
+            WhiteDeprecatedRefDtoMapper mapper = new WhiteDeprecatedRefDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressWhiteDeprecated();
+            List<WhiteDeprecatedRefDto> relationDtoList = mapper.mappingToDtoList(entity.getWhiteDeprecatedRefList());
+            dto.setWhiteDeprecatedRefList(relationDtoList);
+            if (reverseReference) {
+                for (WhiteDeprecatedRefDto relationDto : relationDtoList) {
+                    relationDto.setWhiteDeprecated(dto);
+                }
+            }
+        };
         return dto;
     }
 
     /**
      * {@inheritDoc}
      */
-    public List<WhiteTsvLoadingDto> mappingToDtoList(List<WhiteTsvLoading> entityList) {
+    public List<WhiteDeprecatedDto> mappingToDtoList(List<WhiteDeprecated> entityList) {
         if (entityList == null) {
             throw new IllegalArgumentException("The argument 'entityList' should not be null.");
         }
-        List<WhiteTsvLoadingDto> dtoList = new ArrayList<WhiteTsvLoadingDto>();
-        for (WhiteTsvLoading entity : entityList) {
-            WhiteTsvLoadingDto dto = mappingToDto(entity);
+        List<WhiteDeprecatedDto> dtoList = new ArrayList<WhiteDeprecatedDto>();
+        for (WhiteDeprecated entity : entityList) {
+            WhiteDeprecatedDto dto = mappingToDto(entity);
             if (dto != null) {
                 dtoList.add(dto);
             } else {
@@ -152,39 +172,46 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
     /**
      * {@inheritDoc}
      */
-    public WhiteTsvLoading mappingToEntity(WhiteTsvLoadingDto dto) {
+    public WhiteDeprecated mappingToEntity(WhiteDeprecatedDto dto) {
         if (dto == null) {
             return null;
         }
-        WhiteTsvLoading entity = new WhiteTsvLoading();
-        if (needsMapping(dto, dto.getTsvLoadingId(), "tsvLoadingId")) {
-            entity.setTsvLoadingId(dto.getTsvLoadingId());
+        boolean instanceCache = _instanceCache;
+        Object localKey = createInstanceKeyDto(dto, dto.instanceHash());
+        Entity cachedLocalEntity = instanceCache ? _relationEntityMap.get(localKey) : null;
+        if (cachedLocalEntity != null) {
+            return (WhiteDeprecated)cachedLocalEntity;
         }
-        if (needsMapping(dto, dto.getTsvLoadingName(), "tsvLoadingName")) {
-            entity.setTsvLoadingName(dto.getTsvLoadingName());
+        boolean exceptCommonColumn = isExceptCommonColumn();
+        WhiteDeprecated entity = new WhiteDeprecated();
+        if (needsMapping(dto, dto.getDeprecatedId(), "deprecatedId")) {
+            entity.setDeprecatedId(dto.getDeprecatedId());
         }
-        if (needsMapping(dto, dto.getLoadingCount(), "loadingCount")) {
-            entity.setLoadingCount(dto.getLoadingCount());
+        if (needsMapping(dto, dto.getDeprecatedName(), "deprecatedName")) {
+            entity.setDeprecatedName(dto.getDeprecatedName());
         }
-        if (needsMapping(dto, dto.getLoadingDate(), "loadingDate")) {
-            entity.setLoadingDate(dto.getLoadingDate());
-        }
-        if (needsMapping(dto, dto.getBeginDatetime(), "beginDatetime")) {
-            entity.setBeginDatetime(dto.getBeginDatetime());
-        }
-        if (needsMapping(dto, dto.getEndDatetime(), "endDatetime")) {
-            entity.setEndDatetime(dto.getEndDatetime());
-        }
-        if (needsMapping(dto, dto.getLargeFromFile(), "largeFromFile")) {
-            entity.setLargeFromFile(dto.getLargeFromFile());
-        }
-        if (needsMapping(dto, dto.getEmptyStringAllowed(), "emptyStringAllowed")) {
-            entity.setEmptyStringAllowed(dto.getEmptyStringAllowed());
-        }
-        if (needsMapping(dto, dto.getDoneFlg(), "doneFlg")) {
-            entity.setDoneFlgAsFlg(CDef.Flg.codeOf(dto.getDoneFlg()));
+        if (needsMapping(dto, dto.getDeprecatedCode(), "deprecatedCode")) {
+            entity.setDeprecatedCode(dto.getDeprecatedCode());
         }
         reflectDerivedProperty(entity, dto, false);
+        if (instanceCache && entity.hasPrimaryKeyValue()) { // caches only an entity that has a primary key value
+            _relationEntityMap.put(localKey, entity);
+        }
+        boolean reverseReference = isReverseReference();
+        if (!_suppressWhiteDeprecatedRefList && !dto.getWhiteDeprecatedRefList().isEmpty()) {
+            WhiteDeprecatedRefDtoMapper mapper = new WhiteDeprecatedRefDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressWhiteDeprecated();
+            List<WhiteDeprecatedRef> relationEntityList = mapper.mappingToEntityList(dto.getWhiteDeprecatedRefList());
+            entity.setWhiteDeprecatedRefList(relationEntityList);
+            if (reverseReference) {
+                for (WhiteDeprecatedRef relationEntity : relationEntityList) {
+                    relationEntity.setWhiteDeprecated(OptionalEntity.of(entity));
+                }
+            }
+        };
         return entity;
     }
 
@@ -197,7 +224,7 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
      * @param propName The property name of DTO. (NotNull)
      * @return The determination, true or false.
      */
-    protected boolean needsMapping(WhiteTsvLoadingDto dto, Object value, String propName) {
+    protected boolean needsMapping(WhiteDeprecatedDto dto, Object value, String propName) {
         Set<String> modifiedProperties = dto.mymodifiedProperties();
         if (modifiedProperties.isEmpty()) {
             return isMappingToEntityContainsNull() || value != null;
@@ -218,13 +245,13 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
     /**
      * {@inheritDoc}
      */
-    public List<WhiteTsvLoading> mappingToEntityList(List<WhiteTsvLoadingDto> dtoList) {
+    public List<WhiteDeprecated> mappingToEntityList(List<WhiteDeprecatedDto> dtoList) {
         if (dtoList == null) {
             throw new IllegalArgumentException("The argument 'dtoList' should not be null.");
         }
-        List<WhiteTsvLoading> entityList = new ArrayList<WhiteTsvLoading>();
-        for (WhiteTsvLoadingDto dto : dtoList) {
-            WhiteTsvLoading entity = mappingToEntity(dto);
+        List<WhiteDeprecated> entityList = new ArrayList<WhiteDeprecated>();
+        for (WhiteDeprecatedDto dto : dtoList) {
+            WhiteDeprecated entity = mappingToEntity(dto);
             if (entity != null) {
                 entityList.add(entity);
             } else {
@@ -303,9 +330,14 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
     //                                                                   Suppress Relation
     //                                                                   =================
     // (basically) to suppress infinity loop
+    public void suppressWhiteDeprecatedRefList() {
+        _suppressWhiteDeprecatedRefList = true;
+    }
     protected void doSuppressAll() { // internal
+        suppressWhiteDeprecatedRefList();
     }
     protected void doSuppressClear() { // internal
+        _suppressWhiteDeprecatedRefList = false;
     }
 
     // ===================================================================================
@@ -351,26 +383,26 @@ public abstract class BsWhiteTsvLoadingDtoMapper implements DtoMapper<WhiteTsvLo
      * Enable base-only mapping that means the mapping ignores all references.
      * @return this. (NotNull)
      */
-    public WhiteTsvLoadingDtoMapper baseOnlyMapping() {
+    public WhiteDeprecatedDtoMapper baseOnlyMapping() {
         setBaseOnlyMapping(true);
-        return (WhiteTsvLoadingDtoMapper)this;
+        return (WhiteDeprecatedDtoMapper)this;
     }
 
     /**
      * Enable except common column that means the mapping excepts common column.
      * @return this. (NotNull)
      */
-    public WhiteTsvLoadingDtoMapper exceptCommonColumn() {
+    public WhiteDeprecatedDtoMapper exceptCommonColumn() {
         setExceptCommonColumn(true);
-        return (WhiteTsvLoadingDtoMapper)this;
+        return (WhiteDeprecatedDtoMapper)this;
     }
 
     /**
      * Enable reverse reference that means the mapping contains reverse references.
      * @return this. (NotNull)
      */
-    public WhiteTsvLoadingDtoMapper reverseReference() {
+    public WhiteDeprecatedDtoMapper reverseReference() {
         setReverseReference(true);
-        return (WhiteTsvLoadingDtoMapper)this;
+        return (WhiteDeprecatedDtoMapper)this;
     }
 }

@@ -35,20 +35,20 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of WHITE_TSV_LOADING.
+ * The base condition-bean of WHITE_DEPRECATED.
  * @author DBFlute(AutoGenerator)
  */
-public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
+public class BsWhiteDeprecatedCB extends AbstractConditionBean {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteTsvLoadingCQ _conditionQuery;
+    protected WhiteDeprecatedCQ _conditionQuery;
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
-    public BsWhiteTsvLoadingCB() {
+    public BsWhiteDeprecatedCB() {
         if (DBFluteConfig.getInstance().isPagingCountLater()) {
             enablePagingCountLater();
         }
@@ -91,7 +91,7 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "WHITE_TSV_LOADING";
+        return "WHITE_DEPRECATED";
     }
 
     // ===================================================================================
@@ -99,23 +99,23 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param tsvLoadingId : PK, NotNull, DECIMAL(16). (NotNull)
+     * @param deprecatedId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return this. (NotNull)
      */
-    public WhiteTsvLoadingCB acceptPK(Long tsvLoadingId) {
-        assertObjectNotNull("tsvLoadingId", tsvLoadingId);
-        BsWhiteTsvLoadingCB cb = this;
-        cb.query().setTsvLoadingId_Equal(tsvLoadingId);
-        return (WhiteTsvLoadingCB)this;
+    public WhiteDeprecatedCB acceptPK(Long deprecatedId) {
+        assertObjectNotNull("deprecatedId", deprecatedId);
+        BsWhiteDeprecatedCB cb = this;
+        cb.query().setDeprecatedId_Equal(deprecatedId);
+        return (WhiteDeprecatedCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
-        query().addOrderBy_TsvLoadingId_Asc();
+        query().addOrderBy_DeprecatedId_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        query().addOrderBy_TsvLoadingId_Desc();
+        query().addOrderBy_DeprecatedId_Desc();
         return this;
     }
 
@@ -179,34 +179,34 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * </pre>
      * @return The instance of condition-query for base-point table to set up query. (NotNull)
      */
-    public WhiteTsvLoadingCQ query() {
+    public WhiteDeprecatedCQ query() {
         assertQueryPurpose(); // assert only when user-public query
         return doGetConditionQuery();
     }
 
-    public WhiteTsvLoadingCQ xdfgetConditionQuery() { // public for parameter comment and internal
+    public WhiteDeprecatedCQ xdfgetConditionQuery() { // public for parameter comment and internal
         return doGetConditionQuery();
     }
 
-    protected WhiteTsvLoadingCQ doGetConditionQuery() {
+    protected WhiteDeprecatedCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
         return _conditionQuery;
     }
 
-    protected WhiteTsvLoadingCQ createLocalCQ() {
+    protected WhiteDeprecatedCQ createLocalCQ() {
         return xcreateCQ(null, getSqlClause(), getSqlClause().getBasePointAliasName(), 0);
     }
 
-    protected WhiteTsvLoadingCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        WhiteTsvLoadingCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected WhiteDeprecatedCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        WhiteDeprecatedCQ cq = xnewCQ(childQuery, sqlClause, aliasName, nestLevel);
         cq.xsetBaseCB(this);
         return cq;
     }
 
-    protected WhiteTsvLoadingCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
-        return new WhiteTsvLoadingCQ(childQuery, sqlClause, aliasName, nestLevel);
+    protected WhiteDeprecatedCQ xnewCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+        return new WhiteDeprecatedCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
     /**
@@ -230,10 +230,10 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union'. (NotNull)
      */
-    public void union(UnionQuery<WhiteTsvLoadingCB> unionCBLambda) {
-        final WhiteTsvLoadingCB cb = new WhiteTsvLoadingCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void union(UnionQuery<WhiteDeprecatedCB> unionCBLambda) {
+        final WhiteDeprecatedCB cb = new WhiteDeprecatedCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final WhiteTsvLoadingCQ cq = cb.query(); query().xsetUnionQuery(cq);
+        final WhiteDeprecatedCQ cq = cb.query(); query().xsetUnionQuery(cq);
     }
 
     /**
@@ -247,10 +247,10 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * </pre>
      * @param unionCBLambda The callback for query of 'union all'. (NotNull)
      */
-    public void unionAll(UnionQuery<WhiteTsvLoadingCB> unionCBLambda) {
-        final WhiteTsvLoadingCB cb = new WhiteTsvLoadingCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
+    public void unionAll(UnionQuery<WhiteDeprecatedCB> unionCBLambda) {
+        final WhiteDeprecatedCB cb = new WhiteDeprecatedCB(); cb.xsetupForUnion(this); xsyncUQ(cb);
         try { lock(); unionCBLambda.query(cb); } finally { unlock(); } xsaveUCB(cb);
-        final WhiteTsvLoadingCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
+        final WhiteDeprecatedCQ cq = cb.query(); query().xsetUnionAllQuery(cq);
     }
 
     // ===================================================================================
@@ -296,71 +296,58 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
         return _specification != null && _specification.hasSpecifiedColumn();
     }
 
-    public static class HpSpecification extends HpAbstractSpecification<WhiteTsvLoadingCQ> {
-        public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteTsvLoadingCQ> qyCall
+    public static class HpSpecification extends HpAbstractSpecification<WhiteDeprecatedCQ> {
+        public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteDeprecatedCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * TSV_LOADING_ID: {PK, NotNull, DECIMAL(16)}
+         * DEPRECATED_ID: {PK, NotNull, DECIMAL(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnTsvLoadingId() { return doColumn("TSV_LOADING_ID"); }
+        public SpecifiedColumn columnDeprecatedId() { return doColumn("DEPRECATED_ID"); }
         /**
-         * TSV_LOADING_NAME: {NotNull, VARCHAR(200)}
+         * DEPRECATED_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnTsvLoadingName() { return doColumn("TSV_LOADING_NAME"); }
+        public SpecifiedColumn columnDeprecatedName() { return doColumn("DEPRECATED_NAME"); }
         /**
-         * LOADING_COUNT: {INTEGER(10)}
+         * DEPRECATED_CODE: {NotNull, VARCHAR(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnLoadingCount() { return doColumn("LOADING_COUNT"); }
-        /**
-         * LOADING_DATE: {NotNull, DATE(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnLoadingDate() { return doColumn("LOADING_DATE"); }
-        /**
-         * BEGIN_DATETIME: {NotNull, TIMESTAMP(26, 6)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnBeginDatetime() { return doColumn("BEGIN_DATETIME"); }
-        /**
-         * END_DATETIME: {TIMESTAMP(26, 6)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnEndDatetime() { return doColumn("END_DATETIME"); }
-        /**
-         * LARGE_FROM_FILE: {VARCHAR(600)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnLargeFromFile() { return doColumn("LARGE_FROM_FILE"); }
-        /**
-         * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnEmptyStringAllowed() { return doColumn("EMPTY_STRING_ALLOWED"); }
-        /**
-         * DONE_FLG: {NotNull, BOOLEAN(1), classification=Flg}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnDoneFlg() { return doColumn("DONE_FLG"); }
+        public SpecifiedColumn columnDeprecatedCode() { return doColumn("DEPRECATED_CODE"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
-            columnTsvLoadingId(); // PK
+            columnDeprecatedId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "WHITE_TSV_LOADING"; }
+        protected String getTableDbName() { return "WHITE_DEPRECATED"; }
+        /**
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from WHITE_DEPRECATED_REF where ...) as FOO_MAX} <br>
+         * WHITE_DEPRECATED_REF by DEPRECATED_ID, named 'whiteDeprecatedRefList'.
+         * <pre>
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     refCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     refCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteDeprecatedRef.<span style="color: #CC4747">ALIAS_foo...</span>);
+         * </pre>
+         * @return The object to set up a function for referrer table. (NotNull)
+         */
+        public HpSDRFunction<WhiteDeprecatedRefCB, WhiteDeprecatedCQ> derivedWhiteDeprecatedRef() {
+            assertDerived("whiteDeprecatedRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteDeprecatedRefCB> sq, WhiteDeprecatedCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteDeprecatedRefList(fn, sq, al, op), _dbmetaProvider);
+        }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */
-        public HpSDRFunction<WhiteTsvLoadingCB, WhiteTsvLoadingCQ> myselfDerived() {
+        public HpSDRFunction<WhiteDeprecatedCB, WhiteDeprecatedCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteTsvLoadingCB> sq, WhiteTsvLoadingCQ cq, String al, DerivedReferrerOption op)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteDeprecatedCB> sq, WhiteDeprecatedCQ cq, String al, DerivedReferrerOption op)
                     -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
@@ -373,9 +360,9 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * This is very specialty so you can get the frontier spirit. Bon voyage!
      * @return The condition-bean for dream cruise, which is linked to main condition-bean.
      */
-    public WhiteTsvLoadingCB dreamCruiseCB() {
-        WhiteTsvLoadingCB cb = new WhiteTsvLoadingCB();
-        cb.xsetupForDreamCruise((WhiteTsvLoadingCB) this);
+    public WhiteDeprecatedCB dreamCruiseCB() {
+        WhiteDeprecatedCB cb = new WhiteDeprecatedCB();
+        cb.xsetupForDreamCruise((WhiteDeprecatedCB) this);
         return cb;
     }
 
@@ -400,15 +387,15 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * @param colCBLambda The callback for specify-query of left column. (NotNull)
      * @return The object for setting up operand and right column. (NotNull)
      */
-    public HpColQyOperand<WhiteTsvLoadingCB> columnQuery(final SpecifyQuery<WhiteTsvLoadingCB> colCBLambda) {
+    public HpColQyOperand<WhiteDeprecatedCB> columnQuery(final SpecifyQuery<WhiteDeprecatedCB> colCBLambda) {
         return xcreateColQyOperand((rightSp, operand) -> {
             return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
         });
     }
 
-    protected WhiteTsvLoadingCB xcreateColumnQueryCB() {
-        WhiteTsvLoadingCB cb = new WhiteTsvLoadingCB();
-        cb.xsetupForColumnQuery((WhiteTsvLoadingCB)this);
+    protected WhiteDeprecatedCB xcreateColumnQueryCB() {
+        WhiteDeprecatedCB cb = new WhiteDeprecatedCB();
+        cb.xsetupForColumnQuery((WhiteDeprecatedCB)this);
         return cb;
     }
 
@@ -428,8 +415,8 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * </pre>
      * @param orCBLambda The callback for query of or-condition. (NotNull)
      */
-    public void orScopeQuery(OrQuery<WhiteTsvLoadingCB> orCBLambda) {
-        xorSQ((WhiteTsvLoadingCB)this, orCBLambda);
+    public void orScopeQuery(OrQuery<WhiteDeprecatedCB> orCBLambda) {
+        xorSQ((WhiteDeprecatedCB)this, orCBLambda);
     }
 
     /**
@@ -447,8 +434,8 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
      * </pre>
      * @param andCBLambda The callback for query of and-condition. (NotNull)
      */
-    public void orScopeQueryAndPart(AndQuery<WhiteTsvLoadingCB> andCBLambda) {
-        xorSQAP((WhiteTsvLoadingCB)this, andCBLambda);
+    public void orScopeQueryAndPart(AndQuery<WhiteDeprecatedCB> andCBLambda) {
+        xorSQAP((WhiteDeprecatedCB)this, andCBLambda);
     }
 
     // ===================================================================================
@@ -478,11 +465,11 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
     //                                                                        ============
     @Override
     protected void xprepareSyncQyCall(ConditionBean mainCB) {
-        final WhiteTsvLoadingCB cb;
+        final WhiteDeprecatedCB cb;
         if (mainCB != null) {
-            cb = (WhiteTsvLoadingCB)mainCB;
+            cb = (WhiteDeprecatedCB)mainCB;
         } else {
-            cb = new WhiteTsvLoadingCB();
+            cb = new WhiteDeprecatedCB();
         }
         specify().xsetSyncQyCall(xcreateSpQyCall(() -> true, () -> cb.query()));
     }
@@ -491,8 +478,8 @@ public class BsWhiteTsvLoadingCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String xgetConditionBeanClassNameInternally() { return WhiteTsvLoadingCB.class.getName(); }
-    protected String xgetConditionQueryClassNameInternally() { return WhiteTsvLoadingCQ.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WhiteDeprecatedCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WhiteDeprecatedCQ.class.getName(); }
     protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
     protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -30,7 +30,7 @@ import org.docksidestage.hangar.simpleflute.HangarCDef;
  *     TSV_LOADING_ID
  *
  * [column]
- *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, DONE_FLG
+ *     TSV_LOADING_ID, TSV_LOADING_NAME, LOADING_COUNT, LOADING_DATE, BEGIN_DATETIME, END_DATETIME, LARGE_FROM_FILE, EMPTY_STRING_ALLOWED, DONE_FLG
  *
  * [sequence]
  *     
@@ -97,6 +97,10 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     /** LARGE_FROM_FILE: {VARCHAR(600)} */
     @JsonKey
     protected String _largeFromFile;
+
+    /** EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} */
+    @JsonKey
+    protected String _emptyStringAllowed;
 
     /** DONE_FLG: {NotNull, BOOLEAN(1), classification=Flg} */
     @JsonKey
@@ -243,6 +247,7 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
         sb.append(c).append(getBeginDatetime());
         sb.append(c).append(getEndDatetime());
         sb.append(c).append(getLargeFromFile());
+        sb.append(c).append(getEmptyStringAllowed());
         sb.append(c).append(getDoneFlg());
         if (sb.length() > 0) { sb.delete(0, c.length()); }
         sb.insert(0, "{").append("}");
@@ -375,6 +380,23 @@ public abstract class BsWhiteTsvLoadingDto implements Serializable {
     public void setLargeFromFile(String largeFromFile) {
         __modifiedProperties.add("largeFromFile");
         this._largeFromFile = largeFromFile;
+    }
+
+    /**
+     * [get] EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} <br>
+     * @return The value of the column 'EMPTY_STRING_ALLOWED'. (NullAllowed)
+     */
+    public String getEmptyStringAllowed() {
+        return _emptyStringAllowed;
+    }
+
+    /**
+     * [set] EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} <br>
+     * @param emptyStringAllowed The value of the column 'EMPTY_STRING_ALLOWED'. (NullAllowed)
+     */
+    public void setEmptyStringAllowed(String emptyStringAllowed) {
+        __modifiedProperties.add("emptyStringAllowed");
+        this._emptyStringAllowed = emptyStringAllowed;
     }
 
     /**

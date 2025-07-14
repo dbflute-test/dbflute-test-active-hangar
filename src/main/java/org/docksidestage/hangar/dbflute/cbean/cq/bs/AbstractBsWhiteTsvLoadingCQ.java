@@ -731,6 +731,105 @@ public abstract class AbstractBsWhiteTsvLoadingCQ extends AbstractConditionQuery
     protected abstract ConditionValue xgetCValueLargeFromFile();
 
     /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @param emptyStringAllowed The value of emptyStringAllowed as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEmptyStringAllowed_Equal(String emptyStringAllowed) {
+        doSetEmptyStringAllowed_Equal(fRES(emptyStringAllowed));
+    }
+
+    protected void doSetEmptyStringAllowed_Equal(String emptyStringAllowed) {
+        regEmptyStringAllowed(CK_EQ, emptyStringAllowed);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @param emptyStringAllowed The value of emptyStringAllowed as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEmptyStringAllowed_NotEqual(String emptyStringAllowed) {
+        doSetEmptyStringAllowed_NotEqual(fRES(emptyStringAllowed));
+    }
+
+    protected void doSetEmptyStringAllowed_NotEqual(String emptyStringAllowed) {
+        regEmptyStringAllowed(CK_NES, emptyStringAllowed);
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @param emptyStringAllowedList The collection of emptyStringAllowed as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEmptyStringAllowed_InScope(Collection<String> emptyStringAllowedList) {
+        doSetEmptyStringAllowed_InScope(emptyStringAllowedList);
+    }
+
+    protected void doSetEmptyStringAllowed_InScope(Collection<String> emptyStringAllowedList) {
+        regINS(CK_INS, cTL(emptyStringAllowedList), xgetCValueEmptyStringAllowed(), "EMPTY_STRING_ALLOWED");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @param emptyStringAllowedList The collection of emptyStringAllowed as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setEmptyStringAllowed_NotInScope(Collection<String> emptyStringAllowedList) {
+        doSetEmptyStringAllowed_NotInScope(emptyStringAllowedList);
+    }
+
+    protected void doSetEmptyStringAllowed_NotInScope(Collection<String> emptyStringAllowedList) {
+        regINS(CK_NINS, cTL(emptyStringAllowedList), xgetCValueEmptyStringAllowed(), "EMPTY_STRING_ALLOWED");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} <br>
+     * <pre>e.g. setEmptyStringAllowed_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param emptyStringAllowed The value of emptyStringAllowed as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setEmptyStringAllowed_LikeSearch(String emptyStringAllowed, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setEmptyStringAllowed_LikeSearch(emptyStringAllowed, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)} <br>
+     * <pre>e.g. setEmptyStringAllowed_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param emptyStringAllowed The value of emptyStringAllowed as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setEmptyStringAllowed_LikeSearch(String emptyStringAllowed, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(emptyStringAllowed), xgetCValueEmptyStringAllowed(), "EMPTY_STRING_ALLOWED", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @param emptyStringAllowed The value of emptyStringAllowed as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setEmptyStringAllowed_NotLikeSearch(String emptyStringAllowed, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setEmptyStringAllowed_NotLikeSearch(emptyStringAllowed, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * EMPTY_STRING_ALLOWED: {NotNull, VARCHAR(32)}
+     * @param emptyStringAllowed The value of emptyStringAllowed as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setEmptyStringAllowed_NotLikeSearch(String emptyStringAllowed, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(emptyStringAllowed), xgetCValueEmptyStringAllowed(), "EMPTY_STRING_ALLOWED", likeSearchOption);
+    }
+
+    protected void regEmptyStringAllowed(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueEmptyStringAllowed(), "EMPTY_STRING_ALLOWED"); }
+    protected abstract ConditionValue xgetCValueEmptyStringAllowed();
+
+    /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DONE_FLG: {NotNull, BOOLEAN(1), classification=Flg}
      * @param doneFlg The value of doneFlg as equal. (basically NotNull: error as default, or no condition as option)
