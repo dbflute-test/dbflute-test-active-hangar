@@ -222,6 +222,7 @@ map:{
 
         # test of LoadDataReverse tableExceptList, tableTargetList
         #; tableExceptList = list:{ PURCHASE }
+        #; isExceptDeprecatedTable = true
         #; tableTargetList = list:{ MEMBER }
 
         # test of various options
@@ -352,5 +353,13 @@ map:{
         }
     }
     # - - - - - - - - - -/
+
+    # 
+    # test of deprecated table
+    #
+    ; deprecatedTableMap = map:{
+        ; WHITE_DEPRECATED = map:{ comment = test of deprecated }
+        ; WHITE_DEPRECATED_REF = map:{ comment = test of deprecated referrer <br> is HTML test }
+    }
 }
 # ----------------/
