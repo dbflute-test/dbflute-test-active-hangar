@@ -2,7 +2,7 @@ map:{
     ; $$schema$$ = map:{
         ; alias = まいはまDB (DBFluteで使うexampleのスキーマ)
         ; description = まあちょっと色々と書いてみよう。
-大きくは以下の三つに分類されるるるん。
+大きくは以下の三つに分類されるるるん♪
   MEMBER* :: 会員系
   PURCHASE* :: 購入系
   PRODUCT* :: 商品系
