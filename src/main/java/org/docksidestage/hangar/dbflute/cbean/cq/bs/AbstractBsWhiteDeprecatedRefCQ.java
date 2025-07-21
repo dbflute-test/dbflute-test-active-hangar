@@ -463,6 +463,123 @@ public abstract class AbstractBsWhiteDeprecatedRefCQ extends AbstractConditionQu
     protected void regDeprecatedRefCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDeprecatedRefCode(), "DEPRECATED_REF_CODE"); }
     protected abstract ConditionValue xgetCValueDeprecatedRefCode();
 
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productId The value of productId as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_Equal(Integer productId) {
+        doSetProductId_Equal(productId);
+    }
+
+    protected void doSetProductId_Equal(Integer productId) {
+        regProductId(CK_EQ, productId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_NotEqual(Integer productId) {
+        doSetProductId_NotEqual(productId);
+    }
+
+    protected void doSetProductId_NotEqual(Integer productId) {
+        regProductId(CK_NES, productId);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_GreaterThan(Integer productId) {
+        regProductId(CK_GT, productId);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productId The value of productId as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_LessThan(Integer productId) {
+        regProductId(CK_LT, productId);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productId The value of productId as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_GreaterEqual(Integer productId) {
+        regProductId(CK_GE, productId);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productId The value of productId as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_LessEqual(Integer productId) {
+        regProductId(CK_LE, productId);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setProductId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    protected void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setProductId_InScope(Collection<Integer> productIdList) {
+        doSetProductId_InScope(productIdList);
+    }
+
+    protected void doSetProductId_InScope(Collection<Integer> productIdList) {
+        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setProductId_NotInScope(Collection<Integer> productIdList) {
+        doSetProductId_NotInScope(productIdList);
+    }
+
+    protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
+        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
+    }
+
+    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "PRODUCT_ID"); }
+    protected abstract ConditionValue xgetCValueProductId();
+
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============

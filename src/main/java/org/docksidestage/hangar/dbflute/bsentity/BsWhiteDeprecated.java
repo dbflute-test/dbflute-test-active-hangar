@@ -25,7 +25,9 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DEPRECATED as TABLE.
+ * The entity of (非推奨テスト)WHITE_DEPRECATED as TABLE. <br>
+ * コメントがある場合<br>
+ * #deprecated test of deprecated
  * <pre>
  * [primary-key]
  *     DEPRECATED_ID

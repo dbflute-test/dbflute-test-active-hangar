@@ -33,6 +33,7 @@ import org.docksidestage.hangar.dbflute.allcommon.ImplementedInvokerAssistant;
 import org.docksidestage.hangar.dbflute.allcommon.ImplementedSqlClauseCreator;
 import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
+import org.docksidestage.hangar.dbflute.cbean.nss.*;
 
 /**
  * The base condition-bean of WHITE_DEPRECATED_REF.
@@ -258,7 +259,7 @@ public class BsWhiteDeprecatedRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
+     * (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
      * <pre>
      * <span style="color: #0000C0">whiteDeprecatedRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteDeprecated()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -274,6 +275,35 @@ public class BsWhiteDeprecatedRefCB extends AbstractConditionBean {
             specify().columnDeprecatedId();
         }
         doSetupSelect(() -> query().queryWhiteDeprecated());
+    }
+
+    protected ProductNss _nssProduct;
+    public ProductNss xdfgetNssProduct() {
+        if (_nssProduct == null) { _nssProduct = new ProductNss(null); }
+        return _nssProduct;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * <pre>
+     * <span style="color: #0000C0">whiteDeprecatedRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Product()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">whiteDeprecatedRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">whiteDeprecatedRef</span>.<span style="color: #CC4747">getProduct()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public ProductNss setupSelect_Product() {
+        assertSetupSelectPurpose("product");
+        if (hasSpecifiedLocalColumn()) {
+            specify().columnProductId();
+        }
+        doSetupSelect(() -> query().queryProduct());
+        if (_nssProduct == null || !_nssProduct.hasConditionQuery())
+        { _nssProduct = new ProductNss(query().queryProduct()); }
+        return _nssProduct;
     }
 
     // [DBFlute-0.7.4]
@@ -318,6 +348,7 @@ public class BsWhiteDeprecatedRefCB extends AbstractConditionBean {
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteDeprecatedRefCQ> {
         protected WhiteDeprecatedCB.HpSpecification _whiteDeprecated;
+        protected ProductCB.HpSpecification _product;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteDeprecatedRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -342,6 +373,11 @@ public class BsWhiteDeprecatedRefCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDeprecatedRefCode() { return doColumn("DEPRECATED_REF_CODE"); }
+        /**
+         * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -351,12 +387,16 @@ public class BsWhiteDeprecatedRefCB extends AbstractConditionBean {
                     || qyCall().qy().xgetReferrerQuery() instanceof WhiteDeprecatedCQ) {
                 columnDeprecatedId(); // FK or one-to-one referrer
             }
+            if (qyCall().qy().hasConditionQueryProduct()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ProductCQ) {
+                columnProductId(); // FK or one-to-one referrer
+            }
         }
         @Override
         protected String getTableDbName() { return "WHITE_DEPRECATED_REF"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
+         * (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteDeprecatedCB.HpSpecification specifyWhiteDeprecated() {
@@ -373,6 +413,26 @@ public class BsWhiteDeprecatedRefCB extends AbstractConditionBean {
                 }
             }
             return _whiteDeprecated;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public ProductCB.HpSpecification specifyProduct() {
+            assertRelation("product");
+            if (_product == null) {
+                _product = new ProductCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProduct()
+                                    , () -> _qyCall.qy().queryProduct())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _product.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProduct()
+                      , () -> xsyncQyCall().qy().queryProduct()));
+                }
+            }
+            return _product;
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

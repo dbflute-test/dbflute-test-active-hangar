@@ -56,13 +56,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer table]
- *     PURCHASE
+ *     PURCHASE, WHITE_DEPRECATED_REF
  *
  * [foreign property]
  *     productCategory, productStatus
  *
  * [referrer property]
- *     purchaseList
+ *     purchaseList, whiteDeprecatedRefList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -504,6 +504,70 @@ public abstract class BsProductBhv extends org.docksidestage.hangar.dbflute.noge
 
     protected NestedReferrerListGateway<Purchase> doLoadPurchase(List<Product> productList, LoadReferrerOption<PurchaseCB, Purchase> option) {
         return helpLoadReferrerInternally(productList, option, "purchaseList");
+    }
+
+    /**
+     * Load referrer of whiteDeprecatedRefList by the set-upper of referrer. <br>
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+     * <pre>
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadWhiteDeprecatedRef</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refCB</span>.setupSelect...
+     *     <span style="color: #553000">refCB</span>.query().set...
+     *     <span style="color: #553000">refCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (Product product : <span style="color: #553000">productList</span>) {
+     *     ... = product.<span style="color: #CC4747">getWhiteDeprecatedRefList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductId_InScope(pkList);
+     * cb.query().addOrderBy_ProductId_Asc();
+     * </pre>
+     * @param productList The entity list of product. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteDeprecatedRef> loadWhiteDeprecatedRef(List<Product> productList, ReferrerConditionSetupper<WhiteDeprecatedRefCB> refCBLambda) {
+        xassLRArg(productList, refCBLambda);
+        return doLoadWhiteDeprecatedRef(productList, new LoadReferrerOption<WhiteDeprecatedRefCB, WhiteDeprecatedRef>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of whiteDeprecatedRefList by the set-upper of referrer. <br>
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+     * <pre>
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadWhiteDeprecatedRef</span>(<span style="color: #553000">product</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">refCB</span>.setupSelect...
+     *     <span style="color: #553000">refCB</span>.query().set...
+     *     <span style="color: #553000">refCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">product</span>.<span style="color: #CC4747">getWhiteDeprecatedRefList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductId_InScope(pkList);
+     * cb.query().addOrderBy_ProductId_Asc();
+     * </pre>
+     * @param product The entity of product. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<WhiteDeprecatedRef> loadWhiteDeprecatedRef(Product product, ReferrerConditionSetupper<WhiteDeprecatedRefCB> refCBLambda) {
+        xassLRArg(product, refCBLambda);
+        return doLoadWhiteDeprecatedRef(xnewLRLs(product), new LoadReferrerOption<WhiteDeprecatedRefCB, WhiteDeprecatedRef>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<WhiteDeprecatedRef> doLoadWhiteDeprecatedRef(List<Product> productList, LoadReferrerOption<WhiteDeprecatedRefCB, WhiteDeprecatedRef> option) {
+        return helpLoadReferrerInternally(productList, option, "whiteDeprecatedRefList");
     }
 
     // ===================================================================================

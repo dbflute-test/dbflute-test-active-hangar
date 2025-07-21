@@ -24,7 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_DEPRECATED as TABLE.
+ * The referrer loader of (非推奨テスト)WHITE_DEPRECATED as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteDeprecated {

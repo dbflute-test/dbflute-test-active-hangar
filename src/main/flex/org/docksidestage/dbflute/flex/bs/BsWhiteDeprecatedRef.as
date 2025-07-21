@@ -26,7 +26,7 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     DEPRECATED_REF_ID
  *
  * [column]
- *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE
+ *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE, PRODUCT_ID
  *
  * [sequence]
  *     
@@ -38,13 +38,13 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     
  *
  * [foreign-table]
- *     WHITE_DEPRECATED
+ *     WHITE_DEPRECATED, PRODUCT
  *
  * [referrer-table]
  *     
  *
  * [foreign-property]
- *     whiteDeprecated
+ *     whiteDeprecated, product
  *
  * [referrer-property]
  *     
@@ -64,6 +64,8 @@ public class BsWhiteDeprecatedRef {
 
     private var _deprecatedRefCode:String;
 
+    private var _productId:int;
+
 
     // ===================================================================================
     //                                                                       Foreign Table
@@ -76,6 +78,16 @@ public class BsWhiteDeprecatedRef {
 
     public function set whiteDeprecated(whiteDeprecated:WhiteDeprecatedDto):void {
         this._whiteDeprecated = whiteDeprecated;
+    }
+
+    private var _product:ProductDto;
+
+    public function get product():ProductDto {
+        return _product;
+    }
+
+    public function set product(product:ProductDto):void {
+        this._product = product;
     }
 
     // ===================================================================================
@@ -115,6 +127,14 @@ public class BsWhiteDeprecatedRef {
 
     public function set deprecatedRefCode(deprecatedRefCode:String):void {
         this._deprecatedRefCode = deprecatedRefCode;
+    }
+
+    public function get productId():int {
+        return _productId;
+    }
+
+    public function set productId(productId:int):void {
+        this._productId = productId;
     }
 
 }

@@ -168,6 +168,26 @@ public class BsWhiteDeprecatedRefCQ extends AbstractBsWhiteDeprecatedRefCQ {
      */
     public BsWhiteDeprecatedRefCQ addOrderBy_DeprecatedRefCode_Desc() { regOBD("DEPRECATED_REF_CODE"); return this; }
 
+    protected ConditionValue _productId;
+    public ConditionValue xdfgetProductId()
+    { if (_productId == null) { _productId = nCV(); }
+      return _productId; }
+    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @return this. (NotNull)
+     */
+    public BsWhiteDeprecatedRefCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @return this. (NotNull)
+     */
+    public BsWhiteDeprecatedRefCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
+
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
     //                                                             =======================
@@ -212,6 +232,9 @@ public class BsWhiteDeprecatedRefCQ extends AbstractBsWhiteDeprecatedRefCQ {
         if (bq.hasConditionQueryWhiteDeprecated()) {
             uq.queryWhiteDeprecated().reflectRelationOnUnionQuery(bq.queryWhiteDeprecated(), uq.queryWhiteDeprecated());
         }
+        if (bq.hasConditionQueryProduct()) {
+            uq.queryProduct().reflectRelationOnUnionQuery(bq.queryProduct(), uq.queryProduct());
+        }
     }
 
     // ===================================================================================
@@ -219,7 +242,7 @@ public class BsWhiteDeprecatedRefCQ extends AbstractBsWhiteDeprecatedRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
+     * (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteDeprecatedCQ queryWhiteDeprecated() {
@@ -236,6 +259,26 @@ public class BsWhiteDeprecatedRefCQ extends AbstractBsWhiteDeprecatedRefCQ {
     }
     protected void xsetupOuterJoinWhiteDeprecated() { xregOutJo("whiteDeprecated"); }
     public boolean hasConditionQueryWhiteDeprecated() { return xhasQueRlMap("whiteDeprecated"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public ProductCQ queryProduct() {
+        return xdfgetConditionQueryProduct();
+    }
+    public ProductCQ xdfgetConditionQueryProduct() {
+        String prop = "product";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProduct()); xsetupOuterJoinProduct(); }
+        return xgetQueRlMap(prop);
+    }
+    protected ProductCQ xcreateQueryProduct() {
+        String nrp = xresolveNRP("WHITE_DEPRECATED_REF", "product"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ProductCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "product", nrp);
+    }
+    protected void xsetupOuterJoinProduct() { xregOutJo("product"); }
+    public boolean hasConditionQueryProduct() { return xhasQueRlMap("product"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

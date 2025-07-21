@@ -47,13 +47,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer-table]
- *     PURCHASE
+ *     PURCHASE, WHITE_DEPRECATED_REF
  *
  * [foreign-property]
  *     productCategory, productStatus
  *
  * [referrer-property]
- *     purchaseList
+ *     purchaseList, whiteDeprecatedRefList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -263,6 +263,17 @@ public abstract class BsProductDto implements Serializable {
 
     public void setPurchaseList(List<PurchaseDto> purchaseList) {
         this._purchaseList = purchaseList;
+    }
+
+    protected List<WhiteDeprecatedRefDto> _whiteDeprecatedRefList;
+
+    public List<WhiteDeprecatedRefDto> getWhiteDeprecatedRefList() {
+        if (_whiteDeprecatedRefList == null) { _whiteDeprecatedRefList = new ArrayList<WhiteDeprecatedRefDto>(); }
+        return _whiteDeprecatedRefList;
+    }
+
+    public void setWhiteDeprecatedRefList(List<WhiteDeprecatedRefDto> whiteDeprecatedRefList) {
+        this._whiteDeprecatedRefList = whiteDeprecatedRefList;
     }
 
     // ===================================================================================

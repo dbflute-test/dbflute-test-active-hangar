@@ -97,16 +97,30 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public Map<String, PurchaseCQ> xdfgetProductId_ExistsReferrer_PurchaseList() { return xgetSQueMap("productId_ExistsReferrer_PurchaseList"); }
     public String keepProductId_ExistsReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_ExistsReferrer_PurchaseList", sq); }
 
+    public Map<String, WhiteDeprecatedRefCQ> xdfgetProductId_ExistsReferrer_WhiteDeprecatedRefList() { return xgetSQueMap("productId_ExistsReferrer_WhiteDeprecatedRefList"); }
+    public String keepProductId_ExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq) { return xkeepSQue("productId_ExistsReferrer_WhiteDeprecatedRefList", sq); }
+
     public Map<String, PurchaseCQ> xdfgetProductId_NotExistsReferrer_PurchaseList() { return xgetSQueMap("productId_NotExistsReferrer_PurchaseList"); }
     public String keepProductId_NotExistsReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_NotExistsReferrer_PurchaseList", sq); }
 
+    public Map<String, WhiteDeprecatedRefCQ> xdfgetProductId_NotExistsReferrer_WhiteDeprecatedRefList() { return xgetSQueMap("productId_NotExistsReferrer_WhiteDeprecatedRefList"); }
+    public String keepProductId_NotExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq) { return xkeepSQue("productId_NotExistsReferrer_WhiteDeprecatedRefList", sq); }
+
     public Map<String, PurchaseCQ> xdfgetProductId_SpecifyDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_PurchaseList"); }
     public String keepProductId_SpecifyDerivedReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_PurchaseList", sq); }
+
+    public Map<String, WhiteDeprecatedRefCQ> xdfgetProductId_SpecifyDerivedReferrer_WhiteDeprecatedRefList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_WhiteDeprecatedRefList"); }
+    public String keepProductId_SpecifyDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_WhiteDeprecatedRefList", sq); }
 
     public Map<String, PurchaseCQ> xdfgetProductId_QueryDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_QueryDerivedReferrer_PurchaseList"); }
     public String keepProductId_QueryDerivedReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_PurchaseList", sq); }
     public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_PurchaseList"); }
     public String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_PurchaseList", pm); }
+
+    public Map<String, WhiteDeprecatedRefCQ> xdfgetProductId_QueryDerivedReferrer_WhiteDeprecatedRefList() { return xgetSQueMap("productId_QueryDerivedReferrer_WhiteDeprecatedRefList"); }
+    public String keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_WhiteDeprecatedRefList", sq); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_WhiteDeprecatedRefListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhiteDeprecatedRefList"); }
+    public String keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhiteDeprecatedRefList", pm); }
 
     /**
      * Add order-by as ascend. <br>

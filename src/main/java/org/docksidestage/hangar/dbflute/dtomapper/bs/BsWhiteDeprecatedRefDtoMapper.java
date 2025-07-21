@@ -38,12 +38,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of WHITE_DEPRECATED_REF as TABLE. <br>
+ * #deprecated test of deprecated referrer &lt;br&gt; is HTML test
  * <pre>
  * [primary-key]
  *     DEPRECATED_REF_ID
  *
  * [column]
- *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE
+ *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE, PRODUCT_ID
  *
  * [sequence]
  *     
@@ -55,13 +56,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     
  *
  * [foreign-table]
- *     WHITE_DEPRECATED
+ *     WHITE_DEPRECATED, PRODUCT
  *
  * [referrer-table]
  *     
  *
  * [foreign-property]
- *     whiteDeprecated
+ *     whiteDeprecated, product
  *
  * [referrer-property]
  *     
@@ -85,6 +86,7 @@ public abstract class BsWhiteDeprecatedRefDtoMapper implements DtoMapper<WhiteDe
     protected boolean _reverseReference; // default: one-way reference
     protected boolean _instanceCache = true; // default: cached
     protected boolean _suppressWhiteDeprecated;
+    protected boolean _suppressProduct;
 
     // ===================================================================================
     //                                                                         Constructor
@@ -124,6 +126,7 @@ public abstract class BsWhiteDeprecatedRefDtoMapper implements DtoMapper<WhiteDe
         dto.setDeprecatedId(entity.getDeprecatedId());
         dto.setDeprecatedRefName(entity.getDeprecatedRefName());
         dto.setDeprecatedRefCode(entity.getDeprecatedRefCode());
+        dto.setProductId(entity.getProductId());
         reflectDerivedProperty(entity, dto, true);
         if (instanceCache && entity.hasPrimaryKeyValue()) { // caches only a DTO that has a primary key value
             _relationDtoMap.put(localKey, dto);
@@ -152,6 +155,32 @@ public abstract class BsWhiteDeprecatedRefDtoMapper implements DtoMapper<WhiteDe
                 }
                 if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
                     _relationDtoMap.put(relationKey, dto.getWhiteDeprecated());
+                }
+            }
+        };
+        if (!_suppressProduct && entity.getProduct().isPresent()) {
+            Product relationEntity = entity.getProduct().get();
+            Entity relationKey = createInstanceKeyEntity(relationEntity);
+            Object cachedDto = instanceCache ? _relationDtoMap.get(relationKey) : null;
+            if (cachedDto != null) {
+                ProductDto relationDto = (ProductDto)cachedDto;
+                dto.setProduct(relationDto);
+                if (reverseReference) {
+                    relationDto.getWhiteDeprecatedRefList().add(dto);
+                }
+            } else {
+                ProductDtoMapper mapper = new ProductDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                mapper.suppressWhiteDeprecatedRefList();
+                ProductDto relationDto = mapper.mappingToDto(relationEntity);
+                dto.setProduct(relationDto);
+                if (reverseReference) {
+                    relationDto.getWhiteDeprecatedRefList().add(dto);
+                }
+                if (instanceCache && relationEntity.hasPrimaryKeyValue()) {
+                    _relationDtoMap.put(relationKey, dto.getProduct());
                 }
             }
         };
@@ -209,6 +238,9 @@ public abstract class BsWhiteDeprecatedRefDtoMapper implements DtoMapper<WhiteDe
         if (needsMapping(dto, dto.getDeprecatedRefCode(), "deprecatedRefCode")) {
             entity.setDeprecatedRefCode(dto.getDeprecatedRefCode());
         }
+        if (needsMapping(dto, dto.getProductId(), "productId")) {
+            entity.setProductId(dto.getProductId());
+        }
         reflectDerivedProperty(entity, dto, false);
         if (instanceCache && entity.hasPrimaryKeyValue()) { // caches only an entity that has a primary key value
             _relationEntityMap.put(localKey, entity);
@@ -237,6 +269,32 @@ public abstract class BsWhiteDeprecatedRefDtoMapper implements DtoMapper<WhiteDe
                 }
                 if (instanceCache && entity.getWhiteDeprecated().get().hasPrimaryKeyValue()) {
                     _relationEntityMap.put(relationKey, entity.getWhiteDeprecated().get());
+                }
+            }
+        };
+        if (!_suppressProduct && dto.getProduct() != null) {
+            ProductDto relationDto = dto.getProduct();
+            Object relationKey = createInstanceKeyDto(relationDto, relationDto.instanceHash());
+            Entity cachedEntity = instanceCache ? _relationEntityMap.get(relationKey) : null;
+            if (cachedEntity != null) {
+                Product relationEntity = (Product)cachedEntity;
+                entity.setProduct(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                    relationEntity.getWhiteDeprecatedRefList().add(entity);
+                }
+            } else {
+                ProductDtoMapper mapper = new ProductDtoMapper(_relationDtoMap, _relationEntityMap);
+                mapper.setExceptCommonColumn(exceptCommonColumn);
+                mapper.setReverseReference(reverseReference);
+                if (!instanceCache) { mapper.disableInstanceCache(); }
+                mapper.suppressWhiteDeprecatedRefList();
+                Product relationEntity = mapper.mappingToEntity(relationDto);
+                entity.setProduct(OptionalEntity.of(relationEntity));
+                if (reverseReference) {
+                    relationEntity.getWhiteDeprecatedRefList().add(entity);
+                }
+                if (instanceCache && entity.getProduct().get().hasPrimaryKeyValue()) {
+                    _relationEntityMap.put(relationKey, entity.getProduct().get());
                 }
             }
         };
@@ -361,11 +419,16 @@ public abstract class BsWhiteDeprecatedRefDtoMapper implements DtoMapper<WhiteDe
     public void suppressWhiteDeprecated() {
         _suppressWhiteDeprecated = true;
     }
+    public void suppressProduct() {
+        _suppressProduct = true;
+    }
     protected void doSuppressAll() { // internal
         suppressWhiteDeprecated();
+        suppressProduct();
     }
     protected void doSuppressClear() { // internal
         _suppressWhiteDeprecated = false;
+        _suppressProduct = false;
     }
 
     // ===================================================================================

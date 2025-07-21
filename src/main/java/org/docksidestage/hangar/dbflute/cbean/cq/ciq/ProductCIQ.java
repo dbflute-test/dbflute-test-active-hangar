@@ -79,13 +79,23 @@ public class ProductCIQ extends AbstractBsProductCQ {
     protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
     public String keepProductId_ExistsReferrer_PurchaseList(PurchaseCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepProductId_ExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
     public String keepProductId_NotExistsReferrer_PurchaseList(PurchaseCQ sq)
     { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepProductId_NotExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
     public String keepProductId_SpecifyDerivedReferrer_PurchaseList(PurchaseCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepProductId_SpecifyDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
     { throwIICBOE("(Specify)DerivedReferrer"); return null; }
     public String keepProductId_QueryDerivedReferrer_PurchaseList(PurchaseCQ sq)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     protected ConditionValue xgetCValueProductName() { return _myCQ.xdfgetProductName(); }
     protected ConditionValue xgetCValueProductHandleCode() { return _myCQ.xdfgetProductHandleCode(); }

@@ -80,6 +80,7 @@ public class WhiteDeprecatedRefCIQ extends AbstractBsWhiteDeprecatedRefCQ {
     protected ConditionValue xgetCValueDeprecatedId() { return _myCQ.xdfgetDeprecatedId(); }
     protected ConditionValue xgetCValueDeprecatedRefName() { return _myCQ.xdfgetDeprecatedRefName(); }
     protected ConditionValue xgetCValueDeprecatedRefCode() { return _myCQ.xdfgetDeprecatedRefCode(); }
+    protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteDeprecatedRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

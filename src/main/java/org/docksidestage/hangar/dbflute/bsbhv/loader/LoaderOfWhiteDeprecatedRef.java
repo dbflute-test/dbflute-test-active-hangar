@@ -53,6 +53,13 @@ public class LoaderOfWhiteDeprecatedRef {
         return _foreignWhiteDeprecatedLoader;
     }
 
+    protected LoaderOfProduct _foreignProductLoader;
+    public LoaderOfProduct pulloutProduct() {
+        if (_foreignProductLoader == null)
+        { _foreignProductLoader = new LoaderOfProduct().ready(myBhv().pulloutProduct(_selectedList), _selector); }
+        return _foreignProductLoader;
+    }
+
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========

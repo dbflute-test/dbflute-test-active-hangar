@@ -1,0 +1,31 @@
+map:{
+    ; 2025/07/14 18:15:59.422 = map:{
+        ; diffDate = 2025/07/14 18:15:59.422
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_DEPRECATED_REF = map:{
+                ; tableName = WHITE_DEPRECATED_REF
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_ID = map:{
+                        ; columnName = PRODUCT_ID
+                        ; diffType = ADD
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_DEPRECATED_REF_PRODUCT = map:{
+                        ; constraintName = FK_WHITE_DEPRECATED_REF_PRODUCT
+                        ; diffType = ADD
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_WHITE_DEPRECATED_REF_PRODUCT_INDEX_7 = map:{
+                        ; constraintName = FK_WHITE_DEPRECATED_REF_PRODUCT_INDEX_7
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

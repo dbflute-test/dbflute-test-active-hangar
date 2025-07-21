@@ -82,6 +82,40 @@ public class LoaderOfProduct {
         return hd -> hd.handle(new LoaderOfPurchase().ready(_referrerPurchase, _selector));
     }
 
+    protected List<WhiteDeprecatedRef> _referrerWhiteDeprecatedRef;
+
+    /**
+     * Load referrer of whiteDeprecatedRefList by the set-upper of referrer. <br>
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+     * <pre>
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadWhiteDeprecatedRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">refCB</span>.setupSelect...
+     *         <span style="color: #553000">refCB</span>.query().set...
+     *         <span style="color: #553000">refCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    refLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (Product product : <span style="color: #553000">productList</span>) {
+     *     ... = product.<span style="color: #CC4747">getWhiteDeprecatedRefList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductId_InScope(pkList);
+     * cb.query().addOrderBy_ProductId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<LoaderOfWhiteDeprecatedRef> loadWhiteDeprecatedRef(ReferrerConditionSetupper<WhiteDeprecatedRefCB> refCBLambda) {
+        myBhv().loadWhiteDeprecatedRef(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteDeprecatedRef = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteDeprecatedRef().ready(_referrerWhiteDeprecatedRef, _selector));
+    }
+
     // ===================================================================================
     //                                                                    Pull out Foreign
     //                                                                    ================

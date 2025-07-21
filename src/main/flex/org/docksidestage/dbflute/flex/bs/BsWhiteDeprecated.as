@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of WHITE_DEPRECATED as TABLE.
+ * The flex DTO of (非推奨テスト)WHITE_DEPRECATED as TABLE.
  * <pre>
  * [primary-key]
  *     DEPRECATED_ID

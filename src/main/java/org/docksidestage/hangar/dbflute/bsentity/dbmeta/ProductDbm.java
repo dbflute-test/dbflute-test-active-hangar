@@ -113,7 +113,7 @@ public class ProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, true, true, "INTEGER", 10, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_8815A7BC_4FD6_48EB_B640_E1B521569633\"", false, null, null, null, "purchaseList", null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, true, true, "INTEGER", 10, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_AD89A8EA_5125_4A44_A846_D910FB710536\"", false, null, null, null, "purchaseList,whiteDeprecatedRefList", null, false);
     protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, "商品名称", String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, "ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。\n実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜", null, null, null, false);
     protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, "商品ハンドルコード", String.class, "productHandleCode", null, false, false, true, "VARCHAR", 100, 0, null, null, false, null, "これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...", null, null, null, false);
     protected final ColumnInfo _columnProductCategoryCode = cci("PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", null, "眠い商品カテゴリーコードどん", String.class, "productCategoryCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, "眠いのも悪くない。\n", "productCategory", null, null, false);
@@ -249,6 +249,14 @@ public class ProductDbm extends AbstractDBMeta {
     public ReferrerInfo referrerPurchaseList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), PurchaseDbm.getInstance().columnProductId());
         return cri("FK_PURCHASE_PRODUCT", "purchaseList", this, PurchaseDbm.getInstance(), mp, false, "product");
+    }
+    /**
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerWhiteDeprecatedRefList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), WhiteDeprecatedRefDbm.getInstance().columnProductId());
+        return cri("FK_WHITE_DEPRECATED_REF_PRODUCT", "whiteDeprecatedRefList", this, WhiteDeprecatedRefDbm.getInstance(), mp, false, "product");
     }
 
     // ===================================================================================

@@ -35,9 +35,18 @@ public class WhiteDeprecatedRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
+     * (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
      */
     public void withWhiteDeprecated() {
         _query.xdoNss(() -> _query.queryWhiteDeprecated());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public ProductNss withProduct() {
+        _query.xdoNss(() -> _query.queryProduct());
+        return new ProductNss(_query.queryProduct());
     }
 }

@@ -41,7 +41,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     DEPRECATED_REF_ID
  *
  * [column]
- *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE
+ *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE, PRODUCT_ID
  *
  * [sequence]
  *     
@@ -53,13 +53,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     WHITE_DEPRECATED
+ *     WHITE_DEPRECATED, PRODUCT
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     whiteDeprecated
+ *     whiteDeprecated, product
  *
  * [referrer property]
  *     
@@ -70,10 +70,12 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * Long deprecatedId = entity.getDeprecatedId();
  * String deprecatedRefName = entity.getDeprecatedRefName();
  * String deprecatedRefCode = entity.getDeprecatedRefCode();
+ * Integer productId = entity.getProductId();
  * entity.setDeprecatedRefId(deprecatedRefId);
  * entity.setDeprecatedId(deprecatedId);
  * entity.setDeprecatedRefName(deprecatedRefName);
  * entity.setDeprecatedRefCode(deprecatedRefCode);
+ * entity.setProductId(productId);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -396,6 +398,14 @@ public abstract class BsWhiteDeprecatedRefBhv extends org.docksidestage.hangar.d
      */
     public List<WhiteDeprecated> pulloutWhiteDeprecated(List<WhiteDeprecatedRef> whiteDeprecatedRefList)
     { return helpPulloutInternally(whiteDeprecatedRefList, "whiteDeprecated"); }
+
+    /**
+     * Pull out the list of foreign table 'Product'.
+     * @param whiteDeprecatedRefList The list of whiteDeprecatedRef. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<Product> pulloutProduct(List<WhiteDeprecatedRef> whiteDeprecatedRefList)
+    { return helpPulloutInternally(whiteDeprecatedRefList, "product"); }
 
     // ===================================================================================
     //                                                                      Extract Column

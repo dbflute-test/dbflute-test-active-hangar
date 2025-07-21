@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_DEPRECATED as TABLE.
+ * The behavior of (非推奨テスト)WHITE_DEPRECATED as TABLE.
  * <pre>
  * [primary-key]
  *     DEPRECATED_ID

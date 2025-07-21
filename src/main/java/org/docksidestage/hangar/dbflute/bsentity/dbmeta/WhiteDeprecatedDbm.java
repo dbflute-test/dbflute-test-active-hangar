@@ -76,6 +76,10 @@ public class WhiteDeprecatedDbm extends AbstractDBMeta {
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
+    protected final String _tableAlias = "非推奨テスト";
+    public String getTableAlias() { return _tableAlias; }
+    protected final String _tableComment = "コメントがある場合\n#deprecated test of deprecated";
+    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info

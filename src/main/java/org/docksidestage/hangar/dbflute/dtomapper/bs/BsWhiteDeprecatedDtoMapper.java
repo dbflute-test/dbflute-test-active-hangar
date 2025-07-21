@@ -37,7 +37,9 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of WHITE_DEPRECATED as TABLE. <br>
+ * The DTO mapper of (非推奨テスト)WHITE_DEPRECATED as TABLE. <br>
+ * コメントがある場合<br>
+ * #deprecated test of deprecated
  * <pre>
  * [primary-key]
  *     DEPRECATED_ID

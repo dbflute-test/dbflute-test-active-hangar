@@ -23,12 +23,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of WHITE_DEPRECATED_REF as TABLE. <br>
+ * #deprecated test of deprecated referrer &lt;br&gt; is HTML test
  * <pre>
  * [primary-key]
  *     DEPRECATED_REF_ID
  *
  * [column]
- *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE
+ *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE, PRODUCT_ID
  *
  * [sequence]
  *     
@@ -40,13 +41,13 @@ import org.docksidestage.hangar.simpleflute.dto.*;
  *     
  *
  * [foreign-table]
- *     WHITE_DEPRECATED
+ *     WHITE_DEPRECATED, PRODUCT
  *
  * [referrer-table]
  *     
  *
  * [foreign-property]
- *     whiteDeprecated
+ *     whiteDeprecated, product
  *
  * [referrer-property]
  *     
@@ -83,6 +84,10 @@ public abstract class BsWhiteDeprecatedRefDto implements Serializable {
     /** DEPRECATED_REF_CODE: {NotNull, VARCHAR(16)} */
     @JsonKey
     protected String _deprecatedRefCode;
+
+    /** PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT} */
+    @JsonKey
+    protected Integer _productId;
 
     // -----------------------------------------------------
     //                                              Internal
@@ -122,6 +127,16 @@ public abstract class BsWhiteDeprecatedRefDto implements Serializable {
 
     public void setWhiteDeprecated(WhiteDeprecatedDto whiteDeprecated) {
         this._whiteDeprecated = whiteDeprecated;
+    }
+
+    protected ProductDto _product;
+
+    public ProductDto getProduct() {
+        return _product;
+    }
+
+    public void setProduct(ProductDto product) {
+        this._product = product;
     }
 
     // ===================================================================================
@@ -166,6 +181,7 @@ public abstract class BsWhiteDeprecatedRefDto implements Serializable {
         sb.append(c).append(getDeprecatedId());
         sb.append(c).append(getDeprecatedRefName());
         sb.append(c).append(getDeprecatedRefCode());
+        sb.append(c).append(getProductId());
         if (sb.length() > 0) { sb.delete(0, c.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
@@ -240,6 +256,23 @@ public abstract class BsWhiteDeprecatedRefDto implements Serializable {
     public void setDeprecatedRefCode(String deprecatedRefCode) {
         __modifiedProperties.add("deprecatedRefCode");
         this._deprecatedRefCode = deprecatedRefCode;
+    }
+
+    /**
+     * [get] PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT} <br>
+     * @return The value of the column 'PRODUCT_ID'. (NullAllowed)
+     */
+    public Integer getProductId() {
+        return _productId;
+    }
+
+    /**
+     * [set] PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT} <br>
+     * @param productId The value of the column 'PRODUCT_ID'. (NullAllowed)
+     */
+    public void setProductId(Integer productId) {
+        __modifiedProperties.add("productId");
+        this._productId = productId;
     }
 
 }

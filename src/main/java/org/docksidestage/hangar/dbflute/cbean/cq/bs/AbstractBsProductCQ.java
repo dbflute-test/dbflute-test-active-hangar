@@ -192,6 +192,25 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     public abstract String keepProductId_ExistsReferrer_PurchaseList(PurchaseCQ sq);
 
     /**
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select PRODUCT_ID from WHITE_DEPRECATED_REF where ...)} <br>
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">existsWhiteDeprecatedRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
+     * });
+     * </pre>
+     * @param subCBLambda The callback for sub-query of WhiteDeprecatedRefList for 'exists'. (NotNull)
+     */
+    public void existsWhiteDeprecatedRef(SubQuery<WhiteDeprecatedRefCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        WhiteDeprecatedRefCB cb = new WhiteDeprecatedRefCB(); cb.xsetupForExistsReferrer(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhiteDeprecatedRefList(cb.query());
+        registerExistsReferrer(cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "whiteDeprecatedRefList");
+    }
+    public abstract String keepProductId_ExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq);
+
+    /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
      * {not exists (select PRODUCT_ID from PURCHASE where ...)} <br>
      * (購入)PURCHASE by PRODUCT_ID, named 'purchaseAsOne'.
@@ -210,6 +229,25 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
     public abstract String keepProductId_NotExistsReferrer_PurchaseList(PurchaseCQ sq);
 
+    /**
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select PRODUCT_ID from WHITE_DEPRECATED_REF where ...)} <br>
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">notExistsWhiteDeprecatedRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
+     * });
+     * </pre>
+     * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhiteDeprecatedRefList for 'not exists'. (NotNull)
+     */
+    public void notExistsWhiteDeprecatedRef(SubQuery<WhiteDeprecatedRefCB> subCBLambda) {
+        assertObjectNotNull("subCBLambda", subCBLambda);
+        WhiteDeprecatedRefCB cb = new WhiteDeprecatedRefCB(); cb.xsetupForExistsReferrer(this);
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhiteDeprecatedRefList(cb.query());
+        registerNotExistsReferrer(cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "whiteDeprecatedRefList");
+    }
+    public abstract String keepProductId_NotExistsReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq);
+
     public void xsderivePurchaseList(String fn, SubQuery<PurchaseCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         PurchaseCB cb = new PurchaseCB(); cb.xsetupForDerivedReferrer(this);
@@ -217,6 +255,14 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "purchaseList", al, op);
     }
     public abstract String keepProductId_SpecifyDerivedReferrer_PurchaseList(PurchaseCQ sq);
+
+    public void xsderiveWhiteDeprecatedRefList(String fn, SubQuery<WhiteDeprecatedRefCB> sq, String al, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        WhiteDeprecatedRefCB cb = new WhiteDeprecatedRefCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String pp = keepProductId_SpecifyDerivedReferrer_WhiteDeprecatedRefList(cb.query());
+        registerSpecifyDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PRODUCT_ID", pp, "whiteDeprecatedRefList", al, op);
+    }
+    public abstract String keepProductId_SpecifyDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq);
 
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
@@ -244,6 +290,33 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
     public abstract String keepProductId_QueryDerivedReferrer_PurchaseList(PurchaseCQ sq);
     public abstract String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object vl);
+
+    /**
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from WHITE_DEPRECATED_REF where ...)} <br>
+     * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefAsOne'.
+     * <pre>
+     * cb.query().<span style="color: #CC4747">derivedWhiteDeprecatedRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
+     * </pre>
+     * @return The object to set up a function for referrer table. (NotNull)
+     */
+    public HpQDRFunction<WhiteDeprecatedRefCB> derivedWhiteDeprecatedRef() {
+        return xcreateQDRFunctionWhiteDeprecatedRefList();
+    }
+    protected HpQDRFunction<WhiteDeprecatedRefCB> xcreateQDRFunctionWhiteDeprecatedRefList() {
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteDeprecatedRefList(fn, sq, rd, vl, op));
+    }
+    public void xqderiveWhiteDeprecatedRefList(String fn, SubQuery<WhiteDeprecatedRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
+        assertObjectNotNull("subQuery", sq);
+        WhiteDeprecatedRefCB cb = new WhiteDeprecatedRefCB(); cb.xsetupForDerivedReferrer(this);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefList(cb.query()); String prpp = keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefListParameter(vl);
+        registerQueryDerivedReferrer(fn, cb.query(), "PRODUCT_ID", "PRODUCT_ID", sqpp, "whiteDeprecatedRefList", rd, vl, prpp, op);
+    }
+    public abstract String keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefList(WhiteDeprecatedRefCQ sq);
+    public abstract String keepProductId_QueryDerivedReferrer_WhiteDeprecatedRefListParameter(Object vl);
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>

@@ -52,13 +52,13 @@ import org.docksidestage.hangar.dbflute.nogen.cache.*;
  *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer table]
- *     PURCHASE
+ *     PURCHASE, WHITE_DEPRECATED_REF
  *
  * [foreign property]
  *     productCategory, productStatus
  *
  * [referrer property]
- *     purchaseList
+ *     purchaseList, whiteDeprecatedRefList
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -321,6 +321,26 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
         _purchaseList = purchaseList;
     }
 
+    /** WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'. */
+    protected List<WhiteDeprecatedRef> _whiteDeprecatedRefList;
+
+    /**
+     * [get] WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+     * @return The entity list of referrer property 'whiteDeprecatedRefList'. (NotNull: even if no loading, returns empty list)
+     */
+    public List<WhiteDeprecatedRef> getWhiteDeprecatedRefList() {
+        if (_whiteDeprecatedRefList == null) { _whiteDeprecatedRefList = newReferrerList(); }
+        return _whiteDeprecatedRefList;
+    }
+
+    /**
+     * [set] WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+     * @param whiteDeprecatedRefList The entity list of referrer property 'whiteDeprecatedRefList'. (NullAllowed)
+     */
+    public void setWhiteDeprecatedRefList(List<WhiteDeprecatedRef> whiteDeprecatedRefList) {
+        _whiteDeprecatedRefList = whiteDeprecatedRefList;
+    }
+
     protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
@@ -356,6 +376,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
         { sb.append(li).append(xbRDS(_productStatus, "productStatus")); }
         if (_purchaseList != null) { for (Purchase et : _purchaseList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "purchaseList")); } } }
+        if (_whiteDeprecatedRefList != null) { for (WhiteDeprecatedRef et : _whiteDeprecatedRefList)
+        { if (et != null) { sb.append(li).append(xbRDS(et, "whiteDeprecatedRefList")); } } }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -392,6 +414,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
         { sb.append(dm).append("productStatus"); }
         if (_purchaseList != null && !_purchaseList.isEmpty())
         { sb.append(dm).append("purchaseList"); }
+        if (_whiteDeprecatedRefList != null && !_whiteDeprecatedRefList.isEmpty())
+        { sb.append(dm).append("whiteDeprecatedRefList"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

@@ -22,7 +22,9 @@ import net.vvakame.util.jsonpullparser.annotation.*;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of WHITE_DEPRECATED as TABLE. <br>
+ * The simple DTO of (非推奨テスト)WHITE_DEPRECATED as TABLE. <br>
+ * コメントがある場合<br>
+ * #deprecated test of deprecated
  * <pre>
  * [primary-key]
  *     DEPRECATED_ID

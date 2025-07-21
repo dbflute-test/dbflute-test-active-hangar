@@ -62,6 +62,7 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteDeprecatedRef)et).getDeprecatedId(), (et, vl) -> ((WhiteDeprecatedRef)et).setDeprecatedId(ctl(vl)), "deprecatedId");
         setupEpg(_epgMap, et -> ((WhiteDeprecatedRef)et).getDeprecatedRefName(), (et, vl) -> ((WhiteDeprecatedRef)et).setDeprecatedRefName((String)vl), "deprecatedRefName");
         setupEpg(_epgMap, et -> ((WhiteDeprecatedRef)et).getDeprecatedRefCode(), (et, vl) -> ((WhiteDeprecatedRef)et).setDeprecatedRefCode((String)vl), "deprecatedRefCode");
+        setupEpg(_epgMap, et -> ((WhiteDeprecatedRef)et).getProductId(), (et, vl) -> ((WhiteDeprecatedRef)et).setProductId(cti(vl)), "productId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -74,6 +75,7 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
     @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
         setupEfpg(_efpgMap, et -> ((WhiteDeprecatedRef)et).getWhiteDeprecated(), (et, vl) -> ((WhiteDeprecatedRef)et).setWhiteDeprecated((OptionalEntity<WhiteDeprecated>)vl), "whiteDeprecated");
+        setupEfpg(_efpgMap, et -> ((WhiteDeprecatedRef)et).getProduct(), (et, vl) -> ((WhiteDeprecatedRef)et).setProduct((OptionalEntity<Product>)vl), "product");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -90,6 +92,8 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
+    protected final String _tableComment = "#deprecated test of deprecated referrer <br> is HTML test";
+    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info
@@ -98,6 +102,7 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnDeprecatedId = cci("DEPRECATED_ID", "DEPRECATED_ID", null, null, Long.class, "deprecatedId", null, false, false, true, "DECIMAL", 16, 0, null, null, false, null, null, "whiteDeprecated", null, null, false);
     protected final ColumnInfo _columnDeprecatedRefName = cci("DEPRECATED_REF_NAME", "DEPRECATED_REF_NAME", null, null, String.class, "deprecatedRefName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnDeprecatedRefCode = cci("DEPRECATED_REF_CODE", "DEPRECATED_REF_CODE", null, null, String.class, "deprecatedRefCode", null, false, false, true, "VARCHAR", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, null, "product", null, null, false);
 
     /**
      * DEPRECATED_REF_ID: {PK, NotNull, DECIMAL(16)}
@@ -119,6 +124,11 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDeprecatedRefCode() { return _columnDeprecatedRefCode; }
+    /**
+     * PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnProductId() { return _columnProductId; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
@@ -126,6 +136,7 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
         ls.add(columnDeprecatedId());
         ls.add(columnDeprecatedRefName());
         ls.add(columnDeprecatedRefCode());
+        ls.add(columnProductId());
         return ls;
     }
 
@@ -150,12 +161,20 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
+     * (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteDeprecated() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnDeprecatedId(), WhiteDeprecatedDbm.getInstance().columnDeprecatedId());
         return cfi("FK_WHITE_DEPRECATED_REF_WHITE_DEPRECATED", "whiteDeprecated", this, WhiteDeprecatedDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteDeprecatedRefList", false);
+    }
+    /**
+     * (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * @return The information object of foreign property. (NotNull)
+     */
+    public ForeignInfo foreignProduct() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), ProductDbm.getInstance().columnProductId());
+        return cfi("FK_WHITE_DEPRECATED_REF_PRODUCT", "product", this, ProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteDeprecatedRefList", false);
     }
 
     // -----------------------------------------------------

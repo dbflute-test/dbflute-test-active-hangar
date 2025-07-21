@@ -60,13 +60,13 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer-table]
- *     PURCHASE
+ *     PURCHASE, WHITE_DEPRECATED_REF
  *
  * [foreign-property]
  *     productCategory, productStatus
  *
  * [referrer-property]
- *     purchaseList
+ *     purchaseList, whiteDeprecatedRefList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -89,6 +89,7 @@ public abstract class BsProductDtoMapper implements DtoMapper<Product, ProductDt
     protected boolean _suppressProductCategory;
     protected boolean _suppressProductStatus;
     protected boolean _suppressPurchaseList;
+    protected boolean _suppressWhiteDeprecatedRefList;
 
     // ===================================================================================
     //                                                                         Constructor
@@ -210,6 +211,20 @@ public abstract class BsProductDtoMapper implements DtoMapper<Product, ProductDt
             dto.setPurchaseList(relationDtoList);
             if (reverseReference) {
                 for (PurchaseDto relationDto : relationDtoList) {
+                    relationDto.setProduct(dto);
+                }
+            }
+        };
+        if (!_suppressWhiteDeprecatedRefList && !entity.getWhiteDeprecatedRefList().isEmpty()) {
+            WhiteDeprecatedRefDtoMapper mapper = new WhiteDeprecatedRefDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressProduct();
+            List<WhiteDeprecatedRefDto> relationDtoList = mapper.mappingToDtoList(entity.getWhiteDeprecatedRefList());
+            dto.setWhiteDeprecatedRefList(relationDtoList);
+            if (reverseReference) {
+                for (WhiteDeprecatedRefDto relationDto : relationDtoList) {
                     relationDto.setProduct(dto);
                 }
             }
@@ -360,6 +375,20 @@ public abstract class BsProductDtoMapper implements DtoMapper<Product, ProductDt
                 }
             }
         };
+        if (!_suppressWhiteDeprecatedRefList && !dto.getWhiteDeprecatedRefList().isEmpty()) {
+            WhiteDeprecatedRefDtoMapper mapper = new WhiteDeprecatedRefDtoMapper(_relationDtoMap, _relationEntityMap);
+            mapper.setExceptCommonColumn(exceptCommonColumn);
+            mapper.setReverseReference(reverseReference);
+            if (!instanceCache) { mapper.disableInstanceCache(); }
+            mapper.suppressProduct();
+            List<WhiteDeprecatedRef> relationEntityList = mapper.mappingToEntityList(dto.getWhiteDeprecatedRefList());
+            entity.setWhiteDeprecatedRefList(relationEntityList);
+            if (reverseReference) {
+                for (WhiteDeprecatedRef relationEntity : relationEntityList) {
+                    relationEntity.setProduct(OptionalEntity.of(entity));
+                }
+            }
+        };
         return entity;
     }
 
@@ -487,15 +516,20 @@ public abstract class BsProductDtoMapper implements DtoMapper<Product, ProductDt
     public void suppressPurchaseList() {
         _suppressPurchaseList = true;
     }
+    public void suppressWhiteDeprecatedRefList() {
+        _suppressWhiteDeprecatedRefList = true;
+    }
     protected void doSuppressAll() { // internal
         suppressProductCategory();
         suppressProductStatus();
         suppressPurchaseList();
+        suppressWhiteDeprecatedRefList();
     }
     protected void doSuppressClear() { // internal
         _suppressProductCategory = false;
         _suppressProductStatus = false;
         _suppressPurchaseList = false;
+        _suppressWhiteDeprecatedRefList = false;
     }
 
     // ===================================================================================

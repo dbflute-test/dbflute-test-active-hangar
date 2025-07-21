@@ -27,13 +27,14 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DEPRECATED_REF as TABLE.
+ * The entity of WHITE_DEPRECATED_REF as TABLE. <br>
+ * #deprecated test of deprecated referrer &lt;br&gt; is HTML test
  * <pre>
  * [primary-key]
  *     DEPRECATED_REF_ID
  *
  * [column]
- *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE
+ *     DEPRECATED_REF_ID, DEPRECATED_ID, DEPRECATED_REF_NAME, DEPRECATED_REF_CODE, PRODUCT_ID
  *
  * [sequence]
  *     
@@ -45,13 +46,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     WHITE_DEPRECATED
+ *     WHITE_DEPRECATED, PRODUCT
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     whiteDeprecated
+ *     whiteDeprecated, product
  *
  * [referrer property]
  *     
@@ -62,10 +63,12 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * Long deprecatedId = entity.getDeprecatedId();
  * String deprecatedRefName = entity.getDeprecatedRefName();
  * String deprecatedRefCode = entity.getDeprecatedRefCode();
+ * Integer productId = entity.getProductId();
  * entity.setDeprecatedRefId(deprecatedRefId);
  * entity.setDeprecatedId(deprecatedId);
  * entity.setDeprecatedRefName(deprecatedRefName);
  * entity.setDeprecatedRefCode(deprecatedRefCode);
+ * entity.setProductId(productId);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -93,6 +96,9 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
     /** DEPRECATED_REF_CODE: {NotNull, VARCHAR(16)} */
     protected String _deprecatedRefCode;
 
+    /** PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT} */
+    protected Integer _productId;
+
     // ===================================================================================
     //                                                                             DB Meta
     //                                                                             =======
@@ -118,11 +124,11 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'. */
+    /** (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'. */
     protected OptionalEntity<WhiteDeprecated> _whiteDeprecated;
 
     /**
-     * [get] WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'. <br>
+     * [get] (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteDeprecated'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -132,11 +138,32 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
     }
 
     /**
-     * [set] WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
+     * [set] (非推奨テスト)WHITE_DEPRECATED by my DEPRECATED_ID, named 'whiteDeprecated'.
      * @param whiteDeprecated The entity of foreign property 'whiteDeprecated'. (NullAllowed)
      */
     public void setWhiteDeprecated(OptionalEntity<WhiteDeprecated> whiteDeprecated) {
         _whiteDeprecated = whiteDeprecated;
+    }
+
+    /** (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'. */
+    protected OptionalEntity<Product> _product;
+
+    /**
+     * [get] (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'. <br>
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'product'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     */
+    public OptionalEntity<Product> getProduct() {
+        if (_product == null) { _product = OptionalEntity.relationEmpty(this, "product"); }
+        return _product;
+    }
+
+    /**
+     * [set] (眠い商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * @param product The entity of foreign property 'product'. (NullAllowed)
+     */
+    public void setProduct(OptionalEntity<Product> product) {
+        _product = product;
     }
 
     // ===================================================================================
@@ -173,6 +200,8 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
         StringBuilder sb = new StringBuilder();
         if (_whiteDeprecated != null && _whiteDeprecated.isPresent())
         { sb.append(li).append(xbRDS(_whiteDeprecated, "whiteDeprecated")); }
+        if (_product != null && _product.isPresent())
+        { sb.append(li).append(xbRDS(_product, "product")); }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -186,6 +215,7 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
         sb.append(dm).append(xfND(_deprecatedId));
         sb.append(dm).append(xfND(_deprecatedRefName));
         sb.append(dm).append(xfND(_deprecatedRefCode));
+        sb.append(dm).append(xfND(_productId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -198,6 +228,8 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
         StringBuilder sb = new StringBuilder();
         if (_whiteDeprecated != null && _whiteDeprecated.isPresent())
         { sb.append(dm).append("whiteDeprecated"); }
+        if (_product != null && _product.isPresent())
+        { sb.append(dm).append("product"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
@@ -282,5 +314,23 @@ public abstract class BsWhiteDeprecatedRef extends AbstractEntity implements Dom
     public void setDeprecatedRefCode(String deprecatedRefCode) {
         registerModifiedProperty("deprecatedRefCode");
         _deprecatedRefCode = deprecatedRefCode;
+    }
+
+    /**
+     * [get] PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT} <br>
+     * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
+     */
+    public Integer getProductId() {
+        checkSpecifiedProperty("productId");
+        return _productId;
+    }
+
+    /**
+     * [set] PRODUCT_ID: {IX, NotNull, INTEGER(10), FK to PRODUCT} <br>
+     * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
+     */
+    public void setProductId(Integer productId) {
+        registerModifiedProperty("productId");
+        _productId = productId;
     }
 }

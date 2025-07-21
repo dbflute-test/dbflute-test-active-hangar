@@ -494,6 +494,23 @@ public class BsProductCB extends AbstractConditionBean {
                     -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from WHITE_DEPRECATED_REF where ...) as FOO_MAX} <br>
+         * WHITE_DEPRECATED_REF by PRODUCT_ID, named 'whiteDeprecatedRefList'.
+         * <pre>
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     refCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     refCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, WhiteDeprecatedRef.<span style="color: #CC4747">ALIAS_foo...</span>);
+         * </pre>
+         * @return The object to set up a function for referrer table. (NotNull)
+         */
+        public HpSDRFunction<WhiteDeprecatedRefCB, ProductCQ> derivedWhiteDeprecatedRef() {
+            assertDerived("whiteDeprecatedRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<WhiteDeprecatedRefCB> sq, ProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteDeprecatedRefList(fn, sq, al, op), _dbmetaProvider);
+        }
+        /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)
          */

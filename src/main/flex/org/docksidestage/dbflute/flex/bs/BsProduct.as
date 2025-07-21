@@ -41,13 +41,13 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     PRODUCT_CATEGORY, PRODUCT_STATUS
  *
  * [referrer-table]
- *     PURCHASE
+ *     PURCHASE, WHITE_DEPRECATED_REF
  *
  * [foreign-property]
  *     productCategory, productStatus
  *
  * [referrer-property]
- *     purchaseList
+ *     purchaseList, whiteDeprecatedRefList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -115,6 +115,18 @@ public class BsProduct {
 
     public function set purchaseList(purchaseList:ArrayCollection):void {
         this._purchaseList = purchaseList;
+    }
+
+    WhiteDeprecatedRefDto;
+    protected var _whiteDeprecatedRefList:ArrayCollection; /* of the entity 'WhiteDeprecatedRefDto'. */
+
+    public function get whiteDeprecatedRefList():ArrayCollection {
+        if (_whiteDeprecatedRefList == null) { _whiteDeprecatedRefList = new ArrayCollection(); }
+        return _whiteDeprecatedRefList;
+    }
+
+    public function set whiteDeprecatedRefList(whiteDeprecatedRefList:ArrayCollection):void {
+        this._whiteDeprecatedRefList = whiteDeprecatedRefList;
     }
 
 
