@@ -3,6 +3,7 @@ package org.docksidestage.hangar.dbflute.whitebox.dfprop.doc;
 import org.dbflute.utflute.core.PlainTestCase;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.MemberDbm;
 import org.docksidestage.hangar.dbflute.bsentity.dbmeta.VendorCheckDbm;
+import org.docksidestage.hangar.dbflute.bsentity.dbmeta.VendorIdentityOnlyDbm;
 
 /**
  * @author jflute
@@ -17,7 +18,8 @@ public class WxDBMetaDbCommentTest extends PlainTestCase {
         // ## Act & Assert ##
         log("comment=" + dbm.getTableComment());
         assertNotNull(dbm.getTableComment());
-        assertNull(VendorCheckDbm.getInstance().getTableComment());
+        assertEquals("sea", VendorCheckDbm.getInstance().getTableComment()); // by decomment
+        assertNull(VendorIdentityOnlyDbm.getInstance().getTableComment());
     }
 
     public void test_columnInfo_commonComment() {
