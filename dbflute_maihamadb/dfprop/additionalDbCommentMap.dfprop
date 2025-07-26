@@ -56,7 +56,7 @@ map:{
             ; REGULAR_PRICE = map:{
                 # 別名を上書き (説明なしだけどここで追加)
                 ; alias = 眠い定価
-                ; description = 眠いよぅ眠いよぅ。
+                ; description = 眠いよぅ眠いよぅ。ようよう
             }
             # test of ALLを上書きしてみる
             ; UPDATE_DATETIME = map:{
