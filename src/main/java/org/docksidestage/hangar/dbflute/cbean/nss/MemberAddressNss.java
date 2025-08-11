@@ -35,7 +35,7 @@ public class MemberAddressNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員)MEMBER by my MEMBER_ID, named 'member'.
+     * (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {

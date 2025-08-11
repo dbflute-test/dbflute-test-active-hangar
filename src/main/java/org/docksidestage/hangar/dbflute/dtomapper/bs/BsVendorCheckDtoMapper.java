@@ -37,6 +37,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of VENDOR_CHECK as TABLE. <br>
+ * sea
  * <pre>
  * [primary-key]
  *     VENDOR_CHECK_ID

@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (会員)MEMBER as TABLE.
+ * The behavior of (mysticみすみす)MEMBER as TABLE.
  * <pre>
  * [primary-key]
  *     MEMBER_ID

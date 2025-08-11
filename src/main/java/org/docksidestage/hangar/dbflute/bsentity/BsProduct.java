@@ -492,8 +492,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
-     * 眠いのも悪くない。<br>
-     * 
+     * 眠いのも悪くない。
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getProductCategoryCode() {
@@ -503,8 +502,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
-     * 眠いのも悪くない。<br>
-     * 
+     * 眠いのも悪くない。
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (basically NotNull if update: for the constraint)
      */
     public void setProductCategoryCode(String productCategoryCode) {
@@ -533,8 +531,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
-     * 眠いよぅ眠いよぅ。<br>
-     * 定価:
+     * 眠いよぅ眠いよぅ。ようよう。<br>
+     * 定価:かかか
      * @return The value of the column 'REGULAR_PRICE'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegularPrice() {
@@ -544,8 +542,8 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
-     * 眠いよぅ眠いよぅ。<br>
-     * 定価:
+     * 眠いよぅ眠いよぅ。ようよう。<br>
+     * 定価:かかか
      * @param regularPrice The value of the column 'REGULAR_PRICE'. (basically NotNull if update: for the constraint)
      */
     public void setRegularPrice(Integer regularPrice) {
@@ -573,8 +571,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -584,8 +581,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -595,8 +591,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * ALL設定を上書きしてみる<br>
-     * 
+     * ALL設定を上書きしてみる
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -606,8 +601,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * ALL設定を上書きしてみる<br>
-     * 
+     * ALL設定を上書きしてみる
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

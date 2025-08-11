@@ -277,11 +277,11 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (会員)MEMBER by my MEMBER_ID, named 'member'. */
+    /** (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] (会員)MEMBER by my MEMBER_ID, named 'member'. <br>
+     * [get] (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -291,7 +291,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (会員)MEMBER by my MEMBER_ID, named 'member'.
+     * [set] (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {
@@ -551,8 +551,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -562,8 +561,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -573,8 +571,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 
+     * 眠いときは眠いと言おう。
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -584,8 +581,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 
+     * 眠いときは眠いと言おう。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

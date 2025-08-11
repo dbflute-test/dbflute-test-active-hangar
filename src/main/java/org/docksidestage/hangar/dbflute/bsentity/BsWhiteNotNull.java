@@ -25,7 +25,8 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_NOT_NULL as TABLE.
+ * The entity of WHITE_NOT_NULL as TABLE. <br>
+ * #sea
  * <pre>
  * [primary-key]
  *     NOT_NULL_ID

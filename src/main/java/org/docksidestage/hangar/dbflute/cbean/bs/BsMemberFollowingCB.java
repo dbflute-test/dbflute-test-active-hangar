@@ -277,7 +277,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * (mysticみすみす)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
      * <pre>
      * <span style="color: #0000C0">memberFollowingBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberByMyMemberId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -306,7 +306,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+     * (mysticみすみす)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
      * <pre>
      * <span style="color: #0000C0">memberFollowingBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberByYourMemberId()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -413,7 +413,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
         protected String getTableDbName() { return "MEMBER_FOLLOWING"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+         * (mysticみすみす)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMemberByMyMemberId() {
@@ -433,7 +433,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+         * (mysticみすみす)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMemberByYourMemberId() {

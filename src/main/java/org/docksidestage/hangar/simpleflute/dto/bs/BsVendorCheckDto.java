@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * The simple DTO of VENDOR_CHECK as TABLE. <br>
+ * sea
  * <pre>
  * [primary-key]
  *     VENDOR_CHECK_ID

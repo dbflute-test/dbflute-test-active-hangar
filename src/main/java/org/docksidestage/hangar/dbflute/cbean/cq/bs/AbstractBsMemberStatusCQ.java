@@ -231,7 +231,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select MEMBER_STATUS_CODE from MEMBER where ...)} <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberAsOne'.
+     * (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
@@ -269,7 +269,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
      * {not exists (select MEMBER_STATUS_CODE from MEMBER where ...)} <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberAsOne'.
+     * (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.query().set...
@@ -323,7 +323,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from MEMBER where ...)} <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberAsOne'.
+     * (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedMember()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>

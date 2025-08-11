@@ -367,11 +367,11 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
         _memberStatus = memberStatus;
     }
 
-    /** (会員)MEMBER by my MEMBER_ID, named 'member'. */
+    /** (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'. */
     protected OptionalEntity<Member> _member;
 
     /**
-     * [get] (会員)MEMBER by my MEMBER_ID, named 'member'. <br>
+     * [get] (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -381,7 +381,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] (会員)MEMBER by my MEMBER_ID, named 'member'.
+     * [set] (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
     public void setMember(OptionalEntity<Member> member) {

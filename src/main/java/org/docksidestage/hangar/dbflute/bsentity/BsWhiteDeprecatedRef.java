@@ -28,7 +28,8 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
  * The entity of WHITE_DEPRECATED_REF as TABLE. <br>
- * #deprecated test of deprecated referrer &lt;br&gt; is HTML test
+ * sea<br>
+ * +deprecated test of deprecated referrer &lt;br&gt; is HTML test
  * <pre>
  * [primary-key]
  *     DEPRECATED_REF_ID

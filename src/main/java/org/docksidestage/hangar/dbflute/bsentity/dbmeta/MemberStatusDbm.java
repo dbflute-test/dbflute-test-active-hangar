@@ -157,7 +157,7 @@ public class MemberStatusDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
+     * (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberList() {

@@ -25,7 +25,8 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_CHECK as TABLE.
+ * The entity of VENDOR_CHECK as TABLE. <br>
+ * sea
  * <pre>
  * [primary-key]
  *     VENDOR_CHECK_ID

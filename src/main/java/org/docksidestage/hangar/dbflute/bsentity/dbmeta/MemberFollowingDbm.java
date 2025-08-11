@@ -99,7 +99,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberFollowingId = cci("MEMBER_FOLLOWING_ID", "MEMBER_FOLLOWING_ID", null, "会員フォローイングID", Long.class, "memberFollowingId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_5E785AF7_846E_4528_AF8C_ECDD7981ECE5\"", false, null, "連番", null, null, null, false);
+    protected final ColumnInfo _columnMemberFollowingId = cci("MEMBER_FOLLOWING_ID", "MEMBER_FOLLOWING_ID", null, "会員フォローイングID", Long.class, "memberFollowingId", null, true, true, true, "BIGINT", 19, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_32EB6691_1B66_4D7A_96C7_B1819DBA1C98\"", false, null, "連番", null, null, null, false);
     protected final ColumnInfo _columnMyMemberId = cci("MY_MEMBER_ID", "MY_MEMBER_ID", null, "わたし", Integer.class, "myMemberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "気になった人がいて...勇気を振り絞った会員のID。", "memberByMyMemberId", null, null, false);
     protected final ColumnInfo _columnYourMemberId = cci("YOUR_MEMBER_ID", "YOUR_MEMBER_ID", null, "あなた", Integer.class, "yourMemberId", null, false, false, true, "INTEGER", 10, 0, null, null, false, null, "いきなりのアクションに...ちょっと心揺らいだ会員のID。", "memberByYourMemberId", null, null, false);
     protected final ColumnInfo _columnFollowDatetime = cci("FOLLOW_DATETIME", "FOLLOW_DATETIME", null, "その瞬間", java.time.LocalDateTime.class, "followDatetime", null, false, false, true, "TIMESTAMP", 26, 6, null, null, false, null, "ふりかえるとちょっと恥ずかしい気持ちになる日時", null, null, null, false);
@@ -165,7 +165,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
+     * (mysticみすみす)MEMBER by my MY_MEMBER_ID, named 'memberByMyMemberId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberByMyMemberId() {
@@ -173,7 +173,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
         return cfi("FK_MEMBER_FOLLOWING_MY_MEMBER", "memberByMyMemberId", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByMyMemberIdList", false);
     }
     /**
-     * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
+     * (mysticみすみす)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignMemberByYourMemberId() {

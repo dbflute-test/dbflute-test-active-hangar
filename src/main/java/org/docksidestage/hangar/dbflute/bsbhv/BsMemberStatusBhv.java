@@ -417,7 +417,7 @@ public abstract class BsMemberStatusBhv extends org.docksidestage.hangar.dbflute
 
     /**
      * Load referrer of memberList by the set-upper of referrer. <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
+     * (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...
@@ -448,7 +448,7 @@ public abstract class BsMemberStatusBhv extends org.docksidestage.hangar.dbflute
 
     /**
      * Load referrer of memberList by the set-upper of referrer. <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
+     * (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * <pre>
      * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberCB</span>.setupSelect...

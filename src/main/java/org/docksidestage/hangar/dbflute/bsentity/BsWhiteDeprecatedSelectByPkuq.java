@@ -25,7 +25,9 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DEPRECATED_SELECT_BY_PKUQ as TABLE.
+ * The entity of WHITE_DEPRECATED_SELECT_BY_PKUQ as TABLE. <br>
+ * #land<br>
+ * sea
  * <pre>
  * [primary-key]
  *     SELECT_BY_PKUQ_ID

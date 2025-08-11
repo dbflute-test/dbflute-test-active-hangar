@@ -496,8 +496,7 @@ public abstract class BsPurchaseDto implements Serializable {
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @return The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public String getRegisterUser() {
@@ -506,8 +505,7 @@ public abstract class BsPurchaseDto implements Serializable {
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public void setRegisterUser(String registerUser) {
@@ -517,8 +515,7 @@ public abstract class BsPurchaseDto implements Serializable {
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 
+     * 眠いときは眠いと言おう。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -529,8 +526,7 @@ public abstract class BsPurchaseDto implements Serializable {
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 
+     * 眠いときは眠いと言おう。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

@@ -485,8 +485,7 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -496,8 +495,7 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -507,8 +505,7 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 
+     * 眠いときは眠いと言おう。
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -518,8 +515,7 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 
+     * 眠いときは眠いと言おう。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

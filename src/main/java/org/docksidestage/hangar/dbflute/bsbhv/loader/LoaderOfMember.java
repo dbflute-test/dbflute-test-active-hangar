@@ -24,7 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of (会員)MEMBER as TABLE.
+ * The referrer loader of (mysticみすみす)MEMBER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMember {

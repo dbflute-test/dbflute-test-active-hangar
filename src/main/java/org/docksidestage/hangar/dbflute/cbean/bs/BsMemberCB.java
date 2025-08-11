@@ -478,7 +478,7 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)}
+         * (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }

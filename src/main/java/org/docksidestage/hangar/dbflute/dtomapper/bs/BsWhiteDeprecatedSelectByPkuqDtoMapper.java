@@ -37,6 +37,8 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of WHITE_DEPRECATED_SELECT_BY_PKUQ as TABLE. <br>
+ * #land<br>
+ * sea
  * <pre>
  * [primary-key]
  *     SELECT_BY_PKUQ_ID

@@ -278,7 +278,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員)MEMBER by my MEMBER_ID, named 'member'.
+     * (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -540,7 +540,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
         protected String getTableDbName() { return "PURCHASE"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員)MEMBER by my MEMBER_ID, named 'member'.
+         * (mysticみすみす)MEMBER by my MEMBER_ID, named 'member'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberCB.HpSpecification specifyMember() {

@@ -389,8 +389,7 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [get] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
-     * 眠いのも悪くない。<br>
-     * 
+     * 眠いのも悪くない。
      * @return The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public String getProductCategoryCode() {
@@ -399,8 +398,7 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [set] (眠い商品カテゴリーコードどん)PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to PRODUCT_CATEGORY} <br>
-     * 眠いのも悪くない。<br>
-     * 
+     * 眠いのも悪くない。
      * @param productCategoryCode The value of the column 'PRODUCT_CATEGORY_CODE'. (NullAllowed)
      */
     public void setProductCategoryCode(String productCategoryCode) {
@@ -427,8 +425,8 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [get] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
-     * 眠いよぅ眠いよぅ。<br>
-     * 定価:
+     * 眠いよぅ眠いよぅ。ようよう。<br>
+     * 定価:かかか
      * @return The value of the column 'REGULAR_PRICE'. (NullAllowed)
      */
     public Integer getRegularPrice() {
@@ -437,8 +435,8 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [set] (眠い定価)REGULAR_PRICE: {NotNull, INTEGER(10)} <br>
-     * 眠いよぅ眠いよぅ。<br>
-     * 定価:
+     * 眠いよぅ眠いよぅ。ようよう。<br>
+     * 定価:かかか
      * @param regularPrice The value of the column 'REGULAR_PRICE'. (NullAllowed)
      */
     public void setRegularPrice(Integer regularPrice) {
@@ -467,8 +465,7 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @return The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public String getRegisterUser() {
@@ -477,8 +474,7 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * 
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public void setRegisterUser(String registerUser) {
@@ -488,8 +484,7 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * ALL設定を上書きしてみる<br>
-     * 
+     * ALL設定を上書きしてみる
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -500,8 +495,7 @@ public abstract class BsProductDto implements Serializable {
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {NotNull, TIMESTAMP(26, 6)} <br>
-     * ALL設定を上書きしてみる<br>
-     * 
+     * ALL設定を上書きしてみる
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {

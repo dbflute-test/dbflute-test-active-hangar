@@ -49,7 +49,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     /** The option of like-search for prefixSearchOption. */
     protected LikeSearchOption _prefixSearchOptionInternalLikeSearchOption;
 
-    /** The parameter of suffixSearchOption:ref(MEMBER.MEMBER_NAME)|likeSuffix :: refers to (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)}. */
+    /** The parameter of suffixSearchOption:ref(MEMBER.MEMBER_NAME)|likeSuffix :: refers to (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)}. */
     protected String _suffixSearchOption;
 
     /** The option of like-search for suffixSearchOption. */
@@ -365,7 +365,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [get] suffixSearchOption:ref(MEMBER.MEMBER_NAME)|likeSuffix :: refers to (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * [get] suffixSearchOption:ref(MEMBER.MEMBER_NAME)|likeSuffix :: refers to (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
      * @return The value of suffixSearchOption. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getSuffixSearchOption() {
@@ -373,7 +373,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as suffixSearch] suffixSearchOption:ref(MEMBER.MEMBER_NAME)|likeSuffix :: refers to (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * [set as suffixSearch] suffixSearchOption:ref(MEMBER.MEMBER_NAME)|likeSuffix :: refers to (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
      * @param suffixSearchOption The value of suffixSearchOption. (NullAllowed)
      */
     public void setSuffixSearchOption_SuffixSearch(String suffixSearchOption) {

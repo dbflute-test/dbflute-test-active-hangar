@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * The simple DTO of WHITE_NOT_NULL as TABLE. <br>
+ * #sea
  * <pre>
  * [primary-key]
  *     NOT_NULL_ID

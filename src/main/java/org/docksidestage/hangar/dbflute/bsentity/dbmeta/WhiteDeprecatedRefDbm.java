@@ -92,7 +92,7 @@ public class WhiteDeprecatedRefDbm extends AbstractDBMeta {
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
-    protected final String _tableComment = "#deprecated test of deprecated referrer <br> is HTML test";
+    protected final String _tableComment = "sea\n+deprecated test of deprecated referrer <br> is HTML test";
     public String getTableComment() { return _tableComment; }
 
     // ===================================================================================

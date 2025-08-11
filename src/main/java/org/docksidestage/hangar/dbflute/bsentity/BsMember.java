@@ -29,11 +29,11 @@ import org.docksidestage.hangar.dbflute.allcommon.CDef;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of (会員)MEMBER as TABLE. <br>
- * 眠いときは寝た方が良い。<br>
+ * The entity of (mysticみすみす)MEMBER as TABLE. <br>
+ * seasea 眠いときは寝た方が良い。<br>
  * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
  * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
- * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
+ * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。dfalias:{ mysticみすみす }
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -104,7 +104,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     /** (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} */
     protected Integer _memberId;
 
-    /** (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} */
+    /** (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} */
     protected String _memberName;
 
     /** (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)} */
@@ -635,7 +635,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     //                                                                            ========
     /**
      * [get] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * sea 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。<br>
+     * sea
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -645,7 +646,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
 
     /**
      * [set] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * sea 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。<br>
+     * sea
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -654,9 +656,11 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [get] (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * seasea 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、dfalias:{ ここねこさん } ここでは単純にひとまとめ。<br>
+     * <br>
+     * aaaa
      * @return The value of the column 'MEMBER_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberName() {
@@ -665,9 +669,11 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [set] (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * seasea 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、dfalias:{ ここねこさん } ここでは単純にひとまとめ。<br>
+     * <br>
+     * aaaa
      * @param memberName The value of the column 'MEMBER_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberName(String memberName) {
@@ -745,7 +751,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     /**
      * [get] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * お腹が空いたら食べた方が良い。<br>
-     * 必須項目ではないので、このデータがない会員もいる。
+     * 必須項目ではないので、このデータがない会員もいる。<br>
+     * sea
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDate getBirthdate() {
@@ -756,7 +763,8 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
     /**
      * [set] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * お腹が空いたら食べた方が良い。<br>
-     * 必須項目ではないので、このデータがない会員もいる。
+     * 必須項目ではないので、このデータがない会員もいる。<br>
+     * sea
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBirthdate(java.time.LocalDate birthdate) {

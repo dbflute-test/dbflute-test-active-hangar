@@ -319,6 +319,16 @@ public class MessagesAndDatabase implements Serializable {
     //  - DB_COMMENT_COUNT
     //  - DB_COMMENT_DATE
     //  - DB_COMMENT_DATETIME
+    // WHITE_DEPRECATED
+    //  - DEPRECATED_ID
+    //  - DEPRECATED_NAME
+    //  - DEPRECATED_CODE
+    // WHITE_DEPRECATED_REF
+    //  - DEPRECATED_REF_ID
+    //  - DEPRECATED_ID
+    //  - DEPRECATED_REF_NAME
+    //  - DEPRECATED_REF_CODE
+    //  - PRODUCT_ID
     // WHITE_DEPRECATED_SELECT_BY_PKUQ
     //  - SELECT_BY_PKUQ_ID
     //  - SELECT_BY_PKUQ_NAME
@@ -373,6 +383,7 @@ public class MessagesAndDatabase implements Serializable {
     //  - BEGIN_DATETIME
     //  - END_DATETIME
     //  - LARGE_FROM_FILE
+    //  - EMPTY_STRING_ALLOWED
     //  - DONE_FLG
     // WHITE_TYPE_MAPPING
     //  - TYPE_MAPPING_ID

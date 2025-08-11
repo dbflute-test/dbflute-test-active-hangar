@@ -252,11 +252,11 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'. */
+    /** (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberList'. */
     protected List<Member> _memberList;
 
     /**
-     * [get] (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
+     * [get] (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * @return The entity list of referrer property 'memberList'. (NotNull: even if no loading, returns empty list)
      */
     public List<Member> getMemberList() {
@@ -265,7 +265,7 @@ public abstract class BsMemberStatus extends AbstractEntity implements DomainEnt
     }
 
     /**
-     * [set] (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
+     * [set] (mysticみすみす)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
      * @param memberList The entity list of referrer property 'memberList'. (NullAllowed)
      */
     public void setMemberList(List<Member> memberList) {

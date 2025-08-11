@@ -78,7 +78,7 @@ public class WhiteDeprecatedDbm extends AbstractDBMeta {
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "非推奨テスト";
     public String getTableAlias() { return _tableAlias; }
-    protected final String _tableComment = "コメントがある場合\n#deprecated test of deprecated";
+    protected final String _tableComment = "非推奨テーブルにデコメントしちゃった。非推奨コメントはどこ？\n+deprecated test of deprecated";
     public String getTableComment() { return _tableComment; }
 
     // ===================================================================================

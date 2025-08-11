@@ -44,14 +44,16 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  * 五行目の前に空行を開けた (つまり四行目が空行)<br>
  * テーブルコメントのエスケープのテスト...<br>
  * _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/<br>
- * o (table)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？ <br>
- * o (table)mapStyle, map:\{ sea \= mystic \; land \= oneman \} エスケープされてても大丈夫？ <br>
- * o (table)DBコメントで、ベタッと 'シングルクォーテーション' で囲うけど大丈夫？<br>
- * o (table)DBコメントで、ベタッと &lt;span&gt;HTMLタグ&lt;/span&gt; で囲うけど大丈夫？<br>
+ * o (table)mapStyle, map:{ sea = mystic ; land = oneman } そのまま書いても大丈夫？<br>
+ * o (table)mapStyle, map:\{ sea \= mystic \; land \= oneman \} エスケープされてても大丈夫？<br>
+ * o (table)DBコメントで、ベタッと &amp;#x27;シングルクォーテーション&amp;#x27; で囲うけど大丈夫？<br>
+ * o (table)DBコメントで、ベタッと &amp;lt;span&amp;gt;HTMLタグ&amp;lt;/span&amp;gt; で囲うけど大丈夫？<br>
  * o (table)DBコメントで、ベタッと &amp;lt;HTMLエスケープ表現&amp;gt; で囲うけど大丈夫？ (もともとSchemaHTML的にダメみたい!?)<br>
- * o (table)あと、DBコメントは、"JavaDoc" でも使われるし、DBMetaで "文字列リテラル" で使われるけど大丈夫？<br>
- * o (table)なので、@author jflute とか入ってても大丈夫？ あと、改行 "\n" とか、エスケエスケ "\\" とか大丈夫？<br>
- * _/_/_/_/_/_/_/_/_/_/
+ * o (table)あと、DBコメントは、&amp;quot;JavaDoc&amp;quot; でも使われるし、DBMetaで &amp;quot;文字列リテラル&amp;quot; で使われるけど大丈夫？<br>
+ * o (table)なので、@author jflute とか入ってても大丈夫？ あと、改行 &amp;quot;\n&amp;quot; とか、エスケエスケ &amp;quot;\\&amp;quot; とか大丈夫？<br>
+ * _/_/_/_/_/_/_/_/_/_/<br>
+ * <br>
+ * sea
  * <pre>
  * [primary-key]
  *     DB_COMMENT_ID

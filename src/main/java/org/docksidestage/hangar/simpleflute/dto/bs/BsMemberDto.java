@@ -25,11 +25,11 @@ import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of (会員)MEMBER as TABLE. <br>
- * 眠いときは寝た方が良い。<br>
+ * The simple DTO of (mysticみすみす)MEMBER as TABLE. <br>
+ * seasea 眠いときは寝た方が良い。<br>
  * 会員のプロフィールやアカウントなどの基本情報を保持する。<br>
  * 基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>
- * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
+ * ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。dfalias:{ mysticみすみす }
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -79,7 +79,7 @@ public abstract class BsMemberDto implements Serializable {
     @JsonKey
     protected Integer _memberId;
 
-    /** (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} */
+    /** (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} */
     @JsonKey
     protected String _memberName;
 
@@ -408,7 +408,8 @@ public abstract class BsMemberDto implements Serializable {
     //                                                                            ========
     /**
      * [get] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * sea 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。<br>
+     * sea
      * @return The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public Integer getMemberId() {
@@ -417,7 +418,8 @@ public abstract class BsMemberDto implements Serializable {
 
     /**
      * [set] (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * sea 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。<br>
+     * sea
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -426,9 +428,11 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [get] (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * seasea 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、dfalias:{ ここねこさん } ここでは単純にひとまとめ。<br>
+     * <br>
+     * aaaa
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
     public String getMemberName() {
@@ -436,9 +440,11 @@ public abstract class BsMemberDto implements Serializable {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [set] (ここねこさん)MEMBER_NAME: {IX, NotNull, VARCHAR(200)} <br>
+     * seasea 会員のフルネームの名称。<br>
+     * 苗字と名前を分けて管理することが多いが、dfalias:{ ここねこさん } ここでは単純にひとまとめ。<br>
+     * <br>
+     * aaaa
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
     public void setMemberName(String memberName) {
@@ -514,7 +520,8 @@ public abstract class BsMemberDto implements Serializable {
     /**
      * [get] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * お腹が空いたら食べた方が良い。<br>
-     * 必須項目ではないので、このデータがない会員もいる。
+     * 必須項目ではないので、このデータがない会員もいる。<br>
+     * sea
      * @return The value of the column 'BIRTHDATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -526,7 +533,8 @@ public abstract class BsMemberDto implements Serializable {
     /**
      * [set] (生年月日)BIRTHDATE: {DATE(10)} <br>
      * お腹が空いたら食べた方が良い。<br>
-     * 必須項目ではないので、このデータがない会員もいる。
+     * 必須項目ではないので、このデータがない会員もいる。<br>
+     * sea
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed)
      */
     public void setBirthdate(java.time.LocalDate birthdate) {
