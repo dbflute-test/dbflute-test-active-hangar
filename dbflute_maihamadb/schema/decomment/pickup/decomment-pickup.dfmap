@@ -1,0 +1,295 @@
+map:{
+    ; formatVersion = 1.1
+    ; pickupDatetime = 2025-07-25T14:35:52.864
+    ; decoMap = map:{
+        ; tableList = list:{
+            ; map:{
+                ; tableName = MEMBER
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = seasea 眠いときは寝た方が良い。
+会員のプロフィールやアカウントなどの基本情報を保持する。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。
+ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。dfalias:\{ mysticみすみす \}
+                        ; databaseComment = 眠いときは寝た方が良い。
+会員のプロフィールやアカウントなどの基本情報を保持する。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。
+ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = c6abf71f
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-25T12:52:52.492
+                        ; previousPieceList = list:{
+                            ; 7f7cb7d9
+                        }
+                    }
+                }
+                ; columnList = list:{
+                    ; map:{
+                        ; columnName = BIRTHDATE
+                        ; mappingList = list:{}
+                        ; propertyList = list:{
+                            ; map:{
+                                ; decomment = お腹が空いたら食べた方が良い。
+必須項目ではないので、このデータがない会員もいる。
+sea
+                                ; databaseComment = お腹が空いたら食べた方が良い。
+必須項目ではないので、このデータがない会員もいる。
+                                ; commentVersion = 0
+                                ; authorList = list:{
+                                    ; jflute
+                                }
+                                ; pieceCode = 1bb68fe1
+                                ; pieceOwner = jflute
+                                ; pieceGitBranch = master
+                                ; pieceDatetime = 2025-07-22T00:44:02.349
+                                ; previousPieceList = list:{}
+                            }
+                        }
+                    }
+                    ; map:{
+                        ; columnName = MEMBER_NAME
+                        ; mappingList = list:{}
+                        ; propertyList = list:{
+                            ; map:{
+                                ; decomment = seasea 会員のフルネームの名称。
+苗字と名前を分けて管理することが多いが、dfalias:\{ ここねこさん \} ここでは単純にひとまとめ。
+
+aaaa
+                                ; databaseComment = 会員のフルネームの名称。
+苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+                                ; commentVersion = 0
+                                ; authorList = list:{
+                                    ; jflute
+                                }
+                                ; pieceCode = b6555221
+                                ; pieceOwner = jflute
+                                ; pieceGitBranch = master
+                                ; pieceDatetime = 2025-07-22T00:56:39.767
+                                ; previousPieceList = list:{
+                                    ; bd1f0aa4
+                                }
+                            }
+                        }
+                    }
+                    ; map:{
+                        ; columnName = MEMBER_ID
+                        ; mappingList = list:{}
+                        ; propertyList = list:{
+                            ; map:{
+                                ; decomment = sea 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+sea
+                                ; databaseComment = 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+                                ; commentVersion = 0
+                                ; authorList = list:{
+                                    ; jflute
+                                }
+                                ; pieceCode = 2b1aa3c
+                                ; pieceOwner = jflute
+                                ; pieceGitBranch = master
+                                ; pieceDatetime = 2025-07-25T14:32:37.151
+                                ; previousPieceList = list:{
+                                    ; cccd21c1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            ; map:{
+                ; tableName = WHITE_DEPRECATED_SELECT_BY_PKUQ
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = #land
+sea
+                        ; databaseComment = null
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = 26507007
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-22T02:17:16.868
+                        ; previousPieceList = list:{
+                            ; 5dd59fbd
+                        }
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = WHITE_DEPRECATED_REF
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = sea
+                        ; databaseComment = +deprecated&nbsp\;test&nbsp\;of&nbsp\;deprecated&nbsp\;referrer&nbsp\;&lt\;br&gt\;&nbsp\;is&nbsp\;HTML&nbsp\;test
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = b93cb353
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-22T10:58:44.905
+                        ; previousPieceList = list:{
+                            ; c5a83459
+                        }
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = VENDOR_CHECK
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = sea
+                        ; databaseComment = null
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = 3b7d30c0
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-22T02:10:29.832
+                        ; previousPieceList = list:{}
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = WHITE_NOT_NULL
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = #sea
+                        ; databaseComment = null
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = a4c15bae
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-22T02:20:49.909
+                        ; previousPieceList = list:{}
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = WHITE_DEPRECATED
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = 非推奨テーブルにデコメントしちゃった。非推奨コメントはどこ？
+                        ; databaseComment = コメントがある場合
++deprecated&nbsp\;test&nbsp\;of&nbsp\;deprecated
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = 7f5ee5e9
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-22T10:59:14.541
+                        ; previousPieceList = list:{
+                            ; 516e4b4f
+                        }
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = WHITE_DB_COMMENT_ADDITIONAL
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = まず一行目がこれで...
+二行目に改行を入れてみたけど...
+  三行目は空白二つでインデントしてみた。
+
+五行目の前に空行を開けた (つまり四行目が空行)
+テーブルコメントのエスケープのテスト...
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+o (table)mapStyle, map:\{ sea \= mystic \; land \= oneman \} そのまま書いても大丈夫？
+o (table)mapStyle, map:\\{ sea \\= mystic \\; land \\= oneman \\} エスケープされてても大丈夫？
+o (table)DBコメントで、ベタッと &#x27\;シングルクォーテーション&#x27\; で囲うけど大丈夫？
+o (table)DBコメントで、ベタッと &lt\;span&gt\;HTMLタグ&lt\;/span&gt\; で囲うけど大丈夫？
+o (table)DBコメントで、ベタッと &amp\;lt\;HTMLエスケープ表現&amp\;gt\; で囲うけど大丈夫？ (もともとSchemaHTML的にダメみたい!?)
+o (table)あと、DBコメントは、&quot\;JavaDoc&quot\; でも使われるし、DBMetaで &quot\;文字列リテラル&quot\; で使われるけど大丈夫？
+o (table)なので、@author jflute とか入ってても大丈夫？ あと、改行 &quot\;\n&quot\; とか、エスケエスケ &quot\;\\&quot\; とか大丈夫？
+_/_/_/_/_/_/_/_/_/_/
+
+sea
+                        ; databaseComment = まず一行目がこれで...
+二行目に改行を入れてみたけど...
+&nbsp\;&nbsp\;三行目は空白二つでインデントしてみた。
+
+五行目の前に空行を開けた&nbsp\;(つまり四行目が空行)
+テーブルコメントのエスケープのテスト...
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+o&nbsp\;(table)mapStyle,&nbsp\;map:\{&nbsp\;sea&nbsp\;\=&nbsp\;mystic&nbsp\;\;&nbsp\;land&nbsp\;\=&nbsp\;oneman&nbsp\;\}&nbsp\;そのまま書いても大丈夫？&nbsp\;
+o&nbsp\;(table)mapStyle,&nbsp\;map:\{&nbsp\;sea&nbsp\;\=&nbsp\;mystic&nbsp\;\;&nbsp\;land&nbsp\;\=&nbsp\;oneman&nbsp\;\}&nbsp\;エスケープされてても大丈夫？&nbsp\;
+o&nbsp\;(table)DBコメントで、ベタッと&nbsp\;'シングルクォーテーション'&nbsp\;で囲うけど大丈夫？
+o&nbsp\;(table)DBコメントで、ベタッと&nbsp\;&lt\;span&gt\;HTMLタグ&lt\;/span&gt\;&nbsp\;で囲うけど大丈夫？
+o&nbsp\;(table)DBコメントで、ベタッと&nbsp\;&amp\;lt\;HTMLエスケープ表現&amp\;gt\;&nbsp\;で囲うけど大丈夫？&nbsp\;(もともとSchemaHTML的にダメみたい!?)
+o&nbsp\;(table)あと、DBコメントは、"JavaDoc"&nbsp\;でも使われるし、DBMetaで&nbsp\;"文字列リテラル"&nbsp\;で使われるけど大丈夫？
+o&nbsp\;(table)なので、&#064\;author&nbsp\;jflute&nbsp\;とか入ってても大丈夫？&nbsp\;あと、改行&nbsp\;"
+"&nbsp\;とか、エスケエスケ&nbsp\;"\"&nbsp\;とか大丈夫？
+_/_/_/_/_/_/_/_/_/_/
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = 63586e06
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-07-22T02:10:18.068
+                        ; previousPieceList = list:{}
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = PRODUCT
+                ; mappingList = list:{}
+                ; propertyList = list:{}
+                ; columnList = list:{
+                    ; map:{
+                        ; columnName = REGULAR_PRICE
+                        ; mappingList = list:{}
+                        ; propertyList = list:{
+                            ; map:{
+                                ; decomment = 眠いよぅ眠いよぅ。ようよう。
+定価:かかか
+                                ; databaseComment = 眠いよぅ眠いよぅ。ようよう
+定価:
+                                ; commentVersion = 0
+                                ; authorList = list:{
+                                    ; jflute
+                                }
+                                ; pieceCode = 4fb2124c
+                                ; pieceOwner = jflute
+                                ; pieceGitBranch = master
+                                ; pieceDatetime = 2025-07-25T14:11:26.119
+                                ; previousPieceList = list:{
+                                    ; 9d560bb2
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

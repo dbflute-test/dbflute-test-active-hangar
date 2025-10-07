@@ -1,0 +1,27 @@
+map:{
+    ; formatVersion = 1.0
+    ; pickupDatetime = 2025-09-30T22:34:03.323
+    ; hacoMap = map:{
+        ; diffList = list:{
+            ; map:{
+                ; diffCode = 20180519182948
+                ; diffDate = 2018/05/19 18:29:48
+                ; propertyList = list:{
+                    ; map:{
+                        ; hacomment = sealand
+                        ; diffComment = null
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = b5175bfa
+                        ; pieceOwner = jflute
+                        ; pieceDatetime = 2018-05-25T00:47:33.246
+                        ; previousPieceList = list:{
+                            ; e8cbd5f9
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

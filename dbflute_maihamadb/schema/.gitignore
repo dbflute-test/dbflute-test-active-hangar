@@ -1,5 +1,7 @@
 /diffworld*
 /craftdiff/diffworld*
 /*sync-check*
-/decomment
-/hacomment
+
+# for fixed test
+#/decomment
+#/hacomment
