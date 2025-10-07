@@ -118,8 +118,11 @@ map:{
     ; schemaHtmlStyleSheet = ./style-schema.css
     ; isSchemaHtmlStyleSheetInheritable = true
 
-    # enable when you test sister link suppressing
+    # comment out when you test sister link suppressing
     #; isSuppressSchemaHtmlToSisterLink = true
+
+    # comment out when you test decomment without pickup migration
+    #; isSuppressDecommentPickup = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isSuppressSchemaHtmlOutsideSql: (NotRequired - Default false)
