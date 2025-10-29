@@ -257,6 +257,9 @@ map:{
 
         # test of SchemaSyncCheck tableExceptList
         #; tableExceptList = list:{ WHITE_BASE }
+
+        # test of reverse sync-check
+        #; isReversePreviousNext = true
     }
     # - - - - - - - - - -/
 
