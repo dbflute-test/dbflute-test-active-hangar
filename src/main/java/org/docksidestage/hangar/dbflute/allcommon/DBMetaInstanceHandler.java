@@ -100,7 +100,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("WHITE_DEPRECATED_SELECT_BY_PKUQ", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSelectByPkuqDbm");
         tmpMap.put("WHITE_DEPRECATED_SPECIFY_BATCH_COLUMN", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteDeprecatedSpecifyBatchColumnDbm");
         tmpMap.put("WHITE_FIRST_DATE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteFirstDateDbm");
-        tmpMap.put("white_generate_name_switched", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteGenerateNameSwitchedDbm");
+        tmpMap.put("WHITE_GENERATE_NAME_SWITCHED", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteGenerateNameSwitchedDbm");
         tmpMap.put("WHITE_NOT_NULL", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteNotNullDbm");
         tmpMap.put("WHITE_ON_PARADE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeDbm");
         tmpMap.put("WHITE_ON_PARADE_NULLABLE_TO_MANY", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteOnParadeNullableToManyDbm");

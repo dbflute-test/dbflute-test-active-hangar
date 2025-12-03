@@ -25,7 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of white_generate_name_switched as TABLE.
+ * The entity of WHITE_GENERATE_NAME_SWITCHED as TABLE.
  * <pre>
  * [primary-key]
  *     GENERATE_NAME_SWITCHED_ID
@@ -106,7 +106,7 @@ public abstract class BsWhiteGenerateNameSwitched extends AbstractEntity impleme
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "white_generate_name_switched";
+        return "WHITE_GENERATE_NAME_SWITCHED";
     }
 
     // ===================================================================================

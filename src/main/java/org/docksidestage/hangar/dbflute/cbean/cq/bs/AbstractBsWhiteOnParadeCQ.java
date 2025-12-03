@@ -175,7 +175,7 @@ public abstract class AbstractBsWhiteOnParadeCQ extends AbstractConditionQuery {
     /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select NULLABLE_FK_ON_PARADE_ID from WHITE_ON_PARADE_REF where ...)} <br>
-     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefAsOne'.
+     * (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhiteOnParadeRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
@@ -194,7 +194,7 @@ public abstract class AbstractBsWhiteOnParadeCQ extends AbstractConditionQuery {
     /**
      * Set up NotExistsReferrer (correlated sub-query). <br>
      * {not exists (select NULLABLE_FK_ON_PARADE_ID from WHITE_ON_PARADE_REF where ...)} <br>
-     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefAsOne'.
+     * (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhiteOnParadeRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
@@ -221,7 +221,7 @@ public abstract class AbstractBsWhiteOnParadeCQ extends AbstractConditionQuery {
     /**
      * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
      * {FOO &lt;= (select max(BAR) from WHITE_ON_PARADE_REF where ...)} <br>
-     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefAsOne'.
+     * (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteOnParadeRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>

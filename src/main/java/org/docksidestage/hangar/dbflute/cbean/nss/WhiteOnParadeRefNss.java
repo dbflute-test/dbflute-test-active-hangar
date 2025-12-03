@@ -35,7 +35,7 @@ public class WhiteOnParadeRefNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
+     * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      */
     public void withWhiteOnParade() {
         _query.xdoNss(() -> _query.queryWhiteOnParade());

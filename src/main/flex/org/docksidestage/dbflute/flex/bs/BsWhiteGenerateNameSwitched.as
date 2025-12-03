@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of white_generate_name_switched as TABLE.
+ * The flex DTO of WHITE_GENERATE_NAME_SWITCHED as TABLE.
  * <pre>
  * [primary-key]
  *     GENERATE_NAME_SWITCHED_ID

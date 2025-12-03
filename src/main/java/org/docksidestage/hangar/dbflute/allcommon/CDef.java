@@ -1688,9 +1688,7 @@ public interface CDef extends Classification {
     }
 
     /**
-     * top first line<br>
-     *             top second line<br>
-     *             top third line
+     * top first line            top second line            top third line
      */
     public enum LineSepCommentCls implements CDef {
         /** First: foo first line            foo second line */
@@ -1877,9 +1875,7 @@ public interface CDef extends Classification {
         , () -> CDef.EscapedJavaDocCls.listAll(), gp -> CDef.EscapedJavaDocCls.listByGroup(gp)
         , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING),
 
-        /** top first line<br>
-         *             top second line<br>
-         *             top third line */
+        /** top first line            top second line            top third line */
         LineSepCommentCls(cd -> CDef.LineSepCommentCls.of(cd), nm -> CDef.LineSepCommentCls.byName(nm)
         , () -> CDef.LineSepCommentCls.listAll(), gp -> CDef.LineSepCommentCls.listByGroup(gp)
         , ClassificationCodeType.String, ClassificationUndefinedHandlingType.LOGGING);

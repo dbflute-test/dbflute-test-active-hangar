@@ -21,7 +21,7 @@ import java.util.*;
 import net.vvakame.util.jsonpullparser.annotation.*;
 
 /**
- * The simple DTO of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE. <br>
+ * The simple DTO of (読み取りオンリー)WHITE_READ_ONLY as TABLE. <br>
  * shalias:{ 読み取り専用 } shalias:{ リードオンリー } dfalias:{ 読み取りオンリー }
  * <pre>
  * [primary-key]

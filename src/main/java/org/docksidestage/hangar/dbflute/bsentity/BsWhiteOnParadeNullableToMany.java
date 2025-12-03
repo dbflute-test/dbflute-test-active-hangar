@@ -109,11 +109,11 @@ public abstract class BsWhiteOnParadeNullableToMany extends AbstractEntity imple
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'. */
+    /** (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'. */
     protected List<WhiteOnParadeRef> _whiteOnParadeRefList;
 
     /**
-     * [get] (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
+     * [get] (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
      * @return The entity list of referrer property 'whiteOnParadeRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteOnParadeRef> getWhiteOnParadeRefList() {
@@ -122,7 +122,7 @@ public abstract class BsWhiteOnParadeNullableToMany extends AbstractEntity imple
     }
 
     /**
-     * [set] (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
+     * [set] (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
      * @param whiteOnParadeRefList The entity list of referrer property 'whiteOnParadeRefList'. (NullAllowed)
      */
     public void setWhiteOnParadeRefList(List<WhiteOnParadeRef> whiteOnParadeRefList) {

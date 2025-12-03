@@ -28,7 +28,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The base condition-query of white_generate_name_switched.
+ * The base condition-query of WHITE_GENERATE_NAME_SWITCHED.
  * @author DBFlute(AutoGenerator)
  */
 public class BsWhiteGenerateNameSwitchedCQ extends AbstractBsWhiteGenerateNameSwitchedCQ {
@@ -50,7 +50,7 @@ public class BsWhiteGenerateNameSwitchedCQ extends AbstractBsWhiteGenerateNameSw
     //                                                                 ===================
     /**
      * Prepare InlineView query. <br>
-     * {select ... from ... left outer join (select * from white_generate_name_switched) where FOO = [value] ...}
+     * {select ... from ... left outer join (select * from WHITE_GENERATE_NAME_SWITCHED) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
      * </pre>
@@ -73,7 +73,7 @@ public class BsWhiteGenerateNameSwitchedCQ extends AbstractBsWhiteGenerateNameSw
 
     /**
      * Prepare OnClause query. <br>
-     * {select ... from ... left outer join white_generate_name_switched on ... and FOO = [value] ...}
+     * {select ... from ... left outer join WHITE_GENERATE_NAME_SWITCHED on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
      * </pre>

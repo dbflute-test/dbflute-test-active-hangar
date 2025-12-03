@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF as TABLE.
+ * The flex DTO of (オンパレードれふ)WHITE_ON_PARADE_REF as TABLE.
  * <pre>
  * [primary-key]
  *     REF_ID

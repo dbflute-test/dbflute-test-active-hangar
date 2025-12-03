@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The base condition-bean of white_generate_name_switched.
+ * The base condition-bean of WHITE_GENERATE_NAME_SWITCHED.
  * @author DBFlute(AutoGenerator)
  */
 public class BsWhiteGenerateNameSwitchedCB extends AbstractConditionBean {
@@ -91,7 +91,7 @@ public class BsWhiteGenerateNameSwitchedCB extends AbstractConditionBean {
     }
 
     public String asTableDbName() {
-        return "white_generate_name_switched";
+        return "WHITE_GENERATE_NAME_SWITCHED";
     }
 
     // ===================================================================================
@@ -333,7 +333,7 @@ public class BsWhiteGenerateNameSwitchedCB extends AbstractConditionBean {
             columnGenerateNameSwitchedId(); // PK
         }
         @Override
-        protected String getTableDbName() { return "white_generate_name_switched"; }
+        protected String getTableDbName() { return "WHITE_GENERATE_NAME_SWITCHED"; }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
          * @return The object to set up a function for myself table. (NotNull)

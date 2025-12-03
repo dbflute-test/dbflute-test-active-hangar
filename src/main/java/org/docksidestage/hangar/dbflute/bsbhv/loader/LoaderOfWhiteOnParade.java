@@ -24,7 +24,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The referrer loader of (オンパレード)WHITE_ON_PARADE as TABLE.
+ * The referrer loader of WHITE_ON_PARADE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteOnParade {
@@ -52,7 +52,7 @@ public class LoaderOfWhiteOnParade {
 
     /**
      * Load referrer of whiteOnParadeRefList by the set-upper of referrer. <br>
-     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
+     * (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteOnParadeList</span>, <span style="color: #553000">paradeLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paradeLoader</span>.<span style="color: #CC4747">loadWhiteOnParadeRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
