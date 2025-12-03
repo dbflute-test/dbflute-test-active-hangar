@@ -22,7 +22,8 @@ import net.vvakame.util.jsonpullparser.annotation.*;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of WHITE_ON_PARADE_REF as TABLE. <br>
+ * The simple DTO of (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF as TABLE. <br>
+ * shalias:{ オンパレードREF } dfalias:{ オンパレードれふ }
  * <pre>
  * [primary-key]
  *     REF_ID

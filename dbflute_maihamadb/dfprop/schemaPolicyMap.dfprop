@@ -56,7 +56,11 @@ map:{
     }
     ; tableMap = map:{
         ; themeList = list:{
-            ; hasPK ; upperCaseBasis
+            ; hasPK
+
+            # because of SWITCHING option
+            #; upperCaseBasis
+
             # for WHITE_ tables
             #; identityIfPureIDPK
         }

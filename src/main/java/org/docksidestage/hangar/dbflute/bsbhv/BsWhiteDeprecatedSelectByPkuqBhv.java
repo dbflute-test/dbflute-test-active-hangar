@@ -145,7 +145,7 @@ public abstract class BsWhiteDeprecatedSelectByPkuqBhv extends org.docksidestage
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteDeprecatedSelectByPkuq. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -184,7 +184,7 @@ public abstract class BsWhiteDeprecatedSelectByPkuqBhv extends org.docksidestage
      * Select the entity by the primary-key value.
      * @param selectByPkuqId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      * @deprecated this is the test of deprecated comment of deprecatedSelectByPKUQMap
@@ -214,7 +214,7 @@ public abstract class BsWhiteDeprecatedSelectByPkuqBhv extends org.docksidestage
      * Select the entity by the unique-key value.
      * @param selectByPkuqCode : UQ, NotNull, VARCHAR(16). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      * @deprecated this is the test of deprecated comment of deprecatedSelectByPKUQMap

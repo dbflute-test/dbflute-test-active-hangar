@@ -52,7 +52,7 @@ public class LoaderOfWhiteOnParadeNullableToMany {
 
     /**
      * Load referrer of whiteOnParadeRefList by the set-upper of referrer. <br>
-     * WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
+     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeNullableToManyBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteOnParadeNullableToManyList</span>, <span style="color: #553000">manyLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">manyLoader</span>.<span style="color: #CC4747">loadWhiteOnParadeRef</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {

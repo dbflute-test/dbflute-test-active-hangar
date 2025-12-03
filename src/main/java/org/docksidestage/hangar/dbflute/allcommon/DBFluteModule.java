@@ -353,6 +353,11 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteFirstDateBhv.class).toInstance(bhv);
         }
         {
+            WhiteGenerateNameSwitchedBhv bhv = new WhiteGenerateNameSwitchedBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteGenerateNameSwitchedBhv.class).toInstance(bhv);
+        }
+        {
             WhiteNotNullBhv bhv = new WhiteNotNullBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteNotNullBhv.class).toInstance(bhv);

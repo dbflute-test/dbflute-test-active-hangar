@@ -36,7 +36,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_READ_ONLY as TABLE.
+ * The behavior of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE.
  * <pre>
  * [primary-key]
  *     READ_ONLY_ID
@@ -144,7 +144,7 @@ public abstract class BsWhiteReadOnlyBhv extends AbstractBehaviorReadable<WhiteR
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteReadOnly. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -183,7 +183,7 @@ public abstract class BsWhiteReadOnlyBhv extends AbstractBehaviorReadable<WhiteR
      * Select the entity by the primary-key value.
      * @param readOnlyId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */

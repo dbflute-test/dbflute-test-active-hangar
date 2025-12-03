@@ -75,6 +75,10 @@ public class WhiteReadOnlyDbm extends AbstractDBMeta {
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
+    protected final String _tableAlias = "読み取り専用 or リードオンリー or 読み取りオンリー";
+    public String getTableAlias() { return _tableAlias; }
+    protected final String _tableComment = "shalias:{ 読み取り専用 } shalias:{ リードオンリー } dfalias:{ 読み取りオンリー }";
+    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info

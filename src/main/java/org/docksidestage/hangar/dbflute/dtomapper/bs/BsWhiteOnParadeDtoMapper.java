@@ -37,7 +37,8 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of WHITE_ON_PARADE as TABLE. <br>
+ * The DTO mapper of (オンパレード)WHITE_ON_PARADE as TABLE. <br>
+ * shalias:{ オンパレード }
  * <pre>
  * [primary-key]
  *     ON_PARADE_ID

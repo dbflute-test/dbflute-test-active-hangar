@@ -1,6 +1,6 @@
 map:{
     ; formatVersion = 1.1
-    ; pickupDatetime = 2025-07-25T14:35:52.864
+    ; pickupDatetime = 2025-11-25T02:27:45.259
     ; decoMap = map:{
         ; tableList = list:{
             ; map:{
@@ -289,6 +289,68 @@ _/_/_/_/_/_/_/_/_/_/
                         }
                     }
                 }
+            }
+            ; map:{
+                ; tableName = WHITE_ON_PARADE_REF
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = shalias:\{ オンパレードREF \} dfalias:\{ オンパレードれふ \}
+                        ; databaseComment = null
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = faa076fb
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-11-25T02:24:12.409
+                        ; previousPieceList = list:{}
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = WHITE_ON_PARADE
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = shalias:\{ オンパレード \}
+                        ; databaseComment = null
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = 572987c9
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-11-25T02:23:36.514
+                        ; previousPieceList = list:{}
+                    }
+                }
+                ; columnList = list:{}
+            }
+            ; map:{
+                ; tableName = WHITE_READ_ONLY
+                ; mappingList = list:{}
+                ; propertyList = list:{
+                    ; map:{
+                        ; decomment = shalias:\{ 読み取り専用 \} shalias:\{ リードオンリー \} dfalias:\{ 読み取りオンリー \}
+                        ; databaseComment = null
+                        ; commentVersion = 0
+                        ; authorList = list:{
+                            ; jflute
+                        }
+                        ; pieceCode = 2ba8f12e
+                        ; pieceOwner = jflute
+                        ; pieceGitBranch = master
+                        ; pieceDatetime = 2025-11-25T02:27:41.881
+                        ; previousPieceList = list:{
+                            ; 885b24f9
+                        }
+                    }
+                }
+                ; columnList = list:{}
             }
         }
     }

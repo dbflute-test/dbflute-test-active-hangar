@@ -36,7 +36,8 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of WHITE_READ_ONLY as TABLE. <br>
+ * The DTO mapper of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE. <br>
+ * shalias:{ 読み取り専用 } shalias:{ リードオンリー } dfalias:{ 読み取りオンリー }
  * <pre>
  * [primary-key]
  *     READ_ONLY_ID

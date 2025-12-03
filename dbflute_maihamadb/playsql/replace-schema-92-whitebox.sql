@@ -388,6 +388,17 @@ CREATE TABLE WHITE_FIRST_DATE (
 	ADDED_AT_TABLE_SAME_DATE DATE NOT NULL
 );
 
+-- /= = = = = = = = = = = = = = = = = = = = = = = =
+-- for the test of generateTableNameSwitchingMap
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_GENERATE_NAME_SWITCHED (
+	GENERATE_NAME_SWITCHED_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	GENERATE_NAME_SWITCHED_NAME VARCHAR(200) NOT NULL,
+	GENERATE_NAME_SWITCHED_COUNT INTEGER,
+	GENERATE_NAME_SWITCHED_DATE DATE,
+	GENERATE_NAME_SWITCHED_DATETIME DATETIME
+);
+
 -- /= = = = = = = = = = = =
 -- for the test of NotNull
 -- = = = = = = = = = =/

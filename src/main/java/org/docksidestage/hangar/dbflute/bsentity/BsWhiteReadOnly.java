@@ -25,7 +25,8 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_READ_ONLY as TABLE.
+ * The entity of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE. <br>
+ * shalias:{ 読み取り専用 } shalias:{ リードオンリー } dfalias:{ 読み取りオンリー }
  * <pre>
  * [primary-key]
  *     READ_ONLY_ID

@@ -3339,7 +3339,9 @@ public interface HangarCDef {
     }
 
     /**
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      */
     public enum LineSepCommentCls implements HangarCDef {
         /** First: foo first line            foo second line */
@@ -3549,7 +3551,9 @@ public interface HangarCDef {
         /** /*IF pmb.yourTop&#42;/&gt;&lt;&amp; */
         EscapedJavaDocCls
         ,
-        /** top first line            top second line            top third line */
+        /** top first line<br>
+         *             top second line<br>
+         *             top third line */
         LineSepCommentCls
         ;
         public String classificationName() {

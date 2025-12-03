@@ -118,6 +118,11 @@ map:{
         #    # AutoMapping for Numeric and Decimal, (1-9,0): INTEGER, (10-18,0): BIGINT, else: NUMERIC
         #    ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
         #}
+
+        # test of generate table-name switching
+        ; generateTableNameSwitchingMap = map:{
+            ; WHITE_GENERATE_NAME_SWITCHED = white_generate_name_switched
+        }
     }
     # - - - - - - - - - -/
 }

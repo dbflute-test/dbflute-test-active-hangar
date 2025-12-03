@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ON_PARADE as TABLE.
+ * The behavior of (オンパレード)WHITE_ON_PARADE as TABLE.
  * <pre>
  * [primary-key]
  *     ON_PARADE_ID
@@ -143,7 +143,7 @@ public abstract class BsWhiteOnParadeBhv extends org.docksidestage.hangar.dbflut
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnParade. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -182,7 +182,7 @@ public abstract class BsWhiteOnParadeBhv extends org.docksidestage.hangar.dbflut
      * Select the entity by the primary-key value.
      * @param onParadeId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -384,7 +384,7 @@ public abstract class BsWhiteOnParadeBhv extends org.docksidestage.hangar.dbflut
 
     /**
      * Load referrer of whiteOnParadeRefList by the set-upper of referrer. <br>
-     * WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
+     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeBhv</span>.<span style="color: #CC4747">loadWhiteOnParadeRef</span>(<span style="color: #553000">whiteOnParadeList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -415,7 +415,7 @@ public abstract class BsWhiteOnParadeBhv extends org.docksidestage.hangar.dbflut
 
     /**
      * Load referrer of whiteOnParadeRefList by the set-upper of referrer. <br>
-     * WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
+     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeBhv</span>.<span style="color: #CC4747">loadWhiteOnParadeRef</span>(<span style="color: #553000">whiteOnParade</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
