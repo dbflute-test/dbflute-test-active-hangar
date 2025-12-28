@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (読み取りオンリー)WHITE_READ_ONLY as TABLE.
+ * The flex DTO of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE.
  * <pre>
  * [primary-key]
  *     READ_ONLY_ID

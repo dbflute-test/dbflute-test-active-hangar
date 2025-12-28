@@ -91,7 +91,7 @@ public class WhiteOnParadeRefDbm extends AbstractDBMeta {
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
-    protected final String _tableAlias = "オンパレードれふ";
+    protected final String _tableAlias = "オンパレードREF or オンパレードれふ";
     public String getTableAlias() { return _tableAlias; }
     protected final String _tableComment = "shalias:{ オンパレードREF } dfalias:{ オンパレードれふ }";
     public String getTableComment() { return _tableComment; }
@@ -155,7 +155,7 @@ public class WhiteOnParadeRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
+     * (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignWhiteOnParade() {

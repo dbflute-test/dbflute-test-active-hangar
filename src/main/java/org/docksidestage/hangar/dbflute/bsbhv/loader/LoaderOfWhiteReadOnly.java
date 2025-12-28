@@ -22,7 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of (読み取りオンリー)WHITE_READ_ONLY as TABLE.
+ * The referrer loader of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteReadOnly {

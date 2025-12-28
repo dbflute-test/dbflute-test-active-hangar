@@ -25,7 +25,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ON_PARADE as TABLE. <br>
+ * The entity of (オンパレード)WHITE_ON_PARADE as TABLE. <br>
  * shalias:{ オンパレード }
  * <pre>
  * [primary-key]
@@ -110,11 +110,11 @@ public abstract class BsWhiteOnParade extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    /** (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'. */
+    /** (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'. */
     protected List<WhiteOnParadeRef> _whiteOnParadeRefList;
 
     /**
-     * [get] (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
+     * [get] (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
      * @return The entity list of referrer property 'whiteOnParadeRefList'. (NotNull: even if no loading, returns empty list)
      */
     public List<WhiteOnParadeRef> getWhiteOnParadeRefList() {
@@ -123,7 +123,7 @@ public abstract class BsWhiteOnParade extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
+     * [set] (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParadeRefList'.
      * @param whiteOnParadeRefList The entity list of referrer property 'whiteOnParadeRefList'. (NullAllowed)
      */
     public void setWhiteOnParadeRefList(List<WhiteOnParadeRef> whiteOnParadeRefList) {

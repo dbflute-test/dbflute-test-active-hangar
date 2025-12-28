@@ -22,7 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of (オンパレードれふ)WHITE_ON_PARADE_REF as TABLE.
+ * The referrer loader of (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteOnParadeRef {

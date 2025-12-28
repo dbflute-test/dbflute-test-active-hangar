@@ -31,7 +31,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The abstract condition-query of WHITE_GENERATE_NAME_SWITCHED.
+ * The abstract condition-query of white_generate_name_switched.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class AbstractBsWhiteGenerateNameSwitchedCQ extends AbstractConditionQuery {
@@ -52,7 +52,7 @@ public abstract class AbstractBsWhiteGenerateNameSwitchedCQ extends AbstractCond
     }
 
     public String asTableDbName() {
-        return "WHITE_GENERATE_NAME_SWITCHED";
+        return "white_generate_name_switched";
     }
 
     // ===================================================================================

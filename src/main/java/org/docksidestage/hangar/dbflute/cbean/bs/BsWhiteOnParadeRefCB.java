@@ -258,7 +258,7 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
+     * (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeRefBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WhiteOnParade()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -381,7 +381,7 @@ public class BsWhiteOnParadeRefCB extends AbstractConditionBean {
         protected String getTableDbName() { return "WHITE_ON_PARADE_REF"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
+         * (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public WhiteOnParadeCB.HpSpecification specifyWhiteOnParade() {

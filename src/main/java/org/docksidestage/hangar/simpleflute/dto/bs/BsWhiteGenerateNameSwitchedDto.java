@@ -23,7 +23,7 @@ import net.vvakame.util.jsonpullparser.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * The simple DTO of WHITE_GENERATE_NAME_SWITCHED as TABLE. <br>
+ * The simple DTO of white_generate_name_switched as TABLE. <br>
  * <pre>
  * [primary-key]
  *     GENERATE_NAME_SWITCHED_ID
@@ -139,7 +139,7 @@ public abstract class BsWhiteGenerateNameSwitchedDto implements Serializable {
 
     public int hashCode() {
         int result = 17;
-        result = xCH(result, "WHITE_GENERATE_NAME_SWITCHED");
+        result = xCH(result, "white_generate_name_switched");
         result = xCH(result, getGenerateNameSwitchedId());
         return result;
     }

@@ -22,7 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_GENERATE_NAME_SWITCHED as TABLE.
+ * The referrer loader of white_generate_name_switched as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteGenerateNameSwitched {

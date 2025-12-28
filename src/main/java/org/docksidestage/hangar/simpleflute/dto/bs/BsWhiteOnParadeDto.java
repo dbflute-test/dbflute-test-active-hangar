@@ -22,7 +22,7 @@ import net.vvakame.util.jsonpullparser.annotation.*;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of WHITE_ON_PARADE as TABLE. <br>
+ * The simple DTO of (オンパレード)WHITE_ON_PARADE as TABLE. <br>
  * shalias:{ オンパレード }
  * <pre>
  * [primary-key]

@@ -222,7 +222,7 @@ public class BsWhiteOnParadeRefCQ extends AbstractBsWhiteOnParadeRefCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
+     * (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      * @return The instance of condition-query. (NotNull)
      */
     public WhiteOnParadeCQ queryWhiteOnParade() {

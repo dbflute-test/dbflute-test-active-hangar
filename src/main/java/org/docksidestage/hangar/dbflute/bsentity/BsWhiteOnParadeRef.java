@@ -27,7 +27,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of (オンパレードれふ)WHITE_ON_PARADE_REF as TABLE. <br>
+ * The entity of (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF as TABLE. <br>
  * shalias:{ オンパレードREF } dfalias:{ オンパレードれふ }
  * <pre>
  * [primary-key]
@@ -119,11 +119,11 @@ public abstract class BsWhiteOnParadeRef extends AbstractEntity implements Domai
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'. */
+    /** (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'. */
     protected OptionalEntity<WhiteOnParade> _whiteOnParade;
 
     /**
-     * [get] WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'. <br>
+     * [get] (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
      * @return The entity of foreign property 'whiteOnParade'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
@@ -133,7 +133,7 @@ public abstract class BsWhiteOnParadeRef extends AbstractEntity implements Domai
     }
 
     /**
-     * [set] WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
+     * [set] (オンパレード)WHITE_ON_PARADE by my NULLABLE_FK_ON_PARADE_ID, named 'whiteOnParade'.
      * @param whiteOnParade The entity of foreign property 'whiteOnParade'. (NullAllowed)
      */
     public void setWhiteOnParade(OptionalEntity<WhiteOnParade> whiteOnParade) {

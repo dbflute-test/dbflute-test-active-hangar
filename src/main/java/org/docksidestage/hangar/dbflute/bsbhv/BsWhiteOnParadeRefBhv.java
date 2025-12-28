@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (オンパレードれふ)WHITE_ON_PARADE_REF as TABLE.
+ * The behavior of (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF as TABLE.
  * <pre>
  * [primary-key]
  *     REF_ID

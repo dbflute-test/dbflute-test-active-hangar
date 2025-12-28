@@ -28,7 +28,7 @@ import org.docksidestage.hangar.dbflute.allcommon.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The DB meta of WHITE_GENERATE_NAME_SWITCHED. (Singleton)
+ * The DB meta of white_generate_name_switched. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
 public class WhiteGenerateNameSwitchedDbm extends AbstractDBMeta {
@@ -69,10 +69,10 @@ public class WhiteGenerateNameSwitchedDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "WHITE_GENERATE_NAME_SWITCHED";
-    protected final String _tableDispName = "WHITE_GENERATE_NAME_SWITCHED";
+    protected final String _tableDbName = "white_generate_name_switched";
+    protected final String _tableDispName = "white_generate_name_switched";
     protected final String _tablePropertyName = "whiteGenerateNameSwitched";
-    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.WHITE_GENERATE_NAME_SWITCHED", _tableDbName);
+    protected final TableSqlName _tableSqlName = new TableSqlName("MAIHAMADB.PUBLIC.white_generate_name_switched", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }

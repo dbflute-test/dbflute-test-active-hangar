@@ -37,7 +37,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of (オンパレードれふ)WHITE_ON_PARADE_REF as TABLE. <br>
+ * The DTO mapper of (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF as TABLE. <br>
  * shalias:{ オンパレードREF } dfalias:{ オンパレードれふ }
  * <pre>
  * [primary-key]

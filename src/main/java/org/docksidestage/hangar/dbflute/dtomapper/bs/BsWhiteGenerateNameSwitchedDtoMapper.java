@@ -36,7 +36,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of WHITE_GENERATE_NAME_SWITCHED as TABLE. <br>
+ * The DTO mapper of white_generate_name_switched as TABLE. <br>
  * <pre>
  * [primary-key]
  *     GENERATE_NAME_SWITCHED_ID

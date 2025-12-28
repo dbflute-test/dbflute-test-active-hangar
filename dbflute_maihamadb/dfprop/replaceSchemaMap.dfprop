@@ -118,6 +118,8 @@ map:{
                 ; WHITE_SINGLE_PK
                 ; WHITE_TYPE_MAPPING
                 ; prefix:WHITE_DEPRECATED
+                ; WHITE_GENERATE_NAME_SWITCHED
+                ; WHITE_ZONE_ARRANGE
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = 2018/05/18
@@ -231,12 +233,30 @@ map:{
             ; $$DestDir$$ = ./playsql
             ; $$ScriptDir$$ = ..
         }
-        # use when it needs synchronize with dockside
-        #; copy = map:{
-        #    ; $$SrcDir$$/*.sql = $$DestDir$$
-        #    ; $$SrcDir$$/data/common/xls/*.xls = $$DestDir$$/data/common/xls
-        #    ; $$SrcDir$$/data/ut/xls/*.xls = $$DestDir$$/data/ut/xls
-        #}
+        ; copy = map:{
+            # use when it needs synchronize with dockside
+            ; $$SrcDir$$/*.sql = $$DestDir$$
+            ; $$SrcDir$$/data/common/xls/*.xls = $$DestDir$$/data/common/xls
+            # already use tsv at hangar 
+            #; $$SrcDir$$/data/ut/xls/*.xls = $$DestDir$$/data/ut/xls
+            ; $$DestDir$$/zone_arrange/copy_source/*.sql = $$DestDir$$/replace-schema-96-whitebox-zone-arrange.sql
+        }
+        ; filterText = map:{
+            # test of replaceLinely, reservation word column pattern
+            ; replaceLinely = map:{
+                ; $$DestDir$$/replace-schema-96-whitebox-zone-arrange.sql = map:{
+                    ; ORDER INTEGER, = "ORDER" INTEGER,
+                }
+            }
+# test of replaceWholly
+#            ; replaceWholly = map:{
+#                ; $$DestDir$$/take-finally.sql = map:{
+#                    ; mb
+# where mb.MEMB = mb
+# woooo mb.MEMB
+#                }
+#            }
+        }
         ; script = map:{
             ; $$ScriptDir$$/try-arrangeBeforeReps.bat = dummy
             ; $$ScriptDir$$/try-arrangeBeforeReps.sh = dummy

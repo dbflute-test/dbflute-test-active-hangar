@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_GENERATE_NAME_SWITCHED as TABLE.
+ * The behavior of white_generate_name_switched as TABLE.
  * <pre>
  * [primary-key]
  *     GENERATE_NAME_SWITCHED_ID
@@ -94,7 +94,7 @@ public abstract class BsWhiteGenerateNameSwitchedBhv extends org.docksidestage.h
     /** {@inheritDoc} */
     public WhiteGenerateNameSwitchedDbm asDBMeta() { return WhiteGenerateNameSwitchedDbm.getInstance(); }
     /** {@inheritDoc} */
-    public String asTableDbName() { return "WHITE_GENERATE_NAME_SWITCHED"; }
+    public String asTableDbName() { return "white_generate_name_switched"; }
 
     // ===================================================================================
     //                                                                        New Instance

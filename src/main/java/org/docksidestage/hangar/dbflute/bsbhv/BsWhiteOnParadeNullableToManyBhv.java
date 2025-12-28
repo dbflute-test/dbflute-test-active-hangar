@@ -384,7 +384,7 @@ public abstract class BsWhiteOnParadeNullableToManyBhv extends org.docksidestage
 
     /**
      * Load referrer of whiteOnParadeRefList by the set-upper of referrer. <br>
-     * (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
+     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeNullableToManyBhv</span>.<span style="color: #CC4747">loadWhiteOnParadeRef</span>(<span style="color: #553000">whiteOnParadeNullableToManyList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
@@ -415,7 +415,7 @@ public abstract class BsWhiteOnParadeNullableToManyBhv extends org.docksidestage
 
     /**
      * Load referrer of whiteOnParadeRefList by the set-upper of referrer. <br>
-     * (オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
+     * (オンパレードREF or オンパレードれふ)WHITE_ON_PARADE_REF by NULLABLE_FK_TO_MANY_ID, named 'whiteOnParadeRefList'.
      * <pre>
      * <span style="color: #0000C0">whiteOnParadeNullableToManyBhv</span>.<span style="color: #CC4747">loadWhiteOnParadeRef</span>(<span style="color: #553000">whiteOnParadeNullableToMany</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...

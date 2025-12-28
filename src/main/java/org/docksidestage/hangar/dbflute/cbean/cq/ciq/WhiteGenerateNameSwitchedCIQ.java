@@ -27,7 +27,7 @@ import org.docksidestage.hangar.dbflute.cbean.cq.bs.*;
 import org.docksidestage.hangar.dbflute.cbean.cq.*;
 
 /**
- * The condition-query for in-line of WHITE_GENERATE_NAME_SWITCHED.
+ * The condition-query for in-line of white_generate_name_switched.
  * @author DBFlute(AutoGenerator)
  */
 public class WhiteGenerateNameSwitchedCIQ extends AbstractBsWhiteGenerateNameSwitchedCQ {

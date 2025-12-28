@@ -36,7 +36,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (読み取りオンリー)WHITE_READ_ONLY as TABLE.
+ * The behavior of (読み取り専用 or リードオンリー or 読み取りオンリー)WHITE_READ_ONLY as TABLE.
  * <pre>
  * [primary-key]
  *     READ_ONLY_ID
