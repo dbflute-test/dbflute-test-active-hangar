@@ -120,6 +120,7 @@ map:{
                 ; prefix:WHITE_DEPRECATED
                 ; WHITE_GENERATE_NAME_SWITCHED
                 ; WHITE_ZONE_ARRANGE
+                ; prefix:WHITE_UNEVEN_COMMON_COLUMN_
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = 2018/05/18
@@ -239,7 +240,7 @@ map:{
             ; $$SrcDir$$/data/common/xls/*.xls = $$DestDir$$/data/common/xls
             # already use tsv at hangar 
             #; $$SrcDir$$/data/ut/xls/*.xls = $$DestDir$$/data/ut/xls
-            ; $$DestDir$$/zone_arrange/copy_source/*.sql = $$DestDir$$/replace-schema-96-whitebox-zone-arrange.sql
+            ; $$DestDir$$/zone_arrange/copy_source/*.sql = $$DestDir$$/replace-schema-9610-whitebox-zone-arrange.sql
         }
         ; filterText = map:{
             # test of replaceLinely, reservation word column pattern
