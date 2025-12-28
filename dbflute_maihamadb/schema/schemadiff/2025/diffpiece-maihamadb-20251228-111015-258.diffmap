@@ -1,0 +1,33 @@
+map:{
+    ; 2025/12/28 11:10:15.258 = map:{
+        ; diffDate = 2025/12/28 11:10:15.258
+        ; tableCount = map:{
+            ; next = 72
+            ; previous = 67
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_UNEVEN_COMMON_COLUMN_1ST = map:{
+                ; tableName = WHITE_UNEVEN_COMMON_COLUMN_1ST
+                ; diffType = ADD
+            }
+            ; WHITE_UNEVEN_COMMON_COLUMN_2ND = map:{
+                ; tableName = WHITE_UNEVEN_COMMON_COLUMN_2ND
+                ; diffType = ADD
+            }
+            ; WHITE_UNEVEN_COMMON_COLUMN_3RD = map:{
+                ; tableName = WHITE_UNEVEN_COMMON_COLUMN_3RD
+                ; diffType = ADD
+            }
+            ; WHITE_UNEVEN_COMMON_COLUMN_4TH = map:{
+                ; tableName = WHITE_UNEVEN_COMMON_COLUMN_4TH
+                ; diffType = ADD
+            }
+            ; WHITE_ZONE_ARRANGE = map:{
+                ; tableName = WHITE_ZONE_ARRANGE
+                ; diffType = ADD
+            }
+        }
+    }
+}

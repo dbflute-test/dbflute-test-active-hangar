@@ -412,5 +412,30 @@ public class DBFluteModule extends AbstractModule {
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
             bind(WhiteTypeMappingBhv.class).toInstance(bhv);
         }
+        {
+            WhiteUnevenCommonColumn1stBhv bhv = new WhiteUnevenCommonColumn1stBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteUnevenCommonColumn1stBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteUnevenCommonColumn2ndBhv bhv = new WhiteUnevenCommonColumn2ndBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteUnevenCommonColumn2ndBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteUnevenCommonColumn3rdBhv bhv = new WhiteUnevenCommonColumn3rdBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteUnevenCommonColumn3rdBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteUnevenCommonColumn4thBhv bhv = new WhiteUnevenCommonColumn4thBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteUnevenCommonColumn4thBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteZoneArrangeBhv bhv = new WhiteZoneArrangeBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteZoneArrangeBhv.class).toInstance(bhv);
+        }
     }
 }

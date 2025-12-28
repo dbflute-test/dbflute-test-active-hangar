@@ -112,6 +112,11 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("WHITE_SINGLE_PK", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteSinglePkDbm");
         tmpMap.put("WHITE_TSV_LOADING", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteTsvLoadingDbm");
         tmpMap.put("WHITE_TYPE_MAPPING", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteTypeMappingDbm");
+        tmpMap.put("WHITE_UNEVEN_COMMON_COLUMN_1ST", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteUnevenCommonColumn1stDbm");
+        tmpMap.put("WHITE_UNEVEN_COMMON_COLUMN_2ND", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteUnevenCommonColumn2ndDbm");
+        tmpMap.put("WHITE_UNEVEN_COMMON_COLUMN_3RD", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteUnevenCommonColumn3rdDbm");
+        tmpMap.put("WHITE_UNEVEN_COMMON_COLUMN_4TH", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteUnevenCommonColumn4thDbm");
+        tmpMap.put("WHITE_ZONE_ARRANGE", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WhiteZoneArrangeDbm");
         tmpMap.put("WITHDRAWAL_REASON", "org.docksidestage.hangar.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }
