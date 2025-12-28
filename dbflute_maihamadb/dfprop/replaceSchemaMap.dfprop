@@ -244,7 +244,7 @@ map:{
         ; filterText = map:{
             # test of replaceLinely, reservation word column pattern
             ; replaceLinely = map:{
-                ; $$DestDir$$/replace-schema-96-whitebox-zone-arrange.sql = map:{
+                ; $$DestDir$$/replace-schema-9610-whitebox-zone-arrange.sql = map:{
                     ; ORDER INTEGER, = "ORDER" INTEGER,
                 }
             }
