@@ -1,0 +1,21 @@
+# /---------------------------------------------------------------------------
+# behaviorFilterMap: (Default 'map:{}')
+# 
+# Traditional settings of DBFlute.
+# No document all of the world.
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    ; beforeInsertMap = map:{
+        ; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+        ; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
+        ; UPDATE_DATETIME   = entity.getRegisterDatetime()
+        ; UPDATE_USER       = entity.getRegisterUser()
+    }
+    ; beforeUpdateMap = map:{
+        ; UPDATE_DATETIME   = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+        ; UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
+    }
+}
+# ----------------/

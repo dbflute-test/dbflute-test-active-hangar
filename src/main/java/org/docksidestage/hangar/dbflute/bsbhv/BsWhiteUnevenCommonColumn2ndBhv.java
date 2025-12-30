@@ -856,15 +856,22 @@ public abstract class BsWhiteUnevenCommonColumn2ndBhv extends org.docksidestage.
     //                                                           Framework Filter Override
     //                                                           =========================
     @Override
-    protected void frameworkFilterEntityOfInsert(Entity entity, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> option) {
-        super.frameworkFilterEntityOfInsert(entity, option);
-        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
+    protected void frameworkFilterEntityOfInsert(Entity tgt, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> op) {
+        super.frameworkFilterEntityOfInsert(tgt, op);
+        WhiteUnevenCommonColumn2nd entity = downcast(tgt);
+        entity.setRegisterDatetime(org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread());
+        entity.setRegisterUser(org.dbflute.hook.AccessContext.getAccessUserOnThread());
+        xcreateDateUpdateAdjuster().truncatePrecisionOfEntityProperty(tgt);
     }
 
     @Override
-    protected void frameworkFilterEntityOfUpdate(Entity entity, org.dbflute.optional.OptionalThing<UpdateOption<? extends ConditionBean>> option) {
-        super.frameworkFilterEntityOfUpdate(entity, option);
-        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
+    protected void frameworkFilterEntityOfUpdate(Entity tgt, org.dbflute.optional.OptionalThing<UpdateOption<? extends ConditionBean>> op) {
+        super.frameworkFilterEntityOfUpdate(tgt, op);
+        xcreateDateUpdateAdjuster().truncatePrecisionOfEntityProperty(tgt);
+    }
+
+    protected DateUpdateAdjuster xcreateDateUpdateAdjuster() {
+        return new DateUpdateAdjuster();
     }
 
     // ===================================================================================

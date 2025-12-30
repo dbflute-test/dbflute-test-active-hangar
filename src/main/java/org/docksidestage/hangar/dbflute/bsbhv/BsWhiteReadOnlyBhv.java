@@ -437,9 +437,13 @@ public abstract class BsWhiteReadOnlyBhv extends AbstractBehaviorReadable<WhiteR
     //                                                           Framework Filter Override
     //                                                           =========================
     @Override
-    protected void frameworkFilterEntityOfInsert(Entity entity, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> option) {
-        super.frameworkFilterEntityOfInsert(entity, option);
-        new DateUpdateAdjuster().truncatePrecisionOfEntityProperty(entity);
+    protected void frameworkFilterEntityOfInsert(Entity tgt, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> op) {
+        super.frameworkFilterEntityOfInsert(tgt, op);
+        xcreateDateUpdateAdjuster().truncatePrecisionOfEntityProperty(tgt);
+    }
+
+    protected DateUpdateAdjuster xcreateDateUpdateAdjuster() {
+        return new DateUpdateAdjuster();
     }
 
     // ===================================================================================
