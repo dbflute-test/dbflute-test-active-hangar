@@ -340,6 +340,12 @@ public class MessagesAndDatabase implements Serializable {
     //  - FIRST_DATE_ID
     //  - FIRST_DATE_NAME
     //  - ADDED_AT_TABLE_SAME_DATE
+    // white_generate_name_switched
+    //  - GENERATE_NAME_SWITCHED_ID
+    //  - GENERATE_NAME_SWITCHED_NAME
+    //  - GENERATE_NAME_SWITCHED_COUNT
+    //  - GENERATE_NAME_SWITCHED_DATE
+    //  - GENERATE_NAME_SWITCHED_DATETIME
     // WHITE_NOT_NULL
     //  - NOT_NULL_ID
     //  - NOT_NULL_NAME
@@ -392,6 +398,30 @@ public class MessagesAndDatabase implements Serializable {
     //  - TYPE_MAPPING_DATE
     //  - TYPE_MAPPING_DATETIME
     //  - POINT_MAPPING_DATE
+    // WHITE_UNEVEN_COMMON_COLUMN_1ST
+    //  - UNEVEN_ID
+    //  - UNEVEN_NAME
+    //  - REGISTER_DATETIME
+    // WHITE_UNEVEN_COMMON_COLUMN_2ND
+    //  - UNEVEN_ID
+    //  - UNEVEN_NAME
+    //  - REGISTER_DATETIME
+    //  - REGISTER_USER
+    // WHITE_UNEVEN_COMMON_COLUMN_3RD
+    //  - UNEVEN_ID
+    //  - UNEVEN_NAME
+    //  - REGISTER_DATETIME
+    //  - UPDATE_DATETIME
+    // WHITE_UNEVEN_COMMON_COLUMN_4TH
+    //  - UNEVEN_ID
+    //  - UNEVEN_NAME
+    //  - REGISTER_DATETIME
+    //  - REGISTER_USER
+    //  - UPDATE_DATETIME
+    // WHITE_ZONE_ARRANGE
+    //  - ARRANGE_ID
+    //  - ARRANGE_NAME
+    //  - ORDER
     // WITHDRAWAL_REASON
     //  - WITHDRAWAL_REASON_CODE
     //  - WITHDRAWAL_REASON_TEXT

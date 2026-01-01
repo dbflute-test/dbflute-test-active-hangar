@@ -82,7 +82,7 @@ public class WhiteZoneArrangeDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnArrangeId = cci("ARRANGE_ID", "ARRANGE_ID", null, null, Integer.class, "arrangeId", null, true, false, true, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnArrangeName = cci("ARRANGE_NAME", "ARRANGE_NAME", null, null, String.class, "arrangeName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnOrder = cci("ORDER", "ORDER", null, null, Integer.class, "order", null, false, false, false, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOrder = cci("ORDER", "\"ORDER\"", null, null, Integer.class, "order", null, false, false, false, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * ARRANGE_ID: {PK, NotNull, INTEGER(10)}
