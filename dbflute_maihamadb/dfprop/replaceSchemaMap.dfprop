@@ -246,7 +246,8 @@ map:{
             # test of replaceLinely, reservation word column pattern
             ; replaceLinely = map:{
                 ; $$DestDir$$/replace-schema-9610-whitebox-zone-arrange.sql = map:{
-                    ; ORDER INTEGER, = "ORDER" INTEGER,
+                    ; df:themeOptionList = list:{ useControlCharExp }
+                    ; \tORDER INTEGER, = \t"ORDER" INTEGER,
                 }
             }
 # test of replaceWholly

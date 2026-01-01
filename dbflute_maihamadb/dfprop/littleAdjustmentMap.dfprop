@@ -211,7 +211,10 @@ map:{
     #  The list of column DB names that need to be quoted.
     #  Specified columns is quoted on auto-generated SQL.
     #
-    #; quoteColumnNameList = list:{}
+    ; quoteColumnNameList = list:{
+        # test of DB reservation
+        ; ORDER
+    }
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
