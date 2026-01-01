@@ -48,7 +48,7 @@ public class WxLRevworldTest extends PlainTestCase {
             assertContains(console, "BUILD SUCCESSFUL");
 
             String dataPath = getOutputDocPath() + "/data/tsv/UTF-8";
-            assertTrue(new File(dataPath + "/reverse_07_01-MEMBER.tsv").exists()); // changeable
+            assertTrue(new File(dataPath + "/reverse_08_01-MEMBER.tsv").exists()); // changeable
             assertTrue(new File(dataPath + "/reverse-data-result.dfmark").exists());
             // migrated from xls to tsv
             //assertTrue(new File(dataPath + "/tableNameMap.dataprop").exists());
