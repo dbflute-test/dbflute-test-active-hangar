@@ -148,9 +148,16 @@ map:{
             ; if columnName is suffix:_RANK_CODE then column is classification(ServiceRank)
             ; if firstDate is after:2019/05/11 and tableName is SPOLICY_NEW_CREATED and columnName is NEW_CREATED_NAME then bad
 
+            # test of commonColumn
+            ; if column is commonColumn then dbType is TIMESTAMP or VARCHAR
+            ; if column is commonColumn then notNull
+            ; if columnName is REGISTER_DATETIME and tableName is not contain:UNEVEN_COMMON_COLUMN then commonColumn
+            ; if columnName is REGISTER_DATETIME and tableName is not contain:UNEVEN_COMMON_COLUMN then column is commonColumn
+
             # test of unknown variables
             #; if columnName is contain:$$sea$$ then bad
             #; if alias is $$ALL$$ then comment is $$land-oneman$$
+            
 
             # test of various pattern
             ; if columnName is suffix:_CODE then sameColumnDbTypeIfSameColumnName
