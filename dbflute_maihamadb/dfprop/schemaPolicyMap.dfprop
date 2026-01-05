@@ -102,9 +102,19 @@ map:{
     ; columnMap = map:{
         ; themeList = list:{ upperCaseBasis }
         ; statementList = list:{
+            # _/_/_/_/_/_/_/_/
+            #  PK
+            # _/_/
             # test of singlePK
             ; if tableName is MEMBER and columnName is MEMBER_ID then column is singlePK
             #; if columnName is contain:PK_FIRST_ID then column is singlePK
+
+            # _/_/_/_/_/_/_/_/
+            #  FK
+            # _/_/
+            # test of additionalForeignKey
+            # #hope jflute ReplaceSchema, Doc have different result about additionalForeignKey (2025/01/06)
+            #; if tableName is WHITE_BASE and columnName is DOHOTEL_ID then column is fk
 
             # test of manual identityIfPureIDPK
             # add "or contain:_SINGLE_" then failure
