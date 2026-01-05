@@ -332,6 +332,20 @@ _/_/_/_/_/_/_/_/_/_/
 
 
 -- /= = = = = = = = = = = = = = = = = = = = =
+-- for the test of default constraint
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_DEFAULT_CONSTRAINT (
+	DEFAULT_ID NUMERIC(16) NOT NULL PRIMARY KEY,
+	DEFAULT_NAME VARCHAR(200) NOT NULL DEFAULT 'sea',
+	DEFAULT_COUNT INTEGER NOT NULL DEFAULT 0,
+	DEFAULT_DATE DATE NOT NULL DEFAULT '2026-01-05',
+	DEFAULT_JUDGE BOOLEAN NOT NULL DEFAULT false,
+	DEFAULT_EMPTY_STRING VARCHAR(200) NOT NULL DEFAULT ''
+);
+
+
+
+-- /= = = = = = = = = = = = = = = = = = = = =
 -- for the test of deprecated table
 -- = = = = = = = = = =/
 CREATE TABLE WHITE_DEPRECATED (

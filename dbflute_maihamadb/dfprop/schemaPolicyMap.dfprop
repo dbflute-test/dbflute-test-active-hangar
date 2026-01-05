@@ -154,6 +154,12 @@ map:{
             ; if columnName is REGISTER_DATETIME and tableName is not contain:UNEVEN_COMMON_COLUMN then commonColumn
             ; if columnName is REGISTER_DATETIME and tableName is not contain:UNEVEN_COMMON_COLUMN then column is commonColumn
 
+            # test of defaultValue
+            ; if column is hasDefaultValue and columnName is DEFAULT_NAME then defaultValue is sea
+            ; if column is hasDefaultValue then column is hasDefaultValue
+            ; if column is hasDefaultValue then hasDefaultValue
+            ; if defaultValue is prefix:NEXT VALUE FOR then column is identity
+
             # test of unknown variables
             #; if columnName is contain:$$sea$$ then bad
             #; if alias is $$ALL$$ then comment is $$land-oneman$$

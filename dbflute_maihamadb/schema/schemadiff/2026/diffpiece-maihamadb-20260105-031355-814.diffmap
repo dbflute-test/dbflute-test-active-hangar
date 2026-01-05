@@ -1,0 +1,72 @@
+map:{
+    ; 2026/01/05 03:13:55.814 = map:{
+        ; diffDate = 2026/01/05 03:13:55.814
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; craftDiff = map:{
+            ; MemberStatus = map:{
+                ; craftTitle = MemberStatus
+                ; craftRowDiff = map:{
+                    ; FML = map:{
+                        ; craftKeyName = FML
+                        ; diffType = DELETE
+                    }
+                    ; PRV = map:{
+                        ; craftKeyName = PRV
+                        ; diffType = DELETE
+                    }
+                    ; WDL = map:{
+                        ; craftKeyName = WDL
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; ProductStatus = map:{
+                ; craftTitle = ProductStatus
+                ; craftRowDiff = map:{
+                    ; ONS = map:{
+                        ; craftKeyName = ONS
+                        ; diffType = DELETE
+                    }
+                    ; PST = map:{
+                        ; craftKeyName = PST
+                        ; diffType = DELETE
+                    }
+                    ; SST = map:{
+                        ; craftKeyName = SST
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; TableCls = map:{
+                ; craftTitle = TableCls
+                ; craftRowDiff = map:{
+                    ; MEMBER_STATUS::PRV = map:{
+                        ; craftKeyName = MEMBER_STATUS::PRV
+                        ; diffType = DELETE
+                    }
+                    ; MEMBER_STATUS::FML = map:{
+                        ; craftKeyName = MEMBER_STATUS::FML
+                        ; diffType = DELETE
+                    }
+                    ; MEMBER_STATUS::WDL = map:{
+                        ; craftKeyName = MEMBER_STATUS::WDL
+                        ; diffType = DELETE
+                    }
+                    ; PRODUCT_STATUS::ONS = map:{
+                        ; craftKeyName = PRODUCT_STATUS::ONS
+                        ; diffType = DELETE
+                    }
+                    ; PRODUCT_STATUS::PST = map:{
+                        ; craftKeyName = PRODUCT_STATUS::PST
+                        ; diffType = DELETE
+                    }
+                    ; PRODUCT_STATUS::SST = map:{
+                        ; craftKeyName = PRODUCT_STATUS::SST
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+}
