@@ -88,6 +88,14 @@ map:{
     #  This property works with 'aliasDelimiterInDbComment'.
     # 
     ; isDbCommentOnAliasBasis = true
+    ; dbCommentOnAliasBasisOptionMap = map:{
+        ; aliasBasisIfFirstDateAfter = 2026/01/06
+        #; forcedAliasBasisTableList = list:{ MEMBER ; PRODUCT }
+        #; forcedAliasBasisColumnListMap = map:{
+        #    ; MEMBER = list:{ MEMBER_NAME ; BIRTHDATE }
+        #    ; PRODUCT = list:{ PRODUCT_STATUS_CODE }
+        #}
+    }
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
