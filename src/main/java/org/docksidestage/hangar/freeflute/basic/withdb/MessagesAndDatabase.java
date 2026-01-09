@@ -319,6 +319,13 @@ public class MessagesAndDatabase implements Serializable {
     //  - DB_COMMENT_COUNT
     //  - DB_COMMENT_DATE
     //  - DB_COMMENT_DATETIME
+    // WHITE_DEFAULT_CONSTRAINT
+    //  - DEFAULT_ID
+    //  - DEFAULT_NAME
+    //  - DEFAULT_COUNT
+    //  - DEFAULT_DATE
+    //  - DEFAULT_JUDGE
+    //  - DEFAULT_EMPTY_STRING
     // WHITE_DEPRECATED
     //  - DEPRECATED_ID
     //  - DEPRECATED_NAME

@@ -113,8 +113,13 @@ map:{
             #  FK
             # _/_/
             # test of additionalForeignKey
-            # #hope jflute ReplaceSchema, Doc have different result about additionalForeignKey (2025/01/06)
-            #; if tableName is WHITE_BASE and columnName is DOHOTEL_ID then column is fk
+            # done jflute ReplaceSchema, Doc have different result about additionalForeignKey (2025/01/06)
+            ; if tableName is WHITE_BASE and columnName is DOHOTEL_ID then column is fk
+            ; if tableName is WHITE_BASE and columnName is DOHOTEL_ID then column is additionalFK
+            ; if tableName is WHITE_BASE and column is additionalFK then columnName is suffix:_ID
+            ; if tableName is MEMBER and columnName is MEMBER_STATUS_CODE then column is fk
+            ; if tableName is MEMBER and columnName is MEMBER_STATUS_CODE then column is realFK
+            ; if tableName is MEMBER and column is realFK then columnName is MEMBER_STATUS_CODE
 
             # test of manual identityIfPureIDPK
             # add "or contain:_SINGLE_" then failure
@@ -169,6 +174,11 @@ map:{
             ; if column is hasDefaultValue then column is hasDefaultValue
             ; if column is hasDefaultValue then hasDefaultValue
             ; if defaultValue is prefix:NEXT VALUE FOR then column is identity
+            ; if columnName is DEFAULT_EMPTY_STRING then hasDefaultValue
+            ; if columnName is DEFAULT_EMPTY_STRING then defaultValue is $$emptyString$$
+            ; if defaultValue is $$emptyString$$ then columnName is DEFAULT_EMPTY_STRING
+            ; if columnName is MEMBER_NAME then not hasDefaultValue
+            ; if columnName is MEMBER_NAME then defaultValue is not $$emptyString$$
 
             # test of unknown variables
             #; if columnName is contain:$$sea$$ then bad

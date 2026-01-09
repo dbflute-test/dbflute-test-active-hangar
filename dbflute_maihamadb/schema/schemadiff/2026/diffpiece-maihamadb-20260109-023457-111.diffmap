@@ -1,0 +1,72 @@
+map:{
+    ; 2026/01/09 02:34:57.111 = map:{
+        ; diffDate = 2026/01/09 02:34:57.111
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; craftDiff = map:{
+            ; MemberStatus = map:{
+                ; craftTitle = MemberStatus
+                ; craftRowDiff = map:{
+                    ; FML = map:{
+                        ; craftKeyName = FML
+                        ; diffType = ADD
+                    }
+                    ; PRV = map:{
+                        ; craftKeyName = PRV
+                        ; diffType = ADD
+                    }
+                    ; WDL = map:{
+                        ; craftKeyName = WDL
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; ProductStatus = map:{
+                ; craftTitle = ProductStatus
+                ; craftRowDiff = map:{
+                    ; ONS = map:{
+                        ; craftKeyName = ONS
+                        ; diffType = ADD
+                    }
+                    ; PST = map:{
+                        ; craftKeyName = PST
+                        ; diffType = ADD
+                    }
+                    ; SST = map:{
+                        ; craftKeyName = SST
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; TableCls = map:{
+                ; craftTitle = TableCls
+                ; craftRowDiff = map:{
+                    ; MEMBER_STATUS::PRV = map:{
+                        ; craftKeyName = MEMBER_STATUS::PRV
+                        ; diffType = ADD
+                    }
+                    ; MEMBER_STATUS::FML = map:{
+                        ; craftKeyName = MEMBER_STATUS::FML
+                        ; diffType = ADD
+                    }
+                    ; MEMBER_STATUS::WDL = map:{
+                        ; craftKeyName = MEMBER_STATUS::WDL
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_STATUS::ONS = map:{
+                        ; craftKeyName = PRODUCT_STATUS::ONS
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_STATUS::PST = map:{
+                        ; craftKeyName = PRODUCT_STATUS::PST
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_STATUS::SST = map:{
+                        ; craftKeyName = PRODUCT_STATUS::SST
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}
