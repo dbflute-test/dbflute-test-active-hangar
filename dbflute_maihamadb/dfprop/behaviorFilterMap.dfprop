@@ -8,14 +8,16 @@
 #
 map:{
     ; beforeInsertMap = map:{
-        ; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
-        ; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
-        ; UPDATE_DATETIME   = entity.getRegisterDatetime()
-        ; UPDATE_USER       = entity.getRegisterUser()
+        # use isUnevenCommonColumnRecognized in commonColumnMap
+        #; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+        #; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
+        #; UPDATE_DATETIME   = entity.getRegisterDatetime()
+        #; UPDATE_USER       = entity.getRegisterUser()
     }
     ; beforeUpdateMap = map:{
-        ; UPDATE_DATETIME   = $$AccessContext$$.getAccessLocalDateTimeOnThread()
-        ; UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
+        # me too
+        #; UPDATE_DATETIME   = $$AccessContext$$.getAccessLocalDateTimeOnThread()
+        #; UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
     }
 }
 # ----------------/

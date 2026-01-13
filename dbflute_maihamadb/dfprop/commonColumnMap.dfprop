@@ -36,6 +36,10 @@ map:{
         ; REGISTER_DATETIME=TIMESTAMP ; REGISTER_USER=VARCHAR
         ; UPDATE_DATETIME=TIMESTAMP   ; UPDATE_USER=VARCHAR
     }
+
+    # test of uneven common column, behavior filter collaboration
+    ; isUnevenCommonColumnRecognized = true
+    
     ; beforeInsertMap = map:{
         ; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
         ; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
