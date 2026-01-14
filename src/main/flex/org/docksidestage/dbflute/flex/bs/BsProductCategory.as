@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (商品カテゴリ)PRODUCT_CATEGORY as TABLE.
+ * The flex DTO of PRODUCT_CATEGORY as TABLE.
  * <pre>
  * [primary-key]
  *     PRODUCT_CATEGORY_CODE

@@ -69,11 +69,11 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
+    /** MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
     @JsonKey
     protected Integer _memberId;
 
-    /** (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
+    /** MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
     @JsonKey
     protected String _memberName;
 
@@ -81,7 +81,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     @JsonKey
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} */
+    /** REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} */
     @JsonKey
     protected String _registerUser;
 
@@ -89,7 +89,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     @JsonKey
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to MEMBER.UPDATE_USER} */
+    /** UPDATE_USER: {VARCHAR(200), refers to MEMBER.UPDATE_USER} */
     @JsonKey
     protected String _updateUser;
 
@@ -186,8 +186,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [get] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @return The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public Integer getMemberId() {
@@ -195,8 +194,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [set] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -205,9 +203,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [get] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
     public String getMemberName() {
@@ -215,9 +211,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [set] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
     public void setMemberName(String memberName) {
@@ -227,9 +221,6 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
 
     /**
      * [get] (登録日時)REGISTER_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.REGISTER_DATETIME} <br>
-     * 登録日時: レコードが登録された日時。<br>
-     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
-     * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -240,9 +231,6 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
 
     /**
      * [set] (登録日時)REGISTER_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.REGISTER_DATETIME} <br>
-     * 登録日時: レコードが登録された日時。<br>
-     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。といいつつ、このテーブルには会員登録日時がない...<br>
-     * 仕様はどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -251,10 +239,8 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [get] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * レコードを登録したユーザ。<br>
-     * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
+     * [get] REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @return The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public String getRegisterUser() {
@@ -262,10 +248,8 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [set] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} <br>
-     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に<br>
-     * レコードを登録したユーザ。<br>
-     * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
+     * [set] REGISTER_USER: {VARCHAR(200), refers to MEMBER.REGISTER_USER} <br>
+     * 特に何かのIDとかじゃなくSNAPSHOT的に人を特定できる情報を雑多に
      * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed)
      */
     public void setRegisterUser(String registerUser) {
@@ -275,9 +259,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
 
     /**
      * [get] (更新日時)UPDATE_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.UPDATE_DATETIME} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 更新日時: レコードが（最後に）更新された日時。<br>
-     * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
+     * 眠いときは眠いと言おう。
      * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -288,9 +270,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
 
     /**
      * [set] (更新日時)UPDATE_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.UPDATE_DATETIME} <br>
-     * 眠いときは眠いと言おう。<br>
-     * 更新日時: レコードが（最後に）更新された日時。<br>
-     * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
+     * 眠いときは眠いと言おう。
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -299,9 +279,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [get] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to MEMBER.UPDATE_USER} <br>
-     * レコードを更新したユーザ。<br>
-     * システムは誰が何をしたのかちゃんと覚えているのさ。
+     * [get] UPDATE_USER: {VARCHAR(200), refers to MEMBER.UPDATE_USER} <br>
      * @return The value of the column 'UPDATE_USER'. (NullAllowed)
      */
     public String getUpdateUser() {
@@ -309,9 +287,7 @@ public abstract class BsCommonColumnMemberDto implements Serializable {
     }
 
     /**
-     * [set] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to MEMBER.UPDATE_USER} <br>
-     * レコードを更新したユーザ。<br>
-     * システムは誰が何をしたのかちゃんと覚えているのさ。
+     * [set] UPDATE_USER: {VARCHAR(200), refers to MEMBER.UPDATE_USER} <br>
      * @param updateUser The value of the column 'UPDATE_USER'. (NullAllowed)
      */
     public void setUpdateUser(String updateUser) {

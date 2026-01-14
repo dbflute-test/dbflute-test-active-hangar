@@ -96,14 +96,14 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (会員ID)MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER}
+     * MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (会員ID)MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER}
+     * MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
@@ -116,14 +116,14 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(100)}
+     * LOGIN_PASSWORD: {NotNull, VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_LoginPassword_Asc() { regOBA("LOGIN_PASSWORD"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(100)}
+     * LOGIN_PASSWORD: {NotNull, VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_LoginPassword_Desc() { regOBD("LOGIN_PASSWORD"); return this; }
@@ -136,14 +136,14 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)}
+     * REMINDER_QUESTION: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_ReminderQuestion_Asc() { regOBA("REMINDER_QUESTION"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)}
+     * REMINDER_QUESTION: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_ReminderQuestion_Desc() { regOBD("REMINDER_QUESTION"); return this; }
@@ -156,14 +156,14 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)}
+     * REMINDER_ANSWER: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_ReminderAnswer_Asc() { regOBA("REMINDER_ANSWER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)}
+     * REMINDER_ANSWER: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_ReminderAnswer_Desc() { regOBD("REMINDER_ANSWER"); return this; }
@@ -176,14 +176,14 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INTEGER(10)}
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(10)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_ReminderUseCount_Asc() { regOBA("REMINDER_USE_COUNT"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INTEGER(10)}
+     * REMINDER_USE_COUNT: {NotNull, INTEGER(10)}
      * @return this. (NotNull)
      */
     public BsMemberSecurityCQ addOrderBy_ReminderUseCount_Desc() { regOBD("REMINDER_USE_COUNT"); return this; }

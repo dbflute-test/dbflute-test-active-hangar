@@ -35,7 +35,7 @@ import org.docksidestage.hangar.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.hangar.dbflute.cbean.*;
 
 /**
- * The behavior of (商品カテゴリ)PRODUCT_CATEGORY as TABLE.
+ * The behavior of PRODUCT_CATEGORY as TABLE.
  * <pre>
  * [primary-key]
  *     PRODUCT_CATEGORY_CODE
@@ -450,7 +450,7 @@ public abstract class BsProductCategoryBhv extends org.docksidestage.hangar.dbfl
 
     /**
      * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
-     * (商品カテゴリ)PRODUCT_CATEGORY by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
+     * PRODUCT_CATEGORY by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelf</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryCB</span>.setupSelect...
@@ -481,7 +481,7 @@ public abstract class BsProductCategoryBhv extends org.docksidestage.hangar.dbfl
 
     /**
      * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
-     * (商品カテゴリ)PRODUCT_CATEGORY by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
+     * PRODUCT_CATEGORY by PARENT_CATEGORY_CODE, named 'productCategorySelfList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelf</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryCB</span>.setupSelect...

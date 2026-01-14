@@ -170,7 +170,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
+     * PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
      * @return The information object of foreign property. (NotNull)
      */
     public ForeignInfo foreignProductStatus() {
@@ -182,7 +182,7 @@ public class SummaryProductDbm extends AbstractDBMeta {
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
+     * PURCHASE by PRODUCT_ID, named 'purchaseList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerPurchaseList() {

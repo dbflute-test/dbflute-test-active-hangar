@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (地域)REGION as TABLE.
+ * The flex DTO of REGION as TABLE.
  * <pre>
  * [primary-key]
  *     REGION_ID

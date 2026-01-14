@@ -38,9 +38,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of (購入支払)PURCHASE_PAYMENT as TABLE. <br>
- * 購入に対する支払。<br>
- * 分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。
+ * The DTO mapper of PURCHASE_PAYMENT as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PURCHASE_PAYMENT_ID

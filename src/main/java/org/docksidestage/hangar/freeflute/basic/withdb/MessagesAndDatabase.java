@@ -370,6 +370,18 @@ public class MessagesAndDatabase implements Serializable {
     //  - REF_NAME
     //  - NULLABLE_FK_ON_PARADE_ID
     //  - NULLABLE_FK_TO_MANY_ID
+    // WHITE_OPTIMISTIC_LOCK_BY_DATE
+    //  - BY_DATE_ID
+    //  - BY_DATE_NAME
+    //  - UPDATE_DATE
+    // WHITE_OPTIMISTIC_LOCK_BY_VERSION
+    //  - BY_VERSION_ID
+    //  - BY_VERSION_NAME
+    //  - VERSION_NO
+    // WHITE_OPTIMISTIC_LOCK_EXCEPT_VERSION
+    //  - EXCEPT_VERSION_ID
+    //  - EXCEPT_VERSION_NAME
+    //  - VERSION_NO
     // WHITE_READ_ONLY
     //  - READ_ONLY_ID
     //  - READ_ONLY_NAME

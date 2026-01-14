@@ -1,0 +1,25 @@
+map:{
+    ; 2026/01/13 16:09:19.295 = map:{
+        ; diffDate = 2026/01/13 16:09:19.295
+        ; tableCount = map:{
+            ; next = 76
+            ; previous = 73
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_OPTIMISTIC_LOCK_BY_DATE = map:{
+                ; tableName = WHITE_OPTIMISTIC_LOCK_BY_DATE
+                ; diffType = ADD
+            }
+            ; WHITE_OPTIMISTIC_LOCK_BY_VERSION = map:{
+                ; tableName = WHITE_OPTIMISTIC_LOCK_BY_VERSION
+                ; diffType = ADD
+            }
+            ; WHITE_OPTIMISTIC_LOCK_EXCEPT_VERSION = map:{
+                ; tableName = WHITE_OPTIMISTIC_LOCK_EXCEPT_VERSION
+                ; diffType = ADD
+            }
+        }
+    }
+}

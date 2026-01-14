@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (会員フォローイング)MEMBER_FOLLOWING as TABLE.
+ * The flex DTO of MEMBER_FOLLOWING as TABLE.
  * <pre>
  * [primary-key]
  *     MEMBER_FOLLOWING_ID

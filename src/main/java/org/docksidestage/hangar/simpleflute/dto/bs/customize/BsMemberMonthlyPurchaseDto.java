@@ -69,11 +69,11 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
+    /** MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
     @JsonKey
     protected Integer _memberId;
 
-    /** (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
+    /** MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
     @JsonKey
     protected String _memberName;
 
@@ -89,7 +89,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     @JsonKey
     protected Integer _purchasePriceMax;
 
-    /** (サービスポイント数)SERVICE_POINT_COUNT: {INTEGER(10), refers to MEMBER_SERVICE.SERVICE_POINT_COUNT} */
+    /** SERVICE_POINT_COUNT: {INTEGER(10), refers to MEMBER_SERVICE.SERVICE_POINT_COUNT} */
     @JsonKey
     protected Integer _servicePointCount;
 
@@ -186,8 +186,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。<br>
+     * [get] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * // grouping item
      * @return The value of the column 'MEMBER_ID'. (NullAllowed)
      */
@@ -196,8 +195,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。<br>
+     * [set] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * // grouping item
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed)
      */
@@ -207,9 +205,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。<br>
+     * [get] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * // non grouping item (1:1 data) is allowed on H2 database
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
@@ -218,9 +214,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。<br>
+     * [set] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * // non grouping item (1:1 data) is allowed on H2 database
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed)
      */
@@ -289,8 +283,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     }
 
     /**
-     * [get] (サービスポイント数)SERVICE_POINT_COUNT: {INTEGER(10), refers to MEMBER_SERVICE.SERVICE_POINT_COUNT} <br>
-     * 購入したら増えて使ったら減る。<br>
+     * [get] SERVICE_POINT_COUNT: {INTEGER(10), refers to MEMBER_SERVICE.SERVICE_POINT_COUNT} <br>
      * // non grouping item (relationship 1:1 data) is allowed on H2 database
      * @return The value of the column 'SERVICE_POINT_COUNT'. (NullAllowed)
      */
@@ -299,8 +292,7 @@ public abstract class BsMemberMonthlyPurchaseDto implements Serializable {
     }
 
     /**
-     * [set] (サービスポイント数)SERVICE_POINT_COUNT: {INTEGER(10), refers to MEMBER_SERVICE.SERVICE_POINT_COUNT} <br>
-     * 購入したら増えて使ったら減る。<br>
+     * [set] SERVICE_POINT_COUNT: {INTEGER(10), refers to MEMBER_SERVICE.SERVICE_POINT_COUNT} <br>
      * // non grouping item (relationship 1:1 data) is allowed on H2 database
      * @param servicePointCount The value of the column 'SERVICE_POINT_COUNT'. (NullAllowed)
      */

@@ -100,8 +100,7 @@ public class BsPagingWithCursorMemberCursor implements CursorAccessor {
     //                                                                  Type Safe Accessor
     //                                                                  ==================
     /**
-     * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [get] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @return The value of memberId. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
@@ -110,9 +109,7 @@ public class BsPagingWithCursorMemberCursor implements CursorAccessor {
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。<br>
+     * [get] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * // member's name
      * @return The value of memberName. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
@@ -132,9 +129,7 @@ public class BsPagingWithCursorMemberCursor implements CursorAccessor {
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
-     * 表示用の名称。<br>
-     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。<br>
+     * [get] MEMBER_STATUS_NAME: {VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
      * // member's status
      * @return The value of memberStatusName. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.

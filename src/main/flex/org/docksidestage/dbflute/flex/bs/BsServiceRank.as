@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (サービスランク)SERVICE_RANK as TABLE.
+ * The flex DTO of SERVICE_RANK as TABLE.
  * <pre>
  * [primary-key]
  *     SERVICE_RANK_CODE

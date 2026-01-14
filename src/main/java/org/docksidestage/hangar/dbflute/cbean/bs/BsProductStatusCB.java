@@ -100,7 +100,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param productStatusCode (商品ステータスコード): PK, NotNull, CHAR(3), classification=ProductStatus. (NotNull)
+     * @param productStatusCode : PK, NotNull, CHAR(3), classification=ProductStatus. (NotNull)
      * @return this. (NotNull)
      */
     public ProductStatusCB acceptPK(CDef.ProductStatus productStatusCode) {
@@ -112,7 +112,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param displayOrder (表示順): UQ, NotNull, INTEGER(10). (NotNull)
+     * @param displayOrder : UQ, NotNull, INTEGER(10). (NotNull)
      * @return this. (NotNull)
      */
     public ProductStatusCB acceptUniqueOf(Integer displayOrder) {
@@ -315,17 +315,17 @@ public class BsProductStatusCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (商品ステータスコード)PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus}
+         * PRODUCT_STATUS_CODE: {PK, NotNull, CHAR(3), classification=ProductStatus}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
         /**
-         * (商品ステータス名称)PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
+         * PRODUCT_STATUS_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusName() { return doColumn("PRODUCT_STATUS_NAME"); }
         /**
-         * (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)}
+         * DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }

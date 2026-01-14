@@ -38,10 +38,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of (会員住所情報)MEMBER_ADDRESS as TABLE. <br>
- * 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br>
- * 会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！<br>
- * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0..1" である。
+ * The DTO mapper of MEMBER_ADDRESS as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MEMBER_ADDRESS_ID

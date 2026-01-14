@@ -44,7 +44,7 @@ public class MemberWithdrawalNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
      */
     public void withWithdrawalReason() {
         _query.xdoNss(() -> _query.queryWithdrawalReason());

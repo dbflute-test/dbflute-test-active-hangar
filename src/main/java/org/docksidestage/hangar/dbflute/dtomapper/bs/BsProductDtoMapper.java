@@ -39,7 +39,6 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
  * The DTO mapper of (眠い商品)PRODUCT as TABLE. <br>
- * 商品:
  * <pre>
  * [primary-key]
  *     PRODUCT_ID

@@ -23,8 +23,7 @@ import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of (サービスランク)SERVICE_RANK as TABLE. <br>
- * 会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)
+ * The simple DTO of SERVICE_RANK as TABLE. <br>
  * <pre>
  * [primary-key]
  *     SERVICE_RANK_CODE
@@ -70,27 +69,27 @@ public abstract class BsServiceRankDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank} */
+    /** SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank} */
     @JsonKey
     protected String _serviceRankCode;
 
-    /** (サービスランク名称)SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} */
+    /** SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} */
     @JsonKey
     protected String _serviceRankName;
 
-    /** (サービスポイント発生率)SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} */
+    /** SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} */
     @JsonKey
     protected java.math.BigDecimal _servicePointIncidence;
 
-    /** (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg} */
+    /** NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg} */
     @JsonKey
     protected Integer _newAcceptableFlg;
 
-    /** (説明)DESCRIPTION: {NotNull, VARCHAR(200)} */
+    /** DESCRIPTION: {NotNull, VARCHAR(200)} */
     @JsonKey
     protected String _description;
 
-    /** (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} */
+    /** DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} */
     @JsonKey
     protected Integer _displayOrder;
 
@@ -368,8 +367,7 @@ public abstract class BsServiceRankDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank} <br>
-     * サービスランクを識別するコード。
+     * [get] SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank} <br>
      * @return The value of the column 'SERVICE_RANK_CODE'. (NullAllowed)
      */
     public String getServiceRankCode() {
@@ -377,8 +375,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [set] (サービスランクコード)SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank} <br>
-     * サービスランクを識別するコード。
+     * [set] SERVICE_RANK_CODE: {PK, NotNull, CHAR(3), classification=ServiceRank} <br>
      * @param serviceRankCode The value of the column 'SERVICE_RANK_CODE'. (NullAllowed)
      */
     public void setServiceRankCode(String serviceRankCode) {
@@ -387,9 +384,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [get] (サービスランク名称)SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br>
-     * サービスランクの名称。<br>
-     * ゴールドとかプラチナとか基本的には威厳のある名前
+     * [get] SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'SERVICE_RANK_NAME'. (NullAllowed)
      */
     public String getServiceRankName() {
@@ -397,9 +392,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [set] (サービスランク名称)SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br>
-     * サービスランクの名称。<br>
-     * ゴールドとかプラチナとか基本的には威厳のある名前
+     * [set] SERVICE_RANK_NAME: {NotNull, VARCHAR(50)} <br>
      * @param serviceRankName The value of the column 'SERVICE_RANK_NAME'. (NullAllowed)
      */
     public void setServiceRankName(String serviceRankName) {
@@ -408,9 +401,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [get] (サービスポイント発生率)SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} <br>
-     * 購入ごとのサービスポイントの発生率。<br>
-     * 購入価格にこの値をかけた数が発生ポイント。ExampleDBとして数少ない貴重な小数点ありのカラム。
+     * [get] SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} <br>
      * @return The value of the column 'SERVICE_POINT_INCIDENCE'. (NullAllowed)
      */
     public java.math.BigDecimal getServicePointIncidence() {
@@ -418,9 +409,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [set] (サービスポイント発生率)SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} <br>
-     * 購入ごとのサービスポイントの発生率。<br>
-     * 購入価格にこの値をかけた数が発生ポイント。ExampleDBとして数少ない貴重な小数点ありのカラム。
+     * [set] SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)} <br>
      * @param servicePointIncidence The value of the column 'SERVICE_POINT_INCIDENCE'. (NullAllowed)
      */
     public void setServicePointIncidence(java.math.BigDecimal servicePointIncidence) {
@@ -429,8 +418,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [get] (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg} <br>
-     * このランクへの新規受け入れができるかどうか。
+     * [get] NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg} <br>
      * @return The value of the column 'NEW_ACCEPTABLE_FLG'. (NullAllowed)
      */
     public Integer getNewAcceptableFlg() {
@@ -438,8 +426,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [set] (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg} <br>
-     * このランクへの新規受け入れができるかどうか。
+     * [set] NEW_ACCEPTABLE_FLG: {NotNull, INTEGER(10), classification=Flg} <br>
      * @param newAcceptableFlg The value of the column 'NEW_ACCEPTABLE_FLG'. (NullAllowed)
      */
     public void setNewAcceptableFlg(Integer newAcceptableFlg) {
@@ -448,8 +435,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [get] (説明)DESCRIPTION: {NotNull, VARCHAR(200)} <br>
-     * ランクに関する業務的な説明。
+     * [get] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'DESCRIPTION'. (NullAllowed)
      */
     public String getDescription() {
@@ -457,8 +443,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [set] (説明)DESCRIPTION: {NotNull, VARCHAR(200)} <br>
-     * ランクに関する業務的な説明。
+     * [set] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * @param description The value of the column 'DESCRIPTION'. (NullAllowed)
      */
     public void setDescription(String description) {
@@ -467,8 +452,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [get] (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
-     * UI上の表示順を表現する番号。
+     * [get] DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
      * @return The value of the column 'DISPLAY_ORDER'. (NullAllowed)
      */
     public Integer getDisplayOrder() {
@@ -476,8 +460,7 @@ public abstract class BsServiceRankDto implements Serializable {
     }
 
     /**
-     * [set] (表示順)DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
-     * UI上の表示順を表現する番号。
+     * [set] DISPLAY_ORDER: {UQ, NotNull, INTEGER(10)} <br>
      * @param displayOrder The value of the column 'DISPLAY_ORDER'. (NullAllowed)
      */
     public void setDisplayOrder(Integer displayOrder) {

@@ -189,7 +189,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setWithdrawalReasonCode_Equal(String withdrawalReasonCode) {
@@ -198,7 +198,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * Equal(=). As WithdrawalReason. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
      * reason for member withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
@@ -244,7 +244,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      * @param withdrawalReasonCode The value of withdrawalReasonCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setWithdrawalReasonCode_NotEqual(String withdrawalReasonCode) {
@@ -253,7 +253,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). As WithdrawalReason. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
      * reason for member withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
@@ -299,7 +299,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      * @param withdrawalReasonCodeList The collection of withdrawalReasonCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWithdrawalReasonCode_InScope(Collection<String> withdrawalReasonCodeList) {
@@ -308,7 +308,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * InScope {in ('a', 'b')}. As WithdrawalReason. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
      * reason for member withdrawal
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
@@ -322,7 +322,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      * @param withdrawalReasonCodeList The collection of withdrawalReasonCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWithdrawalReasonCode_NotInScope(Collection<String> withdrawalReasonCodeList) {
@@ -331,7 +331,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * NotInScope {not in ('a', 'b')}. As WithdrawalReason. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason} <br>
      * reason for member withdrawal
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
@@ -345,19 +345,19 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      */
     public void setWithdrawalReasonCode_IsNull() { regWithdrawalReasonCode(CK_ISN, DOBJ); }
 
     /**
      * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      */
     public void setWithdrawalReasonCode_IsNullOrEmpty() { regWithdrawalReasonCode(CK_ISNOE, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
+     * WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to WITHDRAWAL_REASON, classification=WithdrawalReason}
      */
     public void setWithdrawalReasonCode_IsNotNull() { regWithdrawalReasonCode(CK_ISNN, DOBJ); }
 
@@ -366,7 +366,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
      * @param withdrawalReasonInputText The value of withdrawalReasonInputText as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWithdrawalReasonInputText_Equal(String withdrawalReasonInputText) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)} <br>
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)} <br>
      * <pre>e.g. setWithdrawalReasonInputText_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param withdrawalReasonInputText The value of withdrawalReasonInputText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -390,7 +390,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)} <br>
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)} <br>
      * <pre>e.g. setWithdrawalReasonInputText_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param withdrawalReasonInputText The value of withdrawalReasonInputText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -402,7 +402,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
      * @param withdrawalReasonInputText The value of withdrawalReasonInputText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -413,7 +413,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
      * @param withdrawalReasonInputText The value of withdrawalReasonInputText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -423,19 +423,19 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
      */
     public void setWithdrawalReasonInputText_IsNull() { regWithdrawalReasonInputText(CK_ISN, DOBJ); }
 
     /**
      * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
      */
     public void setWithdrawalReasonInputText_IsNullOrEmpty() { regWithdrawalReasonInputText(CK_ISNOE, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
+     * WITHDRAWAL_REASON_INPUT_TEXT: {CLOB(2147483647)}
      */
     public void setWithdrawalReasonInputText_IsNotNull() { regWithdrawalReasonInputText(CK_ISNN, DOBJ); }
 
@@ -444,7 +444,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param withdrawalDatetime The value of withdrawalDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_Equal(java.time.LocalDateTime withdrawalDatetime) {
@@ -453,7 +453,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param withdrawalDatetime The value of withdrawalDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_GreaterThan(java.time.LocalDateTime withdrawalDatetime) {
@@ -462,7 +462,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param withdrawalDatetime The value of withdrawalDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_LessThan(java.time.LocalDateTime withdrawalDatetime) {
@@ -471,7 +471,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param withdrawalDatetime The value of withdrawalDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_GreaterEqual(java.time.LocalDateTime withdrawalDatetime) {
@@ -480,7 +480,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * @param withdrawalDatetime The value of withdrawalDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWithdrawalDatetime_LessEqual(java.time.LocalDateTime withdrawalDatetime) {
@@ -490,7 +490,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * <pre>e.g. setWithdrawalDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -503,7 +503,7 @@ public abstract class AbstractBsMemberWithdrawalCQ extends AbstractConditionQuer
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (退会日時)WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
+     * WITHDRAWAL_DATETIME: {NotNull, TIMESTAMP(26, 6)}
      * <pre>e.g. setWithdrawalDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of withdrawalDatetime. (basically NotNull: if op.allowOneSide(), null allowed)

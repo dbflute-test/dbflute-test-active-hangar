@@ -100,7 +100,7 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberId (会員ID): PK, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
+     * @param memberId : PK, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
      * @return this. (NotNull)
      */
     public MemberSecurityCB acceptPK(Integer memberId) {
@@ -330,27 +330,27 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (会員ID)MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER}
+         * MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(100)}
+         * LOGIN_PASSWORD: {NotNull, VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnLoginPassword() { return doColumn("LOGIN_PASSWORD"); }
         /**
-         * (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)}
+         * REMINDER_QUESTION: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnReminderQuestion() { return doColumn("REMINDER_QUESTION"); }
         /**
-         * (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)}
+         * REMINDER_ANSWER: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnReminderAnswer() { return doColumn("REMINDER_ANSWER"); }
         /**
-         * (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INTEGER(10)}
+         * REMINDER_USE_COUNT: {NotNull, INTEGER(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnReminderUseCount() { return doColumn("REMINDER_USE_COUNT"); }

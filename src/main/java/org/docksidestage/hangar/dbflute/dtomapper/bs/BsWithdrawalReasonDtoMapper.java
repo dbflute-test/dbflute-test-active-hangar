@@ -38,8 +38,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of (退会理由)WITHDRAWAL_REASON as TABLE. <br>
- * 会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...
+ * The DTO mapper of WITHDRAWAL_REASON as TABLE. <br>
  * <pre>
  * [primary-key]
  *     WITHDRAWAL_REASON_CODE

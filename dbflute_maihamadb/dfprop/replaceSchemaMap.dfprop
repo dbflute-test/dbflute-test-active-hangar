@@ -120,8 +120,9 @@ map:{
                 ; prefix:WHITE_DEPRECATED
                 ; WHITE_GENERATE_NAME_SWITCHED
                 ; WHITE_ZONE_ARRANGE
-                ; prefix:WHITE_UNEVEN_COMMON_COLUMN_
+                ; prefix:WHITE_UNEVEN_COMMON_COLUMN
                 ; WHITE_DEFAULT_CONSTRAINT
+                ; prefix:WHITE_OPTIMISTIC_LOCK
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = 2018/05/18

@@ -100,7 +100,7 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberFollowingId (会員フォローイングID): PK, ID, NotNull, BIGINT(19). (NotNull)
+     * @param memberFollowingId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return this. (NotNull)
      */
     public MemberFollowingCB acceptPK(Long memberFollowingId) {
@@ -112,8 +112,8 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param myMemberId (わたし): UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
-     * @param yourMemberId (あなた): +UQ, IX+, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
+     * @param myMemberId : UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
+     * @param yourMemberId : +UQ, IX+, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
      * @return this. (NotNull)
      */
     public MemberFollowingCB acceptUniqueOf(Integer myMemberId, Integer yourMemberId) {
@@ -376,22 +376,22 @@ public class BsMemberFollowingCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
+         * MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberFollowingId() { return doColumn("MEMBER_FOLLOWING_ID"); }
         /**
-         * (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
+         * MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMyMemberId() { return doColumn("MY_MEMBER_ID"); }
         /**
-         * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
+         * YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnYourMemberId() { return doColumn("YOUR_MEMBER_ID"); }
         /**
-         * (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
+         * FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnFollowDatetime() { return doColumn("FOLLOW_DATETIME"); }

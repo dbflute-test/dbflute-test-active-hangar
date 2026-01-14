@@ -26,7 +26,6 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
  * The simple DTO of (眠い商品)PRODUCT as TABLE. <br>
- * 商品:
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
@@ -76,11 +75,11 @@ public abstract class BsProductDto implements Serializable {
     @JsonKey
     protected Integer _productId;
 
-    /** (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} */
+    /** PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} */
     @JsonKey
     protected String _productName;
 
-    /** (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} */
+    /** PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} */
     @JsonKey
     protected String _productHandleCode;
 
@@ -348,9 +347,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [get] (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
-     * ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。<br>
-     * 実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜
+     * [get] PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (NullAllowed)
      */
     public String getProductName() {
@@ -358,9 +355,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [set] (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
-     * ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。<br>
-     * 実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜
+     * [set] PRODUCT_NAME: {IX, NotNull, VARCHAR(50)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (NullAllowed)
      */
     public void setProductName(String productName) {
@@ -369,8 +364,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
-     * これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...
+     * [get] PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
      * @return The value of the column 'PRODUCT_HANDLE_CODE'. (NullAllowed)
      */
     public String getProductHandleCode() {
@@ -378,8 +372,7 @@ public abstract class BsProductDto implements Serializable {
     }
 
     /**
-     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
-     * これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...
+     * [set] PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
      * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (NullAllowed)
      */
     public void setProductHandleCode(String productHandleCode) {

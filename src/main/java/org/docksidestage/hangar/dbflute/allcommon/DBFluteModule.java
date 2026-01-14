@@ -383,6 +383,21 @@ public class DBFluteModule extends AbstractModule {
             bind(WhiteOnParadeRefBhv.class).toInstance(bhv);
         }
         {
+            WhiteOptimisticLockByDateBhv bhv = new WhiteOptimisticLockByDateBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteOptimisticLockByDateBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteOptimisticLockByVersionBhv bhv = new WhiteOptimisticLockByVersionBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteOptimisticLockByVersionBhv.class).toInstance(bhv);
+        }
+        {
+            WhiteOptimisticLockExceptVersionBhv bhv = new WhiteOptimisticLockExceptVersionBhv();
+            bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor); bhv.setCommonColumnAutoSetupper(per);
+            bind(WhiteOptimisticLockExceptVersionBhv.class).toInstance(bhv);
+        }
+        {
             WhiteReadOnlyBhv bhv = new WhiteReadOnlyBhv();
             bhv.setBehaviorCommandInvoker(ker); bhv.setBehaviorSelector(tor);
             bind(WhiteReadOnlyBhv.class).toInstance(bhv);

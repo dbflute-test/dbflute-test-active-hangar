@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (購入)PURCHASE as TABLE.
+ * The flex DTO of PURCHASE as TABLE.
  * <pre>
  * [primary-key]
  *     PURCHASE_ID

@@ -22,7 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員ログイン)MEMBER_LOGIN as TABLE.
+ * The referrer loader of MEMBER_LOGIN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberLogin {

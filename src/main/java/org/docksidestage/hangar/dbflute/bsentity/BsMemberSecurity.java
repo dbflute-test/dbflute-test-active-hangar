@@ -28,8 +28,7 @@ import org.docksidestage.hangar.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The entity of (会員セキュリティ情報)MEMBER_SECURITY as TABLE. <br>
- * 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある
+ * The entity of MEMBER_SECURITY as TABLE.
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -95,19 +94,19 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (会員ID)MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER} */
+    /** MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER} */
     protected Integer _memberId;
 
-    /** (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(100)} */
+    /** LOGIN_PASSWORD: {NotNull, VARCHAR(100)} */
     protected String _loginPassword;
 
-    /** (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)} */
+    /** REMINDER_QUESTION: {NotNull, VARCHAR(50)} */
     protected String _reminderQuestion;
 
-    /** (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)} */
+    /** REMINDER_ANSWER: {NotNull, VARCHAR(50)} */
     protected String _reminderAnswer;
 
-    /** (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INTEGER(10)} */
+    /** REMINDER_USE_COUNT: {NotNull, INTEGER(10)} */
     protected Integer _reminderUseCount;
 
     /** (登録日時)REGISTER_DATETIME: {NotNull, TIMESTAMP(26, 6)} */
@@ -251,8 +250,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER} <br>
-     * そのまま one-to-one を構成するためのFKとなる。
+     * [get] MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -261,8 +259,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER} <br>
-     * そのまま one-to-one を構成するためのFKとなる。
+     * [set] MEMBER_ID: {PK, NotNull, INTEGER(10), FK to MEMBER} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -271,9 +268,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(100)} <br>
-     * ログイン時に利用するパスワード。<br>
-     * 本当は良くないが、Exampleなのでひとまず暗号化していない。
+     * [get] LOGIN_PASSWORD: {NotNull, VARCHAR(100)} <br>
      * @return The value of the column 'LOGIN_PASSWORD'. (basically NotNull if selected: for the constraint)
      */
     public String getLoginPassword() {
@@ -282,9 +277,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (ログインパスワード)LOGIN_PASSWORD: {NotNull, VARCHAR(100)} <br>
-     * ログイン時に利用するパスワード。<br>
-     * 本当は良くないが、Exampleなのでひとまず暗号化していない。
+     * [set] LOGIN_PASSWORD: {NotNull, VARCHAR(100)} <br>
      * @param loginPassword The value of the column 'LOGIN_PASSWORD'. (basically NotNull if update: for the constraint)
      */
     public void setLoginPassword(String loginPassword) {
@@ -293,8 +286,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)} <br>
-     * パスワードを忘れた際のリマインダ機能における質問の内容。
+     * [get] REMINDER_QUESTION: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'REMINDER_QUESTION'. (basically NotNull if selected: for the constraint)
      */
     public String getReminderQuestion() {
@@ -303,8 +295,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (リマインダ質問)REMINDER_QUESTION: {NotNull, VARCHAR(50)} <br>
-     * パスワードを忘れた際のリマインダ機能における質問の内容。
+     * [set] REMINDER_QUESTION: {NotNull, VARCHAR(50)} <br>
      * @param reminderQuestion The value of the column 'REMINDER_QUESTION'. (basically NotNull if update: for the constraint)
      */
     public void setReminderQuestion(String reminderQuestion) {
@@ -313,8 +304,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)} <br>
-     * パスワードを忘れた際のリマインダ機能における質問の答え。
+     * [get] REMINDER_ANSWER: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'REMINDER_ANSWER'. (basically NotNull if selected: for the constraint)
      */
     public String getReminderAnswer() {
@@ -323,8 +313,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (リマインダ回答)REMINDER_ANSWER: {NotNull, VARCHAR(50)} <br>
-     * パスワードを忘れた際のリマインダ機能における質問の答え。
+     * [set] REMINDER_ANSWER: {NotNull, VARCHAR(50)} <br>
      * @param reminderAnswer The value of the column 'REMINDER_ANSWER'. (basically NotNull if update: for the constraint)
      */
     public void setReminderAnswer(String reminderAnswer) {
@@ -333,9 +322,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INTEGER(10)} <br>
-     * リマインダを利用した回数。<br>
-     * これが多いと忘れっぽい会員と言えるが、そんなことを知ってもしょうがない。
+     * [get] REMINDER_USE_COUNT: {NotNull, INTEGER(10)} <br>
      * @return The value of the column 'REMINDER_USE_COUNT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getReminderUseCount() {
@@ -344,9 +331,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INTEGER(10)} <br>
-     * リマインダを利用した回数。<br>
-     * これが多いと忘れっぽい会員と言えるが、そんなことを知ってもしょうがない。
+     * [set] REMINDER_USE_COUNT: {NotNull, INTEGER(10)} <br>
      * @param reminderUseCount The value of the column 'REMINDER_USE_COUNT'. (basically NotNull if update: for the constraint)
      */
     public void setReminderUseCount(Integer reminderUseCount) {

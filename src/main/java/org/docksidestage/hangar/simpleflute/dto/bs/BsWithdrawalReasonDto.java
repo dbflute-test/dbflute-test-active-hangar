@@ -23,8 +23,7 @@ import org.docksidestage.hangar.simpleflute.HangarCDef;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of (退会理由)WITHDRAWAL_REASON as TABLE. <br>
- * 会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...
+ * The simple DTO of WITHDRAWAL_REASON as TABLE. <br>
  * <pre>
  * [primary-key]
  *     WITHDRAWAL_REASON_CODE
@@ -70,11 +69,11 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** (退会理由コード)WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3), classification=WithdrawalReason} */
+    /** WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3), classification=WithdrawalReason} */
     @JsonKey
     protected String _withdrawalReasonCode;
 
-    /** (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} */
+    /** WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} */
     @JsonKey
     protected String _withdrawalReasonText;
 
@@ -277,7 +276,7 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (退会理由コード)WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3), classification=WithdrawalReason} <br>
+     * [get] WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3), classification=WithdrawalReason} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed)
      */
     public String getWithdrawalReasonCode() {
@@ -285,7 +284,7 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
     }
 
     /**
-     * [set] (退会理由コード)WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3), classification=WithdrawalReason} <br>
+     * [set] WITHDRAWAL_REASON_CODE: {PK, NotNull, CHAR(3), classification=WithdrawalReason} <br>
      * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed)
      */
     public void setWithdrawalReasonCode(String withdrawalReasonCode) {
@@ -294,9 +293,7 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
     }
 
     /**
-     * [get] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
-     * 退会理由の内容。<br>
-     * テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。
+     * [get] WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
      * @return The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed)
      */
     public String getWithdrawalReasonText() {
@@ -304,9 +301,7 @@ public abstract class BsWithdrawalReasonDto implements Serializable {
     }
 
     /**
-     * [set] (退会理由テキスト)WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
-     * 退会理由の内容。<br>
-     * テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。
+     * [set] WITHDRAWAL_REASON_TEXT: {NotNull, CLOB(2147483647)} <br>
      * @param withdrawalReasonText The value of the column 'WITHDRAWAL_REASON_TEXT'. (NullAllowed)
      */
     public void setWithdrawalReasonText(String withdrawalReasonText) {

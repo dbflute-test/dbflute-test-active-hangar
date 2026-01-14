@@ -80,16 +80,16 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
+    /** MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
     protected Integer _memberId;
 
-    /** (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
+    /** MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
     protected String _memberName;
 
-    /** (生年月日)BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} */
+    /** BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} */
     protected java.time.LocalDate _birthdate;
 
-    /** (正式会員日時)FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} */
+    /** FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} */
     protected java.time.LocalDateTime _formalizedDatetime;
 
     /** PURCHASE_SUMMARY: {BIGINT(19)} */
@@ -190,8 +190,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [get] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
@@ -200,8 +199,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [set] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -210,9 +208,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [get] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
@@ -221,9 +217,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [set] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
@@ -232,8 +226,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
-     * 必須項目ではないので、このデータがない会員もいる。
+     * [get] BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDate getBirthdate() {
@@ -242,8 +235,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
-     * 必須項目ではないので、このデータがない会員もいる。
+     * [set] BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBirthdate(java.time.LocalDate birthdate) {
@@ -252,9 +244,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
-     * 会員が正式に確定した(正式会員になった)日時。<br>
-     * 一度確定したらもう二度と更新されないはずだ！
+     * [get] FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getFormalizedDatetime() {
@@ -263,9 +253,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     }
 
     /**
-     * [set] (正式会員日時)FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
-     * 会員が正式に確定した(正式会員になった)日時。<br>
-     * 一度確定したらもう二度と更新されないはずだ！
+     * [set] FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {

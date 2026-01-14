@@ -100,7 +100,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberAddressId (会員住所ID): PK, ID, NotNull, INTEGER(10). (NotNull)
+     * @param memberAddressId : PK, ID, NotNull, INTEGER(10). (NotNull)
      * @return this. (NotNull)
      */
     public MemberAddressCB acceptPK(Integer memberAddressId) {
@@ -112,7 +112,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param memberId (会員ID): UQ+, IX, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
+     * @param memberId : UQ+, IX, NotNull, INTEGER(10), FK to MEMBER. (NotNull)
      * @param validBeginDate (有効開始日): +UQ, NotNull, DATE(10). (NotNull)
      * @return this. (NotNull)
      */
@@ -301,7 +301,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * (地域)REGION by my REGION_ID, named 'region'.
+     * REGION by my REGION_ID, named 'region'.
      * <pre>
      * <span style="color: #0000C0">memberAddressBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Region()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -367,12 +367,12 @@ public class BsMemberAddressCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (会員住所ID)MEMBER_ADDRESS_ID: {PK, ID, NotNull, INTEGER(10)}
+         * MEMBER_ADDRESS_ID: {PK, ID, NotNull, INTEGER(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberAddressId() { return doColumn("MEMBER_ADDRESS_ID"); }
         /**
-         * (会員ID)MEMBER_ID: {UQ+, IX, NotNull, INTEGER(10), FK to MEMBER}
+         * MEMBER_ID: {UQ+, IX, NotNull, INTEGER(10), FK to MEMBER}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
@@ -382,17 +382,17 @@ public class BsMemberAddressCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnValidBeginDate() { return doColumn("VALID_BEGIN_DATE"); }
         /**
-         * (有効終了日)VALID_END_DATE: {NotNull, DATE(10)}
+         * VALID_END_DATE: {NotNull, DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnValidEndDate() { return doColumn("VALID_END_DATE"); }
         /**
-         * (住所)ADDRESS: {NotNull, VARCHAR(200)}
+         * ADDRESS: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnAddress() { return doColumn("ADDRESS"); }
         /**
-         * (地域ID)REGION_ID: {IX, NotNull, INTEGER(10), FK to REGION, classification=Region}
+         * REGION_ID: {IX, NotNull, INTEGER(10), FK to REGION, classification=Region}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegionId() { return doColumn("REGION_ID"); }
@@ -459,7 +459,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (地域)REGION by my REGION_ID, named 'region'.
+         * REGION by my REGION_ID, named 'region'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public RegionCB.HpSpecification specifyRegion() {

@@ -24,8 +24,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.docksidestage.hangar.simpleflute.dto.*;
 
 /**
- * The simple DTO of (会員フォローイング)MEMBER_FOLLOWING as TABLE. <br>
- * とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。
+ * The simple DTO of MEMBER_FOLLOWING as TABLE. <br>
  * <pre>
  * [primary-key]
  *     MEMBER_FOLLOWING_ID
@@ -71,19 +70,19 @@ public abstract class BsMemberFollowingDto implements Serializable {
     // -----------------------------------------------------
     //                                                Column
     //                                                ------
-    /** (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)} */
+    /** MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)} */
     @JsonKey
     protected Long _memberFollowingId;
 
-    /** (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} */
+    /** MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} */
     @JsonKey
     protected Integer _myMemberId;
 
-    /** (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER} */
+    /** YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER} */
     @JsonKey
     protected Integer _yourMemberId;
 
-    /** (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} */
+    /** FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _followDatetime;
 
@@ -188,8 +187,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)} <br>
-     * 連番
+     * [get] MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @return The value of the column 'MEMBER_FOLLOWING_ID'. (NullAllowed)
      */
     public Long getMemberFollowingId() {
@@ -197,8 +195,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [set] (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)} <br>
-     * 連番
+     * [set] MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)} <br>
      * @param memberFollowingId The value of the column 'MEMBER_FOLLOWING_ID'. (NullAllowed)
      */
     public void setMemberFollowingId(Long memberFollowingId) {
@@ -207,8 +204,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [get] (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
-     * 気になった人がいて...勇気を振り絞った会員のID。
+     * [get] MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
      * @return The value of the column 'MY_MEMBER_ID'. (NullAllowed)
      */
     public Integer getMyMemberId() {
@@ -216,8 +212,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [set] (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
-     * 気になった人がいて...勇気を振り絞った会員のID。
+     * [set] MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
      * @param myMemberId The value of the column 'MY_MEMBER_ID'. (NullAllowed)
      */
     public void setMyMemberId(Integer myMemberId) {
@@ -226,8 +221,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [get] (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
-     * いきなりのアクションに...ちょっと心揺らいだ会員のID。
+     * [get] YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
      * @return The value of the column 'YOUR_MEMBER_ID'. (NullAllowed)
      */
     public Integer getYourMemberId() {
@@ -235,8 +229,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [set] (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
-     * いきなりのアクションに...ちょっと心揺らいだ会員のID。
+     * [set] YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER} <br>
      * @param yourMemberId The value of the column 'YOUR_MEMBER_ID'. (NullAllowed)
      */
     public void setYourMemberId(Integer yourMemberId) {
@@ -245,8 +238,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [get] (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} <br>
-     * ふりかえるとちょっと恥ずかしい気持ちになる日時
+     * [get] FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} <br>
      * @return The value of the column 'FOLLOW_DATETIME'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
@@ -256,8 +248,7 @@ public abstract class BsMemberFollowingDto implements Serializable {
     }
 
     /**
-     * [set] (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} <br>
-     * ふりかえるとちょっと恥ずかしい気持ちになる日時
+     * [set] FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)} <br>
      * @param followDatetime The value of the column 'FOLLOW_DATETIME'. (NullAllowed)
      */
     public void setFollowDatetime(java.time.LocalDateTime followDatetime) {

@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (退会理由)WITHDRAWAL_REASON as TABLE.
+ * The flex DTO of WITHDRAWAL_REASON as TABLE.
  * <pre>
  * [primary-key]
  *     WITHDRAWAL_REASON_CODE

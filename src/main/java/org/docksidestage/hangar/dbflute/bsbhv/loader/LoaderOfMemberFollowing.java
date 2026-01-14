@@ -22,7 +22,7 @@ import org.docksidestage.hangar.dbflute.exbhv.*;
 import org.docksidestage.hangar.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員フォローイング)MEMBER_FOLLOWING as TABLE.
+ * The referrer loader of MEMBER_FOLLOWING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberFollowing {

@@ -67,13 +67,13 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     /** The option of like-search for normalLikeSearchOption. */
     protected LikeSearchOption _normalLikeSearchOptionInternalLikeSearchOption;
 
-    /** The parameter of basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}. */
+    /** The parameter of basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}. */
     protected String _basicCls;
 
     /** The parameter of fixedCls:cls(MemberStatus.Withdrawal). */
     protected String _fixedCls = CDef.MemberStatus.Withdrawal.code();
 
-    /** The parameter of memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}. */
+    /** The parameter of memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}. */
     protected String _memberStatusCode;
 
     /** The parameter of normalDate. */
@@ -100,7 +100,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     /** The parameter of fixedClsPluralList:cls(MemberStatus.Formalized, Withdrawal). */
     protected List<String> _fixedClsPluralList = newArrayList(CDef.MemberStatus.Formalized.code(), CDef.MemberStatus.Withdrawal.code());
 
-    /** The parameter of memberStatusCodeList:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}. */
+    /** The parameter of memberStatusCodeList:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}. */
     protected List<org.docksidestage.hangar.dbflute.allcommon.CDef.MemberStatus> _memberStatusCodeList;
 
     /** The parameter of forCommentBasic:likePrefix. */
@@ -444,7 +444,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [get] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [get] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * // second option test
      * @return The value of basicCls. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
@@ -455,7 +455,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as MemberStatus] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as MemberStatus] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
      */
@@ -464,7 +464,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as Formalized] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as Formalized] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * // second option test <br>
      * as formal member, allowed to use all service
      */
@@ -473,7 +473,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as Withdrawal] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as Withdrawal] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * // second option test <br>
      * withdrawal is fixed, not allowed to use service
      */
@@ -482,7 +482,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as Provisional] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as Provisional] basicCls:cls(MemberStatus)|ref(MEMBER.MEMBER_STATUS_CODE) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * // second option test <br>
      * first status after entry, allowed to use only part of service
      */
@@ -500,7 +500,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [get] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [get] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @return The value of memberStatusCode. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberStatusCode() {
@@ -510,7 +510,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as MemberStatus] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as MemberStatus] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
      */
@@ -519,7 +519,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as Formalized] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as Formalized] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * as formal member, allowed to use all service
      */
     public void setMemberStatusCode_Formalized() {
@@ -527,7 +527,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as Withdrawal] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as Withdrawal] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * withdrawal is fixed, not allowed to use service
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -535,7 +535,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set as Provisional] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set as Provisional] memberStatusCode:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * first status after entry, allowed to use only part of service
      */
     public void setMemberStatusCode_Provisional() {
@@ -655,7 +655,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [get] memberStatusCodeList:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [get] memberStatusCodeList:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @return The value of memberStatusCodeList. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<org.docksidestage.hangar.dbflute.allcommon.CDef.MemberStatus> getMemberStatusCodeList() {
@@ -663,7 +663,7 @@ public abstract class BsParameterAutoDetectPmb implements ExecuteHandlingPmb<Mem
     }
 
     /**
-     * [set] memberStatusCodeList:cls(MemberStatus)|ref(MEMBER) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
+     * [set] memberStatusCodeList:cls(MemberStatus)|ref(MEMBER) :: refers to MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus} <br>
      * @param memberStatusCodeList The value of memberStatusCodeList. (NullAllowed)
      */
     public void setMemberStatusCodeList(List<org.docksidestage.hangar.dbflute.allcommon.CDef.MemberStatus> memberStatusCodeList) {

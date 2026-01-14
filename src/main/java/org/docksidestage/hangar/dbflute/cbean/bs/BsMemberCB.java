@@ -100,7 +100,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberId (会員ID): PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS. (NotNull)
+     * @param memberId : PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS. (NotNull)
      * @return this. (NotNull)
      */
     public MemberCB acceptPK(Integer memberId) {
@@ -112,7 +112,7 @@ public class BsMemberCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param memberAccount (会員アカウント): UQ, NotNull, VARCHAR(50). (NotNull)
+     * @param memberAccount : UQ, NotNull, VARCHAR(50). (NotNull)
      * @return this. (NotNull)
      */
     public MemberCB acceptUniqueOf(String memberAccount) {
@@ -271,7 +271,7 @@ public class BsMemberCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
+     * MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -296,7 +296,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
+     * MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberAddressAsValid(targetDate)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -323,7 +323,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+     * MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberServiceWithIfComment(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -350,7 +350,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員セキュリティ情報)MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
+     * MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberSecurityAsOne(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -376,7 +376,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員サービス)MEMBER_SERVICE by MEMBER_ID, named 'memberServiceAsOne'.
+     * MEMBER_SERVICE by MEMBER_ID, named 'memberServiceAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberServiceAsOne(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -402,7 +402,7 @@ public class BsMemberCB extends AbstractConditionBean {
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (会員退会情報)MEMBER_WITHDRAWAL by MEMBER_ID, named 'memberWithdrawalAsOne'.
+     * MEMBER_WITHDRAWAL by MEMBER_ID, named 'memberWithdrawalAsOne'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberWithdrawalAsOne(serviceRank)</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
@@ -473,7 +473,7 @@ public class BsMemberCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (会員ID)MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS}
+         * MEMBER_ID: {PK, ID, NotNull, INTEGER(10), FK to MEMBER_ADDRESS}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
@@ -483,22 +483,22 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
         /**
-         * (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
+         * MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberAccount() { return doColumn("MEMBER_ACCOUNT"); }
         /**
-         * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}
+         * MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to MEMBER_STATUS, classification=MemberStatus}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
         /**
-         * (正式会員日時)FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)}
+         * FORMALIZED_DATETIME: {IX, TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnFormalizedDatetime() { return doColumn("FORMALIZED_DATETIME"); }
         /**
-         * (生年月日)BIRTHDATE: {DATE(10)}
+         * BIRTHDATE: {DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnBirthdate() { return doColumn("BIRTHDATE"); }
@@ -508,7 +508,7 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)}
+         * REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
@@ -518,12 +518,12 @@ public class BsMemberCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+         * UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         /**
-         * (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)}
+         * VERSION_NO: {NotNull, BIGINT(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
@@ -541,7 +541,7 @@ public class BsMemberCB extends AbstractConditionBean {
         protected String getTableDbName() { return "MEMBER"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
+         * MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberStatusCB.HpSpecification specifyMemberStatus() {
@@ -561,7 +561,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
+         * MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -582,7 +582,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員住所情報)MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
+         * MEMBER_ADDRESS by my MEMBER_ID, named 'memberAddressAsValid'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberAddressCB.HpSpecification specifyMemberAddressAsValid() {
@@ -602,7 +602,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+         * MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
          * @param serviceRank The bind parameter of fixed condition for serviceRank. (might be NullAllowed: IF comment exists in the fixed condition)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
@@ -623,7 +623,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員サービス)MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
+         * MEMBER_SERVICE by my MEMBER_ID, named 'memberServiceWithIfComment'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberServiceCB.HpSpecification specifyMemberServiceWithIfComment() {
@@ -643,7 +643,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員セキュリティ情報)MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
+         * MEMBER_SECURITY by MEMBER_ID, named 'memberSecurityAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberSecurityCB.HpSpecification specifyMemberSecurityAsOne() {
@@ -663,7 +663,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員サービス)MEMBER_SERVICE by MEMBER_ID, named 'memberServiceAsOne'.
+         * MEMBER_SERVICE by MEMBER_ID, named 'memberServiceAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberServiceCB.HpSpecification specifyMemberServiceAsOne() {
@@ -683,7 +683,7 @@ public class BsMemberCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員退会情報)MEMBER_WITHDRAWAL by MEMBER_ID, named 'memberWithdrawalAsOne'.
+         * MEMBER_WITHDRAWAL by MEMBER_ID, named 'memberWithdrawalAsOne'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
         public MemberWithdrawalCB.HpSpecification specifyMemberWithdrawalAsOne() {
@@ -704,7 +704,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from MEMBER_ADDRESS where ...) as FOO_MAX} <br>
-         * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
+         * MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     addressCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -721,7 +721,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from MEMBER_FOLLOWING where ...) as FOO_MAX} <br>
-         * (会員フォローイング)MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
+         * MEMBER_FOLLOWING by MY_MEMBER_ID, named 'memberFollowingByMyMemberIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(followingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     followingCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -738,7 +738,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from MEMBER_FOLLOWING where ...) as FOO_MAX} <br>
-         * (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
+         * MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(followingCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     followingCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -755,7 +755,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from MEMBER_LOGIN where ...) as FOO_MAX} <br>
-         * (会員ログイン)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
+         * MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     loginCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
@@ -772,7 +772,7 @@ public class BsMemberCB extends AbstractConditionBean {
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
          * {select max(FOO) from PURCHASE where ...) as FOO_MAX} <br>
-         * (購入)PURCHASE by MEMBER_ID, named 'purchaseList'.
+         * PURCHASE by MEMBER_ID, named 'purchaseList'.
          * <pre>
          * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
          *     purchaseCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>

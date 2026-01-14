@@ -270,16 +270,20 @@ map:{
     # o optimisticLockMap: (NotRequired - Default map:{})
     #  The definition for optimistic lock of DBFlute.
     #
-    #; optimisticLockMap = map:{
-    #    # o updateDateFieldName: (NotRequired - Default '')
-    #    ; updateDateFieldName = UPDATE_DATE
-    #
-    #    # o versionNoFieldName: (NotRequired - Default 'VERSION_NO')
-    #    #  The column name of version no for optimistic lock.
-    #    #  Basically you don't need this if your tables have the column 'VERSION_NO'.
-    #    #  because the default value is 'VERSION_NO'.
-    #    ; versionNoFieldName = VERSION_NO
-    #}
+    # test of specified optimistic lock column
+    ; optimisticLockMap = map:{
+        # o updateDateFieldName: (NotRequired - Default '')
+        ; updateDateFieldName = UPDATE_DATE
+
+        # o versionNoFieldName: (NotRequired - Default 'VERSION_NO')
+        #  The column name of version no for optimistic lock.
+        #  Basically you don't need this if your tables have the column 'VERSION_NO'.
+        #  because the default value is 'VERSION_NO'.
+        ; versionNoFieldName = VERSION_NO
+
+        # test of except table for versionNo
+        ; versionNoTableExceptList = list:{ WHITE_OPTIMISTIC_LOCK_EXCEPT_VERSION }
+    }
     # - - - - - - - - - -/
 }
 # ----------------/

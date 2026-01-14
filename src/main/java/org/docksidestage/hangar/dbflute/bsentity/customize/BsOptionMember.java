@@ -89,25 +89,25 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
+    /** MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} */
     protected Integer _memberId;
 
-    /** (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
+    /** MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} */
     protected String _memberName;
 
-    /** (生年月日)BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} */
+    /** BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} */
     protected java.time.LocalDate _birthdate;
 
-    /** (正式会員日時)FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} */
+    /** FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} */
     protected java.time.LocalDateTime _formalizedDatetime;
 
-    /** (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} */
+    /** MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} */
     protected String _memberStatusCode;
 
-    /** (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} */
+    /** MEMBER_STATUS_NAME: {NotNull, VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} */
     protected String _memberStatusName;
 
-    /** (表示順)STATUS_DISPLAY_ORDER: {INTEGER(10), refers to MEMBER_STATUS.DISPLAY_ORDER} */
+    /** STATUS_DISPLAY_ORDER: {INTEGER(10), refers to MEMBER_STATUS.DISPLAY_ORDER} */
     protected Integer _statusDisplayOrder;
 
     /** DUMMY_FLG: {INTEGER(10), classification=Flg} */
@@ -142,7 +142,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     //                                                             =======================
     /**
      * Get the value of memberStatusCode as the classification of MemberStatus. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
+     * MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -153,7 +153,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
 
     /**
      * Set the value of memberStatusCode as the classification of MemberStatus. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
+     * MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -430,8 +430,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [get] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
@@ -440,8 +439,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
-     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
+     * [set] MEMBER_ID: {INTEGER(10), refers to MEMBER.MEMBER_ID} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -450,9 +448,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [get] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
@@ -461,9 +457,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。<br>
-     * 苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。
+     * [set] MEMBER_NAME: {VARCHAR(200), refers to MEMBER.MEMBER_NAME} <br>
      * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
@@ -472,8 +466,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] (生年月日)BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
-     * 必須項目ではないので、このデータがない会員もいる。<br>
+     * [get] BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
      * // select column comment here (no as)
      * @return The value of the column 'BIRTHDATE'. (NullAllowed even if selected: for no constraint)
      */
@@ -483,8 +476,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (生年月日)BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
-     * 必須項目ではないので、このデータがない会員もいる。<br>
+     * [set] BIRTHDATE: {DATE(10), refers to MEMBER.BIRTHDATE} <br>
      * // select column comment here (no as)
      * @param birthdate The value of the column 'BIRTHDATE'. (NullAllowed: null update allowed for no constraint)
      */
@@ -494,9 +486,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] (正式会員日時)FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
-     * 会員が正式に確定した(正式会員になった)日時。<br>
-     * 一度確定したらもう二度と更新されないはずだ！<br>
+     * [get] FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
      * // select column comment here (using as)
      * @return The value of the column 'FORMALIZED_DATETIME'. (NullAllowed even if selected: for no constraint)
      */
@@ -506,9 +496,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (正式会員日時)FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
-     * 会員が正式に確定した(正式会員になった)日時。<br>
-     * 一度確定したらもう二度と更新されないはずだ！<br>
+     * [set] FORMALIZED_DATETIME: {TIMESTAMP(26, 6), refers to MEMBER.FORMALIZED_DATETIME} <br>
      * // select column comment here (using as)
      * @param formalizedDatetime The value of the column 'FORMALIZED_DATETIME'. (NullAllowed: null update allowed for no constraint)
      */
@@ -518,9 +506,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
-     * 会員ステータスを参照するコード。<br>
-     * ステータスが変わるたびに、このカラムが更新される。
+     * [get] MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * @return The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
@@ -529,9 +515,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (会員ステータスコード)MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
-     * 会員ステータスを参照するコード。<br>
-     * ステータスが変わるたびに、このカラムが更新される。
+     * [set] MEMBER_STATUS_CODE: {CHAR(3), refers to MEMBER.MEMBER_STATUS_CODE, classification=MemberStatus} <br>
      * @param memberStatusCode The value of the column 'MEMBER_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setMemberStatusCode(String memberStatusCode) {
@@ -541,9 +525,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
-     * 表示用の名称。<br>
-     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。<br>
+     * [get] MEMBER_STATUS_NAME: {NotNull, VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
      * // *select column required test
      * @return The value of the column 'MEMBER_STATUS_NAME'. (basically NotNull if selected: for the constraint)
      */
@@ -553,9 +535,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
-     * 表示用の名称。<br>
-     * 国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。<br>
+     * [set] MEMBER_STATUS_NAME: {NotNull, VARCHAR(50), refers to MEMBER_STATUS.MEMBER_STATUS_NAME} <br>
      * // *select column required test
      * @param memberStatusName The value of the column 'MEMBER_STATUS_NAME'. (basically NotNull if update: for the constraint)
      */
@@ -565,9 +545,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] (表示順)STATUS_DISPLAY_ORDER: {INTEGER(10), refers to MEMBER_STATUS.DISPLAY_ORDER} <br>
-     * UI上のステータスの表示順を示すNO。<br>
-     * 並べるときは、このカラムに対して昇順のソート条件にする。
+     * [get] STATUS_DISPLAY_ORDER: {INTEGER(10), refers to MEMBER_STATUS.DISPLAY_ORDER} <br>
      * @return The value of the column 'STATUS_DISPLAY_ORDER'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getStatusDisplayOrder() {
@@ -576,9 +554,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] (表示順)STATUS_DISPLAY_ORDER: {INTEGER(10), refers to MEMBER_STATUS.DISPLAY_ORDER} <br>
-     * UI上のステータスの表示順を示すNO。<br>
-     * 並べるときは、このカラムに対して昇順のソート条件にする。
+     * [set] STATUS_DISPLAY_ORDER: {INTEGER(10), refers to MEMBER_STATUS.DISPLAY_ORDER} <br>
      * @param statusDisplayOrder The value of the column 'STATUS_DISPLAY_ORDER'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStatusDisplayOrder(Integer statusDisplayOrder) {

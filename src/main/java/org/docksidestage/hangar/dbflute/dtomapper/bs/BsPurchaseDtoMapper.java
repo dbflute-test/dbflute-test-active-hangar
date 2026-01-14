@@ -38,9 +38,7 @@ import org.docksidestage.hangar.simpleflute.dto.*;
 import org.docksidestage.hangar.dbflute.dtomapper.*;
 
 /**
- * The DTO mapper of (購入)PURCHASE as TABLE. <br>
- * 一つの商品に対する購入を表現する(購入履歴とも言える)。<br>
- * 実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。
+ * The DTO mapper of PURCHASE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     PURCHASE_ID

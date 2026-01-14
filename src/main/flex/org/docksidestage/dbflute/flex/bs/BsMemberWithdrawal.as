@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (会員退会情報)MEMBER_WITHDRAWAL as TABLE.
+ * The flex DTO of MEMBER_WITHDRAWAL as TABLE.
  * <pre>
  * [primary-key]
  *     MEMBER_ID

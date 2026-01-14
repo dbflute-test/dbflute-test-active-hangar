@@ -44,7 +44,7 @@ public class MemberAddressNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (地域)REGION by my REGION_ID, named 'region'.
+     * REGION by my REGION_ID, named 'region'.
      */
     public void withRegion() {
         _query.xdoNss(() -> _query.queryRegion());

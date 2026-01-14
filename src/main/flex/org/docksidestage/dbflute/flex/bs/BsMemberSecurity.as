@@ -20,7 +20,7 @@ import mx.collections.ArrayCollection;
 import org.docksidestage.dbflute.flex.ex.*;
 
 /**
- * The flex DTO of (会員セキュリティ情報)MEMBER_SECURITY as TABLE.
+ * The flex DTO of MEMBER_SECURITY as TABLE.
  * <pre>
  * [primary-key]
  *     MEMBER_ID

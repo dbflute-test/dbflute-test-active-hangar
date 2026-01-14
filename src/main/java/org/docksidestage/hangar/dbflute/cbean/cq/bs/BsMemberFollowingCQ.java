@@ -96,14 +96,14 @@ public class BsMemberFollowingCQ extends AbstractBsMemberFollowingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
+     * MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_MemberFollowingId_Asc() { regOBA("MEMBER_FOLLOWING_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
+     * MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_MemberFollowingId_Desc() { regOBD("MEMBER_FOLLOWING_ID"); return this; }
@@ -116,14 +116,14 @@ public class BsMemberFollowingCQ extends AbstractBsMemberFollowingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_MyMemberId_Asc() { regOBA("MY_MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (わたし)MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * MY_MEMBER_ID: {UQ+, IX+, NotNull, INTEGER(10), FK to MEMBER}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_MyMemberId_Desc() { regOBD("MY_MEMBER_ID"); return this; }
@@ -136,14 +136,14 @@ public class BsMemberFollowingCQ extends AbstractBsMemberFollowingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_YourMemberId_Asc() { regOBA("YOUR_MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
+     * YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INTEGER(10), FK to MEMBER}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_YourMemberId_Desc() { regOBD("YOUR_MEMBER_ID"); return this; }
@@ -156,14 +156,14 @@ public class BsMemberFollowingCQ extends AbstractBsMemberFollowingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
+     * FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_FollowDatetime_Asc() { regOBA("FOLLOW_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (その瞬間)FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
+     * FOLLOW_DATETIME: {IX, NotNull, TIMESTAMP(26, 6)}
      * @return this. (NotNull)
      */
     public BsMemberFollowingCQ addOrderBy_FollowDatetime_Desc() { regOBD("FOLLOW_DATETIME"); return this; }
