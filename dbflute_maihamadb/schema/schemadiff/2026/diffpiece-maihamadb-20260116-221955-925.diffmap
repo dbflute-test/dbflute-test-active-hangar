@@ -1,0 +1,31 @@
+map:{
+    ; 2026/01/16 22:19:55.925 = map:{
+        ; diffDate = 2026/01/16 22:19:55.925
+        ; tableCount = map:{
+            ; next = 77
+            ; previous = 76
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_LOADING_DATE_ADJUSTMENT = map:{
+                ; tableName = WHITE_LOADING_DATE_ADJUSTMENT
+                ; diffType = ADD
+            }
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_TIMESTAMP = map:{
+                        ; columnName = TYPE_OF_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 6
+                            ; previous = 29, 9
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

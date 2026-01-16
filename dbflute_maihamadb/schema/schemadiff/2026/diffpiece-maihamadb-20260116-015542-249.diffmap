@@ -1,0 +1,23 @@
+map:{
+    ; 2026/01/16 01:55:42.249 = map:{
+        ; diffDate = 2026/01/16 01:55:42.249
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_TIMESTAMP = map:{
+                        ; columnName = TYPE_OF_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 29, 9
+                            ; previous = 26, 6
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

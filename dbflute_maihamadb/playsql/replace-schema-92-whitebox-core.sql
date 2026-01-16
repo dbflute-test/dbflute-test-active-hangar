@@ -330,7 +330,6 @@ _/_/_/_/_/_/_/_/_/_/
 ';
 
 
-
 -- /= = = = = = = = = = = = = = = = = = = = =
 -- for the test of default constraint
 -- = = = = = = = = = =/
@@ -487,6 +486,26 @@ CREATE TABLE WHITE_READ_ONLY (
 	READ_ONLY_NAME VARCHAR(200) NOT NULL,
 	PRIMARY KEY(READ_ONLY_ID)
 );
+
+
+-- /= = = = = = = = = = = = = = = = = = = = = = = = =
+-- for the test of date adjustment for LoadData
+-- = = = = = = = = = =/
+create table WHITE_LOADING_DATE_ADJUSTMENT (
+	DATE_ADJUSTMENT_ID BIGINT NOT NULL,
+	ADJUSTED_DATE DATE COMMENT 'adjusted',
+	ADJUSTED_DATETIME DATETIME,
+	ADJUSTED_TIME TIME,
+	ADJUSTED_INTEGER INTEGER,
+	ADJUSTED_PLAIN_LONG BIGINT,
+	ADJUSTED_STRING_LONG VARCHAR(32),
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+	PRIMARY KEY (DATE_ADJUSTMENT_ID)
+) ;
+
 
 -- /= = = = = = = = = = = = = =
 -- for the test of schema diff

@@ -111,7 +111,7 @@ public class ProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, true, true, "INTEGER", 10, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_6864F3DF_2B61_42A9_8711_19C727CEA66D\"", false, null, null, null, "purchaseList,whiteDeprecatedRefList", null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, true, true, "INTEGER", 10, 0, null, "NEXT VALUE FOR \"PUBLIC\".\"SYSTEM_SEQUENCE_75F8C836_3855_4C30_B54F_BEAF4D5E2B67\"", false, null, null, null, "purchaseList,whiteDeprecatedRefList", null, false);
     protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, null, String.class, "productHandleCode", null, false, false, true, "VARCHAR", 100, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnProductCategoryCode = cci("PRODUCT_CATEGORY_CODE", "PRODUCT_CATEGORY_CODE", null, "眠い商品カテゴリーコードどん", String.class, "productCategoryCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, "眠いのも悪くない。", "productCategory", null, null, false);
