@@ -19,6 +19,12 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         ListResultBean<WhiteLoadingDateAdjustment> loadingList = dateAdjustmentBhv.selectList(cb -> {});
 
         // ## Assert ##
+        StringBuilder sb = new StringBuilder();
+        sb.append(ln());
+        for (WhiteLoadingDateAdjustment adjustment : loadingList) {
+            sb.append(adjustment).append(ln());
+        }
+        log(sb);
         confirm1st(loadingList.get(0));
         confirm2nd(loadingList.get(1));
         confirm3rd(loadingList.get(2));
@@ -29,7 +35,7 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
 
     private void confirm1st(WhiteLoadingDateAdjustment adjustment) {
         assertEquals(Long.valueOf(1), adjustment.getDateAdjustmentId());
-        String dateExp = "2026/01/16";
+        String dateExp = "2026/01/14";
         String timeExp = "21:51:23";
         int intValue = 11;
         String longExp = "1111";
@@ -47,7 +53,7 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
 
     private void confirm2nd(WhiteLoadingDateAdjustment adjustment) {
         assertEquals(Long.valueOf(2), adjustment.getDateAdjustmentId());
-        String dateExp = "2026/01/17";
+        String dateExp = "2026/01/15";
         String timeExp = "22:52:24";
         int intValue = 22;
         String longExp = "22222";
@@ -65,7 +71,7 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
 
     private void confirm3rd(WhiteLoadingDateAdjustment adjustment) {
         assertEquals(Long.valueOf(3), adjustment.getDateAdjustmentId());
-        String dateExp = "2026/01/18";
+        String dateExp = "2026/01/16";
         String timeExp = "23:53:25";
         int intValue = 33;
         String longExp = "333333";
@@ -83,7 +89,7 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
 
     private void confirm4th(WhiteLoadingDateAdjustment adjustment) {
         assertEquals(Long.valueOf(4), adjustment.getDateAdjustmentId());
-        String dateExp = "2026/01/19";
+        String dateExp = "2026/01/17";
         String timeExp = "00:54:26";
         int intValue = 44;
         String longExp = "4444444";
@@ -101,7 +107,7 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
 
     private void confirm5th(WhiteLoadingDateAdjustment adjustment) {
         assertEquals(Long.valueOf(5), adjustment.getDateAdjustmentId());
-        String dateExp = "2026/01/20";
+        String dateExp = "2026/01/18";
         String timeExp = "01:55:27";
         int intValue = 55;
         String longExp = "55555555";
