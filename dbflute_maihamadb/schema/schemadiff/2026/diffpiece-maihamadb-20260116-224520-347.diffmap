@@ -1,0 +1,43 @@
+map:{
+    ; 2026/01/16 22:45:20.347 = map:{
+        ; diffDate = 2026/01/16 22:45:20.347
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; craftDiff = map:{
+            ; ProductStatus = map:{
+                ; craftTitle = ProductStatus
+                ; craftRowDiff = map:{
+                    ; MYS = map:{
+                        ; craftKeyName = MYS
+                        ; diffType = ADD
+                    }
+                    ; ONE = map:{
+                        ; craftKeyName = ONE
+                        ; diffType = ADD
+                    }
+                    ; BBB = map:{
+                        ; craftKeyName = BBB
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; TableCls = map:{
+                ; craftTitle = TableCls
+                ; craftRowDiff = map:{
+                    ; PRODUCT_STATUS::MYS = map:{
+                        ; craftKeyName = PRODUCT_STATUS::MYS
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_STATUS::ONE = map:{
+                        ; craftKeyName = PRODUCT_STATUS::ONE
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_STATUS::BBB = map:{
+                        ; craftKeyName = PRODUCT_STATUS::BBB
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

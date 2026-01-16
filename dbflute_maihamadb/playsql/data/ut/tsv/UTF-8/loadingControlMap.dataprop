@@ -19,6 +19,17 @@ map:{
     #     ; MEMBER = map:{ BIRTHDATE = addDay(0) }
     # }
     ; dateAdjustmentMap = map:{
+         ; df:originDate = 2026/01/16
+         #; $$ALL$$ = map:{
+         #    ; $$ALL$$ = addDay($distance)
+         #}
+         ; WHITE_LOADING_DATE_ADJUSTMENT = map:{
+             ; ADJUSTED_DATE = addDay($distanceDays)
+             ; ADJUSTED_DATETIME = addDay($distanceDays)
+             # TIME unsupported for dateAdjustment
+             #; ADJUSTED_TIME = addHour($distanceDays)
+             #; REGISTER_DATETIME = addDay(-100)
+         }
     }
 
     # map:{ [table] = list:{ [column] } }
