@@ -41,7 +41,7 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  *     DATE_ADJUSTMENT_ID
  *
  * [column]
- *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATETIME, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATE_SEA, ADJUSTED_DATE_HANGAR, ADJUSTED_DATE_MYSTIC, ADJUSTED_DATETIME, ADJUSTED_DATETIME_LAND, ADJUSTED_DATETIME_SHOWBASE, ADJUSTED_DATETIME_ONEMAN, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -68,7 +68,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long dateAdjustmentId = entity.getDateAdjustmentId();
  * java.time.LocalDate adjustedDate = entity.getAdjustedDate();
+ * java.time.LocalDate adjustedDateSea = entity.getAdjustedDateSea();
+ * java.time.LocalDate adjustedDateHangar = entity.getAdjustedDateHangar();
+ * java.time.LocalDate adjustedDateMystic = entity.getAdjustedDateMystic();
  * java.time.LocalDateTime adjustedDatetime = entity.getAdjustedDatetime();
+ * java.time.LocalDateTime adjustedDatetimeLand = entity.getAdjustedDatetimeLand();
+ * java.time.LocalDateTime adjustedDatetimeShowbase = entity.getAdjustedDatetimeShowbase();
+ * java.time.LocalDateTime adjustedDatetimeOneman = entity.getAdjustedDatetimeOneman();
  * java.time.LocalTime adjustedTime = entity.getAdjustedTime();
  * Integer adjustedInteger = entity.getAdjustedInteger();
  * Long adjustedPlainLong = entity.getAdjustedPlainLong();
@@ -79,7 +85,13 @@ import org.docksidestage.hangar.dbflute.cbean.*;
  * String updateUser = entity.getUpdateUser();
  * entity.setDateAdjustmentId(dateAdjustmentId);
  * entity.setAdjustedDate(adjustedDate);
+ * entity.setAdjustedDateSea(adjustedDateSea);
+ * entity.setAdjustedDateHangar(adjustedDateHangar);
+ * entity.setAdjustedDateMystic(adjustedDateMystic);
  * entity.setAdjustedDatetime(adjustedDatetime);
+ * entity.setAdjustedDatetimeLand(adjustedDatetimeLand);
+ * entity.setAdjustedDatetimeShowbase(adjustedDatetimeShowbase);
+ * entity.setAdjustedDatetimeOneman(adjustedDatetimeOneman);
  * entity.setAdjustedTime(adjustedTime);
  * entity.setAdjustedInteger(adjustedInteger);
  * entity.setAdjustedPlainLong(adjustedPlainLong);

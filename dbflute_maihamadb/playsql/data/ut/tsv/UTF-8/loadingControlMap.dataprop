@@ -25,7 +25,13 @@ map:{
          #}
          ; WHITE_LOADING_DATE_ADJUSTMENT = map:{
              ; ADJUSTED_DATE = addDay($distanceDays)
+             ; ADJUSTED_DATE_SEA = addDay($distanceDays)
+             ; ADJUSTED_DATE_HANGAR = addDay($distanceDays)
+             ; ADJUSTED_DATE_MYSTIC = addDay($distanceDays)
              ; ADJUSTED_DATETIME = addDay($distanceDays)
+             ; ADJUSTED_DATETIME_LAND = addDay($distanceDays)
+             ; ADJUSTED_DATETIME_SHOWBASE = addDay($distanceDays)
+             ; ADJUSTED_DATETIME_ONEMAN = addDay($distanceDays)
              # TIME unsupported for dateAdjustment
              #; ADJUSTED_TIME = addHour($distanceDays)
              #; REGISTER_DATETIME = addDay(-100)

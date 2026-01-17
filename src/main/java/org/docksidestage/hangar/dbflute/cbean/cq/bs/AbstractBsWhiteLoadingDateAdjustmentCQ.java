@@ -189,7 +189,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_Equal(java.time.LocalDate adjustedDate) {
@@ -198,7 +198,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_GreaterThan(java.time.LocalDate adjustedDate) {
@@ -207,7 +207,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_LessThan(java.time.LocalDate adjustedDate) {
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_GreaterEqual(java.time.LocalDate adjustedDate) {
@@ -225,7 +225,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @param adjustedDate The value of adjustedDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_LessEqual(java.time.LocalDate adjustedDate) {
@@ -235,7 +235,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * <pre>e.g. setAdjustedDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * <pre>e.g. setAdjustedDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDate. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -261,18 +261,279 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      */
     public void setAdjustedDate_IsNull() { regAdjustedDate(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      */
     public void setAdjustedDate_IsNotNull() { regAdjustedDate(CK_ISNN, DOBJ); }
 
     protected void regAdjustedDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDate(), "ADJUSTED_DATE"); }
     protected abstract ConditionValue xgetCValueAdjustedDate();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @param adjustedDateSea The value of adjustedDateSea as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateSea_Equal(java.time.LocalDate adjustedDateSea) {
+        regAdjustedDateSea(CK_EQ,  adjustedDateSea);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @param adjustedDateSea The value of adjustedDateSea as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateSea_GreaterThan(java.time.LocalDate adjustedDateSea) {
+        regAdjustedDateSea(CK_GT,  adjustedDateSea);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @param adjustedDateSea The value of adjustedDateSea as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateSea_LessThan(java.time.LocalDate adjustedDateSea) {
+        regAdjustedDateSea(CK_LT,  adjustedDateSea);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @param adjustedDateSea The value of adjustedDateSea as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateSea_GreaterEqual(java.time.LocalDate adjustedDateSea) {
+        regAdjustedDateSea(CK_GE,  adjustedDateSea);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @param adjustedDateSea The value of adjustedDateSea as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateSea_LessEqual(java.time.LocalDate adjustedDateSea) {
+        regAdjustedDateSea(CK_LE, adjustedDateSea);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * <pre>e.g. setAdjustedDateSea_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateSea. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateSea. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setAdjustedDateSea_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setAdjustedDateSea_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * <pre>e.g. setAdjustedDateSea_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateSea. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateSea. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setAdjustedDateSea_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATE_SEA"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDateSea(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     */
+    public void setAdjustedDateSea_IsNull() { regAdjustedDateSea(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     */
+    public void setAdjustedDateSea_IsNotNull() { regAdjustedDateSea(CK_ISNN, DOBJ); }
+
+    protected void regAdjustedDateSea(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDateSea(), "ADJUSTED_DATE_SEA"); }
+    protected abstract ConditionValue xgetCValueAdjustedDateSea();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @param adjustedDateHangar The value of adjustedDateHangar as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateHangar_Equal(java.time.LocalDate adjustedDateHangar) {
+        regAdjustedDateHangar(CK_EQ,  adjustedDateHangar);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @param adjustedDateHangar The value of adjustedDateHangar as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateHangar_GreaterThan(java.time.LocalDate adjustedDateHangar) {
+        regAdjustedDateHangar(CK_GT,  adjustedDateHangar);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @param adjustedDateHangar The value of adjustedDateHangar as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateHangar_LessThan(java.time.LocalDate adjustedDateHangar) {
+        regAdjustedDateHangar(CK_LT,  adjustedDateHangar);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @param adjustedDateHangar The value of adjustedDateHangar as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateHangar_GreaterEqual(java.time.LocalDate adjustedDateHangar) {
+        regAdjustedDateHangar(CK_GE,  adjustedDateHangar);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @param adjustedDateHangar The value of adjustedDateHangar as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateHangar_LessEqual(java.time.LocalDate adjustedDateHangar) {
+        regAdjustedDateHangar(CK_LE, adjustedDateHangar);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * <pre>e.g. setAdjustedDateHangar_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateHangar. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateHangar. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setAdjustedDateHangar_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setAdjustedDateHangar_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * <pre>e.g. setAdjustedDateHangar_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateHangar. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateHangar. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setAdjustedDateHangar_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATE_HANGAR"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDateHangar(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     */
+    public void setAdjustedDateHangar_IsNull() { regAdjustedDateHangar(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     */
+    public void setAdjustedDateHangar_IsNotNull() { regAdjustedDateHangar(CK_ISNN, DOBJ); }
+
+    protected void regAdjustedDateHangar(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDateHangar(), "ADJUSTED_DATE_HANGAR"); }
+    protected abstract ConditionValue xgetCValueAdjustedDateHangar();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @param adjustedDateMystic The value of adjustedDateMystic as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateMystic_Equal(java.time.LocalDate adjustedDateMystic) {
+        regAdjustedDateMystic(CK_EQ,  adjustedDateMystic);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @param adjustedDateMystic The value of adjustedDateMystic as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateMystic_GreaterThan(java.time.LocalDate adjustedDateMystic) {
+        regAdjustedDateMystic(CK_GT,  adjustedDateMystic);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @param adjustedDateMystic The value of adjustedDateMystic as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateMystic_LessThan(java.time.LocalDate adjustedDateMystic) {
+        regAdjustedDateMystic(CK_LT,  adjustedDateMystic);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @param adjustedDateMystic The value of adjustedDateMystic as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateMystic_GreaterEqual(java.time.LocalDate adjustedDateMystic) {
+        regAdjustedDateMystic(CK_GE,  adjustedDateMystic);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @param adjustedDateMystic The value of adjustedDateMystic as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDateMystic_LessEqual(java.time.LocalDate adjustedDateMystic) {
+        regAdjustedDateMystic(CK_LE, adjustedDateMystic);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * <pre>e.g. setAdjustedDateMystic_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateMystic. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateMystic. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setAdjustedDateMystic_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setAdjustedDateMystic_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * <pre>e.g. setAdjustedDateMystic_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateMystic. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDateMystic. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setAdjustedDateMystic_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATE_MYSTIC"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDateMystic(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     */
+    public void setAdjustedDateMystic_IsNull() { regAdjustedDateMystic(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     */
+    public void setAdjustedDateMystic_IsNotNull() { regAdjustedDateMystic(CK_ISNN, DOBJ); }
+
+    protected void regAdjustedDateMystic(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDateMystic(), "ADJUSTED_DATE_MYSTIC"); }
+    protected abstract ConditionValue xgetCValueAdjustedDateMystic();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
@@ -360,6 +621,267 @@ public abstract class AbstractBsWhiteLoadingDateAdjustmentCQ extends AbstractCon
 
     protected void regAdjustedDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDatetime(), "ADJUSTED_DATETIME"); }
     protected abstract ConditionValue xgetCValueAdjustedDatetime();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeLand The value of adjustedDatetimeLand as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeLand_Equal(java.time.LocalDateTime adjustedDatetimeLand) {
+        regAdjustedDatetimeLand(CK_EQ,  adjustedDatetimeLand);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeLand The value of adjustedDatetimeLand as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeLand_GreaterThan(java.time.LocalDateTime adjustedDatetimeLand) {
+        regAdjustedDatetimeLand(CK_GT,  adjustedDatetimeLand);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeLand The value of adjustedDatetimeLand as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeLand_LessThan(java.time.LocalDateTime adjustedDatetimeLand) {
+        regAdjustedDatetimeLand(CK_LT,  adjustedDatetimeLand);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeLand The value of adjustedDatetimeLand as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeLand_GreaterEqual(java.time.LocalDateTime adjustedDatetimeLand) {
+        regAdjustedDatetimeLand(CK_GE,  adjustedDatetimeLand);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeLand The value of adjustedDatetimeLand as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeLand_LessEqual(java.time.LocalDateTime adjustedDatetimeLand) {
+        regAdjustedDatetimeLand(CK_LE, adjustedDatetimeLand);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * <pre>e.g. setAdjustedDatetimeLand_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeLand. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeLand. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setAdjustedDatetimeLand_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setAdjustedDatetimeLand_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * <pre>e.g. setAdjustedDatetimeLand_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeLand. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeLand. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setAdjustedDatetimeLand_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATETIME_LAND"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDatetimeLand(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     */
+    public void setAdjustedDatetimeLand_IsNull() { regAdjustedDatetimeLand(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     */
+    public void setAdjustedDatetimeLand_IsNotNull() { regAdjustedDatetimeLand(CK_ISNN, DOBJ); }
+
+    protected void regAdjustedDatetimeLand(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDatetimeLand(), "ADJUSTED_DATETIME_LAND"); }
+    protected abstract ConditionValue xgetCValueAdjustedDatetimeLand();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeShowbase The value of adjustedDatetimeShowbase as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeShowbase_Equal(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        regAdjustedDatetimeShowbase(CK_EQ,  adjustedDatetimeShowbase);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeShowbase The value of adjustedDatetimeShowbase as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeShowbase_GreaterThan(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        regAdjustedDatetimeShowbase(CK_GT,  adjustedDatetimeShowbase);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeShowbase The value of adjustedDatetimeShowbase as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeShowbase_LessThan(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        regAdjustedDatetimeShowbase(CK_LT,  adjustedDatetimeShowbase);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeShowbase The value of adjustedDatetimeShowbase as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeShowbase_GreaterEqual(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        regAdjustedDatetimeShowbase(CK_GE,  adjustedDatetimeShowbase);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeShowbase The value of adjustedDatetimeShowbase as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeShowbase_LessEqual(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        regAdjustedDatetimeShowbase(CK_LE, adjustedDatetimeShowbase);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * <pre>e.g. setAdjustedDatetimeShowbase_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeShowbase. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeShowbase. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setAdjustedDatetimeShowbase_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setAdjustedDatetimeShowbase_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * <pre>e.g. setAdjustedDatetimeShowbase_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeShowbase. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeShowbase. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setAdjustedDatetimeShowbase_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATETIME_SHOWBASE"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDatetimeShowbase(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     */
+    public void setAdjustedDatetimeShowbase_IsNull() { regAdjustedDatetimeShowbase(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     */
+    public void setAdjustedDatetimeShowbase_IsNotNull() { regAdjustedDatetimeShowbase(CK_ISNN, DOBJ); }
+
+    protected void regAdjustedDatetimeShowbase(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDatetimeShowbase(), "ADJUSTED_DATETIME_SHOWBASE"); }
+    protected abstract ConditionValue xgetCValueAdjustedDatetimeShowbase();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeOneman The value of adjustedDatetimeOneman as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeOneman_Equal(java.time.LocalDateTime adjustedDatetimeOneman) {
+        regAdjustedDatetimeOneman(CK_EQ,  adjustedDatetimeOneman);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeOneman The value of adjustedDatetimeOneman as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeOneman_GreaterThan(java.time.LocalDateTime adjustedDatetimeOneman) {
+        regAdjustedDatetimeOneman(CK_GT,  adjustedDatetimeOneman);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeOneman The value of adjustedDatetimeOneman as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeOneman_LessThan(java.time.LocalDateTime adjustedDatetimeOneman) {
+        regAdjustedDatetimeOneman(CK_LT,  adjustedDatetimeOneman);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeOneman The value of adjustedDatetimeOneman as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeOneman_GreaterEqual(java.time.LocalDateTime adjustedDatetimeOneman) {
+        regAdjustedDatetimeOneman(CK_GE,  adjustedDatetimeOneman);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @param adjustedDatetimeOneman The value of adjustedDatetimeOneman as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedDatetimeOneman_LessEqual(java.time.LocalDateTime adjustedDatetimeOneman) {
+        regAdjustedDatetimeOneman(CK_LE, adjustedDatetimeOneman);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * <pre>e.g. setAdjustedDatetimeOneman_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeOneman. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeOneman. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setAdjustedDatetimeOneman_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setAdjustedDatetimeOneman_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * <pre>e.g. setAdjustedDatetimeOneman_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeOneman. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of adjustedDatetimeOneman. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setAdjustedDatetimeOneman_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "ADJUSTED_DATETIME_ONEMAN"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueAdjustedDatetimeOneman(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     */
+    public void setAdjustedDatetimeOneman_IsNull() { regAdjustedDatetimeOneman(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     */
+    public void setAdjustedDatetimeOneman_IsNotNull() { regAdjustedDatetimeOneman(CK_ISNN, DOBJ); }
+
+    protected void regAdjustedDatetimeOneman(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueAdjustedDatetimeOneman(), "ADJUSTED_DATETIME_ONEMAN"); }
+    protected abstract ConditionValue xgetCValueAdjustedDatetimeOneman();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>

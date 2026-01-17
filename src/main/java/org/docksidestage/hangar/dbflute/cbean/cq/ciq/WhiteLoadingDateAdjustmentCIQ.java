@@ -78,7 +78,13 @@ public class WhiteLoadingDateAdjustmentCIQ extends AbstractBsWhiteLoadingDateAdj
     //                                                                ====================
     protected ConditionValue xgetCValueDateAdjustmentId() { return _myCQ.xdfgetDateAdjustmentId(); }
     protected ConditionValue xgetCValueAdjustedDate() { return _myCQ.xdfgetAdjustedDate(); }
+    protected ConditionValue xgetCValueAdjustedDateSea() { return _myCQ.xdfgetAdjustedDateSea(); }
+    protected ConditionValue xgetCValueAdjustedDateHangar() { return _myCQ.xdfgetAdjustedDateHangar(); }
+    protected ConditionValue xgetCValueAdjustedDateMystic() { return _myCQ.xdfgetAdjustedDateMystic(); }
     protected ConditionValue xgetCValueAdjustedDatetime() { return _myCQ.xdfgetAdjustedDatetime(); }
+    protected ConditionValue xgetCValueAdjustedDatetimeLand() { return _myCQ.xdfgetAdjustedDatetimeLand(); }
+    protected ConditionValue xgetCValueAdjustedDatetimeShowbase() { return _myCQ.xdfgetAdjustedDatetimeShowbase(); }
+    protected ConditionValue xgetCValueAdjustedDatetimeOneman() { return _myCQ.xdfgetAdjustedDatetimeOneman(); }
     protected ConditionValue xgetCValueAdjustedTime() { return _myCQ.xdfgetAdjustedTime(); }
     protected ConditionValue xgetCValueAdjustedInteger() { return _myCQ.xdfgetAdjustedInteger(); }
     protected ConditionValue xgetCValueAdjustedPlainLong() { return _myCQ.xdfgetAdjustedPlainLong(); }

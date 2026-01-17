@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  *     DATE_ADJUSTMENT_ID
  *
  * [column]
- *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATETIME, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATE_SEA, ADJUSTED_DATE_HANGAR, ADJUSTED_DATE_MYSTIC, ADJUSTED_DATETIME, ADJUSTED_DATETIME_LAND, ADJUSTED_DATETIME_SHOWBASE, ADJUSTED_DATETIME_ONEMAN, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -73,13 +73,37 @@ public abstract class BsWhiteLoadingDateAdjustmentDto implements Serializable {
     @JsonKey
     protected Long _dateAdjustmentId;
 
-    /** (adjusted)ADJUSTED_DATE: {DATE(10)} */
+    /** ADJUSTED_DATE: {DATE(10)} */
     @JsonKey
     protected java.time.LocalDate _adjustedDate;
+
+    /** ADJUSTED_DATE_SEA: {DATE(10)} */
+    @JsonKey
+    protected java.time.LocalDate _adjustedDateSea;
+
+    /** ADJUSTED_DATE_HANGAR: {DATE(10)} */
+    @JsonKey
+    protected java.time.LocalDate _adjustedDateHangar;
+
+    /** ADJUSTED_DATE_MYSTIC: {DATE(10)} */
+    @JsonKey
+    protected java.time.LocalDate _adjustedDateMystic;
 
     /** ADJUSTED_DATETIME: {TIMESTAMP(26, 6)} */
     @JsonKey
     protected java.time.LocalDateTime _adjustedDatetime;
+
+    /** ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)} */
+    @JsonKey
+    protected java.time.LocalDateTime _adjustedDatetimeLand;
+
+    /** ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)} */
+    @JsonKey
+    protected java.time.LocalDateTime _adjustedDatetimeShowbase;
+
+    /** ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)} */
+    @JsonKey
+    protected java.time.LocalDateTime _adjustedDatetimeOneman;
 
     /** ADJUSTED_TIME: {TIME(8)} */
     @JsonKey
@@ -183,7 +207,13 @@ public abstract class BsWhiteLoadingDateAdjustmentDto implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append(c).append(getDateAdjustmentId());
         sb.append(c).append(getAdjustedDate());
+        sb.append(c).append(getAdjustedDateSea());
+        sb.append(c).append(getAdjustedDateHangar());
+        sb.append(c).append(getAdjustedDateMystic());
         sb.append(c).append(getAdjustedDatetime());
+        sb.append(c).append(getAdjustedDatetimeLand());
+        sb.append(c).append(getAdjustedDatetimeShowbase());
+        sb.append(c).append(getAdjustedDatetimeOneman());
         sb.append(c).append(getAdjustedTime());
         sb.append(c).append(getAdjustedInteger());
         sb.append(c).append(getAdjustedPlainLong());
@@ -218,7 +248,7 @@ public abstract class BsWhiteLoadingDateAdjustmentDto implements Serializable {
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
+     * [get] ADJUSTED_DATE: {DATE(10)} <br>
      * @return The value of the column 'ADJUSTED_DATE'. (NullAllowed)
      */
     @JSONHint(format="yyyy-MM-dd")
@@ -228,12 +258,69 @@ public abstract class BsWhiteLoadingDateAdjustmentDto implements Serializable {
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
+     * [set] ADJUSTED_DATE: {DATE(10)} <br>
      * @param adjustedDate The value of the column 'ADJUSTED_DATE'. (NullAllowed)
      */
     public void setAdjustedDate(java.time.LocalDate adjustedDate) {
         __modifiedProperties.add("adjustedDate");
         this._adjustedDate = adjustedDate;
+    }
+
+    /**
+     * [get] ADJUSTED_DATE_SEA: {DATE(10)} <br>
+     * @return The value of the column 'ADJUSTED_DATE_SEA'. (NullAllowed)
+     */
+    @JSONHint(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    public java.time.LocalDate getAdjustedDateSea() {
+        return _adjustedDateSea;
+    }
+
+    /**
+     * [set] ADJUSTED_DATE_SEA: {DATE(10)} <br>
+     * @param adjustedDateSea The value of the column 'ADJUSTED_DATE_SEA'. (NullAllowed)
+     */
+    public void setAdjustedDateSea(java.time.LocalDate adjustedDateSea) {
+        __modifiedProperties.add("adjustedDateSea");
+        this._adjustedDateSea = adjustedDateSea;
+    }
+
+    /**
+     * [get] ADJUSTED_DATE_HANGAR: {DATE(10)} <br>
+     * @return The value of the column 'ADJUSTED_DATE_HANGAR'. (NullAllowed)
+     */
+    @JSONHint(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    public java.time.LocalDate getAdjustedDateHangar() {
+        return _adjustedDateHangar;
+    }
+
+    /**
+     * [set] ADJUSTED_DATE_HANGAR: {DATE(10)} <br>
+     * @param adjustedDateHangar The value of the column 'ADJUSTED_DATE_HANGAR'. (NullAllowed)
+     */
+    public void setAdjustedDateHangar(java.time.LocalDate adjustedDateHangar) {
+        __modifiedProperties.add("adjustedDateHangar");
+        this._adjustedDateHangar = adjustedDateHangar;
+    }
+
+    /**
+     * [get] ADJUSTED_DATE_MYSTIC: {DATE(10)} <br>
+     * @return The value of the column 'ADJUSTED_DATE_MYSTIC'. (NullAllowed)
+     */
+    @JSONHint(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    public java.time.LocalDate getAdjustedDateMystic() {
+        return _adjustedDateMystic;
+    }
+
+    /**
+     * [set] ADJUSTED_DATE_MYSTIC: {DATE(10)} <br>
+     * @param adjustedDateMystic The value of the column 'ADJUSTED_DATE_MYSTIC'. (NullAllowed)
+     */
+    public void setAdjustedDateMystic(java.time.LocalDate adjustedDateMystic) {
+        __modifiedProperties.add("adjustedDateMystic");
+        this._adjustedDateMystic = adjustedDateMystic;
     }
 
     /**
@@ -253,6 +340,63 @@ public abstract class BsWhiteLoadingDateAdjustmentDto implements Serializable {
     public void setAdjustedDatetime(java.time.LocalDateTime adjustedDatetime) {
         __modifiedProperties.add("adjustedDatetime");
         this._adjustedDatetime = adjustedDatetime;
+    }
+
+    /**
+     * [get] ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)} <br>
+     * @return The value of the column 'ADJUSTED_DATETIME_LAND'. (NullAllowed)
+     */
+    @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
+    public java.time.LocalDateTime getAdjustedDatetimeLand() {
+        return _adjustedDatetimeLand;
+    }
+
+    /**
+     * [set] ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)} <br>
+     * @param adjustedDatetimeLand The value of the column 'ADJUSTED_DATETIME_LAND'. (NullAllowed)
+     */
+    public void setAdjustedDatetimeLand(java.time.LocalDateTime adjustedDatetimeLand) {
+        __modifiedProperties.add("adjustedDatetimeLand");
+        this._adjustedDatetimeLand = adjustedDatetimeLand;
+    }
+
+    /**
+     * [get] ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)} <br>
+     * @return The value of the column 'ADJUSTED_DATETIME_SHOWBASE'. (NullAllowed)
+     */
+    @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
+    public java.time.LocalDateTime getAdjustedDatetimeShowbase() {
+        return _adjustedDatetimeShowbase;
+    }
+
+    /**
+     * [set] ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)} <br>
+     * @param adjustedDatetimeShowbase The value of the column 'ADJUSTED_DATETIME_SHOWBASE'. (NullAllowed)
+     */
+    public void setAdjustedDatetimeShowbase(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        __modifiedProperties.add("adjustedDatetimeShowbase");
+        this._adjustedDatetimeShowbase = adjustedDatetimeShowbase;
+    }
+
+    /**
+     * [get] ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)} <br>
+     * @return The value of the column 'ADJUSTED_DATETIME_ONEMAN'. (NullAllowed)
+     */
+    @JSONHint(format="yyyy-MM-dd HH:mm:ss.SSS")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
+    public java.time.LocalDateTime getAdjustedDatetimeOneman() {
+        return _adjustedDatetimeOneman;
+    }
+
+    /**
+     * [set] ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)} <br>
+     * @param adjustedDatetimeOneman The value of the column 'ADJUSTED_DATETIME_ONEMAN'. (NullAllowed)
+     */
+    public void setAdjustedDatetimeOneman(java.time.LocalDateTime adjustedDatetimeOneman) {
+        __modifiedProperties.add("adjustedDatetimeOneman");
+        this._adjustedDatetimeOneman = adjustedDatetimeOneman;
     }
 
     /**

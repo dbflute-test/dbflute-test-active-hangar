@@ -59,7 +59,13 @@ public class WhiteLoadingDateAdjustmentDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getDateAdjustmentId(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setDateAdjustmentId(ctl(vl)), "dateAdjustmentId");
         setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDate(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDate(ctld(vl)), "adjustedDate");
+        setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDateSea(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDateSea(ctld(vl)), "adjustedDateSea");
+        setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDateHangar(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDateHangar(ctld(vl)), "adjustedDateHangar");
+        setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDateMystic(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDateMystic(ctld(vl)), "adjustedDateMystic");
         setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDatetime(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDatetime(ctldt(vl)), "adjustedDatetime");
+        setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDatetimeLand(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDatetimeLand(ctldt(vl)), "adjustedDatetimeLand");
+        setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDatetimeShowbase(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDatetimeShowbase(ctldt(vl)), "adjustedDatetimeShowbase");
+        setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedDatetimeOneman(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedDatetimeOneman(ctldt(vl)), "adjustedDatetimeOneman");
         setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedTime(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedTime(ctlt(vl)), "adjustedTime");
         setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedInteger(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedInteger(cti(vl)), "adjustedInteger");
         setupEpg(_epgMap, et -> ((WhiteLoadingDateAdjustment)et).getAdjustedPlainLong(), (et, vl) -> ((WhiteLoadingDateAdjustment)et).setAdjustedPlainLong(ctl(vl)), "adjustedPlainLong");
@@ -89,8 +95,14 @@ public class WhiteLoadingDateAdjustmentDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnDateAdjustmentId = cci("DATE_ADJUSTMENT_ID", "DATE_ADJUSTMENT_ID", null, null, Long.class, "dateAdjustmentId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnAdjustedDate = cci("ADJUSTED_DATE", "ADJUSTED_DATE", null, "adjusted", java.time.LocalDate.class, "adjustedDate", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDate = cci("ADJUSTED_DATE", "ADJUSTED_DATE", null, null, java.time.LocalDate.class, "adjustedDate", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDateSea = cci("ADJUSTED_DATE_SEA", "ADJUSTED_DATE_SEA", null, null, java.time.LocalDate.class, "adjustedDateSea", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDateHangar = cci("ADJUSTED_DATE_HANGAR", "ADJUSTED_DATE_HANGAR", null, null, java.time.LocalDate.class, "adjustedDateHangar", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDateMystic = cci("ADJUSTED_DATE_MYSTIC", "ADJUSTED_DATE_MYSTIC", null, null, java.time.LocalDate.class, "adjustedDateMystic", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnAdjustedDatetime = cci("ADJUSTED_DATETIME", "ADJUSTED_DATETIME", null, null, java.time.LocalDateTime.class, "adjustedDatetime", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDatetimeLand = cci("ADJUSTED_DATETIME_LAND", "ADJUSTED_DATETIME_LAND", null, null, java.time.LocalDateTime.class, "adjustedDatetimeLand", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDatetimeShowbase = cci("ADJUSTED_DATETIME_SHOWBASE", "ADJUSTED_DATETIME_SHOWBASE", null, null, java.time.LocalDateTime.class, "adjustedDatetimeShowbase", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAdjustedDatetimeOneman = cci("ADJUSTED_DATETIME_ONEMAN", "ADJUSTED_DATETIME_ONEMAN", null, null, java.time.LocalDateTime.class, "adjustedDatetimeOneman", null, false, false, false, "TIMESTAMP", 26, 6, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnAdjustedTime = cci("ADJUSTED_TIME", "ADJUSTED_TIME", null, null, java.time.LocalTime.class, "adjustedTime", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnAdjustedInteger = cci("ADJUSTED_INTEGER", "ADJUSTED_INTEGER", null, null, Integer.class, "adjustedInteger", null, false, false, false, "INTEGER", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnAdjustedPlainLong = cci("ADJUSTED_PLAIN_LONG", "ADJUSTED_PLAIN_LONG", null, null, Long.class, "adjustedPlainLong", null, false, false, false, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
@@ -106,15 +118,45 @@ public class WhiteLoadingDateAdjustmentDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnDateAdjustmentId() { return _columnDateAdjustmentId; }
     /**
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnAdjustedDate() { return _columnAdjustedDate; }
+    /**
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAdjustedDateSea() { return _columnAdjustedDateSea; }
+    /**
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAdjustedDateHangar() { return _columnAdjustedDateHangar; }
+    /**
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAdjustedDateMystic() { return _columnAdjustedDateMystic; }
     /**
      * ADJUSTED_DATETIME: {TIMESTAMP(26, 6)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnAdjustedDatetime() { return _columnAdjustedDatetime; }
+    /**
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAdjustedDatetimeLand() { return _columnAdjustedDatetimeLand; }
+    /**
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAdjustedDatetimeShowbase() { return _columnAdjustedDatetimeShowbase; }
+    /**
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnAdjustedDatetimeOneman() { return _columnAdjustedDatetimeOneman; }
     /**
      * ADJUSTED_TIME: {TIME(8)}
      * @return The information object of specified column. (NotNull)
@@ -160,7 +202,13 @@ public class WhiteLoadingDateAdjustmentDbm extends AbstractDBMeta {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnDateAdjustmentId());
         ls.add(columnAdjustedDate());
+        ls.add(columnAdjustedDateSea());
+        ls.add(columnAdjustedDateHangar());
+        ls.add(columnAdjustedDateMystic());
         ls.add(columnAdjustedDatetime());
+        ls.add(columnAdjustedDatetimeLand());
+        ls.add(columnAdjustedDatetimeShowbase());
+        ls.add(columnAdjustedDatetimeOneman());
         ls.add(columnAdjustedTime());
         ls.add(columnAdjustedInteger());
         ls.add(columnAdjustedPlainLong());

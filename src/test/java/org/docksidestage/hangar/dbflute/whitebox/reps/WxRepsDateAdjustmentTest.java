@@ -8,6 +8,9 @@ import java.util.Map;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.helper.HandyDate;
 import org.dbflute.helper.dfmap.DfMapFile;
+import org.dbflute.helper.process.ProcessResult;
+import org.dbflute.helper.process.SystemScript;
+import org.dbflute.infra.manage.refresh.DfRefreshResourceRequest;
 import org.docksidestage.hangar.dbflute.exbhv.WhiteLoadingDateAdjustmentBhv;
 import org.docksidestage.hangar.dbflute.exentity.WhiteLoadingDateAdjustment;
 import org.docksidestage.hangar.unit.UnitContainerTestCase;
@@ -18,8 +21,31 @@ import org.docksidestage.hangar.unit.UnitContainerTestCase;
  */
 public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
 
+    // ===================================================================================
+    //                                                                           Attribute
+    //                                                                           =========
     private WhiteLoadingDateAdjustmentBhv dateAdjustmentBhv;
 
+    // ===================================================================================
+    //                                                                            Settings
+    //                                                                            ========
+    @Override
+    public void setUp() throws Exception {
+        super.setUp();
+
+        replaceSchema(); // renew src/main/resources
+        refreshResource(); // invalid?
+        migrateDatabaseFileForcedly(); // goin
+    }
+
+    @Override
+    protected boolean isUseOneTimeContainer() {
+        return true; // to destroy H2 database cache on memory
+    }
+
+    // ===================================================================================
+    //                                                                               Basic
+    //                                                                               =====
     public void test_basic() {
         // ## Arrange ##
         // ## Act ##
@@ -47,7 +73,13 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         int intValue = 11;
         String longExp = "1111";
         assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDate());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateSea());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateHangar());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateMystic());
         assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetime());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeLand());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeShowbase());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeOneman());
         assertEquals(toLocalTime(timeExp), adjustment.getAdjustedTime());
         assertEquals(intValue, adjustment.getAdjustedInteger());
         assertEquals(Long.valueOf(longExp), adjustment.getAdjustedPlainLong());
@@ -65,7 +97,13 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         int intValue = 22;
         String longExp = "22222";
         assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDate());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateSea());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateHangar());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateMystic());
         assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetime());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeLand());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeShowbase());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeOneman());
         assertEquals(toLocalTime(timeExp), adjustment.getAdjustedTime());
         assertEquals(intValue, adjustment.getAdjustedInteger());
         assertEquals(Long.valueOf(longExp), adjustment.getAdjustedPlainLong());
@@ -83,7 +121,13 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         int intValue = 33;
         String longExp = "333333";
         assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDate());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateSea());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateHangar());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateMystic());
         assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetime());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeLand());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeShowbase());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeOneman());
         assertEquals(toLocalTime(timeExp), adjustment.getAdjustedTime());
         assertEquals(intValue, adjustment.getAdjustedInteger());
         assertEquals(Long.valueOf(longExp), adjustment.getAdjustedPlainLong());
@@ -101,7 +145,13 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         int intValue = 44;
         String longExp = "4444444";
         assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDate());
+        assertNull(adjustment.getAdjustedDateSea());
+        assertNull(adjustment.getAdjustedDateHangar());
+        assertNull(adjustment.getAdjustedDateMystic());
         assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetime());
+        assertNull(adjustment.getAdjustedDatetimeLand());
+        assertNull(adjustment.getAdjustedDatetimeShowbase());
+        assertNull(adjustment.getAdjustedDatetimeOneman());
         assertEquals(toLocalTime(timeExp), adjustment.getAdjustedTime());
         assertEquals(intValue, adjustment.getAdjustedInteger());
         assertEquals(Long.valueOf(longExp), adjustment.getAdjustedPlainLong());
@@ -119,7 +169,13 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         int intValue = 55;
         String longExp = "55555555";
         assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDate());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateSea());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateHangar());
+        assertEquals(toLocalDate(dateExp), adjustment.getAdjustedDateMystic());
         assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetime());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeLand());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeShowbase());
+        assertEquals(toLocalDateTime(dateExp + " " + timeExp), adjustment.getAdjustedDatetimeOneman());
         assertEquals(toLocalTime(timeExp), adjustment.getAdjustedTime());
         assertEquals(intValue, adjustment.getAdjustedInteger());
         assertEquals(Long.valueOf(longExp), adjustment.getAdjustedPlainLong());
@@ -173,5 +229,55 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
             throw new IllegalStateException("Failed to read the map: " + datapropPath, e);
         }
         return loadingControlMap;
+    }
+
+    // ===================================================================================
+    //                                                                       ReplaceSchema
+    //                                                                       =============
+    private void replaceSchema() {
+        log("...Executing ReplaceSchema task.");
+        SystemScript script = new SystemScript();
+        script.consoleLiner(line -> log(line));
+        script.env("answer", "y");
+        ProcessResult result = script.execute(new File(getClientPath()), "manage.sh", new String[] { "0" });
+        if (result.getExitCode() != 0) {
+            throw new IllegalStateException("ReplaceSchema Failure!");
+        }
+    }
+
+    private String getClientPath() {
+        try {
+            return getProjectDir().getCanonicalPath() + "/dbflute_maihamadb";
+        } catch (IOException e) {
+            throw new IllegalStateException("Cannot get canonical path.", e);
+        }
+    }
+
+    private void refreshResource() throws IOException {
+        new DfRefreshResourceRequest(newArrayList("dbflute-test-active-hangar"), "http://localhost:8386/").refreshResources();
+    }
+
+    // ===================================================================================
+    //                                                                    Migrate Database
+    //                                                                    ================
+    private void migrateDatabaseFileForcedly() {
+        String fromFilePath;
+        try {
+            fromFilePath = getProjectDir().getCanonicalPath() + "/src/main/resources/database/maihamadb.mv.db";
+        } catch (IOException e) {
+            throw new IllegalStateException("Cannot get canonical path.", e);
+        }
+        String toFilePath;
+        try {
+            toFilePath = getProjectDir().getCanonicalPath() + "/target/classes/database/maihamadb.mv.db";
+        } catch (IOException e) {
+            throw new IllegalStateException("Cannot get canonical path.", e);
+        }
+        log("...Migrating database file to build dir: to=" + toFilePath);
+        final boolean renamed = new File(fromFilePath).renameTo(new File(toFilePath));
+        if (!renamed) {
+            String msg = "Failed to migrate database file: from=" + fromFilePath + ", to=" + toFilePath;
+            throw new IllegalStateException(msg);
+        }
     }
 }

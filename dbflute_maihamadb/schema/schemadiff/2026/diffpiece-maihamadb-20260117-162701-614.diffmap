@@ -1,0 +1,39 @@
+map:{
+    ; 2026/01/17 16:27:01.614 = map:{
+        ; diffDate = 2026/01/17 16:27:01.614
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; WHITE_LOADING_DATE_ADJUSTMENT = map:{
+                ; tableName = WHITE_LOADING_DATE_ADJUSTMENT
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; ADJUSTED_DATE_SEA = map:{
+                        ; columnName = ADJUSTED_DATE_SEA
+                        ; diffType = ADD
+                    }
+                    ; ADJUSTED_DATE_HANGAR = map:{
+                        ; columnName = ADJUSTED_DATE_HANGAR
+                        ; diffType = ADD
+                    }
+                    ; ADJUSTED_DATE_MYSTIC = map:{
+                        ; columnName = ADJUSTED_DATE_MYSTIC
+                        ; diffType = ADD
+                    }
+                    ; ADJUSTED_DATETIME_LAND = map:{
+                        ; columnName = ADJUSTED_DATETIME_LAND
+                        ; diffType = ADD
+                    }
+                    ; ADJUSTED_DATETIME_SHOWBASE = map:{
+                        ; columnName = ADJUSTED_DATETIME_SHOWBASE
+                        ; diffType = ADD
+                    }
+                    ; ADJUSTED_DATETIME_ONEMAN = map:{
+                        ; columnName = ADJUSTED_DATETIME_ONEMAN
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

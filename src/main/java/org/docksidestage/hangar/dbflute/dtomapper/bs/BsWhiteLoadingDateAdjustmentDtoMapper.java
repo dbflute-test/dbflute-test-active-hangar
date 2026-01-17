@@ -42,7 +42,7 @@ import org.docksidestage.hangar.dbflute.dtomapper.*;
  *     DATE_ADJUSTMENT_ID
  *
  * [column]
- *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATETIME, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATE_SEA, ADJUSTED_DATE_HANGAR, ADJUSTED_DATE_MYSTIC, ADJUSTED_DATETIME, ADJUSTED_DATETIME_LAND, ADJUSTED_DATETIME_SHOWBASE, ADJUSTED_DATETIME_ONEMAN, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -114,7 +114,13 @@ public abstract class BsWhiteLoadingDateAdjustmentDtoMapper implements DtoMapper
         WhiteLoadingDateAdjustmentDto dto = new WhiteLoadingDateAdjustmentDto();
         dto.setDateAdjustmentId(entity.getDateAdjustmentId());
         dto.setAdjustedDate(entity.getAdjustedDate());
+        dto.setAdjustedDateSea(entity.getAdjustedDateSea());
+        dto.setAdjustedDateHangar(entity.getAdjustedDateHangar());
+        dto.setAdjustedDateMystic(entity.getAdjustedDateMystic());
         dto.setAdjustedDatetime(entity.getAdjustedDatetime());
+        dto.setAdjustedDatetimeLand(entity.getAdjustedDatetimeLand());
+        dto.setAdjustedDatetimeShowbase(entity.getAdjustedDatetimeShowbase());
+        dto.setAdjustedDatetimeOneman(entity.getAdjustedDatetimeOneman());
         dto.setAdjustedTime(entity.getAdjustedTime());
         dto.setAdjustedInteger(entity.getAdjustedInteger());
         dto.setAdjustedPlainLong(entity.getAdjustedPlainLong());
@@ -174,8 +180,26 @@ public abstract class BsWhiteLoadingDateAdjustmentDtoMapper implements DtoMapper
         if (needsMapping(dto, dto.getAdjustedDate(), "adjustedDate")) {
             entity.setAdjustedDate(dto.getAdjustedDate());
         }
+        if (needsMapping(dto, dto.getAdjustedDateSea(), "adjustedDateSea")) {
+            entity.setAdjustedDateSea(dto.getAdjustedDateSea());
+        }
+        if (needsMapping(dto, dto.getAdjustedDateHangar(), "adjustedDateHangar")) {
+            entity.setAdjustedDateHangar(dto.getAdjustedDateHangar());
+        }
+        if (needsMapping(dto, dto.getAdjustedDateMystic(), "adjustedDateMystic")) {
+            entity.setAdjustedDateMystic(dto.getAdjustedDateMystic());
+        }
         if (needsMapping(dto, dto.getAdjustedDatetime(), "adjustedDatetime")) {
             entity.setAdjustedDatetime(dto.getAdjustedDatetime());
+        }
+        if (needsMapping(dto, dto.getAdjustedDatetimeLand(), "adjustedDatetimeLand")) {
+            entity.setAdjustedDatetimeLand(dto.getAdjustedDatetimeLand());
+        }
+        if (needsMapping(dto, dto.getAdjustedDatetimeShowbase(), "adjustedDatetimeShowbase")) {
+            entity.setAdjustedDatetimeShowbase(dto.getAdjustedDatetimeShowbase());
+        }
+        if (needsMapping(dto, dto.getAdjustedDatetimeOneman(), "adjustedDatetimeOneman")) {
+            entity.setAdjustedDatetimeOneman(dto.getAdjustedDatetimeOneman());
         }
         if (needsMapping(dto, dto.getAdjustedTime(), "adjustedTime")) {
             entity.setAdjustedTime(dto.getAdjustedTime());

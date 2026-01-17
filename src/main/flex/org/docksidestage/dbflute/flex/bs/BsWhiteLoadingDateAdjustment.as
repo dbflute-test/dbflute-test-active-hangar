@@ -26,7 +26,7 @@ import org.docksidestage.dbflute.flex.ex.*;
  *     DATE_ADJUSTMENT_ID
  *
  * [column]
- *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATETIME, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATE_SEA, ADJUSTED_DATE_HANGAR, ADJUSTED_DATE_MYSTIC, ADJUSTED_DATETIME, ADJUSTED_DATETIME_LAND, ADJUSTED_DATETIME_SHOWBASE, ADJUSTED_DATETIME_ONEMAN, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -60,7 +60,19 @@ public class BsWhiteLoadingDateAdjustment {
 
     private var _adjustedDate:Date;
 
+    private var _adjustedDateSea:Date;
+
+    private var _adjustedDateHangar:Date;
+
+    private var _adjustedDateMystic:Date;
+
     private var _adjustedDatetime:Date;
+
+    private var _adjustedDatetimeLand:Date;
+
+    private var _adjustedDatetimeShowbase:Date;
+
+    private var _adjustedDatetimeOneman:Date;
 
     private var _adjustedTime:Date;
 
@@ -105,12 +117,60 @@ public class BsWhiteLoadingDateAdjustment {
         this._adjustedDate = adjustedDate;
     }
 
+    public function get adjustedDateSea():Date {
+        return _adjustedDateSea;
+    }
+
+    public function set adjustedDateSea(adjustedDateSea:Date):void {
+        this._adjustedDateSea = adjustedDateSea;
+    }
+
+    public function get adjustedDateHangar():Date {
+        return _adjustedDateHangar;
+    }
+
+    public function set adjustedDateHangar(adjustedDateHangar:Date):void {
+        this._adjustedDateHangar = adjustedDateHangar;
+    }
+
+    public function get adjustedDateMystic():Date {
+        return _adjustedDateMystic;
+    }
+
+    public function set adjustedDateMystic(adjustedDateMystic:Date):void {
+        this._adjustedDateMystic = adjustedDateMystic;
+    }
+
     public function get adjustedDatetime():Date {
         return _adjustedDatetime;
     }
 
     public function set adjustedDatetime(adjustedDatetime:Date):void {
         this._adjustedDatetime = adjustedDatetime;
+    }
+
+    public function get adjustedDatetimeLand():Date {
+        return _adjustedDatetimeLand;
+    }
+
+    public function set adjustedDatetimeLand(adjustedDatetimeLand:Date):void {
+        this._adjustedDatetimeLand = adjustedDatetimeLand;
+    }
+
+    public function get adjustedDatetimeShowbase():Date {
+        return _adjustedDatetimeShowbase;
+    }
+
+    public function set adjustedDatetimeShowbase(adjustedDatetimeShowbase:Date):void {
+        this._adjustedDatetimeShowbase = adjustedDatetimeShowbase;
+    }
+
+    public function get adjustedDatetimeOneman():Date {
+        return _adjustedDatetimeOneman;
+    }
+
+    public function set adjustedDatetimeOneman(adjustedDatetimeOneman:Date):void {
+        this._adjustedDatetimeOneman = adjustedDatetimeOneman;
     }
 
     public function get adjustedTime():Date {

@@ -116,17 +116,77 @@ public class BsWhiteLoadingDateAdjustmentCQ extends AbstractBsWhiteLoadingDateAd
 
     /**
      * Add order-by as ascend. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDate_Asc() { regOBA("ADJUSTED_DATE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (adjusted)ADJUSTED_DATE: {DATE(10)}
+     * ADJUSTED_DATE: {DATE(10)}
      * @return this. (NotNull)
      */
     public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDate_Desc() { regOBD("ADJUSTED_DATE"); return this; }
+
+    protected ConditionValue _adjustedDateSea;
+    public ConditionValue xdfgetAdjustedDateSea()
+    { if (_adjustedDateSea == null) { _adjustedDateSea = nCV(); }
+      return _adjustedDateSea; }
+    protected ConditionValue xgetCValueAdjustedDateSea() { return xdfgetAdjustedDateSea(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDateSea_Asc() { regOBA("ADJUSTED_DATE_SEA"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * ADJUSTED_DATE_SEA: {DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDateSea_Desc() { regOBD("ADJUSTED_DATE_SEA"); return this; }
+
+    protected ConditionValue _adjustedDateHangar;
+    public ConditionValue xdfgetAdjustedDateHangar()
+    { if (_adjustedDateHangar == null) { _adjustedDateHangar = nCV(); }
+      return _adjustedDateHangar; }
+    protected ConditionValue xgetCValueAdjustedDateHangar() { return xdfgetAdjustedDateHangar(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDateHangar_Asc() { regOBA("ADJUSTED_DATE_HANGAR"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * ADJUSTED_DATE_HANGAR: {DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDateHangar_Desc() { regOBD("ADJUSTED_DATE_HANGAR"); return this; }
+
+    protected ConditionValue _adjustedDateMystic;
+    public ConditionValue xdfgetAdjustedDateMystic()
+    { if (_adjustedDateMystic == null) { _adjustedDateMystic = nCV(); }
+      return _adjustedDateMystic; }
+    protected ConditionValue xgetCValueAdjustedDateMystic() { return xdfgetAdjustedDateMystic(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDateMystic_Asc() { regOBA("ADJUSTED_DATE_MYSTIC"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDateMystic_Desc() { regOBD("ADJUSTED_DATE_MYSTIC"); return this; }
 
     protected ConditionValue _adjustedDatetime;
     public ConditionValue xdfgetAdjustedDatetime()
@@ -147,6 +207,66 @@ public class BsWhiteLoadingDateAdjustmentCQ extends AbstractBsWhiteLoadingDateAd
      * @return this. (NotNull)
      */
     public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetime_Desc() { regOBD("ADJUSTED_DATETIME"); return this; }
+
+    protected ConditionValue _adjustedDatetimeLand;
+    public ConditionValue xdfgetAdjustedDatetimeLand()
+    { if (_adjustedDatetimeLand == null) { _adjustedDatetimeLand = nCV(); }
+      return _adjustedDatetimeLand; }
+    protected ConditionValue xgetCValueAdjustedDatetimeLand() { return xdfgetAdjustedDatetimeLand(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetimeLand_Asc() { regOBA("ADJUSTED_DATETIME_LAND"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetimeLand_Desc() { regOBD("ADJUSTED_DATETIME_LAND"); return this; }
+
+    protected ConditionValue _adjustedDatetimeShowbase;
+    public ConditionValue xdfgetAdjustedDatetimeShowbase()
+    { if (_adjustedDatetimeShowbase == null) { _adjustedDatetimeShowbase = nCV(); }
+      return _adjustedDatetimeShowbase; }
+    protected ConditionValue xgetCValueAdjustedDatetimeShowbase() { return xdfgetAdjustedDatetimeShowbase(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetimeShowbase_Asc() { regOBA("ADJUSTED_DATETIME_SHOWBASE"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetimeShowbase_Desc() { regOBD("ADJUSTED_DATETIME_SHOWBASE"); return this; }
+
+    protected ConditionValue _adjustedDatetimeOneman;
+    public ConditionValue xdfgetAdjustedDatetimeOneman()
+    { if (_adjustedDatetimeOneman == null) { _adjustedDatetimeOneman = nCV(); }
+      return _adjustedDatetimeOneman; }
+    protected ConditionValue xgetCValueAdjustedDatetimeOneman() { return xdfgetAdjustedDatetimeOneman(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetimeOneman_Asc() { regOBA("ADJUSTED_DATETIME_ONEMAN"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteLoadingDateAdjustmentCQ addOrderBy_AdjustedDatetimeOneman_Desc() { regOBD("ADJUSTED_DATETIME_ONEMAN"); return this; }
 
     protected ConditionValue _adjustedTime;
     public ConditionValue xdfgetAdjustedTime()

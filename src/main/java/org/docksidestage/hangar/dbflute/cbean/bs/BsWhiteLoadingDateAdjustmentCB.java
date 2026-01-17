@@ -307,15 +307,45 @@ public class BsWhiteLoadingDateAdjustmentCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnDateAdjustmentId() { return doColumn("DATE_ADJUSTMENT_ID"); }
         /**
-         * (adjusted)ADJUSTED_DATE: {DATE(10)}
+         * ADJUSTED_DATE: {DATE(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnAdjustedDate() { return doColumn("ADJUSTED_DATE"); }
+        /**
+         * ADJUSTED_DATE_SEA: {DATE(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnAdjustedDateSea() { return doColumn("ADJUSTED_DATE_SEA"); }
+        /**
+         * ADJUSTED_DATE_HANGAR: {DATE(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnAdjustedDateHangar() { return doColumn("ADJUSTED_DATE_HANGAR"); }
+        /**
+         * ADJUSTED_DATE_MYSTIC: {DATE(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnAdjustedDateMystic() { return doColumn("ADJUSTED_DATE_MYSTIC"); }
         /**
          * ADJUSTED_DATETIME: {TIMESTAMP(26, 6)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnAdjustedDatetime() { return doColumn("ADJUSTED_DATETIME"); }
+        /**
+         * ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnAdjustedDatetimeLand() { return doColumn("ADJUSTED_DATETIME_LAND"); }
+        /**
+         * ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnAdjustedDatetimeShowbase() { return doColumn("ADJUSTED_DATETIME_SHOWBASE"); }
+        /**
+         * ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnAdjustedDatetimeOneman() { return doColumn("ADJUSTED_DATETIME_ONEMAN"); }
         /**
          * ADJUSTED_TIME: {TIME(8)}
          * @return The information object of specified column. (NotNull)

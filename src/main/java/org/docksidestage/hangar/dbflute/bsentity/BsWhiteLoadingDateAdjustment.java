@@ -32,7 +32,7 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  *     DATE_ADJUSTMENT_ID
  *
  * [column]
- *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATETIME, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATE_SEA, ADJUSTED_DATE_HANGAR, ADJUSTED_DATE_MYSTIC, ADJUSTED_DATETIME, ADJUSTED_DATETIME_LAND, ADJUSTED_DATETIME_SHOWBASE, ADJUSTED_DATETIME_ONEMAN, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING_LONG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -59,7 +59,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long dateAdjustmentId = entity.getDateAdjustmentId();
  * java.time.LocalDate adjustedDate = entity.getAdjustedDate();
+ * java.time.LocalDate adjustedDateSea = entity.getAdjustedDateSea();
+ * java.time.LocalDate adjustedDateHangar = entity.getAdjustedDateHangar();
+ * java.time.LocalDate adjustedDateMystic = entity.getAdjustedDateMystic();
  * java.time.LocalDateTime adjustedDatetime = entity.getAdjustedDatetime();
+ * java.time.LocalDateTime adjustedDatetimeLand = entity.getAdjustedDatetimeLand();
+ * java.time.LocalDateTime adjustedDatetimeShowbase = entity.getAdjustedDatetimeShowbase();
+ * java.time.LocalDateTime adjustedDatetimeOneman = entity.getAdjustedDatetimeOneman();
  * java.time.LocalTime adjustedTime = entity.getAdjustedTime();
  * Integer adjustedInteger = entity.getAdjustedInteger();
  * Long adjustedPlainLong = entity.getAdjustedPlainLong();
@@ -70,7 +76,13 @@ import org.docksidestage.hangar.dbflute.exentity.*;
  * String updateUser = entity.getUpdateUser();
  * entity.setDateAdjustmentId(dateAdjustmentId);
  * entity.setAdjustedDate(adjustedDate);
+ * entity.setAdjustedDateSea(adjustedDateSea);
+ * entity.setAdjustedDateHangar(adjustedDateHangar);
+ * entity.setAdjustedDateMystic(adjustedDateMystic);
  * entity.setAdjustedDatetime(adjustedDatetime);
+ * entity.setAdjustedDatetimeLand(adjustedDatetimeLand);
+ * entity.setAdjustedDatetimeShowbase(adjustedDatetimeShowbase);
+ * entity.setAdjustedDatetimeOneman(adjustedDatetimeOneman);
  * entity.setAdjustedTime(adjustedTime);
  * entity.setAdjustedInteger(adjustedInteger);
  * entity.setAdjustedPlainLong(adjustedPlainLong);
@@ -97,11 +109,29 @@ public abstract class BsWhiteLoadingDateAdjustment extends AbstractEntity implem
     /** DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)} */
     protected Long _dateAdjustmentId;
 
-    /** (adjusted)ADJUSTED_DATE: {DATE(10)} */
+    /** ADJUSTED_DATE: {DATE(10)} */
     protected java.time.LocalDate _adjustedDate;
+
+    /** ADJUSTED_DATE_SEA: {DATE(10)} */
+    protected java.time.LocalDate _adjustedDateSea;
+
+    /** ADJUSTED_DATE_HANGAR: {DATE(10)} */
+    protected java.time.LocalDate _adjustedDateHangar;
+
+    /** ADJUSTED_DATE_MYSTIC: {DATE(10)} */
+    protected java.time.LocalDate _adjustedDateMystic;
 
     /** ADJUSTED_DATETIME: {TIMESTAMP(26, 6)} */
     protected java.time.LocalDateTime _adjustedDatetime;
+
+    /** ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)} */
+    protected java.time.LocalDateTime _adjustedDatetimeLand;
+
+    /** ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)} */
+    protected java.time.LocalDateTime _adjustedDatetimeShowbase;
+
+    /** ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)} */
+    protected java.time.LocalDateTime _adjustedDatetimeOneman;
 
     /** ADJUSTED_TIME: {TIME(8)} */
     protected java.time.LocalTime _adjustedTime;
@@ -191,7 +221,13 @@ public abstract class BsWhiteLoadingDateAdjustment extends AbstractEntity implem
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_dateAdjustmentId));
         sb.append(dm).append(xfND(_adjustedDate));
+        sb.append(dm).append(xfND(_adjustedDateSea));
+        sb.append(dm).append(xfND(_adjustedDateHangar));
+        sb.append(dm).append(xfND(_adjustedDateMystic));
         sb.append(dm).append(xfND(_adjustedDatetime));
+        sb.append(dm).append(xfND(_adjustedDatetimeLand));
+        sb.append(dm).append(xfND(_adjustedDatetimeShowbase));
+        sb.append(dm).append(xfND(_adjustedDatetimeOneman));
         sb.append(dm).append(xfND(_adjustedTime));
         sb.append(dm).append(xfND(_adjustedInteger));
         sb.append(dm).append(xfND(_adjustedPlainLong));
@@ -239,7 +275,7 @@ public abstract class BsWhiteLoadingDateAdjustment extends AbstractEntity implem
     }
 
     /**
-     * [get] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
+     * [get] ADJUSTED_DATE: {DATE(10)} <br>
      * @return The value of the column 'ADJUSTED_DATE'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDate getAdjustedDate() {
@@ -248,12 +284,66 @@ public abstract class BsWhiteLoadingDateAdjustment extends AbstractEntity implem
     }
 
     /**
-     * [set] (adjusted)ADJUSTED_DATE: {DATE(10)} <br>
+     * [set] ADJUSTED_DATE: {DATE(10)} <br>
      * @param adjustedDate The value of the column 'ADJUSTED_DATE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setAdjustedDate(java.time.LocalDate adjustedDate) {
         registerModifiedProperty("adjustedDate");
         _adjustedDate = adjustedDate;
+    }
+
+    /**
+     * [get] ADJUSTED_DATE_SEA: {DATE(10)} <br>
+     * @return The value of the column 'ADJUSTED_DATE_SEA'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDate getAdjustedDateSea() {
+        checkSpecifiedProperty("adjustedDateSea");
+        return _adjustedDateSea;
+    }
+
+    /**
+     * [set] ADJUSTED_DATE_SEA: {DATE(10)} <br>
+     * @param adjustedDateSea The value of the column 'ADJUSTED_DATE_SEA'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setAdjustedDateSea(java.time.LocalDate adjustedDateSea) {
+        registerModifiedProperty("adjustedDateSea");
+        _adjustedDateSea = adjustedDateSea;
+    }
+
+    /**
+     * [get] ADJUSTED_DATE_HANGAR: {DATE(10)} <br>
+     * @return The value of the column 'ADJUSTED_DATE_HANGAR'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDate getAdjustedDateHangar() {
+        checkSpecifiedProperty("adjustedDateHangar");
+        return _adjustedDateHangar;
+    }
+
+    /**
+     * [set] ADJUSTED_DATE_HANGAR: {DATE(10)} <br>
+     * @param adjustedDateHangar The value of the column 'ADJUSTED_DATE_HANGAR'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setAdjustedDateHangar(java.time.LocalDate adjustedDateHangar) {
+        registerModifiedProperty("adjustedDateHangar");
+        _adjustedDateHangar = adjustedDateHangar;
+    }
+
+    /**
+     * [get] ADJUSTED_DATE_MYSTIC: {DATE(10)} <br>
+     * @return The value of the column 'ADJUSTED_DATE_MYSTIC'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDate getAdjustedDateMystic() {
+        checkSpecifiedProperty("adjustedDateMystic");
+        return _adjustedDateMystic;
+    }
+
+    /**
+     * [set] ADJUSTED_DATE_MYSTIC: {DATE(10)} <br>
+     * @param adjustedDateMystic The value of the column 'ADJUSTED_DATE_MYSTIC'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setAdjustedDateMystic(java.time.LocalDate adjustedDateMystic) {
+        registerModifiedProperty("adjustedDateMystic");
+        _adjustedDateMystic = adjustedDateMystic;
     }
 
     /**
@@ -272,6 +362,60 @@ public abstract class BsWhiteLoadingDateAdjustment extends AbstractEntity implem
     public void setAdjustedDatetime(java.time.LocalDateTime adjustedDatetime) {
         registerModifiedProperty("adjustedDatetime");
         _adjustedDatetime = adjustedDatetime;
+    }
+
+    /**
+     * [get] ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)} <br>
+     * @return The value of the column 'ADJUSTED_DATETIME_LAND'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getAdjustedDatetimeLand() {
+        checkSpecifiedProperty("adjustedDatetimeLand");
+        return _adjustedDatetimeLand;
+    }
+
+    /**
+     * [set] ADJUSTED_DATETIME_LAND: {TIMESTAMP(26, 6)} <br>
+     * @param adjustedDatetimeLand The value of the column 'ADJUSTED_DATETIME_LAND'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setAdjustedDatetimeLand(java.time.LocalDateTime adjustedDatetimeLand) {
+        registerModifiedProperty("adjustedDatetimeLand");
+        _adjustedDatetimeLand = adjustedDatetimeLand;
+    }
+
+    /**
+     * [get] ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)} <br>
+     * @return The value of the column 'ADJUSTED_DATETIME_SHOWBASE'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getAdjustedDatetimeShowbase() {
+        checkSpecifiedProperty("adjustedDatetimeShowbase");
+        return _adjustedDatetimeShowbase;
+    }
+
+    /**
+     * [set] ADJUSTED_DATETIME_SHOWBASE: {TIMESTAMP(26, 6)} <br>
+     * @param adjustedDatetimeShowbase The value of the column 'ADJUSTED_DATETIME_SHOWBASE'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setAdjustedDatetimeShowbase(java.time.LocalDateTime adjustedDatetimeShowbase) {
+        registerModifiedProperty("adjustedDatetimeShowbase");
+        _adjustedDatetimeShowbase = adjustedDatetimeShowbase;
+    }
+
+    /**
+     * [get] ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)} <br>
+     * @return The value of the column 'ADJUSTED_DATETIME_ONEMAN'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getAdjustedDatetimeOneman() {
+        checkSpecifiedProperty("adjustedDatetimeOneman");
+        return _adjustedDatetimeOneman;
+    }
+
+    /**
+     * [set] ADJUSTED_DATETIME_ONEMAN: {TIMESTAMP(26, 6)} <br>
+     * @param adjustedDatetimeOneman The value of the column 'ADJUSTED_DATETIME_ONEMAN'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setAdjustedDatetimeOneman(java.time.LocalDateTime adjustedDatetimeOneman) {
+        registerModifiedProperty("adjustedDatetimeOneman");
+        _adjustedDatetimeOneman = adjustedDatetimeOneman;
     }
 
     /**
