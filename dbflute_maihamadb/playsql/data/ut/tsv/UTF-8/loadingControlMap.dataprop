@@ -25,16 +25,23 @@ map:{
          #}
          ; WHITE_LOADING_DATE_ADJUSTMENT = map:{
              ; ADJUSTED_DATE = addDay($distanceDays)
+
              ; ADJUSTED_DATE_SEA = addDay($distanceDays)
              ; ADJUSTED_DATE_HANGAR = addDay($distanceDays)
              ; ADJUSTED_DATE_MYSTIC = addDay($distanceDays)
+             # test of myOriginDate, visual check by WxRepsDateAdjustmentTest
+             #; ADJUSTED_DATE_SEA = addDay($distanceDays) df:myOriginDate(2026/01/11)
+             #; ADJUSTED_DATE_HANGAR = addDay($distanceDays) df:myOriginDate(2026/01/14, where DATE_ADJUSTMENT_ID from 2 to 3)
+             #; ADJUSTED_DATE_MYSTIC = addDay($distanceDays) df:myOriginDate(2026/01/17, where DATE_ADJUSTMENT_ID from 1 to 1) df:myOriginDate(2026/01/21, where DATE_ADJUSTMENT_ID from 3 to 4)
+             #                                               df:myOriginDate(2026/01/19, where DATE_ADJUSTMENT_ID from 5 to 6)
+             #                                               df:useRootOriginIfNoHit()
              ; ADJUSTED_DATETIME = addDay($distanceDays)
              ; ADJUSTED_DATETIME_LAND = addDay($distanceDays)
              ; ADJUSTED_DATETIME_SHOWBASE = addDay($distanceDays)
              ; ADJUSTED_DATETIME_ONEMAN = addDay($distanceDays)
              # TIME unsupported for dateAdjustment
              #; ADJUSTED_TIME = addHour($distanceDays)
-             #; REGISTER_DATETIME = addDay(-100)
+
          }
     }
 
