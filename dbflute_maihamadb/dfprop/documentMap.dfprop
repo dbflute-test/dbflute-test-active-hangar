@@ -226,7 +226,9 @@ map:{
         ; recordLimit = -1
         ; isReplaceSchemaDirectUse = false
         ; isOverrideExistingDataFile = false
-        ; isSynchronizeOriginDate = false
+
+        # test of originDate and myOriginDate synchronization at output/doc
+        ; isSynchronizeOriginDate = true
 
         # use if you test TSV output
         ; isDelimiterDataBasis = true
