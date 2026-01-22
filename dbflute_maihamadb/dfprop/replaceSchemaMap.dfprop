@@ -126,6 +126,18 @@ map:{
             }
             ; tableTargetList = list:{}
             ; errorIfFirstDateAfter = 2018/05/18
+            ; isFrameworkDebug = false
+        }
+        ; nullOnlyColumnMap = map:{
+            ; isFailure = true
+            ; workableRepsEnvTypeList = list:{ut}
+            ; tableExceptList = list:{ VENDOR_CHECK }
+            ; tableTargetList = list:{}
+            ; isSkipIfEmptyTable = true
+            # no use is standard
+            #; errorIfTableFirstDateAfter = 2022/01/01
+            ; errorIfColumnFirstDateAfter = 2018/05/18
+            ; isFrameworkDebug = false
         }
     }
     # - - - - - - - - - -/
