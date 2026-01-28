@@ -134,7 +134,7 @@ map:{
         ; nullOnlyColumnMap = map:{
             ; isFailure = true
             ; workableRepsEnvTypeList = list:{ut}
-            #; tableExceptList = list:{ VENDOR_CHECK }
+            ; tableExceptList = list:{ VENDOR_CHECK }
             ; tableTargetList = list:{}
             ; isSkipIfEmptyTable = true
             # no use is standard
